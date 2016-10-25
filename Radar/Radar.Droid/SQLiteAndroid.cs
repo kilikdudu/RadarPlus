@@ -9,12 +9,10 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using SQLite.Net;
 using Xamarin.Forms;
 using Radar.Droid;
 using System.IO;
-using SQLite.Net.Interop;
-using SQLite.Net.Platform.XamarinAndroid;
+using SQLite;
 
 [assembly: Dependency(typeof(SQLiteAndroid))]
 
@@ -40,7 +38,7 @@ namespace Radar.Droid
                 //writeStream.Write()
                 //ReadWriteStream(input, writeStream);
             }
-            SQLiteConnection cnn = new SQLiteConnection(new SQLitePlatformAndroid(), path);
+            SQLiteConnection cnn = new SQLiteConnection(path);
             return cnn;
         }
     }

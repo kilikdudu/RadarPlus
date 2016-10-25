@@ -8,7 +8,7 @@ namespace Radar.BLL
 {
     public static class Configuracao
     {
-        public static int DistanciaRadar {
+        public static double DistanciaRadar {
             get {
                 return 500;
             }
@@ -26,7 +26,50 @@ namespace Radar.BLL
         {
             get
             {
-                return 30;
+                return 45;
+            }
+        }
+
+        public static int GPSTempoAtualiazacao {
+            get {
+                return 1000;
+            }
+        }
+
+        public static int GPSDistanciaAtualizacao {
+            get {
+                return 0;
+            }
+        }
+
+        public static double GPSDeltaMax
+        {
+            get
+            {
+                return 0.014;
+            }
+        }
+
+        public static double GPSDeltaPadrao
+        {
+            get
+            {
+                return 0.008;
+            }
+        }
+
+        public static float MapaZoom {
+            get
+            {
+                return 18;
+            }
+        }
+
+        public static float MapaTilt
+        {
+            get
+            {
+                return 65;
             }
         }
     }

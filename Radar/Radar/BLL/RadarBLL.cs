@@ -28,6 +28,18 @@ namespace Radar.BLL
             return _db.listar();
         }
 
+        /// <summary>
+        /// Lista dos radares dentro de uma região
+        /// </summary>
+        /// <param name="latitude">Latitude do centro da região</param>
+        /// <param name="longitude">Longitude do centro da região</param>
+        /// <param name="latitudeDelta">Delta da latitude</param>
+        /// <param name="longitudeDelta">Delta da longitude</param>
+        /// <returns>Lista de radares da região</returns>
+        public IList<RadarInfo> listar(double latitude, double longitude, double latitudeDelta, double longitudeDelta) {
+            return _db.listar(latitude, longitude, latitudeDelta, longitudeDelta);
+        }
+
         public RadarInfo pegar(int idRadar)
         {
             return _db.pegar(idRadar);
@@ -46,7 +58,7 @@ namespace Radar.BLL
         private double angleFromCoordinate(double latitude1, double longitude1, double latitude2, double longitude2) {
             double dLong = longitude2 - longitude1;
             double y = Math.Sin(dLong) * Math.Cos(latitude2);
-            double x = Math.Cos(latitude1) * Math.Sin(latitude2) - Math.Sin(latitude1) * Math.Cos(latitude2) + Math.Cos(dLong);
+            double x = Math.Cos(latitude1) * Math.Sin(latitude2) - Math.Sin(latitude1) * Math.Cos(latitude2) * Math.Cos(dLong);
 
             double brng = Math.Atan2(y, x);
             brng = brng * (180 / Math.PI);
@@ -86,8 +98,9 @@ namespace Radar.BLL
                 str = alerta.Key.Substring(alerta.Key.IndexOf('|') + 1);
                 double longitudeRadar = Convert.ToDouble(str);
                 double distancia = Math.Floor(calcularDistancia(Latitude, Longitude, latitudeRadar, longitudeRadar));
-                if (distancia > Configuracao.DistanciaRadar)
+                if (distancia > Configuracao.DistanciaRadar) {
                     _radares.Add(alerta.Key, false);
+                }
             }
         }
 
@@ -142,10 +155,10 @@ namespace Radar.BLL
 
             double distanciaCos = Math.Cos((Configuracao.DistanciaRadar / 1000) / DIAMETRO_TERRA);
 
-            double latitudeCos = Math.Cos(local.Latitude * Math.PI / 100);
-            double longitudeCos = Math.Cos(local.Longitude * Math.PI / 100);
-            double latitudeSin = Math.Sin(local.Latitude * Math.PI / 100);
-            double longitudeSin = Math.Sin(local.Longitude * Math.PI / 100);
+            double latitudeCos = Math.Cos(local.Latitude * Math.PI / 180);
+            double latitudeSin = Math.Sin(local.Latitude * Math.PI / 180);
+            double longitudeCos = Math.Cos(local.Longitude * Math.PI / 180);
+            double longitudeSin = Math.Sin(local.Longitude * Math.PI / 180);
 
             limparAlertado(local.Latitude, local.Longitude);
 

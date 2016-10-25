@@ -11,6 +11,7 @@ namespace Radar.IDAL
     {
         IList<RadarInfo> listar();
         IList<RadarInfo> listar(double latitudeCos, double longitudeCos, double latitudeSin, double longitudeSin, double distanciaCos);
+        IList<RadarInfo> listar(double latitude, double longitude, double latitudeDelta, double longitudeDelta);
         RadarInfo pegar(int idRadar);
         int gravar(RadarInfo radar);
         void excluir(int idLocal);

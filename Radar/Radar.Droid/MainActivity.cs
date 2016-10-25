@@ -12,6 +12,7 @@ using Radar.Factory;
 using Radar.Model;
 using System.Collections.Generic;
 using Android;
+using Radar.Pages;
 
 [assembly: UsesPermission(Manifest.Permission.AccessFineLocation)]
 [assembly: UsesPermission(Manifest.Permission.AccessCoarseLocation)]
@@ -38,9 +39,13 @@ namespace Radar.Droid
 
         public void OnLocationChanged(Location location)
         {
-            RadarBLL regraRadar = RadarFactory.create();
             LocalizacaoInfo local = converterLocalizacao(location);
-            regraRadar.calcularLocalizacao(local);
+            if (MapaPage.Atual != null)
+                MapaPage.Atual.atualizarPosicao(local);
+            else {
+                RadarBLL regraRadar = RadarFactory.create();
+                regraRadar.calcularLocalizacao(local);
+            }
         }
 
         public void OnProviderDisabled(string provider)
@@ -88,7 +93,7 @@ namespace Radar.Droid
             base.OnResume();
             if (_locationProvider != null)
             {
-                _locationManager.RequestLocationUpdates(_locationProvider, 0, 0, this);
+                _locationManager.RequestLocationUpdates(_locationProvider, Configuracao.GPSTempoAtualiazacao, Configuracao.GPSDistanciaAtualizacao, this);
             }
             //Log.Debug(TAG, "Listening for location updates using " + _locationProvider + ".");
         }

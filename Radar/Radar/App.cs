@@ -1,4 +1,4 @@
-﻿using Radar.Page;
+﻿using Radar.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace Radar
     {
         public App()
         {
-            MainPage = new NavigationPage(new RadarListaPage());
+            MainPage = new NavigationPage(new MapaPage());
         }
 
         protected override void OnStart()
