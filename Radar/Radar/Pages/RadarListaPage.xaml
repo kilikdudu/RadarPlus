@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Radar.Pages.RadarListaPage"
+             Padding="0,20,0,0">
+  <ListView x:Name="RadarListView" ItemTapped="OnItemTapped">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <ViewCell.ContextActions>
+            <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" Text="Excluir" IsDestructive="True" />
+          </ViewCell.ContextActions>
+          <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+            <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+              <Label Text="{Binding Latitude}" VerticalTextAlignment="Center" FontSize="Medium" />
+              <Label Text="{Binding Longitude}" VerticalTextAlignment="Center" FontSize="Medium" />
+              <Label Text="hint: trigger a context action" VerticalTextAlignment="Center" FontSize="Small" />
+            </StackLayout>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+</ContentPage>

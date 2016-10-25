@@ -1,0 +1,1 @@
+C:\"Program Files (x86)"\Java\jdk1.8.0_91\bin\keytool -list -v -keystore C:\Users\User\AppData\Local\Xamarin\"Mono for Android"\debug.keystore
