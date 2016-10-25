@@ -5,22 +5,23 @@ using Xamarin.Forms.Platform.Android;
 using Android.Content;
 using Android.Util;
 using Radar;
+using Radar.Controls;
 
 namespace Radar.droid {
     /// <summary>
     /// This is our class responsible for drawing our shapes
     /// </summary>
     public class Shape : View {
-        int radar = 60;
-        int velocidadeAtual = 40;
-        private readonly float QuarterTurnCounterClockwise = -90;
-
+ 
         public ShapeView ShapeView { get; set; }
 
+        Velocidades posicoes = new Velocidades();
         // Pixel density
         private readonly float density;
 
-        // We need to make sure we account for the padding changes
+        public Shape(float density, Context context) : base(context) {
+           
+        }
         public new int Width
         {
             get { return base.Width - (int)(Resize(this.ShapeView.Padding.HorizontalThickness)); }
@@ -30,19 +31,6 @@ namespace Radar.droid {
         {
             get { return base.Height - (int)(Resize(this.ShapeView.Padding.VerticalThickness)); }
         }
-
-        public Shape(float density, Context context) : base(context) {
-            this.density = density;
-        }
-
-        public Shape(float density, Context context, IAttributeSet attributes) : base(context, attributes) {
-            this.density = density;
-        }
-
-        public Shape(float density, Context context, IAttributeSet attributes, int defStyle) : base(context, attributes, defStyle) {
-            this.density = density;
-        }
-
         protected override void OnDraw(Canvas canvas) {
             base.OnDraw(canvas);
             HandleShapeDraw(canvas);
@@ -52,48 +40,42 @@ namespace Radar.droid {
         protected virtual void HandleShapeDraw(Canvas canvas) {
             switch (ShapeView.ShapeType) {
                 case ShapeType.Box:
-                    Console.WriteLine("X: " + GetX() + this.Width);
-                    float top, bottom , left , right;
+                    float top = 0, bottom = 0, left = 0 , right = 0;
                     int num = 0;
-                    if (this.Width > this.Height) {
+                    if (posicoes.Width > posicoes.Height) {
+                        Console.WriteLine("Width2: " + posicoes.Width);
                         HandleStandardDrawLabel(canvas, p => {
                             canvas.DrawText(
-                                 "km/h", this.Width / 4.7F + 0, this.Height / 1.5F, p);
+                                 "km/h", posicoes.Width / 3F, posicoes.Height / 1.1F, p);
                         });
                         HandleStandardDrawTextDigital(canvas, p => {
                             canvas.DrawText(
-                                 velocidadeAtual.ToString(), this.Width / 4.6F + 0, this.Height / 1.7F,
+                                 posicoes.VelocidadeAtual.ToString(), posicoes.Width / 3.5F, posicoes.Height / 1.1F,
                                  p);
                         });
                     } else {
-                        HandleStandardDrawLabel(canvas, p => {
+                         HandleStandardDrawTextDigital(canvas, p => {
                             canvas.DrawText(
-                                 "km/h", this.Width / 2.5F + 0, this.Height / 3, p);
-                        });
-                        HandleStandardDrawTextDigital(canvas, p => {
-                            canvas.DrawText(
-                                 velocidadeAtual.ToString(), this.Width / 2.35F + 0, this.Height / 3.7F,
+                                 posicoes.VelocidadeAtual.ToString(), posicoes.Width / 2.3F, posicoes.Height / 2.1F,
                                  p);
                         });
+                        HandleStandardDrawLabel(canvas, p => {
+                            canvas.DrawText(
+                                 "km/h", posicoes.Width / 2.4F, posicoes.Height / 1.8F, p);
+                        });
                     }
-                    for (var loop = 30; loop <= 90; loop++) {
-                        float width = 0;
-                        float height = 0;
+                    for (var loop = posicoes.loopInicio; loop <= posicoes.loopFim; loop++) {
                         float tamX = 0;
                         float tamY = 0;
                       
                         if (loop % 5 == 0) {                                            
                                 
-                            if (this.Width > this.Height) {
-                                width = (float)this.Width / 4F;
-                                height = (float)this.Height / 1.8F;
-                                tamX = width - 15 + (float)((this.Width - (this.Width * 82 / 100)) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
-                                tamY = height + (float)((this.Height - (this.Height * 52 / 100)) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
+                            if (posicoes.Width > posicoes.Height) {
+                                tamX = posicoes.Width / 2F - (posicoes.Width * 4.2F / 100) + (float)Math.Floor(((posicoes.Width - (posicoes.Width * 64 / 100)) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
+                                tamY = posicoes.Height / 2F - (posicoes.Height * 0.5F / 100) + (float)Math.Floor(((posicoes.Height - (posicoes.Height * 64 / 100)) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
                             } else {
-                                width = (float)this.Width / 2F;
-                                height = (float)this.Height / 3.5F;
-                                tamX = width - Resize(15) + (float)Math.Floor(((this.Width - (this.Width * 65 / 100)) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
-                                tamY = height - Resize(1) + (float)Math.Floor(((this.Height - (this.Height * 75 / 100)) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
+                                tamX = posicoes.Width / 2F -  (posicoes.Width * 4.2F / 100) + (float)Math.Floor(((posicoes.Width - (posicoes.Width * 64 / 100)) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
+                                tamY = posicoes.Height / 2F - (posicoes.Height * 0.5F / 100) + (float)Math.Floor(((posicoes.Height - (posicoes.Height * 64 / 100)) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
                                 
                             }
                             //valor referencia var tamX =  250;
@@ -102,17 +84,12 @@ namespace Radar.droid {
                             HandleStandardDrawText(canvas, p => {
                                 canvas.DrawText(
                                      num.ToString(),tamX,tamY,
-                                     //width - 15 + (float)(tamX / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)),
-                                     //height + (float)(tamY / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)),
-                                     p);
+                                      p);
                                 num = num + 10;
                             }, num.ToString(), loop, loop==60?60:0);
                         }
                     }
-                    for (var loop = 10; loop <= 70; loop++) {
-                        float width = 0;
-                        float height = 0;
-                        float tamX = 0;
+                    for (var loop = posicoes.loopInicio - 20; loop <= posicoes.loopFim - 20; loop++) {
                         //valor referencia var tamX =  350;
                         //valor referencia var tamY =  350;
                         
@@ -120,23 +97,17 @@ namespace Radar.droid {
                             HandleStandardDraw(canvas, p => {
                                 //var rect = new RectF(left, top, right, bottom);
                                 if(this.Width > this.Height) {
-                                    width = this.Width / 4;
-                                    height = this.Height / 1.8F;
-                                    tamX = this.Width - (float)(this.Width * 70 / 100);
-                                    left = width + (float)(tamX / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
-                                    right = width + (float)(tamX / 1.90F * Math.Sin(loop * 6 * Math.PI / 240));
-                                    top = height + (float)(tamX / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
-                                    bottom = height + (float)(tamX / 1.90 * Math.Cos(loop * 6 * Math.PI / 240));
+                                    Console.WriteLine("Width: " + posicoes.Width);
+                                    left = (posicoes.Width / 2F) + (float)((posicoes.Width * 60 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
+                                    right = posicoes.Width / 2F + (float)((posicoes.Width * 60 / 100) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240));
+                                    top = (posicoes.Height / 2F) + (float)((posicoes.Width * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
+                                    bottom = posicoes.Height / 2F + (float)((posicoes.Width * 60 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240));
 
                                 } else {
-                                    width = this.Width / 2;
-                                    height = (this.Height / 4) + 20;
-                                    tamX = this.Width - (float)(this.Width * 41.6 / 100);
-                                    left = width + (float)(Math.Floor(tamX) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
-                                    right = width + (float)(Math.Floor(tamX) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240));
-                                    top = height + (float)(Math.Floor(tamX) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
-                                    bottom = height + (float)(Math.Floor(tamX) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240));
-
+                                    left   = (posicoes.Width / 2F) + (float)((posicoes.Width * 60 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
+                                    right  = posicoes.Width / 2F + (float)((posicoes.Width * 60 / 100) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240));
+                                    top    = (posicoes.Height / 2F) + (float)((posicoes.Width * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
+                                    bottom = posicoes.Height / 2F + (float)((posicoes.Width * 60 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240));
                                 }
                                 canvas.DrawLine(
                                     left,
@@ -147,24 +118,16 @@ namespace Radar.droid {
                             },loop, loop==40?60:0);
                         }else {
                             HandleStandardDraw(canvas, p => {
-                                if(this.Width > this.Height) {
-                                    width = this.Width / 4;
-                                    height = this.Height / 1.8F;
-                                    tamX = this.Width - (float)(this.Width * 70 / 100);
-                                    left = width + (float)(tamX / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
-                                    right = width + (float)(tamX / 1.70F * Math.Sin(loop * 6 * Math.PI / 240));
-                                    top = height + (float)(tamX / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
-                                    bottom = height + (float)(tamX / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
-
+                                if(posicoes.Width > posicoes.Height) {
+                                    left = (posicoes.Width / 2F) + (float)((posicoes.Width * 10 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
+                                    right = posicoes.Width / 2F + (float)((posicoes.Width * 10 / 100) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240));
+                                    top = (posicoes.Height / 2F) + (float)((posicoes.Width * 10 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
+                                    bottom = posicoes.Height / 2F + (float)((posicoes.Width * 10 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
                                 } else {
-                                    width = this.Width / 2;
-                                    height = (this.Height / 4) + 20;
-                                    tamX = this.Width - (float)(this.Width * 41.6 / 100);
-                                    left = width + (float)(Math.Floor(tamX) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
-                                    right = width + (float)(Math.Floor(tamX) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240));
-                                    top = height + (float)(Math.Floor(tamX) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
-                                    bottom = height + (float)(Math.Floor(tamX) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
-
+                                    left = (posicoes.Width / 2F) + (float)((posicoes.Width * 60 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
+                                    right = posicoes.Width / 2F + (float)((posicoes.Width * 60 / 100) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240));
+                                    top = (posicoes.Height / 2F) + (float)((posicoes.Width * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
+                                    bottom = posicoes.Height / 2F + (float)((posicoes.Width * 60 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
                                 }
                                 canvas.DrawLine(
                                     left,
@@ -181,27 +144,18 @@ namespace Radar.droid {
                     break;
             }
         }
-
-        /// <summary>
-        /// A simple method that handles drawing our shape with the various colours we need
-        /// </summary>
-        /// <param name="canvas">Canvas.</param>
-        /// <param name="drawShape">Draw shape.</param>
-        /// <param name="lineWidth">Line width.</param>
-        /// <param name="drawFill">If set to <c>true</c> draw fill.</param>
-        
-        protected virtual void HandleStandardDraw(Canvas canvas, Action<Paint> drawShape, int velocidade, int velocidadeRadar) {
+   protected virtual void HandleStandardDraw(Canvas canvas, Action<Paint> drawShape, int velocidade, int velocidadeRadar) {
             var strokePaint = new Paint(PaintFlags.AntiAlias);
             strokePaint.SetStyle(Paint.Style.Stroke);
             strokePaint.StrokeWidth = 6;
             //strokePaint.StrokeCap = Paint.Cap.Round;
             strokePaint.Color = Color.Blue;
-            if (velocidadeRadar == radar) {
+            if (velocidadeRadar == posicoes.VelocidadeRadar ) {
                              
                 strokePaint.Color = Color.Red;
             }
             velocidade = velocidade - 10;
-            if (velocidade >= velocidadeAtual) {
+            if (velocidade >= posicoes.VelocidadeAtual) {
 
                 strokePaint.Color = Color.Green;
             }
@@ -214,12 +168,12 @@ namespace Radar.droid {
             strokePaint.SetStyle(Paint.Style.Stroke);
             strokePaint.StrokeWidth = 3;
             strokePaint.Color = Color.Blue;
-            if (velocidadeRadar == radar) {
+            if (velocidadeRadar == posicoes.VelocidadeRadar) {
 
                 strokePaint.Color = Color.Red;
             }
             velocidade = velocidade - 30;
-            if (velocidade <= velocidadeAtual - 20) {
+            if (velocidade <= posicoes.VelocidadeAtual - 20) {
 
                 strokePaint.Color = Color.Green;
             }
