@@ -20,7 +20,6 @@ namespace Radar.Droid
 {
     public class SQLiteAndroid : ISQLite
     {
-
         public SQLiteConnection GetConnection()
         {
             string sqliteFilename = "radar.sqlite";

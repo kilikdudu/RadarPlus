@@ -49,6 +49,7 @@
     <Compile Include="ISQLite.cs" />
     <Compile Include="Model\LocalizacaoInfo.cs" />
     <Compile Include="Model\RadarInfo.cs" />
+    <Compile Include="Model\RetanguloInfo.cs" />
     <Compile Include="Pages\MapaPage.cs" />
     <Compile Include="Pages\RadarListaPage.xaml.cs">
       <DependentUpon>RadarListaPage.xaml</DependentUpon>
