@@ -164,6 +164,8 @@
     <Compile Include="RadarMapRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VelocimentroAndroid.cs" />
+    <Compile Include="VelocimetroRenderer.cs" />
     <Compile Include="SQLiteAndroid.cs" />
   </ItemGroup>
   <ItemGroup>
