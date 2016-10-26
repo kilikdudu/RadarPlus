@@ -36,10 +36,6 @@ namespace Radar.Droid {
             velocimentro.ShapeView = Element;
             velocimentro.ShapeView.desenharPonteiro += velocimentro.desenharPonteiro;
             velocimentro.ShapeView.desenharTexto += velocimentro.desenharTexto;
-            velocimentro.ShapeView.desenharTextoVelocidade += velocimentro.desenharTextoVelocidade;
-            velocimentro.ShapeView.desenharTextoLabel += velocimentro.desenharTextoLabel;
-            velocimentro.ShapeView.pegarAlturaTela += velocimentro.pegarAlturaTela;
-            velocimentro.ShapeView.pegarLarguraTela += velocimentro.pegarLarguraTela;
             SetNativeControl(velocimentro);
         }
     }
