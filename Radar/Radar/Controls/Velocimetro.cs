@@ -22,15 +22,15 @@ namespace Radar.Controls
             get { return 60; }
             set { velocidadeAtual = 60; }
         }
-
+        
         public float TelaLargura
         {
-            get { return (float)App.Current.MainPage.Width; }
+            get { return pegarAlturaTela(); }
         }
 
         public float TelaAltura
         {
-            get { return (float)App.Current.MainPage.Width; }
+            get { return pegarLarguraTela(); }
         }
 
         //VelocidadeInfo posicoes = new VelocidadeInfo();
@@ -98,41 +98,34 @@ namespace Radar.Controls
         public delegate void desenharTextoHandler(string Texto, float x, float y);
         public desenharTextoHandler desenharTexto;
 
+        public delegate void desenharTextoLabelHandler(string Texto, float x, float y);
+        public desenharTextoLabelHandler desenharTextoLabel;
+
+        public delegate void desenharTextoVelocidadeHandler(string Texto, float x, float y);
+        public desenharTextoVelocidadeHandler desenharTextoVelocidade;
+
         public delegate void desenharPonteiroHandler(RetanguloInfo rect, PonteiroCorEnum cor);
         public desenharPonteiroHandler desenharPonteiro;
 
+        public delegate float pegarAlturaTelaHandler();
+        public pegarAlturaTelaHandler pegarAlturaTela;
+
+        public delegate float pegarLarguraTelaHandler();
+        public pegarLarguraTelaHandler pegarLarguraTela;
+
         public void desenhar()
         {
-            float top = 0, bottom = 0, left = 0, right = 0;
+            
             int num = 0;
             if (TelaLargura > TelaAltura)
             {
-                //Debug.WriteLine("Width2: " + TelaLargura);
-                desenharTexto("km/h", TelaLargura / 3F, TelaAltura / 1.1F);
-                /*
-                HandleStandardDrawTextDigital(canvas, p =>
-                {
-                    canvas.DrawText(
-                         posicoes.VelocidadeAtual.ToString(), TelaLargura / 3.5F, TelaAltura / 1.1F,
-                         p);
-                });
-                */
+                desenharTextoLabel("km/h", TelaLargura / 4.1F, TelaAltura / 1.8F);
+                desenharTextoVelocidade(velocidadeAtual.ToString(), TelaLargura / 3.9F, TelaAltura / 2F);
+            } else {
+                desenharTextoLabel("km/h", TelaLargura / 2.8F, TelaAltura / 2.8F);
+                desenharTextoVelocidade(velocidadeAtual.ToString(), TelaLargura / 2.4F, TelaAltura / 3.3F);
             }
-            else {
-                /*
-                HandleStandardDrawTextDigital(canvas, p =>
-                {
-                    canvas.DrawText(
-                         posicoes.VelocidadeAtual.ToString(), TelaLargura / 2.3F, TelaAltura / 2.1F,
-                         p);
-                });
-                HandleStandardDrawLabel(canvas, p =>
-                {
-                    canvas.DrawText(
-                         "km/h", TelaLargura / 2.4F, TelaAltura / 1.8F, p);
-                });
-                */
-            }
+
             for (var loop = _loopInicio; loop <= _loopFim; loop++)
             {
                 float tamX = 0;
@@ -140,31 +133,20 @@ namespace Radar.Controls
 
                 if (loop % 5 == 0)
                 {
-
                     if (TelaLargura > TelaAltura)
                     {
-                        tamX = TelaLargura / 2F - (TelaLargura * 4.2F / 100) + (float)Math.Floor(((TelaLargura - (TelaLargura * 64 / 100)) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
-                        tamY = TelaAltura / 2F - (TelaAltura * 0.5F / 100) + (float)Math.Floor(((TelaAltura - (TelaAltura * 64 / 100)) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
-                    }
-                    else {
-                        tamX = TelaLargura / 2F - (TelaLargura * 4.2F / 100) + (float)Math.Floor(((TelaLargura - (TelaLargura * 64 / 100)) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
-                        tamY = TelaAltura / 2F - (TelaAltura * 0.5F / 100) + (float)Math.Floor(((TelaAltura - (TelaAltura * 64 / 100)) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
+                        tamX = (TelaLargura / 3.7F) + (float)Math.Floor(((TelaLargura * 23 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
+                        tamY = (TelaAltura / 2F) + (float)Math.Floor(((TelaLargura * 23 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
 
                     }
-                    //valor referencia var tamX =  250;
-                    //valor referencia var tamY =  280;
+                    else {
+                        tamX = (TelaLargura / 2.25F) + (float)Math.Floor(((TelaAltura * 23 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
+                        tamY = (TelaAltura / 3.4F) + (float)Math.Floor(((TelaAltura * 23 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
+
+                    }
 
                     desenharTexto(num.ToString(), tamX, tamY);
                     num = num + 10;
-                    /*
-                    HandleStandardDrawText(canvas, p =>
-                    {
-                        canvas.DrawText(
-                             num.ToString(), tamX, tamY,
-                              p);
-                        num = num + 10;
-                    }, num.ToString(), loop, loop == 60 ? 60 : 0);
-                    */
                 }
             }
             for (var loop = _loopInicio - 20; loop <= _loopFim - 20; loop++)
@@ -176,20 +158,20 @@ namespace Radar.Controls
                 PonteiroCorEnum cor = PonteiroCorEnum.Cinza;
                 if (loop % 5 == 0)
                 {
-                    if (this.Width > this.Height)
-                    {
+                    if (TelaLargura > TelaAltura) {
                         Debug.WriteLine("Width: " + TelaLargura);
-                        rect.Left = (TelaLargura / 2F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
-                        rect.Right = TelaLargura / 2F + (float)((TelaLargura * 60 / 100) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240));
-                        rect.Top = (TelaAltura / 2F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
-                        rect.Bottom = TelaAltura / 2F + (float)((TelaLargura * 60 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240));
-
+                        rect.Left = (TelaLargura / 3.5F) + (float)((TelaLargura * 40 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
+                        rect.Right = TelaLargura / 3.5F + (float)((TelaLargura * 40 / 100) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240));
+                        rect.Top = (TelaAltura / 2F) + (float)((TelaLargura * 40 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
+                        rect.Bottom = TelaAltura / 2F + (float)((TelaLargura * 40 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240));
+                        
                     }
                     else {
                         rect.Left = (TelaLargura / 2F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
                         rect.Right = TelaLargura / 2F + (float)((TelaLargura * 60 / 100) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240));
-                        rect.Top = (TelaAltura / 2F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
-                        rect.Bottom = TelaAltura / 2F + (float)((TelaLargura * 60 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240));
+                        rect.Top = (TelaAltura / 3.5F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
+                        rect.Bottom = TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240));
+               
                     }
                     if (velocidadeRadar == VelocidadeRadar)
                     {
@@ -205,23 +187,29 @@ namespace Radar.Controls
                 else {
                     if (TelaLargura > TelaAltura)
                     {
-                        rect.Left = (TelaLargura / 2F) + (float)((TelaLargura * 10 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
-                        rect.Right = TelaLargura / 2F + (float)((TelaLargura * 10 / 100) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240));
-                        rect.Top = (TelaAltura / 2F) + (float)((TelaLargura * 10 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
-                        rect.Bottom = TelaAltura / 2F + (float)((TelaLargura * 10 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
+                        rect.Left = (TelaLargura / 3.5F) + (float)((TelaLargura * 40 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
+                        rect.Right = TelaLargura / 3.5F + (float)((TelaLargura * 40 / 100) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240));
+                        rect.Top = (TelaAltura / 2F) + (float)((TelaLargura * 40 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
+                        rect.Bottom = TelaAltura / 2F + (float)((TelaLargura * 40 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
                     }
                     else {
                         rect.Left = (TelaLargura / 2F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
                         rect.Right = TelaLargura / 2F + (float)((TelaLargura * 60 / 100) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240));
-                        rect.Top = (TelaAltura / 2F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
-                        rect.Bottom = TelaAltura / 2F + (float)((TelaLargura * 60 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
+                        rect.Top = (TelaAltura / 3.5F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
+                        rect.Bottom = TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
                     }
                     desenharPonteiro(rect, cor);
                 }
 
             }
         }
+        private float Resize(float input) {
+            return input * density;
+        }
 
+        private float Resize(double input) {
+            return Resize((float)input);
+        }
         public Velocimetro()
         {
         }
