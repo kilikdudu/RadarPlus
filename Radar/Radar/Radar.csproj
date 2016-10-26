@@ -38,11 +38,19 @@
     <Compile Include="App.cs" />
     <Compile Include="BLL\Configuracao.cs" />
     <Compile Include="BLL\MapaBLL.cs" />
+    <Compile Include="BLL\PercursoBLL.cs" />
     <Compile Include="BLL\RadarBLL.cs" />
-    <Compile Include="BLL\VelocimentroBLL.cs" />
     <Compile Include="Controls\PonteiroCorEnum.cs" />
     <Compile Include="Controls\RadarMap.cs" />
     <Compile Include="Controls\RadarPin.cs" />
+    <Compile Include="DALFactory\PercursoPontoDALFactory.cs" />
+    <Compile Include="DALFactory\PercursoDALFactory.cs" />
+    <Compile Include="DALSQLite\PercursoPontoDALSQLite.cs" />
+    <Compile Include="DALSQLite\PercursoDALSQLite.cs" />
+    <Compile Include="IDAL\IPercursoDAL.cs" />
+    <Compile Include="IDAL\IPercursoPontoDAL.cs" />
+    <Compile Include="Model\PercursoInfo.cs" />
+    <Compile Include="Model\PercursoPontoInfo.cs" />
     <Compile Include="Model\VelocidadeInfo.cs" />
     <Compile Include="DALFactory\RadarDALFactory.cs" />
     <Compile Include="DALSQLite\RadarDALSQLite.cs" />
@@ -53,10 +61,16 @@
     <Compile Include="Model\RadarInfo.cs" />
     <Compile Include="Model\RetanguloInfo.cs" />
     <Compile Include="Pages\MapaPage.cs" />
+    <Compile Include="Pages\MenuItem.cs" />
+    <Compile Include="Pages\MenuItemGrupo.cs" />
+    <Compile Include="Pages\MenuPage.xaml.cs">
+      <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\RadarListaPage.xaml.cs">
       <DependentUpon>RadarListaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Velocimetro.cs" />
+    <Compile Include="Pages\NavegacaoPage.cs" />
     <Compile Include="Pages\VelocimetroPage.xaml.cs">
       <DependentUpon>VelocimetroPage.xaml</DependentUpon>
     </Compile>
@@ -105,6 +119,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\VelocimetroPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\MenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

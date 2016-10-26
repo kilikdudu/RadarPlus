@@ -13,7 +13,7 @@ namespace Radar
         public App()
         {
             //MainPage = new NavigationPage(new MapaPage());
-            MainPage = new NavigationPage(new VelocimetroPage());
+            MainPage = new NavegacaoPage();
         }
 
         protected override void OnStart()
