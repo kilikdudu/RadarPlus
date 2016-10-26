@@ -29,36 +29,91 @@ namespace Radar.Droid {
             //HandleShapeDraw(canvas);
         }
 
-        public void desenharTexto(string Texto, float x, float y)
-        {
+        public void desenharTexto(string Texto, float x, float y) {
             var strokePaint = new Paint(PaintFlags.AntiAlias);
             strokePaint.SetStyle(Paint.Style.Fill);
             strokePaint.StrokeWidth = 3;
             strokePaint.Color = Android.Graphics.Color.Blue;
-            // Calculate the desired size as a proportion of our testTextSize.
-            if (this.Width > this.Height)
-            {
-                float testTextSize = 4f;
-                float desiredTextSize = (float)(this.Height - (this.Height * 62.6 / 100)) / testTextSize;
+            if (this.pegarLarguraTela() > this.pegarAlturaTela()) {
+                float testTextSize = 4.5f;
+                float desiredTextSize = (float)(this.pegarAlturaTela() * 30 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
-            }
-            else {
-                float testTextSize = 6f;
-                float desiredTextSize = (float)(this.Width - (this.Width * 50.6 / 100)) / testTextSize;
+            } else {
+                float testTextSize = 5f;
+                float desiredTextSize = (float)(this.pegarLarguraTela() * 30 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
             }
             _canvas.DrawText(Texto, x, y, strokePaint);
         }
 
-        public void desenharPonteiro(RetanguloInfo rect, PonteiroCorEnum cor)
+        public void desenharTextoVelocidade(string Texto, float x, float y) {
+            var strokePaint = new Paint(PaintFlags.AntiAlias);
+            strokePaint.SetStyle(Paint.Style.Fill);
+            strokePaint.StrokeWidth = 3;
+            strokePaint.Color = Android.Graphics.Color.Blue;
+            if (this.pegarLarguraTela() > this.pegarAlturaTela()) {
+                float testTextSize = 4f;
+                float desiredTextSize = (float)(this.pegarAlturaTela() * 45 / 100) / testTextSize;
+                strokePaint.TextSize = desiredTextSize;
+            } else {
+                float testTextSize = 4f;
+                float desiredTextSize = (float)(this.pegarLarguraTela() * 45 / 100) / testTextSize;
+                strokePaint.TextSize = desiredTextSize;
+            }
+            _canvas.DrawText(Texto, x, y, strokePaint);
+        }
+        public void desenharTextoLabel(string Texto, float x, float y) {
+            var strokePaint = new Paint(PaintFlags.AntiAlias);
+            strokePaint.SetStyle(Paint.Style.Fill);
+            strokePaint.StrokeWidth = 4.5F;
+            strokePaint.Color = Android.Graphics.Color.Blue;
+            if (this.pegarLarguraTela() > this.pegarAlturaTela()) {
+                float testTextSize = 3.5f;
+                float desiredTextSize = (float)(this.pegarAlturaTela() * 39 / 100) / testTextSize;
+                strokePaint.TextSize = desiredTextSize;
+            } else {
+                float testTextSize = 5f;
+                float desiredTextSize = (float)(this.pegarLarguraTela() * 39 / 100) / testTextSize;
+                strokePaint.TextSize = desiredTextSize;
+            }
+            _canvas.DrawText(Texto, x, y, strokePaint);
+        }
+        public new int Width
         {
+            get { return base.Width - (int)(this.ShapeView.Padding.HorizontalThickness); }
+        }
+
+        public new int Height
+        {
+            get { return base.Height - (int)(this.ShapeView.Padding.VerticalThickness); }
+        }
+        public float pegarAlturaTela() {
+            float altura;
+            if (this.Width > this.Height) {
+                altura = Resources.DisplayMetrics.HeightPixels;
+            } else {
+                altura = Resources.DisplayMetrics.HeightPixels;
+            }
+            Console.WriteLine("altura: " + altura);
+            return altura;
+        }
+        public float pegarLarguraTela() {
+            float largura;
+            if (this.Width > this.Height) {
+                largura = Resources.DisplayMetrics.WidthPixels;
+            } else {
+                largura = Resources.DisplayMetrics.WidthPixels;
+            }
+            Console.WriteLine("largura: " + largura);
+            return largura;
+        }
+        public void desenharPonteiro(RetanguloInfo rect, PonteiroCorEnum cor) {
             var strokePaint = new Paint(PaintFlags.AntiAlias);
             strokePaint.SetStyle(Paint.Style.Stroke);
             strokePaint.StrokeWidth = 6;
             //strokePaint.StrokeCap = Paint.Cap.Round;
             strokePaint.Color = Android.Graphics.Color.Blue;
-            switch (cor)
-            {
+            switch (cor) {
                 case PonteiroCorEnum.Verde:
                     strokePaint.Color = Android.Graphics.Color.Green;
                     break;
@@ -69,6 +124,7 @@ namespace Radar.Droid {
                     strokePaint.Color = Android.Graphics.Color.Blue;
                     break;
             }
+
             _canvas.DrawLine(
                 rect.Left,
                 rect.Top,
