@@ -45,6 +45,8 @@ namespace Radar.Droid
                 _radarMap.AoAtualizaPosicao += (object sender, LocalizacaoInfo local) => {
                     if (!animando)
                     {
+                        if (map == null)
+                            return;
                         CameraPosition.Builder builder = CameraPosition.InvokeBuilder(map.CameraPosition);
                         builder.Target(new LatLng(local.Latitude, local.Longitude));
                         builder.Bearing(local.Sentido);
