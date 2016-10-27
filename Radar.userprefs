@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{1DB5D593-F011-4A2A-A922-26661FC7D928}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Radar.iOS/RadarMapRenderer.cs">
+    <Files>
+      <File FileName="Radar.iOS/Main.cs" Line="12" Column="26" />
+      <File FileName="Radar.iOS/VelocimetroRenderer.cs" Line="34" Column="68" />
+      <File FileName="Radar.iOS/VelocimetroiOS.cs" Line="51" Column="28" />
+      <File FileName="Radar/Radar/Controls/Velocimetro.cs" Line="114" Column="32" />
+      <File FileName="Radar/Radar.Droid/VelocimentroAndroid.cs" Line="100" Column="10" />
+      <File FileName="Radar.iOS/RadarMapRenderer.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Radar.Droid PreferredExecutionTarget="Android.4d00c15c4c315191" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Radar.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B83FB96C-8E3A-44CD-9AFD-E47F24EF55D7" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
