@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="BLL\Configuracao.cs" />
+    <Compile Include="BLL\GPSUtils.cs" />
     <Compile Include="BLL\MapaBLL.cs" />
     <Compile Include="BLL\PercursoBLL.cs" />
     <Compile Include="BLL\RadarBLL.cs" />
@@ -47,6 +48,7 @@
     <Compile Include="DALFactory\PercursoDALFactory.cs" />
     <Compile Include="DALSQLite\PercursoPontoDALSQLite.cs" />
     <Compile Include="DALSQLite\PercursoDALSQLite.cs" />
+    <Compile Include="Factory\PercursoFactory.cs" />
     <Compile Include="IDAL\IPercursoDAL.cs" />
     <Compile Include="IDAL\IPercursoPontoDAL.cs" />
     <Compile Include="Model\PercursoInfo.cs" />
@@ -61,10 +63,13 @@
     <Compile Include="Model\RadarInfo.cs" />
     <Compile Include="Model\RetanguloInfo.cs" />
     <Compile Include="Pages\MapaPage.cs" />
-    <Compile Include="Pages\MenuItem.cs" />
+    <Compile Include="Pages\MenuItemInfo.cs" />
     <Compile Include="Pages\MenuItemGrupo.cs" />
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PercursoPage.xaml.cs">
+      <DependentUpon>PercursoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\RadarListaPage.xaml.cs">
       <DependentUpon>RadarListaPage.xaml</DependentUpon>
@@ -125,6 +130,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\MenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\PercursoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

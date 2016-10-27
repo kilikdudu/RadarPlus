@@ -1,6 +1,7 @@
 ﻿using Radar.DALFactory;
 using Radar.IDAL;
 using Radar.Model;
+using Radar.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,34 @@ namespace Radar.BLL
     {
         private IPercursoDAL _percursoDB;
         private IPercursoPontoDAL _pontoDB;
+
+        private const int TEMPO_ATUALIZACAO_PONTO = 5;
+        private const int TEMPO_MINIMO_PARADO = 120;
+        private const int VELOCIDADE_MAXIMA_PARADO = 10;
+
+        private static PercursoInfo _percursoAtual;
+        private static bool _gravando = false;
+        private static DateTime _dataAnterior;
+        private static DateTime _ultimoMovimentoReal;
+        private static bool _emMovimento = true;
+
+        public static bool Gravando {
+            get {
+                return _gravando;
+            }
+            private set {
+                _gravando = value;
+            }
+        }
+
+        public static PercursoInfo PercursoAtual {
+            get {
+                return _percursoAtual;
+            }
+            private set {
+                _percursoAtual = value;
+            }
+        }
 
         public PercursoBLL()
         {
@@ -40,11 +69,80 @@ namespace Radar.BLL
         }
 
         public int gravar(PercursoInfo percurso) {
-            return _percursoDB.gravar(percurso);
+            percurso.Id = _percursoDB.gravar(percurso);
+            return percurso.Id;
         }
 
         public int gravarPonto(PercursoPontoInfo ponto) {
             return _pontoDB.gravar(ponto);
+        }
+
+        public bool iniciarGravacao() {
+            if (_gravando)
+                return false;
+            PercursoInfo percurso = new PercursoInfo();
+            percurso.Nome = "Teste";
+            gravar(percurso);
+            PercursoAtual = percurso;
+            _dataAnterior = DateTime.MinValue;
+            _ultimoMovimentoReal = DateTime.MinValue;
+            _gravando = true;
+            _emMovimento = true;
+            //MensagemUtils.notificar(2, "Gravando Percurso", "Gravando percurso agora!");
+            return true;
+        }
+
+        public bool pararGravacao()
+        {
+            if (!_gravando)
+                return false;
+            //MensagemUtils.notificar(2, "Gravando Percurso", "Gravando percurso agora!");
+            PercursoAtual = null;
+            _dataAnterior = DateTime.MinValue;
+            _ultimoMovimentoReal = DateTime.MinValue;
+            _gravando = false;
+            _emMovimento = false;
+            return true;
+        }
+
+        private void processarPonto(LocalizacaoInfo local, bool emMovimento) {
+            PercursoPontoInfo ponto = new PercursoPontoInfo()
+            {
+                IdPercurso = PercursoAtual.Id,
+                Velocidade = local.Velocidade,
+                Data = local.Tempo,
+                Movimento = emMovimento
+            };
+            gravarPonto(ponto);
+            _dataAnterior = local.Tempo;
+        }
+
+        public bool executarGravacao(LocalizacaoInfo local)
+        {
+            if (!_gravando)
+                return false;
+            TimeSpan tempo = local.Tempo.Subtract(_dataAnterior);
+            if (tempo.TotalSeconds > TEMPO_ATUALIZACAO_PONTO) {
+                if (local.Velocidade > VELOCIDADE_MAXIMA_PARADO) {
+                    _ultimoMovimentoReal = local.Tempo;
+                    _emMovimento = true;
+                }
+                else {
+                    TimeSpan tempoMovimento = local.Tempo.Subtract(_ultimoMovimentoReal);
+                    if (_emMovimento && tempoMovimento.TotalSeconds > TEMPO_MINIMO_PARADO)
+                    {
+                        _emMovimento = false;
+                        _ultimoMovimentoReal = local.Tempo;
+                        processarPonto(local, false);
+                    }
+                }
+
+                if (_emMovimento) {
+                    processarPonto(local, true);
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void excluir(int id)

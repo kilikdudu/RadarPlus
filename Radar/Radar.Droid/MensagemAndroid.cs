@@ -13,11 +13,17 @@ using Radar.Droid;
 using Xamarin.Forms;
 using Radar.Utils;
 using Android.Support.V7.App;
+using Android.Media;
 
 [assembly: Dependency(typeof(MensagemAndroid))]
 
 namespace Radar.Droid {
-    public class MensagemAndroid : IMensagem {
+
+    public class MensagemAndroid : IMensagem
+    {
+
+        private const int NOTIFICACAO_GRAVAR_PERCURSO_ID = 2301;
+
         public void exibirAviso(string Titulo, string Mensagem)
         {
             Context context = Android.App.Application.Context;
@@ -29,14 +35,53 @@ namespace Radar.Droid {
             Context context = Android.App.Application.Context;
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
             builder.SetAutoCancel(true);
-            //builder.SetContentIntent();
             builder.SetNumber(id);
             builder.SetSmallIcon(Resource.Drawable.icon);
             builder.SetContentTitle(titulo);
             builder.SetContentText(mensagem);
-            
+            builder.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Alarm));
+
             NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
             notificationManager.Notify(id, builder.Build());
+
+            return true;
+        }
+
+        public bool notificarGravacaoPercurso()
+        {
+            Context context = Android.App.Application.Context;
+
+            var intent = new Intent();
+
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+            builder.SetAutoCancel(true);
+            //builder.SetContentIntent();
+            builder.SetNumber(NOTIFICACAO_GRAVAR_PERCURSO_ID);
+            builder.SetSmallIcon(Resource.Drawable.icon);
+            builder.SetContentTitle("Gravando percurso!");
+            builder.SetContentText("");
+            builder.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Alarm));
+
+            var pendingIntent = PendingIntent.GetBroadcast(context, 0, new Intent(), PendingIntentFlags.CancelCurrent);
+
+            builder.AddAction(new Android.Support.V4.App.NotificationCompat.Action(Resource.Drawable.icon, "Parar Gravação!", pendingIntent));
+
+            NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
+            Notification notificacao = builder.Build();
+            notificacao.Flags = NotificationFlags.NoClear;
+            notificationManager.Notify(NOTIFICACAO_GRAVAR_PERCURSO_ID, notificacao);
+
+            //notificationManager.Cancel();
+
+
+            return true;
+        }
+
+        public bool pararNotificaoPercurso()
+        {
+            Context context = Android.App.Application.Context;
+            NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
+            notificationManager.Cancel(NOTIFICACAO_GRAVAR_PERCURSO_ID);
 
             return true;
         }

@@ -25,5 +25,24 @@ namespace Radar.Model
                 _pontos = value;
             }
         }
+
+        [Ignore]
+        public TimeSpan TempoGravacao {
+            get {
+                DateTime maiorTempo = (from p in _pontos select p.Data).Max();
+                DateTime menorTempo = (from p in _pontos select p.Data).Min();
+                return maiorTempo.Subtract(menorTempo);
+            }
+        }
+
+        [Ignore]
+        public string TempoGravacaoStr
+        {
+            get
+            {
+                TimeSpan tempo = TempoGravacao;
+                return tempo.ToString("{0:hh\\:mm\\:ss}");
+            }
+        }
     }
 }

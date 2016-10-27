@@ -15,19 +15,19 @@ namespace Radar.Pages
 
         private MenuItemGrupo criarGrupoModo() {
             var grupo = new MenuItemGrupo("MODO", "MODO");
-            grupo.Add(new MenuItem
+            grupo.Add(new MenuItemInfo
             {
                 Titulo = "Velocimetro",
                 Icone = "contacts.png",
                 TargetType = typeof(VelocimetroPage)
             });
-            grupo.Add(new MenuItem
+            grupo.Add(new MenuItemInfo
             {
                 Titulo = "Mapa",
                 Icone = "todo.png",
                 TargetType = typeof(MapaPage)
             });
-            grupo.Add(new MenuItem
+            grupo.Add(new MenuItemInfo
             {
                 Titulo = "Radares",
                 Icone = "reminders.png",
@@ -39,19 +39,25 @@ namespace Radar.Pages
         private MenuItemGrupo criarGrupoAcao()
         {
             var grupo = new MenuItemGrupo("AÇÕES", "AÇÕES");
-            grupo.Add(new MenuItem
+            grupo.Add(new MenuItemInfo
+            {
+                Titulo = "Percursos",
+                Icone = "radar.png",
+                TargetType = typeof(PercursoPage)
+            });
+            grupo.Add(new MenuItemInfo
             {
                 Titulo = "Meus Radares",
                 Icone = "radar.png",
                 TargetType = typeof(VelocimetroPage)
             });
-            grupo.Add(new MenuItem
+            grupo.Add(new MenuItemInfo
             {
                 Titulo = "Preferências",
                 Icone = "radar.png",
                 TargetType = typeof(VelocimetroPage)
             });
-            grupo.Add(new MenuItem
+            grupo.Add(new MenuItemInfo
             {
                 Titulo = "Atualizar",
                 Icone = "radar.png",
@@ -63,25 +69,25 @@ namespace Radar.Pages
         private MenuItemGrupo criarGrupoAplicativo()
         {
             var grupo = new MenuItemGrupo("APLICATIVO", "APPS");
-            grupo.Add(new MenuItem
+            grupo.Add(new MenuItemInfo
             {
                 Titulo = "Instruções",
                 Icone = "radar.png",
                 TargetType = typeof(VelocimetroPage)
             });
-            grupo.Add(new MenuItem
+            grupo.Add(new MenuItemInfo
             {
                 Titulo = "Novidades",
                 Icone = "radar.png",
                 TargetType = typeof(VelocimetroPage)
             });
-            grupo.Add(new MenuItem
+            grupo.Add(new MenuItemInfo
             {
                 Titulo = "Sobre",
                 Icone = "radar.png",
                 TargetType = typeof(VelocimetroPage)
             });
-            grupo.Add(new MenuItem
+            grupo.Add(new MenuItemInfo
             {
                 Titulo = "Sair",
                 Icone = "radar.png",
