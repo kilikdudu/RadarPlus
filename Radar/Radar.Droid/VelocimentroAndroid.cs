@@ -29,19 +29,30 @@ namespace Radar.Droid {
             //HandleShapeDraw(canvas);
         }
 
-        public void desenharTexto(string Texto, float x, float y) {
+        public void desenharTexto(string Texto, float x, float y, PonteiroCorEnum cor) {
             var strokePaint = new Paint(PaintFlags.AntiAlias);
             strokePaint.SetStyle(Paint.Style.Fill);
             strokePaint.StrokeWidth = 3;
             strokePaint.Color = Android.Graphics.Color.Blue;
             if (this.pegarLarguraTela() > this.pegarAlturaTela()) {
-                float testTextSize = 4.5f;
+                float testTextSize = 5f;
                 float desiredTextSize = (float)(this.pegarAlturaTela() * 30 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
             } else {
                 float testTextSize = 5f;
                 float desiredTextSize = (float)(this.pegarLarguraTela() * 30 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
+            }
+            switch (cor) {
+                case PonteiroCorEnum.Verde:
+                    strokePaint.Color = Android.Graphics.Color.Green;
+                    break;
+                case PonteiroCorEnum.Vermelho:
+                    strokePaint.Color = Android.Graphics.Color.Red;
+                    break;
+                default:
+                    strokePaint.Color = Android.Graphics.Color.Gray;
+                    break;
             }
             _canvas.DrawText(Texto, x, y, strokePaint);
         }
@@ -52,7 +63,7 @@ namespace Radar.Droid {
             strokePaint.StrokeWidth = 3;
             strokePaint.Color = Android.Graphics.Color.Blue;
             if (this.pegarLarguraTela() > this.pegarAlturaTela()) {
-                float testTextSize = 4f;
+                float testTextSize = 4.3f;
                 float desiredTextSize = (float)(this.pegarAlturaTela() * 45 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
             } else {
@@ -65,10 +76,10 @@ namespace Radar.Droid {
         public void desenharTextoLabel(string Texto, float x, float y) {
             var strokePaint = new Paint(PaintFlags.AntiAlias);
             strokePaint.SetStyle(Paint.Style.Fill);
-            strokePaint.StrokeWidth = 4.5F;
+            strokePaint.StrokeWidth = 3F;
             strokePaint.Color = Android.Graphics.Color.Blue;
             if (this.pegarLarguraTela() > this.pegarAlturaTela()) {
-                float testTextSize = 3.5f;
+                float testTextSize = 4.5f;
                 float desiredTextSize = (float)(this.pegarAlturaTela() * 39 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
             } else {
@@ -121,7 +132,7 @@ namespace Radar.Droid {
                     strokePaint.Color = Android.Graphics.Color.Red;
                     break;
                 default:
-                    strokePaint.Color = Android.Graphics.Color.Blue;
+                    strokePaint.Color = Android.Graphics.Color.Gray;
                     break;
             }
 
