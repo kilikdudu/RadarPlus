@@ -93,7 +93,7 @@ namespace Radar.Controls {
             set { SetValue(PaddingProperty, value); }
         }
 
-        public delegate void desenharTextoHandler(string Texto, float x, float y);
+        public delegate void desenharTextoHandler(string Texto, float x, float y, PonteiroCorEnum cor);
         public desenharTextoHandler desenharTexto;
 
         public delegate void desenharTextoLabelHandler(string Texto, float x, float y);
@@ -115,11 +115,11 @@ namespace Radar.Controls {
 
             int num = 0;
             if (TelaLargura > TelaAltura) {
-                desenharTextoLabel("km/h", TelaLargura / 4.1F, TelaAltura / 1.8F);
-                desenharTextoVelocidade(velocidadeAtual.ToString(), TelaLargura / 3.9F, TelaAltura / 2F);
+                desenharTextoLabel("km/h", TelaLargura / 4.3F, TelaAltura / 1.7F);
+                desenharTextoVelocidade(velocidadeAtual.ToString(), TelaLargura / 4F, TelaAltura / 2F);
             } else {
-                desenharTextoLabel("km/h", TelaLargura / 2.8F, TelaAltura / 2.8F);
-                desenharTextoVelocidade(velocidadeAtual.ToString(), TelaLargura / 2.4F, TelaAltura / 3.3F);
+                desenharTextoLabel("km/h", TelaLargura / 2.5F, TelaAltura / 3F);
+                desenharTextoVelocidade(velocidadeAtual.ToString(), TelaLargura / 2.3F, TelaAltura / 3.5F);
             }
 
             for (var loop = _loopInicio; loop <= _loopFim; loop++) {
@@ -127,17 +127,24 @@ namespace Radar.Controls {
                 float tamY = 0;
 
                 if (loop % 5 == 0) {
+                    PonteiroCorEnum cor = PonteiroCorEnum.Cinza;
                     if (TelaLargura > TelaAltura) {
-                        tamX = (TelaLargura / 3.7F) + (float)Math.Floor(((TelaLargura * 23 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
-                        tamY = (TelaAltura / 2F) + (float)Math.Floor(((TelaLargura * 23 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
+                        tamX = (TelaLargura / 3.8F) + (float)Math.Floor(((TelaLargura * 25 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
+                        tamY = (TelaAltura / 2F) + (float)Math.Floor(((TelaLargura * 25 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
 
                     } else {
-                        tamX = (TelaLargura / 2.25F) + (float)Math.Floor(((TelaAltura * 23 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
+                        tamX = (TelaLargura / 2.2F) + (float)Math.Floor(((TelaAltura * 23 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
                         tamY = (TelaAltura / 3.4F) + (float)Math.Floor(((TelaAltura * 23 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
 
                     }
-
-                    desenharTexto(num.ToString(), tamX, tamY);
+                    if ((loop) <= VelocidadeAtual + 10) {
+                        cor = PonteiroCorEnum.Verde;
+                    }
+                    if (loop == VelocidadeRadar ) {
+                        //strokePaint.Color = Android.Graphics.Color.Red;
+                        cor = PonteiroCorEnum.Vermelho;
+                    }
+                    desenharTexto(num.ToString(), tamX, tamY, cor);
                     num = num + 10;
                 }
             }
@@ -162,12 +169,13 @@ namespace Radar.Controls {
                         rect.Bottom = TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240));
 
                     }
-                    if (velocidadeRadar == VelocidadeRadar) {
+                   
+                    if ((loop) >= VelocidadeAtual + 10) {
+                        cor = PonteiroCorEnum.Verde;
+                    }
+                    if (loop == VelocidadeRadar - 20) {
                         //strokePaint.Color = Android.Graphics.Color.Red;
                         cor = PonteiroCorEnum.Vermelho;
-                    }
-                    if ((VelocidadeAtual - 10) >= VelocidadeAtual) {
-                        cor = PonteiroCorEnum.Verde;
                     }
                     desenharPonteiro(rect, cor);
                 } else {
@@ -181,6 +189,12 @@ namespace Radar.Controls {
                         rect.Right = TelaLargura / 2F + (float)((TelaLargura * 60 / 100) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240));
                         rect.Top = (TelaAltura / 3.5F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
                         rect.Bottom = TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
+                    }
+                    if ((loop) >= VelocidadeAtual - 20) {
+                        cor = PonteiroCorEnum.Verde;
+                    }
+                    if ((loop) <= VelocidadeRadar - 10) {
+                        cor = PonteiroCorEnum.Cinza;
                     }
                     desenharPonteiro(rect, cor);
                 }
