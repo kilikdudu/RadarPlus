@@ -10,5 +10,7 @@ namespace Radar.Utils
     {
         void exibirAviso(string Titulo, string Mensagem);
         bool notificar(int id, string titulo, string descricao);
+        bool notificarGravacaoPercurso();
+        bool pararNotificaoPercurso();
     }
 }

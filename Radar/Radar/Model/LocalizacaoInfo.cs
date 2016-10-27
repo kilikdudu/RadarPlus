@@ -8,7 +8,7 @@ namespace Radar.Model
 {
     public class LocalizacaoInfo
     {
-        public LocalizacaoInfo(double latitude, double longitude, float precisao, float sentido, double velocidade, long tempo) {
+        public LocalizacaoInfo(double latitude, double longitude, float precisao, float sentido, double velocidade, DateTime tempo) {
             Latitude = latitude;
             Longitude = longitude;
             Precisao = precisao;
@@ -17,11 +17,11 @@ namespace Radar.Model
             Tempo = tempo;
         }
 
-        public LocalizacaoInfo(double latitude, double longitude, float precisao, float sentido, double velocidade) : this(latitude, longitude, precisao, sentido, velocidade, 0)
+        public LocalizacaoInfo(double latitude, double longitude, float precisao, float sentido, double velocidade) : this(latitude, longitude, precisao, sentido, velocidade, DateTime.MinValue)
         {
         }
 
-        public LocalizacaoInfo() : this(0, 0, 0, 0, 0, 0)
+        public LocalizacaoInfo() : this(0, 0, 0, 0, 0, DateTime.MinValue)
         {
         }
 
@@ -33,6 +33,6 @@ namespace Radar.Model
         /// Velocidade em Km/h
         /// </summary>
         public double Velocidade { get; set; }
-        public long Tempo { get; set; }
+        public DateTime Tempo { get; set; }
     }
 }

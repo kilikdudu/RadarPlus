@@ -16,17 +16,21 @@ namespace Radar.Pages
 {
     public class MapaPage : ContentPage
     {
-        RadarMap _map;
-        RadarBLL _regraRadar = RadarFactory.create();
+        private RadarMap _map;
+        private RadarBLL _regraRadar = RadarFactory.create();
 
         private static MapaPage _mapaPageAtual;
-        public static MapaPage Atual {
-            get {
+
+        public static MapaPage Atual
+        {
+            get
+            {
                 return _mapaPageAtual;
             }
-            //set {
-            //    _mapaPageAtual = value;
-            //}
+            private set
+            {
+                _mapaPageAtual = value;
+            }
         }
 
         public MapaPage()
@@ -70,7 +74,7 @@ namespace Radar.Pages
                     _map.atualizarAreaVisivel(_map.VisibleRegion);
             };
 
-            _mapaPageAtual = this;
+            Atual = this;
         }
 
         public void atualizarPosicao(LocalizacaoInfo posicao) {
@@ -80,7 +84,7 @@ namespace Radar.Pages
             posicao.Sentido = 180;
             posicao.Velocidade = 30;
             */
-            _regraRadar.calcularLocalizacao(posicao);
+            //_regraRadar.calcularLocalizacao(posicao);
             _map.atualizarPosicao(posicao);
             //map.MoveToRegion(new MapSpan(new Position(posicao.Latitude, posicao.Longitude), Configuracao.GPSDeltaPadrao, Configuracao.GPSDeltaPadrao));
         }
