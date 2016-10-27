@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace Radar.Pages
 {
-    public class MenuItem
+    public class MenuItemInfo
     {
         public string Titulo { get; set; }
         public string Icone { get; set; }

@@ -110,7 +110,8 @@ namespace Radar.BLL
         }
 
         public void calcularLocalizacaoRadar(LocalizacaoInfo local, RadarInfo radar) {
-            double velocidade = local.Velocidade * 3.6;
+            //double velocidade = local.Velocidade * 3.6;
+            double velocidade = local.Velocidade;
             //double angulo = Math.Floor(local.Sentido);
             if (velocidade > radar.Velocidade) {
                 double anguloRelacaoRadar = local.Sentido - radar.Direcao;

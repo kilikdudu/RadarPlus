@@ -151,6 +151,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BroadcastAndroid.cs" />
+    <Compile Include="LocalizacaoServico.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MensagemAndroid.cs" />
     <Compile Include="RadarMapRenderer.cs" />

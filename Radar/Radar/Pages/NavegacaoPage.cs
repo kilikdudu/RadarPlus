@@ -28,7 +28,7 @@ namespace Radar.Pages
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var item = e.SelectedItem as MenuItem;
+            var item = e.SelectedItem as MenuItemInfo;
             if (item != null)
             {
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
