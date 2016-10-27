@@ -210,7 +210,10 @@ namespace Radar.Controls {
         }
         public Velocimetro() {
         }
-
+		public void escreve()
+		{
+			Debug.WriteLine("TESTE");
+		}
 
     }
 
