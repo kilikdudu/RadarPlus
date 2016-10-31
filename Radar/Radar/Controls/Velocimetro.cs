@@ -5,8 +5,8 @@ using Xamarin.Forms;
 
 namespace Radar.Controls {
     public class Velocimetro : BoxView {
-        private const int _loopInicio = 30;
-        private const int _loopFim = 90;
+        private  int _loopInicio = 30;
+        private  int _loopFim = 90;
 
         private float _velocidadeAtual = 0;
         private float _velocidadeRadar = 0;
@@ -130,6 +130,11 @@ namespace Radar.Controls {
                 desenharTextoVelocidade(_velocidadeAtual.ToString(), TelaLargura / 2.3F, TelaAltura / 3.5F);
             }
             int contadorTexto = 0;
+			if (Device.OS == TargetPlatform.iOS)
+			{
+				_loopInicio = 50;
+				_loopFim = 110;
+			}
             for (var loop = _loopInicio; loop <= _loopFim; loop++) {
                 float tamX = 0;
                 float tamY = 0;
@@ -145,31 +150,40 @@ namespace Radar.Controls {
                         tamY = (TelaAltura / 3.4F) + (float)Math.Floor(((TelaAltura * 23 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
 
                     }
-                    if (contadorTexto <= (int)VelocidadeAtual / 2) {
-                        cor = PonteiroCorEnum.Cinza;
-                    }else {
-                        cor = PonteiroCorEnum.Verde;
-                    }
-                    if (contadorTexto == (int)VelocidadeRadar / 2 ) {
-                        cor = PonteiroCorEnum.Vermelho;
-                    }
-					if (contadorTexto > (int)VelocidadeRadar / 2)
-					{
-						cor = PonteiroCorEnum.CinzaClaro;
-					}
-           
+
+						if (contadorTexto <= (int)VelocidadeAtual / 2)
+						{
+							cor = PonteiroCorEnum.Cinza;
+						}
+						else {
+							cor = PonteiroCorEnum.Verde;
+						}
+
+						if (contadorTexto == (int)VelocidadeRadar / 2)
+						{
+							cor = PonteiroCorEnum.Vermelho;
+						}
+
+						if (contadorTexto > (int)VelocidadeRadar / 2)
+						{
+							cor = PonteiroCorEnum.CinzaClaro;
+						}
+
                     desenharTexto(num.ToString(), tamX, tamY, cor);
                     num = num + 10;
                 }
                 contadorTexto++;
-                
-                
-                
+                     
                 
             }
             int count = 0;
-      
-            for (var loop = _loopInicio - 20; loop <= _loopFim - 20; loop++) {
+     		if (Device.OS == TargetPlatform.iOS)
+			{
+				_loopInicio = 10;
+				_loopFim = 70;
+			}
+
+			for (var loop = _loopInicio - 20; loop <= _loopFim - 20; loop++) {
      
                 RetanguloInfo rect = new RetanguloInfo();
                 PonteiroCorEnum cor = PonteiroCorEnum.Cinza;
@@ -188,14 +202,21 @@ namespace Radar.Controls {
                         rect.Bottom = TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240));
 
                     }
-                    if (count <= (120 - (int)VelocidadeAtual) / 2 - 2) {
-                        cor = PonteiroCorEnum.Verde;
-                    } 
 
-                if (count == radarVelocidade()) {
-                         cor = PonteiroCorEnum.Vermelho;                     
-                    }
-                   
+						if (count <= (120 - (int)VelocidadeAtual) / 2 - 2)
+						{
+							cor = PonteiroCorEnum.Verde;
+						}
+
+						if (count < (120 - (int)VelocidadeRadar) / 2 + 2)
+						{
+							cor = PonteiroCorEnum.CinzaClaro;
+						}
+
+						if (count == radarVelocidade())
+						{
+							cor = PonteiroCorEnum.Vermelho;
+						}
                    
                     desenharPonteiro(rect, cor);
                 } else {
@@ -210,9 +231,16 @@ namespace Radar.Controls {
                         rect.Top = (TelaAltura / 3.5F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
                         rect.Bottom = TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
                     }
-                    if (count <= (120 - (int)VelocidadeAtual) / 2) {
-                        cor = PonteiroCorEnum.Verde;
-                    }
+
+						if (count <= (120 - (int)VelocidadeAtual) / 2)
+						{
+							cor = PonteiroCorEnum.Verde;
+						}
+
+						if (count < (120 - (int)VelocidadeRadar) / 2)
+						{
+							cor = PonteiroCorEnum.CinzaClaro;
+						}
                     desenharPonteiro(rect, cor);
                 }
                 count++;
