@@ -86,18 +86,21 @@ namespace Radar.iOS
 			var currentContext2 = UIGraphics.GetCurrentContext();
 			currentContext2.SetLineWidth(3);
 			currentContext2.SetFillColor(UIColor.Red.CGColor);
-			currentContext2.SetStrokeColor(UIColor.Red.CGColor);
+			//currentContext2.SetStrokeColor(UIColor.Red.CGColor);
 
 			switch (cor)
 			{
 				case PonteiroCorEnum.Verde:
-					currentContext2.SetStrokeColor(UIColor.Green.CGColor);
+					currentContext2.SetStrokeColor(UIColor.Gray.CGColor);
 					break;
 				case PonteiroCorEnum.Vermelho:
 					currentContext2.SetStrokeColor(UIColor.Red.CGColor);
 					break;
+				case PonteiroCorEnum.CinzaClaro:
+					currentContext2.SetStrokeColor(UIColor.LightGray.CGColor);
+					break;
 				default:
-					currentContext2.SetStrokeColor(UIColor.Gray.CGColor);
+					currentContext2.SetStrokeColor(UIColor.Green.CGColor);
 					break;
 			}
 			currentContext2.MoveTo(rect.Top, rect.Left + 185);
@@ -115,17 +118,19 @@ namespace Radar.iOS
 			currentContext.SetTextDrawingMode(CGTextDrawingMode.Fill);
 			currentContext.SetFillColor(UIColor.Red.CGColor);
 
-
 			switch (cor)
 			{
 				case PonteiroCorEnum.Verde:
-					currentContext.SetFillColor(UIColor.Green.CGColor);
+					currentContext.SetFillColor(UIColor.Gray.CGColor);
 					break;
 				case PonteiroCorEnum.Vermelho:
 					currentContext.SetFillColor(UIColor.Red.CGColor);
 					break;
+				case PonteiroCorEnum.CinzaClaro:
+					currentContext.SetFillColor(UIColor.LightGray.CGColor);
+					break;
 				default:
-					currentContext.SetFillColor(UIColor.Gray.CGColor);
+					currentContext.SetFillColor(UIColor.Green.CGColor);
 					break;
 			}
 			currentContext.ShowTextAtPoint(y - 10, x + 200, Texto);
