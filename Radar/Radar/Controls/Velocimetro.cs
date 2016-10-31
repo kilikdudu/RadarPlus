@@ -125,9 +125,9 @@ namespace Radar.Controls {
             for (var loop = _loopInicio; loop <= _loopFim; loop++) {
                 float tamX = 0;
                 float tamY = 0;
-
+                PonteiroCorEnum cor = PonteiroCorEnum.Cinza;
                 if (loop % 5 == 0) {
-                    PonteiroCorEnum cor = PonteiroCorEnum.Cinza;
+                   
                     if (TelaLargura > TelaAltura) {
                         tamX = (TelaLargura / 3.8F) + (float)Math.Floor(((TelaLargura * 25 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
                         tamY = (TelaAltura / 2F) + (float)Math.Floor(((TelaLargura * 25 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
@@ -137,16 +137,23 @@ namespace Radar.Controls {
                         tamY = (TelaAltura / 3.4F) + (float)Math.Floor(((TelaAltura * 23 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
 
                     }
-                    if ((loop) <= VelocidadeAtual + 10) {
+                    if (contadorTexto <= (int)VelocidadeAtual / 2) {
+                        cor = PonteiroCorEnum.Cinza;
+                    }else {
                         cor = PonteiroCorEnum.Verde;
                     }
-                    if (contadorTexto == radarVelocidade() ) {
+                    if (contadorTexto == (int)VelocidadeRadar / 2 ) {
                         cor = PonteiroCorEnum.Vermelho;
                     }
-                    contadorTexto++;
+           
                     desenharTexto(num.ToString(), tamX, tamY, cor);
                     num = num + 10;
                 }
+                contadorTexto++;
+                
+                
+                
+                
             }
             int count = 0;
       
@@ -170,16 +177,14 @@ namespace Radar.Controls {
 
                     }
 
-                    if ((loop) <= VelocidadeAtual + 10) {
+                    if (count <= (120 - (int)VelocidadeAtual) / 2 + 2) {
                         cor = PonteiroCorEnum.Verde;
                     }
-
-
-
+                    
                     if (count == radarVelocidade()) {
                          cor = PonteiroCorEnum.Vermelho;                     
                     }
-                    count++;
+                   
                    
                     desenharPonteiro(rect, cor);
                 } else {
@@ -194,17 +199,14 @@ namespace Radar.Controls {
                         rect.Top = (TelaAltura / 3.5F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
                         rect.Bottom = TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
                     }
-                    if ((loop) <= VelocidadeAtual + 10) {
+                    if (count <= (120 - (int)VelocidadeAtual) / 2) {
                         cor = PonteiroCorEnum.Verde;
                     }
-                    count++;
-                    Debug.WriteLine("LoopInicio: " + _loopInicio);
-                    Debug.WriteLine("LoopFim: " + _loopFim);
-                    Debug.WriteLine("count: " + count);
-                    Debug.WriteLine("loop: " + loop);
+                   
+                    
                     desenharPonteiro(rect, cor);
                 }
-                
+                count++;
             }
             
         }
