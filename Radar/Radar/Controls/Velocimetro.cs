@@ -17,24 +17,14 @@ namespace Radar.Controls {
 
         public float VelocidadeAtual
         {
-            get {
-                return _velocidadeAtual;
-            }
-            set {
-                _velocidadeAtual = value;
-                //this.desenhar();
-            }
+            get { return 90; }
+            set { velocidadeAtual = 90; }
         }
         
         public float VelocidadeRadar
         {
-            get {
-                return _velocidadeRadar;
-            }
-            set {
-                _velocidadeAtual = value;
-                //this.desenhar();
-            }
+            get { return 110; }
+            set { velocidadeRadar = 110; }
         }
 
         public float TelaLargura
@@ -140,13 +130,13 @@ namespace Radar.Controls {
                 desenharTextoLabel("km/h", TelaLargura / 2.5F, TelaAltura / 3F);
                 desenharTextoVelocidade(_velocidadeAtual.ToString(), TelaLargura / 2.3F, TelaAltura / 3.5F);
             }
-
+            int contadorTexto = 0;
             for (var loop = _loopInicio; loop <= _loopFim; loop++) {
                 float tamX = 0;
                 float tamY = 0;
-
+                PonteiroCorEnum cor = PonteiroCorEnum.Cinza;
                 if (loop % 5 == 0) {
-                    PonteiroCorEnum cor = PonteiroCorEnum.Cinza;
+                   
                     if (TelaLargura > TelaAltura) {
                         tamX = (TelaLargura / 3.8F) + (float)Math.Floor(((TelaLargura * 25 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
                         tamY = (TelaAltura / 2F) + (float)Math.Floor(((TelaLargura * 25 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
@@ -156,26 +146,33 @@ namespace Radar.Controls {
                         tamY = (TelaAltura / 3.4F) + (float)Math.Floor(((TelaAltura * 23 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
 
                     }
-                    if ((loop) <= VelocidadeAtual + 10) {
+                    if (contadorTexto <= (int)VelocidadeAtual / 2) {
+                        cor = PonteiroCorEnum.Cinza;
+                    }else {
                         cor = PonteiroCorEnum.Verde;
                     }
-                    if (loop == VelocidadeRadar ) {
-                        //strokePaint.Color = Android.Graphics.Color.Red;
+                    if (contadorTexto == (int)VelocidadeRadar / 2 ) {
                         cor = PonteiroCorEnum.Vermelho;
                     }
+           
                     desenharTexto(num.ToString(), tamX, tamY, cor);
                     num = num + 10;
                 }
+                contadorTexto++;
+                
+                
+                
+                
             }
+            int count = 0;
+      
             for (var loop = _loopInicio - 20; loop <= _loopFim - 20; loop++) {
-                //valor referencia var tamX =  350;
-                //valor referencia var tamY =  350;
-
+     
                 RetanguloInfo rect = new RetanguloInfo();
                 PonteiroCorEnum cor = PonteiroCorEnum.Cinza;
                 if (loop % 5 == 0) {
                     if (TelaLargura > TelaAltura) {
-                        Debug.WriteLine("Width: " + TelaLargura);
+                       
                         rect.Left = (TelaLargura / 3.5F) + (float)((TelaLargura * 40 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
                         rect.Right = TelaLargura / 3.5F + (float)((TelaLargura * 40 / 100) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240));
                         rect.Top = (TelaAltura / 2F) + (float)((TelaLargura * 40 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
@@ -188,14 +185,15 @@ namespace Radar.Controls {
                         rect.Bottom = TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240));
 
                     }
-                   
-                    if (loop <= VelocidadeAtual + 10) {
+                    if (count <= (120 - (int)VelocidadeAtual) / 2 - 2) {
                         cor = PonteiroCorEnum.Verde;
+                    } 
+
+                if (count == radarVelocidade()) {
+                         cor = PonteiroCorEnum.Vermelho;                     
                     }
-                    if (loop == VelocidadeRadar - 20) {
-                        //strokePaint.Color = Android.Graphics.Color.Red;
-                        cor = PonteiroCorEnum.Vermelho;
-                    }
+                   
+                   
                     desenharPonteiro(rect, cor);
                 } else {
                     if (TelaLargura > TelaAltura) {
@@ -209,17 +207,16 @@ namespace Radar.Controls {
                         rect.Top = (TelaAltura / 3.5F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
                         rect.Bottom = TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
                     }
-                    if (loop <= VelocidadeAtual - 20) {
+                    if (count <= (120 - (int)VelocidadeAtual) / 2) {
                         cor = PonteiroCorEnum.Verde;
-                    }
-                    if (loop <= VelocidadeRadar - 10) {
-                        cor = PonteiroCorEnum.Cinza;
                     }
                     desenharPonteiro(rect, cor);
                 }
-
+                count++;
             }
+            
         }
+       
         private float Resize(float input) {
             return input * density;
         }
@@ -227,11 +224,40 @@ namespace Radar.Controls {
         private float Resize(double input) {
             return Resize((float)input);
         }
-
-		public void escreve()
-		{
-			Debug.WriteLine("TESTE");
-		}
+	public int radarVelocidade()
+	{
+            int fator = 0;
+            switch ((int)VelocidadeRadar) {
+                case 110:
+                    fator = 5;
+                    break;
+                case 100:
+                    fator = 10;
+                    break;
+                case 90:
+                    fator = 15;
+                    break;
+                case 80:
+                    fator = 20;
+                    break;
+                case 70:
+                    fator = 25;
+                    break;
+                case 60:
+                    fator = 30;
+                    break;
+                case 50:
+                    fator = 35;
+                    break;
+                case 40:
+                    fator = 40;
+                    break;
+                case 30:
+                    fator = 45;
+                    break;
+            }
+            return fator;
+        }
 
     }
 

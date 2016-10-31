@@ -45,13 +45,13 @@ namespace Radar.Droid {
             }
             switch (cor) {
                 case PonteiroCorEnum.Verde:
-                    strokePaint.Color = Android.Graphics.Color.Green;
+                    strokePaint.Color = Android.Graphics.Color.Gray;
                     break;
                 case PonteiroCorEnum.Vermelho:
                     strokePaint.Color = Android.Graphics.Color.Red;
                     break;
                 default:
-                    strokePaint.Color = Android.Graphics.Color.Gray;
+                    strokePaint.Color = Android.Graphics.Color.Green;
                     break;
             }
             _canvas.DrawText(Texto, x, y, strokePaint);
@@ -105,7 +105,7 @@ namespace Radar.Droid {
             } else {
                 altura = Resources.DisplayMetrics.HeightPixels;
             }
-            Console.WriteLine("altura: " + altura);
+           
             return altura;
         }
         public float pegarLarguraTela() {
@@ -115,7 +115,7 @@ namespace Radar.Droid {
             } else {
                 largura = Resources.DisplayMetrics.WidthPixels;
             }
-            Console.WriteLine("largura: " + largura);
+           
             return largura;
         }
         public void desenharPonteiro(RetanguloInfo rect, PonteiroCorEnum cor) {
@@ -126,13 +126,13 @@ namespace Radar.Droid {
             strokePaint.Color = Android.Graphics.Color.Blue;
             switch (cor) {
                 case PonteiroCorEnum.Verde:
-                    strokePaint.Color = Android.Graphics.Color.Green;
+                    strokePaint.Color = Android.Graphics.Color.Gray;
                     break;
                 case PonteiroCorEnum.Vermelho:
                     strokePaint.Color = Android.Graphics.Color.Red;
                     break;
                 default:
-                    strokePaint.Color = Android.Graphics.Color.Gray;
+                    strokePaint.Color = Android.Graphics.Color.Green;
                     break;
             }
 
