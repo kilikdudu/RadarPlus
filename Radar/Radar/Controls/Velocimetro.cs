@@ -14,17 +14,16 @@ namespace Radar.Controls {
         public Velocimetro()
         {
         }
-
         public float VelocidadeAtual
         {
-            get { return 90; }
-            set { velocidadeAtual = 90; }
+            get { return _velocidadeAtual; }
+            set { _velocidadeAtual = value; }
         }
-        
+
         public float VelocidadeRadar
         {
-            get { return 110; }
-            set { velocidadeRadar = 110; }
+            get { return _velocidadeRadar; }
+            set { _velocidadeRadar = value; }
         }
 
         public float TelaLargura
