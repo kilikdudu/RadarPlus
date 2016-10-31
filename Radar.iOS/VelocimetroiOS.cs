@@ -27,6 +27,9 @@ namespace Radar.iOS
 
 		public override void Draw(CGRect rect)
 		{
+			var currentContext = UIGraphics.GetCurrentContext();
+			currentContext.TranslateCTM(0, Bounds.Height);
+			currentContext.ScaleCTM(1f, -1f);
 			ShapeView.desenhar();
 		}
 
@@ -80,38 +83,77 @@ namespace Radar.iOS
 		}
 		public void desenharPonteiro(RetanguloInfo rect, PonteiroCorEnum cor)
 		{
-			var currentContext = UIGraphics.GetCurrentContext();
-			currentContext.SetLineWidth(3);
-			currentContext.SetFillColor(UIColor.Red.CGColor);
-			currentContext.SetStrokeColor(UIColor.Red.CGColor);
+			var currentContext2 = UIGraphics.GetCurrentContext();
+			currentContext2.SetLineWidth(3);
+			currentContext2.SetFillColor(UIColor.Red.CGColor);
+			currentContext2.SetStrokeColor(UIColor.Red.CGColor);
 
-			currentContext.MoveTo(rect.Left, rect.Top);
-			currentContext.AddLineToPoint(rect.Right, rect.Bottom);
-			currentContext.TranslateCTM(0, Bounds.Height);
-			currentContext.ScaleCTM(1, -1);
-			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
+			switch (cor)
+			{
+				case PonteiroCorEnum.Verde:
+					currentContext2.SetStrokeColor(UIColor.Green.CGColor);
+					break;
+				case PonteiroCorEnum.Vermelho:
+					currentContext2.SetStrokeColor(UIColor.Red.CGColor);
+					break;
+				default:
+					currentContext2.SetStrokeColor(UIColor.Gray.CGColor);
+					break;
+			}
+			currentContext2.MoveTo(rect.Top, rect.Left + 185);
+			currentContext2.AddLineToPoint(rect.Bottom, rect.Right + 185);
+
+			currentContext2.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 
 
 		}
 
 		public void desenharTexto(string Texto, float x, float y, PonteiroCorEnum cor)
 		{
-			
+			var currentContext = UIGraphics.GetCurrentContext();
+			currentContext.SelectFont("Arial", 16f, CGTextEncoding.MacRoman);
+			currentContext.SetTextDrawingMode(CGTextDrawingMode.Fill);
+			currentContext.SetFillColor(UIColor.Red.CGColor);
+
+
+			switch (cor)
+			{
+				case PonteiroCorEnum.Verde:
+					currentContext.SetFillColor(UIColor.Green.CGColor);
+					break;
+				case PonteiroCorEnum.Vermelho:
+					currentContext.SetFillColor(UIColor.Red.CGColor);
+					break;
+				default:
+					currentContext.SetFillColor(UIColor.Gray.CGColor);
+					break;
+			}
+			currentContext.ShowTextAtPoint(y - 10, x + 200, Texto);
+			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 		}
 
 		public void desenharTextoVelocidade(string Texto, float x, float y)
 		{
-			
+			var currentContext = UIGraphics.GetCurrentContext();
+			currentContext.SelectFont("Arial", 16f, CGTextEncoding.MacRoman);
+			currentContext.SetTextDrawingMode(CGTextDrawingMode.Fill);
+			currentContext.SetFillColor(UIColor.Red.CGColor);
+			//currentContext.TranslateCTM(0, Bounds.Height);
+			//currentContext.ScaleCTM(1, -1);
+			currentContext.ShowTextAtPoint(x, y + 185, Texto);
+
+			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 		}
+
 		public void desenharTextoLabel(string Texto, float x, float y)
 		{
 			var currentContext = UIGraphics.GetCurrentContext();
 			currentContext.SelectFont("Arial", 16f, CGTextEncoding.MacRoman);
 			currentContext.SetTextDrawingMode(CGTextDrawingMode.Fill);
 			currentContext.SetFillColor(UIColor.Red.CGColor);
-			currentContext.TranslateCTM(0, Bounds.Height);
-			currentContext.ScaleCTM(1, -1);
-			currentContext.ShowTextAtPoint(x - 10, y, Texto);
+			//currentContext.TranslateCTM(0, Bounds.Height);
+			//currentContext.ScaleCTM(1, -1);
+			currentContext.ShowTextAtPoint(x, y + 185, Texto);
 
 			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 

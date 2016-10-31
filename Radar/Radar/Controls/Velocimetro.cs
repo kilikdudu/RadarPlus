@@ -153,6 +153,10 @@ namespace Radar.Controls {
                     if (contadorTexto == (int)VelocidadeRadar / 2 ) {
                         cor = PonteiroCorEnum.Vermelho;
                     }
+					if (contadorTexto > (int)VelocidadeRadar / 2)
+					{
+						cor = PonteiroCorEnum.CinzaClaro;
+					}
            
                     desenharTexto(num.ToString(), tamX, tamY, cor);
                     num = num + 10;
