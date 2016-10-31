@@ -83,6 +83,8 @@
     <Compile Include="Utils\IMensagem.cs" />
     <Compile Include="Utils\MensagemUtils.cs" />
     <Compile Include="App.cs" />
+    <Compile Include="Pages\CustomMap.cs" />
+    <Compile Include="Pages\CustomPin.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\RadarListaPage.xaml">

@@ -11,7 +11,12 @@ namespace Radar.iOS
 {
     public class MensagemiOS: IMensagem
     {
-        public void exibirAviso(string Titulo, string Mensagem)
+		public bool enviarEmail(string para, string titulo, string mensagem)
+		{
+			return true;
+		}
+
+		public void exibirAviso(string Titulo, string Mensagem)
         {
         }
 

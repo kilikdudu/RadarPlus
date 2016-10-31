@@ -16,7 +16,7 @@ namespace Radar.Pages
         {
             masterPage = new MenuPage();
             Master = masterPage;
-            Detail = new NavigationPage(new VelocimetroPage());
+			Detail = new NavigationPage(new MapaPage());
 
             masterPage.ListView.ItemSelected += OnItemSelected;
 
