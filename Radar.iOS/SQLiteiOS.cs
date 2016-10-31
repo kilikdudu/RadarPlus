@@ -12,7 +12,7 @@ using Xamarin.Forms;
 
 namespace Radar.iOS
 {
-    public class SQLiteiOS
+	public class SQLiteiOS: ISQLite
     {
         public SQLiteConnection GetConnection()
         {

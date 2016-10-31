@@ -38,5 +38,9 @@ namespace Radar.iOS
         {
             throw new NotImplementedException();
         }
+
+		public bool enviarEmail(string para, string titulo, string mensagem) {
+			return false;
+		}
     }
 }
