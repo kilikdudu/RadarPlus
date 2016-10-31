@@ -19,6 +19,8 @@ namespace Radar.BLL
         private static int _indexPercuso = 0;
         private static DateTime _ultimoPonto;
 
+        private static float velocidadeAtual = 0;
+
         public static bool Simulado {
             get {
                 return _simulando;
@@ -46,7 +48,11 @@ namespace Radar.BLL
 
                 if (VelocimetroPage.Atual != null)
                 {
-                    VelocimetroPage.Atual.Velocimentro.VelocidadeAtual = (float)local.Velocidade;
+
+                    //VelocimetroPage.Atual.Velocimentro.VelocidadeAtual = (float)local.Velocidade;
+                    VelocimetroPage.Atual.Velocimentro.VelocidadeAtual = velocidadeAtual;
+                    velocidadeAtual  +=  5;
+
                     if (RadarBLL.RadarAtual != null)
                         VelocimetroPage.Atual.Velocimentro.VelocidadeRadar = RadarBLL.RadarAtual.Velocidade;
                     VelocimetroPage.Atual.Velocimentro.redesenhar();
