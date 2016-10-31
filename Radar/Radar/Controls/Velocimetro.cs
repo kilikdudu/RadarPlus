@@ -5,16 +5,22 @@ using Xamarin.Forms;
 
 namespace Radar.Controls {
     public class Velocimetro : BoxView {
-        public const int _loopInicio = 30;
-        public const int _loopFim = 90;
+        private const int _loopInicio = 30;
+        private const int _loopFim = 90;
 
-        private float velocidadeAtual;
+        private float _velocidadeAtual = 0;
+        private float _velocidadeRadar = 0;
+
+        public Velocimetro()
+        {
+        }
+
         public float VelocidadeAtual
         {
             get { return 90; }
             set { velocidadeAtual = 90; }
         }
-        private float velocidadeRadar;
+        
         public float VelocidadeRadar
         {
             get { return 110; }
@@ -111,15 +117,18 @@ namespace Radar.Controls {
         public delegate float pegarLarguraTelaHandler();
         public pegarLarguraTelaHandler pegarLarguraTela;
 
+        public delegate void redesenharHandler();
+        public redesenharHandler redesenhar;
+
         public void desenhar() {
 
             int num = 0;
             if (TelaLargura > TelaAltura) {
                 desenharTextoLabel("km/h", TelaLargura / 4.3F, TelaAltura / 1.7F);
-                desenharTextoVelocidade(velocidadeAtual.ToString(), TelaLargura / 4F, TelaAltura / 2F);
+                desenharTextoVelocidade(_velocidadeAtual.ToString(), TelaLargura / 4F, TelaAltura / 2F);
             } else {
                 desenharTextoLabel("km/h", TelaLargura / 2.5F, TelaAltura / 3F);
-                desenharTextoVelocidade(velocidadeAtual.ToString(), TelaLargura / 2.3F, TelaAltura / 3.5F);
+                desenharTextoVelocidade(_velocidadeAtual.ToString(), TelaLargura / 2.3F, TelaAltura / 3.5F);
             }
             int contadorTexto = 0;
             for (var loop = _loopInicio; loop <= _loopFim; loop++) {
@@ -176,7 +185,6 @@ namespace Radar.Controls {
                         rect.Bottom = TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240));
 
                     }
-
                     if (count <= (120 - (int)VelocidadeAtual) / 2 - 2) {
                         cor = PonteiroCorEnum.Verde;
                     } 
@@ -202,8 +210,6 @@ namespace Radar.Controls {
                     if (count <= (120 - (int)VelocidadeAtual) / 2) {
                         cor = PonteiroCorEnum.Verde;
                     }
-                   
-                    
                     desenharPonteiro(rect, cor);
                 }
                 count++;
@@ -218,10 +224,8 @@ namespace Radar.Controls {
         private float Resize(double input) {
             return Resize((float)input);
         }
-        public Velocimetro() {
-        }
-		public int radarVelocidade()
-		{
+	public int radarVelocidade()
+	{
             int fator = 0;
             switch ((int)VelocidadeRadar) {
                 case 110:

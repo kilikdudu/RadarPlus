@@ -23,12 +23,10 @@ namespace Radar.Pages
 
         public static MapaPage Atual
         {
-            get
-            {
+            get {
                 return _mapaPageAtual;
             }
-            private set
-            {
+            private set {
                 _mapaPageAtual = value;
             }
         }

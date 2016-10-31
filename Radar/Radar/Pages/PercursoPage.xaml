@@ -4,17 +4,19 @@
              x:Class="Radar.Pages.PercursoPage"
              Title="Meus Percursos">
   <StackLayout Orientation="Vertical">
-    <ListView x:Name="percursoListView" ItemTapped="abrirPercurso">
+    <ListView x:Name="percursoListView" ItemTapped="abrirPercurso" RowHeight="60">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
             <ViewCell.ContextActions>
+              <MenuItem Clicked="simularPercurso" CommandParameter="{Binding .}" Text="Simular" />
               <MenuItem Clicked="excluirPercurso" CommandParameter="{Binding .}" Text="Excluir" IsDestructive="True" />
             </ViewCell.ContextActions>
-            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-              <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-                <Label Text="{Binding Nome}" VerticalTextAlignment="Center" FontSize="Medium" />
-                <Label Text="hint: trigger a context action" VerticalTextAlignment="Center" FontSize="Small" />
+            <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+              <Label Text="{Binding Nome}" VerticalTextAlignment="Center" FontSize="Medium" />
+              <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                <Label Text="Tempo Gasto:" FontSize="Small" />
+                <Label Text="{Binding TempoGravacaoStr}" FontSize="Small" />
               </StackLayout>
             </StackLayout>
           </ViewCell>

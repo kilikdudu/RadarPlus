@@ -23,7 +23,8 @@ namespace Radar.Pages
         {
             PercursoBLL regraPercurso = PercursoFactory.create();
             percursoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
-            this.BindingContext = regraPercurso.listar();
+            var percursos = regraPercurso.listar();
+            this.BindingContext = percursos;
         }
 
         public void gravarPercurso(object sender, EventArgs e) {
@@ -63,6 +64,13 @@ namespace Radar.Pages
             PercursoBLL regraPercurso = PercursoFactory.create();
             regraPercurso.excluir(percurso.Id);
             OnAppearing();
+        }
+
+        public void simularPercurso(object sender, EventArgs e)
+        {
+            PercursoInfo percurso = (PercursoInfo)((MenuItem)sender).BindingContext;
+            if (percurso != null)
+                GPSUtils.simularPercurso(percurso.Id);
         }
     }
 }

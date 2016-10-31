@@ -17,7 +17,7 @@ namespace Radar.BLL
 
         private const int TEMPO_ATUALIZACAO_PONTO = 5;
         private const int TEMPO_MINIMO_PARADO = 120;
-        private const int VELOCIDADE_MAXIMA_PARADO = 10;
+        private const int VELOCIDADE_MAXIMA_PARADO = 3;
 
         private static PercursoInfo _percursoAtual;
         private static bool _gravando = false;
@@ -51,12 +51,21 @@ namespace Radar.BLL
 
         private void atualizar(PercursoInfo percurso) {
             if (percurso != null)
-                percurso.Pontos = _pontoDB.listar(percurso.Id);
+            {
+                var pontos = _pontoDB.listar(percurso.Id);
+                if (pontos.Count() > 0)
+                {
+                    DateTime maiorTempo = (from p in pontos select p.Data).Max();
+                    DateTime menorTempo = (from p in pontos select p.Data).Min();
+                    percurso.TempoGravacao = maiorTempo.Subtract(menorTempo);
+                }
+                percurso.Pontos = pontos;
+            }
         }
 
         public IList<PercursoInfo> listar() {
             IList<PercursoInfo> percursos = _percursoDB.listar();
-            foreach (PercursoInfo percurso in _percursoDB.listar()) {
+            foreach (PercursoInfo percurso in percursos) {
                 atualizar(percurso);
             }
             return percursos;
@@ -109,6 +118,8 @@ namespace Radar.BLL
             PercursoPontoInfo ponto = new PercursoPontoInfo()
             {
                 IdPercurso = PercursoAtual.Id,
+                Latitude = local.Latitude,
+                Longitude = local.Longitude,
                 Velocidade = local.Velocidade,
                 Data = local.Tempo,
                 Movimento = emMovimento

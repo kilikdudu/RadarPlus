@@ -13,6 +13,11 @@ namespace Radar.Model
         [AutoIncrement, PrimaryKey]
         public int Id { get; set; }
         public int IdPercurso { get; set; }
+        public int IdRadar { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public float Sentido { get; set; }
+        public float Precisao { get; set; }
         public DateTime Data { get; set; }
         public double Velocidade { get; set; }
         public bool Movimento { get; set; }
