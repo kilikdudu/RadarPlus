@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Radar.iOS
 {
-    public class LocationUpdatedEventArgs : EventArgs
+    public class GPSAtualizacaoEventArgs : EventArgs
     {
         CLLocation location;
 
-        public LocationUpdatedEventArgs(CLLocation location)
+        public GPSAtualizacaoEventArgs(CLLocation location)
         {
             this.location = location;
         }
