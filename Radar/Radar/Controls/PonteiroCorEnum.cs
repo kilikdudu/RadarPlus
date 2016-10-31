@@ -10,6 +10,7 @@ namespace Radar.Controls
     {
         Verde,
         Vermelho,
-        Cinza
+        Cinza,
+		CinzaClaro
     }
 }
