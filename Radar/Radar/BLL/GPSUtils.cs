@@ -49,9 +49,9 @@ namespace Radar.BLL
                 if (VelocimetroPage.Atual != null)
                 {
 
-                    //VelocimetroPage.Atual.Velocimentro.VelocidadeAtual = (float)local.Velocidade;
-                    VelocimetroPage.Atual.Velocimentro.VelocidadeAtual = velocidadeAtual;
-                    velocidadeAtual  +=  5;
+                    VelocimetroPage.Atual.Velocimentro.VelocidadeAtual = (float)local.Velocidade;
+                    //VelocimetroPage.Atual.Velocimentro.VelocidadeAtual = velocidadeAtual;
+                    //velocidadeAtual  +=  5;
 
                     if (RadarBLL.RadarAtual != null)
                         VelocimetroPage.Atual.Velocimentro.VelocidadeRadar = RadarBLL.RadarAtual.Velocidade;
