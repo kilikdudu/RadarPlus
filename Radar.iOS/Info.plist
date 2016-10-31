@@ -42,5 +42,9 @@
 	<array>
 		<string>location</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Necessário para geolocalizar a imagem.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Necessário para geolocalizar a imagem.</string>
 </dict>
 </plist>
