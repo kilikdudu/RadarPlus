@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Radar.Pages.VelocimetroPage"
              xmlns:controls="clr-namespace:Radar.Controls;assembly=Radar">
-  <controls:Velocimetro x:Name="velocimentroControl" ShapeType="Box" StrokeColor="#6633FF" Padding="5" VelocidadeAtual="50" VelocidadeRadar="80" />
+  <controls:Velocimetro x:Name="velocimentroControl" ShapeType="Box" StrokeColor="#6633FF" Padding="5" VelocidadeAtual="40" VelocidadeRadar="60" />
   <!--StackLayout Orientation="Vertical">
     <Label x:name="velocidadeRadar" Text="50 km/h" />
     <Label x:name="distanciaRadar" Text="0m" />
