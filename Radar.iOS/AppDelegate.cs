@@ -18,16 +18,12 @@ namespace Radar.iOS
 			global::Xamarin.Forms.Forms.Init();
             global::Xamarin.FormsMaps.Init();
 
+            LocationManager gps = new LocationManager();
+            gps.StartLocationUpdates();
+
             LoadApplication(new App());  // method is new in 1.3
 
 			return base.FinishedLaunching(app, options);
 		}
-
-        public override void OnActivated(UIApplication uiApplication)
-        {
-            base.OnActivated(uiApplication);
-            LocationManager gps = new LocationManager();
-            gps.StartLocationUpdates();
-        }
     }
 }
