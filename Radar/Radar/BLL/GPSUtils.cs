@@ -61,8 +61,10 @@ namespace Radar.BLL
                     //velocidadeAtual  +=  5;
 
                     if (RadarBLL.RadarAtual != null)
+                    {
                         VelocimetroPage.Atual.Velocimentro.VelocidadeRadar = RadarBLL.RadarAtual.Velocidade;
-                    VelocimetroPage.Atual.Velocimentro.redesenhar();
+                        VelocimetroPage.Atual.Velocimentro.redesenhar();
+                    }
                 }
             }
             catch (Exception e) {
