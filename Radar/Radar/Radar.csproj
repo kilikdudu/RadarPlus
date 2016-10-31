@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="BLL\Configuracao.cs" />
     <Compile Include="BLL\GPSUtils.cs" />
+    <Compile Include="BLL\IGPS.cs" />
     <Compile Include="BLL\MapaBLL.cs" />
     <Compile Include="BLL\PercursoBLL.cs" />
     <Compile Include="BLL\RadarBLL.cs" />

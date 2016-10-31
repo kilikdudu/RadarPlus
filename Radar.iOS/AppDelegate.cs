@@ -21,8 +21,8 @@ namespace Radar.iOS
 
             bool retorno = base.FinishedLaunching(app, options);
 
-            LocationManager gps = new LocationManager();
-            gps.StartLocationUpdates();
+            GPSiOS gps = new GPSiOS();
+            gps.inicializar();
 
             return retorno;
         }

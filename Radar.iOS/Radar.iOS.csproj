@@ -86,8 +86,8 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="LocationManager.cs" />
-    <Compile Include="LocationUpdatedEventArgs.cs" />
+    <Compile Include="GPSiOS.cs" />
+    <Compile Include="GPSAtualizacaoEventArgs.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="MensagemiOS.cs" />
