@@ -7,6 +7,8 @@ using UIKit;
 using Radar.BLL;
 using Radar.iOS;
 using Xamarin.Forms;
+using Radar.Model;
+using Foundation;
 
 [assembly: Dependency(typeof(GPSiOS))]
 
@@ -23,21 +25,28 @@ namespace Radar.iOS
             this.locMgr = new CLLocationManager();
             this.locMgr.PausesLocationUpdatesAutomatically = false;
 
-            // iOS 8 has additional permissions requirements
             if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
             {
                 locMgr.RequestAlwaysAuthorization(); // works in background
                                                      //locMgr.RequestWhenInUseAuthorization (); // only in foreground
             }
-
-            // iOS 9 requires the following for background location updates
-            // By default this is set to false and will not allow background updates
             if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
             {
                 locMgr.AllowsBackgroundLocationUpdates = true;
             }
 
-            LocationUpdated += PrintLocation;
+            LocationUpdated += (sender, e) => {
+                CLLocation location = e.Location;
+                LocalizacaoInfo local = new LocalizacaoInfo();
+                local.Latitude = location.Coordinate.Latitude;
+                local.Longitude = location.Coordinate.Longitude;
+                local.Precisao = (float)((location.HorizontalAccuracy + location.VerticalAccuracy) / 2);
+                local.Sentido = (float)location.Course;
+                local.Tempo = NSDateToDateTime(location.Timestamp);
+                local.Velocidade = location.Speed * 3.6;
+
+                GPSUtils.atualizarPosicao(local);
+            };
 
         }
 
@@ -48,17 +57,11 @@ namespace Radar.iOS
 
         public bool inicializar()
         {
-
-            // We need the user's permission for our app to use the GPS in iOS. This is done either by the user accepting
-            // the popover when the app is first launched, or by changing the permissions for the app in Settings
             if (CLLocationManager.LocationServicesEnabled)
             {
-
-                //set the desired accuracy, in meters
                 LocMgr.DesiredAccuracy = 1;
 
                 LocMgr.LocationsUpdated += (object sender, CLLocationsUpdatedEventArgs e) => {
-                    // fire our custom Location Updated event
                     LocationUpdated(this, new GPSAtualizacaoEventArgs(e.Locations[e.Locations.Length - 1]));
                 };
 
@@ -68,16 +71,10 @@ namespace Radar.iOS
             return false;
         }
 
-        //This will keep going in the background and the foreground
-        public void PrintLocation(object sender, GPSAtualizacaoEventArgs e)
+        public DateTime NSDateToDateTime(NSDate date)
         {
-
-            CLLocation location = e.Location;
-            Console.WriteLine("Altitude: " + location.Altitude + " meters");
-            Console.WriteLine("Longitude: " + location.Coordinate.Longitude);
-            Console.WriteLine("Latitude: " + location.Coordinate.Latitude);
-            Console.WriteLine("Course: " + location.Course);
-            Console.WriteLine("Speed: " + location.Speed);
+            DateTime reference = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(2001, 1, 1, 0, 0, 0));
+            return reference.AddSeconds(date.SecondsSinceReferenceDate);
         }
 
     }
