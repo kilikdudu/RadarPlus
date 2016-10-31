@@ -5,20 +5,36 @@ using Xamarin.Forms;
 
 namespace Radar.Controls {
     public class Velocimetro : BoxView {
-        public const int _loopInicio = 30;
-        public const int _loopFim = 90;
+        private const int _loopInicio = 30;
+        private const int _loopFim = 90;
 
-        private float velocidadeAtual;
+        private float _velocidadeAtual = 0;
+        private float _velocidadeRadar = 0;
+
+        public Velocimetro()
+        {
+        }
+
         public float VelocidadeAtual
         {
-            get { return 40; }
-            set { velocidadeAtual = 40; }
+            get {
+                return _velocidadeAtual;
+            }
+            set {
+                _velocidadeAtual = value;
+                //this.desenhar();
+            }
         }
-        private float velocidadeRadar;
+        
         public float VelocidadeRadar
         {
-            get { return 60; }
-            set { velocidadeAtual = 60; }
+            get {
+                return _velocidadeRadar;
+            }
+            set {
+                _velocidadeAtual = value;
+                //this.desenhar();
+            }
         }
 
         public float TelaLargura
@@ -111,15 +127,18 @@ namespace Radar.Controls {
         public delegate float pegarLarguraTelaHandler();
         public pegarLarguraTelaHandler pegarLarguraTela;
 
+        public delegate void redesenharHandler();
+        public redesenharHandler redesenhar;
+
         public void desenhar() {
 
             int num = 0;
             if (TelaLargura > TelaAltura) {
                 desenharTextoLabel("km/h", TelaLargura / 4.3F, TelaAltura / 1.7F);
-                desenharTextoVelocidade(velocidadeAtual.ToString(), TelaLargura / 4F, TelaAltura / 2F);
+                desenharTextoVelocidade(_velocidadeAtual.ToString(), TelaLargura / 4F, TelaAltura / 2F);
             } else {
                 desenharTextoLabel("km/h", TelaLargura / 2.5F, TelaAltura / 3F);
-                desenharTextoVelocidade(velocidadeAtual.ToString(), TelaLargura / 2.3F, TelaAltura / 3.5F);
+                desenharTextoVelocidade(_velocidadeAtual.ToString(), TelaLargura / 2.3F, TelaAltura / 3.5F);
             }
 
             for (var loop = _loopInicio; loop <= _loopFim; loop++) {
@@ -170,7 +189,7 @@ namespace Radar.Controls {
 
                     }
                    
-                    if ((loop) >= VelocidadeAtual + 10) {
+                    if (loop <= VelocidadeAtual + 10) {
                         cor = PonteiroCorEnum.Verde;
                     }
                     if (loop == VelocidadeRadar - 20) {
@@ -190,10 +209,10 @@ namespace Radar.Controls {
                         rect.Top = (TelaAltura / 3.5F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
                         rect.Bottom = TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
                     }
-                    if ((loop) >= VelocidadeAtual - 20) {
+                    if (loop <= VelocidadeAtual - 20) {
                         cor = PonteiroCorEnum.Verde;
                     }
-                    if ((loop) <= VelocidadeRadar - 10) {
+                    if (loop <= VelocidadeRadar - 10) {
                         cor = PonteiroCorEnum.Cinza;
                     }
                     desenharPonteiro(rect, cor);
@@ -208,8 +227,7 @@ namespace Radar.Controls {
         private float Resize(double input) {
             return Resize((float)input);
         }
-        public Velocimetro() {
-        }
+
 		public void escreve()
 		{
 			Debug.WriteLine("TESTE");

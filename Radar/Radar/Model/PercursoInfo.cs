@@ -27,13 +27,7 @@ namespace Radar.Model
         }
 
         [Ignore]
-        public TimeSpan TempoGravacao {
-            get {
-                DateTime maiorTempo = (from p in _pontos select p.Data).Max();
-                DateTime menorTempo = (from p in _pontos select p.Data).Min();
-                return maiorTempo.Subtract(menorTempo);
-            }
-        }
+        public TimeSpan TempoGravacao { get; set; }
 
         [Ignore]
         public string TempoGravacaoStr
@@ -41,7 +35,7 @@ namespace Radar.Model
             get
             {
                 TimeSpan tempo = TempoGravacao;
-                return tempo.ToString("{0:hh\\:mm\\:ss}");
+                return tempo.ToString();
             }
         }
     }

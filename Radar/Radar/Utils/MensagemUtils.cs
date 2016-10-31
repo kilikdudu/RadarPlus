@@ -30,6 +30,18 @@ namespace Radar.Utils
             return _mensagem.notificar(id, titulo, mensagem);
         }
 
+        public static bool notificarPermanente(int id, string titulo, string mensagem) {
+            if (_mensagem == null)
+                _mensagem = DependencyService.Get<IMensagem>();
+            return _mensagem.notificarPermanente(id, titulo, mensagem);
+        }
+
+        public static bool pararNotificaoPermanente(int id) {
+            if (_mensagem == null)
+                _mensagem = DependencyService.Get<IMensagem>();
+            return _mensagem.pararNotificaoPermanente(id);
+        }
+
         public static bool notificarGravacaoPercurso() {
             if (_mensagem == null)
                 _mensagem = DependencyService.Get<IMensagem>();
@@ -40,6 +52,13 @@ namespace Radar.Utils
             if (_mensagem == null)
                 _mensagem = DependencyService.Get<IMensagem>();
             return _mensagem.pararNotificaoPercurso();
+        }
+
+        public static bool enviarEmail(string para, string titulo, string mensagem)
+        {
+            if (_mensagem == null)
+                _mensagem = DependencyService.Get<IMensagem>();
+            return _mensagem.enviarEmail(para, titulo, mensagem);
         }
     }
 }

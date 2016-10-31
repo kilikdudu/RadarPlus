@@ -15,6 +15,7 @@ using Android;
 using Radar.Pages;
 using Android.Content;
 using Android.Support.Design.Widget;
+using Android.Util;
 
 namespace Radar.Droid
 {
@@ -31,6 +32,8 @@ namespace Radar.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             //InitializeLocationManager();
+
+            //AndroidEnvironment.UnhandledExceptionRaiser += HandleAndroidException;
 
             LoadApplication(new App());
         }
@@ -57,6 +60,18 @@ namespace Radar.Droid
             base.OnPause();
             //_locationManager.RemoveUpdates(this);
             //Log.Debug(TAG, "No longer listening for location updates.");
+        }
+
+        void HandleAndroidException(object sender, RaiseThrowableEventArgs e)
+        {
+            /*
+            Log.Error("ERROR", e.Exception.Message);
+            MensagemAndroid msg = new MensagemAndroid();
+            msg.exibirAviso("Erro", e.Exception.ToString());
+            e.Handled = false;
+            */
+            //ErroPage.exibir(e.Exception);
+            ///e.Handled = true;
         }
     }
 }
