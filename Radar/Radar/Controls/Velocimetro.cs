@@ -11,14 +11,14 @@ namespace Radar.Controls {
         private float velocidadeAtual;
         public float VelocidadeAtual
         {
-            get { return 30; }
-            set { velocidadeAtual = 30; }
+            get { return 90; }
+            set { velocidadeAtual = 90; }
         }
         private float velocidadeRadar;
         public float VelocidadeRadar
         {
-            get { return 60; }
-            set { velocidadeRadar = 60; }
+            get { return 110; }
+            set { velocidadeRadar = 110; }
         }
 
         public float TelaLargura
