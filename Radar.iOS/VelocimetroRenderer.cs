@@ -29,16 +29,27 @@ namespace Radar.iOS
 		{
 			base.OnElementChanged(e);
 
-			VelocimetroiOS velocimentro = new VelocimetroiOS();
-			velocimentro.ShapeView = Element;
-			velocimentro.ShapeView.desenharPonteiro += velocimentro.desenharPonteiro;
-			velocimentro.ShapeView.desenharTexto += velocimentro.desenharTexto;
-			velocimentro.ShapeView.desenharTextoVelocidade += velocimentro.desenharTextoVelocidade;
-			velocimentro.ShapeView.desenharTextoLabel += velocimentro.desenharTextoLabel;
-			velocimentro.ShapeView.pegarAlturaTela += velocimentro.pegarAlturaTela;
-			velocimentro.ShapeView.pegarLarguraTela += velocimentro.pegarLarguraTela;
-			velocimentro.ShapeView.redesenhar += velocimentro.SetNeedsDisplay;
-			SetNativeControl(velocimentro);
+			if (e.OldElement != null || this.Element == null)
+				return;
+
+
+			if (e.NewElement != null) {
+				
+				//_shapeview.desenharTexto += desenharTexto;
+				//_shapeview.desenharPonteiro += desenharPonteiro;
+				VelocimetroiOS velocimentro = new VelocimetroiOS();
+				velocimentro.velocimetro = Element;
+				velocimentro.velocimetro.desenharPonteiro += velocimentro.desenharPonteiro;
+				velocimentro.velocimetro.desenharTexto += velocimentro.desenharTexto;
+				velocimentro.velocimetro.desenharTextoVelocidade += velocimentro.desenharTextoVelocidade;
+				velocimentro.velocimetro.desenharTextoLabel += velocimentro.desenharTextoLabel;
+				velocimentro.velocimetro.pegarAlturaTela += velocimentro.pegarAlturaTela;
+				velocimentro.velocimetro.pegarLarguraTela += velocimentro.pegarLarguraTela;
+				velocimentro.velocimetro.redesenhar += velocimentro.SetNeedsDisplay;
+				SetNativeControl(velocimentro);
+			}
+
+
 
 		}
 		/// <summary>

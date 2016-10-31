@@ -15,7 +15,7 @@ namespace Radar.Droid {
     public class VelocimentoAndroid : View {
 
         private Canvas _canvas;
-        public Velocimetro ShapeView { get; set; }
+        public Velocimetro velocimetro { get; set; }
 
         public VelocimentoAndroid(float density, Context context) : base(context) {
 
@@ -25,7 +25,7 @@ namespace Radar.Droid {
         protected override void OnDraw(Canvas canvas) {
             _canvas = canvas;
             base.OnDraw(canvas);
-            ShapeView.desenhar();
+            velocimetro.desenhar();
             //HandleShapeDraw(canvas);
         }
 

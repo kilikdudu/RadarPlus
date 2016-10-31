@@ -8,12 +8,13 @@ using CoreGraphics;
 using UIKit;
 using Radar.Model;
 using Foundation;
+using System.Collections.Generic;
 
 namespace Radar.iOS
 {
 	public class VelocimetroiOS : UIView
 	{
-		public Velocimetro ShapeView { get; set; }
+		public Velocimetro velocimetro { get; set; }
 		public VelocimetroiOS()
 		{
 			//if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.Portrait)
@@ -27,53 +28,38 @@ namespace Radar.iOS
 
 		public override void Draw(CGRect rect)
 		{
+			UIInterfaceOrientation orientation = UIApplication.SharedApplication.StatusBarOrientation;
+			Console.WriteLine("Orientacao: " + orientation);
 			var currentContext = UIGraphics.GetCurrentContext();
 			currentContext.TranslateCTM(0, Bounds.Height);
 			currentContext.ScaleCTM(1f, -1f);
-			ShapeView.desenhar();
+			velocimetro.desenhar();
 		}
 
-		/*
-		public int Width
-		{
-			get { return (int)rectMaster.Width;  }
-		}
 
-		public int Height
-		{
-			get { return (int)rectMaster.Height; }
-		}
-		*/
 		public float pegarAlturaTela()
 		{
-			
-			var orientation = UIApplication.SharedApplication.StatusBarOrientation;
-			if (orientation == UIInterfaceOrientation.LandscapeLeft
-			|| orientation == UIInterfaceOrientation.LandscapeRight)
+			float altura;
+			if (UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeLeft || 
+			    UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeRight)
 			{
-				Console.WriteLine("Width+ :" + UIScreen.MainScreen.Bounds.Width);
-			}
-			else 
-			{
-				Console.WriteLine("Width+ :" + UIScreen.MainScreen.Bounds.Width);
-			}
-				float altura;
-			if (UIScreen.MainScreen.Bounds.Width > UIScreen.MainScreen.Bounds.Height)
-			{
-				altura = (float)UIScreen.MainScreen.Bounds.Height;
+				altura = (float)UIScreen.MainScreen.Bounds.Width;
+				Console.WriteLine("AlturaL: " + altura);
 			}
 			else {
 				altura = (float)UIScreen.MainScreen.Bounds.Height;
+				Console.WriteLine("AlturaP: " + altura);
 			}
-			Console.WriteLine("altura: " + altura);
+
 			return altura;
 		}
 		public float pegarLarguraTela()
 		{
 			float largura;
-		if (UIScreen.MainScreen.Bounds.Width > UIScreen.MainScreen.Bounds.Height)
-				{
-				largura = (float)UIScreen.MainScreen.Bounds.Width;
+			if (UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeLeft ||
+				UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeRight)
+			{
+				largura = (float)UIScreen.MainScreen.Bounds.Height;
 			}
 			else {
 				largura = (float)UIScreen.MainScreen.Bounds.Width;
