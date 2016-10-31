@@ -16,8 +16,9 @@ namespace Radar.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init();
+            global::Xamarin.FormsMaps.Init();
 
-			LoadApplication(new App());  // method is new in 1.3
+            LoadApplication(new App());  // method is new in 1.3
 
 			return base.FinishedLaunching(app, options);
 		}
