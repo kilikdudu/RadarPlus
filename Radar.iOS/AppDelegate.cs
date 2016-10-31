@@ -20,10 +20,12 @@ namespace Radar.iOS
 
             LoadApplication(new App());  // method is new in 1.3
 
+            bool retorno = base.FinishedLaunching(app, options);
+
             LocationManager gps = new LocationManager();
             gps.StartLocationUpdates();
 
-            return base.FinishedLaunching(app, options);
-		}
+            return retorno;
+        }
     }
 }
