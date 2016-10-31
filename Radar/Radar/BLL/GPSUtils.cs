@@ -29,7 +29,7 @@ namespace Radar.BLL
         }
 
         public static bool inicializar() {
-            if (_gpsServico != null)
+            if (_gpsServico == null)
                 _gpsServico = DependencyService.Get<IGPS>();
             return _gpsServico.inicializar();            
         }
