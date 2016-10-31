@@ -105,7 +105,7 @@ namespace Radar.Droid {
             } else {
                 altura = Resources.DisplayMetrics.HeightPixels;
             }
-            Console.WriteLine("altura: " + altura);
+           
             return altura;
         }
         public float pegarLarguraTela() {
@@ -115,7 +115,7 @@ namespace Radar.Droid {
             } else {
                 largura = Resources.DisplayMetrics.WidthPixels;
             }
-            Console.WriteLine("largura: " + largura);
+           
             return largura;
         }
         public void desenharPonteiro(RetanguloInfo rect, PonteiroCorEnum cor) {
