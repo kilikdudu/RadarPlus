@@ -1,19 +1,24 @@
-﻿<Properties StartupConfiguration="{1F1D9B32-26D5-4D47-9731-6B44BFDFC65F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Radar.iOS/VelocimetroRenderer.cs">
+﻿<Properties StartupConfiguration="{1DB5D593-F011-4A2A-A922-26661FC7D928}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Radar.iOS/RadarMapRenderer.cs">
     <Files>
-      <File FileName="Radar/Radar/Controls/Velocimetro.cs" Line="154" Column="15" />
-      <File FileName="Radar/Radar.Droid/VelocimentroAndroid.cs" Line="53" Column="5" />
-      <File FileName="Radar/Radar/Controls/PonteiroCorEnum.cs" Line="14" Column="13" />
-      <File FileName="Radar/Radar/BLL/GPSUtils.cs" Line="52" Column="21" />
-      <File FileName="Radar.iOS/VelocimetroiOS.cs" Line="165" Column="2" />
-      <File FileName="Radar.iOS/VelocimetroRenderer.cs" Line="52" Column="2" />
+      <File FileName="Radar.iOS/SQLiteiOS.cs" Line="1" Column="1" />
+      <File FileName="Radar.iOS/RadarMapRenderer.cs" Line="74" Column="2" />
+      <File FileName="Radar.iOS/Main.cs" Line="12" Column="1" />
+      <File FileName="Radar/Radar/Pages/NavegacaoPage.cs" Line="17" Column="1" />
+      <File FileName="Radar/Radar/Pages/MapaPage.cs" Line="1" Column="1" />
+      <File FileName="Radar.iOS/VelocimetroiOS.cs" Line="90" Column="1" />
+      <File FileName="Radar.iOS/AppDelegate.cs" Line="20" Column="1" />
+      <File FileName="Radar/Radar/App.cs" Line="17" Column="1" />
+      <File FileName="Radar/Radar/Pages/MenuPage.xaml.cs" Line="101" Column="1" />
+      <File FileName="Radar/Radar/obj/Debug/Radar.Pages.MenuPage.xaml.g.cs" Line="24" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.Radar.Droid PreferredExecutionTarget="Android.4d00c15c4c315191" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/Pedro/RadarPlus/Radar.iOS/LocationManager.cs" line="68" column="1" />
+      <Breakpoint file="/Users/Pedro/RadarPlus/Radar.iOS/RadarMapRenderer.cs" line="29" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.Radar.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B83FB96C-8E3A-44CD-9AFD-E47F24EF55D7" />
