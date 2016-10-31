@@ -124,10 +124,10 @@ namespace Radar.Controls {
             int num = 0;
             if (TelaLargura > TelaAltura) {
                 desenharTextoLabel("km/h", TelaLargura / 4.3F, TelaAltura / 1.7F);
-                desenharTextoVelocidade(_velocidadeAtual.ToString(), TelaLargura / 4F, TelaAltura / 2F);
+				desenharTextoVelocidade(Math.Floor(VelocidadeAtual).ToString(), TelaLargura / 4F, TelaAltura / 2F);
             } else {
                 desenharTextoLabel("km/h", TelaLargura / 2.5F, TelaAltura / 3F);
-                desenharTextoVelocidade(_velocidadeAtual.ToString(), TelaLargura / 2.3F, TelaAltura / 3.5F);
+                desenharTextoVelocidade(Math.Floor(VelocidadeAtual).ToString(), TelaLargura / 2.3F, TelaAltura / 3.5F);
             }
             int contadorTexto = 0;
 			if (Device.OS == TargetPlatform.iOS)

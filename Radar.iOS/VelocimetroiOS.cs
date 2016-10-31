@@ -7,7 +7,7 @@ using System.Drawing;
 using CoreGraphics;
 using UIKit;
 using Radar.Model;
-
+using Foundation;
 
 namespace Radar.iOS
 {
@@ -91,7 +91,7 @@ namespace Radar.iOS
 			switch (cor)
 			{
 				case PonteiroCorEnum.Verde:
-					currentContext2.SetStrokeColor(UIColor.Gray.CGColor);
+					currentContext2.SetStrokeColor(UIColor.Yellow.CGColor);
 					break;
 				case PonteiroCorEnum.Vermelho:
 					currentContext2.SetStrokeColor(UIColor.Red.CGColor);
@@ -121,7 +121,7 @@ namespace Radar.iOS
 			switch (cor)
 			{
 				case PonteiroCorEnum.Verde:
-					currentContext.SetFillColor(UIColor.Gray.CGColor);
+					currentContext.SetFillColor(UIColor.Yellow.CGColor);
 					break;
 				case PonteiroCorEnum.Vermelho:
 					currentContext.SetFillColor(UIColor.Red.CGColor);
@@ -139,13 +139,27 @@ namespace Radar.iOS
 
 		public void desenharTextoVelocidade(string Texto, float x, float y)
 		{
+			
 			var currentContext = UIGraphics.GetCurrentContext();
-			currentContext.SelectFont("Arial", 16f, CGTextEncoding.MacRoman);
+			currentContext.SelectFont("Arial", 30f, CGTextEncoding.MacRoman);
 			currentContext.SetTextDrawingMode(CGTextDrawingMode.Fill);
-			currentContext.SetFillColor(UIColor.Red.CGColor);
-			//currentContext.TranslateCTM(0, Bounds.Height);
-			//currentContext.ScaleCTM(1, -1);
-			currentContext.ShowTextAtPoint(x, y + 185, Texto);
+			currentContext.SetFillColor(UIColor.Green.CGColor);
+			var nsText = new NSString(Texto);
+			var boundSize = new SizeF((float)x, float.MaxValue);
+			var options = NSStringDrawingOptions.UsesFontLeading |
+						  NSStringDrawingOptions.UsesLineFragmentOrigin;
+
+		
+			var attributes = new UIStringAttributes
+			{
+				Font = UIFont.FromName("Arial", (float)30)
+			};
+
+			var sizeF = nsText.GetBoundingRect(boundSize, options, attributes, null).Size;
+
+			//return new Xamarin.Forms.Size((double)sizeF.Width, (double)sizeF.Height);
+
+			currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2 , y + 185, Texto);
 
 			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 		}
@@ -153,12 +167,22 @@ namespace Radar.iOS
 		public void desenharTextoLabel(string Texto, float x, float y)
 		{
 			var currentContext = UIGraphics.GetCurrentContext();
-			currentContext.SelectFont("Arial", 16f, CGTextEncoding.MacRoman);
+			currentContext.SelectFont("Arial", 22f, CGTextEncoding.MacRoman);
 			currentContext.SetTextDrawingMode(CGTextDrawingMode.Fill);
-			currentContext.SetFillColor(UIColor.Red.CGColor);
-			//currentContext.TranslateCTM(0, Bounds.Height);
-			//currentContext.ScaleCTM(1, -1);
-			currentContext.ShowTextAtPoint(x, y + 185, Texto);
+			currentContext.SetFillColor(UIColor.Green.CGColor);
+			var nsText = new NSString(Texto);
+			var boundSize = new SizeF((float)x, float.MaxValue);
+			var options = NSStringDrawingOptions.UsesFontLeading |
+						  NSStringDrawingOptions.UsesLineFragmentOrigin;
+
+
+			var attributes = new UIStringAttributes
+			{
+				Font = UIFont.FromName("Arial", (float)22)
+			};
+
+			var sizeF = nsText.GetBoundingRect(boundSize, options, attributes, null).Size;
+			currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y + 185, Texto);
 
 			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 
