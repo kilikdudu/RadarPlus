@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Radar.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
@@ -24,6 +25,13 @@ namespace Radar.Pages
             {
                 Master.Icon = "swap.png";
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (Device.OS == TargetPlatform.iOS)
+                GPSUtils.inicializar();
         }
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)

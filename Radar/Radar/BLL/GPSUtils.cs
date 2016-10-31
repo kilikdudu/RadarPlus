@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Radar.BLL
 {
@@ -14,17 +15,23 @@ namespace Radar.BLL
     {
         private const int NOTIFICACAO_SIMULACAO_ID = 1034;
 
+        private static IGPS _gpsServico;
+
         private static bool _simulando = false;
         private static PercursoInfo _percursoSimulado;
         private static int _indexPercuso = 0;
         private static DateTime _ultimoPonto;
 
-        private static float velocidadeAtual = 0;
-
         public static bool Simulado {
             get {
                 return _simulando;
             }
+        }
+
+        public static bool inicializar() {
+            if (_gpsServico != null)
+                _gpsServico = DependencyService.Get<IGPS>();
+            return _gpsServico.inicializar();            
         }
 
         private static void executarPosicao(LocalizacaoInfo local) {

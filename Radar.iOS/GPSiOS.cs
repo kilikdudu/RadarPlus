@@ -4,16 +4,21 @@ using System.Linq;
 using System.Text;
 using CoreLocation;
 using UIKit;
+using Radar.BLL;
+using Radar.iOS;
+using Xamarin.Forms;
+
+[assembly: Dependency(typeof(GPSiOS))]
 
 namespace Radar.iOS
 {
-    class LocationManager
+    public class GPSiOS: IGPS
     {
         protected CLLocationManager locMgr;
 
-        public event EventHandler<LocationUpdatedEventArgs> LocationUpdated = delegate { };
+        public event EventHandler<GPSAtualizacaoEventArgs> LocationUpdated = delegate { };
 
-        public LocationManager()
+        public GPSiOS()
         {
             this.locMgr = new CLLocationManager();
             this.locMgr.PausesLocationUpdatesAutomatically = false;
@@ -41,7 +46,7 @@ namespace Radar.iOS
             get { return this.locMgr; }
         }
 
-        public void StartLocationUpdates()
+        public bool inicializar()
         {
 
             // We need the user's permission for our app to use the GPS in iOS. This is done either by the user accepting
@@ -54,15 +59,17 @@ namespace Radar.iOS
 
                 LocMgr.LocationsUpdated += (object sender, CLLocationsUpdatedEventArgs e) => {
                     // fire our custom Location Updated event
-                    LocationUpdated(this, new LocationUpdatedEventArgs(e.Locations[e.Locations.Length - 1]));
+                    LocationUpdated(this, new GPSAtualizacaoEventArgs(e.Locations[e.Locations.Length - 1]));
                 };
 
                 LocMgr.StartUpdatingLocation();
+                return true;
             }
+            return false;
         }
 
         //This will keep going in the background and the foreground
-        public void PrintLocation(object sender, LocationUpdatedEventArgs e)
+        public void PrintLocation(object sender, GPSAtualizacaoEventArgs e)
         {
 
             CLLocation location = e.Location;

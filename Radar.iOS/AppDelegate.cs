@@ -19,7 +19,12 @@ namespace Radar.iOS
 			global::Xamarin.FormsMaps.Init();
 			LoadApplication(new App());  // method is new in 1.3
 
-			return base.FinishedLaunching(app, options);
-		}
-	}
+            bool retorno = base.FinishedLaunching(app, options);
+
+            //GPSiOS gps = new GPSiOS();
+            //gps.inicializar();
+
+            return retorno;
+        }
+    }
 }

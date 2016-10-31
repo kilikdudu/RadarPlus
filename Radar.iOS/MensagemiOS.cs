@@ -11,11 +11,6 @@ namespace Radar.iOS
 {
     public class MensagemiOS: IMensagem
     {
-		public bool enviarEmail(string para, string titulo, string mensagem)
-		{
-			return true;
-		}
-
 		public void exibirAviso(string Titulo, string Mensagem)
         {
         }
@@ -43,5 +38,9 @@ namespace Radar.iOS
         {
             throw new NotImplementedException();
         }
+
+		public bool enviarEmail(string para, string titulo, string mensagem) {
+			return false;
+		}
     }
 }
