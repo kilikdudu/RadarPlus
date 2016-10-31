@@ -19,6 +19,19 @@ namespace Radar.BLL
         private const int RADAR_ID = 1;
         private IDictionary<string, bool> _radares = new Dictionary<string, bool>();
 
+        private static RadarInfo _radarAtual;
+
+        public static RadarInfo RadarAtual
+        {
+            get
+            {
+                return _radarAtual;
+            }
+            set {
+                _radarAtual = value;
+            }
+        }
+
         public RadarBLL() {
             _db = RadarDALFactory.create();
         }
@@ -104,16 +117,15 @@ namespace Radar.BLL
             }
         }
 
+        /*
         private void alertar(LocalizacaoInfo local, RadarInfo radar) {
             string mensagem = "Tem um radar a frente, diminua para " + radar.Velocidade.ToString() + "km/h!";
             MensagemUtils.notificar(RADAR_ID, "Alerta de Radar", mensagem);
         }
+        */
 
-        public void calcularLocalizacaoRadar(LocalizacaoInfo local, RadarInfo radar) {
-            //double velocidade = local.Velocidade * 3.6;
-            double velocidade = local.Velocidade;
-            //double angulo = Math.Floor(local.Sentido);
-            if (velocidade > radar.Velocidade) {
+        public bool radarEstaAFrente(LocalizacaoInfo local, RadarInfo radar) {
+            if (local.Velocidade > radar.Velocidade) {
                 double anguloRelacaoRadar = local.Sentido - radar.Direcao;
                 if (((Math.Abs(anguloRelacaoRadar) % 360) <= Configuracao.AnguloRadar) || ((360 - Math.Abs(anguloRelacaoRadar)) % 360) <= Configuracao.AnguloRadar) {
                     string posLatLong = radar.Latitude.ToString() + "|" + radar.Longitude.ToString();
@@ -132,7 +144,8 @@ namespace Radar.BLL
                         if (((Math.Abs(anguloDiferencial) % 360) <= Configuracao.AnguloCone) || ((360 - Math.Abs(anguloDiferencial)) % 360) <= Configuracao.AnguloCone)
                         {
                             _radares.Add(posLatLong, true);
-                            alertar(local, radar);
+                            //alertar(local, radar);
+                            return true;
                         }
                         else
                             Debug.WriteLine("Radar não está no cone. Meu angulo (" + Math.Floor(local.Sentido) + ") + eu/radar(" + Math.Floor(anguloRadar) + ").");
@@ -143,13 +156,41 @@ namespace Radar.BLL
                 else
                     Debug.WriteLine("Radar encontrado mas angulo não bate com o do radar = " + Math.Floor(anguloRelacaoRadar) + ".");
             }
+            return false;
         }
+
+        public bool radarContinuaAFrente(LocalizacaoInfo local, RadarInfo radar)
+        {
+            if (local.Velocidade > radar.Velocidade)
+            {
+                double anguloRelacaoRadar = local.Sentido - radar.Direcao;
+                if (((Math.Abs(anguloRelacaoRadar) % 360) <= Configuracao.AnguloRadar) || ((360 - Math.Abs(anguloRelacaoRadar)) % 360) <= Configuracao.AnguloRadar)
+                {
+                    double anguloRadar = angleFromCoordinate(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
+
+                    double anguloDiferencial = local.Sentido - anguloRadar;
+                    if (anguloDiferencial < 0)
+                        anguloDiferencial += 360;
+                    if (anguloDiferencial > 360)
+                        anguloDiferencial -= 360;
+
+                    if (((Math.Abs(anguloDiferencial) % 360) <= Configuracao.AnguloCone) || ((360 - Math.Abs(anguloDiferencial)) % 360) <= Configuracao.AnguloCone)
+                        return true;
+                    else
+                        Debug.WriteLine("Radar não está no cone. Meu angulo (" + Math.Floor(local.Sentido) + ") + eu/radar(" + Math.Floor(anguloRadar) + ").");
+                }
+                else
+                    Debug.WriteLine("Radar encontrado mas angulo não bate com o do radar = " + Math.Floor(anguloRelacaoRadar) + ".");
+            }
+            return false;
+        }
+
 
         /// <summary>
         /// Faz todos os calculos referentes a posição do radar referente a posição do usuário
         /// </summary>
         /// <param name="local">Localização enviada pelo GPS.</param>
-        public void calcularLocalizacao(LocalizacaoInfo local) {
+        public RadarInfo calcularRadar(LocalizacaoInfo local) {
 
             double latitudeOld = local.Latitude;
             double longitudeOld = local.Longitude;
@@ -163,10 +204,15 @@ namespace Radar.BLL
 
             limparAlertado(local.Latitude, local.Longitude);
 
+            RadarInfo radarCapturado = null; 
             IList<RadarInfo> radares = _db.listar(latitudeCos, longitudeCos, latitudeSin, longitudeSin, distanciaCos);
             foreach (RadarInfo radar in radares) {
-                calcularLocalizacaoRadar(local, radar);
+                if (radarEstaAFrente(local, radar)) {
+                    radarCapturado = radar;
+                    break;
+                }
             }
+            return radarCapturado;
         }
     }
 }

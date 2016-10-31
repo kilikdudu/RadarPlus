@@ -25,8 +25,18 @@ namespace Radar.iOS
             return true;
         }
 
+        public bool notificarPermanente(int id, string titulo, string descricao)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool pararNotificaoPercurso() {
             return true;
+        }
+
+        public bool pararNotificaoPermanente(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

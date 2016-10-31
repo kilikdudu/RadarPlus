@@ -61,6 +61,7 @@
     <Compile Include="Model\LocalizacaoInfo.cs" />
     <Compile Include="Model\RadarInfo.cs" />
     <Compile Include="Model\RetanguloInfo.cs" />
+    <Compile Include="Pages\ErroPage.cs" />
     <Compile Include="Pages\MapaPage.cs" />
     <Compile Include="Pages\MenuItemInfo.cs" />
     <Compile Include="Pages\MenuItemGrupo.cs" />
