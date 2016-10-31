@@ -37,6 +37,7 @@ namespace Radar.iOS
 			velocimentro.ShapeView.desenharTextoLabel += velocimentro.desenharTextoLabel;
 			velocimentro.ShapeView.pegarAlturaTela += velocimentro.pegarAlturaTela;
 			velocimentro.ShapeView.pegarLarguraTela += velocimentro.pegarLarguraTela;
+			velocimentro.ShapeView.redesenhar += velocimentro.SetNeedsDisplay;
 			SetNativeControl(velocimentro);
 
 		}
