@@ -177,11 +177,11 @@ namespace Radar.Controls {
 
                     }
 
-                    if (count <= (120 - (int)VelocidadeAtual) / 2 + 2) {
+                    if (count <= (120 - (int)VelocidadeAtual) / 2 - 2) {
                         cor = PonteiroCorEnum.Verde;
-                    }
-                    
-                    if (count == radarVelocidade()) {
+                    } 
+
+                if (count == radarVelocidade()) {
                          cor = PonteiroCorEnum.Vermelho;                     
                     }
                    
