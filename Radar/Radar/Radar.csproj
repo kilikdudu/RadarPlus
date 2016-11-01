@@ -86,11 +86,17 @@
     <Compile Include="App.cs" />
     <Compile Include="Pages\CustomMap.cs" />
     <Compile Include="Pages\CustomPin.cs" />
+    <Compile Include="Pages\PreferenciasPage.xaml.cs">
+      <DependentUpon>PreferenciasPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\RadarListaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\PreferenciasPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
