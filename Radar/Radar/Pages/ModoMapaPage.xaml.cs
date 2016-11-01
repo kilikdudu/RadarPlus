@@ -12,6 +12,7 @@ namespace Radar
 	{
 		private static ModoMapaPage _ModoMapaPage;
 		public ObservableCollection<PreferenciaLabelInfo> labels { get; set; }
+		ListView lstView = new ListView();
 		public static ModoMapaPage Atual
 		{
 			get
@@ -27,11 +28,11 @@ namespace Radar
 		{
 
 			labels = new ObservableCollection<PreferenciaLabelInfo>();
-			ListView lstView = new ListView();
+
 			lstView.RowHeight = 60;
 			this.Title = "Modo Mapa";
 			lstView.ItemTemplate = new DataTemplate(typeof(Celulas));
-			labels.Add(new PreferenciaLabelInfo { Titulo = "Bussola" });
+			labels.Add(new PreferenciaLabelInfo { Titulo = "Bussola", Descricao = "aaaaaaaaaa" });
 			labels.Add(new PreferenciaLabelInfo { Titulo = "Sinal do GPS" });
 			labels.Add(new PreferenciaLabelInfo { Titulo = "Imagem do Satélite" });
 			labels.Add(new PreferenciaLabelInfo { Titulo = "Informações de Tráfego" });
@@ -57,9 +58,11 @@ namespace Radar
 				var horizontalLayout = new StackLayout() { BackgroundColor = Color.White };
 				mySwitch.Toggled += (object sender, ToggledEventArgs e) =>
 				{
-					Debug.WriteLine("TEste");
+					
+						Debug.WriteLine(mySwitch.IsToggled);
+
 				};
-				mySwitch.IsToggled = true;
+
 
 
 				//set bindings
@@ -76,7 +79,7 @@ namespace Radar
 				tituloLabel.FontSize = 20;
 				descricaoLabel.Margin = 20;
 				descricaoLabel.FontSize = 14;
-				mySwitch.HorizontalOptions = LayoutOptions.End;
+				tituloLabel.HorizontalOptions = LayoutOptions.Start;
 
 				//add views to the view hierarchy
 				verticaLayout.Children.Add(tituloLabel);
