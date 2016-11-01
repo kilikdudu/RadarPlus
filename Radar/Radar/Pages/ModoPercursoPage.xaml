@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Radar.PreferenciasPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Radar.ModoPercursoPage">
 	<ContentPage.Content>
 		<StackLayout Orientation="Vertical" Padding="5, 5, 5, 5">
       
@@ -10,10 +10,13 @@
 					<ViewCell>
 						<StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="White">
 							<StackLayout Orientation="Vertical">
-								<Label Text = "{Binding .}" FontSize="24" AbsoluteLayout.LayoutBounds="0.25, 0.25, 400, 40"/>
+								<Label Text="{Binding .}" />
+								<Label Text="{Binding desc}" />
+								<Switch HorizontalOptions="CenterAndExpand"  />
 							</StackLayout>
 						</StackLayout>
 					</ViewCell>
+
 				</DataTemplate>
 			</ListView.ItemTemplate>
 		</ListView>
