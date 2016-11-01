@@ -92,7 +92,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="MensagemiOS.cs" />
     <Compile Include="RadarMapRenderer.cs" />
-    <Compile Include="RadarMKAnnotationView.cs" />
+    <Compile Include="RadarMKAnnotation.cs" />
     <Compile Include="SQLiteiOS.cs" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />

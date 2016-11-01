@@ -4,7 +4,6 @@
              x:Class="Radar.Pages.MenuPage">
   <ContentPage.Content>
     <StackLayout Orientation="Vertical" Padding="5, 10, 5, 10">
-      
       <ListView x:Name="listView" GroupDisplayBinding="{Binding Nome}" SeparatorVisibility="None" IsGroupingEnabled="true">
         <ListView.ItemTemplate>
           <DataTemplate>
