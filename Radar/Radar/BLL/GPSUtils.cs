@@ -37,6 +37,7 @@ namespace Radar.BLL
         private static void executarPosicao(LocalizacaoInfo local) {
             try
             {
+                local.Velocidade = 90;
                 RadarBLL regraRadar = RadarFactory.create();
                 PercursoBLL regraPercurso = PercursoFactory.create();
                 if (RadarBLL.RadarAtual != null)
