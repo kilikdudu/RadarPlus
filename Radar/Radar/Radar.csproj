@@ -89,6 +89,31 @@
     <Compile Include="Pages\PreferenciasPage.xaml.cs">
       <DependentUpon>PreferenciasPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ModoMapaPage.xaml.cs">
+      <DependentUpon>ModoMapaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModoAlertasPage.xaml.cs">
+      <DependentUpon>ModoAlertasPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModoAudioPage.xaml.cs">
+      <DependentUpon>ModoAudioPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModoReproducaoVozPage.xaml.cs">
+      <DependentUpon>ModoReproducaoVozPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModoGeraisPage.xaml.cs">
+      <DependentUpon>ModoGeraisPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModoAutoInicioPage.xaml.cs">
+      <DependentUpon>ModoAutoInicioPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModoPercursoPage.xaml.cs">
+      <DependentUpon>ModoPercursoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModoMeusRadaresPage.xaml.cs">
+      <DependentUpon>ModoMeusRadaresPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PreferenciaLabelsInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\RadarListaPage.xaml">
@@ -96,6 +121,30 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\PreferenciasPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ModoMapaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ModoAlertasPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ModoAudioPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ModoReproducaoVozPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ModoGeraisPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ModoAutoInicioPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ModoPercursoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ModoMeusRadaresPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -127,6 +176,9 @@
     <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.2.127\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="ExifLib">
+      <HintPath>..\..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
