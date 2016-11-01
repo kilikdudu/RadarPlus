@@ -190,16 +190,16 @@ namespace Radar.Controls {
                 if (loop % 5 == 0) {
                     if (TelaLargura > TelaAltura) {
                        
-                        rect.Left = (TelaLargura / 3.5F) + (float)((TelaLargura * 40 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
-                        rect.Right = TelaLargura / 3.5F + (float)((TelaLargura * 40 / 100) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240));
-                        rect.Top = (TelaAltura / 2F) + (float)((TelaLargura * 40 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
-                        rect.Bottom = TelaAltura / 2F + (float)((TelaLargura * 40 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240));
+						rect.Left = (int)Math.Floor((TelaLargura / 3.5F) + (float)((TelaLargura * 40 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
+						rect.Right = (int)Math.Floor(TelaLargura / 3.5F + (float)((TelaLargura * 40 / 100) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240)));
+						rect.Top = (int)Math.Floor((TelaAltura / 2F) + (float)((TelaLargura * 40 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
+						rect.Bottom = (int)Math.Floor(TelaAltura / 2F + (float)((TelaLargura * 40 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240)));
 
                     } else {
-                        rect.Left = (TelaLargura / 2F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
-                        rect.Right = TelaLargura / 2F + (float)((TelaLargura * 60 / 100) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240));
-                        rect.Top = (TelaAltura / 3.5F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
-                        rect.Bottom = TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240));
+						rect.Left = (int)Math.Floor((TelaLargura / 2F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
+						rect.Right = (int)Math.Floor(TelaLargura / 2F + (float)((TelaLargura * 60 / 100) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240)));
+						rect.Top = (int)Math.Floor((TelaAltura / 3.5F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
+						rect.Bottom = (int)Math.Floor(TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240)));
 
                     }
 
@@ -221,15 +221,15 @@ namespace Radar.Controls {
                     desenharPonteiro(rect, cor);
                 } else {
                     if (TelaLargura > TelaAltura) {
-                        rect.Left = (TelaLargura / 3.5F) + (float)((TelaLargura * 40 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
-                        rect.Right = TelaLargura / 3.5F + (float)((TelaLargura * 40 / 100) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240));
-                        rect.Top = (TelaAltura / 2F) + (float)((TelaLargura * 40 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
-                        rect.Bottom = TelaAltura / 2F + (float)((TelaLargura * 40 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
+						rect.Left = (int)Math.Floor((TelaLargura * 20 / 100) + (float)((TelaLargura * 40 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
+						rect.Right = (int)Math.Floor(TelaLargura * 20 / 100 + (float)((TelaLargura * 40 / 100) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240)));
+						rect.Top = (int)Math.Floor((TelaAltura / 2F) + (float)((TelaLargura * 40 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
+						rect.Bottom = (int)Math.Floor(TelaAltura / 2F + (float)((TelaLargura * 40 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240)));
                     } else {
-                        rect.Left = (TelaLargura / 2F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240));
-                        rect.Right = TelaLargura / 2F + (float)((TelaLargura * 60 / 100) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240));
-                        rect.Top = (TelaAltura / 3.5F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240));
-                        rect.Bottom = TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240));
+						rect.Left = (int)Math.Floor((TelaLargura / 2F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
+						rect.Right = (int)Math.Floor(TelaLargura / 2F + (float)((TelaLargura * 60 / 100) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240)));
+						rect.Top = (int)Math.Floor((TelaAltura / 3.5F) + (float)((TelaLargura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
+						rect.Bottom = (int)Math.Floor(TelaAltura / 3.5F + (float)((TelaLargura * 60 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240)));
                     }
 
 						if (count <= (120 - (int)VelocidadeAtual) / 2)
