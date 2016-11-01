@@ -34,7 +34,7 @@ namespace Radar.Pages
         public VelocimetroPage()
         {
             InitializeComponent();
-            Title = "Velocimentro";
+            Title = "Velocimetro";
         }
 
         protected override void OnAppearing()
