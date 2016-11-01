@@ -33,14 +33,14 @@ namespace Radar.Droid {
             */
             //SetNativeControl(this);
             VelocimentoAndroid velocimentro = new VelocimentoAndroid(Resources.DisplayMetrics.Density, Context);
-            velocimentro.ShapeView = Element;
-            velocimentro.ShapeView.desenharPonteiro += velocimentro.desenharPonteiro;
-            velocimentro.ShapeView.desenharTexto += velocimentro.desenharTexto;
-            velocimentro.ShapeView.desenharTextoVelocidade += velocimentro.desenharTextoVelocidade;
-            velocimentro.ShapeView.desenharTextoLabel += velocimentro.desenharTextoLabel;
-            velocimentro.ShapeView.pegarAlturaTela += velocimentro.pegarAlturaTela;
-            velocimentro.ShapeView.pegarLarguraTela += velocimentro.pegarLarguraTela;
-            velocimentro.ShapeView.redesenhar += velocimentro.Invalidate;
+            velocimentro.velocimetro = Element;
+            velocimentro.velocimetro.desenharPonteiro += velocimentro.desenharPonteiro;
+            velocimentro.velocimetro.desenharTexto += velocimentro.desenharTexto;
+            velocimentro.velocimetro.desenharTextoVelocidade += velocimentro.desenharTextoVelocidade;
+            velocimentro.velocimetro.desenharTextoLabel += velocimentro.desenharTextoLabel;
+            velocimentro.velocimetro.pegarAlturaTela += velocimentro.pegarAlturaTela;
+            velocimentro.velocimetro.pegarLarguraTela += velocimentro.pegarLarguraTela;
+            velocimentro.velocimetro.redesenhar += velocimentro.Invalidate;
             SetNativeControl(velocimentro);
         }
     }

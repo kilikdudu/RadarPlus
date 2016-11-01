@@ -15,7 +15,7 @@ namespace Radar.Droid {
     public class VelocimentoAndroid : View {
 
         private Canvas _canvas;
-        public Velocimetro ShapeView { get; set; }
+        public Velocimetro velocimetro { get; set; }
 
         public VelocimentoAndroid(float density, Context context) : base(context) {
 
@@ -25,7 +25,7 @@ namespace Radar.Droid {
         protected override void OnDraw(Canvas canvas) {
             _canvas = canvas;
             base.OnDraw(canvas);
-            ShapeView.desenhar();
+            velocimetro.desenhar();
             //HandleShapeDraw(canvas);
         }
 
@@ -77,7 +77,13 @@ namespace Radar.Droid {
                 strokePaint.TextSize = desiredTextSize;
 				tamanhoTexto = strokePaint.MeasureText(Texto);
             }
-			_canvas.DrawText(Texto, (this.pegarLarguraTela() - tamanhoTexto) / 2, y, strokePaint);
+			if (this.Width > this.Height)
+			{
+				_canvas.DrawText(Texto, (this.pegarAlturaTela() - tamanhoTexto) / 2, y, strokePaint);
+			}
+			else {
+				_canvas.DrawText(Texto, (this.pegarLarguraTela() - tamanhoTexto) / 2, y, strokePaint);
+			}
         }
         public void desenharTextoLabel(string Texto, float x, float y) {
             var strokePaint = new Paint(PaintFlags.AntiAlias);
@@ -97,12 +103,12 @@ namespace Radar.Droid {
         }
         public new int Width
         {
-            get { return base.Width - (int)(this.ShapeView.Padding.HorizontalThickness); }
+			get { return base.Width - (int)(this.velocimetro.Padding.HorizontalThickness); }
         }
 
         public new int Height
         {
-            get { return base.Height - (int)(this.ShapeView.Padding.VerticalThickness); }
+			get { return base.Height - (int)(this.velocimetro.Padding.VerticalThickness); }
         }
         public float pegarAlturaTela() {
             float altura;

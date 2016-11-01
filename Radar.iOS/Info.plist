@@ -46,5 +46,18 @@
 	<string>Necessário para geolocalizar a imagem.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Necessário para geolocalizar a imagem.</string>
+	<key>CFBundleName</key>
+	<string>Radar.iOS</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>MKDirectionsRequest</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.apple.maps.directionsrequest</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
