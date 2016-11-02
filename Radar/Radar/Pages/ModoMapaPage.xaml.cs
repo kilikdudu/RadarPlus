@@ -29,10 +29,10 @@ namespace Radar
 
 			labels = new ObservableCollection<PreferenciaLabelInfo>();
 
-			lstView.RowHeight = 80;
+			lstView.RowHeight = 60;
 			this.Title = "Modo Mapa";
 			lstView.ItemTemplate = new DataTemplate(typeof(Celulas));
-			labels.Add(new PreferenciaLabelInfo { Titulo = "Bussola" });
+			labels.Add(new PreferenciaLabelInfo { Titulo = "Bussola", Descricao = "aaaaaaaaaa" });
 			labels.Add(new PreferenciaLabelInfo { Titulo = "Sinal do GPS" });
 			labels.Add(new PreferenciaLabelInfo { Titulo = "Imagem do Satélite" });
 			labels.Add(new PreferenciaLabelInfo { Titulo = "Informações de Tráfego" });
@@ -67,28 +67,25 @@ namespace Radar
 
 				//Set properties for desired design
 				horizontalLayout.Orientation = StackOrientation.Horizontal;
-				horizontalLayout.HorizontalOptions = LayoutOptions.FillAndExpand;
-				//horizontalLayout.HorizontalOptions = LayoutOptions.Star;
+				horizontalLayout.HorizontalOptions = LayoutOptions.Fill;
+				horizontalLayout.HorizontalOptions = LayoutOptions.End;
 				verticaLayout.Orientation = StackOrientation.Vertical;
-				verticaLayout.VerticalOptions = LayoutOptions.FillAndExpand;
+				verticaLayout.HorizontalOptions = LayoutOptions.Start;
 				tituloLabel.Margin = 20;
 				tituloLabel.FontSize = 20;
-                
 				descricaoLabel.Margin = 20;
 				descricaoLabel.FontSize = 14;
-				tituloLabel.HorizontalOptions = LayoutOptions.StartAndExpand;
-                mySwitch.HorizontalOptions = LayoutOptions.End;
+				tituloLabel.HorizontalOptions = LayoutOptions.Start;
+
 				//add views to the view hierarchy
-				horizontalLayout.Children.Add(tituloLabel);
-                horizontalLayout.Children.Add(mySwitch);
-                verticaLayout.Children.Add(horizontalLayout);
-                verticaLayout.Children.Add(descricaoLabel);
-				//horizontalLayout.Children.Add(verticaLayout);
-				
-				
+				verticaLayout.Children.Add(tituloLabel);
+
+				horizontalLayout.Children.Add(verticaLayout);
+				verticaLayout.Children.Add(descricaoLabel);
+				horizontalLayout.Children.Add(mySwitch);
 
 				// add to parent view
-				View = verticaLayout;
+				View = horizontalLayout;
 			}
 		}
 
