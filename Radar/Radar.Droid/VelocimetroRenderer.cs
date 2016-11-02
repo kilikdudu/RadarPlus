@@ -10,7 +10,7 @@ using Radar.Model;
 [assembly: ExportRenderer(typeof(Velocimetro), typeof(VelocimetroRenderer))]
 
 namespace Radar.Droid {
-    public class VelocimetroRenderer : ViewRenderer<Velocimetro, VelocimentoAndroid> {
+    public class VelocimetroRenderer : ViewRenderer<Velocimetro, VelocimetroAndroid> {
 
         //private Velocimetro _shapeview;
         //private Canvas _canvas;
@@ -32,14 +32,14 @@ namespace Radar.Droid {
             }
             */
             //SetNativeControl(this);
-            VelocimentoAndroid velocimentro = new VelocimentoAndroid(Resources.DisplayMetrics.Density, Context);
+            VelocimetroAndroid velocimentro = new VelocimetroAndroid(Resources.DisplayMetrics.Density, Context);
             velocimentro.velocimetro = Element;
             velocimentro.velocimetro.desenharPonteiro += velocimentro.desenharPonteiro;
             velocimentro.velocimetro.desenharTexto += velocimentro.desenharTexto;
             velocimentro.velocimetro.desenharTextoVelocidade += velocimentro.desenharTextoVelocidade;
             velocimentro.velocimetro.desenharTextoLabel += velocimentro.desenharTextoLabel;
-            velocimentro.velocimetro.pegarAlturaTela += velocimentro.pegarAlturaTela;
-            velocimentro.velocimetro.pegarLarguraTela += velocimentro.pegarLarguraTela;
+            //velocimentro.velocimetro.pegarAlturaTela += velocimentro.pegarAlturaTela;
+            //velocimentro.velocimetro.pegarLarguraTela += velocimentro.pegarLarguraTela;
             velocimentro.velocimetro.redesenhar += velocimentro.Invalidate;
             SetNativeControl(velocimentro);
         }

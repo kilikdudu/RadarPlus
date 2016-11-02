@@ -60,7 +60,17 @@ namespace Radar.Pages
                 VerticalOptions = LayoutOptions.StartAndExpand,
                 Padding = 20,
                 Children = {
-                    _mensagemLabel,
+                    new ScrollView {
+                        Orientation = ScrollOrientation.Vertical,
+                        VerticalOptions = LayoutOptions.StartAndExpand,
+                        Content = new StackLayout {
+                            Orientation = StackOrientation.Vertical,
+                            VerticalOptions = LayoutOptions.StartAndExpand,
+                            Children = {
+                                _mensagemLabel
+                            }
+                        }
+                    },
                     _reportarButton
                 }
             };

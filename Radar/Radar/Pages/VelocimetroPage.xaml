@@ -2,12 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Radar.Pages.VelocimetroPage"
-             xmlns:controls="clr-namespace:Radar.Controls;assembly=Radar">
-  <controls:Velocimetro x:Name="velocimentroControl" ShapeType="Box" StrokeColor="#6633FF" Padding="5" VelocidadeAtual="40" VelocidadeRadar="60" />
-  <!--StackLayout Orientation="Vertical">
-    <Label x:name="velocidadeRadar" Text="50 km/h" />
-    <Label x:name="distanciaRadar" Text="0m" />
+             xmlns:controls="clr-namespace:Radar.Controls;assembly=Radar"
+             Title="Velocimentro">
+  <controls:Velocimetro x:Name="velocimentroControl" ShapeType="Box" StrokeColor="#6633FF" Padding="5" VelocidadeAtual="0" VelocidadeRadar="0" />
+  <AbsoluteLayout>
+    <Label x:name="velocidadeRadar" Text="50 km/h" AbsoluteLayout.LayoutBounds=".5,1,.5,.1" AbsoluteLayout.LayoutFlags="PositionProportional" />
+    <!--Label x:name="distanciaRadar" Text="0m" />
     <Label x:name="gpsPrecisao" Text="0m" />
-    <Label x:name="gpsSentido" Text="0º" />
-  </StackLayout-->
+    <Label x:name="gpsSentido" Text="0º" /-->
+  </AbsoluteLayout>
 </ContentPage>

@@ -100,6 +100,7 @@
     <Content Include="Entitlements.plist" />
     <None Include="packages.config" />
     <BundleResource Include="Resources\radar.sqlite" />
+    <Compile Include="TelaiOS.cs" />
     <Compile Include="VelocimetroRenderer.cs" />
     <Compile Include="VelocimetroiOS.cs" />
   </ItemGroup>
