@@ -39,7 +39,7 @@ namespace Radar.Droid {
             builder.SetSmallIcon(Resource.Drawable.icon);
             builder.SetContentTitle(titulo);
             builder.SetContentText(mensagem);
-            builder.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Alarm));
+            builder.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification));
 
             NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
             notificationManager.Notify(id, builder.Build());
@@ -60,7 +60,7 @@ namespace Radar.Droid {
             builder.SetContentTitle(titulo);
             if (!string.IsNullOrEmpty(descricao))
                 builder.SetContentText(descricao);
-            builder.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Alarm));
+            //builder.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Alarm));
 
             var pendingIntent = PendingIntent.GetBroadcast(context, 0, new Intent(), PendingIntentFlags.CancelCurrent);
 
@@ -97,7 +97,7 @@ namespace Radar.Droid {
             builder.SetSmallIcon(Resource.Drawable.icon);
             builder.SetContentTitle("Gravando percurso!");
             builder.SetContentText("");
-            builder.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Alarm));
+            //builder.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Alarm));
 
             var pendingIntent = PendingIntent.GetBroadcast(context, 0, new Intent(), PendingIntentFlags.CancelCurrent);
 

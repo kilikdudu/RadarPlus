@@ -37,7 +37,7 @@ namespace Radar.BLL
         private static void executarPosicao(LocalizacaoInfo local) {
             try
             {
-                local.Velocidade = 90;
+                //local.Velocidade = 90;
                 RadarBLL regraRadar = RadarFactory.create();
                 PercursoBLL regraPercurso = PercursoFactory.create();
                 if (RadarBLL.RadarAtual != null)
@@ -54,21 +54,21 @@ namespace Radar.BLL
                     MapaPage.Atual.atualizarPosicao(local);
                 regraPercurso.executarGravacao(local);
 
-                if (VelocimetroPage.Atual != null)
+                VelocimetroPage velocimentro = VelocimetroPage.Atual;
+                if (velocimentro != null)
                 {
-
-                    VelocimetroPage.Atual.Velocimentro.VelocidadeAtual = (float)local.Velocidade;
-                    //VelocimetroPage.Atual.Velocimentro.VelocidadeAtual = velocidadeAtual;
-                    //velocidadeAtual  +=  5;
-
+                    velocimentro.VelocidadeAtual = (float)local.Velocidade;
+                    velocimentro.Precisao = local.Precisao;
+                    velocimentro.Sentido = local.Sentido;
                     if (RadarBLL.RadarAtual != null)
-                        VelocimetroPage.Atual.Velocimentro.VelocidadeRadar = RadarBLL.RadarAtual.Velocidade;
-                    VelocimetroPage.Atual.Velocimentro.redesenhar();
+                        velocimentro.VelocidadeRadar = RadarBLL.RadarAtual.Velocidade;
+                    //velocimentro.VelocidadeRadar = 40;
+                    //if (VelocimetroPage.Atual.Velocimetro.redesenhar != null)
+                    velocimentro.redesenhar();
                 }
             }
             catch (Exception e) {
                 ErroPage.exibir(e);
-                //throw new Exception("Deu pau!");
             }
         }
 
@@ -98,32 +98,39 @@ namespace Radar.BLL
             MensagemUtils.notificarPermanente(NOTIFICACAO_SIMULACAO_ID, "Simulando percurso!", string.Empty);
             MensagemUtils.avisar("Iniciando simulação!");
             var task = Task.Factory.StartNew(() => {
-                if (_indexPercuso < _percursoSimulado.Pontos.Count())
+                while (true)
                 {
-                    PercursoPontoInfo ponto = _percursoSimulado.Pontos[_indexPercuso];
-
-                    LocalizacaoInfo local = new LocalizacaoInfo
+                    if (_indexPercuso < _percursoSimulado.Pontos.Count())
                     {
-                        Latitude = ponto.Latitude,
-                        Longitude = ponto.Longitude,
-                        Sentido = ponto.Sentido,
-                        Precisao = ponto.Precisao,
-                        Tempo = ponto.Data,
-                        Velocidade = ponto.Velocidade
-                    };
-                    executarPosicao(local);
+                        PercursoPontoInfo ponto = _percursoSimulado.Pontos[_indexPercuso];
 
-                    if (_ultimoPonto != DateTime.MinValue) { 
-                        TimeSpan delay = ponto.Data.Subtract(_ultimoPonto);
-                        Task.Delay((int)delay.TotalMilliseconds);
+                        LocalizacaoInfo local = new LocalizacaoInfo
+                        {
+                            Latitude = ponto.Latitude,
+                            Longitude = ponto.Longitude,
+                            Sentido = ponto.Sentido,
+                            Precisao = ponto.Precisao,
+                            Tempo = ponto.Data,
+                            Velocidade = ponto.Velocidade
+                        };
+                        executarPosicao(local);
+
+                        if (_ultimoPonto != DateTime.MinValue)
+                        {
+                            TimeSpan delay = ponto.Data.Subtract(_ultimoPonto);
+                            Task.Delay((int)delay.TotalMilliseconds).Wait();
+                            //_ultimoPonto = ponto.Data;
+                        }
+                        _ultimoPonto = ponto.Data;
+                        _indexPercuso++;
                     }
-                    _ultimoPonto = ponto.Data;
-                }
-                else {
-                    _simulando = false;
-                    _indexPercuso = 0;
-                    MensagemUtils.pararNotificaoPermanente(NOTIFICACAO_SIMULACAO_ID);
-                    MensagemUtils.avisar("Simulação terminada!");
+                    else {
+                        _simulando = false;
+                        _indexPercuso = 0;
+                        MensagemUtils.pararNotificaoPermanente(NOTIFICACAO_SIMULACAO_ID);
+                        MensagemUtils.avisar("Simulação terminada!");
+                        break;
+                    }
                 }
             });
             //task.Start();

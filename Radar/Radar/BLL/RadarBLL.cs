@@ -111,9 +111,8 @@ namespace Radar.BLL
                 str = alerta.Key.Substring(alerta.Key.IndexOf('|') + 1);
                 double longitudeRadar = Convert.ToDouble(str);
                 double distancia = Math.Floor(calcularDistancia(Latitude, Longitude, latitudeRadar, longitudeRadar));
-                if (distancia > Configuracao.DistanciaRadar) {
-                    _radares.Add(alerta.Key, false);
-                }
+                if (distancia > Configuracao.DistanciaRadar && _radares.ContainsKey(alerta.Key))
+                    _radares[alerta.Key] = false;
             }
         }
 
