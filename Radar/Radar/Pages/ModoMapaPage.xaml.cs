@@ -11,7 +11,7 @@ namespace Radar
 	public partial class ModoMapaPage : ContentPage
 	{
 		private static ModoMapaPage _ModoMapaPage;
-		public ObservableCollection<PreferenciaLabelInfo> labels { get; set; }
+		public ObservableCollection<PreferenciaLabelInfo> Labels { get; set; }
 		ListView lstView = new ListView();
 		public static ModoMapaPage Atual
 		{
@@ -24,23 +24,28 @@ namespace Radar
 				_ModoMapaPage = value;
 			}
 		}
+        public ModoMapaPage() {
+            InitializeComponent();
+            Title = "Modo Mapa";
+        }
+        /*
 		public ModoMapaPage()
 		{
 
-			labels = new ObservableCollection<PreferenciaLabelInfo>();
+			Labels = new ObservableCollection<PreferenciaLabelInfo>();
 
 			lstView.RowHeight = 80;
 			this.Title = "Modo Mapa";
 			lstView.ItemTemplate = new DataTemplate(typeof(Celulas));
-			labels.Add(new PreferenciaLabelInfo { Titulo = "Bussola" });
-			labels.Add(new PreferenciaLabelInfo { Titulo = "Sinal do GPS" });
-			labels.Add(new PreferenciaLabelInfo { Titulo = "Imagem do Satélite" });
-			labels.Add(new PreferenciaLabelInfo { Titulo = "Informações de Tráfego" });
-			labels.Add(new PreferenciaLabelInfo { Titulo = "Rotacionar Mapa", Descricao = "Sempre rotacionar o mapa" +
+			Labels.Add(new PreferenciaLabelInfo { Titulo = "Bussola" });
+			Labels.Add(new PreferenciaLabelInfo { Titulo = "Sinal do GPS" });
+			Labels.Add(new PreferenciaLabelInfo { Titulo = "Imagem do Satélite" });
+			Labels.Add(new PreferenciaLabelInfo { Titulo = "Informações de Tráfego" });
+			Labels.Add(new PreferenciaLabelInfo { Titulo = "Rotacionar Mapa", Descricao = "Sempre rotacionar o mapa" +
 					" para mostrar uma visal frontal" });
-			labels.Add(new PreferenciaLabelInfo { Titulo = "Nível de Zoom" });
-			labels.Add(new PreferenciaLabelInfo { Titulo = "Suavizar Animação" });
-			lstView.ItemsSource = labels;
+			Labels.Add(new PreferenciaLabelInfo { Titulo = "Nível de Zoom" });
+			Labels.Add(new PreferenciaLabelInfo { Titulo = "Suavizar Animação" });
+			lstView.ItemsSource = Labels;
 			Content = lstView;
 		}
 
@@ -76,12 +81,13 @@ namespace Radar
 
 				tituloLabel.Margin = new Thickness(20,10,0,0);
 				tituloLabel.FontSize = 20;
-				descricaoLabel.Margin = new Thickness(20, 0, 0, 0);
+                mySwitch.Margin = new Thickness(0, -20, 30, 0);
+                descricaoLabel.Margin = new Thickness(20, -20, 0, 0);
 				descricaoLabel.FontSize = 14;
-				
-				tituloLabel.HorizontalOptions = LayoutOptions.Start;
-				mySwitch.HorizontalOptions = LayoutOptions.End;
-				descricaoLabel.HorizontalOptions = LayoutOptions.Start;
+               
+                tituloLabel.HorizontalOptions = LayoutOptions.StartAndExpand;
+				mySwitch.HorizontalOptions = LayoutOptions.EndAndExpand;
+				descricaoLabel.HorizontalOptions = LayoutOptions.StartAndExpand;
 				//add views to the view hierarchy
 				verticaLayout.Children.Add(tituloLabel);
 				verticaLayout.Children.Add(mySwitch);
@@ -96,7 +102,7 @@ namespace Radar
 				View = verticaLayout;
 			}
 		}
-
+        */
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
