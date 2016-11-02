@@ -6,22 +6,22 @@ using Xamarin.Forms;
 
 namespace Radar
 {
-	public partial class PreferenciasPage : ContentPage
+	public partial class PreferenciaPage : ContentPage
 	{
-		private static PreferenciasPage _PreferenciasPageAtual;
+		private static PreferenciaPage _PreferenciaPageAtual;
 		public ObservableCollection<string> menus { get; set; }
-		public static PreferenciasPage Atual
+		public static PreferenciaPage Atual
 		{
 			get
 			{
-				return _PreferenciasPageAtual;
+				return _PreferenciaPageAtual;
 			}
 			private set
 			{
-				_PreferenciasPageAtual = value;
+                _PreferenciaPageAtual = value;
 			}
 		}
-		public PreferenciasPage()
+		public PreferenciaPage()
 		{
 			
 			menus = new ObservableCollection<string>();
@@ -50,7 +50,7 @@ namespace Radar
 					Navigation.PushAsync(new ModoMapaPage());
 				break;
 				case "Alertas":
-					Navigation.PushAsync(new ModoAlertasPage());
+					Navigation.PushAsync(new ModoAlertaPage());
 				break;
 				case "Audio":
 					Navigation.PushAsync(new ModoAudioPage());
@@ -59,7 +59,7 @@ namespace Radar
 					Navigation.PushAsync(new ModoReproducaoVozPage());
 				break;
 				case "Gerais":
-					Navigation.PushAsync(new ModoGeraisPage());
+					Navigation.PushAsync(new ModoGeralPage());
 				break;
 				case "Auto Início/Desligamento":
 					Navigation.PushAsync(new ModoAutoInicioPage());
@@ -68,7 +68,7 @@ namespace Radar
 					Navigation.PushAsync(new ModoPercursoPage());
 				break;
 				case "Meus Radares":
-					Navigation.PushAsync(new ModoMeusRadaresPage());
+					Navigation.PushAsync(new ModoMeuRadarPage());
 				break;
 			}
 
@@ -104,13 +104,13 @@ namespace Radar
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			_PreferenciasPageAtual = this;
+            _PreferenciaPageAtual = this;
 		}
 
 		protected override void OnDisappearing()
 		{
 			base.OnDisappearing();
-			_PreferenciasPageAtual = null;
+            _PreferenciaPageAtual = null;
 		}
 	}
 
