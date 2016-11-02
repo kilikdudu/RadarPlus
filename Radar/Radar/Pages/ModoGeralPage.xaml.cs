@@ -7,37 +7,37 @@ using Radar.Model;
 
 namespace Radar
 {
-	public partial class ModoPercursoPage : ContentPage
+	public partial class ModoGeralPage : ContentPage
 	{
-		private static ModoPercursoPage _ModoPercursoPage;
+		private static ModoGeralPage _ModoGeralPage;
 		public ObservableCollection<PreferenciaLabelInfo> Labels { get; set; }
-		public static ModoPercursoPage Atual
+		public static ModoGeralPage Atual
 		{
 			get
 			{
-				return _ModoPercursoPage;
+				return _ModoGeralPage;
 			}
 			private set
 			{
-				_ModoPercursoPage = value;
+                _ModoGeralPage = value;
 			}
 		}
-        public ModoPercursoPage() 
+        public ModoGeralPage() 
         {
             InitializeComponent();
-                Title = "Percursos";
+            Title = "Gerais";
         }
 
         protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			_ModoPercursoPage = this;
+            _ModoGeralPage = this;
 		}
 
 		protected override void OnDisappearing()
 		{
 			base.OnDisappearing();
-			_ModoPercursoPage = null;
+            _ModoGeralPage = null;
 		}
 	}
 }

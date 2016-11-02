@@ -71,6 +71,9 @@
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ModoAudioPage.xaml.cs">
+      <DependentUpon>ModoAudioPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PercursoPage.xaml.cs">
       <DependentUpon>PercursoPage.xaml</DependentUpon>
     </Compile>
@@ -86,23 +89,20 @@
     <Compile Include="App.cs" />
     <Compile Include="Pages\CustomMap.cs" />
     <Compile Include="Pages\CustomPin.cs" />
-    <Compile Include="Pages\PreferenciasPage.xaml.cs">
-      <DependentUpon>PreferenciasPage.xaml</DependentUpon>
+    <Compile Include="Pages\PreferenciaPage.xaml.cs">
+      <DependentUpon>PreferenciaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ModoMapaPage.xaml.cs">
       <DependentUpon>ModoMapaPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ModoAlertasPage.xaml.cs">
-      <DependentUpon>ModoAlertasPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ModoAudioPage.xaml.cs">
-      <DependentUpon>ModoAudioPage.xaml</DependentUpon>
+    <Compile Include="Pages\ModoAlertaPage.xaml.cs">
+      <DependentUpon>ModoAlertaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ModoReproducaoVozPage.xaml.cs">
       <DependentUpon>ModoReproducaoVozPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ModoGeraisPage.xaml.cs">
-      <DependentUpon>ModoGeraisPage.xaml</DependentUpon>
+    <Compile Include="Pages\ModoGeralPage.xaml.cs">
+      <DependentUpon>ModoGeralPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ModoAutoInicioPage.xaml.cs">
       <DependentUpon>ModoAutoInicioPage.xaml</DependentUpon>
@@ -110,8 +110,8 @@
     <Compile Include="Pages\ModoPercursoPage.xaml.cs">
       <DependentUpon>ModoPercursoPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ModoMeusRadaresPage.xaml.cs">
-      <DependentUpon>ModoMeusRadaresPage.xaml</DependentUpon>
+    <Compile Include="Pages\ModoMeuRadarPage.xaml.cs">
+      <DependentUpon>ModoMeuRadarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\PreferenciaLabelsInfo.cs" />
   </ItemGroup>
@@ -120,22 +120,19 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\PreferenciasPage.xaml">
+    <EmbeddedResource Include="Pages\PreferenciaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\ModoMapaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ModoAlertasPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ModoAudioPage.xaml">
+    <EmbeddedResource Include="Pages\ModoAlertaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\ModoReproducaoVozPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ModoGeraisPage.xaml">
+    <EmbeddedResource Include="Pages\ModoGeralPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\ModoAutoInicioPage.xaml">
@@ -144,7 +141,7 @@
     <EmbeddedResource Include="Pages\ModoPercursoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ModoMeusRadaresPage.xaml">
+    <EmbeddedResource Include="Pages\ModoMeuRadarPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -192,6 +189,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\PercursoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\ModoAudioPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

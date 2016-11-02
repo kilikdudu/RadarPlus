@@ -55,7 +55,7 @@ namespace Radar.Pages
             {
                 Titulo = "Preferências",
                 Icone = "radar.png",
-				TargetType = typeof(PreferenciasPage)
+				TargetType = typeof(PreferenciaPage)
             });
             grupo.Add(new MenuItemInfo
             {
