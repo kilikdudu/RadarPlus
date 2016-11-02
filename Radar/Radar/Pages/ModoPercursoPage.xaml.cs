@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Xamarin.Forms;
-
+using Radar.Model;
 
 namespace Radar
 {
 	public partial class ModoPercursoPage : ContentPage
 	{
 		private static ModoPercursoPage _ModoPercursoPage;
-		public ObservableCollection<string> labels { get; set; }
+		public ObservableCollection<PreferenciaLabelInfo> labels { get; set; }
 		public static ModoPercursoPage Atual
 		{
 			get
@@ -25,64 +25,71 @@ namespace Radar
 		public ModoPercursoPage()
 		{
 
-			labels = new ObservableCollection<string>();
+			labels = new ObservableCollection<PreferenciaLabelInfo>();
 			ListView lstView = new ListView();
 			lstView.RowHeight = 60;
 			this.Title = "Alertas";
 			lstView.ItemTemplate = new DataTemplate(typeof(Celulas));
-			labels.Add("Salvar Percurso");
-			labels.Add("Salvar o percurso(dados recebidos pelo GPS" +
-			           "enquanto o radar estive em funcionamento");
-			labels.Add("Excluir Antigos");
-			labels.Add("Exclui automaticamente os registros de percurso que forem " +
-			           "considerados antigos");
-			labels.Add("TEMPO");
-			labels.Add("Defina com quantos dias um percurso se torna antigo");
+			labels.Add(new PreferenciaLabelInfo
+			{
+				Titulo = "Salvar Percurso",
+				Descricao = "Salvar o percurso(dados recebidos pelo GPS" +
+					"enquanto o radar estive em funcionamento"});
+			labels.Add(new PreferenciaLabelInfo
+			{
+				Titulo = "Excluir Antigos",
+				Descricao = "Exclui automaticamente os registros de percurso que forem " +
+					"considerados antigos"});
+			labels.Add(new PreferenciaLabelInfo { Titulo = "TEMPO" });
+			labels.Add(new PreferenciaLabelInfo { Titulo = "Defina com quantos dias um percurso se torna antigo" });
 
 			lstView.ItemsSource = labels;
 			Content = lstView;
 		}
-
-
 
 		public class Celulas : ViewCell
 		{
 			public Celulas()
 			{
 				//instantiate each of our views
-				var nameLabel = new Label();
-				var descLabel = new Label();
+				var tituloLabel = new Label();
+				var descricaoLabel = new Label();
 				var mySwitch = new Switch();
 				var verticaLayout = new StackLayout();
 				var horizontalLayout = new StackLayout() { BackgroundColor = Color.White };
 				mySwitch.Toggled += (object sender, ToggledEventArgs e) =>
 				{
-					Debug.WriteLine("TEste");
+					Debug.WriteLine(mySwitch.IsToggled);
 				};
-				mySwitch.IsToggled = true;
-
 
 				//set bindings
-				nameLabel.SetBinding(Label.TextProperty, new Binding("."));
-				descLabel.SetBinding(Label.TextProperty, new Binding("desc"));
+				tituloLabel.SetBinding(Label.TextProperty, new Binding("Titulo"));
+				descricaoLabel.SetBinding(Label.TextProperty, new Binding("Descricao"));
 
 				//Set properties for desired design
 				horizontalLayout.Orientation = StackOrientation.Horizontal;
 				horizontalLayout.HorizontalOptions = LayoutOptions.Fill;
-				nameLabel.Margin = 20;
-				nameLabel.FontSize = 20;
-				descLabel.Margin = 20;
-				descLabel.FontSize = 14;
+				horizontalLayout.HorizontalOptions = LayoutOptions.End;
+				verticaLayout.Orientation = StackOrientation.Vertical;
+				verticaLayout.HorizontalOptions = LayoutOptions.Start;
+				tituloLabel.Margin = 20;
+				tituloLabel.FontSize = 20;
+				descricaoLabel.Margin = 20;
+				descricaoLabel.FontSize = 14;
+				tituloLabel.HorizontalOptions = LayoutOptions.Start;
+
 				//add views to the view hierarchy
-				verticaLayout.Children.Add(nameLabel);
-				verticaLayout.Children.Add(descLabel);
-				verticaLayout.Children.Add(mySwitch);
+				verticaLayout.Children.Add(tituloLabel);
+				verticaLayout.Children.Add(descricaoLabel);
 				horizontalLayout.Children.Add(verticaLayout);
+
+				horizontalLayout.Children.Add(mySwitch);
 
 				// add to parent view
 				View = horizontalLayout;
 			}
 		}
+
 
 		protected override void OnAppearing()
 		{

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Xamarin.Forms;
-
+using Radar.Model;
 
 namespace Radar
 {
 	public partial class ModoGeraisPage : ContentPage
 	{
 		private static ModoGeraisPage _ModoGeraisPage;
-		public ObservableCollection<string> labels { get; set; }
+		public ObservableCollection<PreferenciaLabelInfo> labels { get; set; }
 		public static ModoGeraisPage Atual
 		{
 			get
@@ -25,71 +25,70 @@ namespace Radar
 		public ModoGeraisPage()
 		{
 
-			labels = new ObservableCollection<string>();
+			labels = new ObservableCollection<PreferenciaLabelInfo>();
 			ListView lstView = new ListView();
 			lstView.RowHeight = 60;
 			this.Title = "Alertas";
 			lstView.ItemTemplate = new DataTemplate(typeof(Celulas));
-			labels.Add("COMPORTAMENTO");
-			labels.Add("");
-			labels.Add("Ao Desativar o GPS");
-			labels.Add("Define a ação ao ser executada quanto o GPS for desativado");
-			labels.Add("ATUALIZAÇÃO");
-			labels.Add("");
-			labels.Add("Verificar ao Iniciar");
-			labels.Add("Lembrar sobre a atualização da Base de Dados de Radar ao iniciar o aplicativo");
-			labels.Add("Intervalo de Verificação");
-			labels.Add("");
-			labels.Add("Última Verificação");
-			labels.Add("");
-			labels.Add("Última Atualização");
-			labels.Add("");
+			labels.Add(new PreferenciaLabelInfo { Titulo = "COMPORTAMENTO"});
+			labels.Add(new PreferenciaLabelInfo { Titulo = "Ao Desativar o GPS", 
+				Descricao = "Define a ação ao ser executada quanto o GPS for desativado" });
+			labels.Add(new PreferenciaLabelInfo { Titulo = "ATUALIZAÇÃO"});
+			labels.Add(new PreferenciaLabelInfo
+			{
+				Titulo = "Verificar ao Iniciar",
+				Descricao = "Lembrar sobre a atualização da Base de Dados de Radar ao iniciar o aplicativo"});
+			labels.Add(new PreferenciaLabelInfo { Titulo = "Intervalo de Verificação" });
+			labels.Add(new PreferenciaLabelInfo { Titulo = "Última Verificação" });
+			labels.Add(new PreferenciaLabelInfo { Titulo = "Última Atualização" });
 			lstView.ItemsSource = labels;
 			Content = lstView;
 		}
-
-
-
-		public class Celulas : ViewCell
-		{
-			public Celulas()
+			public class Celulas : ViewCell
 			{
-				//instantiate each of our views
-				var nameLabel = new Label();
-				var descLabel = new Label();
-				var mySwitch = new Switch();
-				var verticaLayout = new StackLayout();
-				var horizontalLayout = new StackLayout() { BackgroundColor = Color.White };
-				mySwitch.Toggled += (object sender, ToggledEventArgs e) =>
+				public Celulas()
 				{
-					Debug.WriteLine("TEste");
-				};
-				mySwitch.IsToggled = true;
+					//instantiate each of our views
+					var tituloLabel = new Label();
+					var descricaoLabel = new Label();
+					var mySwitch = new Switch();
+					var verticaLayout = new StackLayout();
+					var horizontalLayout = new StackLayout() { BackgroundColor = Color.White };
+					mySwitch.Toggled += (object sender, ToggledEventArgs e) =>
+					{
+						Debug.WriteLine(mySwitch.IsToggled);
+					};
 
+					//set bindings
+					tituloLabel.SetBinding(Label.TextProperty, new Binding("Titulo"));
+					descricaoLabel.SetBinding(Label.TextProperty, new Binding("Descricao"));
 
-				//set bindings
-				nameLabel.SetBinding(Label.TextProperty, new Binding("."));
-				descLabel.SetBinding(Label.TextProperty, new Binding("desc"));
+					//Set properties for desired design
+					horizontalLayout.Orientation = StackOrientation.Horizontal;
+					horizontalLayout.HorizontalOptions = LayoutOptions.Fill;
+					horizontalLayout.HorizontalOptions = LayoutOptions.End;
+					verticaLayout.Orientation = StackOrientation.Vertical;
+					verticaLayout.HorizontalOptions = LayoutOptions.Start;
+					tituloLabel.Margin = 20;
+					tituloLabel.FontSize = 20;
+					descricaoLabel.Margin = 20;
+					descricaoLabel.FontSize = 14;
+					tituloLabel.HorizontalOptions = LayoutOptions.Start;
 
-				//Set properties for desired design
-				horizontalLayout.Orientation = StackOrientation.Horizontal;
-				horizontalLayout.HorizontalOptions = LayoutOptions.Fill;
-				nameLabel.Margin = 20;
-				nameLabel.FontSize = 20;
-				descLabel.Margin = 20;
-				descLabel.FontSize = 14;
-				//add views to the view hierarchy
-				verticaLayout.Children.Add(nameLabel);
-				verticaLayout.Children.Add(descLabel);
-				verticaLayout.Children.Add(mySwitch);
-				horizontalLayout.Children.Add(verticaLayout);
+					//add views to the view hierarchy
+					verticaLayout.Children.Add(tituloLabel);
+					verticaLayout.Children.Add(descricaoLabel);
+					horizontalLayout.Children.Add(verticaLayout);
 
-				// add to parent view
-				View = horizontalLayout;
+					horizontalLayout.Children.Add(mySwitch);
+
+					// add to parent view
+					View = horizontalLayout;
+				}
 			}
-		}
 
-		protected override void OnAppearing()
+
+			protected override void OnAppearing()
 		{
 			base.OnAppearing();
 			_ModoGeraisPage = this;

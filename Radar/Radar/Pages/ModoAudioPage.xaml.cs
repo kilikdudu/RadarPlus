@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Xamarin.Forms;
-
+using Radar.Model;
 
 namespace Radar
 {
 	public partial class ModoAudioPage : ContentPage
 	{
 		private static ModoAudioPage _ModoAudioPage;
-		public ObservableCollection<string> labels { get; set; }
+		public ObservableCollection<PreferenciaLabelInfo> labels { get; set; }
 		public static ModoAudioPage Atual
 		{
 			get
@@ -25,27 +25,28 @@ namespace Radar
 		public ModoAudioPage()
 		{
 
-			labels = new ObservableCollection<string>();
+			labels = new ObservableCollection<PreferenciaLabelInfo>();
 			ListView lstView = new ListView();
 			lstView.RowHeight = 60;
 			this.Title = "Alertas";
 			lstView.ItemTemplate = new DataTemplate(typeof(Celulas));
-			labels.Add("Canal de Áudio");
-			labels.Add("Define se o alerta de radares será feito através do " +
-			           "canal de música ou através do auto-falante do dispositivo");
-			labels.Add("Volume Personalizado");
-			labels.Add("Configurar um volume padrão para alertas, sobrepondo" +
-			           "o volume definido no aparelho");
-			labels.Add("Altura do Volume");
-			labels.Add("");
-			labels.Add("Som na Caixa");
-			labels.Add("Enviar o som também para o alto-falante do dispositivo");
-			labels.Add("Som do Alerta");
-			labels.Add("");
+			labels.Add(new PreferenciaLabelInfo
+			{
+				Titulo = "Canal de Áudio",
+				Descricao = "Define se o alerta de radares será feito através do " +
+					"canal de música ou através do auto-falante do dispositivo" });
+			labels.Add(new PreferenciaLabelInfo
+			{
+				Titulo = "Volume Personalizado",
+				Descricao = "Configurar um volume padrão para alertas, sobrepondo" +
+					"o volume definido no aparelho"});
+			labels.Add(new PreferenciaLabelInfo { Titulo = "Altura do Volume"});
+			labels.Add(new PreferenciaLabelInfo { Titulo = "Som na Caixa", 
+				Descricao = "Enviar o som também para o alto-falante do dispositivo" });
+			labels.Add(new PreferenciaLabelInfo { Titulo = "Som do Alerta" });
 			lstView.ItemsSource = labels;
 			Content = lstView;
 		}
-
 
 
 		public class Celulas : ViewCell
@@ -53,34 +54,38 @@ namespace Radar
 			public Celulas()
 			{
 				//instantiate each of our views
-				var nameLabel = new Label();
-				var descLabel = new Label();
+				var tituloLabel = new Label();
+				var descricaoLabel = new Label();
 				var mySwitch = new Switch();
 				var verticaLayout = new StackLayout();
 				var horizontalLayout = new StackLayout() { BackgroundColor = Color.White };
 				mySwitch.Toggled += (object sender, ToggledEventArgs e) =>
 				{
-					Debug.WriteLine("TEste");
+					Debug.WriteLine(mySwitch.IsToggled);
 				};
-				mySwitch.IsToggled = true;
-
 
 				//set bindings
-				nameLabel.SetBinding(Label.TextProperty, new Binding("."));
-				descLabel.SetBinding(Label.TextProperty, new Binding("desc"));
+				tituloLabel.SetBinding(Label.TextProperty, new Binding("Titulo"));
+				descricaoLabel.SetBinding(Label.TextProperty, new Binding("Descricao"));
 
 				//Set properties for desired design
 				horizontalLayout.Orientation = StackOrientation.Horizontal;
 				horizontalLayout.HorizontalOptions = LayoutOptions.Fill;
-				nameLabel.Margin = 20;
-				nameLabel.FontSize = 20;
-				descLabel.Margin = 20;
-				descLabel.FontSize = 14;
+				horizontalLayout.HorizontalOptions = LayoutOptions.End;
+				verticaLayout.Orientation = StackOrientation.Vertical;
+				verticaLayout.HorizontalOptions = LayoutOptions.Start;
+				tituloLabel.Margin = 20;
+				tituloLabel.FontSize = 20;
+				descricaoLabel.Margin = 20;
+				descricaoLabel.FontSize = 14;
+				tituloLabel.HorizontalOptions = LayoutOptions.Start;
+
 				//add views to the view hierarchy
-				verticaLayout.Children.Add(nameLabel);
-				verticaLayout.Children.Add(descLabel);
-				verticaLayout.Children.Add(mySwitch);
+				verticaLayout.Children.Add(tituloLabel);
+				verticaLayout.Children.Add(descricaoLabel);
 				horizontalLayout.Children.Add(verticaLayout);
+
+				horizontalLayout.Children.Add(mySwitch);
 
 				// add to parent view
 				View = horizontalLayout;

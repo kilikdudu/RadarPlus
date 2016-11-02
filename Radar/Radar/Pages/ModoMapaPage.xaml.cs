@@ -58,12 +58,8 @@ namespace Radar
 				var horizontalLayout = new StackLayout() { BackgroundColor = Color.White };
 				mySwitch.Toggled += (object sender, ToggledEventArgs e) =>
 				{
-					
 						Debug.WriteLine(mySwitch.IsToggled);
-
 				};
-
-
 
 				//set bindings
 				tituloLabel.SetBinding(Label.TextProperty, new Binding("Titulo"));
@@ -83,9 +79,9 @@ namespace Radar
 
 				//add views to the view hierarchy
 				verticaLayout.Children.Add(tituloLabel);
-				verticaLayout.Children.Add(descricaoLabel);
-				horizontalLayout.Children.Add(verticaLayout);
 
+				horizontalLayout.Children.Add(verticaLayout);
+				verticaLayout.Children.Add(descricaoLabel);
 				horizontalLayout.Children.Add(mySwitch);
 
 				// add to parent view
