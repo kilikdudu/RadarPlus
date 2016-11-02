@@ -64,7 +64,7 @@ namespace Radar.Droid
                 ((MapView)Control).GetMapAsync(this);
             }
         }
-
+            
         private void desenharRadar(RadarPin radar)
         {
             var marker = new MarkerOptions();
