@@ -12,12 +12,12 @@ namespace Radar.Droid {
     /// <summary>
     /// This is our class responsible for drawing our shapes
     /// </summary>
-    public class VelocimentoAndroid : View {
+    public class VelocimetroAndroid : View {
 
         private Canvas _canvas;
         public Velocimetro velocimetro { get; set; }
 
-        public VelocimentoAndroid(float density, Context context) : base(context) {
+        public VelocimetroAndroid(float density, Context context) : base(context) {
 
         }
 
@@ -29,78 +29,86 @@ namespace Radar.Droid {
             //HandleShapeDraw(canvas);
         }
 
+        private Color pegarCor(PonteiroCorEnum cor) {
+            Color retorno;
+            switch (cor)
+            {
+                case PonteiroCorEnum.Verde:
+                    retorno = Color.Green;
+                    break;
+                case PonteiroCorEnum.Vermelho:
+                    retorno = Color.Red;
+                    break;
+                case PonteiroCorEnum.CinzaClaro:
+                    retorno = Color.LightGray;
+                    break;
+                default:
+                    retorno = Color.Gray;
+                    break;
+            }
+            return retorno;
+        }
+
         public void desenharTexto(string Texto, float x, float y, PonteiroCorEnum cor) {
             var strokePaint = new Paint(PaintFlags.AntiAlias);
             strokePaint.SetStyle(Paint.Style.Fill);
             strokePaint.StrokeWidth = 3;
-            strokePaint.Color = Android.Graphics.Color.Blue;
-            if (this.pegarLarguraTela() > this.pegarAlturaTela()) {
+            strokePaint.Color = pegarCor(cor);
+            if (TelaAndroid.Largura > TelaAndroid.Altura) {
                 float testTextSize = 5f;
-                float desiredTextSize = (float)(this.pegarAlturaTela() * 30 / 100) / testTextSize;
+                float desiredTextSize = (float)(TelaAndroid.Altura * 30 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
             } else {
                 float testTextSize = 5f;
-                float desiredTextSize = (float)(this.pegarLarguraTela() * 30 / 100) / testTextSize;
+                float desiredTextSize = (float)(TelaAndroid.Largura * 30 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
-            }
-            switch (cor) {
-                case PonteiroCorEnum.Verde:
-                    strokePaint.Color = Android.Graphics.Color.Gray;
-                    break;
-                case PonteiroCorEnum.Vermelho:
-                    strokePaint.Color = Android.Graphics.Color.Red;
-                    break;
-				case PonteiroCorEnum.CinzaClaro:
-					strokePaint.Color = Android.Graphics.Color.LightGray;
-					break;
-                default:
-                    strokePaint.Color = Android.Graphics.Color.Green;
-                    break;
             }
             _canvas.DrawText(Texto, x, y, strokePaint);
         }
 
-        public void desenharTextoVelocidade(string Texto, float x, float y) {
+        public void desenharTextoVelocidade(string Texto, float x, float y, PonteiroCorEnum cor) {
             var strokePaint = new Paint(PaintFlags.AntiAlias);
             strokePaint.SetStyle(Paint.Style.Fill);
             strokePaint.StrokeWidth = 3;
 			float tamanhoTexto = 0;
-            strokePaint.Color = Android.Graphics.Color.Blue;
-            if (this.pegarLarguraTela() > this.pegarAlturaTela()) {
+            strokePaint.Color = pegarCor(cor);
+            if (TelaAndroid.Largura > TelaAndroid.Altura) {
                 float testTextSize = 4.3f;
-                float desiredTextSize = (float)(this.pegarAlturaTela() * 45 / 100) / testTextSize;
+                float desiredTextSize = (float)(TelaAndroid.Altura * 45 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
 				tamanhoTexto = strokePaint.MeasureText(Texto);
             } else {
                 float testTextSize = 4f;
-                float desiredTextSize = (float)(this.pegarLarguraTela() * 45 / 100) / testTextSize;
+                float desiredTextSize = (float)(TelaAndroid.Largura * 45 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
 				tamanhoTexto = strokePaint.MeasureText(Texto);
             }
 			if (this.Width > this.Height)
 			{
-				_canvas.DrawText(Texto, (this.pegarAlturaTela() - tamanhoTexto) / 2, y, strokePaint);
+				_canvas.DrawText(Texto, (TelaAndroid.Altura - tamanhoTexto) / 2, y, strokePaint);
 			}
 			else {
-				_canvas.DrawText(Texto, (this.pegarLarguraTela() - tamanhoTexto) / 2, y, strokePaint);
+				_canvas.DrawText(Texto, (TelaAndroid.Largura - tamanhoTexto) / 2, y, strokePaint);
 			}
         }
-        public void desenharTextoLabel(string Texto, float x, float y) {
+
+        public void desenharTextoLabel(string Texto, float x, float y, PonteiroCorEnum cor) {
             var strokePaint = new Paint(PaintFlags.AntiAlias);
             strokePaint.SetStyle(Paint.Style.Fill);
             strokePaint.StrokeWidth = 3F;
-            strokePaint.Color = Android.Graphics.Color.Blue;
-            if (this.pegarLarguraTela() > this.pegarAlturaTela()) {
+            strokePaint.Color = pegarCor(cor);
+            if (TelaAndroid.Largura > TelaAndroid.Altura) {
                 float testTextSize = 4.5f;
-                float desiredTextSize = (float)(this.pegarAlturaTela() * 39 / 100) / testTextSize;
+                float desiredTextSize = (float)(TelaAndroid.Altura * 39 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
             } else {
                 float testTextSize = 5f;
-                float desiredTextSize = (float)(this.pegarLarguraTela() * 39 / 100) / testTextSize;
+                float desiredTextSize = (float)(TelaAndroid.Largura * 39 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
             }
             _canvas.DrawText(Texto, x, y, strokePaint);
         }
+
         public new int Width
         {
 			get { return base.Width - (int)(this.velocimetro.Padding.HorizontalThickness); }
@@ -110,6 +118,8 @@ namespace Radar.Droid {
         {
 			get { return base.Height - (int)(this.velocimetro.Padding.VerticalThickness); }
         }
+
+        /*
         public float pegarAlturaTela() {
             float altura;
             if (this.Width > this.Height) {
@@ -130,6 +140,8 @@ namespace Radar.Droid {
            
             return largura;
         }
+        */
+
         public void desenharPonteiro(RetanguloInfo rect, PonteiroCorEnum cor) {
             var strokePaint = new Paint(PaintFlags.AntiAlias);
             strokePaint.SetStyle(Paint.Style.Stroke);
@@ -138,7 +150,7 @@ namespace Radar.Droid {
             strokePaint.Color = Android.Graphics.Color.Blue;
             switch (cor) {
                 case PonteiroCorEnum.Verde:
-                    strokePaint.Color = Android.Graphics.Color.Gray;
+                    strokePaint.Color = Android.Graphics.Color.Green;
                     break;
                 case PonteiroCorEnum.Vermelho:
                     strokePaint.Color = Android.Graphics.Color.Red;
@@ -147,7 +159,7 @@ namespace Radar.Droid {
 					strokePaint.Color = Android.Graphics.Color.LightGray;
 					break;
                 default:
-                    strokePaint.Color = Android.Graphics.Color.Green;
+                    strokePaint.Color = Android.Graphics.Color.Gray;
                     break;
             }
 

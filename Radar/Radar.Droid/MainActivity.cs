@@ -35,6 +35,9 @@ namespace Radar.Droid
 
             //AndroidEnvironment.UnhandledExceptionRaiser += HandleAndroidException;
 
+            TelaAndroid.Largura = (int)Resources.DisplayMetrics.WidthPixels; // real pixels
+            TelaAndroid.Altura = (int)Resources.DisplayMetrics.HeightPixels;
+
             LoadApplication(new App());
         }
 

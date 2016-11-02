@@ -38,9 +38,11 @@
     <Compile Include="BLL\Configuracao.cs" />
     <Compile Include="BLL\GPSUtils.cs" />
     <Compile Include="BLL\IGPS.cs" />
+    <Compile Include="BLL\ITela.cs" />
     <Compile Include="BLL\MapaBLL.cs" />
     <Compile Include="BLL\PercursoBLL.cs" />
     <Compile Include="BLL\RadarBLL.cs" />
+    <Compile Include="BLL\TelaUtils.cs" />
     <Compile Include="Controls\PonteiroCorEnum.cs" />
     <Compile Include="Controls\RadarMap.cs" />
     <Compile Include="Controls\RadarPin.cs" />
@@ -77,9 +79,7 @@
     </Compile>
     <Compile Include="Controls\Velocimetro.cs" />
     <Compile Include="Pages\NavegacaoPage.cs" />
-    <Compile Include="Pages\VelocimetroPage.xaml.cs">
-      <DependentUpon>VelocimetroPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Pages\VelocimetroPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\IMensagem.cs" />
     <Compile Include="Utils\MensagemUtils.cs" />
@@ -183,12 +183,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Pages\VelocimetroPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\MenuPage.xaml">

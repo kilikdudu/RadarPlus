@@ -94,8 +94,8 @@ namespace Radar.DALSQLite
             {
                 if (radar.Id != 0)
                 {
-                    database.Update(radar);
-                    return radar.Id;
+                    return database.Update(radar);
+                    //return radar.Id;
                 }
                 else
                 {

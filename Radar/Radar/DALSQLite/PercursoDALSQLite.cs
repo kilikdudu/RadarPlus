@@ -43,12 +43,19 @@ namespace Radar.DALSQLite
             {
                 if (percurso.Id != 0)
                 {
-                    database.Update(percurso);
-                    return percurso.Id;
+                    return database.Update(percurso);
+                    //return percurso.Id;
                 }
                 else
                 {
                     return database.Insert(percurso);
+                    /*
+                    return (
+                        from p in database.Table<PercursoInfo>()
+                        orderby p.Id
+                        select p.Id
+                    ).Take(1).FirstOrDefault();
+                    */
                 }
             }
         }

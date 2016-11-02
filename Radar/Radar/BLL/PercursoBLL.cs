@@ -17,7 +17,7 @@ namespace Radar.BLL
 
         private const int TEMPO_ATUALIZACAO_PONTO = 5;
         private const int TEMPO_MINIMO_PARADO = 120;
-        private const int VELOCIDADE_MAXIMA_PARADO = 3;
+        private const int VELOCIDADE_MAXIMA_PARADO = 0;//3;
 
         private static PercursoInfo _percursoAtual;
         private static bool _gravando = false;
@@ -78,8 +78,9 @@ namespace Radar.BLL
         }
 
         public int gravar(PercursoInfo percurso) {
-            percurso.Id = _percursoDB.gravar(percurso);
-            return percurso.Id;
+            //percurso.Id = _percursoDB.gravar(percurso);
+            return _percursoDB.gravar(percurso);
+            //return percurso.Id;
         }
 
         public int gravarPonto(PercursoPontoInfo ponto) {
@@ -134,7 +135,7 @@ namespace Radar.BLL
                 return false;
             TimeSpan tempo = local.Tempo.Subtract(_dataAnterior);
             if (tempo.TotalSeconds > TEMPO_ATUALIZACAO_PONTO) {
-                if (local.Velocidade > VELOCIDADE_MAXIMA_PARADO) {
+                if (local.Velocidade >= VELOCIDADE_MAXIMA_PARADO) {
                     _ultimoMovimentoReal = local.Tempo;
                     _emMovimento = true;
                 }
