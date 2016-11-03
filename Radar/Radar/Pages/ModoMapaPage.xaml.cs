@@ -13,7 +13,7 @@ namespace Radar
 		private static ModoMapaPage _ModoMapaPage;
 		public ObservableCollection<PreferenciaLabelInfo> Labels { get; set; }
 		ListView lstView = new ListView();
-		public static ModoMapaPage Atual
+      	public static ModoMapaPage Atual
 		{
 			get
 			{
@@ -27,6 +27,7 @@ namespace Radar
         public ModoMapaPage() {
             InitializeComponent();
             Title = "Modo Mapa";
+            Content = new ScrollView() { Content = teststack };
         }
         /*
 		public ModoMapaPage()

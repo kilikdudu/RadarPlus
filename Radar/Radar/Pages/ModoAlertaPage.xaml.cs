@@ -26,6 +26,7 @@ namespace Radar
         public ModoAlertaPage() {
             InitializeComponent();
             Title = "Alertas";
+            Content = new ScrollView() { Content = teststack };
         }
 
         protected override void OnAppearing()

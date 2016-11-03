@@ -26,6 +26,7 @@ namespace Radar
         {
             InitializeComponent();
             Title = "Meus Radares";
+            Content = new ScrollView() { Content = teststack };
         }
 
         protected override void OnAppearing()

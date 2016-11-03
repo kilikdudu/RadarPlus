@@ -10,6 +10,8 @@ namespace Radar
 		public ModoReproducaoVozPage()
 		{
 			InitializeComponent();
-		}
+            Title = "Reprodução Voz";
+            Content = new ScrollView() { Content = teststack };
+        }
 	}
 }

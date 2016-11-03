@@ -11,6 +11,7 @@ namespace Radar.Pages {
         public ModoAudioPage() {
             InitializeComponent();
             Title = "Áudio";
+            Content = new ScrollView() { Content = teststack };
         }
     }
 }
