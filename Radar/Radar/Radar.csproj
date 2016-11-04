@@ -39,10 +39,12 @@
     <Compile Include="BLL\GPSUtils.cs" />
     <Compile Include="BLL\IGPS.cs" />
     <Compile Include="BLL\ITela.cs" />
+    <Compile Include="BLL\IThread.cs" />
     <Compile Include="BLL\MapaBLL.cs" />
     <Compile Include="BLL\PercursoBLL.cs" />
     <Compile Include="BLL\RadarBLL.cs" />
     <Compile Include="BLL\TelaUtils.cs" />
+    <Compile Include="BLL\ThreadUtils.cs" />
     <Compile Include="Controls\PonteiroCorEnum.cs" />
     <Compile Include="Controls\RadarMap.cs" />
     <Compile Include="Controls\RadarPin.cs" />

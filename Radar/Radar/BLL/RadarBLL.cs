@@ -16,7 +16,6 @@ namespace Radar.BLL
     {
         private IRadarDAL _db;
         private const int DIAMETRO_TERRA = 6371;
-        private const int RADAR_ID = 1;
         private IDictionary<string, bool> _radares = new Dictionary<string, bool>();
 
         private static RadarInfo _radarAtual;
@@ -84,7 +83,7 @@ namespace Radar.BLL
             return deg * (Math.PI / 100);
         }
 
-        private double calcularDistancia(double initialLat, double initialLong, double finalLat, double finalLong)
+        public double calcularDistancia(double initialLat, double initialLong, double finalLat, double finalLong)
         {
             double dLat = toRadians(finalLat - initialLat);
             double dLon = toRadians(finalLong - initialLong);
@@ -98,6 +97,7 @@ namespace Radar.BLL
         }
 
         private void limparAlertado(double Latitude, double Longitude) {
+            /*
             int radarAtivo = 0;
             int radarTodo = 0;
             foreach (KeyValuePair<string, bool> alerta in _radares) {
@@ -105,6 +105,8 @@ namespace Radar.BLL
                 if (alerta.Value)
                     radarAtivo++;
             }
+            */
+            List<string> desativado = new List<string>();
             foreach (KeyValuePair<string, bool> alerta in _radares) {
                 string str = alerta.Key.Substring(0, alerta.Key.IndexOf('|'));
                 double latitudeRadar = Convert.ToDouble(str);
@@ -112,8 +114,11 @@ namespace Radar.BLL
                 double longitudeRadar = Convert.ToDouble(str);
                 double distancia = Math.Floor(calcularDistancia(Latitude, Longitude, latitudeRadar, longitudeRadar));
                 if (distancia > Configuracao.DistanciaRadar && _radares.ContainsKey(alerta.Key))
-                    _radares[alerta.Key] = false;
+                    //_radares[alerta.Key] = false;
+                    desativado.Add(alerta.Key);
             }
+            foreach (string posicao in desativado)
+                _radares[posicao] = false;
         }
 
         /*

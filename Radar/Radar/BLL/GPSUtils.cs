@@ -14,6 +14,7 @@ namespace Radar.BLL
     public static class GPSUtils
     {
         private const int NOTIFICACAO_SIMULACAO_ID = 1034;
+        private const int RADAR_ID = 1;
 
         private static IGPS _gpsServico;
 
@@ -48,7 +49,11 @@ namespace Radar.BLL
                 else {
                     RadarInfo radar = regraRadar.calcularRadar(local);
                     if (radar != null)
+                    {
                         RadarBLL.RadarAtual = radar;
+                        string mensagem = "Tem um radar a frente, diminua para " + radar.Velocidade.ToString() + "km/h!";
+                        MensagemUtils.notificar(RADAR_ID, "Alerta de Radar", mensagem);
+                    }
                 }
                 if (MapaPage.Atual != null)
                     MapaPage.Atual.atualizarPosicao(local);
@@ -57,11 +62,21 @@ namespace Radar.BLL
                 VelocimetroPage velocimentro = VelocimetroPage.Atual;
                 if (velocimentro != null)
                 {
+
                     velocimentro.VelocidadeAtual = (float)local.Velocidade;
                     velocimentro.Precisao = local.Precisao;
                     velocimentro.Sentido = local.Sentido;
-                    if (RadarBLL.RadarAtual != null)
-                        velocimentro.VelocidadeRadar = RadarBLL.RadarAtual.Velocidade;
+                    RadarInfo radar = RadarBLL.RadarAtual;
+                    if (radar != null)
+                    {
+                        velocimentro.VelocidadeRadar = radar.Velocidade;
+                        double distancia = regraRadar.calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
+                        velocimentro.DistanciaRadar = (float)distancia;
+                    }
+                    else {
+                        velocimentro.VelocidadeRadar = 0;
+                        velocimentro.DistanciaRadar = 0;
+                    }
                     //velocimentro.VelocidadeRadar = 40;
                     //if (VelocimetroPage.Atual.Velocimetro.redesenhar != null)
                     velocimentro.redesenhar();
@@ -97,7 +112,8 @@ namespace Radar.BLL
             }
             MensagemUtils.notificarPermanente(NOTIFICACAO_SIMULACAO_ID, "Simulando percurso!", string.Empty);
             MensagemUtils.avisar("Iniciando simulação!");
-            var task = Task.Factory.StartNew(() => {
+            var task = Task.Factory.StartNew(() =>
+            {
                 while (true)
                 {
                     if (_indexPercuso < _percursoSimulado.Pontos.Count())
@@ -113,7 +129,10 @@ namespace Radar.BLL
                             Tempo = ponto.Data,
                             Velocidade = ponto.Velocidade
                         };
-                        executarPosicao(local);
+                        //executarPosicao(local);
+                        ThreadUtils.RunOnUiThread(() => {
+                            executarPosicao(local);
+                        });
 
                         if (_ultimoPonto != DateTime.MinValue)
                         {
@@ -133,7 +152,6 @@ namespace Radar.BLL
                     }
                 }
             });
-            //task.Start();
             return true;
         }
     }

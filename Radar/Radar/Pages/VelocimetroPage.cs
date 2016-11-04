@@ -27,10 +27,12 @@ namespace Radar.Pages
 
         private float _sentido;
         private float _precisao;
+        private float _distanciaRadar;
         private Velocimetro _velocimetro;
         private Label _GPSPrecisaoLabel;
         private Label _GPSSentidoLabel;
         private Label _VelocidadeRadarLabel;
+        private Label _DistanciaRadarLabel;
 
         public float VelocidadeAtual {
             get {
@@ -51,13 +53,26 @@ namespace Radar.Pages
             }
         }
 
+        public float DistanciaRadar
+        {
+            get
+            {
+                return _distanciaRadar;
+            }
+            set
+            {
+                _distanciaRadar = value;
+                _DistanciaRadarLabel.Text = ((int)Math.Floor(_distanciaRadar)).ToString() + "m";
+            }
+        }
+
         public float Precisao {
             get {
                 return _precisao;
             }
             set {
                 _precisao = value;
-                _GPSPrecisaoLabel.Text = ((int)Math.Floor(_precisao)).ToString() + "m";
+                _GPSPrecisaoLabel.Text = ((int)Math.Floor(_precisao)).ToString() + " m";
             }
         }
 
@@ -115,9 +130,18 @@ namespace Radar.Pages
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center
             };
-            AbsoluteLayout.SetLayoutBounds(_VelocidadeRadarLabel, new Rectangle(1, 0.975, 1, 0.1));
+            AbsoluteLayout.SetLayoutBounds(_VelocidadeRadarLabel, new Rectangle(1, 0.950, 1, 0.1));
             AbsoluteLayout.SetLayoutFlags(_VelocidadeRadarLabel, AbsoluteLayoutFlags.All);
 
+            _DistanciaRadarLabel = new Label
+            {
+                Text = "0 m",
+                FontSize = 16,
+                HorizontalTextAlignment = TextAlignment.Center,
+                VerticalTextAlignment = TextAlignment.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(_DistanciaRadarLabel, new Rectangle(1, 0.975, 1, 0.1));
+            AbsoluteLayout.SetLayoutFlags(_DistanciaRadarLabel, AbsoluteLayoutFlags.All);
 
             Title = "Velocimetro";
             Padding = 5;
@@ -127,7 +151,8 @@ namespace Radar.Pages
                     _velocimetro,
                     _GPSPrecisaoLabel,
                     _GPSSentidoLabel,
-                    _VelocidadeRadarLabel
+                    _VelocidadeRadarLabel,
+                    _DistanciaRadarLabel
                 }
             };
         }
