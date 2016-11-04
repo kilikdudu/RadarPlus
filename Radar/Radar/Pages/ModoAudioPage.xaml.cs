@@ -32,7 +32,7 @@ namespace Radar.Pages {
 			somCaixa.IsToggled = Configuracao.VolumePersonalizado;
 
         }
-		public void volumePersonalizadoToogled(object sender, ToggledEventArgs e)
+		public void volumePersonalizadoToggled(object sender, ToggledEventArgs e)
 		{
 			if (e.Value == true)
 			{
@@ -43,7 +43,7 @@ namespace Radar.Pages {
 			}
 		}
 
-		public void somCaixaToogled(object sender, ToggledEventArgs e)
+		public void somCaixaToggled(object sender, ToggledEventArgs e)
 		{
 			if (e.Value == true)
 			{

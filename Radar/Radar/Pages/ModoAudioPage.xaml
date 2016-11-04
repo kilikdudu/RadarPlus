@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Radar.Pages.ModoAudioPage">
@@ -13,7 +13,7 @@
       <BoxView Color="Gray" HeightRequest="1" />
       <StackLayout Orientation="Horizontal">
         <Label Text="Volume Personalisado" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-        <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="volumePersonalizado" Toggled="volumePersonalizadoToogled"/>
+        <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="volumePersonalizado" Toggled="volumePersonalizadoToggled"/>
       </StackLayout>
       <Label FontSize="14" Margin ="20,0,0,0" Text="Configurar um volume padrão para alertas, sobrepondo o" HorizontalOptions="StartAndExpand" />
       <Label FontSize="14" Margin ="20,0,0,0" Text="volume definido no aparelho" HorizontalOptions="StartAndExpand" />
@@ -25,7 +25,7 @@
       <BoxView Color="Gray" HeightRequest="1" />
       <StackLayout Orientation="Horizontal">
         <Label Text="Som na Caixa" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-        <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="somCaixa" Toggled="somCaixaToogled"/>
+        <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="somCaixa" Toggled="somCaixaToggled"/>
       </StackLayout>
       <Label FontSize="14" Margin ="20,0,0,0" Text="Envia o som também para o alto falante do dispositivo" HorizontalOptions="StartAndExpand" />
 

@@ -34,7 +34,6 @@
          <BoxView Color="Gray" HeightRequest="1" />
          <StackLayout Orientation="Horizontal">
            <Label Text="Nível de Zoom" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-           <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="nivelZoom" Toggled="nivelZoomToggled"/>
          </StackLayout>
          <BoxView Color="Gray" HeightRequest="1" />
          <StackLayout Orientation="Horizontal">

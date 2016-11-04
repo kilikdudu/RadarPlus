@@ -46,7 +46,7 @@ namespace Radar
 			vibrarAlerta.IsToggled = Configuracao.VibrarAlerta;
         }
 
-		public void radarMovelToogled(object sender, ToggledEventArgs e)
+		public void radarMovelToggled(object sender, ToggledEventArgs e)
 		{
 			if (e.Value == true)
 			{

@@ -47,7 +47,7 @@ namespace Radar
 
 		}
 
-		public void exibirBotaoRemoverToogled(object sender, ToggledEventArgs e)
+		public void exibirBotaoRemoverToggled(object sender, ToggledEventArgs e)
 		{
 			if (e.Value == true)
 			{

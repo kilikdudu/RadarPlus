@@ -40,8 +40,6 @@ namespace Radar
 
 				rotacionarMapa.IsToggled = Configuracao.RotacionarMapa;
 
-				nivelZoom.IsToggled = Configuracao.NivelZoom;
-
 				suavizarAnimacao.IsToggled = Configuracao.SuavizarAnimacao;
 
         }
@@ -98,17 +96,8 @@ namespace Radar
 				regraPreferencia.gravar("rotacionarMapa", 0);
 			}
 		}
-		public void nivelZoomToggled(object sender, ToggledEventArgs e)
-		{
-			if (e.Value == true)
-			{
-				regraPreferencia.gravar("nivelZoom", 1);
-			}
-			else {
-				regraPreferencia.gravar("nivelZoom", 0);
-			}
-		}
-		public void suavizarAnimacaoToggled(object sender, ToggledEventArgs e)
+
+        public void suavizarAnimacaoToggled(object sender, ToggledEventArgs e)
 		{
 			if (e.Value == true)
 			{
