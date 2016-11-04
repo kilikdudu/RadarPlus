@@ -113,7 +113,12 @@
     <Compile Include="Pages\ModoMeuRadarPage.xaml.cs">
       <DependentUpon>ModoMeuRadarPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\PreferenciaLabelsInfo.cs" />
+    <Compile Include="Model\PreferenciaInfo.cs" />
+    <Compile Include="DALSQLite\PreferenciaDALSQLite.cs" />
+    <Compile Include="IDAL\IPreferenciaDAL.cs" />
+    <Compile Include="BLL\PreferenciaBLL.cs" />
+    <Compile Include="DALFactory\PreferenciaDALFactory.cs" />
+    <Compile Include="Factory\PreferenciaFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\RadarListaPage.xaml">

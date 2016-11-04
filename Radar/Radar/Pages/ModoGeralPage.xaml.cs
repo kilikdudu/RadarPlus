@@ -4,13 +4,16 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Xamarin.Forms;
 using Radar.Model;
+using Radar.BLL;
+using Radar.Factory;
 
 namespace Radar
 {
 	public partial class ModoGeralPage : ContentPage
 	{
 		private static ModoGeralPage _ModoGeralPage;
-		public ObservableCollection<PreferenciaLabelInfo> Labels { get; set; }
+		PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+
 		public static ModoGeralPage Atual
 		{
 			get
@@ -27,7 +30,20 @@ namespace Radar
             InitializeComponent();
             Title = "Gerais";
             Content = new ScrollView() { Content = teststack };
+
+			intervaloVerificacao.IsToggled = Configuracao.IntervaloVerificacao;
         }
+
+		public void intervaloVerificacaoToggled(object sender, ToggledEventArgs e)
+		{
+			if (e.Value == true)
+			{
+				regraPreferencia.gravar("intervaloVerificacao", 1);
+			}
+			else {
+				regraPreferencia.gravar("intervaloVerificacao", 0);
+			}
+		}
 
         protected override void OnAppearing()
 		{
