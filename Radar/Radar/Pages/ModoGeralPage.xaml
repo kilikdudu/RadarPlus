@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Radar.ModoGeralPage">
 	<ContentPage.Content>
-    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" x:Name="teststack">
       <StackLayout Orientation="Horizontal">
         <Label Text="COMPORTAMENTO" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
       </StackLayout>
@@ -23,7 +23,7 @@
       <BoxView Color="Gray" HeightRequest="1" />
       <StackLayout Orientation="Horizontal">
         <Label Text="Intervalo de Verificação" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-        <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0"/>
+        <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="intervaloVerificacao" Toggled="intervaloVerificacaoToggled"/>
       </StackLayout>
 
       <BoxView Color="Gray" HeightRequest="1" />

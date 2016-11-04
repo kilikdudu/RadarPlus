@@ -4,16 +4,16 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Xamarin.Forms;
 using Radar.Model;
-
+using Radar.BLL;
+using Radar.Factory;
 
 namespace Radar
 {
 	public partial class ModoMapaPage : ContentPage
 	{
 		private static ModoMapaPage _ModoMapaPage;
-		public ObservableCollection<PreferenciaLabelInfo> Labels { get; set; }
-		ListView lstView = new ListView();
-		public static ModoMapaPage Atual
+		PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+      	public static ModoMapaPage Atual
 		{
 			get
 			{
@@ -27,7 +27,86 @@ namespace Radar
         public ModoMapaPage() {
             InitializeComponent();
             Title = "Modo Mapa";
+
+            Content = new ScrollView() { Content = teststack };
+
+				bussola.IsToggled = Configuracao.Bussola;
+
+				sinalGPS.IsToggled = Configuracao.SinalGPS;
+
+				imagenSatelite.IsToggled = Configuracao.ImagenSatelite;
+		
+				infoTrafego.IsToggled = Configuracao.InfoTrafego;
+
+				rotacionarMapa.IsToggled = Configuracao.RotacionarMapa;
+
+				suavizarAnimacao.IsToggled = Configuracao.SuavizarAnimacao;
+
         }
+
+		public void bussolaToggled(object sender, ToggledEventArgs e)
+		{
+			if (e.Value == true)
+			{
+				regraPreferencia.gravar("bussola",1);
+			}
+			else {
+				regraPreferencia.gravar("bussola", 0);
+			}
+		}
+
+		public void sinalGPSToggled(object sender, ToggledEventArgs e)
+		{
+			if (e.Value == true)
+			{
+				regraPreferencia.gravar("sinalGPS", 1);
+			}
+			else {
+				regraPreferencia.gravar("sinalGPS", 0);
+			}
+		}
+
+		public void imagenSateliteToggled(object sender, ToggledEventArgs e)
+		{
+			if (e.Value == true)
+			{
+				regraPreferencia.gravar("imagenSatelite", 1);
+			}
+			else {
+				regraPreferencia.gravar("imagenSatelite", 0);
+			}
+		}
+		public void infoTrafegoToggled(object sender, ToggledEventArgs e)
+		{
+			if (e.Value == true)
+			{
+				regraPreferencia.gravar("infoTrafego", 1);
+			}
+			else {
+				regraPreferencia.gravar("infoTrafego", 0);
+			}
+		}
+		public void rotacionarMapaToggled(object sender, ToggledEventArgs e)
+		{
+			if (e.Value == true)
+			{
+				regraPreferencia.gravar("rotacionarMapa", 1);
+			}
+			else {
+				regraPreferencia.gravar("rotacionarMapa", 0);
+			}
+		}
+
+        public void suavizarAnimacaoToggled(object sender, ToggledEventArgs e)
+		{
+			if (e.Value == true)
+			{
+				regraPreferencia.gravar("suavizarAnimacao", 1);
+			}
+			else {
+				regraPreferencia.gravar("suavizarAnimacao", 0);
+			}
+		}
         /*
 		public ModoMapaPage()
 		{
@@ -105,6 +184,7 @@ namespace Radar
         */
 		protected override void OnAppearing()
 		{
+			
 			base.OnAppearing();
 			_ModoMapaPage = this;
 		}
