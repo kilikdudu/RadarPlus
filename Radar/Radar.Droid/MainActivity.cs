@@ -31,12 +31,16 @@ namespace Radar.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
+            
+
             //InitializeLocationManager();
 
             //AndroidEnvironment.UnhandledExceptionRaiser += HandleAndroidException;
 
             TelaAndroid.Largura = (int)Resources.DisplayMetrics.WidthPixels; // real pixels
             TelaAndroid.Altura = (int)Resources.DisplayMetrics.HeightPixels;
+
+            ThreadAndroid.CurrentActivity = this;
 
             LoadApplication(new App());
         }

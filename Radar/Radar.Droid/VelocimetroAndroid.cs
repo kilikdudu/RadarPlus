@@ -18,7 +18,6 @@ namespace Radar.Droid {
         public Velocimetro velocimetro { get; set; }
 
         public VelocimetroAndroid(float density, Context context) : base(context) {
-
         }
 
 
