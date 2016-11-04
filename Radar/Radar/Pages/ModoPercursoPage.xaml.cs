@@ -4,13 +4,15 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Xamarin.Forms;
 using Radar.Model;
+using Radar.BLL;
+using Radar.Factory;
 
 namespace Radar
 {
 	public partial class ModoPercursoPage : ContentPage
 	{
 		private static ModoPercursoPage _ModoPercursoPage;
-		public ObservableCollection<PreferenciaLabelInfo> Labels { get; set; }
+		PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
 		public static ModoPercursoPage Atual
 		{
 			get
@@ -22,11 +24,41 @@ namespace Radar
 				_ModoPercursoPage = value;
 			}
 		}
+
         public ModoPercursoPage() 
         {
             InitializeComponent();
                 Title = "Percursos";
+            Content = new ScrollView() { Content = teststack };
+
+			salvarPercurso.IsToggled = Configuracao.SalvarPercurso;
+
+			excluirAntigos.IsToggled = Configuracao.ExcluirAntigos;
         }
+
+		public void salvarPercursoToggled(object sender, ToggledEventArgs e)
+		{
+			if (e.Value == true)
+			{
+				regraPreferencia.gravar("salvarPercurso", 1);
+			}
+			else {
+				regraPreferencia.gravar("salvarPercurso", 0);
+			}
+
+		}
+
+		public void excluirAntigosToggled(object sender, ToggledEventArgs e)
+		{
+			if (e.Value == true)
+			{
+				regraPreferencia.gravar("excluirAntigos", 1);
+			}
+			else {
+				regraPreferencia.gravar("excluirAntigos", 0);
+			}
+
+		}
 
         protected override void OnAppearing()
 		{
