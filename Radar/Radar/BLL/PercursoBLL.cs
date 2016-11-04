@@ -17,7 +17,7 @@ namespace Radar.BLL
 
         private const int TEMPO_ATUALIZACAO_PONTO = 5;
         private const int TEMPO_MINIMO_PARADO = 120;
-        private const int VELOCIDADE_MAXIMA_PARADO = 0;//3;
+        private const int VELOCIDADE_MAXIMA_PARADO = 3;//3;
 
         private static PercursoInfo _percursoAtual;
         private static bool _gravando = false;
@@ -122,6 +122,8 @@ namespace Radar.BLL
                 Latitude = local.Latitude,
                 Longitude = local.Longitude,
                 Velocidade = local.Velocidade,
+                Sentido = local.Sentido,
+                Precisao = local.Precisao,
                 Data = local.Tempo,
                 Movimento = emMovimento
             };
