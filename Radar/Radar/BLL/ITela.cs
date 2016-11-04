@@ -10,5 +10,6 @@ namespace Radar.BLL
     {
         float pegarLargura();
         float pegarAltura();
+		string pegaOrientacao();
     }
 }
