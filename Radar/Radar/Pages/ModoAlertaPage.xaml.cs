@@ -6,6 +6,8 @@ using Xamarin.Forms;
 using Radar.Model;
 using Radar.BLL;
 using Radar.Factory;
+using Radar.Pages.Popup;
+using Rg.Plugins.Popup.Extensions;
 
 namespace Radar
 {
@@ -44,6 +46,8 @@ namespace Radar
 			beepAviso.IsToggled = Configuracao.BeepAviso;
 
 			vibrarAlerta.IsToggled = Configuracao.VibrarAlerta;
+
+            sobreposicaoVisual.IsToggled = Configuracao.SobreposicaoVisual;
         }
 
 		public void radarMovelToggled(object sender, ToggledEventArgs e)
@@ -118,6 +122,40 @@ namespace Radar
 				regraPreferencia.gravar("vibrarAlerta", 0);
 			}
 		}
+
+        public void sobreposicaoVisualToggled(object sender, ToggledEventArgs e) {
+            if (e.Value == true) {
+                regraPreferencia.gravar("sobreposicaoVisual", 1);
+            } else {
+                regraPreferencia.gravar("sobreposicaoVisual", 0);
+            }
+        }
+        async void tempoDuracaoTapped(object sender, EventArgs e) {
+
+            var page = new TempoDuracaoPopUp();
+
+            await Navigation.PushPopupAsync(page);
+            // or
+            //await Navigation.PushAsync(page);
+        }
+
+        async void tempoAlertaTapped(object sender, EventArgs e) {
+
+            var page = new TempoAlertaPopUp();
+
+            await Navigation.PushPopupAsync(page);
+            // or
+            //await Navigation.PushAsync(page);
+        }
+
+        async void distanciaAlertaTapped(object sender, EventArgs e) {
+
+            var page = new DistanciaAlertaPopUp();
+
+            await Navigation.PushPopupAsync(page);
+            // or
+            //await Navigation.PushAsync(page);
+        }
 
         protected override void OnAppearing()
 		{

@@ -3,16 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-             x:Class="Radar.Pages.Popup.NivelZoomPopUp">
+             x:Class="Radar.Pages.Popup.AlturaVolumePopUp">
  
   <AbsoluteLayout VerticalOptions="Center" Opacity="0.00"  HorizontalOptions="Fill" Padding="20, 20, 20, 20" HeightRequest="240">
     <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-      <Label Text="Nivel de Zoom" TextColor="Red" FontSize="20" HorizontalOptions="Start" Margin="0, 0, 0, 20" />
+      <Label Text="Altura do Volume" TextColor="Red" FontSize="20" HorizontalOptions="Start" Margin="20, 0, 0, 0" />
      
         <StackLayout HorizontalOptions="FillAndExpand">
           <Label Text="" TextColor="Black" FontSize="30" HorizontalOptions="Center" x:Name="textValor" Margin="0, 0, 0, 30"/>
 
-          <Slider Value="12" Minimum="0" Maximum="15" x:Name="Slider" />
+          <Slider  Minimum="0" Maximum="15" x:Name="SliderAlturaVolume" />
           <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 
             <Button Text="Cancelar" TextColor="Black" Clicked="OnCancelar" HorizontalOptions="StartAndExpand"/>

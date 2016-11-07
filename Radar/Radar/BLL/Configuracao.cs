@@ -28,6 +28,15 @@ namespace Radar.BLL
 
         }
 
+        public static string AlturaVolume
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("alturaVolume");
+            }
+        }
+
         public static int AnguloRadar
 		{
 			get
@@ -63,6 +72,15 @@ namespace Radar.BLL
 
 		}
 
+        public static string CanalAudio
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("canalAudio");
+            }
+        }
+
         public static bool Desabilitar
         {
             get
@@ -76,6 +94,24 @@ namespace Radar.BLL
         public static double DistanciaRadar {
             get {
                 return 500;
+            }
+        }
+
+        public static string DistanciaAlertaUrbano
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("distanciaAlertaUrbano");
+            }
+        }
+
+        public static string DistanciaAlertaEstrada
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("distanciaAlertaEstrada");
             }
         }
 
@@ -279,7 +315,16 @@ namespace Radar.BLL
 			}
 		}
 
-		public static bool SomCaixa
+        public static bool SobreposicaoVisual
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("sobreposicaoVisual");
+            }
+        }
+
+        public static bool SomCaixa
 		{
 			get
 			{
@@ -297,7 +342,23 @@ namespace Radar.BLL
 			}
 		}
 
-		public static bool VibrarAlerta
+        public static string TempoAlerta
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("tempoAlerta");
+            }
+        }
+        public static string TempoDuracao
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("tempoDuracao");
+            }
+        }
+        public static bool VibrarAlerta
 		{
 			get
 			{

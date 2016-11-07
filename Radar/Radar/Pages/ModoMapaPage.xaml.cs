@@ -113,7 +113,7 @@ namespace Radar {
 
             await Navigation.PushPopupAsync(page);
             // or
-           // await PopupNavigation.PushAsync(page);
+           //await Navigation.PushAsync(page);
         }
 
     /*

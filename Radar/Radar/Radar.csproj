@@ -79,8 +79,23 @@
     <Compile Include="Pages\PercursoPage.xaml.cs">
       <DependentUpon>PercursoPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Popup\CanalAudioPopUp.xaml.cs">
+      <DependentUpon>CanalAudioPopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Popup\AlturaVolume.xaml.cs">
+      <DependentUpon>AlturaVolume.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Popup\NivelZoomPopUp.xaml.cs">
       <DependentUpon>NivelZoomPopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Popup\DistanciaAlertaPopUp.xaml.cs">
+      <DependentUpon>DistanciaAlertaPopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Popup\TempoAlertaPopUp.xaml.cs">
+      <DependentUpon>TempoAlertaPopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Popup\TempoDuracaoPopUp.xaml.cs">
+      <DependentUpon>TempoDuracaoPopUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\RadarListaPage.xaml.cs">
       <DependentUpon>RadarListaPage.xaml</DependentUpon>
@@ -226,7 +241,36 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Popup\TempoDuracaoPopUp.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Popup\TempoAlertaPopUp.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Popup\DistanciaAlertaPopUp.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Popup\CanalAudioPopUp.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Popup\AlturaVolume.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
