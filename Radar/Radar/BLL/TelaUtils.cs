@@ -35,7 +35,7 @@ namespace Radar.BLL
 			{
 				if (_tela == null)
 					_tela = DependencyService.Get<ITela>();
-				return _tela.pegaOrientacao();
+				return _tela.pegarOrientacao();
 			}
 		}
     }

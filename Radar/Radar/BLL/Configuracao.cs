@@ -18,7 +18,17 @@ namespace Radar.BLL
 			}
 		}
 
-		public static int AnguloRadar
+        public static bool AlertaSonoro
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("alertaSonoro");
+            }
+
+        }
+
+        public static int AnguloRadar
 		{
 			get
 			{
@@ -53,13 +63,33 @@ namespace Radar.BLL
 
 		}
 
+        public static bool Desabilitar
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("desabilitar");
+            }
+
+        }
+
         public static double DistanciaRadar {
             get {
                 return 500;
             }
         }
 
-       	public static bool ExcluirAntigos
+        public static bool Encurtar
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("encurtar");
+            }
+
+        }
+
+        public static bool ExcluirAntigos
 		{
 			get
 			{
@@ -114,7 +144,17 @@ namespace Radar.BLL
             }
         }
 
-		public static bool ImagenSatelite
+        public static bool Habilitar
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("habilitar");
+            }
+
+        }
+
+        public static bool ImagenSatelite
 		{
 			get
 			{
@@ -141,7 +181,17 @@ namespace Radar.BLL
 			}
 		}
 
-		public static bool Lombada
+        public static bool LigarDesligar
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("ligarDesligar");
+            }
+
+        }
+
+        public static bool Lombada
 		{
 			get
 			{
@@ -165,12 +215,12 @@ namespace Radar.BLL
             }
         }
 
-		public static bool NivelZoom
+		public static string NivelZoom
 		{
 			get
 			{
 				PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
-				return regraPreferencia.pegarBooleano("nivelZoom");
+				return regraPreferencia.pegar("nivelZoom");
 			}
 		}
 

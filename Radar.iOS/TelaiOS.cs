@@ -25,7 +25,7 @@ namespace Radar.iOS
             return (float)UIScreen.MainScreen.Bounds.Height;
         }
 
-		public string pegaOrientacao()
+		public string pegarOrientacao()
 		{
 			UIInterfaceOrientation orientation = UIApplication.SharedApplication.StatusBarOrientation;
 			Console.WriteLine("Orientacao: " + orientation);
