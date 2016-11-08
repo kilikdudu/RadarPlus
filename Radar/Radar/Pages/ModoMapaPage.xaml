@@ -3,32 +3,33 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
        x:Class="Radar.ModoMapaPage">
 	<ContentPage.Content>
-    
-     <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" x:Name="teststack">
+		
+    <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+     <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" >
         
          <StackLayout Orientation="Horizontal">
-           <Label Text="Bussola" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-           <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="bussola" Toggled="bussolaToggled"/>
+           <Label Text="Bussola" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+           <Switch HorizontalOptions="EndAndExpand" Margin="20,10,20,0" x:Name="bussola" Toggled="bussolaToggled"/>
          </StackLayout>
          <BoxView Color="Gray" HeightRequest="1" />
          <StackLayout Orientation="Horizontal">
-           <Label Text="Sinal do GPS" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-           <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="sinalGPS" Toggled="sinalGPSToggled"/>
+           <Label Text="Sinal do GPS" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,5,0,0"/>
+           <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="sinalGPS" Toggled="sinalGPSToggled"/>
          </StackLayout>
          <BoxView Color="Gray" HeightRequest="1" />
          <StackLayout Orientation="Horizontal">
-           <Label Text="Imagens do Satélite" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-           <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="imagenSatelite" Toggled="imagenSateliteToggled"/>
+           <Label Text="Imagens do Satélite" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,0,0,0"/>
+           <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="imagenSatelite" Toggled="imagenSateliteToggled"/>
          </StackLayout>
          <BoxView Color="Gray" HeightRequest="1" />
          <StackLayout Orientation="Horizontal">
-           <Label Text="Informações de Tráfego" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-           <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="infoTrafego" Toggled="infoTrafegoToggled"/>
+           <Label Text="Informações de Tráfego" HorizontalOptions="FillAndExpand" FontSize="20" Margin="20,10,0,0"/>
+           <Switch HorizontalOptions="End" Margin="20,5,0,0" x:Name="infoTrafego" Toggled="infoTrafegoToggled"/>
          </StackLayout>
          <BoxView Color="Gray" HeightRequest="1" />
          <StackLayout Orientation="Horizontal">
-           <Label Text="Rotacionar o Mapa" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-           <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="rotacionarMapa" Toggled="rotacionarMapaToggled"/>
+           <Label Text="Rotacionar o Mapa" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,0,0,0"/>
+           <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="rotacionarMapa" Toggled="rotacionarMapaToggled"/>
          </StackLayout>
          <Label FontSize="14" Margin ="20,0,0,0" Text="Sempre Rotacionar o mapa para mostrar uma visão frontal" HorizontalOptions="StartAndExpand" />
          <BoxView Color="Gray" HeightRequest="1" />
@@ -36,16 +37,16 @@
             <StackLayout.GestureRecognizers>
               <TapGestureRecognizer Tapped="nivelZoomTapped"/>
             </StackLayout.GestureRecognizers>
-           <Label Text="Nível de Zoom" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
+           <Label Text="Nível de Zoom" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
          </StackLayout>
          <BoxView Color="Gray" HeightRequest="1" />
          <StackLayout Orientation="Horizontal">
-           <Label Text="Suavizar Animação" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-           <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="suavizarAnimacao" Toggled="suavizarAnimacaoToggled"/>
+           <Label Text="Suavizar Animação" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,0,0,0"/>
+           <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="suavizarAnimacao" Toggled="suavizarAnimacaoToggled"/>
          </StackLayout>
          <BoxView Color="Gray" HeightRequest="1" />
-      
-    </StackLayout>
-    
+     
+    	</StackLayout>
+     </ScrollView>
   </ContentPage.Content>
 </ContentPage>

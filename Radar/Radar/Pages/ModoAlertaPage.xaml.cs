@@ -31,7 +31,7 @@ namespace Radar
         public ModoAlertaPage() {
             InitializeComponent();
             Title = "Alertas";
-            Content = new ScrollView() { Content = teststack };
+            //Content = new ScrollView() { Content = teststack };
 
 			radarMovel.IsToggled = Configuracao.RadarMovel;
 

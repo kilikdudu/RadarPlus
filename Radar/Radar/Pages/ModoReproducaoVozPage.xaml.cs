@@ -27,7 +27,7 @@ namespace Radar
 		{
 			InitializeComponent();
             Title = "Reprodução Voz";
-            Content = new ScrollView() { Content = teststack };
+            //Content = new ScrollView() { Content = teststack };
             desabilitar.IsToggled = Configuracao.Desabilitar;
 
             ligarDesligar.IsToggled = Configuracao.LigarDesligar;
