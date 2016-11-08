@@ -79,11 +79,23 @@
     <Compile Include="Pages\PercursoPage.xaml.cs">
       <DependentUpon>PercursoPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Popup\SomAlertaPopUp.xaml.cs">
+      <DependentUpon>SomAlertaPopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Popup\DesativarGPSPopUp.xaml.cs">
+      <DependentUpon>DesativarGPSPopUp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Popup\CanalAudioPopUp.xaml.cs">
       <DependentUpon>CanalAudioPopUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Popup\AlturaVolume.xaml.cs">
       <DependentUpon>AlturaVolume.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Popup\TempoPercursoPopUp.xaml.cs">
+      <DependentUpon>TempoPercursoPopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Popup\IntervaloVerificacaoPopUp.xaml.cs">
+      <DependentUpon>IntervaloVerificacaoPopUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Popup\NivelZoomPopUp.xaml.cs">
       <DependentUpon>NivelZoomPopUp.xaml</DependentUpon>
@@ -270,6 +282,33 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Popup\IntervaloVerificacaoPopUp.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Popup\TempoPercursoPopUp.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Popup\DesativarGPSPopUp.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Popup\SomAlertaPopUp.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Audio\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

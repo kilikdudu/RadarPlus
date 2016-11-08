@@ -25,14 +25,14 @@ namespace Radar {
             InitializeComponent();
             Title = "Auto Inicio/Desligamento";
             Content = new ScrollView() { Content = teststack };
-            habilitar.IsToggled = Configuracao.Habilitar;
+            habilitar.IsToggled = Configuracao.InicioDesligamento;
 
         }
         public void habilitarToggled(object sender, ToggledEventArgs e) {
             if (e.Value == true) {
-                regraPreferencia.gravar("desabilitar", 1);
+                regraPreferencia.gravar("inicioDesligamento", 1);
             } else {
-                regraPreferencia.gravar("desabilitar", 0);
+                regraPreferencia.gravar("inicioDesligamento", 0);
             }
         }
 

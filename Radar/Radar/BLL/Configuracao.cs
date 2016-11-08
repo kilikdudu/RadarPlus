@@ -91,6 +91,16 @@ namespace Radar.BLL
 
         }
 
+        public static string DesativarGPS
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("desativarGPS");
+            }
+
+        }
+
         public static double DistanciaRadar {
             get {
                 return 500;
@@ -180,15 +190,7 @@ namespace Radar.BLL
             }
         }
 
-        public static bool Habilitar
-        {
-            get
-            {
-                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
-                return regraPreferencia.pegarBooleano("habilitar");
-            }
-
-        }
+        
 
         public static bool ImagenSatelite
 		{
@@ -199,7 +201,17 @@ namespace Radar.BLL
 			}
 		}
 
-		public static bool InfoTrafego
+        public static bool InicioDesligamento
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("inicioDesligamento");
+            }
+
+        }
+
+        public static bool InfoTrafego
 		{
 			get
 			{
@@ -208,12 +220,12 @@ namespace Radar.BLL
 			}
 		}
 
-		public static bool IntervaloVerificacao
+		public static string IntervaloVerificacao
 		{
 			get
 			{
 				PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
-				return regraPreferencia.pegarBooleano("intervaloVerificacao");
+				return regraPreferencia.pegar("intervaloVerificacao");
 			}
 		}
 
@@ -324,6 +336,15 @@ namespace Radar.BLL
             }
         }
 
+        public static string SomAlarme
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("somAlarme");
+            }
+        }
+
         public static bool SomCaixa
 		{
 			get
@@ -331,9 +352,9 @@ namespace Radar.BLL
 				PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
 				return regraPreferencia.pegarBooleano("somCaixa");
 			}
-		}
+		}  
 
-		public static bool SuavizarAnimacao
+        public static bool SuavizarAnimacao
 		{
 			get
 			{
@@ -350,6 +371,7 @@ namespace Radar.BLL
                 return regraPreferencia.pegar("tempoAlerta");
             }
         }
+
         public static string TempoDuracao
         {
             get
@@ -358,6 +380,25 @@ namespace Radar.BLL
                 return regraPreferencia.pegar("tempoDuracao");
             }
         }
+
+        public static string TempoPercurso
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("tempoPercurso");
+            }
+        }
+
+        public static bool VerificarIniciar
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("verificarIniciar");
+            }
+        }
+
         public static bool VibrarAlerta
 		{
 			get

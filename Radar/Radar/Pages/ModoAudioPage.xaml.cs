@@ -72,6 +72,14 @@ namespace Radar.Pages {
             // or
             //await Navigation.PushAsync(page);
         }
+        async void somAlertaTapped(object sender, EventArgs e) {
+
+            var page = new SomAlertaPopUp();
+
+            await Navigation.PushPopupAsync(page);
+            // or
+            //await Navigation.PushAsync(page);
+        }
         protected override void OnAppearing()
 		{
 

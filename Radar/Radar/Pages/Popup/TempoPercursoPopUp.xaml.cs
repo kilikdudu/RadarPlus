@@ -8,22 +8,22 @@ using Radar.Factory;
 using System.Diagnostics;
 
 namespace Radar.Pages.Popup {
-    public partial class TempoDuracaoPopUp : PopupPage {
-        private String valorSliderDuracao;
-        private double sliderValorDuracao;
+    public partial class TempoPercursoPopUp : PopupPage {
+        private String valorSlider;
+        private double sliderValor;
         PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
 
-        public TempoDuracaoPopUp() {
+        public TempoPercursoPopUp() {
             InitializeComponent();
-            valorSliderDuracao = Configuracao.TempoDuracao;
-            SliderDuracao.Value = int.Parse(valorSliderDuracao);
-           
-            if (int.Parse(valorSliderDuracao) > 1) {
-                textValor.Text = valorSliderDuracao + " Segundos";
+            valorSlider = Configuracao.TempoPercurso;
+            SliderTempo.Value = int.Parse(valorSlider);
+            if (int.Parse(valorSlider) > 1) {
+                textValor.Text = sliderValor.ToString() + " Dias";
             } else {
-                textValor.Text = valorSliderDuracao + " Segundo";
+                textValor.Text = sliderValor.ToString() + " Dia";
             }
-            SliderDuracao.ValueChanged += OnSliderValueChanged;
+
+            SliderTempo.ValueChanged += OnSliderValueChanged;
         }
 
         private void OnCancelar(object sender, EventArgs e) {
@@ -32,20 +32,22 @@ namespace Radar.Pages.Popup {
 
         private void OnOk(object sender, EventArgs e) {
             //PopupNavigation.PopAsync();
-            regraPreferencia.gravar("tempoDuracao", (int)Math.Floor(sliderValorDuracao));
+            regraPreferencia.gravar("tempoPercurso", (int)Math.Floor(sliderValor));
+            Debug.WriteLine("sliderValor: " + sliderValor);
             PopupNavigation.PopAsync();
         }
 
         private void OnSliderValueChanged(object sender, ValueChangedEventArgs e) {
             var newStep = Math.Round(e.NewValue);
-            SliderDuracao.Value = newStep;
-            sliderValorDuracao = newStep;
-            if(sliderValorDuracao > 1) {
-                textValor.Text = sliderValorDuracao.ToString() + " Segundos";
-            }else {
-                textValor.Text = sliderValorDuracao.ToString() + " Segundo";
+            SliderTempo.Value = newStep;
+            sliderValor = newStep;
+            if (sliderValor > 1) {
+                textValor.Text = sliderValor.ToString() + " Dias";
+            } else {
+                textValor.Text = sliderValor.ToString() + " Dia";
             }
             
+            Debug.WriteLine("sliderValor: " + sliderValor);
         }
 
         protected override Task OnAppearingAnimationEnd() {

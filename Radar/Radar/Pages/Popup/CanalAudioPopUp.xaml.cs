@@ -28,30 +28,26 @@ namespace Radar.Pages.Popup {
         }
 
         public void musicaToggled(object sender, ToggledEventArgs e1) {
-            if (SwitchAlarmes.IsToggled) {
+            
+            
+            
+            
+            if (SwitchMusica.IsToggled == true) {
                 SwitchAlarmes.IsToggled = false;
-            }
-            if (SwitchNotificacoes.IsToggled) {
+
                 SwitchNotificacoes.IsToggled = false;
-            }
-           
-            if (e1.Value == true) {
                 regraPreferencia.gravar("canalAudio", 1);
             } else {
                 regraPreferencia.gravar("canalAudio", 0);
             }
         }
         public void alarmesToggled(object sender, ToggledEventArgs e2) {
-
-            if (SwitchMusica.IsToggled) {
-                SwitchMusica.IsToggled = false;
-            }
-            if (SwitchNotificacoes.IsToggled) {
-                SwitchNotificacoes.IsToggled = false;
-            }
-            SwitchNotificacoes.IsToggled = false;
+            
 
             if (e2.Value == true) {
+                SwitchMusica.IsToggled = false;
+
+                SwitchNotificacoes.IsToggled = false;
                 regraPreferencia.gravar("canalAudio", 2);
             } else {
                 regraPreferencia.gravar("canalAudio", 0);
@@ -59,15 +55,11 @@ namespace Radar.Pages.Popup {
         }
 
         public void notificacoesToggled(object sender, ToggledEventArgs e3) {
-
-            if (SwitchMusica.IsToggled) {
-                SwitchMusica.IsToggled = false;
-            }
-            if (SwitchAlarmes.IsToggled) {
-                SwitchAlarmes.IsToggled = false;
-            }
-
+           
+           
             if (e3.Value == true) {
+                SwitchMusica.IsToggled = false;
+                SwitchAlarmes.IsToggled = false;
                 regraPreferencia.gravar("canalAudio", 3);
             } else {
                 regraPreferencia.gravar("canalAudio", 0);

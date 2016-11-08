@@ -56,8 +56,8 @@ namespace Radar.Pages.Popup {
 
         private void OnSliderValueChangedEstrada(object sender, ValueChangedEventArgs e2) {
             var newStep2 = Math.Round(e2.NewValue);
-            SliderEstrada.Value = newStep2;
-            distanciaEstrada.Text = SliderEstrada.Value.ToString() + " M";
+            SliderEstrada.Value = e2.NewValue;
+            distanciaEstrada.Text = Math.Floor(SliderEstrada.Value).ToString() + " M";
         }
         protected override Task OnAppearingAnimationEnd() {
             return Content.FadeTo(1);
