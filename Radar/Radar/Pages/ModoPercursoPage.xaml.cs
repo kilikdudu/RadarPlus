@@ -6,6 +6,8 @@ using Xamarin.Forms;
 using Radar.Model;
 using Radar.BLL;
 using Radar.Factory;
+using Radar.Pages.Popup;
+using Rg.Plugins.Popup.Extensions;
 
 namespace Radar
 {
@@ -59,6 +61,15 @@ namespace Radar
 			}
 
 		}
+
+        async void tempoPercursoTapped(object sender, EventArgs e) {
+
+            var page = new TempoPercursoPopUp();
+
+            await Navigation.PushPopupAsync(page);
+            // or
+            //await Navigation.PushAsync(page);
+        }
 
         protected override void OnAppearing()
 		{

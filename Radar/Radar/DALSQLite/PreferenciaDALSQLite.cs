@@ -52,6 +52,6 @@ namespace Radar.DALSQLite
 			database.Delete<PreferenciaInfo>(preferencia);
 		}
 
-
-	}
+        
+    }
 }
