@@ -8,11 +8,9 @@
 			<ListView.ItemTemplate>
 				<DataTemplate>
 					<ViewCell>
-						<StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="White">
-							<StackLayout Orientation="Vertical">
 								<Label Text = "{Binding .}" FontSize="24" AbsoluteLayout.LayoutBounds="0.25, 0.25, 400, 40"/>
-							</StackLayout>
-						</StackLayout>
+						
+
 					</ViewCell>
 				</DataTemplate>
 			</ListView.ItemTemplate>
