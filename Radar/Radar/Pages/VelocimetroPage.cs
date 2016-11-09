@@ -97,11 +97,13 @@ namespace Radar.Pages
 
         public VelocimetroPage()
         {
-            _velocimetro = new Velocimetro {
-                VerticalOptions = LayoutOptions.StartAndExpand,
-                HorizontalOptions = LayoutOptions.StartAndExpand,
-                WidthRequest = TelaUtils.Largura,
-                HeightRequest = TelaUtils.Altura
+			_velocimetro = new Velocimetro
+			{
+				VerticalOptions = LayoutOptions.StartAndExpand,
+				HorizontalOptions = LayoutOptions.StartAndExpand,
+				WidthRequest = TelaUtils.Largura,
+				HeightRequest = TelaUtils.Altura,
+				BackgroundColor = Color.White
             };
 
             _GPSPrecisaoLabel = new Label {
@@ -130,6 +132,10 @@ namespace Radar.Pages
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center
             };
+			if (Device.OS == TargetPlatform.iOS)
+			{
+
+			}
             AbsoluteLayout.SetLayoutBounds(_VelocidadeRadarLabel, new Rectangle(1, 0.950, 1, 0.1));
             AbsoluteLayout.SetLayoutFlags(_VelocidadeRadarLabel, AbsoluteLayoutFlags.All);
 
