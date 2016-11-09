@@ -41,6 +41,8 @@ namespace Radar.iOS
 				velocimentro.velocimetro = Element;
 				velocimentro.velocimetro.desenharPonteiro += velocimentro.desenharPonteiro;
 				velocimentro.velocimetro.desenharTexto += velocimentro.desenharTexto;
+				velocimentro.velocimetro.desenharTextoVelocidade += velocimentro.desenharTextoVelocidade;
+				velocimentro.velocimetro.desenharTextoLabel += velocimentro.desenharTextoLabel;
                 /*
 				velocimentro.velocimetro.desenharTextoVelocidade += velocimentro.desenharTextoVelocidade;
 				velocimentro.velocimetro.desenharTextoLabel += velocimentro.desenharTextoLabel;
