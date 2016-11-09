@@ -33,8 +33,10 @@ namespace Radar.iOS
 			var currentContext = UIGraphics.GetCurrentContext();
 			currentContext.TranslateCTM(0, Bounds.Height);
 			currentContext.ScaleCTM(1f, -1f);
+			currentContext.SetStrokeColor(UIColor.White.CGColor);
 			//velocimetro.redesenhar();
 			velocimetro.desenhar();
+
 
 		}
 
