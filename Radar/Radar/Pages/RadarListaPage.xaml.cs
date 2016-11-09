@@ -1,5 +1,6 @@
 ﻿using Radar.BLL;
 using Radar.Factory;
+using Radar.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Radar.Pages
         {
             RadarBLL regraRadar = RadarFactory.create();
             RadarListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
-            this.BindingContext = regraRadar.listar().Take(10);
+            this.BindingContext = regraRadar.listar(true);
         }
 
         void OnItemTapped(object sender, ItemTappedEventArgs e)
@@ -33,9 +34,12 @@ namespace Radar.Pages
             //((ListView)sender).SelectedItem = null; // de-select the row
         }
 
-        public void OnDelete(object sender, EventArgs e)
+        public void excluirRadar(object sender, EventArgs e)
         {
-
+            RadarInfo radar = (RadarInfo)((MenuItem)sender).BindingContext;
+            RadarBLL regraRadar = RadarFactory.create();
+            regraRadar.excluir(radar.Id);
+            OnAppearing();
         }
     }
 }

@@ -1,5 +1,8 @@
 ﻿using Radar.BLL;
 using Radar.Controls;
+using Radar.Factory;
+using Radar.Model;
+using Radar.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +36,7 @@ namespace Radar.Pages
         private Label _GPSSentidoLabel;
         private Label _VelocidadeRadarLabel;
         private Label _DistanciaRadarLabel;
+        private Image _AdicionarRadarButton;
 
         public float VelocidadeAtual {
             get {
@@ -143,6 +147,39 @@ namespace Radar.Pages
             AbsoluteLayout.SetLayoutBounds(_DistanciaRadarLabel, new Rectangle(1, 0.975, 1, 0.1));
             AbsoluteLayout.SetLayoutFlags(_DistanciaRadarLabel, AbsoluteLayoutFlags.All);
 
+            _AdicionarRadarButton = new Image {
+                Aspect = Aspect.AspectFit,
+                Source = ImageSource.FromFile("mais.png"),
+                WidthRequest = 180,
+                HeightRequest = 180
+            };
+            AbsoluteLayout.SetLayoutBounds(_AdicionarRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
+            AbsoluteLayout.SetLayoutFlags(_AdicionarRadarButton, AbsoluteLayoutFlags.All);
+            _AdicionarRadarButton.GestureRecognizers.Add(
+                new TapGestureRecognizer() {
+                    Command = new Command(() => {
+                        AudioUtils.play(AudioEnum.Alarm001);
+                        /*
+                        try
+                        {
+                            LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
+                            if (local != null)
+                            {
+                                RadarBLL regraRadar = RadarFactory.create();
+                                regraRadar.gravar(local);
+                                MensagemUtils.avisar("Radar incluído com sucesso.");
+                            }
+                            else
+                                MensagemUtils.avisar("Nenhum movimento registrado pelo GPS.");
+                        }
+                        catch (Exception e) {
+                            MensagemUtils.avisar(e.Message);
+                        }
+                        */
+                    }
+                )
+            });
+
             Title = "Velocimetro";
             Padding = 5;
             Content = new AbsoluteLayout
@@ -152,7 +189,8 @@ namespace Radar.Pages
                     _GPSPrecisaoLabel,
                     _GPSSentidoLabel,
                     _VelocidadeRadarLabel,
-                    _DistanciaRadarLabel
+                    _DistanciaRadarLabel,
+                    _AdicionarRadarButton
                 }
             };
         }

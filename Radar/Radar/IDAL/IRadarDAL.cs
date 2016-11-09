@@ -10,6 +10,7 @@ namespace Radar.IDAL
     public interface IRadarDAL
     {
         IList<RadarInfo> listar();
+        IList<RadarInfo> listar(bool usuario);
         IList<RadarInfo> listar(double latitudeCos, double longitudeCos, double latitudeSin, double longitudeSin, double distanciaCos);
         IList<RadarInfo> listar(double latitude, double longitude, double latitudeDelta, double longitudeDelta);
         RadarInfo pegar(int idRadar);

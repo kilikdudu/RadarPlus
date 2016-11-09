@@ -37,8 +37,15 @@
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
     <Debugger>Xamarin</Debugger>
-    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
     <AndroidSupportedAbis>armeabi;armeabi-v7a;x86</AndroidSupportedAbis>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <BundleAssemblies>False</BundleAssemblies>
+    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+    <AotAssemblies>False</AotAssemblies>
+    <EnableLLVM>False</EnableLLVM>
+    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+    <EnableProguard>False</EnableProguard>
+    <JavaMaximumHeapSize>500m</JavaMaximumHeapSize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -155,6 +162,7 @@
     <Reference Include="Mono.Android.Export" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AudioAndroid.cs" />
     <Compile Include="BroadcastAndroid.cs" />
     <Compile Include="LocalizacaoServico.cs" />
     <Compile Include="MainActivity.cs" />
@@ -162,6 +170,7 @@
     <Compile Include="RadarMapRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoundRecorderAndroid.cs" />
     <Compile Include="TelaAndroid.cs" />
     <Compile Include="ThreadAndroid.cs" />
     <Compile Include="VelocimetroAndroid.cs" />
@@ -231,6 +240,120 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\radares\cameramais.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\alarmes\alarm-001.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\anterior.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\appradar curvadireita.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\appradar curvaesquerda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\appradar redimensionamento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\appradarinstrucoes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\appradarmaosesetas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\atualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\boxcinza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\cameramais.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\config.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\iconeagulhamapa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\Iconetrofeubranco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\instrucoes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\interrogacaoi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\mais.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\mapas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icones\menos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\novidade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\percursos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\sair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\seguinte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\sobre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\sombra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\drawable\icones\velocimetro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\alarmes\alarm-002.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\alarmes\alarm-003.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\alarmes\alarm-004.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\alarmes\alarm-005.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\alarmes\alarm-006.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\alarmes\alarm-007.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\alarmes\alarm-008.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\alarmes\alarm-009.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\alarmes\alarm-010.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\alarmes\alarm-011.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\alarmes\alarm-012.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\alarmes\alarm-013.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
