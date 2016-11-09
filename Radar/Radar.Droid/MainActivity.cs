@@ -31,8 +31,6 @@ namespace Radar.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            
-
             //InitializeLocationManager();
 
             //AndroidEnvironment.UnhandledExceptionRaiser += HandleAndroidException;

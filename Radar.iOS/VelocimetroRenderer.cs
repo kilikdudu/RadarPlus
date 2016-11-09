@@ -3,7 +3,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 using Radar.Controls;
 using Radar.iOS;
-using UIKit;
 
 [assembly: ExportRenderer(typeof(Velocimetro), typeof(VelocimetroRenderer))]
 namespace Radar.iOS
@@ -19,7 +18,7 @@ namespace Radar.iOS
 		public VelocimetroRenderer()
 		{
 
-			this.BackgroundColor = UIColor.White;
+
 		}
 
 		/// <summary>
@@ -38,17 +37,18 @@ namespace Radar.iOS
 				
 				//_shapeview.desenharTexto += desenharTexto;
 				//_shapeview.desenharPonteiro += desenharPonteiro;
-				VelocimetroiOS velocimetro = new VelocimetroiOS();
-				velocimetro.velocimetro = Element;
-				//velocimetro.velocimetro.redesenhar += velocimetro.SetNeedsDisplay;
-				velocimetro.velocimetro.desenharPonteiro += velocimetro.desenharPonteiro;
-				velocimetro.velocimetro.desenharTexto += velocimetro.desenharTexto;
-				velocimetro.velocimetro.desenharTextoVelocidade += velocimetro.desenharTextoVelocidade;
-				velocimetro.velocimetro.desenharTextoLabel += velocimetro.desenharTextoLabel;
-				//velocimentro.velocimetro.pegarAlturaTela += velocimentro.pegarAlturaTela;
-				//velocimentro.velocimetro.pegarLarguraTela += velocimentro.pegarLarguraTela;
-				velocimetro.velocimetro.redesenhar += velocimetro.SetNeedsDisplay;
-				SetNativeControl(velocimetro);
+				VelocimetroiOS velocimentro = new VelocimetroiOS();
+				velocimentro.velocimetro = Element;
+				velocimentro.velocimetro.desenharPonteiro += velocimentro.desenharPonteiro;
+				velocimentro.velocimetro.desenharTexto += velocimentro.desenharTexto;
+                /*
+				velocimentro.velocimetro.desenharTextoVelocidade += velocimentro.desenharTextoVelocidade;
+				velocimentro.velocimetro.desenharTextoLabel += velocimentro.desenharTextoLabel;
+				velocimentro.velocimetro.pegarAlturaTela += velocimentro.pegarAlturaTela;
+				velocimentro.velocimetro.pegarLarguraTela += velocimentro.pegarLarguraTela;
+                */
+				velocimentro.velocimetro.redesenhar += velocimentro.SetNeedsDisplay;
+				SetNativeControl(velocimentro);
 			}
 
 

@@ -14,6 +14,8 @@ namespace Radar.BLL
 {
     public class RadarBLL
     {
+        private const int TIPO_RADAR_NORMAL = 1;
+
         private IRadarDAL _db;
         private const int DIAMETRO_TERRA = 6371;
         private IDictionary<string, bool> _radares = new Dictionary<string, bool>();
@@ -40,6 +42,11 @@ namespace Radar.BLL
             return _db.listar();
         }
 
+        public IList<RadarInfo> listar(bool usuario)
+        {
+            return _db.listar(usuario);
+        }
+
         /// <summary>
         /// Lista dos radares dentro de uma região
         /// </summary>
@@ -59,7 +66,28 @@ namespace Radar.BLL
 
         public int gravar(RadarInfo radar)
         {
+            if (radar.Velocidade < 20)
+                throw new Exception("Você não pode adicionar um radar a menos de 20 km/h.");
             return _db.gravar(radar);
+        }
+
+        public int gravar(LocalizacaoInfo local) {
+
+            int velocidade = (int)Math.Floor(local.Velocidade);
+            velocidade = ((velocidade % 10) > 0) ? (velocidade - (velocidade % 10)) + 10 : velocidade;
+            RadarInfo radar = new RadarInfo {
+                Latitude = local.Latitude,
+                Longitude = local.Longitude,
+                LatitudeCos = Math.Cos(local.Latitude * Math.PI / 180),
+                LatitudeSin = Math.Sin(local.Latitude * Math.PI / 180),
+                LongitudeCos = Math.Cos(local.Longitude * Math.PI / 180),
+                LongitudeSin = Math.Sin(local.Longitude * Math.PI / 180),
+                Direcao = (int) Math.Floor(local.Sentido),
+                Velocidade = velocidade,
+                Tipo = TIPO_RADAR_NORMAL,
+                Usuario = true
+            };
+            return gravar(radar);
         }
 
         public void excluir(int idRadar)

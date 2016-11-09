@@ -29,6 +29,19 @@ namespace Radar.DALSQLite
             }
         }
 
+        public IList<RadarInfo> listar(bool usuario)
+        {
+            lock (locker)
+            {
+                int eUsuario = (usuario) ? 1 : 0;
+                return (
+                    from r in database.Table<RadarInfo>()
+                    where (r.usuario == eUsuario)
+                    select r
+                ).ToList();
+            }
+        }
+
         /// <summary>
         /// Lista os radares dentro de um certo raio usando Seno e Coseno.
         /// </summary>
