@@ -24,7 +24,7 @@ namespace Radar {
         public ModoAutoInicioPage() {
             InitializeComponent();
             Title = "Auto Inicio/Desligamento";
-            Content = new ScrollView() { Content = teststack };
+            //Content = new ScrollView() { Content = teststack };
             habilitar.IsToggled = Configuracao.InicioDesligamento;
 
         }

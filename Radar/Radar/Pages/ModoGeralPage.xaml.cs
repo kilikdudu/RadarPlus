@@ -31,7 +31,7 @@ namespace Radar
         {
             InitializeComponent();
             Title = "Gerais";
-            Content = new ScrollView() { Content = teststack };
+            //Content = new ScrollView() { Content = teststack };
 
 			verificarIniciar.IsToggled = Configuracao.VerificarIniciar;
         }

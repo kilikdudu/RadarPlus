@@ -31,7 +31,7 @@ namespace Radar
         {
             InitializeComponent();
                 Title = "Percursos";
-            Content = new ScrollView() { Content = teststack };
+            //Content = new ScrollView() { Content = teststack };
 
 			salvarPercurso.IsToggled = Configuracao.SalvarPercurso;
 

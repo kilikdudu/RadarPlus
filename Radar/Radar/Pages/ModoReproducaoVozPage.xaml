@@ -1,52 +1,54 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Radar.ModoReproducaoVozPage">
 	<ContentPage.Content>
-      <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" x:Name="teststack">
-        <StackLayout Orientation="Horizontal">
-          <Label Text="Desabilitar" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-          <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="desabilitar" Toggled="desabilitarToggled"/>
-        </StackLayout>
-        <Label FontSize="14" Margin ="20,0,0,0" Text="Não utilizar o recurso, mesmo que disponível" HorizontalOptions="StartAndExpand" />
-   
-        <BoxView Color="Gray" HeightRequest="1" />
-        <StackLayout Orientation="Horizontal">
-          <Label Text="Padrão do Android" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-        </StackLayout>
-        <Label FontSize="14" Margin ="20,0,0,0" Text="Toque para escolher outro" HorizontalOptions="StartAndExpand" />
-  
-        <BoxView Color="Gray" HeightRequest="1" />
-        <StackLayout Orientation="Horizontal">
-          <Label Text="Estado" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-        </StackLayout>
-        <Label FontSize="14" Margin ="20,0,0,0" Text="Disponível" HorizontalOptions="StartAndExpand" />
+		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+		      <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+		        <StackLayout Orientation="Horizontal">
+		          <Label Text="Desabilitar" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,15,0,0"/>
+		          <Switch HorizontalOptions="EndAndExpand" Margin="20,10,20,0" x:Name="desabilitar" Toggled="desabilitarToggled"/>
+		        </StackLayout>
+		        <Label FontSize="14" Margin ="20,0,0,0" Text="Não utilizar o recurso, mesmo que disponível" HorizontalOptions="StartAndExpand" />
+		   
+		        <BoxView Color="Gray" HeightRequest="1" />
+		        <StackLayout Orientation="Horizontal">
+		          <Label Text="Padrão do Android" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,15,0,0"/>
+		        </StackLayout>
+		        <Label FontSize="14" Margin ="20,0,0,0" Text="Toque para escolher outro" HorizontalOptions="StartAndExpand" />
+		  
+		        <BoxView Color="Gray" HeightRequest="1" />
+		        <StackLayout Orientation="Horizontal">
+		          <Label Text="Estado" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,15,0,0"/>
+		        </StackLayout>
+		        <Label FontSize="14" Margin ="20,0,0,0" Text="Disponível" HorizontalOptions="StartAndExpand" />
 
-        <BoxView Color="Gray" HeightRequest="1" />
-        <StackLayout Orientation="Horizontal">
-          <Label Text="Ao Ligar e Desligar" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-          <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="ligarDesligar" Toggled="ligarDesligarToggled"/>
-        </StackLayout>
-        <Label FontSize="14" Margin ="20,0,0,0" Text="Reproduz voz ao iniciar ou delisgar o aplicativo" HorizontalOptions="StartAndExpand" />
-   
-        <BoxView Color="Gray" HeightRequest="1" />
-       <StackLayout Orientation="Horizontal">
-          <Label Text="Encurtar" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-          <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="encurtar" Toggled="encurtarToggled"/>
-        </StackLayout>
-        <Label FontSize="14" Margin ="20,0,0,0" Text="Reproduzir frases curtas" HorizontalOptions="StartAndExpand" />
-   
-        <BoxView Color="Gray" HeightRequest="1" />
-        <StackLayout Orientation="Horizontal">
-          <Label Text="Alerta Sonoro" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-          <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="alertaSonoro" Toggled="alertaSonoroToggled"/>
-        </StackLayout>
-        <Label FontSize="14" Margin ="20,0,0,0" Text="Além da reprodução de voz, emitir também o alerta sonoro" HorizontalOptions="StartAndExpand" />
-   
-        <BoxView Color="Gray" HeightRequest="1" />
-       <StackLayout Orientation="Horizontal">
-          <Label Text="Reproduzir Teste" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-        </StackLayout>
-       
-        <BoxView Color="Gray" HeightRequest="1" />
-      </StackLayout>
+		        <BoxView Color="Gray" HeightRequest="1" />
+		        <StackLayout Orientation="Horizontal">
+		          <Label Text="Ao Ligar e Desligar" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		          <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="ligarDesligar" Toggled="ligarDesligarToggled"/>
+		        </StackLayout>
+		        <Label FontSize="14" Margin ="20,0,0,0" Text="Reproduz voz ao iniciar ou delisgar o aplicativo" HorizontalOptions="StartAndExpand" />
+		   
+		        <BoxView Color="Gray" HeightRequest="1" />
+		       <StackLayout Orientation="Horizontal">
+		          <Label Text="Encurtar" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		          <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="encurtar" Toggled="encurtarToggled"/>
+		        </StackLayout>
+		        <Label FontSize="14" Margin ="20,0,0,0" Text="Reproduzir frases curtas" HorizontalOptions="StartAndExpand" />
+		   
+		        <BoxView Color="Gray" HeightRequest="1" />
+		        <StackLayout Orientation="Horizontal">
+		          <Label Text="Alerta Sonoro" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		          <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="alertaSonoro" Toggled="alertaSonoroToggled"/>
+		        </StackLayout>
+		        <Label FontSize="14" Margin ="20,0,0,0" Text="Além da reprodução de voz, emitir também o alerta sonoro" HorizontalOptions="StartAndExpand" />
+		   
+		        <BoxView Color="Gray" HeightRequest="1" />
+		       <StackLayout Orientation="Horizontal">
+		          <Label Text="Reproduzir Teste" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		        </StackLayout>
+		       
+		        <BoxView Color="Gray" HeightRequest="1" />
+		      </StackLayout>
+		</ScrollView>
 	</ContentPage.Content>
 </ContentPage>

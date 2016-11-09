@@ -18,9 +18,9 @@ namespace Radar.Pages.Popup {
             valorSlider = Configuracao.IntervaloVerificacao;
             SliderVerificacao.Value = int.Parse(valorSlider);
             if (int.Parse(valorSlider) > 1) {
-                textValor.Text = sliderValor.ToString() + " Dias";
+                textValor.Text = SliderVerificacao.Value.ToString() + " Dias";
             } else {
-                textValor.Text = sliderValor.ToString() + " Dia";
+                textValor.Text = SliderVerificacao.Value.ToString() + " Dia";
             }
             
             SliderVerificacao.ValueChanged += OnSliderValueChanged;
@@ -32,22 +32,22 @@ namespace Radar.Pages.Popup {
 
         private void OnOk(object sender, EventArgs e) {
             //PopupNavigation.PopAsync();
-            regraPreferencia.gravar("intervaloVerificacao", (int)Math.Floor(sliderValor));
-            Debug.WriteLine("sliderValor: " + sliderValor);
+            regraPreferencia.gravar("intervaloVerificacao", (int)Math.Floor(SliderVerificacao.Value));
+           
             PopupNavigation.PopAsync();
         }
 
         private void OnSliderValueChanged(object sender, ValueChangedEventArgs e) {
             var newStep = Math.Round(e.NewValue);
             SliderVerificacao.Value = newStep;
-            sliderValor = newStep;
-            if (sliderValor > 1) {
-                textValor.Text = sliderValor.ToString() + " Dias";
+           
+            if (SliderVerificacao.Value > 1) {
+                textValor.Text = SliderVerificacao.Value.ToString() + " Dias";
             } else {
-                textValor.Text = sliderValor.ToString() + " Dia";
+                textValor.Text = SliderVerificacao.Value.ToString() + " Dia";
             }
             
-            Debug.WriteLine("sliderValor: " + sliderValor);
+           
         }
 
         protected override Task OnAppearingAnimationEnd() {

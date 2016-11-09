@@ -28,7 +28,7 @@ namespace Radar
         {
             InitializeComponent();
             Title = "Meus Radares";
-            Content = new ScrollView() { Content = teststack };
+           // Content = new ScrollView() { Content = teststack };
 
 			exibirBotaoAdcionar.IsToggled = Configuracao.ExibirBotaoAdcionar;
 
