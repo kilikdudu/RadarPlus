@@ -11,7 +11,7 @@
 	         <StackLayout.GestureRecognizers>
 	          <TapGestureRecognizer Tapped="desativarGPSTapped"/>    
 	        </StackLayout.GestureRecognizers>
-	        <Label Text="Ao destativar o GPS" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
+	        <Label Text="Ao destativar o GPS" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
 	      </StackLayout>
 	      <Label FontSize="14" Margin ="20,0,0,0" Text="Define a ação a ser executada quando o GPS for desativado" HorizontalOptions="StartAndExpand" />
 	      <Label FontSize="14" Margin ="20,0,0,0" Text="" HorizontalOptions="StartAndExpand" />
@@ -19,8 +19,8 @@
 
 	      <BoxView Color="Gray" HeightRequest="1" />
 	      <StackLayout Orientation="Horizontal">
-	        <Label Text="Verificar ao Iniciar" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-	        <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="verificarIniciar" Toggled="verificarIniciarToggled"/>
+	        <Label Text="Verificar ao Iniciar" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+	        <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="verificarIniciar" Toggled="verificarIniciarToggled"/>
 	      </StackLayout>
 	      <Label FontSize="14" Margin ="20,0,0,0" Text="Lembrar sobre a atualização da Base de Dados" HorizontalOptions="StartAndExpand" />
 	      <Label FontSize="14" Margin ="20,0,0,0" Text="de Radar ao iniciar o aplicativo" HorizontalOptions="StartAndExpand" />
@@ -30,18 +30,18 @@
 	        <StackLayout.GestureRecognizers>
 	          <TapGestureRecognizer Tapped="intervaloVerificacaoTapped"/>    
 	        </StackLayout.GestureRecognizers>
-	         <Label Text="Intervalo de Verificação" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
+	         <Label Text="Intervalo de Verificação" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
 	         </StackLayout>
 
 	      <BoxView Color="Gray" HeightRequest="1" />
 	      <StackLayout Orientation="Horizontal">
-	        <Label Text="Última Verificação" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
+	        <Label Text="Última Verificação" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,15,0,0"/>
 	      </StackLayout>
 	      <Label FontSize="14" Margin ="20,0,0,0" Text="31/10/2016 17:01:45" HorizontalOptions="StartAndExpand" />
 
 	      <BoxView Color="Gray" HeightRequest="1" />
 	      <StackLayout Orientation="Horizontal">
-	        <Label Text="Última Atualização" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
+	        <Label Text="Última Atualização" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,15,0,0"/>
 	      </StackLayout>
 	      <Label FontSize="14" Margin ="20,0,0,0" Text="01/11/2016 08:31:23" HorizontalOptions="StartAndExpand" />
 

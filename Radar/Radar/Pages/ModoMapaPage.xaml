@@ -18,13 +18,15 @@
          </StackLayout>
          <BoxView Color="Gray" HeightRequest="1" />
          <StackLayout Orientation="Horizontal">
-           <Label Text="Imagens do Satélite" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,0,0,0"/>
+           <Label Text="Imagens do Satélite" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,5,0,0"/>
            <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="imagenSatelite" Toggled="imagenSateliteToggled"/>
          </StackLayout>
          <BoxView Color="Gray" HeightRequest="1" />
          <StackLayout Orientation="Horizontal">
-           <Label Text="Informações de Tráfego" HorizontalOptions="FillAndExpand" FontSize="20" Margin="20,10,0,0"/>
-           <Switch HorizontalOptions="End" Margin="20,5,0,0" x:Name="infoTrafego" Toggled="infoTrafegoToggled"/>
+           <Label Text="Informações de Tráfego" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+			
+           <Switch HorizontalOptions="End" Margin="0,5,20,0" x:Name="infoTrafego" Toggled="infoTrafegoToggled"/>
+
          </StackLayout>
          <BoxView Color="Gray" HeightRequest="1" />
          <StackLayout Orientation="Horizontal">
@@ -37,11 +39,11 @@
             <StackLayout.GestureRecognizers>
               <TapGestureRecognizer Tapped="nivelZoomTapped"/>
             </StackLayout.GestureRecognizers>
-           <Label Text="Nível de Zoom" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+           <Label Text="Nível de Zoom" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,5,0,0"/>
          </StackLayout>
          <BoxView Color="Gray" HeightRequest="1" />
          <StackLayout Orientation="Horizontal">
-           <Label Text="Suavizar Animação" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,0,0,0"/>
+           <Label Text="Suavizar Animação" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,5,0,0"/>
            <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="suavizarAnimacao" Toggled="suavizarAnimacaoToggled"/>
          </StackLayout>
          <BoxView Color="Gray" HeightRequest="1" />
