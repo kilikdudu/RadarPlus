@@ -10,7 +10,7 @@ using System.Diagnostics;
 namespace Radar.Pages.Popup {
     public partial class TempoPercursoPopUp : PopupPage {
         private String valorSlider;
-        private double sliderValor;
+        
         PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
 
         public TempoPercursoPopUp() {
@@ -18,9 +18,9 @@ namespace Radar.Pages.Popup {
             valorSlider = Configuracao.TempoPercurso;
             SliderTempo.Value = int.Parse(valorSlider);
             if (int.Parse(valorSlider) > 1) {
-                textValor.Text = sliderValor.ToString() + " Dias";
+                textValor.Text = SliderTempo.Value.ToString() + " Dias";
             } else {
-                textValor.Text = sliderValor.ToString() + " Dia";
+                textValor.Text = SliderTempo.Value.ToString() + " Dia";
             }
 
             SliderTempo.ValueChanged += OnSliderValueChanged;
@@ -32,22 +32,22 @@ namespace Radar.Pages.Popup {
 
         private void OnOk(object sender, EventArgs e) {
             //PopupNavigation.PopAsync();
-            regraPreferencia.gravar("tempoPercurso", (int)Math.Floor(sliderValor));
-            Debug.WriteLine("sliderValor: " + sliderValor);
+            regraPreferencia.gravar("tempoPercurso", (int)Math.Floor(SliderTempo.Value));
+            
             PopupNavigation.PopAsync();
         }
 
         private void OnSliderValueChanged(object sender, ValueChangedEventArgs e) {
             var newStep = Math.Round(e.NewValue);
             SliderTempo.Value = newStep;
-            sliderValor = newStep;
-            if (sliderValor > 1) {
-                textValor.Text = sliderValor.ToString() + " Dias";
+           
+            if (SliderTempo.Value > 1) {
+                textValor.Text = SliderTempo.Value.ToString() + " Dias";
             } else {
-                textValor.Text = sliderValor.ToString() + " Dia";
+                textValor.Text = SliderTempo.Value.ToString() + " Dia";
             }
             
-            Debug.WriteLine("sliderValor: " + sliderValor);
+            
         }
 
         protected override Task OnAppearingAnimationEnd() {
