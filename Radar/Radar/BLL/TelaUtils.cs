@@ -28,5 +28,15 @@ namespace Radar.BLL
                 return _tela.pegarAltura();
             }
         }
+
+		public static string Orientacao
+		{
+			get
+			{
+				if (_tela == null)
+					_tela = DependencyService.Get<ITela>();
+				return _tela.pegarOrientacao();
+			}
+		}
     }
 }

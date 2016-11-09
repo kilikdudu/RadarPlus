@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Foundation;
 using Radar.BLL;
 using Xamarin.Forms;
 using Radar.iOS;
@@ -22,5 +23,12 @@ namespace Radar.iOS
         {
             return (float)UIScreen.MainScreen.Bounds.Height;
         }
+
+		public string pegarOrientacao()
+		{
+			UIInterfaceOrientation orientation = UIApplication.SharedApplication.StatusBarOrientation;
+			Console.WriteLine("Orientacao: " + orientation);
+			return orientation.ToString();
+		}
     }
 }

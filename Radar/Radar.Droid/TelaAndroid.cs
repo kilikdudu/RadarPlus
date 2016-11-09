@@ -18,19 +18,22 @@ using Android.Content.Res;
 
 namespace Radar.Droid
 {
-    public class TelaAndroid : ITela
-    {
+    public class TelaAndroid : ITela {
         public static float Largura { get; set; }
         public static float Altura { get; set; }
+        public static string Orientacao { get; set; }
 
-        public float pegarAltura()
-        {
+        public float pegarAltura() {
             return (float)Altura;
         }
 
-        public float pegarLargura()
-        {
+        public float pegarLargura() {
             return (float)Largura;
         }
+
+        public string pegarOrientacao() {
+            return Orientacao;
+        }
+
     }
 }

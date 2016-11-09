@@ -18,7 +18,26 @@ namespace Radar.BLL
 			}
 		}
 
-		public static int AnguloRadar
+        public static bool AlertaSonoro
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("alertaSonoro");
+            }
+
+        }
+
+        public static string AlturaVolume
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("alturaVolume");
+            }
+        }
+
+        public static int AnguloRadar
 		{
 			get
 			{
@@ -53,13 +72,70 @@ namespace Radar.BLL
 
 		}
 
+        public static string CanalAudio
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("canalAudio");
+            }
+        }
+
+        public static bool Desabilitar
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("desabilitar");
+            }
+
+        }
+
+        public static string DesativarGPS
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("desativarGPS");
+            }
+
+        }
+
         public static double DistanciaRadar {
             get {
                 return 500;
             }
         }
 
-       	public static bool ExcluirAntigos
+        public static string DistanciaAlertaUrbano
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("distanciaAlertaUrbano");
+            }
+        }
+
+        public static string DistanciaAlertaEstrada
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("distanciaAlertaEstrada");
+            }
+        }
+
+        public static bool Encurtar
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("encurtar");
+            }
+
+        }
+
+        public static bool ExcluirAntigos
 		{
 			get
 			{
@@ -114,7 +190,9 @@ namespace Radar.BLL
             }
         }
 
-		public static bool ImagenSatelite
+        
+
+        public static bool ImagenSatelite
 		{
 			get
 			{
@@ -123,7 +201,17 @@ namespace Radar.BLL
 			}
 		}
 
-		public static bool InfoTrafego
+        public static bool InicioDesligamento
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("inicioDesligamento");
+            }
+
+        }
+
+        public static bool InfoTrafego
 		{
 			get
 			{
@@ -132,16 +220,26 @@ namespace Radar.BLL
 			}
 		}
 
-		public static bool IntervaloVerificacao
+		public static string IntervaloVerificacao
 		{
 			get
 			{
 				PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
-				return regraPreferencia.pegarBooleano("intervaloVerificacao");
+				return regraPreferencia.pegar("intervaloVerificacao");
 			}
 		}
 
-		public static bool Lombada
+        public static bool LigarDesligar
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("ligarDesligar");
+            }
+
+        }
+
+        public static bool Lombada
 		{
 			get
 			{
@@ -165,12 +263,12 @@ namespace Radar.BLL
             }
         }
 
-		public static bool NivelZoom
+		public static string NivelZoom
 		{
 			get
 			{
 				PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
-				return regraPreferencia.pegarBooleano("nivelZoom");
+				return regraPreferencia.pegar("nivelZoom");
 			}
 		}
 
@@ -229,16 +327,34 @@ namespace Radar.BLL
 			}
 		}
 
-		public static bool SomCaixa
+        public static bool SobreposicaoVisual
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("sobreposicaoVisual");
+            }
+        }
+
+        public static string SomAlarme
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("somAlarme");
+            }
+        }
+
+        public static bool SomCaixa
 		{
 			get
 			{
 				PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
 				return regraPreferencia.pegarBooleano("somCaixa");
 			}
-		}
+		}  
 
-		public static bool SuavizarAnimacao
+        public static bool SuavizarAnimacao
 		{
 			get
 			{
@@ -247,7 +363,43 @@ namespace Radar.BLL
 			}
 		}
 
-		public static bool VibrarAlerta
+        public static string TempoAlerta
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("tempoAlerta");
+            }
+        }
+
+        public static string TempoDuracao
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("tempoDuracao");
+            }
+        }
+
+        public static string TempoPercurso
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegar("tempoPercurso");
+            }
+        }
+
+        public static bool VerificarIniciar
+        {
+            get
+            {
+                PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
+                return regraPreferencia.pegarBooleano("verificarIniciar");
+            }
+        }
+
+        public static bool VibrarAlerta
 		{
 			get
 			{

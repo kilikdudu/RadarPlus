@@ -33,40 +33,52 @@ namespace Radar.iOS
 			var currentContext = UIGraphics.GetCurrentContext();
 			currentContext.TranslateCTM(0, Bounds.Height);
 			currentContext.ScaleCTM(1f, -1f);
+			//velocimetro.redesenhar();
 			velocimetro.desenhar();
+
 		}
 
+		private CGColor pegarCor(PonteiroCorEnum cor)
+		{
+			CGColor retorno;
+			switch (cor)
+			{
+				case PonteiroCorEnum.Verde:
+					retorno = UIColor.Green.CGColor;
+					break;
+				case PonteiroCorEnum.Vermelho:
+					retorno = UIColor.Red.CGColor;
+					break;
+				case PonteiroCorEnum.CinzaClaro:
+					retorno = UIColor.LightGray.CGColor;
+					break;
+				default:
+					retorno = UIColor.Gray.CGColor;
+					break;
+			}
+			return retorno;
+		}
 
 		public float pegarAlturaTela()
 		{
 			float altura;
-			if (UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeLeft || 
-			    UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeRight)
-			{
-				altura = (float)UIScreen.MainScreen.Bounds.Width;
-				Console.WriteLine("AlturaL: " + altura);
-			}
-			else {
+
 				altura = (float)UIScreen.MainScreen.Bounds.Height;
 				Console.WriteLine("AlturaP: " + altura);
-			}
+
 
 			return altura;
 		}
 		public float pegarLarguraTela()
 		{
 			float largura;
-			if (UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeLeft ||
-				UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeRight)
-			{
-				largura = (float)UIScreen.MainScreen.Bounds.Height;
-			}
-			else {
+
 				largura = (float)UIScreen.MainScreen.Bounds.Width;
-			}
+
 			Console.WriteLine("largura: " + largura);
 			return largura;
 		}
+
 		public void desenharPonteiro(RetanguloInfo rect, PonteiroCorEnum cor)
 		{
 			var currentContext2 = UIGraphics.GetCurrentContext();
@@ -74,23 +86,10 @@ namespace Radar.iOS
 			currentContext2.SetFillColor(UIColor.Red.CGColor);
 			//currentContext2.SetStrokeColor(UIColor.Red.CGColor);
 
-			switch (cor)
-			{
-				case PonteiroCorEnum.Verde:
-					currentContext2.SetStrokeColor(UIColor.Yellow.CGColor);
-					break;
-				case PonteiroCorEnum.Vermelho:
-					currentContext2.SetStrokeColor(UIColor.Red.CGColor);
-					break;
-				case PonteiroCorEnum.CinzaClaro:
-					currentContext2.SetStrokeColor(UIColor.LightGray.CGColor);
-					break;
-				default:
-					currentContext2.SetStrokeColor(UIColor.Green.CGColor);
-					break;
-			}
-			currentContext2.MoveTo(rect.Top, rect.Left + 185);
-			currentContext2.AddLineToPoint(rect.Bottom, rect.Right + 185);
+			currentContext2.SetStrokeColor(pegarCor(cor));
+
+			currentContext2.MoveTo(rect.Top, rect.Left);
+			currentContext2.AddLineToPoint(rect.Bottom, rect.Right);
 
 			currentContext2.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 
@@ -103,33 +102,19 @@ namespace Radar.iOS
 			currentContext.SelectFont("Arial", 16f, CGTextEncoding.MacRoman);
 			currentContext.SetTextDrawingMode(CGTextDrawingMode.Fill);
 			currentContext.SetFillColor(UIColor.Red.CGColor);
+			currentContext.SetFillColor(pegarCor(cor));
 
-			switch (cor)
-			{
-				case PonteiroCorEnum.Verde:
-					currentContext.SetFillColor(UIColor.Yellow.CGColor);
-					break;
-				case PonteiroCorEnum.Vermelho:
-					currentContext.SetFillColor(UIColor.Red.CGColor);
-					break;
-				case PonteiroCorEnum.CinzaClaro:
-					currentContext.SetFillColor(UIColor.LightGray.CGColor);
-					break;
-				default:
-					currentContext.SetFillColor(UIColor.Green.CGColor);
-					break;
-			}
-			currentContext.ShowTextAtPoint(y - 10, x + 200, Texto);
+			currentContext.ShowTextAtPoint(y - 10, x + 15, Texto);
 			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 		}
 
-		public void desenharTextoVelocidade(string Texto, float x, float y)
+		public void desenharTextoVelocidade(string Texto, float x, float y, PonteiroCorEnum cor)
 		{
 			
 			var currentContext = UIGraphics.GetCurrentContext();
 			currentContext.SelectFont("Arial", 30f, CGTextEncoding.MacRoman);
 			currentContext.SetTextDrawingMode(CGTextDrawingMode.Fill);
-			currentContext.SetFillColor(UIColor.Green.CGColor);
+			currentContext.SetFillColor(pegarCor(cor));
 			var nsText = new NSString(Texto);
 			var boundSize = new SizeF((float)x, float.MaxValue);
 			var options = NSStringDrawingOptions.UsesFontLeading |
@@ -145,17 +130,17 @@ namespace Radar.iOS
 
 			//return new Xamarin.Forms.Size((double)sizeF.Width, (double)sizeF.Height);
 
-			currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2 , y + 185, Texto);
+			currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2 , y, Texto);
 
 			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 		}
 
-		public void desenharTextoLabel(string Texto, float x, float y)
+		public void desenharTextoLabel(string Texto, float x, float y, PonteiroCorEnum cor)
 		{
 			var currentContext = UIGraphics.GetCurrentContext();
 			currentContext.SelectFont("Arial", 22f, CGTextEncoding.MacRoman);
 			currentContext.SetTextDrawingMode(CGTextDrawingMode.Fill);
-			currentContext.SetFillColor(UIColor.Green.CGColor);
+			currentContext.SetFillColor(pegarCor(cor));
 			var nsText = new NSString(Texto);
 			var boundSize = new SizeF((float)x, float.MaxValue);
 			var options = NSStringDrawingOptions.UsesFontLeading |
@@ -168,7 +153,7 @@ namespace Radar.iOS
 			};
 
 			var sizeF = nsText.GetBoundingRect(boundSize, options, attributes, null).Size;
-			currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y + 185, Texto);
+			currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y - 55, Texto);
 
 			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 

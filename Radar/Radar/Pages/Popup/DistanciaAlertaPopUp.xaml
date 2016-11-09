@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             x:Class="Radar.Pages.Popup.DistanciaAlertaPopUp">
+
+  <AbsoluteLayout VerticalOptions="Center" Opacity="0.00"  HorizontalOptions="Fill" Padding="20, 20, 20, 20" HeightRequest="340">
+    <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+      <Label Text="Distância para o Alerta" TextColor="Red" FontSize="20" HorizontalOptions="Start" Margin="20, 0, 0, 0" />
+
+        <Label Text="No Perítro Urbano" TextColor="Black" FontSize="18" HorizontalOptions="Center" />
+        <Label Text="Velocidade de até 90 Km/H" TextColor="Black" FontSize="14" HorizontalOptions="Center" />    
+        <Label Text="" TextColor="Black" FontSize="20" HorizontalOptions="Center" x:Name="distanciaUrbano" />        
+        <Slider Maximum="500" Minimum="50"  x:Name="SliderUrbano" />     
+      
+      <Label Text="No Estrada" TextColor="Black" FontSize="18" HorizontalOptions="Center" />
+      <Label Text="Velocidade acima de 90 Km/H" TextColor="Black" FontSize="14" HorizontalOptions="Center" />
+      <Label Text="" TextColor="Black" FontSize="20" HorizontalOptions="Center" x:Name="distanciaEstrada" />
+       <Slider Maximum="1500" Minimum="300"  x:Name="SliderEstrada" />      
+   
+    <StackLayout HorizontalOptions="FillAndExpand">
+     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Button Text="Cancelar" TextColor="Black" Clicked="OnCancelar" HorizontalOptions="StartAndExpand"/>
+            <Button Text="Ok" TextColor="Black" Clicked="OnOk" HorizontalOptions="EndAndExpand"></Button>
+     </StackLayout>
+    </StackLayout>
+    
+    </StackLayout>
+  </AbsoluteLayout>
+</pages:PopupPage>

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Radar.BLL;
 using Radar.Factory;
 using Xamarin.Forms;
+using Radar.Pages.Popup;
+using Rg.Plugins.Popup.Extensions;
 
 namespace Radar.Pages {
     public partial class ModoAudioPage : ContentPage {
@@ -32,6 +34,7 @@ namespace Radar.Pages {
 			somCaixa.IsToggled = Configuracao.VolumePersonalizado;
 
         }
+
 		public void volumePersonalizadoToggled(object sender, ToggledEventArgs e)
 		{
 			if (e.Value == true)
@@ -53,8 +56,31 @@ namespace Radar.Pages {
 				regraPreferencia.gravar("somCaixa", 0);
 			}
 		}
+        async void canalAudioTapped(object sender, EventArgs e) {
 
-		protected override void OnAppearing()
+            var page = new CanalAudioPopUp();
+
+            await Navigation.PushPopupAsync(page);
+            // or
+            //await Navigation.PushAsync(page);
+        }
+        async void alturaVolumeTapped(object sender, EventArgs e) {
+
+            var page = new AlturaVolumePopUp();
+
+            await Navigation.PushPopupAsync(page);
+            // or
+            //await Navigation.PushAsync(page);
+        }
+        async void somAlertaTapped(object sender, EventArgs e) {
+
+            var page = new SomAlertaPopUp();
+
+            await Navigation.PushPopupAsync(page);
+            // or
+            //await Navigation.PushAsync(page);
+        }
+        protected override void OnAppearing()
 		{
 
 			base.OnAppearing();
