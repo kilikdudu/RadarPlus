@@ -109,6 +109,7 @@
     <BundleResource Include="Resources\alarmes\alarm-011.wav" />
     <BundleResource Include="Resources\alarmes\alarm-012.wav" />
     <BundleResource Include="Resources\alarmes\alarm-013.wav" />
+    <BundleResource Include="Resources\mais.png" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
