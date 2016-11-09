@@ -49,7 +49,7 @@ namespace Radar.Pages
             {
                 Titulo = "Meus Radares",
                 Icone = "radar.png",
-                TargetType = typeof(VelocimetroPage)
+                TargetType = typeof(RadarListaPage)
             });
             grupo.Add(new MenuItemInfo
             {

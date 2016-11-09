@@ -22,10 +22,18 @@ namespace Radar.BLL
         private static PercursoInfo _percursoSimulado;
         private static int _indexPercuso = 0;
         private static DateTime _ultimoPonto;
+        private static LocalizacaoInfo _ultimaLocalizacao = null;
 
         public static bool Simulado {
             get {
                 return _simulando;
+            }
+        }
+
+        public static LocalizacaoInfo UltimaLocalizacao {
+            get
+            {
+                return _ultimaLocalizacao;
             }
         }
 
@@ -38,7 +46,7 @@ namespace Radar.BLL
         private static void executarPosicao(LocalizacaoInfo local) {
             try
             {
-                //local.Velocidade = 90;
+                _ultimaLocalizacao = local;
                 RadarBLL regraRadar = RadarFactory.create();
                 PercursoBLL regraPercurso = PercursoFactory.create();
                 if (RadarBLL.RadarAtual != null)

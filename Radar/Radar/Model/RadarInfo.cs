@@ -220,12 +220,30 @@ namespace Radar.Model
         }
 
         [Ignore]
+        public string VelocidadeStr
+        {
+            get {
+                return Velocidade.ToString() + "km/h";
+            }
+        }
+
+        [Ignore]
         public int Direcao {
             get {
                 return _Direcao;
             }
             set {
                 _Direcao = value;
+            }
+        }
+
+        [Ignore]
+        public bool Usuario {
+            get {
+                return (usuario == 1);
+            }
+            set {
+                usuario = (value) ? 1 : 0;
             }
         }
     }

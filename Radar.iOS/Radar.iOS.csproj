@@ -86,6 +86,7 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AudioiOS.cs" />
     <Compile Include="GPSiOS.cs" />
     <Compile Include="GPSAtualizacaoEventArgs.cs" />
     <Compile Include="Main.cs" />
@@ -93,7 +94,21 @@
     <Compile Include="MensagemiOS.cs" />
     <Compile Include="RadarMapRenderer.cs" />
     <Compile Include="RadarMKAnnotation.cs" />
+    <Compile Include="SoundRecorderiOS.cs" />
     <Compile Include="SQLiteiOS.cs" />
+    <BundleResource Include="Resources\alarmes\alarm-001.wav" />
+    <BundleResource Include="Resources\alarmes\alarm-002.wav" />
+    <BundleResource Include="Resources\alarmes\alarm-003.wav" />
+    <BundleResource Include="Resources\alarmes\alarm-004.wav" />
+    <BundleResource Include="Resources\alarmes\alarm-005.wav" />
+    <BundleResource Include="Resources\alarmes\alarm-006.wav" />
+    <BundleResource Include="Resources\alarmes\alarm-007.wav" />
+    <BundleResource Include="Resources\alarmes\alarm-008.wav" />
+    <BundleResource Include="Resources\alarmes\alarm-009.wav" />
+    <BundleResource Include="Resources\alarmes\alarm-010.wav" />
+    <BundleResource Include="Resources\alarmes\alarm-011.wav" />
+    <BundleResource Include="Resources\alarmes\alarm-012.wav" />
+    <BundleResource Include="Resources\alarmes\alarm-013.wav" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
