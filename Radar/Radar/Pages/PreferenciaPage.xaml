@@ -4,7 +4,7 @@
 		<StackLayout Orientation="Vertical" Padding="5, 5, 5, 5">
       
       <ContentPage.Content>
-		<ListView  x:Name="lstView" RowHeight="60">
+		<ListView  x:Name="lstView" RowHeight="60" BackgroundColor="#009688">
 			<ListView.ItemTemplate>
 				<DataTemplate>
 					<ViewCell>

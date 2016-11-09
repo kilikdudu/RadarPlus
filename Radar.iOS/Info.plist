@@ -59,5 +59,9 @@
 			</array>
 		</dict>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>fonts/Roboto-Condensed.ttf</string>
+	</array>
 </dict>
 </plist>

@@ -24,6 +24,7 @@
     <MtouchArch>i386</MtouchArch>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+<CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -118,6 +119,34 @@
     <Compile Include="TelaiOS.cs" />
     <Compile Include="VelocimetroRenderer.cs" />
     <Compile Include="VelocimetroiOS.cs" />
+    <BundleResource Include="Resources\icones\anterior.png" />
+    <BundleResource Include="Resources\icones\appradar curvadireita.png" />
+    <BundleResource Include="Resources\icones\appradar curvaesquerda.png" />
+    <BundleResource Include="Resources\icones\appradar redimensionamento.png" />
+    <BundleResource Include="Resources\icones\appradarinstrucoes.png" />
+    <BundleResource Include="Resources\icones\appradarmaosesetas.png" />
+    <BundleResource Include="Resources\icones\atualizar.png" />
+    <BundleResource Include="Resources\icones\box.png" />
+    <BundleResource Include="Resources\icones\boxcinza.png" />
+    <BundleResource Include="Resources\icones\cameramais.png" />
+    <BundleResource Include="Resources\icones\config.png" />
+    <BundleResource Include="Resources\icones\iconeagulhamapa.png" />
+    <BundleResource Include="Resources\icones\Iconetrofeubranco.png" />
+    <BundleResource Include="Resources\icones\instrucoes.png" />
+    <BundleResource Include="Resources\icones\interrogacaoi.png" />
+    <BundleResource Include="Resources\icones\mais.png" />
+    <BundleResource Include="Resources\icones\mapas.png" />
+    <BundleResource Include="Resources\icones\menos.png" />
+    <BundleResource Include="Resources\icones\novidade.png" />
+    <BundleResource Include="Resources\icones\percursos.png" />
+    <BundleResource Include="Resources\icones\sair.png" />
+    <BundleResource Include="Resources\icones\seguinte.png" />
+    <BundleResource Include="Resources\icones\sobre.png" />
+    <BundleResource Include="Resources\icones\sombra.png" />
+    <BundleResource Include="Resources\icones\velocimetro.png" />
+    <BundleResource Include="Resources\fonts\Roboto-Condensed.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -185,6 +214,10 @@
       <Project>{0d7118ce-020d-4cac-8ca6-95110c856a12}</Project>
       <Name>Radar</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\icones\" />
+    <Folder Include="Resources\fonts\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
