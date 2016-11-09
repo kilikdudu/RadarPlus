@@ -36,7 +36,7 @@ namespace Radar.Pages.Popup {
         }
         public void exibirToggled(object sender, ToggledEventArgs e2) {
             
-            if (e2.Value == true) {
+            if (SwitchExibir.IsToggled == true) {
                 SwitchFechar.IsToggled = false;
                 regraPreferencia.gravar("desativarGPS", 2);
             } else {

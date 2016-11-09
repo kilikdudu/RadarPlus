@@ -1,75 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Radar.ModoAlertaPage">
 	<ContentPage.Content>
-    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" x:Name="teststack">
-      <StackLayout Orientation="Horizontal">
-      <Label Text="Radar Móvel" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-        <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="radarMovel" Toggled="radarMovelToggled"/>
-      </StackLayout>
-    <BoxView Color="Gray" HeightRequest="1" />
-      <StackLayout Orientation="Horizontal">
-        <Label Text="Pedágio" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-        <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="pedagio" Toggled="pedagioToggled"/>
-      </StackLayout>
-    <BoxView Color="Gray" HeightRequest="1" />   
-      <StackLayout Orientation="Horizontal">
-        <Label Text="Polícia Rodoviária" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-        <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="policiaRodoviaria" Toggled="policiaRodoviariaToggled"/>
-      </StackLayout>
-    <BoxView Color="Gray" HeightRequest="1" />
-      <StackLayout Orientation="Horizontal">
-       <Label Text="Lombada" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-        <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="lombada" Toggled="lombadaToggled"/>
-      </StackLayout>
-    <BoxView Color="Gray" HeightRequest="1" />
-      <StackLayout Orientation="Horizontal">
-        <Label Text="Alerta Inteligente" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-        <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="alertaInteligente" Toggled="alertaInteligenteToggled"/>
-      </StackLayout>
-      <Label FontSize="14" Margin ="20,0,0,0" Text="Só emitir alerta caso a velocidade atual esteja próxima da velocidade limite" HorizontalOptions="StartAndExpand" />
-    <BoxView Color="Gray" HeightRequest="1" />
-      <StackLayout Orientation="Horizontal">
-       <Label Text="Beep de Aviso" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-        <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="beepAviso" Toggled="beepAvisoToggled"/>
-      </StackLayout>
-      <Label FontSize="14" Margin ="20,0,0,0" Text="Emitir som ao passar por um radar" HorizontalOptions="StartAndExpand" />
-    <BoxView Color="Gray" HeightRequest="1" />
-      <StackLayout Orientation="Horizontal">
-       <Label Text="Vibrar ao emitir Alerta" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-        <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="vibrarAlerta" Toggled="vibrarAlertaToggled"/>
-      </StackLayout>
-    <BoxView Color="Gray" HeightRequest="1" />
-      <StackLayout Orientation="Horizontal">
-          <StackLayout.GestureRecognizers>
-            <TapGestureRecognizer Tapped="tempoDuracaoTapped"/>
-          </StackLayout.GestureRecognizers>
-        <Label Text="Tempo de Duração" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-      </StackLayout>
-      <Label FontSize="14" Margin ="20,0,0,0" Text="Defina por quanto tempo o dispositivo deverá vibrar" HorizontalOptions="StartAndExpand" />
-    <BoxView Color="Gray" HeightRequest="1" />
-      <StackLayout Orientation="Horizontal">
-        <StackLayout.GestureRecognizers>
-            <TapGestureRecognizer Tapped="tempoAlertaTapped"/>
-          </StackLayout.GestureRecognizers>
-        <Label  Text="Tempo para o Alerta" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-      </StackLayout>
-      <Label FontSize="14" Margin ="20,0,0,0" Text="Defina com quanto tempo de antencedência o alerta deve ser emitido" HorizontalOptions="StartAndExpand" />
-    <BoxView Color="Gray" HeightRequest="1" />
-      <StackLayout Orientation="Horizontal">
-        <StackLayout.GestureRecognizers>
-            <TapGestureRecognizer Tapped="distanciaAlertaTapped"/>
-          </StackLayout.GestureRecognizers>
-        <Label Text="Distância para o Alerta" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-      </StackLayout>
-      <Label FontSize="14" Margin ="20,0,0,0" Text="Defina com que distância o alerta deve ser emitido" HorizontalOptions="StartAndExpand" />
-    <BoxView Color="Gray" HeightRequest="1" />
-      <StackLayout Orientation="Horizontal">
-        <Label Text="Sobreposição Visual" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
-           <Switch HorizontalOptions="EndAndExpand" Margin="20,0,30,0" x:Name="sobreposicaoVisual" Toggled="sobreposicaoVisualToggled"/>
-      </StackLayout>
-      <Label FontSize="14" Margin ="20,0,0,0" Text="Exibir alertas visuais quando o App estiver funcionando em segundo plano" HorizontalOptions="StartAndExpand" />  
-    <BoxView Color="Gray" HeightRequest="1" />
-    </StackLayout>
-    
+		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+		    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" >
+				
+		      <StackLayout Orientation="Horizontal">
+		      <Label Text="Radar Móvel" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		        <Switch HorizontalOptions="EndAndExpand" Margin="20,10,20,0" x:Name="radarMovel" Toggled="radarMovelToggled"/>
+		      </StackLayout>
+		    <BoxView Color="Gray" HeightRequest="1" />
+		      <StackLayout Orientation="Horizontal">
+		        <Label Text="Pedágio" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		        <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="pedagio" Toggled="pedagioToggled"/>
+		      </StackLayout>
+		    <BoxView Color="Gray" HeightRequest="1" />   
+		      <StackLayout Orientation="Horizontal">
+		        <Label Text="Polícia Rodoviária" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		        <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="policiaRodoviaria" Toggled="policiaRodoviariaToggled"/>
+		      </StackLayout>
+		    <BoxView Color="Gray" HeightRequest="1" />
+		      <StackLayout Orientation="Horizontal">
+		       <Label Text="Lombada" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		        <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="lombada" Toggled="lombadaToggled"/>
+		      </StackLayout>
+		    <BoxView Color="Gray" HeightRequest="1" />
+		      <StackLayout Orientation="Horizontal">
+		        <Label Text="Alerta Inteligente" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		        <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="alertaInteligente" Toggled="alertaInteligenteToggled"/>
+		      </StackLayout>
+		      <Label FontSize="14" Margin ="20,0,0,0" Text="Só emitir alerta caso a velocidade atual esteja próxima da velocidade limite" HorizontalOptions="StartAndExpand" />
+		    <BoxView Color="Gray" HeightRequest="1" />
+		      <StackLayout Orientation="Horizontal">
+		       <Label Text="Beep de Aviso" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		        <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="beepAviso" Toggled="beepAvisoToggled"/>
+		      </StackLayout>
+		      <Label FontSize="14" Margin ="20,0,0,0" Text="Emitir som ao passar por um radar" HorizontalOptions="StartAndExpand" />
+		    <BoxView Color="Gray" HeightRequest="1" />
+		      <StackLayout Orientation="Horizontal">
+		       <Label Text="Vibrar ao emitir Alerta" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		        <Switch HorizontalOptions="End" Margin="0,5,20,0" x:Name="vibrarAlerta" Toggled="vibrarAlertaToggled"/>
+		      </StackLayout>
+		    <BoxView Color="Gray" HeightRequest="1" />
+		      <StackLayout Orientation="Horizontal">
+		          <StackLayout.GestureRecognizers>
+		            <TapGestureRecognizer Tapped="tempoDuracaoTapped"/>
+		          </StackLayout.GestureRecognizers>
+		        <Label Text="Tempo de Duração" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,15,0,0"/>
+		      </StackLayout>
+		      <Label FontSize="14" Margin ="20,0,0,0" Text="Defina por quanto tempo o dispositivo deverá vibrar" HorizontalOptions="StartAndExpand" />
+		    <BoxView Color="Gray" HeightRequest="1" />
+		      <StackLayout Orientation="Horizontal">
+		        <StackLayout.GestureRecognizers>
+		            <TapGestureRecognizer Tapped="tempoAlertaTapped"/>
+		          </StackLayout.GestureRecognizers>
+		        <Label  Text="Tempo para o Alerta" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,15,0,0"/>
+		      </StackLayout>
+		      <Label FontSize="14" Margin ="20,0,0,0" Text="Defina com quanto tempo de antencedência o alerta deve ser emitido" HorizontalOptions="StartAndExpand" />
+		    <BoxView Color="Gray" HeightRequest="1" />
+		      <StackLayout Orientation="Horizontal">
+		        <StackLayout.GestureRecognizers>
+		            <TapGestureRecognizer Tapped="distanciaAlertaTapped"/>
+		          </StackLayout.GestureRecognizers>
+		        <Label Text="Distância para o Alerta" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
+		      </StackLayout>
+		      <Label FontSize="14" Margin ="20,0,0,0" Text="Defina com que distância o alerta deve ser emitido" HorizontalOptions="StartAndExpand" />
+		    <BoxView Color="Gray" HeightRequest="1" />
+		      <StackLayout Orientation="Horizontal">
+		        <Label Text="Sobreposição Visual" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,15,0,0"/>
+		           <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="sobreposicaoVisual" Toggled="sobreposicaoVisualToggled"/>
+		      </StackLayout>
+		      <Label FontSize="14" Margin ="20,0,0,0" Text="Exibir alertas visuais quando o App estiver funcionando em segundo plano" HorizontalOptions="StartAndExpand" />  
+		    <BoxView Color="Gray" HeightRequest="1" />
+		    </StackLayout>
+    	</ScrollView>
 	</ContentPage.Content>
 </ContentPage>
