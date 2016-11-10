@@ -148,7 +148,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <BundleResource Include="Resources\Default.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -223,6 +222,22 @@
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small-40%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small-40%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-60%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-60%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small-40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-76%402x.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+    <ITunesArtwork Include="iTunesArtwork" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
