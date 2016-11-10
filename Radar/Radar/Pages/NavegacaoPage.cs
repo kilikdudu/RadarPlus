@@ -22,7 +22,7 @@ namespace Radar.Pages
 			nav.BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor);
 			nav.BarTextColor = Color.FromHex(TemaInfo.PrimaryText);
 
-			Master = nav;
+			Detail = nav;
 
 
 

@@ -63,5 +63,7 @@
 	<array>
 		<string>fonts/Roboto-Condensed.ttf</string>
 	</array>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
 </dict>
 </plist>

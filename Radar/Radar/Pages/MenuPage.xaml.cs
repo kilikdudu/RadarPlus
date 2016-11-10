@@ -18,19 +18,19 @@ namespace Radar.Pages
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Velocimetro",
-                Icone = "velocimetro.png",
+                Icone = "icones/velocimetro.png",
                 TargetType = typeof(VelocimetroPage)
             });
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Mapa",
-                Icone = "mapas.png",
+                Icone = "icones/mapas.png",
                 TargetType = typeof(MapaPage)
             });
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Radares",
-                Icone = "reminders.png",
+                Icone = "icones/reminders.png",
                 TargetType = typeof(RadarListaPage)
             });
             return grupo;
@@ -42,25 +42,25 @@ namespace Radar.Pages
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Percursos",
-                Icone = "percursos.png",
+                Icone = "icones/percursos.png",
                 TargetType = typeof(PercursoPage)
             });
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Meus Radares",
-                Icone = "radar.png",
+                Icone = "icones/radar.png",
                 TargetType = typeof(RadarListaPage)
             });
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Preferências",
-                Icone = "config.png",
+                Icone = "icones/config.png",
 				TargetType = typeof(PreferenciaPage)
             });
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Atualizar",
-                Icone = "atualizar.png",
+                Icone = "icones/atualizar.png",
                 TargetType = typeof(VelocimetroPage)
             });
             return grupo;
@@ -72,25 +72,25 @@ namespace Radar.Pages
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Instruções",
-                Icone = "instrucoes.png",
+                Icone = "icones/instrucoes.png",
                 TargetType = typeof(VelocimetroPage)
             });
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Novidades",
-                Icone = "novidade.png",
+                Icone = "icones/novidade.png",
                 TargetType = typeof(VelocimetroPage)
             });
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Sobre",
-                Icone = "sobre.png",
+                Icone = "icones/sobre.png",
                 TargetType = typeof(VelocimetroPage)
             });
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Sair",
-                Icone = "sair.png",
+                Icone = "icones/sair.png",
                 TargetType = typeof(VelocimetroPage)
             });
             return grupo;

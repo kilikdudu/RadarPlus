@@ -25,6 +25,10 @@ namespace Radar
 		public PreferenciaPage()
 		{
 			
+
+			this.SetValue(NavigationPage.BarBackgroundColorProperty, Color.Blue);
+
+
 			menus = new ObservableCollection<string>();
 			ListView lstView = new ListView();
 			lstView.RowHeight = 60;
