@@ -30,7 +30,7 @@ namespace Radar.Pages
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Radares",
-                Icone = "reminders.png",
+                Icone = "meusradares.png",
                 TargetType = typeof(RadarListaPage)
             });
             return grupo;
@@ -48,7 +48,7 @@ namespace Radar.Pages
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Meus Radares",
-                Icone = "radar.png",
+                Icone = "meusradares.png",
                 TargetType = typeof(RadarListaPage)
             });
             grupo.Add(new MenuItemInfo

@@ -2,14 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Radar.Pages.MenuPage"
-		     BackgroundColor="#009688">
+		     BackgroundColor="#b2dfdb">
   <ContentPage.Content>
     <StackLayout Orientation="Vertical" Padding="5, 10, 5, 10">
-      <ListView x:Name="listView" GroupDisplayBinding="{Binding Nome}" SeparatorVisibility="None" IsGroupingEnabled="true" BackgroundColor="#009688">
+      <ListView x:Name="listView" GroupDisplayBinding="{Binding Nome}" SeparatorVisibility="None" IsGroupingEnabled="true" BackgroundColor="#b2dfdb">
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
-              <StackLayout Orientation="Horizontal" BackgroundColor="#009688">                
+              <StackLayout Orientation="Horizontal" BackgroundColor="#b2dfdb">                
 				<Image Source="{Binding Icone}" HorizontalOptions="Start"  VerticalOptions="Center" WidthRequest="30" HeightRequest="30"/>
 				<Label Text="{Binding Titulo}" HorizontalOptions="Center" VerticalOptions="Center" />
               </StackLayout>
@@ -19,7 +19,7 @@
         <ListView.GroupHeaderTemplate>
           <DataTemplate>
             <ViewCell>
-              <StackLayout Orientation="Vertical" BackgroundColor="#009688">
+              <StackLayout Orientation="Vertical" BackgroundColor="#b2dfdb">
                 <Label Text="{Binding Nome}" />
                 <BoxView HeightRequest="1" BackgroundColor="#bdbdbd" />
               </StackLayout>

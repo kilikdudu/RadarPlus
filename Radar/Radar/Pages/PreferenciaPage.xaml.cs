@@ -53,7 +53,7 @@ namespace Radar
 			menus.Add("Percurso");
 			menus.Add("Meus Radares" );			
 			lstView.ItemsSource = menus;
-			lstView.BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor);
+			lstView.BackgroundColor = Color.FromHex(TemaInfo.LightPrimaryColor);
 			lstView.SeparatorColor = Color.FromHex(TemaInfo.DividerColor);
 
 			Content = lstView;
