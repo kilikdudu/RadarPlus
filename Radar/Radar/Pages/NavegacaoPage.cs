@@ -18,8 +18,11 @@ namespace Radar.Pages
         {
             masterPage = new MenuPage();
             Master = masterPage;
-			Detail = new NavigationPage(new VelocimetroPage());
-			Detail.BackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor);
+			var  nav = new NavigationPage(new VelocimetroPage());
+			nav.BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor);
+			nav.BarTextColor = Color.FromHex(TemaInfo.PrimaryText);
+
+			Master = nav;
 
 
 
