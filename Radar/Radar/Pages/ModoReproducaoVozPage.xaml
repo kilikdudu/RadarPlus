@@ -1,80 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Radar.ModoReproducaoVozPage">
 <ContentPage.Resources>
-		<ResourceDictionary>
-	 		<Style x:Key="LabelStyle" TargetType="Label">
-				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
-				<Setter Property="TextColor" Value="#757575" />
-				<Setter Property="FontSize" Value="20" />
-				<Setter Property="Margin" Value="20,10,0,0" />
-				<Setter Property="FontFamily" Value="Roboto-Condensed" />
-			</Style>
-			<Style x:Key="LabelStyleDescription" TargetType="Label">
-				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
-				<Setter Property="TextColor" Value="#757575" />
-				<Setter Property="FontSize" Value="14" />
-				<Setter Property="Margin" Value="20,0,0,0" />
-				<Setter Property="FontFamily" Value="Roboto-Condensed" />
-			</Style>
-			<Style x:Key="StyleStack" TargetType="StackLayout">
-				<Setter Property="HorizontalOptions" Value="FillAndExpand" />
-				<Setter Property="BackgroundColor" Value="#b2dfdb" />
-				<Setter Property="Orientation" Value="Vertical" />
-			</Style>
-			<Style x:Key="StyleDivider" TargetType="BoxView">
-				<Setter Property="Color" Value="#bdbdbd" />
-				<Setter Property="HeightRequest" Value="1" />
-			</Style>
-		</ResourceDictionary>
+  <ResourceDictionary>
+    <Style x:Key="LabelStyle" TargetType="Label">
+      <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+      <Setter Property="TextColor" Value="#757575" />
+      <Setter Property="FontSize" Value="26" />
+      <Setter Property="Margin" Value="20,0,0,0" />
+      <Setter Property="FontFamily" Value="Roboto-Condensed" />
+    </Style>
+    <Style x:Key="LabelStyleDescription" TargetType="Label">
+      <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+      <Setter Property="TextColor" Value="#757575" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="Margin" Value="20,0,0,0" />
+      <Setter Property="FontFamily" Value="Roboto-Condensed" />
+    </Style>
+    <Style x:Key="StyleStack" TargetType="StackLayout">
+      <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+      <Setter Property="BackgroundColor" Value="#ffffff" />
+      <Setter Property="Orientation" Value="Vertical" />
+    </Style>
+    <Style x:Key="StyleSwitch" TargetType="Switch">
+      <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+      <Setter Property="Margin" Value="20,0,20,0" />
+    </Style>
+    <Style x:Key="StyleFrame" TargetType="Frame">
+
+      <Setter Property="BackgroundColor" Value="#b2dfdb" />
+      <Setter Property="Margin" Value="10,5,10,5" />
+    </Style>
+  </ResourceDictionary>
 	</ContentPage.Resources>
 	<ContentPage.Content>
 		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
 		      <StackLayout Style="{StaticResource StyleStack}">
-		        <StackLayout Orientation="Horizontal">
-		          <Label Text="Desabilitar" Style="{StaticResource LabelStyle}"/>
-		          <Switch HorizontalOptions="EndAndExpand" Margin="20,10,20,0" x:Name="desabilitar" Toggled="desabilitarToggled"/>
-		        </StackLayout>
-		        <Label Style="{StaticResource LabelStyleDescription}" Text="Não utilizar o recurso, mesmo que disponível" />
-		   
-		        <BoxView Style="{StaticResource StyleDivider}" />
-		        <StackLayout Orientation="Horizontal">
-		          <Label Text="Padrão do Android" Style="{StaticResource LabelStyle}"/>
-		        </StackLayout>
-		        <Label Style="{StaticResource LabelStyleDescription}" Text="Toque para escolher outro" />
-		  
-		        <BoxView Style="{StaticResource StyleDivider}" />
-		        <StackLayout Orientation="Horizontal">
-		          <Label Text="Estado" Style="{StaticResource LabelStyle}"/>
-		        </StackLayout>
-		        <Label Style="{StaticResource LabelStyleDescription}" Text="Disponível" />
-
-		        <BoxView Style="{StaticResource StyleDivider}" />
-		        <StackLayout Orientation="Horizontal">
-		          <Label Text="Ao Ligar e Desligar" Style="{StaticResource LabelStyle}"/>
-		          <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="ligarDesligar" Toggled="ligarDesligarToggled"/>
-		        </StackLayout>
-		        <Label Style="{StaticResource LabelStyleDescription}" Text="Reproduz voz ao iniciar ou delisgar o aplicativo" />
-		   
-		        <BoxView Style="{StaticResource StyleDivider}" />
-		       <StackLayout Orientation="Horizontal">
-		          <Label Text="Encurtar" Style="{StaticResource LabelStyle}"/>
-		          <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="encurtar" Toggled="encurtarToggled"/>
-		        </StackLayout>
-		        <Label Style="{StaticResource LabelStyleDescription}" Text="Reproduzir frases curtas" />
-		   
-		        <BoxView Style="{StaticResource StyleDivider}" />
-		        <StackLayout Orientation="Horizontal">
-		          <Label Text="Alerta Sonoro" Style="{StaticResource LabelStyle}"/>
-		          <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="alertaSonoro" Toggled="alertaSonoroToggled"/>
-		        </StackLayout>
-		        <Label Style="{StaticResource LabelStyleDescription}" Text="Além da reprodução de voz, emitir também o alerta sonoro"  />
-		   
-		        <BoxView Style="{StaticResource StyleDivider}" />
-		       <StackLayout Orientation="Horizontal">
-		          <Label Text="Reproduzir Teste" Style="{StaticResource LabelStyle}"/>
-		        </StackLayout>
-		       
-		        <BoxView Style="{StaticResource StyleDivider}" />
+            <Frame Style="{StaticResource StyleFrame}">
+              <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="Desabilitar" Style="{StaticResource LabelStyle}"/>
+                  <Switch Style="{StaticResource StyleSwitch}" x:Name="desabilitar" Toggled="desabilitarToggled"/>
+                </StackLayout>
+                <Label Style="{StaticResource LabelStyleDescription}" Text="Não utilizar o recurso, mesmo que disponível" />
+              </StackLayout>
+            </Frame>
+            <Frame Style="{StaticResource StyleFrame}">
+              <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="Padrão do Android" Style="{StaticResource LabelStyle}"/>
+                </StackLayout>
+                <Label Style="{StaticResource LabelStyleDescription}" Text="Toque para escolher outro" />
+              </StackLayout>
+            </Frame>
+            <Frame Style="{StaticResource StyleFrame}">
+              <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="Estado" Style="{StaticResource LabelStyle}"/>
+                </StackLayout>
+                <Label Style="{StaticResource LabelStyleDescription}" Text="Disponível" />
+              </StackLayout>
+            </Frame>
+            <Frame Style="{StaticResource StyleFrame}">
+              <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="Ao Ligar e Desligar" Style="{StaticResource LabelStyle}"/>
+                  <Switch Style="{StaticResource StyleSwitch}" x:Name="ligarDesligar" Toggled="ligarDesligarToggled"/>
+                </StackLayout>
+                <Label Style="{StaticResource LabelStyleDescription}" Text="Reproduz voz ao iniciar ou delisgar o aplicativo" />
+              </StackLayout>
+            </Frame>
+            <Frame Style="{StaticResource StyleFrame}">
+              <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="Encurtar" Style="{StaticResource LabelStyle}"/>
+                  <Switch Style="{StaticResource StyleSwitch}" x:Name="encurtar" Toggled="encurtarToggled"/>
+                </StackLayout>
+                <Label Style="{StaticResource LabelStyleDescription}" Text="Reproduzir frases curtas" />
+              </StackLayout>
+            </Frame>
+            <Frame Style="{StaticResource StyleFrame}">
+              <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="Alerta Sonoro" Style="{StaticResource LabelStyle}"/>
+                  <Switch Style="{StaticResource StyleSwitch}" x:Name="alertaSonoro" Toggled="alertaSonoroToggled"/>
+                </StackLayout>
+                <Label Style="{StaticResource LabelStyleDescription}" Text="Além da reprodução de voz, emitir também o alerta sonoro"  />
+              </StackLayout>
+            </Frame>
+            <Frame Style="{StaticResource StyleFrame}">
+              <StackLayout Orientation="Horizontal">
+                <Label Text="Reproduzir Teste" Style="{StaticResource LabelStyle}"/>
+              </StackLayout>
+            </Frame>
+		        
 		      </StackLayout>
 		</ScrollView>
 	</ContentPage.Content>

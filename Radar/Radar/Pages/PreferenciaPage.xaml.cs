@@ -30,8 +30,7 @@ namespace Radar
 		public PreferenciaPage()
 		{
 
-			this.SetValue(NavigationPage.BarBackgroundColorProperty, Color.Red);
-
+			
 			menus = new ObservableCollection<string>();
 			ListView lstView = new ListView();
 			lstView.RowHeight = 60;
@@ -48,6 +47,7 @@ namespace Radar
 			menus.Add("Meus Radares" );			
 			lstView.ItemsSource = menus;
 			lstView.HasUnevenRows = true;
+            lstView.SeparatorColor = Color.Transparent;
 			//lstView.BackgroundColor = Color.FromHex(TemaInfo.TextIcons);
 			//lstView.SeparatorColor = Color.FromHex(TemaInfo.DividerColor);
 
@@ -151,28 +151,29 @@ namespace Radar
 				horizontalLayout.Padding = new Thickness(20, 0, 0, 0);
 				horizontalLayout.Orientation = StackOrientation.Horizontal;
 				horizontalLayout.HorizontalOptions = LayoutOptions.StartAndExpand;
-				frameInner.Padding = new Thickness(20, 20, 20, 20);
-				frameInner.HeightRequest = 36;
-				//frameInner.OutlineColor = Color.Black;
-				frameInner.BackgroundColor = Color.FromHex(TemaInfo.SecondaryText);
-				frameOuter.Padding = new Thickness(4, 1, 1, 4);
+                //frameInner.Padding = new Thickness(20, 20, 20, 20);
+                frameOuter.HeightRequest = 36;
+                frameOuter.Margin = new Thickness(10, 5, 10, 5);
+                //frameInner.OutlineColor = Color.Black;
+                frameOuter.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
+				//frameOuter.Padding = new Thickness(2, 1, 1, 2);
 
 				//verticaLayout.Children.Add(nameLabel);
 				horizontalLayout.Children.Add(nameLabel);
-				frameInner.Content = horizontalLayout;
-				frameOuter.Content = frameInner;
+				//frameInner.Content = horizontalLayout;
+				frameOuter.Content = horizontalLayout;
 
 
 
 				// add to parent view
-				View = frameInner;
+				View = frameOuter;
 				this.View.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
-				this.Tapped += (sender, e) =>
-				{
-					this.View.BackgroundColor = Color.FromHex(TemaInfo.AccentColor);
-					Task.Delay(2000);
-					this.View.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
-				};
+				//this.Tapped += (sender, e) =>
+				//{
+				//	this.View.BackgroundColor = Color.FromHex(TemaInfo.AccentColor);
+				//	Task.Delay(2000);
+				//	this.View.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
+				//};
 
 			}
 
