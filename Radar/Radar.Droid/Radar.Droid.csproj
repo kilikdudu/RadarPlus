@@ -188,13 +188,41 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <None Include="Resources\drawable\icones\mais.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\appicon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\appicon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\appicon.png" />
+    <AndroidResource Include="Resources\drawable\appicon.png" />
+    <AndroidResource Include="Resources\icones\anterior.png" />
+    <AndroidResource Include="Resources\icones\appradar curvadireita.png" />
+    <AndroidResource Include="Resources\icones\appradar curvaesquerda.png" />
+    <AndroidResource Include="Resources\icones\appradar redimensionamento.png" />
+    <AndroidResource Include="Resources\icones\appradarinstrucoes.png" />
+    <AndroidResource Include="Resources\icones\appradarmaosesetas.png" />
+    <AndroidResource Include="Resources\icones\atualizar.png" />
+    <AndroidResource Include="Resources\icones\box.png" />
+    <AndroidResource Include="Resources\icones\boxcinza.png" />
+    <AndroidResource Include="Resources\icones\cameramais.png" />
+    <AndroidResource Include="Resources\icones\config.png" />
+    <AndroidResource Include="Resources\icones\iconeagulhamapa.png" />
+    <AndroidResource Include="Resources\icones\Iconetrofeubranco.png" />
+    <AndroidResource Include="Resources\icones\instrucoes.png" />
+    <AndroidResource Include="Resources\icones\interrogacaoi.png" />
+    <AndroidResource Include="Resources\icones\mais.png" />
+    <AndroidResource Include="Resources\icones\mapas.png" />
+    <AndroidResource Include="Resources\icones\menos.png" />
+    <AndroidResource Include="Resources\icones\novidade.png" />
+    <AndroidResource Include="Resources\icones\percursos.png" />
+    <AndroidResource Include="Resources\icones\sair.png" />
+    <AndroidResource Include="Resources\icones\seguinte.png" />
+    <AndroidResource Include="Resources\icones\sobre.png" />
+    <AndroidResource Include="Resources\icones\sombra.png" />
+    <AndroidResource Include="Resources\icones\velocimetro.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">
@@ -251,79 +279,7 @@
     <AndroidAsset Include="Assets\alarmes\alarm-001.wav" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\anterior.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\appradar curvadireita.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\appradar curvaesquerda.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\appradar redimensionamento.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\appradarinstrucoes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\appradarmaosesetas.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\atualizar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\box.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\boxcinza.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\cameramais.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\config.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\iconeagulhamapa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\Iconetrofeubranco.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\instrucoes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\interrogacaoi.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\mais.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\mapas.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icones\menos.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\novidade.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\percursos.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\sair.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\seguinte.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\sobre.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\sombra.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\velocimetro.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\alarmes\alarm-002.wav" />
@@ -360,6 +316,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\alarmes\alarm-013.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\icones\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
