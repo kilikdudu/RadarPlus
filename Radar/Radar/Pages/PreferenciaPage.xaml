@@ -9,8 +9,8 @@
 		</ResourceDictionary>
 	</ContentPage.Resources>
 	
-	<ContentPage.Content Style="{StaticResource bar}" >
-		<StackLayout Orientation="Vertical" Padding="5, 5, 5, 5">
+	<ContentPage.Content Style="{StaticResource bar}"  >
+		<StackLayout Orientation="Vertical" Padding="5, 5, 5, 5" BackgroundColor="White">
       
     
 		<ListView  x:Name="lstView" RowHeight="60" >

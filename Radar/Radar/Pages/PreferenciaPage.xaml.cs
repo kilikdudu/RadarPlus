@@ -11,7 +11,16 @@ namespace Radar
 	{
 		private static PreferenciaPage _PreferenciaPageAtual;
 		public ObservableCollection<string> menus { get; set; }
+		ModoMapaPage modoMapaPage = new ModoMapaPage();
+		ModoAlertaPage modoAlertaPage = new ModoAlertaPage();
+		ModoAudioPage modoAudioPage = new ModoAudioPage();
+		ModoReproducaoVozPage modoReproducaoVozPage = new ModoReproducaoVozPage();
+		ModoGeralPage modoGeralPage = new ModoGeralPage();
+		ModoAutoInicioPage modoAutoInicioPage = new ModoAutoInicioPage();
+		ModoPercursoPage modoPercursoPage = new ModoPercursoPage();
+		ModoMeuRadarPage modoMeuRadarPage = new ModoMeuRadarPage();
 		public static PreferenciaPage Atual
+
 		{
 			get
 			{
@@ -44,7 +53,7 @@ namespace Radar
 			menus.Add("Percurso");
 			menus.Add("Meus Radares" );			
 			lstView.ItemsSource = menus;
-			lstView.BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor);
+			lstView.BackgroundColor = Color.FromHex(TemaInfo.LightPrimaryColor);
 			lstView.SeparatorColor = Color.FromHex(TemaInfo.DividerColor);
 
 			Content = lstView;
@@ -53,32 +62,34 @@ namespace Radar
 		public void OnTap(object sender, ItemTappedEventArgs e)
 		{
 			
-			switch (e.Item.ToString())
-			{
-				case "Modo Mapa":
-					Navigation.PushAsync(new ModoMapaPage());
-				break;
-				case "Alertas":
-					Navigation.PushAsync(new ModoAlertaPage());
-				break;
-				case "Audio":
-					Navigation.PushAsync(new ModoAudioPage());
-				break;
-				case "Reprodução de Voz":
-					Navigation.PushAsync(new ModoReproducaoVozPage());
-				break;
-				case "Gerais":
-					Navigation.PushAsync(new ModoGeralPage());
-				break;
-				case "Auto Início/Desligamento":
-					Navigation.PushAsync(new ModoAutoInicioPage());
-				break;	
-				case "Percurso":
-					Navigation.PushAsync(new ModoPercursoPage());
-				break;
-				case "Meus Radares":
-					Navigation.PushAsync(new ModoMeuRadarPage());
-				break;
+				switch (e.Item.ToString())
+				{
+					case "Modo Mapa":
+
+						Navigation.PushAsync(modoMapaPage);
+						break;
+					case "Alertas":
+						Navigation.PushAsync(modoAlertaPage);
+						break;
+					case "Audio":
+						Navigation.PushAsync(modoAudioPage);
+						break;
+					case "Reprodução de Voz":
+						Navigation.PushAsync(modoReproducaoVozPage);
+						break;
+					case "Gerais":
+						Navigation.PushAsync(modoGeralPage);
+						break;
+					case "Auto Início/Desligamento":
+						Navigation.PushAsync(modoAutoInicioPage);
+						break;
+					case "Percurso":
+						Navigation.PushAsync(modoPercursoPage);
+						break;
+					case "Meus Radares":
+						Navigation.PushAsync(modoMeuRadarPage);
+					break;
+					
 			}
 
 		}
@@ -110,8 +121,9 @@ namespace Radar
 				View = horizontalLayout;
 				this.Tapped += (sender, e) =>
 				{
-					this.View.BackgroundColor = Color.Accent;
+					this.View.BackgroundColor = Color.FromHex(TemaInfo.AccentColor);
 				};
+				this.View.BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor);
 			}
 
 
@@ -125,6 +137,7 @@ namespace Radar
 
 		protected override void OnDisappearing()
 		{
+			
 			base.OnDisappearing();
             _PreferenciaPageAtual = null;
 		}
