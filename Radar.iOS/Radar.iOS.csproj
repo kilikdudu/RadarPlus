@@ -91,7 +91,6 @@
     <Compile Include="GPSAtualizacaoEventArgs.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="MensagemiOS.cs" />
     <Compile Include="RadarMapRenderer.cs" />
     <Compile Include="RadarMKAnnotation.cs" />
     <Compile Include="SoundRecorderiOS.cs" />
@@ -109,6 +108,7 @@
     <BundleResource Include="Resources\alarmes\alarm-011.wav" />
     <BundleResource Include="Resources\alarmes\alarm-012.wav" />
     <BundleResource Include="Resources\alarmes\alarm-013.wav" />
+    <BundleResource Include="Resources\mais.png" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
@@ -181,6 +181,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClubManagement.iOS\ClubManagement.iOS.csproj">
+      <Project>{d6ea51ad-1dca-4367-8593-ea189252b19d}</Project>
+      <Name>ClubManagement.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
     <ProjectReference Include="..\Radar\Radar\Radar.csproj">
       <Project>{0d7118ce-020d-4cac-8ca6-95110c856a12}</Project>
       <Name>Radar</Name>

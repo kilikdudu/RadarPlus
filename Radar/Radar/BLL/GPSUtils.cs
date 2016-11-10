@@ -1,4 +1,5 @@
-﻿using Radar.Factory;
+﻿using ClubManagement.Utils;
+using Radar.Factory;
 using Radar.Model;
 using Radar.Pages;
 using Radar.Utils;
@@ -37,10 +38,21 @@ namespace Radar.BLL
             }
         }
 
-        public static bool inicializar() {
+        public static async void verificarFuncionamentoGPS() {
             if (_gpsServico == null)
                 _gpsServico = DependencyService.Get<IGPS>();
-            return _gpsServico.inicializar();            
+            if (!_gpsServico.estaAtivo())
+            {
+                if (await App.Current.MainPage.DisplayAlert("Sinal de GPS Inativo", "Sinal de GPS não até ativo. Gostaria de ativa-lo?", "Ativar", "Não"))
+                {
+                    _gpsServico.abrirPreferencia();
+                }
+            }
+        }
+
+        public static async void inicializar() {
+            verificarFuncionamentoGPS();
+            _gpsServico.inicializar();            
         }
 
         private static void executarPosicao(LocalizacaoInfo local) {

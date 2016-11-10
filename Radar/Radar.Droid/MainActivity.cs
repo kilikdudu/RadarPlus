@@ -16,6 +16,7 @@ using Radar.Pages;
 using Android.Content;
 using Android.Support.Design.Widget;
 using Android.Util;
+using ClubManagement.Droid;
 
 namespace Radar.Droid
 {
@@ -30,6 +31,7 @@ namespace Radar.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            //global::Xamarin.Forms.DependencyService.Register<MensagemAndroid>();
 
             //InitializeLocationManager();
 
@@ -46,7 +48,7 @@ namespace Radar.Droid
         protected override void OnStart()
         {
             base.OnStart();
-            StartService(new Intent(this, typeof(LocalizacaoServico)));
+            StartService(new Intent(this, typeof(GPSAndroid)));
             //StartService(new Intent("br.com.cmapps.radarservice"));
         }
 

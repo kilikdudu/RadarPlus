@@ -246,5 +246,8 @@ namespace Radar.BLL
             }
             return radarCapturado;
         }
+
+        public void atualizar() {
+        }
     }
 }
