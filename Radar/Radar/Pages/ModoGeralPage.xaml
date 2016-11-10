@@ -1,51 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Radar.ModoGeralPage">
+<ContentPage.Resources>
+		<ResourceDictionary>
+	 		<Style x:Key="LabelStyle" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
+				<Setter Property="TextColor" Value="#757575" />
+				<Setter Property="FontSize" Value="20" />
+				<Setter Property="Margin" Value="20,10,0,0" />
+				<Setter Property="FontFamily" Value="Roboto-Condensed" />
+			</Style>
+			<Style x:Key="LabelStyleDescription" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
+				<Setter Property="TextColor" Value="#757575" />
+				<Setter Property="FontSize" Value="14" />
+				<Setter Property="Margin" Value="20,0,0,0" />
+				<Setter Property="FontFamily" Value="Roboto-Condensed" />
+			</Style>
+			<Style x:Key="LabelStyleSubTitle" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
+				<Setter Property="TextColor" Value="#757575" />
+				<Setter Property="FontSize" Value="20" />
+				<Setter Property="Margin" Value="20,0,0,0" />
+				<Setter Property="FontFamily" Value="Roboto-Condensed" />
+			</Style>
+			<Style x:Key="StyleStack" TargetType="StackLayout">
+				<Setter Property="HorizontalOptions" Value="FillAndExpand" />
+				<Setter Property="BackgroundColor" Value="#b2dfdb" />
+				<Setter Property="Orientation" Value="Vertical" />
+			</Style>
+			<Style x:Key="StyleDivider" TargetType="BoxView">
+				<Setter Property="Color" Value="#bdbdbd" />
+				<Setter Property="HeightRequest" Value="1" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
 	<ContentPage.Content>
 	<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
-		<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" >
+		<StackLayout Style="{StaticResource StyleStack}" >
 	      <StackLayout Orientation="Horizontal">
-	        <Label Text="COMPORTAMENTO" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,20,0,0"/>
+	        <Label Text="COMPORTAMENTO" Style="{StaticResource LabelStyleSubTitle}"/>
 	      </StackLayout>
-	      <BoxView Color="Gray" HeightRequest="1" />
+	      <BoxView Style="{StaticResource StyleDivider}" />
 	      <StackLayout Orientation="Horizontal">
 	         <StackLayout.GestureRecognizers>
 	          <TapGestureRecognizer Tapped="desativarGPSTapped"/>    
 	        </StackLayout.GestureRecognizers>
-	        <Label Text="Ao destativar o GPS" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+	        <Label Text="Ao destativar o GPS"  Style="{StaticResource LabelStyle}" />
 	      </StackLayout>
-	      <Label FontSize="14" Margin ="20,0,0,0" Text="Define a ação a ser executada quando o GPS for desativado" HorizontalOptions="StartAndExpand" />
-	      <Label FontSize="14" Margin ="20,0,0,0" Text="" HorizontalOptions="StartAndExpand" />
-	      <Label FontSize="20" Margin ="20,0,0,0" Text="ATUALIZAÇÃO" HorizontalOptions="StartAndExpand" />
+	      <Label Style="{StaticResource LabelStyleDescription}" Text="Define a ação a ser executada quando o GPS for desativado"  />
+	      <Label Style="{StaticResource LabelStyleDescription}"  Text=""  />
+	      <Label Style="{StaticResource LabelStyleSubTitle}"  Text="ATUALIZAÇÃO" />
 
-	      <BoxView Color="Gray" HeightRequest="1" />
+	      <BoxView Style="{StaticResource StyleDivider}" />
 	      <StackLayout Orientation="Horizontal">
-	        <Label Text="Verificar ao Iniciar" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+	        <Label Text="Verificar ao Iniciar" Style="{StaticResource LabelStyle}"/>
 	        <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="verificarIniciar" Toggled="verificarIniciarToggled"/>
 	      </StackLayout>
-	      <Label FontSize="14" Margin ="20,0,0,0" Text="Lembrar sobre a atualização da Base de Dados" HorizontalOptions="StartAndExpand" />
-	      <Label FontSize="14" Margin ="20,0,0,0" Text="de Radar ao iniciar o aplicativo" HorizontalOptions="StartAndExpand" />
+	      <Label Style="{StaticResource LabelStyleDescription}" Text="Lembrar sobre a atualização da Base de Dados" />
+	      <Label Style="{StaticResource LabelStyleDescription}" Text="de Radar ao iniciar o aplicativo"  />
 
-	      <BoxView Color="Gray" HeightRequest="1" />
+	      <BoxView Style="{StaticResource StyleDivider}" />
 	      <StackLayout Orientation="Horizontal">
 	        <StackLayout.GestureRecognizers>
 	          <TapGestureRecognizer Tapped="intervaloVerificacaoTapped"/>    
 	        </StackLayout.GestureRecognizers>
-	         <Label Text="Intervalo de Verificação" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+	         <Label Text="Intervalo de Verificação" Style="{StaticResource LabelStyle}" />
 	         </StackLayout>
 
-	      <BoxView Color="Gray" HeightRequest="1" />
+	      <BoxView Style="{StaticResource StyleDivider}" />
 	      <StackLayout Orientation="Horizontal">
-	        <Label Text="Última Verificação" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,15,0,0"/>
+	        <Label Text="Última Verificação" Style="{StaticResource LabelStyle}"/>
 	      </StackLayout>
-	      <Label FontSize="14" Margin ="20,0,0,0" Text="31/10/2016 17:01:45" HorizontalOptions="StartAndExpand" />
+	      <Label Style="{StaticResource LabelStyleDescription}"  Text="31/10/2016 17:01:45"  />
 
-	      <BoxView Color="Gray" HeightRequest="1" />
+	      <BoxView Style="{StaticResource StyleDivider}" />
 	      <StackLayout Orientation="Horizontal">
-	        <Label Text="Última Atualização" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,15,0,0"/>
+	        <Label Text="Última Atualização" Style="{StaticResource LabelStyle}"/>
 	      </StackLayout>
-	      <Label FontSize="14" Margin ="20,0,0,0" Text="01/11/2016 08:31:23" HorizontalOptions="StartAndExpand" />
+	      <Label Style="{StaticResource LabelStyleDescription}"  Text="01/11/2016 08:31:23"  />
 
-	      <BoxView Color="Gray" HeightRequest="1" />
+	      <BoxView Style="{StaticResource StyleDivider}" />
 	    </StackLayout>
     </ScrollView>
 	</ContentPage.Content>

@@ -27,6 +27,7 @@ namespace Radar {
             InitializeComponent();
             Title = "Modo Mapa";
 
+
             //Content = new ScrollView() { Content = teststack };
 
 				bussola.IsToggled = Configuracao.Bussola;

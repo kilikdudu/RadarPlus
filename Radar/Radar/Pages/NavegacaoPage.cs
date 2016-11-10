@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
+using Radar.Model;
 
 using Xamarin.Forms;
 
@@ -17,7 +18,13 @@ namespace Radar.Pages
         {
             masterPage = new MenuPage();
             Master = masterPage;
-			Detail = new NavigationPage(new VelocimetroPage());
+			var  nav = new NavigationPage(new VelocimetroPage());
+			nav.BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor);
+			nav.BarTextColor = Color.FromHex(TemaInfo.PrimaryText);
+
+			Detail = nav;
+
+
 
             masterPage.ListView.ItemSelected += OnItemSelected;
 

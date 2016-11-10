@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Radar.Pages;
 using Xamarin.Forms;
+using Radar.Model;
 
 namespace Radar
 {
@@ -24,6 +25,10 @@ namespace Radar
 		public PreferenciaPage()
 		{
 			
+
+			this.SetValue(NavigationPage.BarBackgroundColorProperty, Color.Blue);
+
+
 			menus = new ObservableCollection<string>();
 			ListView lstView = new ListView();
 			lstView.RowHeight = 60;
@@ -39,11 +44,15 @@ namespace Radar
 			menus.Add("Percurso");
 			menus.Add("Meus Radares" );			
 			lstView.ItemsSource = menus;
+			lstView.BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor);
+			lstView.SeparatorColor = Color.FromHex(TemaInfo.DividerColor);
+
 			Content = lstView;
 		}
 
 		public void OnTap(object sender, ItemTappedEventArgs e)
 		{
+			
 			switch (e.Item.ToString())
 			{
 				case "Modo Mapa":
@@ -76,12 +85,13 @@ namespace Radar
 
 		public class MenusCelula : ViewCell
 		{
+			
 			public MenusCelula()
 			{
 				//instantiate each of our views
 				var nameLabel = new Label();
 				var verticaLayout = new StackLayout();
-				var horizontalLayout = new StackLayout() { BackgroundColor = Color.White };
+				var horizontalLayout = new StackLayout() { BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor) };
 
 				//set bindings
 				nameLabel.SetBinding(Label.TextProperty, new Binding("."));
@@ -98,7 +108,13 @@ namespace Radar
 
 				// add to parent view
 				View = horizontalLayout;
+				this.Tapped += (sender, e) =>
+				{
+					this.View.BackgroundColor = Color.Accent;
+				};
 			}
+
+
 		}
 
 		protected override void OnAppearing()
