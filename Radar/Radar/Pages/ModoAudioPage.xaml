@@ -2,49 +2,77 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Radar.Pages.ModoAudioPage">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+	 		<Style x:Key="LabelStyle" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
+				<Setter Property="TextColor" Value="#757575" />
+				<Setter Property="FontSize" Value="20" />
+				<Setter Property="Margin" Value="20,10,0,0" />
+				<Setter Property="FontFamily" Value="Roboto-Condensed" />
+			</Style>
+			<Style x:Key="LabelStyleDescription" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
+				<Setter Property="TextColor" Value="#757575" />
+				<Setter Property="FontSize" Value="14" />
+				<Setter Property="Margin" Value="20,0,0,0" />
+				<Setter Property="FontFamily" Value="Roboto-Condensed" />
+			</Style>
+			<Style x:Key="StyleStack" TargetType="StackLayout">
+				<Setter Property="HorizontalOptions" Value="FillAndExpand" />
+				<Setter Property="BackgroundColor" Value="#b2dfdb" />
+				<Setter Property="Orientation" Value="Vertical" />
+			</Style>
+			<Style x:Key="StyleDivider" TargetType="BoxView">
+				<Setter Property="Color" Value="#bdbdbd" />
+				<Setter Property="HeightRequest" Value="1" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
   <ContentPage.Content>
+		
 	<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
-	    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" >
+	    <StackLayout Style="{StaticResource StyleStack}" >
 	      <StackLayout Orientation="Horizontal">
 	        <StackLayout.GestureRecognizers>
 	          <TapGestureRecognizer Tapped="canalAudioTapped"/>
 	        </StackLayout.GestureRecognizers>
-	        <Label Text="Canal de Áudio" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,15,0,0"/>
+	        <Label Text="Canal de Áudio" Style="{StaticResource LabelStyle}"/>
 	      </StackLayout>
-	      <Label FontSize="14" Margin ="20,0,0,0" Text="Define se o alerta de radares será feito através do canal" HorizontalOptions="StartAndExpand" />
-	      <Label FontSize="14" Margin ="20,0,0,0" Text="de música ou através do auto-falante do dispositivo" HorizontalOptions="StartAndExpand" />
+	      <Label Style="{StaticResource LabelStyleDescription}" Text="Define se o alerta de radares será feito através do canal"  />
+	      <Label Style="{StaticResource LabelStyleDescription}" Text="de música ou através do auto-falante do dispositivo"  />
 
-	      <BoxView Color="Gray" HeightRequest="1" />
+	      <BoxView Style="{StaticResource StyleDivider}" />
 	      <StackLayout Orientation="Horizontal">
-	        <Label Text="Volume Personalizado" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+	        <Label Text="Volume Personalizado" Style="{StaticResource LabelStyle}"/>
 	        <Switch HorizontalOptions="End" Margin="0,5,20,0" x:Name="volumePersonalizado" Toggled="volumePersonalizadoToggled"/>
 	      </StackLayout>
-	      <Label FontSize="14" Margin ="20,0,0,0" Text="Configurar um volume padrão para alertas, sobrepondo o" HorizontalOptions="StartAndExpand" />
-	      <Label FontSize="14" Margin ="20,0,0,0" Text="volume definido no aparelho" HorizontalOptions="StartAndExpand" />
+	      <Label Style="{StaticResource LabelStyleDescription}" Text="Configurar um volume padrão para alertas, sobrepondo o" />
+	      <Label Style="{StaticResource LabelStyleDescription}" Text="volume definido no aparelho" />
 
-	      <BoxView Color="Gray" HeightRequest="1" />
+	      <BoxView Style="{StaticResource StyleDivider}" />
 	      <StackLayout Orientation="Horizontal">
 	        <StackLayout.GestureRecognizers>
 	          <TapGestureRecognizer Tapped="alturaVolumeTapped"/>
 	        </StackLayout.GestureRecognizers>
-	        <Label Text="Altura Volume" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+	        <Label Text="Altura Volume" Style="{StaticResource LabelStyle}"/>
 	      </StackLayout>
-	      <BoxView Color="Gray" HeightRequest="1" />
+	      <BoxView Style="{StaticResource StyleDivider}" />
 	      <StackLayout Orientation="Horizontal">
-	        <Label Text="Som na Caixa" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+	        <Label Text="Som na Caixa" Style="{StaticResource LabelStyle}"/>
 	        <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="somCaixa" Toggled="somCaixaToggled"/>
 	      </StackLayout>
-	      <Label FontSize="14" Margin ="20,0,0,0" Text="Envia o som também para o alto falante do dispositivo" HorizontalOptions="StartAndExpand" />
+	      <Label Style="{StaticResource LabelStyleDescription}" Text="Envia o som também para o alto falante do dispositivo"  />
 
-	      <BoxView Color="Gray" HeightRequest="1" />
+	      <BoxView Style="{StaticResource StyleDivider}" />
 	      <StackLayout Orientation="Horizontal">
 	        <StackLayout.GestureRecognizers>
 	          <TapGestureRecognizer Tapped="somAlertaTapped"/>
 	        </StackLayout.GestureRecognizers>
-	        <Label Text="Som do Alerta" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+	        <Label Text="Som do Alerta" Style="{StaticResource LabelStyle}"/>
 	      </StackLayout>
 
-	      <BoxView Color="Gray" HeightRequest="1" />
+	      <BoxView Style="{StaticResource StyleDivider}" />
 	    </StackLayout>
 	</ScrollView>
   </ContentPage.Content>

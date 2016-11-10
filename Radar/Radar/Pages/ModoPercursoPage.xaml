@@ -1,33 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Radar.ModoPercursoPage">
+<ContentPage.Resources>
+		<ResourceDictionary>
+	 		<Style x:Key="LabelStyle" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
+				<Setter Property="TextColor" Value="#757575" />
+				<Setter Property="FontSize" Value="20" />
+				<Setter Property="Margin" Value="20,10,0,0" />
+				<Setter Property="FontFamily" Value="Roboto-Condensed" />
+			</Style>
+			<Style x:Key="LabelStyleDescription" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
+				<Setter Property="TextColor" Value="#757575" />
+				<Setter Property="FontSize" Value="14" />
+				<Setter Property="Margin" Value="20,0,0,0" />
+				<Setter Property="FontFamily" Value="Roboto-Condensed" />
+			</Style>
+			<Style x:Key="StyleStack" TargetType="StackLayout">
+				<Setter Property="HorizontalOptions" Value="FillAndExpand" />
+				<Setter Property="BackgroundColor" Value="#b2dfdb" />
+				<Setter Property="Orientation" Value="Vertical" />
+			</Style>
+			<Style x:Key="StyleDivider" TargetType="BoxView">
+				<Setter Property="Color" Value="#bdbdbd" />
+				<Setter Property="HeightRequest" Value="1" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
 	<ContentPage.Content>
 		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
-		    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+		    <StackLayout Style="{StaticResource StyleStack}">
 		      <StackLayout Orientation="Horizontal">
-		        <Label Text="Salvar Percurso" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		        <Label Text="Salvar Percurso" Style="{StaticResource LabelStyle}"/>
 		        <Switch HorizontalOptions="End" Margin="20,10,20,0" x:Name="salvarPercurso" Toggled="salvarPercursoToggled"/>
 		      </StackLayout>
-		      <Label FontSize="14" Margin ="20,0,0,0" Text="Salvar o percurso(dados recebidos pelo GPS)" HorizontalOptions="StartAndExpand" />
-		      <Label FontSize="14" Margin ="20,0,0,0" Text="enquanto o MapaRadar estiver em funcionamento" HorizontalOptions="StartAndExpand" />
+		      <Label Style="{StaticResource LabelStyleDescription}" Text="Salvar o percurso(dados recebidos pelo GPS)" />
+		      <Label Style="{StaticResource LabelStyleDescription}" Text="enquanto o MapaRadar estiver em funcionamento"  />
 
-		      <BoxView Color="Gray" HeightRequest="1" />
+		      <BoxView Style="{StaticResource StyleDivider}" />
 		      <StackLayout Orientation="Horizontal">
-		        <Label Text="Excluir Antigos" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,0,0,0"/>
+		        <Label Text="Excluir Antigos" Style="{StaticResource LabelStyle}"/>
 		        <Switch HorizontalOptions="End" Margin="20,5,20,0" x:Name="excluirAntigos" Toggled="excluirAntigosToggled"/>
 		      </StackLayout>
-		      <Label FontSize="14" Margin ="20,0,0,0" Text="Excluir automaticamente os registros de percurso" HorizontalOptions="StartAndExpand" />
-		      <Label FontSize="14" Margin ="20,0,0,0" Text="que forem considerados antigos" HorizontalOptions="StartAndExpand" />
+		      <Label Style="{StaticResource LabelStyleDescription}" Text="Excluir automaticamente os registros de percurso" />
+		      <Label Style="{StaticResource LabelStyleDescription}" Text="que forem considerados antigos" />
 
-		      <BoxView Color="Gray" HeightRequest="1" />
+		      <BoxView Style="{StaticResource StyleDivider}" />
 		      <StackLayout Orientation="Horizontal">
 		        <StackLayout.GestureRecognizers>
 		          <TapGestureRecognizer Tapped="tempoPercursoTapped"/>
 		        </StackLayout.GestureRecognizers>
-		        <Label Text="Tempo" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		        <Label Text="Tempo" Style="{StaticResource LabelStyle}"/>
 		      </StackLayout>
-		      <Label FontSize="14" Margin ="20,0,0,0" Text="Defina com quantos dias um percurso se torna antigo" HorizontalOptions="StartAndExpand" />
+		      <Label Style="{StaticResource LabelStyleDescription}" Text="Defina com quantos dias um percurso se torna antigo" />
 
-		      <BoxView Color="Gray" HeightRequest="1" />
+		      <BoxView Style="{StaticResource StyleDivider}" />
 		    </StackLayout>
     	</ScrollView>
 	</ContentPage.Content>

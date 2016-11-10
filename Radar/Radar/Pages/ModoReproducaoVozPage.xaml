@@ -1,53 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Radar.ModoReproducaoVozPage">
+<ContentPage.Resources>
+		<ResourceDictionary>
+	 		<Style x:Key="LabelStyle" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
+				<Setter Property="TextColor" Value="#757575" />
+				<Setter Property="FontSize" Value="20" />
+				<Setter Property="Margin" Value="20,10,0,0" />
+				<Setter Property="FontFamily" Value="Roboto-Condensed" />
+			</Style>
+			<Style x:Key="LabelStyleDescription" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
+				<Setter Property="TextColor" Value="#757575" />
+				<Setter Property="FontSize" Value="14" />
+				<Setter Property="Margin" Value="20,0,0,0" />
+				<Setter Property="FontFamily" Value="Roboto-Condensed" />
+			</Style>
+			<Style x:Key="StyleStack" TargetType="StackLayout">
+				<Setter Property="HorizontalOptions" Value="FillAndExpand" />
+				<Setter Property="BackgroundColor" Value="#b2dfdb" />
+				<Setter Property="Orientation" Value="Vertical" />
+			</Style>
+			<Style x:Key="StyleDivider" TargetType="BoxView">
+				<Setter Property="Color" Value="#bdbdbd" />
+				<Setter Property="HeightRequest" Value="1" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
 	<ContentPage.Content>
 		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
-		      <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+		      <StackLayout Style="{StaticResource StyleStack}">
 		        <StackLayout Orientation="Horizontal">
-		          <Label Text="Desabilitar" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,15,0,0"/>
+		          <Label Text="Desabilitar" Style="{StaticResource LabelStyle}"/>
 		          <Switch HorizontalOptions="EndAndExpand" Margin="20,10,20,0" x:Name="desabilitar" Toggled="desabilitarToggled"/>
 		        </StackLayout>
-		        <Label FontSize="14" Margin ="20,0,0,0" Text="Não utilizar o recurso, mesmo que disponível" HorizontalOptions="StartAndExpand" />
+		        <Label Style="{StaticResource LabelStyleDescription}" Text="Não utilizar o recurso, mesmo que disponível" />
 		   
-		        <BoxView Color="Gray" HeightRequest="1" />
+		        <BoxView Style="{StaticResource StyleDivider}" />
 		        <StackLayout Orientation="Horizontal">
-		          <Label Text="Padrão do Android" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,15,0,0"/>
+		          <Label Text="Padrão do Android" Style="{StaticResource LabelStyle}"/>
 		        </StackLayout>
-		        <Label FontSize="14" Margin ="20,0,0,0" Text="Toque para escolher outro" HorizontalOptions="StartAndExpand" />
+		        <Label Style="{StaticResource LabelStyleDescription}" Text="Toque para escolher outro" />
 		  
-		        <BoxView Color="Gray" HeightRequest="1" />
+		        <BoxView Style="{StaticResource StyleDivider}" />
 		        <StackLayout Orientation="Horizontal">
-		          <Label Text="Estado" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,15,0,0"/>
+		          <Label Text="Estado" Style="{StaticResource LabelStyle}"/>
 		        </StackLayout>
-		        <Label FontSize="14" Margin ="20,0,0,0" Text="Disponível" HorizontalOptions="StartAndExpand" />
+		        <Label Style="{StaticResource LabelStyleDescription}" Text="Disponível" />
 
-		        <BoxView Color="Gray" HeightRequest="1" />
+		        <BoxView Style="{StaticResource StyleDivider}" />
 		        <StackLayout Orientation="Horizontal">
-		          <Label Text="Ao Ligar e Desligar" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		          <Label Text="Ao Ligar e Desligar" Style="{StaticResource LabelStyle}"/>
 		          <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="ligarDesligar" Toggled="ligarDesligarToggled"/>
 		        </StackLayout>
-		        <Label FontSize="14" Margin ="20,0,0,0" Text="Reproduz voz ao iniciar ou delisgar o aplicativo" HorizontalOptions="StartAndExpand" />
+		        <Label Style="{StaticResource LabelStyleDescription}" Text="Reproduz voz ao iniciar ou delisgar o aplicativo" />
 		   
-		        <BoxView Color="Gray" HeightRequest="1" />
+		        <BoxView Style="{StaticResource StyleDivider}" />
 		       <StackLayout Orientation="Horizontal">
-		          <Label Text="Encurtar" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		          <Label Text="Encurtar" Style="{StaticResource LabelStyle}"/>
 		          <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="encurtar" Toggled="encurtarToggled"/>
 		        </StackLayout>
-		        <Label FontSize="14" Margin ="20,0,0,0" Text="Reproduzir frases curtas" HorizontalOptions="StartAndExpand" />
+		        <Label Style="{StaticResource LabelStyleDescription}" Text="Reproduzir frases curtas" />
 		   
-		        <BoxView Color="Gray" HeightRequest="1" />
+		        <BoxView Style="{StaticResource StyleDivider}" />
 		        <StackLayout Orientation="Horizontal">
-		          <Label Text="Alerta Sonoro" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		          <Label Text="Alerta Sonoro" Style="{StaticResource LabelStyle}"/>
 		          <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="alertaSonoro" Toggled="alertaSonoroToggled"/>
 		        </StackLayout>
-		        <Label FontSize="14" Margin ="20,0,0,0" Text="Além da reprodução de voz, emitir também o alerta sonoro" HorizontalOptions="StartAndExpand" />
+		        <Label Style="{StaticResource LabelStyleDescription}" Text="Além da reprodução de voz, emitir também o alerta sonoro"  />
 		   
-		        <BoxView Color="Gray" HeightRequest="1" />
+		        <BoxView Style="{StaticResource StyleDivider}" />
 		       <StackLayout Orientation="Horizontal">
-		          <Label Text="Reproduzir Teste" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+		          <Label Text="Reproduzir Teste" Style="{StaticResource LabelStyle}"/>
 		        </StackLayout>
 		       
-		        <BoxView Color="Gray" HeightRequest="1" />
+		        <BoxView Style="{StaticResource StyleDivider}" />
 		      </StackLayout>
 		</ScrollView>
 	</ContentPage.Content>

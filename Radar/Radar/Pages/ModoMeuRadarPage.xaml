@@ -1,24 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Radar.ModoMeuRadarPage">
+<ContentPage.Resources>
+		<ResourceDictionary>
+	 		<Style x:Key="LabelStyle" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
+				<Setter Property="TextColor" Value="#757575" />
+				<Setter Property="FontSize" Value="20" />
+				<Setter Property="Margin" Value="20,10,0,0" />
+				<Setter Property="FontFamily" Value="Roboto-Condensed" />
+			</Style>
+			<Style x:Key="LabelStyleDescription" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
+				<Setter Property="TextColor" Value="#757575" />
+				<Setter Property="FontSize" Value="14" />
+				<Setter Property="Margin" Value="20,0,0,0" />
+				<Setter Property="FontFamily" Value="Roboto-Condensed" />
+			</Style>
+			<Style x:Key="StyleStack" TargetType="StackLayout">
+				<Setter Property="HorizontalOptions" Value="FillAndExpand" />
+				<Setter Property="BackgroundColor" Value="#b2dfdb" />
+				<Setter Property="Orientation" Value="Vertical" />
+			</Style>
+			<Style x:Key="StyleDivider" TargetType="BoxView">
+				<Setter Property="Color" Value="#bdbdbd" />
+				<Setter Property="HeightRequest" Value="1" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
 	<ContentPage.Content>
 		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
-			    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" >
+			    <StackLayout Style="{StaticResource StyleStack}">
 			      <StackLayout Orientation="Horizontal">
-			        <Label Text="Exibir botão para adicionar" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+			        <Label Text="Exibir botão para adicionar" Style="{StaticResource LabelStyle}"/>
 			        <Switch HorizontalOptions="End" Margin="40,10,20,0" x:Name="exibirBotaoAdcionar" Toggled="exibirBotaoAdcionarToggled"/>
 			      </StackLayout>
-			      <Label FontSize="14" Margin ="20,0,0,0" Text="Se habilitado um botão de Adicionar(+)" HorizontalOptions="StartAndExpand" />
-			      <Label FontSize="14" Margin ="20,0,0,0" Text="será exibido na tela de Mapa e Velocimetro" HorizontalOptions="StartAndExpand" />
+			      <Label Style="{StaticResource LabelStyleDescription}" Text="Se habilitado um botão de Adicionar(+)"  />
+			      <Label Style="{StaticResource LabelStyleDescription}" Text="será exibido na tela de Mapa e Velocimetro"  />
 
-			      <BoxView Color="Gray" HeightRequest="1" />
+			      <BoxView Style="{StaticResource StyleDivider}" />
 			      <StackLayout Orientation="Horizontal">
-			        <Label Text="Exibir botão para remover" HorizontalOptions="StartAndExpand" FontSize="20" Margin="20,10,0,0"/>
+			        <Label Text="Exibir botão para remover" Style="{StaticResource LabelStyle}"/>
 			        <Switch HorizontalOptions="End" Margin="40,5,20,0" x:Name="exibirBotaoRemover" Toggled="exibirBotaoRemoverToggled"/>
 			      </StackLayout>
-			      <Label FontSize="14" Margin ="20,0,0,0" Text="Se habilitado um botão de Remover(-)" HorizontalOptions="StartAndExpand" />
-			      <Label FontSize="14" Margin ="20,0,0,0" Text="será exibido quando aparecer um alerta de radar" HorizontalOptions="StartAndExpand" />
+			      <Label Style="{StaticResource LabelStyleDescription}" Text="Se habilitado um botão de Remover(-)"  />
+			      <Label Style="{StaticResource LabelStyleDescription}" Text="será exibido quando aparecer um alerta de radar"  />
 			    
-			    <BoxView Color="Gray" HeightRequest="1" />
+			    <BoxView Style="{StaticResource StyleDivider}" />
 			    </StackLayout>
 		</ScrollView>
 	</ContentPage.Content>

@@ -21,7 +21,7 @@
     <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
-    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+    <JavaMaximumHeapSize>500m</JavaMaximumHeapSize>
     <JavaOptions />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -38,13 +38,6 @@
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
     <Debugger>Xamarin</Debugger>
     <AndroidSupportedAbis>armeabi;armeabi-v7a;x86</AndroidSupportedAbis>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
-    <BundleAssemblies>False</BundleAssemblies>
-    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
-    <AotAssemblies>False</AotAssemblies>
-    <EnableLLVM>False</EnableLLVM>
-    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
-    <EnableProguard>False</EnableProguard>
     <JavaMaximumHeapSize>500m</JavaMaximumHeapSize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -200,6 +193,34 @@
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\appicon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\appicon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\appicon.png" />
+    <AndroidResource Include="Resources\drawable\appicon.png" />
+    <AndroidResource Include="Resources\drawable\anterior.png" />
+    <AndroidResource Include="Resources\drawable\appradar curvadireita.png" />
+    <AndroidResource Include="Resources\drawable\appradar curvaesquerda.png" />
+    <AndroidResource Include="Resources\drawable\appradar redimensionamento.png" />
+    <AndroidResource Include="Resources\drawable\appradarinstrucoes.png" />
+    <AndroidResource Include="Resources\drawable\appradarmaosesetas.png" />
+    <AndroidResource Include="Resources\drawable\atualizar.png" />
+    <AndroidResource Include="Resources\drawable\box.png" />
+    <AndroidResource Include="Resources\drawable\boxcinza.png" />
+    <AndroidResource Include="Resources\drawable\cameramais.png" />
+    <AndroidResource Include="Resources\drawable\config.png" />
+    <AndroidResource Include="Resources\drawable\iconeagulhamapa.png" />
+    <AndroidResource Include="Resources\drawable\Iconetrofeubranco.png" />
+    <AndroidResource Include="Resources\drawable\instrucoes.png" />
+    <AndroidResource Include="Resources\drawable\interrogacaoi.png" />
+    <AndroidResource Include="Resources\drawable\mapas.png" />
+    <AndroidResource Include="Resources\drawable\menos.png" />
+    <AndroidResource Include="Resources\drawable\novidade.png" />
+    <AndroidResource Include="Resources\drawable\percursos.png" />
+    <AndroidResource Include="Resources\drawable\sair.png" />
+    <AndroidResource Include="Resources\drawable\seguinte.png" />
+    <AndroidResource Include="Resources\drawable\sobre.png" />
+    <AndroidResource Include="Resources\drawable\sombra.png" />
+    <AndroidResource Include="Resources\drawable\velocimetro.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">
@@ -264,79 +285,7 @@
     <AndroidAsset Include="Assets\alarmes\alarm-001.wav" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\anterior.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\appradar curvadireita.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\appradar curvaesquerda.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\appradar redimensionamento.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\appradarinstrucoes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\appradarmaosesetas.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\atualizar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\box.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\boxcinza.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\cameramais.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\config.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\iconeagulhamapa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\Iconetrofeubranco.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\instrucoes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\interrogacaoi.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\mais.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\mapas.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icones\menos.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\novidade.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\percursos.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\sair.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\seguinte.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\sobre.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\sombra.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\drawable\icones\velocimetro.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\alarmes\alarm-002.wav" />
