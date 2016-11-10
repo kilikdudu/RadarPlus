@@ -198,20 +198,11 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\appicon.png" />
     <AndroidResource Include="Resources\drawable\appicon.png" />
     <AndroidResource Include="Resources\drawable\anterior.png" />
-    <AndroidResource Include="Resources\drawable\appradar curvadireita.png" />
-    <AndroidResource Include="Resources\drawable\appradar curvaesquerda.png" />
-    <AndroidResource Include="Resources\drawable\appradar redimensionamento.png" />
-    <AndroidResource Include="Resources\drawable\appradarinstrucoes.png" />
-    <AndroidResource Include="Resources\drawable\appradarmaosesetas.png" />
     <AndroidResource Include="Resources\drawable\atualizar.png" />
-    <AndroidResource Include="Resources\drawable\box.png" />
-    <AndroidResource Include="Resources\drawable\boxcinza.png" />
-    <AndroidResource Include="Resources\drawable\cameramais.png" />
     <AndroidResource Include="Resources\drawable\config.png" />
-    <AndroidResource Include="Resources\drawable\iconeagulhamapa.png" />
-    <AndroidResource Include="Resources\drawable\Iconetrofeubranco.png" />
     <AndroidResource Include="Resources\drawable\instrucoes.png" />
     <AndroidResource Include="Resources\drawable\interrogacaoi.png" />
+    <AndroidResource Include="Resources\drawable\mais.png" />
     <AndroidResource Include="Resources\drawable\mapas.png" />
     <AndroidResource Include="Resources\drawable\menos.png" />
     <AndroidResource Include="Resources\drawable\novidade.png" />
@@ -219,7 +210,6 @@
     <AndroidResource Include="Resources\drawable\sair.png" />
     <AndroidResource Include="Resources\drawable\seguinte.png" />
     <AndroidResource Include="Resources\drawable\sobre.png" />
-    <AndroidResource Include="Resources\drawable\sombra.png" />
     <AndroidResource Include="Resources\drawable\velocimetro.png" />
   </ItemGroup>
   <ItemGroup>
@@ -285,9 +275,6 @@
     <AndroidAsset Include="Assets\alarmes\alarm-001.wav" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\mais.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidAsset Include="Assets\alarmes\alarm-002.wav" />
   </ItemGroup>
   <ItemGroup>
@@ -322,12 +309,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\alarmes\alarm-013.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bussolaagulha.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bussolacorpo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
