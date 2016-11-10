@@ -198,31 +198,30 @@
     <AndroidResource Include="Resources\drawable-xhdpi\appicon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\appicon.png" />
     <AndroidResource Include="Resources\drawable\appicon.png" />
-    <AndroidResource Include="Resources\icones\anterior.png" />
-    <AndroidResource Include="Resources\icones\appradar curvadireita.png" />
-    <AndroidResource Include="Resources\icones\appradar curvaesquerda.png" />
-    <AndroidResource Include="Resources\icones\appradar redimensionamento.png" />
-    <AndroidResource Include="Resources\icones\appradarinstrucoes.png" />
-    <AndroidResource Include="Resources\icones\appradarmaosesetas.png" />
-    <AndroidResource Include="Resources\icones\atualizar.png" />
-    <AndroidResource Include="Resources\icones\box.png" />
-    <AndroidResource Include="Resources\icones\boxcinza.png" />
-    <AndroidResource Include="Resources\icones\cameramais.png" />
-    <AndroidResource Include="Resources\icones\config.png" />
-    <AndroidResource Include="Resources\icones\iconeagulhamapa.png" />
-    <AndroidResource Include="Resources\icones\Iconetrofeubranco.png" />
-    <AndroidResource Include="Resources\icones\instrucoes.png" />
-    <AndroidResource Include="Resources\icones\interrogacaoi.png" />
-    <AndroidResource Include="Resources\icones\mais.png" />
-    <AndroidResource Include="Resources\icones\mapas.png" />
-    <AndroidResource Include="Resources\icones\menos.png" />
-    <AndroidResource Include="Resources\icones\novidade.png" />
-    <AndroidResource Include="Resources\icones\percursos.png" />
-    <AndroidResource Include="Resources\icones\sair.png" />
-    <AndroidResource Include="Resources\icones\seguinte.png" />
-    <AndroidResource Include="Resources\icones\sobre.png" />
-    <AndroidResource Include="Resources\icones\sombra.png" />
-    <AndroidResource Include="Resources\icones\velocimetro.png" />
+    <AndroidResource Include="Resources\drawable\anterior.png" />
+    <AndroidResource Include="Resources\drawable\appradar curvadireita.png" />
+    <AndroidResource Include="Resources\drawable\appradar curvaesquerda.png" />
+    <AndroidResource Include="Resources\drawable\appradar redimensionamento.png" />
+    <AndroidResource Include="Resources\drawable\appradarinstrucoes.png" />
+    <AndroidResource Include="Resources\drawable\appradarmaosesetas.png" />
+    <AndroidResource Include="Resources\drawable\atualizar.png" />
+    <AndroidResource Include="Resources\drawable\box.png" />
+    <AndroidResource Include="Resources\drawable\boxcinza.png" />
+    <AndroidResource Include="Resources\drawable\cameramais.png" />
+    <AndroidResource Include="Resources\drawable\config.png" />
+    <AndroidResource Include="Resources\drawable\iconeagulhamapa.png" />
+    <AndroidResource Include="Resources\drawable\Iconetrofeubranco.png" />
+    <AndroidResource Include="Resources\drawable\instrucoes.png" />
+    <AndroidResource Include="Resources\drawable\interrogacaoi.png" />
+    <AndroidResource Include="Resources\drawable\mapas.png" />
+    <AndroidResource Include="Resources\drawable\menos.png" />
+    <AndroidResource Include="Resources\drawable\novidade.png" />
+    <AndroidResource Include="Resources\drawable\percursos.png" />
+    <AndroidResource Include="Resources\drawable\sair.png" />
+    <AndroidResource Include="Resources\drawable\seguinte.png" />
+    <AndroidResource Include="Resources\drawable\sobre.png" />
+    <AndroidResource Include="Resources\drawable\sombra.png" />
+    <AndroidResource Include="Resources\drawable\velocimetro.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">
@@ -316,9 +315,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\alarmes\alarm-013.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\icones\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

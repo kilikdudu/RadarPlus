@@ -119,35 +119,35 @@
     <Compile Include="TelaiOS.cs" />
     <Compile Include="VelocimetroRenderer.cs" />
     <Compile Include="VelocimetroiOS.cs" />
-    <BundleResource Include="Resources\icones\anterior.png" />
-    <BundleResource Include="Resources\icones\appradar curvadireita.png" />
-    <BundleResource Include="Resources\icones\appradar curvaesquerda.png" />
-    <BundleResource Include="Resources\icones\appradar redimensionamento.png" />
-    <BundleResource Include="Resources\icones\appradarinstrucoes.png" />
-    <BundleResource Include="Resources\icones\appradarmaosesetas.png" />
-    <BundleResource Include="Resources\icones\atualizar.png" />
-    <BundleResource Include="Resources\icones\box.png" />
-    <BundleResource Include="Resources\icones\boxcinza.png" />
-    <BundleResource Include="Resources\icones\cameramais.png" />
-    <BundleResource Include="Resources\icones\config.png" />
-    <BundleResource Include="Resources\icones\iconeagulhamapa.png" />
-    <BundleResource Include="Resources\icones\Iconetrofeubranco.png" />
-    <BundleResource Include="Resources\icones\instrucoes.png" />
-    <BundleResource Include="Resources\icones\interrogacaoi.png" />
-    <BundleResource Include="Resources\icones\mais.png" />
-    <BundleResource Include="Resources\icones\mapas.png" />
-    <BundleResource Include="Resources\icones\menos.png" />
-    <BundleResource Include="Resources\icones\novidade.png" />
-    <BundleResource Include="Resources\icones\percursos.png" />
-    <BundleResource Include="Resources\icones\sair.png" />
-    <BundleResource Include="Resources\icones\seguinte.png" />
-    <BundleResource Include="Resources\icones\sobre.png" />
-    <BundleResource Include="Resources\icones\sombra.png" />
-    <BundleResource Include="Resources\icones\velocimetro.png" />
     <BundleResource Include="Resources\fonts\Roboto-Condensed.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\anterior.png" />
+    <BundleResource Include="Resources\appradar curvadireita.png" />
+    <BundleResource Include="Resources\appradar curvaesquerda.png" />
+    <BundleResource Include="Resources\appradar redimensionamento.png" />
+    <BundleResource Include="Resources\appradarinstrucoes.png" />
+    <BundleResource Include="Resources\appradarmaosesetas.png" />
+    <BundleResource Include="Resources\atualizar.png" />
+    <BundleResource Include="Resources\box.png" />
+    <BundleResource Include="Resources\boxcinza.png" />
+    <BundleResource Include="Resources\cameramais.png" />
+    <BundleResource Include="Resources\config.png" />
+    <BundleResource Include="Resources\iconeagulhamapa.png" />
+    <BundleResource Include="Resources\Iconetrofeubranco.png" />
+    <BundleResource Include="Resources\instrucoes.png" />
+    <BundleResource Include="Resources\interrogacaoi.png" />
+    <BundleResource Include="Resources\mais.png" />
+    <BundleResource Include="Resources\mapas.png" />
+    <BundleResource Include="Resources\menos.png" />
+    <BundleResource Include="Resources\novidade.png" />
+    <BundleResource Include="Resources\percursos.png" />
+    <BundleResource Include="Resources\sair.png" />
+    <BundleResource Include="Resources\seguinte.png" />
+    <BundleResource Include="Resources\sobre.png" />
+    <BundleResource Include="Resources\sombra.png" />
+    <BundleResource Include="Resources\velocimetro.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
