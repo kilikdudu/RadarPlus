@@ -211,6 +211,16 @@
     <AndroidResource Include="Resources\drawable\seguinte.png" />
     <AndroidResource Include="Resources\drawable\sobre.png" />
     <AndroidResource Include="Resources\drawable\velocimetro.png" />
+    <AndroidResource Include="Resources\drawable\atualizar30.png" />
+    <AndroidResource Include="Resources\drawable\nstrucoes30.png" />
+    <AndroidResource Include="Resources\drawable\mapas30.png" />
+    <AndroidResource Include="Resources\drawable\meusradares30.png" />
+    <AndroidResource Include="Resources\drawable\novidade30.png" />
+    <AndroidResource Include="Resources\drawable\percurso30.png" />
+    <AndroidResource Include="Resources\drawable\preferencias30.png" />
+    <AndroidResource Include="Resources\drawable\sair30.png" />
+    <AndroidResource Include="Resources\drawable\sobre30.png" />
+    <AndroidResource Include="Resources\drawable\velocimetro30.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">
