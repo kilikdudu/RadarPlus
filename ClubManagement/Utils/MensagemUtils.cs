@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Radar.Utils
+namespace ClubManagement.Utils
 {
     public static class MensagemUtils
     {

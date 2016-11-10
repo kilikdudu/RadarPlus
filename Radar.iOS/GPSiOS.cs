@@ -77,5 +77,14 @@ namespace Radar.iOS
             return reference.AddSeconds(date.SecondsSinceReferenceDate);
         }
 
+        public bool estaAtivo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void abrirPreferencia()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

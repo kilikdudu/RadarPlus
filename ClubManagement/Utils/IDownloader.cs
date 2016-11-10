@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Radar.BLL
+namespace ClubManagement.Utils
 {
-    public interface IGPS
+    public interface IDownloader
     {
-        bool inicializar();
-        bool estaAtivo();
-        void abrirPreferencia();
+        void download(string url);
     }
 }

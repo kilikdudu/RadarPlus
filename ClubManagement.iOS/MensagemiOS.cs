@@ -1,5 +1,5 @@
-﻿using Radar.iOS;
-using Radar.Utils;
+﻿using ClubManagement.Utils;
+using Radar.iOS;
 using System;
 using System.Collections.Generic;
 using System.Text;
