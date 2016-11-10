@@ -39,6 +39,8 @@ namespace Radar.Pages
             base.OnAppearing();
             if (Device.OS == TargetPlatform.iOS)
                 GPSUtils.inicializar();
+            if (Device.OS == TargetPlatform.Android)
+                GPSUtils.verificarFuncionamentoGPS();
         }
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)

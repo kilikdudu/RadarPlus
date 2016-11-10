@@ -24,7 +24,7 @@
     <MtouchArch>i386</MtouchArch>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-<CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -92,7 +92,6 @@
     <Compile Include="GPSAtualizacaoEventArgs.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="MensagemiOS.cs" />
     <Compile Include="RadarMapRenderer.cs" />
     <Compile Include="RadarMKAnnotation.cs" />
     <Compile Include="SoundRecorderiOS.cs" />
@@ -110,6 +109,7 @@
     <BundleResource Include="Resources\alarmes\alarm-011.wav" />
     <BundleResource Include="Resources\alarmes\alarm-012.wav" />
     <BundleResource Include="Resources\alarmes\alarm-013.wav" />
+    <BundleResource Include="Resources\mais.png" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
@@ -211,6 +211,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClubManagement.iOS\ClubManagement.iOS.csproj">
+      <Project>{d6ea51ad-1dca-4367-8593-ea189252b19d}</Project>
+      <Name>ClubManagement.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
     <ProjectReference Include="..\Radar\Radar\Radar.csproj">
       <Project>{0d7118ce-020d-4cac-8ca6-95110c856a12}</Project>
       <Name>Radar</Name>
@@ -221,19 +227,45 @@
     <Folder Include="Resources\fonts\" />
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small-40%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small-40%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-60%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-60%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small-40.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-76.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-76%402x.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small%403x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small-40%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small-40%403x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-60%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-60%403x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-Small-40.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-76.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-76%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default.png">
+      <InProject>false</InProject>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork%402x" />

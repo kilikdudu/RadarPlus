@@ -1,4 +1,5 @@
-﻿using Radar.BLL;
+﻿using ClubManagement.Utils;
+using Radar.BLL;
 using Radar.Controls;
 using Radar.Factory;
 using Radar.Model;
@@ -37,6 +38,8 @@ namespace Radar.Pages
         private Label _VelocidadeRadarLabel;
         private Label _DistanciaRadarLabel;
         private Image _AdicionarRadarButton;
+        private Image _BussolaFundo;
+        private Image _BussolaAgulha;
 
         public float VelocidadeAtual {
             get {
@@ -86,6 +89,8 @@ namespace Radar.Pages
             }
             set {
                 _sentido = value;
+                //int sentido = ((int)Math.Floor(_sentido));
+                _BussolaAgulha.Rotation = _sentido;
                 _GPSSentidoLabel.Text = ((int)Math.Floor(_sentido)).ToString() + "º";
             }
         }
@@ -126,7 +131,7 @@ namespace Radar.Pages
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center
             };
-            AbsoluteLayout.SetLayoutBounds(_GPSSentidoLabel, new Rectangle(0.9, 0.025, 0.1, 0.1));
+            AbsoluteLayout.SetLayoutBounds(_GPSSentidoLabel, new Rectangle(0.9, 0.2, 0.1, 0.1));
             AbsoluteLayout.SetLayoutFlags(_GPSSentidoLabel, AbsoluteLayoutFlags.All);
 
             _VelocidadeRadarLabel = new Label
@@ -165,6 +170,7 @@ namespace Radar.Pages
                 new TapGestureRecognizer() {
                     Command = new Command(() => {
                         AudioUtils.play(AudioEnum.Alarm001);
+                        MensagemUtils.avisar("teste");
                         /*
                         try
                         {
@@ -186,6 +192,26 @@ namespace Radar.Pages
                 )
             });
 
+            _BussolaFundo = new Image
+            {
+                Aspect = Aspect.AspectFit,
+                Source = ImageSource.FromFile("icones/bussolacorpo.png"),
+                WidthRequest = 180,
+                HeightRequest = 180
+            };
+            AbsoluteLayout.SetLayoutBounds(_BussolaFundo, new Rectangle(0.93, 0, 0.2, 0.2));
+            AbsoluteLayout.SetLayoutFlags(_BussolaFundo, AbsoluteLayoutFlags.All);
+
+            _BussolaAgulha = new Image
+            {
+                Aspect = Aspect.AspectFit,
+                Source = ImageSource.FromFile("icones/bussolaagulha.png"),
+                WidthRequest = 180,
+                HeightRequest = 180
+            };
+            AbsoluteLayout.SetLayoutBounds(_BussolaAgulha, new Rectangle(0.93, 0, 0.2, 0.2));
+            AbsoluteLayout.SetLayoutFlags(_BussolaAgulha, AbsoluteLayoutFlags.All);
+
             Title = "Velocimetro";
             Padding = 5;
             Content = new AbsoluteLayout
@@ -196,7 +222,9 @@ namespace Radar.Pages
                     _GPSSentidoLabel,
                     _VelocidadeRadarLabel,
                     _DistanciaRadarLabel,
-                    _AdicionarRadarButton
+                    _AdicionarRadarButton,
+                    _BussolaFundo,
+                    _BussolaAgulha
                 }
             };
         }
