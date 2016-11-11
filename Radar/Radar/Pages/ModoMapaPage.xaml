@@ -5,7 +5,7 @@
 	<ContentPage.Resources>
 		<ResourceDictionary>
 	 		<Style x:Key="LabelStyle" TargetType="Label">
-				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
+				<Setter Property="HorizontalOptions" Value="FillAndExpand" />
 				<Setter Property="TextColor" Value="#757575" />
 				<Setter Property="FontSize" Value="26" />
 				<Setter Property="Margin" Value="20,0,0,0" />
@@ -25,11 +25,11 @@
 			</Style>
 			<Style x:Key="StyleSwitch" TargetType="Switch">
 				<Setter Property="HorizontalOptions" Value="EndAndExpand" />
-				<Setter Property="Margin" Value="20,0,20,0" />
+				<Setter Property="Margin" Value="0,0,20,0" />
 			</Style>
       <Style x:Key="StyleFrame" TargetType="Frame">
         
-        <Setter Property="BackgroundColor" Value="#b2dfdb" />
+        <Setter Property="BackgroundColor" Value="#ebf5ed" />
         <Setter Property="Margin" Value="10,5,10,5" />
       </Style>
 		</ResourceDictionary>
@@ -84,7 +84,7 @@
        </Frame>
          
        <Frame Style="{StaticResource StyleFrame}">
-         <StackLayout Orientation="Horizontal">
+         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
            <Label  Text="Suavizar Animação" Style="{StaticResource LabelStyle}"/>
            <Switch Style="{StaticResource StyleSwitch}" x:Name="suavizarAnimacao" Toggled="suavizarAnimacaoToggled"/>
          </StackLayout>

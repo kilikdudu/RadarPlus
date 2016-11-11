@@ -53,11 +53,7 @@ namespace Radar
 
 			Content = lstView;
 		}
-		protected override bool OnBackButtonPressed()
-		{
-			System.Diagnostics.Debug.WriteLine("TESTE");
-			return base.OnBackButtonPressed();
-		}
+
 
 		public void OnTap(object sender, ItemTappedEventArgs e)
 		{
@@ -139,7 +135,8 @@ namespace Radar
 					YAlign = TextAlignment.Center,
 					TextColor = Color.FromHex(TemaInfo.PrimaryText),
 					FontFamily = "Roboto-Condensed",
-					FontSize = 20
+					FontSize = 20,
+					HeightRequest= 36
 
 				};
 				nameLabel.SetBinding(Label.TextProperty, new Binding("."));
@@ -151,7 +148,7 @@ namespace Radar
 				horizontalLayout.Padding = new Thickness(20, 0, 0, 0);
 				horizontalLayout.Orientation = StackOrientation.Horizontal;
 				horizontalLayout.HorizontalOptions = LayoutOptions.StartAndExpand;
-                //frameInner.Padding = new Thickness(20, 20, 20, 20);
+                //frameOuter.Padding = new Thickness(20, 20, 20, 20);
                 frameOuter.HeightRequest = 36;
                 frameOuter.Margin = new Thickness(10, 5, 10, 5);
                 //frameInner.OutlineColor = Color.Black;

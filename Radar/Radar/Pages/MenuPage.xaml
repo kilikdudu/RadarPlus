@@ -10,8 +10,8 @@
           <DataTemplate>
             <ViewCell>
               <StackLayout Orientation="Horizontal" BackgroundColor="#b2dfdb">                
-				<Image Source="{Binding Icone}" HorizontalOptions="Start"  VerticalOptions="Center"/>
-				<Label Text="{Binding Titulo}" HorizontalOptions="Center" VerticalOptions="Center" />
+				<Image Source="{Binding Icone}" HorizontalOptions="Start"  VerticalOptions="Center" WidthRequest="50" HeightRequest="50"/>
+				<Label Text="{Binding Titulo}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="28"/>
               </StackLayout>
             </ViewCell>
           </DataTemplate>

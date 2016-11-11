@@ -79,12 +79,12 @@ namespace Radar.iOS
 
         public bool estaAtivo()
         {
-            throw new NotImplementedException();
+			return true;
         }
 
         public void abrirPreferencia()
         {
-            throw new NotImplementedException();
+			
         }
     }
 }
