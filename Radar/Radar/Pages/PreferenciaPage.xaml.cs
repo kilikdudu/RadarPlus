@@ -41,8 +41,8 @@ namespace Radar
 			menus.Add(new ListaInfo() { Titulo = "Alertas", Imagem = "alerta.png" });
 			menus.Add(new ListaInfo() { Titulo = "Audio", Imagem = "audio.png" });
 			menus.Add(new ListaInfo() { Titulo = "Reprodução de Voz", Imagem = "reproducao de voz.png" });
-			menus.Add(new ListaInfo() { Titulo = "Gerais", Imagem="gerais.png");
-			menus.Add(new ListaInfo() { Titulo = "Auto Início/Desligamento", Imagem="auto inicio desligamento.png");
+			menus.Add(new ListaInfo() { Titulo = "Gerais", Imagem = "gerais.png" });
+			menus.Add(new ListaInfo() { Titulo = "Auto Início/Desligamento", Imagem = "auto inicio desligamento.png" });
 			menus.Add(new ListaInfo() { Titulo = "Percurso", Imagem = "percursos.png" });
 			menus.Add(new ListaInfo() { Titulo = "Meus Radares", Imagem = "meusradares.png" });			
 			lstView.ItemsSource = menus;

@@ -6,7 +6,7 @@
   <ContentPage.Content>
     <StackLayout Orientation="Vertical" Padding="5, 10, 5, 10">
     <StackLayout Padding="0, 25, 0, 0" Orientation="Vertical"> 
-			<Image Source="appicon.png" HorizontalOptions="Center" WidthRequest="50" HeightRequest="50" />
+			<Image Source="navicon.png" HorizontalOptions="Center" WidthRequest="50" HeightRequest="50" />
 			<Label Text="Radar+" HorizontalOptions="Center" FontSize="20"/>
               
 	</StackLayout>

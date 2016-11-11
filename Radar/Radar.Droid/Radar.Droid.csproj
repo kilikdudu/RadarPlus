@@ -189,34 +189,36 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable\appicon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\appicon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\appicon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\appicon.png" />
+    <AndroidResource Include="Resources\drawable\alerta.png" />
     <AndroidResource Include="Resources\drawable\anterior.png" />
     <AndroidResource Include="Resources\drawable\atualizar.png" />
+    <AndroidResource Include="Resources\drawable\audio.png" />
+    <AndroidResource Include="Resources\drawable\auto inicio desligamento.png" />
+    <AndroidResource Include="Resources\drawable\cameramais.png" />
     <AndroidResource Include="Resources\drawable\config.png" />
+    <AndroidResource Include="Resources\drawable\gerais.png" />
     <AndroidResource Include="Resources\drawable\instrucoes.png" />
     <AndroidResource Include="Resources\drawable\interrogacaoi.png" />
     <AndroidResource Include="Resources\drawable\mais.png" />
     <AndroidResource Include="Resources\drawable\mapas.png" />
     <AndroidResource Include="Resources\drawable\menos.png" />
+    <AndroidResource Include="Resources\drawable\meusradares.png" />
+    <AndroidResource Include="Resources\drawable\modomapa.png" />
     <AndroidResource Include="Resources\drawable\novidade.png" />
     <AndroidResource Include="Resources\drawable\percursos.png" />
+    <AndroidResource Include="Resources\drawable\reproducao de voz.png" />
     <AndroidResource Include="Resources\drawable\sair.png" />
     <AndroidResource Include="Resources\drawable\seguinte.png" />
     <AndroidResource Include="Resources\drawable\sobre.png" />
     <AndroidResource Include="Resources\drawable\velocimetro.png" />
-    <AndroidResource Include="Resources\drawable\meusradares.png" />
-    <AndroidResource Include="Resources\drawable\appicon.png" />
-    <AndroidResource Include="Resources\drawable\alerta.png" />
-    <AndroidResource Include="Resources\drawable\audio.png" />
-    <AndroidResource Include="Resources\drawable\auto inicio desligamento.png" />
-    <AndroidResource Include="Resources\drawable\reproducao de voz.png" />
-    <AndroidResource Include="Resources\drawable\modomapa.png" />
+    <AndroidResource Include="Resources\drawable\navicon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">
@@ -317,19 +319,13 @@
     <AndroidAsset Include="Assets\alarmes\alarm-013.wav" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bussolaagulha.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bussolacorpo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-land\bg.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
