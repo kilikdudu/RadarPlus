@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using ClubManagement.IDevice;
 
 [assembly: Dependency(typeof(MensagemiOS))]
 

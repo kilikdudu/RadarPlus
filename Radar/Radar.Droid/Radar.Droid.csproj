@@ -179,6 +179,7 @@
     <Compile Include="VelocimetroAndroid.cs" />
     <Compile Include="VelocimetroRenderer.cs" />
     <Compile Include="SQLiteAndroid.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\radar.sqlite" />
@@ -195,7 +196,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\appicon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\appicon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\appicon.png" />
-    <AndroidResource Include="Resources\drawable\appicon.png" />
     <AndroidResource Include="Resources\drawable\anterior.png" />
     <AndroidResource Include="Resources\drawable\atualizar.png" />
     <AndroidResource Include="Resources\drawable\config.png" />
@@ -210,6 +210,13 @@
     <AndroidResource Include="Resources\drawable\seguinte.png" />
     <AndroidResource Include="Resources\drawable\sobre.png" />
     <AndroidResource Include="Resources\drawable\velocimetro.png" />
+    <AndroidResource Include="Resources\drawable\meusradares.png" />
+    <AndroidResource Include="Resources\drawable\appicon.png" />
+    <AndroidResource Include="Resources\drawable\alerta.png" />
+    <AndroidResource Include="Resources\drawable\audio.png" />
+    <AndroidResource Include="Resources\drawable\auto inicio desligamento.png" />
+    <AndroidResource Include="Resources\drawable\reproducao de voz.png" />
+    <AndroidResource Include="Resources\drawable\modomapa.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">

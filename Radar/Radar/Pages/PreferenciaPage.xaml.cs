@@ -13,7 +13,7 @@ namespace Radar
 	public partial class PreferenciaPage : ContentPage
 	{
 		private static PreferenciaPage _PreferenciaPageAtual;
-		public ObservableCollection<string> menus { get; set; }
+		public List<ListaInfo> menus;
 
 		public static PreferenciaPage Atual
 
@@ -30,21 +30,21 @@ namespace Radar
 		public PreferenciaPage()
 		{
 
-			
-			menus = new ObservableCollection<string>();
+
+			menus = new List<ListaInfo>();
 			ListView lstView = new ListView();
 			lstView.RowHeight = 60;
 			this.Title = "Preferências";
 			lstView.ItemTemplate = new DataTemplate(typeof(MenusCelula));
 			lstView.ItemTapped += OnTap;
-			menus.Add("Modo Mapa");
-			menus.Add("Alertas");
-			menus.Add("Audio");
-			menus.Add("Reprodução de Voz" );
-			menus.Add("Gerais");
-			menus.Add("Auto Início/Desligamento");
-			menus.Add("Percurso");
-			menus.Add("Meus Radares" );			
+			menus.Add(new ListaInfo() { Titulo = "Modo Mapa", Imagem = "modomapa.png" });
+			menus.Add(new ListaInfo() { Titulo = "Alertas", Imagem = "alerta.png" });
+			menus.Add(new ListaInfo() { Titulo = "Audio", Imagem = "audio.png" });
+			menus.Add(new ListaInfo() { Titulo = "Reprodução de Voz", Imagem = "reproducao de voz.png" });
+			menus.Add(new ListaInfo() { Titulo = "Gerais", Imagem="gerais.png");
+			menus.Add(new ListaInfo() { Titulo = "Auto Início/Desligamento", Imagem="auto inicio desligamento.png");
+			menus.Add(new ListaInfo() { Titulo = "Percurso", Imagem = "percursos.png" });
+			menus.Add(new ListaInfo() { Titulo = "Meus Radares", Imagem = "meusradares.png" });			
 			lstView.ItemsSource = menus;
 			lstView.HasUnevenRows = true;
             lstView.SeparatorColor = Color.Transparent;
@@ -136,14 +136,23 @@ namespace Radar
 					TextColor = Color.FromHex(TemaInfo.PrimaryText),
 					FontFamily = "Roboto-Condensed",
 					FontSize = 20,
-					HeightRequest= 36
+					HeightRequest = 36,
+					HorizontalOptions = LayoutOptions.Center,
+							VerticalOptions = LayoutOptions.Center
 
 				};
-				nameLabel.SetBinding(Label.TextProperty, new Binding("."));
+				var icone = new Image();
+				nameLabel.SetBinding(Label.TextProperty, new Binding("Titulo"));
 
 				var horizontalLayout = new StackLayout();
 				var frameInner = new Frame();
 				var frameOuter = new Frame();
+
+				icone.SetBinding(Image.SourceProperty, new Binding("Imagem"));
+				icone.WidthRequest = 40;
+				icone.HeightRequest = 40;
+				icone.HorizontalOptions = LayoutOptions.Center;
+				icone.VerticalOptions = LayoutOptions.Center;
 
 				horizontalLayout.Padding = new Thickness(20, 0, 0, 0);
 				horizontalLayout.Orientation = StackOrientation.Horizontal;
@@ -156,6 +165,7 @@ namespace Radar
 				//frameOuter.Padding = new Thickness(2, 1, 1, 2);
 
 				//verticaLayout.Children.Add(nameLabel);
+				horizontalLayout.Children.Add(icone);
 				horizontalLayout.Children.Add(nameLabel);
 				//frameInner.Content = horizontalLayout;
 				frameOuter.Content = horizontalLayout;
