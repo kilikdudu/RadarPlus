@@ -5,11 +5,13 @@ using Radar.Factory;
 using Radar.Pages.Popup;
 using Rg.Plugins.Popup.Extensions;
 using Radar.Controls;
+using Radar.Model;
 
 namespace Radar {
     public partial class ModoMapaPage : ContentPage
 	{
 		private static ModoMapaPage _ModoMapaPage;
+        private Page _paginaAtual;
 		PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
 
         public static ModoMapaPage Atual
@@ -27,7 +29,9 @@ namespace Radar {
         public ModoMapaPage() {
             InitializeComponent();
             Title = "Modo Mapa";
-
+            _paginaAtual = new ModoMapaPage();
+            var nav = new NavigationPage(_paginaAtual);
+            nav.BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor);
             //Content = new ScrollView() { Content = teststack };
 
 				bussola.IsToggled = Configuracao.Bussola;
