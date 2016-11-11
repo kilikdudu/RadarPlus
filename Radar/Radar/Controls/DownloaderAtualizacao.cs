@@ -35,17 +35,20 @@ namespace Radar.Controls
                     var task = Task.Factory.StartNew(() =>
                     {
                         string arquivo = ArquivoUtils.abrirTexto(NOME_ARQUIVO);
-                        using (StringReader reader = new StringReader(arquivo))
-                        {
-                            string line;
-                            int i = 0;
-                            while ((line = reader.ReadLine()) != null)
-                            {
-                                ThreadUtils.RunOnUiThread(() =>
-                                {
-                                    processarArquivo(i, i);
-                                });
+                        string[] linhas = arquivo.Split("\n".ToCharArray());
+
+                        int i = 0;
+                        foreach (string linha in linhas) {
+                            bool executou = false;
+                            ThreadUtils.RunOnUiThread(() => {
+                                processarArquivo(i, linhas.Count());
                                 i++;
+                                executou = true;
+                            });
+                            while (true) {
+                                if (executou)
+                                    break;
+                                Task.Delay(1).Wait();
                             }
                         }
                         MensagemUtils.avisar(nomeArquivo);
