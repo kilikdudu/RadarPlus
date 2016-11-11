@@ -170,6 +170,7 @@
     <Compile Include="AudioAndroid.cs" />
     <Compile Include="BroadcastAndroid.cs" />
     <Compile Include="GPSAndroid.cs" />
+    <Compile Include="SplashActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="RadarMapRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -319,6 +320,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\alarmes\alarm-013.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\bgLand.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

@@ -6,10 +6,11 @@
              x:Class="Radar.Pages.Popup.CanalAudioPopUp">
 
   <AbsoluteLayout VerticalOptions="Center" Opacity="0.00"  HorizontalOptions="Fill" Padding="20, 20, 20, 20" HeightRequest="270">
-    <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-      <Label Text="Canal de Áudio" TextColor="Red" FontSize="20" HorizontalOptions="Start" Margin="20, 0, 0, 0" />
-
+    <StackLayout BackgroundColor="Transparent" Padding="0, 10, 0, 0" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+      <Frame>
       <StackLayout HorizontalOptions="FillAndExpand">
+        <Label Text="Canal de Áudio" TextColor="Red" FontSize="28" HorizontalOptions="Start" Margin="20, 0, 0, 0" />
+
         <StackLayout Orientation="Horizontal">
           <Label Text="Música" TextColor="Black" FontSize="20" HorizontalOptions="StartAndExpand" Margin="20,0,0,0"/>
           <Switch x:Name="SwitchMusica" Toggled="musicaToggled" HorizontalOptions="End" Margin="0,0,0,20"/>
@@ -32,7 +33,7 @@
         </StackLayout>
 
       </StackLayout>
-
+      </Frame>
     </StackLayout>
   </AbsoluteLayout>
 </pages:PopupPage>

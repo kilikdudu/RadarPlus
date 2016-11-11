@@ -14,13 +14,11 @@ using System.Collections.Generic;
 using Android;
 using Radar.Pages;
 using Android.Content;
-using Android.Support.Design.Widget;
-using Android.Util;
-using ClubManagement.Droid;
+
 
 namespace Radar.Droid
 {
-    [Activity(Label = "Radar", Icon = "@drawable/appicon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Radar", Icon = "@drawable/appicon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
