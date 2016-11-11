@@ -150,6 +150,16 @@
     <BundleResource Include="Resources\sobre.png" />
     <BundleResource Include="Resources\sombra.png" />
     <BundleResource Include="Resources\velocimetro.png" />
+    <BundleResource Include="Resources\atualizar30.png" />
+    <BundleResource Include="Resources\instrucoes30.png" />
+    <BundleResource Include="Resources\mapas30.png" />
+    <BundleResource Include="Resources\meusradares30.png" />
+    <BundleResource Include="Resources\novidade30.png" />
+    <BundleResource Include="Resources\percurso30.png" />
+    <BundleResource Include="Resources\preferencias30.png" />
+    <BundleResource Include="Resources\sair30.png" />
+    <BundleResource Include="Resources\sobre30.png" />
+    <BundleResource Include="Resources\velocimetro30.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

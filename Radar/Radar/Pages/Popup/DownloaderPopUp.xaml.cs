@@ -28,17 +28,17 @@ namespace Radar.Pages.Popup {
         }
 
         private void OnOk(object sender, EventArgs e) {
-            regraPreferencia.gravar("alturaVolume", (int)Math.Floor(sliderValor));
-            Debug.WriteLine("sliderValor: " + sliderValor);
+            regraPreferencia.gravar("alturaVolume", (int)Math.Floor(SliderAlturaVolume.Value));
+            
             PopupNavigation.PopAsync();
         }
 
         private void OnSliderValueChanged(object sender, ValueChangedEventArgs e) {
             var newStep = Math.Round(e.NewValue);
             SliderAlturaVolume.Value = newStep;
-            sliderValor = newStep;
-            textValor.Text = sliderValor.ToString();
-            Debug.WriteLine("sliderValor: " + sliderValor);
+            
+            textValor.Text = SliderAlturaVolume.Value.ToString();
+           
         }
 
         protected override Task OnAppearingAnimationEnd() {

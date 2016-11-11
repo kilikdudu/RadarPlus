@@ -10,7 +10,7 @@ using System.Diagnostics;
 namespace Radar.Pages.Popup {
     public partial class NivelZoomPopUp : PopupPage {
         private String valorSlider;
-        private double sliderValor;
+        
         PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
 
         public NivelZoomPopUp() {
@@ -27,17 +27,17 @@ namespace Radar.Pages.Popup {
 
         private void OnOk(object sender, EventArgs e) {
             //PopupNavigation.PopAsync();
-            regraPreferencia.gravar("nivelZoom", (int)Math.Floor(sliderValor));
-            Debug.WriteLine("sliderValor: " + sliderValor);
+            regraPreferencia.gravar("nivelZoom", (int)Math.Floor(Slider.Value));
+           
             PopupNavigation.PopAsync();
         }
 
         private void OnSliderValueChanged(object sender, ValueChangedEventArgs e) {
             var newStep = Math.Round(e.NewValue);
             Slider.Value = newStep;
-            sliderValor = newStep;
-            textValor.Text = sliderValor.ToString();
-            Debug.WriteLine("sliderValor: " + sliderValor);
+            
+            textValor.Text = Slider.Value.ToString();
+            
         }
 
         protected override Task OnAppearingAnimationEnd() {

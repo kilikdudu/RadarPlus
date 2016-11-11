@@ -16,13 +16,13 @@ namespace Radar.Pages.Popup {
         public DistanciaAlertaPopUp() {
             InitializeComponent();
             valorSliderUrbano = Configuracao.DistanciaAlertaUrbano;
-            if(valorSliderUrbano == "0") {
+            if (valorSliderUrbano == "0") {
                 SliderUrbano.Value = 50;
             }else {
                 SliderUrbano.Value = int.Parse(valorSliderUrbano);
             }
             
-            distanciaUrbano.Text = valorSliderUrbano;
+            distanciaUrbano.Text = SliderUrbano.Value.ToString();
             SliderUrbano.ValueChanged += OnSliderValueChangedUrbano;
 
             valorSliderEstrada = Configuracao.DistanciaAlertaEstrada;
@@ -31,7 +31,7 @@ namespace Radar.Pages.Popup {
             } else {
                 SliderEstrada.Value = int.Parse(valorSliderEstrada);
             }
-            distanciaEstrada.Text = valorSliderEstrada;
+            distanciaEstrada.Text = SliderEstrada.Value.ToString();
             SliderEstrada.ValueChanged += OnSliderValueChangedEstrada;
         }
 

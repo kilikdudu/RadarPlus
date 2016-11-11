@@ -28,8 +28,6 @@ namespace Radar.Pages
 
 			Detail = nav;
 
-
-
             masterPage.ListView.ItemSelected += OnItemSelected;
 
             if (Device.OS == TargetPlatform.Windows)

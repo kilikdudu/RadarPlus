@@ -4,13 +4,14 @@ using Radar.BLL;
 using Radar.Factory;
 using Radar.Pages.Popup;
 using Rg.Plugins.Popup.Extensions;
+using Radar.Controls;
 
 namespace Radar {
     public partial class ModoMapaPage : ContentPage
 	{
 		private static ModoMapaPage _ModoMapaPage;
 		PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
-       
+
         public static ModoMapaPage Atual
 		{
 			get
@@ -26,7 +27,6 @@ namespace Radar {
         public ModoMapaPage() {
             InitializeComponent();
             Title = "Modo Mapa";
-
 
             //Content = new ScrollView() { Content = teststack };
 
@@ -201,6 +201,7 @@ namespace Radar {
 
 		protected override void OnDisappearing()
 		{
+			
 			base.OnDisappearing();
 			_ModoMapaPage = null;
 		}

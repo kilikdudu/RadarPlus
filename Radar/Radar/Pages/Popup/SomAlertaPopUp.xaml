@@ -7,9 +7,11 @@
                  >
 
   <AbsoluteLayout  VerticalOptions="Center" Opacity="0.00"  HorizontalOptions="Fill" Padding="20, 20, 20, 20" HeightRequest="400">
-    <StackLayout  BackgroundColor="White" Padding="0, 10, 0, 0" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" >
-      <Label Text="Som do Alerta" TextColor="Red" FontSize="20" HorizontalOptions="Start" Margin="20, 0, 0, 0" />
-      
+    <StackLayout  BackgroundColor="Transparent" Padding="0, 10, 0, 0" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" >
+      <Frame>
+        <StackLayout HorizontalOptions="FillAndExpand">
+        <Label Text="Som do Alerta" TextColor="Red" FontSize="28" HorizontalOptions="Start" Margin="20, 0, 0, 0" />
+
         <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
       <StackLayout Orientation="Vertical"  BackgroundColor="White" >
         
@@ -98,6 +100,9 @@
         <Button Text="Sair" TextColor="Black" Clicked="OnCancelar" HorizontalOptions="CenterAndExpand"/>
 
       </StackLayout>
+        </StackLayout>
+      </Frame>
+
     </StackLayout>
   </AbsoluteLayout>
 </pages:PopupPage>

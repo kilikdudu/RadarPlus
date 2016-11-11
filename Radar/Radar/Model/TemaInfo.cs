@@ -30,6 +30,7 @@ namespace Radar.Model
 			get { return "#ffffff"; }
 
 		}
+
 		public static string AccentColor
 		{
 			get { return "#cddc39"; }
@@ -51,6 +52,12 @@ namespace Radar.Model
 		public static string DividerColor
 		{
 			get { return "#bdbdbd"; }
+
+		}
+
+		public static string BlueAccua
+		{
+			get { return "#ebf5ed"; }
 
 		}
 	}
