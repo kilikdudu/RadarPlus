@@ -117,10 +117,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArquivoAndroid.cs" />
     <Compile Include="DownloaderAndroid.cs" />
     <Compile Include="MensagemAndroid.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThreadAndroid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubManagement.Utils
+namespace ClubManagement.IDevice
 {
     public interface IMensagem
     {

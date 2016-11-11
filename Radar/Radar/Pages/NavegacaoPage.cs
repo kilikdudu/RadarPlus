@@ -12,13 +12,17 @@ namespace Radar.Pages
 {
     public class NavegacaoPage : MasterDetailPage
     {
-        MenuPage masterPage;
+        private MenuPage masterPage;
+        private Page _paginaAtual;
+
+        bool carregandoPagina = false;
 
         public NavegacaoPage()
         {
             masterPage = new MenuPage();
             Master = masterPage;
-			var  nav = new NavigationPage(new VelocimetroPage());
+            _paginaAtual = new VelocimetroPage();
+            var nav = new NavigationPage(_paginaAtual);
 			nav.BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor);
 			nav.BarTextColor = Color.FromHex(TemaInfo.PrimaryText);
 
@@ -41,14 +45,32 @@ namespace Radar.Pages
                 GPSUtils.verificarFuncionamentoGPS();
         }
 
-        void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        protected void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MenuItemInfo;
             if (item != null)
             {
-                Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
-                masterPage.ListView.SelectedItem = null;
-                IsPresented = false;
+                if (item.aoClicar != null)
+                {
+                    item.aoClicar(sender, e);
+                }
+                else {
+                    if (!carregandoPagina)
+                    {
+                        if (_paginaAtual.GetType() != item.TargetType)
+                        {
+                            carregandoPagina = true;
+                            _paginaAtual = (Page)Activator.CreateInstance(item.TargetType);
+                            _paginaAtual.Appearing += (sender2, e2) =>
+                            {
+                                carregandoPagina = false;
+                            };
+                            Detail = new NavigationPage(_paginaAtual);
+                        }
+                        masterPage.ListView.SelectedItem = null;
+                        IsPresented = false;
+                    }
+                }
             }
         }
     }

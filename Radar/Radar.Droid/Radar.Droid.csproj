@@ -170,14 +170,12 @@
     <Compile Include="AudioAndroid.cs" />
     <Compile Include="BroadcastAndroid.cs" />
     <Compile Include="GPSAndroid.cs" />
-    <Compile Include="SplashActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="RadarMapRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoundRecorderAndroid.cs" />
     <Compile Include="TelaAndroid.cs" />
-    <Compile Include="ThreadAndroid.cs" />
     <Compile Include="VelocimetroAndroid.cs" />
     <Compile Include="VelocimetroRenderer.cs" />
     <Compile Include="SQLiteAndroid.cs" />
@@ -212,16 +210,6 @@
     <AndroidResource Include="Resources\drawable\seguinte.png" />
     <AndroidResource Include="Resources\drawable\sobre.png" />
     <AndroidResource Include="Resources\drawable\velocimetro.png" />
-    <AndroidResource Include="Resources\drawable\atualizar30.png" />
-    <AndroidResource Include="Resources\drawable\nstrucoes30.png" />
-    <AndroidResource Include="Resources\drawable\mapas30.png" />
-    <AndroidResource Include="Resources\drawable\meusradares30.png" />
-    <AndroidResource Include="Resources\drawable\novidade30.png" />
-    <AndroidResource Include="Resources\drawable\percurso30.png" />
-    <AndroidResource Include="Resources\drawable\preferencias30.png" />
-    <AndroidResource Include="Resources\drawable\sair30.png" />
-    <AndroidResource Include="Resources\drawable\sobre30.png" />
-    <AndroidResource Include="Resources\drawable\velocimetro30.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">
@@ -322,13 +310,10 @@
     <AndroidAsset Include="Assets\alarmes\alarm-013.wav" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-land\bg.png" />
+    <AndroidResource Include="Resources\drawable\bussolaagulha.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\bg.png" />
+    <AndroidResource Include="Resources\drawable\bussolacorpo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

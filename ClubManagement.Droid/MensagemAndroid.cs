@@ -14,6 +14,7 @@ using Android.Support.V7.App;
 using Android.Media;
 using ClubManagement.Droid;
 using ClubManagement.Utils;
+using ClubManagement.IDevice;
 
 [assembly: Dependency(typeof(MensagemAndroid))]
 
