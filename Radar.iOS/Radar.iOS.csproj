@@ -110,6 +110,8 @@
     <BundleResource Include="Resources\alarmes\alarm-012.wav" />
     <BundleResource Include="Resources\alarmes\alarm-013.wav" />
     <BundleResource Include="Resources\mais.png" />
+    <BundleResource Include="Resources\bussolaagulha.png" />
+    <BundleResource Include="Resources\bussolacorpo.png" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
@@ -222,10 +224,7 @@
       <Name>Radar</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\icones\" />
-    <Folder Include="Resources\fonts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <InProject>false</InProject>

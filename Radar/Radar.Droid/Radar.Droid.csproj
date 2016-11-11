@@ -176,7 +176,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoundRecorderAndroid.cs" />
     <Compile Include="TelaAndroid.cs" />
-    <Compile Include="ThreadAndroid.cs" />
     <Compile Include="VelocimetroAndroid.cs" />
     <Compile Include="VelocimetroRenderer.cs" />
     <Compile Include="SQLiteAndroid.cs" />
@@ -309,6 +308,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\alarmes\alarm-013.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\bussolaagulha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\bussolacorpo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

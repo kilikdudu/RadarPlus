@@ -13,6 +13,7 @@ namespace Radar.Pages
         public string Titulo { get; set; }
         public string Icone { get; set; }
         public Type TargetType { get; set; }
+        public EventHandler aoClicar { get; set; }
 
         public string TituloAbreviado
         {

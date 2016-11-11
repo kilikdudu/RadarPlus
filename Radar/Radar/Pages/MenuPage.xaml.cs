@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClubManagement.Utils;
+using Radar.BLL;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -57,12 +59,18 @@ namespace Radar.Pages
                 Icone = "config.png",
 				TargetType = typeof(PreferenciaPage)
             });
-            grupo.Add(new MenuItemInfo
+            var menuAtualizar = new MenuItemInfo
             {
                 Titulo = "Atualizar",
                 Icone = "atualizar.png",
-                TargetType = typeof(VelocimetroPage)
-            });
+                TargetType = null,
+            };
+            menuAtualizar.aoClicar += (sender, e) =>
+            {
+                //var downloader = new DownloaderUtils();
+                //downloader.download(Configuracao.UrlAtualizacao);
+            };
+            grupo.Add(menuAtualizar);
             return grupo;
         }
 
