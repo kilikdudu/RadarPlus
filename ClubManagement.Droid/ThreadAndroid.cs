@@ -9,13 +9,14 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Radar.BLL;
-using Radar.Droid;
 using Xamarin.Forms;
+using ClubManagement.Droid;
+using ClubManagement.Utils;
+using ClubManagement.IDevice;
 
 [assembly: Dependency(typeof(ThreadAndroid))]
 
-namespace Radar.Droid
+namespace ClubManagement.Droid
 {
     public class ThreadAndroid : IThread
     {

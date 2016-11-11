@@ -4025,10 +4025,10 @@ namespace Radar.Droid
 			public const int atualizar = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int atualizar30 = 2130837582;
+			public const int bussolaagulha = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int bg = 2130837583;
+			public const int bussolacorpo = 2130837583;
 			
 			// aapt resource value: 0x7f020050
 			public const int common_full_open_on_phone = 2130837584;
@@ -4385,100 +4385,73 @@ namespace Radar.Droid
 			public const int mapas = 2130837701;
 			
 			// aapt resource value: 0x7f0200c6
-			public const int mapas30 = 2130837702;
+			public const int menos = 2130837702;
 			
 			// aapt resource value: 0x7f0200c7
-			public const int menos = 2130837703;
+			public const int mr_dialog_material_background_dark = 2130837703;
 			
 			// aapt resource value: 0x7f0200c8
-			public const int meusradares30 = 2130837704;
+			public const int mr_dialog_material_background_light = 2130837704;
 			
 			// aapt resource value: 0x7f0200c9
-			public const int mr_dialog_material_background_dark = 2130837705;
+			public const int mr_ic_audiotrack_light = 2130837705;
 			
 			// aapt resource value: 0x7f0200ca
-			public const int mr_dialog_material_background_light = 2130837706;
+			public const int mr_ic_cast_dark = 2130837706;
 			
 			// aapt resource value: 0x7f0200cb
-			public const int mr_ic_audiotrack_light = 2130837707;
+			public const int mr_ic_cast_light = 2130837707;
 			
 			// aapt resource value: 0x7f0200cc
-			public const int mr_ic_cast_dark = 2130837708;
+			public const int mr_ic_close_dark = 2130837708;
 			
 			// aapt resource value: 0x7f0200cd
-			public const int mr_ic_cast_light = 2130837709;
+			public const int mr_ic_close_light = 2130837709;
 			
 			// aapt resource value: 0x7f0200ce
-			public const int mr_ic_close_dark = 2130837710;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837710;
 			
 			// aapt resource value: 0x7f0200cf
-			public const int mr_ic_close_light = 2130837711;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837711;
 			
 			// aapt resource value: 0x7f0200d0
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837712;
+			public const int mr_ic_media_route_mono_dark = 2130837712;
 			
 			// aapt resource value: 0x7f0200d1
-			public const int mr_ic_media_route_connecting_mono_light = 2130837713;
+			public const int mr_ic_media_route_mono_light = 2130837713;
 			
 			// aapt resource value: 0x7f0200d2
-			public const int mr_ic_media_route_mono_dark = 2130837714;
+			public const int mr_ic_pause_dark = 2130837714;
 			
 			// aapt resource value: 0x7f0200d3
-			public const int mr_ic_media_route_mono_light = 2130837715;
+			public const int mr_ic_pause_light = 2130837715;
 			
 			// aapt resource value: 0x7f0200d4
-			public const int mr_ic_pause_dark = 2130837716;
+			public const int mr_ic_play_dark = 2130837716;
 			
 			// aapt resource value: 0x7f0200d5
-			public const int mr_ic_pause_light = 2130837717;
-			
-			// aapt resource value: 0x7f0200d6
-			public const int mr_ic_play_dark = 2130837718;
-			
-			// aapt resource value: 0x7f0200d7
-			public const int mr_ic_play_light = 2130837719;
-			
-			// aapt resource value: 0x7f0200e5
-			public const int notification_template_icon_bg = 2130837733;
-			
-			// aapt resource value: 0x7f0200d8
-			public const int novidade = 2130837720;
-			
-			// aapt resource value: 0x7f0200d9
-			public const int novidade30 = 2130837721;
-			
-			// aapt resource value: 0x7f0200da
-			public const int nstrucoes30 = 2130837722;
-			
-			// aapt resource value: 0x7f0200db
-			public const int percurso30 = 2130837723;
+			public const int mr_ic_play_light = 2130837717;
 			
 			// aapt resource value: 0x7f0200dc
-			public const int percursos = 2130837724;
+			public const int notification_template_icon_bg = 2130837724;
 			
-			// aapt resource value: 0x7f0200dd
-			public const int preferencias30 = 2130837725;
+			// aapt resource value: 0x7f0200d6
+			public const int novidade = 2130837718;
 			
-			// aapt resource value: 0x7f0200de
-			public const int sair = 2130837726;
+			// aapt resource value: 0x7f0200d7
+			public const int percursos = 2130837719;
 			
-			// aapt resource value: 0x7f0200df
-			public const int sair30 = 2130837727;
+			// aapt resource value: 0x7f0200d8
+			public const int sair = 2130837720;
 			
-			// aapt resource value: 0x7f0200e0
-			public const int seguinte = 2130837728;
+			// aapt resource value: 0x7f0200d9
+			public const int seguinte = 2130837721;
 			
-			// aapt resource value: 0x7f0200e1
-			public const int sobre = 2130837729;
+			// aapt resource value: 0x7f0200da
+			public const int sobre = 2130837722;
 			
-			// aapt resource value: 0x7f0200e2
-			public const int sobre30 = 2130837730;
-			
-			// aapt resource value: 0x7f0200e3
-			public const int velocimetro = 2130837731;
-			
-			// aapt resource value: 0x7f0200e4
-			public const int velocimetro30 = 2130837732;
+			// aapt resource value: 0x7f0200db
+			public const int velocimetro = 2130837723;
 			
 			static Drawable()
 			{
@@ -5491,8 +5464,8 @@ namespace Radar.Droid
 			// aapt resource value: 0x7f0b015a
 			public const int Animation_Design_BottomSheetDialog = 2131427674;
 			
-			// aapt resource value: 0x7f0b0175
-			public const int AppCompatDialogStyle = 2131427701;
+			// aapt resource value: 0x7f0b0174
+			public const int AppCompatDialogStyle = 2131427700;
 			
 			// aapt resource value: 0x7f0b00a5
 			public const int Base_AlertDialog_AppCompat = 2131427493;
@@ -5935,11 +5908,11 @@ namespace Radar.Droid
 			// aapt resource value: 0x7f0b001a
 			public const int CardView_Light = 2131427354;
 			
-			// aapt resource value: 0x7f0b0173
-			public const int MainTheme = 2131427699;
+			// aapt resource value: 0x7f0b0172
+			public const int MainTheme = 2131427698;
 			
-			// aapt resource value: 0x7f0b0174
-			public const int MainTheme_Base = 2131427700;
+			// aapt resource value: 0x7f0b0173
+			public const int MainTheme_Base = 2131427699;
 			
 			// aapt resource value: 0x7f0b0032
 			public const int Platform_AppCompat = 2131427378;
@@ -6282,9 +6255,6 @@ namespace Radar.Droid
 			
 			// aapt resource value: 0x7f0b0003
 			public const int Theme_MediaRouter_LightControlPanel = 2131427331;
-			
-			// aapt resource value: 0x7f0b0172
-			public const int Theme_Splash = 2131427698;
 			
 			// aapt resource value: 0x7f0b010e
 			public const int ThemeOverlay_AppCompat = 2131427598;

@@ -169,8 +169,10 @@ namespace Radar.Pages
             _AdicionarRadarButton.GestureRecognizers.Add(
                 new TapGestureRecognizer() {
                     Command = new Command(() => {
-                        AudioUtils.play(AudioEnum.Alarm001);
-                        MensagemUtils.avisar("teste");
+                        //AudioUtils.play(AudioEnum.Alarm001);
+                        //MensagemUtils.avisar("teste");
+                        var downloader = new DownloaderAtualizacao();
+                        downloader.download();
                         /*
                         try
                         {

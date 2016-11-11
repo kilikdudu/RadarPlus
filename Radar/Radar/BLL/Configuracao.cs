@@ -9,7 +9,9 @@ namespace Radar.BLL
 {
     public static class Configuracao
     {
-		public static bool AlertaInteligente
+        private const string URL_ATUALIZACAO = "http://pavmanager.com.br/maparadar.txt";
+
+        public static bool AlertaInteligente
 		{
 			get
 			{
@@ -417,5 +419,10 @@ namespace Radar.BLL
 			}
 		}
 
+        public static string UrlAtualizacao {
+            get {
+                return URL_ATUALIZACAO;
+            }
+        }
 	}
 }

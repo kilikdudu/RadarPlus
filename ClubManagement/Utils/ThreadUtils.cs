@@ -1,11 +1,12 @@
-﻿using System;
+﻿using ClubManagement.IDevice;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Radar.BLL
+namespace ClubManagement.Utils
 {
     public static class ThreadUtils
     {
