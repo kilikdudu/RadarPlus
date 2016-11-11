@@ -7,8 +7,8 @@
 	 		<Style x:Key="LabelStyle" TargetType="Label">
 				<Setter Property="HorizontalOptions" Value="StartAndExpand" />
 				<Setter Property="TextColor" Value="#757575" />
-				<Setter Property="FontSize" Value="20" />
-				<Setter Property="Margin" Value="20,10,0,0" />
+				<Setter Property="FontSize" Value="26" />
+				<Setter Property="Margin" Value="20,0,0,0" />
 				<Setter Property="FontFamily" Value="Roboto-Condensed" />
 			</Style>
 			<Style x:Key="LabelStyleDescription" TargetType="Label">
@@ -20,61 +20,75 @@
 			</Style>
 			<Style x:Key="StyleStack" TargetType="StackLayout">
 				<Setter Property="HorizontalOptions" Value="FillAndExpand" />
-				<Setter Property="BackgroundColor" Value="#b2dfdb" />
+				<Setter Property="BackgroundColor" Value="#ffffff" />
 				<Setter Property="Orientation" Value="Vertical" />
 			</Style>
-			<Style x:Key="StyleDivider" TargetType="BoxView">
-				<Setter Property="Color" Value="#bdbdbd" />
-				<Setter Property="HeightRequest" Value="1" />
+			<Style x:Key="StyleSwitch" TargetType="Switch">
+				<Setter Property="HorizontalOptions" Value="EndAndExpand" />
+				<Setter Property="Margin" Value="20,0,20,0" />
 			</Style>
+      <Style x:Key="StyleFrame" TargetType="Frame">
+        
+        <Setter Property="BackgroundColor" Value="#b2dfdb" />
+        <Setter Property="Margin" Value="10,5,10,5" />
+      </Style>
 		</ResourceDictionary>
 	</ContentPage.Resources>
 	<ContentPage.Content>
 		
     <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
      <StackLayout Style="{StaticResource StyleStack}">
-        
+       <Frame Style="{StaticResource StyleFrame}">
          <StackLayout Orientation="Horizontal">
            <Label  Text="Bussola" Style="{StaticResource LabelStyle}"/>
-           <Switch HorizontalOptions="EndAndExpand" Margin="20,10,20,0" x:Name="bussola" Toggled="bussolaToggled"/>
+           <Switch Style="{StaticResource StyleSwitch}" x:Name="bussola" Toggled="bussolaToggled"/>
          </StackLayout>
-         <BoxView Style="{StaticResource StyleDivider}" />
+       </Frame>
+       <Frame Style="{StaticResource StyleFrame}">
          <StackLayout Orientation="Horizontal">
            <Label  Text="Sinal do GPS" Style="{StaticResource LabelStyle}"/>
-           <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="sinalGPS" Toggled="sinalGPSToggled"/>
+           <Switch Style="{StaticResource StyleSwitch}" x:Name="sinalGPS" Toggled="sinalGPSToggled"/>
          </StackLayout>
-         <BoxView Style="{StaticResource StyleDivider}" />
+       </Frame>
+       <Frame Style="{StaticResource StyleFrame}">
          <StackLayout Orientation="Horizontal">
            <Label  Text="Imagens do Satélite" Style="{StaticResource LabelStyle}"/>
-           <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="imagenSatelite" Toggled="imagenSateliteToggled"/>
+           <Switch Style="{StaticResource StyleSwitch}" x:Name="imagenSatelite" Toggled="imagenSateliteToggled"/>
          </StackLayout>
-         <BoxView Style="{StaticResource StyleDivider}" />
+       </Frame>       
+       <Frame Style="{StaticResource StyleFrame}">
          <StackLayout Orientation="Horizontal">
            <Label  Text="Informações de Tráfego" Style="{StaticResource LabelStyle}"/>
-			
-           <Switch HorizontalOptions="End" Margin="0,5,20,0" x:Name="infoTrafego" Toggled="infoTrafegoToggled"/>
-
+           <Switch Style="{StaticResource StyleSwitch}" x:Name="infoTrafego" Toggled="infoTrafegoToggled"/>
          </StackLayout>
-         <BoxView Style="{StaticResource StyleDivider}" />
-         <StackLayout Orientation="Horizontal">
-           <Label  Text="Rotacionar o Mapa"  Style="{StaticResource LabelStyle}"/>
-           <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="rotacionarMapa" Toggled="rotacionarMapaToggled"/>
-         </StackLayout>
+       </Frame>
+         
+       <Frame Style="{StaticResource StyleFrame}">
+         <StackLayout Orientation="Vertical">
+           <StackLayout Orientation="Horizontal">
+             <Label  Text="Rotacionar o Mapa"  Style="{StaticResource LabelStyle}"/>
+             <Switch Style="{StaticResource StyleSwitch}" x:Name="rotacionarMapa" Toggled="rotacionarMapaToggled"/>
+           </StackLayout>
+         
          <Label Style="{StaticResource LabelStyleDescription}" Text="Sempre Rotacionar o mapa para mostrar uma visão frontal"  />
-         <BoxView Style="{StaticResource StyleDivider}" />
+        </StackLayout>
+       </Frame>
+         
+       <Frame Style="{StaticResource StyleFrame}">
          <StackLayout Orientation="Horizontal">
-            <StackLayout.GestureRecognizers>
-              <TapGestureRecognizer Tapped="nivelZoomTapped"/>
-            </StackLayout.GestureRecognizers>
+           <StackLayout.GestureRecognizers>
+             <TapGestureRecognizer Tapped="nivelZoomTapped"/>
+           </StackLayout.GestureRecognizers>
            <Label  Text="Nível de Zoom"  Style="{StaticResource LabelStyle}"/>
          </StackLayout>
-         <BoxView Style="{StaticResource StyleDivider}" />
+       </Frame>
+         
+       <Frame Style="{StaticResource StyleFrame}">
          <StackLayout Orientation="Horizontal">
            <Label  Text="Suavizar Animação" Style="{StaticResource LabelStyle}"/>
-           <Switch HorizontalOptions="EndAndExpand" Margin="20,5,20,0" x:Name="suavizarAnimacao" Toggled="suavizarAnimacaoToggled"/>
+           <Switch Style="{StaticResource StyleSwitch}" x:Name="suavizarAnimacao" Toggled="suavizarAnimacaoToggled"/>
          </StackLayout>
-         <BoxView Style="{StaticResource StyleDivider}" />
-     
+       </Frame>   
     	</StackLayout>
      </ScrollView>
   </ContentPage.Content>

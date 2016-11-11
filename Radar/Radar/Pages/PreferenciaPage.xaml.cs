@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using Radar.Pages;
 using Xamarin.Forms;
 using Radar.Model;
+using Radar.Controls;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Radar
 {
@@ -11,14 +14,7 @@ namespace Radar
 	{
 		private static PreferenciaPage _PreferenciaPageAtual;
 		public ObservableCollection<string> menus { get; set; }
-		ModoMapaPage modoMapaPage = new ModoMapaPage();
-		ModoAlertaPage modoAlertaPage = new ModoAlertaPage();
-		ModoAudioPage modoAudioPage = new ModoAudioPage();
-		ModoReproducaoVozPage modoReproducaoVozPage = new ModoReproducaoVozPage();
-		ModoGeralPage modoGeralPage = new ModoGeralPage();
-		ModoAutoInicioPage modoAutoInicioPage = new ModoAutoInicioPage();
-		ModoPercursoPage modoPercursoPage = new ModoPercursoPage();
-		ModoMeuRadarPage modoMeuRadarPage = new ModoMeuRadarPage();
+
 		public static PreferenciaPage Atual
 
 		{
@@ -33,11 +29,8 @@ namespace Radar
 		}
 		public PreferenciaPage()
 		{
+
 			
-
-			this.SetValue(NavigationPage.BarBackgroundColorProperty, Color.Blue);
-
-
 			menus = new ObservableCollection<string>();
 			ListView lstView = new ListView();
 			lstView.RowHeight = 60;
@@ -53,44 +46,85 @@ namespace Radar
 			menus.Add("Percurso");
 			menus.Add("Meus Radares" );			
 			lstView.ItemsSource = menus;
-			lstView.BackgroundColor = Color.FromHex(TemaInfo.LightPrimaryColor);
-			lstView.SeparatorColor = Color.FromHex(TemaInfo.DividerColor);
+			lstView.HasUnevenRows = true;
+            lstView.SeparatorColor = Color.Transparent;
+			//lstView.BackgroundColor = Color.FromHex(TemaInfo.TextIcons);
+			//lstView.SeparatorColor = Color.FromHex(TemaInfo.DividerColor);
 
 			Content = lstView;
+		}
+		protected override bool OnBackButtonPressed()
+		{
+			System.Diagnostics.Debug.WriteLine("TESTE");
+			return base.OnBackButtonPressed();
 		}
 
 		public void OnTap(object sender, ItemTappedEventArgs e)
 		{
 			
+			
 				switch (e.Item.ToString())
 				{
 					case "Modo Mapa":
 
-						Navigation.PushAsync(modoMapaPage);
+					if (this.Navigation.NavigationStack.Count == 1)
+					{
+						this.Navigation.PushAsync(new ModoMapaPage());
+						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
+					}
 						break;
 					case "Alertas":
-						Navigation.PushAsync(modoAlertaPage);
+					if (this.Navigation.NavigationStack.Count == 1)
+					{
+						this.Navigation.PushAsync(new ModoAlertaPage());
+						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
+					}
 						break;
 					case "Audio":
-						Navigation.PushAsync(modoAudioPage);
+					if (this.Navigation.NavigationStack.Count == 1)
+					{
+						this.Navigation.PushAsync(new ModoAudioPage());
+						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
+					}
 						break;
 					case "Reprodução de Voz":
-						Navigation.PushAsync(modoReproducaoVozPage);
+					if (this.Navigation.NavigationStack.Count == 1)
+					{
+						this.Navigation.PushAsync(new ModoReproducaoVozPage());
+						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
+					}
 						break;
 					case "Gerais":
-						Navigation.PushAsync(modoGeralPage);
+					if (this.Navigation.NavigationStack.Count == 1)
+					{
+						this.Navigation.PushAsync(new ModoGeralPage());
+						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
+					}
 						break;
 					case "Auto Início/Desligamento":
-						Navigation.PushAsync(modoAutoInicioPage);
+					if (this.Navigation.NavigationStack.Count == 1)
+					{
+						this.Navigation.PushAsync(new ModoAutoInicioPage());
+						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
+					}
 						break;
 					case "Percurso":
-						Navigation.PushAsync(modoPercursoPage);
+					if (this.Navigation.NavigationStack.Count == 1)
+					{
+						this.Navigation.PushAsync(new ModoPercursoPage());
+						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
+					}
 						break;
 					case "Meus Radares":
-						Navigation.PushAsync(modoMeuRadarPage);
+					if (this.Navigation.NavigationStack.Count == 1)
+					{
+						this.Navigation.PushAsync(new ModoMeuRadarPage());
+						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
+					}
 					break;
 					
 			}
+
 
 		}
 
@@ -99,31 +133,48 @@ namespace Radar
 			
 			public MenusCelula()
 			{
-				//instantiate each of our views
-				var nameLabel = new Label();
-				var verticaLayout = new StackLayout();
-				var horizontalLayout = new StackLayout() { BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor) };
 
-				//set bindings
+				Label nameLabel = new Label
+				{
+					YAlign = TextAlignment.Center,
+					TextColor = Color.FromHex(TemaInfo.PrimaryText),
+					FontFamily = "Roboto-Condensed",
+					FontSize = 20
+
+				};
 				nameLabel.SetBinding(Label.TextProperty, new Binding("."));
 
-				//Set properties for desired design
-				horizontalLayout.Orientation = StackOrientation.Horizontal;
-				horizontalLayout.HorizontalOptions = LayoutOptions.Fill;
-				nameLabel.Margin = 20;
-				nameLabel.FontSize = 20;
+				var horizontalLayout = new StackLayout();
+				var frameInner = new Frame();
+				var frameOuter = new Frame();
 
-				//add views to the view hierarchy
-				verticaLayout.Children.Add(nameLabel);
-				horizontalLayout.Children.Add(verticaLayout);
+				horizontalLayout.Padding = new Thickness(20, 0, 0, 0);
+				horizontalLayout.Orientation = StackOrientation.Horizontal;
+				horizontalLayout.HorizontalOptions = LayoutOptions.StartAndExpand;
+                //frameInner.Padding = new Thickness(20, 20, 20, 20);
+                frameOuter.HeightRequest = 36;
+                frameOuter.Margin = new Thickness(10, 5, 10, 5);
+                //frameInner.OutlineColor = Color.Black;
+                frameOuter.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
+				//frameOuter.Padding = new Thickness(2, 1, 1, 2);
+
+				//verticaLayout.Children.Add(nameLabel);
+				horizontalLayout.Children.Add(nameLabel);
+				//frameInner.Content = horizontalLayout;
+				frameOuter.Content = horizontalLayout;
+
+
 
 				// add to parent view
-				View = horizontalLayout;
-				this.Tapped += (sender, e) =>
-				{
-					this.View.BackgroundColor = Color.FromHex(TemaInfo.AccentColor);
-				};
-				this.View.BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor);
+				View = frameOuter;
+				this.View.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
+				//this.Tapped += (sender, e) =>
+				//{
+				//	this.View.BackgroundColor = Color.FromHex(TemaInfo.AccentColor);
+				//	Task.Delay(2000);
+				//	this.View.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
+				//};
+
 			}
 
 

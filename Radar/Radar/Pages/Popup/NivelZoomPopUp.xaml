@@ -6,22 +6,24 @@
              x:Class="Radar.Pages.Popup.NivelZoomPopUp">
  
   <AbsoluteLayout VerticalOptions="Center" Opacity="0.00"  HorizontalOptions="Fill" Padding="20, 20, 20, 20" HeightRequest="240">
-    <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-      <Label Text="Nivel de Zoom" TextColor="Red" FontSize="20" HorizontalOptions="Start" Margin="0, 0, 0, 20" />
-     
+    <StackLayout BackgroundColor="Transparent" Padding="0, 10, 0, 0" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+      <Frame>
+       
         <StackLayout HorizontalOptions="FillAndExpand">
-          <Label Text="" TextColor="Black" FontSize="30" HorizontalOptions="Center" x:Name="textValor" Margin="0, 0, 0, 30"/>
+          <Label Text="Nivel de Zoom" TextColor="Red" FontSize="28" HorizontalOptions="Start"  />
+
+          <Label Text="" TextColor="Black" FontSize="30" HorizontalOptions="Center" x:Name="textValor" />
 
           <Slider Value="12" Minimum="0" Maximum="15" x:Name="Slider" />
           <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-
-            <Button Text="Cancelar" TextColor="Black" Clicked="OnCancelar" HorizontalOptions="StartAndExpand"/>
-            <Button Text="Ok" TextColor="Black" Clicked="OnOk" HorizontalOptions="EndAndExpand"></Button>
+            <Label Text="" HorizontalOptions="StartAndExpand"/>
+            <Button Text="Cancelar" TextColor="Black" Clicked="OnCancelar" HorizontalOptions="End"/>
+            <Button Text="Ok" TextColor="Black" Clicked="OnOk" HorizontalOptions="End"></Button>
 
           </StackLayout>
-          
+
         </StackLayout>
-      
+      </Frame>
     </StackLayout>
   </AbsoluteLayout>
 </pages:PopupPage>

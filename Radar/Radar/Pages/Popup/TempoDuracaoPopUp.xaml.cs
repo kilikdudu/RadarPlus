@@ -10,7 +10,7 @@ using System.Diagnostics;
 namespace Radar.Pages.Popup {
     public partial class TempoDuracaoPopUp : PopupPage {
         private String valorSliderDuracao;
-        private double sliderValorDuracao;
+        
         PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
 
         public TempoDuracaoPopUp() {
@@ -32,18 +32,18 @@ namespace Radar.Pages.Popup {
 
         private void OnOk(object sender, EventArgs e) {
             //PopupNavigation.PopAsync();
-            regraPreferencia.gravar("tempoDuracao", (int)Math.Floor(sliderValorDuracao));
+            regraPreferencia.gravar("tempoDuracao", (int)Math.Floor(SliderDuracao.Value));
             PopupNavigation.PopAsync();
         }
 
         private void OnSliderValueChanged(object sender, ValueChangedEventArgs e) {
             var newStep = Math.Round(e.NewValue);
             SliderDuracao.Value = newStep;
-            sliderValorDuracao = newStep;
-            if(sliderValorDuracao > 1) {
-                textValor.Text = sliderValorDuracao.ToString() + " Segundos";
+           
+            if(SliderDuracao.Value > 1) {
+                textValor.Text = SliderDuracao.Value.ToString() + " Segundos";
             }else {
-                textValor.Text = sliderValorDuracao.ToString() + " Segundo";
+                textValor.Text = SliderDuracao.Value.ToString() + " Segundo";
             }
             
         }
