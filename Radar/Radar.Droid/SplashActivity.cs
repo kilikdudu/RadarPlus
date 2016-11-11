@@ -9,7 +9,7 @@ using Android.OS;
 
 
 namespace Radar.Droid {
-    [Activity(Label = "SplashActivity", MainLauncher = true, NoHistory = true, Icon = "@drawable/appicon", Theme = "@style/Theme.Splash")]
+    [Activity(Label = "Radar", MainLauncher = true, NoHistory = true, Icon = "@drawable/appicon", Theme = "@style/Theme.Splash")]
     public class SplashActivity : Activity {
         protected override void OnCreate(Bundle savedInstanceState) {
             base.OnCreate(savedInstanceState);
