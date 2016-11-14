@@ -63,8 +63,8 @@
             <Frame Style="{StaticResource StyleFrame}">
               <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
-                  <Label Text="Ao Ligar e Desligar" Style="{StaticResource LabelStyle}"/>
-                  <Switch Style="{StaticResource StyleSwitch}" x:Name="ligarDesligar" Toggled="ligarDesligarToggled"/>
+                  <Label Text="Ao Ligar e Desligar            " Style="{StaticResource LabelStyle}"/>
+                  <Switch Margin="55,0,0,0" Style="{StaticResource StyleSwitch}" x:Name="ligarDesligar" Toggled="ligarDesligarToggled"/>
                 </StackLayout>
                 <Label Style="{StaticResource LabelStyleDescription}" Text="Reproduz voz ao iniciar ou delisgar o aplicativo" />
               </StackLayout>

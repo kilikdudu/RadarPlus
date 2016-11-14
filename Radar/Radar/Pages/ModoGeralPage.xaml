@@ -61,8 +61,8 @@
       <Frame Style="{StaticResource StyleFrame}">
         <StackLayout Orientation="Vertical">
           <StackLayout Orientation="Horizontal">
-            <Label Text="Verificar ao Iniciar" Style="{StaticResource LabelStyle}"/>
-            <Switch Style="{StaticResource StyleSwitch}" x:Name="verificarIniciar" Toggled="verificarIniciarToggled"/>
+            <Label Text="Verificar ao Iniciar                    " Style="{StaticResource LabelStyle}"/>
+            <Switch Margin="55,0,0,0" Style="{StaticResource StyleSwitch}" x:Name="verificarIniciar" Toggled="verificarIniciarToggled"/>
           </StackLayout>
           <Label Style="{StaticResource LabelStyleDescription}" Text="Lembrar sobre a atualização da Base de Dados" />
           <Label Style="{StaticResource LabelStyleDescription}" Text="de Radar ao iniciar o aplicativo"  />

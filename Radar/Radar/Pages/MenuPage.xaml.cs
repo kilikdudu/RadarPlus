@@ -14,7 +14,7 @@ namespace Radar.Pages
     public partial class MenuPage : ContentPage
     {
         public ListView ListView { get {
-				
+
 				return listView; } }
 
         private MenuItemGrupo criarGrupoModo() {
@@ -116,7 +116,7 @@ namespace Radar.Pages
             paginas.Add(criarGrupoModo());
             paginas.Add(criarGrupoAcao());
             paginas.Add(criarGrupoAplicativo());
-			listView.SeparatorColor = Color.FromHex(TemaInfo.DividerColor);
+
             listView.ItemsSource = paginas;
         }
     }

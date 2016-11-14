@@ -38,8 +38,8 @@
         <Frame Style="{StaticResource StyleFrame}">
           <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal">
-                  <Label Text="Exibir botão para adicionar" Style="{StaticResource LabelStyle}"/>
-                  <Switch Style="{StaticResource StyleSwitch}" x:Name="exibirBotaoAdcionar" Toggled="exibirBotaoAdcionarToggled"/>
+                  <Label Text="Exibir botão para adicionar                 " Style="{StaticResource LabelStyle}"/>
+                  <Switch Margin="30,0,0,0" Style="{StaticResource StyleSwitch}" x:Name="exibirBotaoAdcionar" Toggled="exibirBotaoAdcionarToggled"/>
                 </StackLayout>
                 <Label Style="{StaticResource LabelStyleDescription}" Text="Se habilitado um botão de Adicionar(+)"  />
                 <Label Style="{StaticResource LabelStyleDescription}" Text="será exibido na tela de Mapa e Velocimetro"  />
@@ -48,8 +48,8 @@
             <Frame Style="{StaticResource StyleFrame}">
               <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
-                  <Label Text="Exibir botão para remover" Style="{StaticResource LabelStyle}"/>
-                  <Switch Style="{StaticResource StyleSwitch}" x:Name="exibirBotaoRemover" Toggled="exibirBotaoRemoverToggled"/>
+                  <Label Text="Exibir botão para remover               " Style="{StaticResource LabelStyle}"/>
+                  <Switch Margin="35,0,0,0" Style="{StaticResource StyleSwitch}" x:Name="exibirBotaoRemover" Toggled="exibirBotaoRemoverToggled"/>
                 </StackLayout>
                 <Label Style="{StaticResource LabelStyleDescription}" Text="Se habilitado um botão de Remover(-)"  />
                 <Label Style="{StaticResource LabelStyleDescription}" Text="será exibido quando aparecer um alerta de radar"  />

@@ -30,7 +30,6 @@ namespace Radar
 		public PreferenciaPage()
 		{
 
-
 			menus = new List<ListaInfo>();
 			ListView lstView = new ListView();
 			lstView.RowHeight = 60;
@@ -138,7 +137,8 @@ namespace Radar
 					FontSize = 20,
 					HeightRequest = 36,
 					HorizontalOptions = LayoutOptions.CenterAndExpand,
-							VerticalOptions = LayoutOptions.Center
+							VerticalOptions = LayoutOptions.Center,
+
 
 				};
 				var icone = new Image();
@@ -147,22 +147,34 @@ namespace Radar
 				var horizontalLayout = new StackLayout();
 				var frameInner = new Frame();
 				var frameOuter = new Frame();
+				if (Device.OS == TargetPlatform.iOS)
+				{
+					icone.WidthRequest = 40;
+					icone.HeightRequest = 40;
 
+				}
+				else
+				{
+					icone.WidthRequest = 60;
+					icone.HeightRequest = 60;
+					icone.Margin = new Thickness(20, 0, 10, 0);
+				}
 				icone.SetBinding(Image.SourceProperty, new Binding("Imagem"));
-				icone.WidthRequest = 80;
-				icone.HeightRequest = 80;
-				icone.HorizontalOptions = LayoutOptions.Center;
-				icone.VerticalOptions = LayoutOptions.Center;
 
-				horizontalLayout.Padding = new Thickness(20, 0, 0, 0);
-				horizontalLayout.Orientation = StackOrientation.Horizontal;
+
+				icone.HorizontalOptions = LayoutOptions.StartAndExpand;
+
+				horizontalLayout.Padding = new Thickness(20, 0, 20, 0);
+		        horizontalLayout.Orientation = StackOrientation.Horizontal;
 				horizontalLayout.HorizontalOptions = LayoutOptions.StartAndExpand;
+				horizontalLayout.VerticalOptions = LayoutOptions.FillAndExpand;
+				//horizontalLayout.HeightRequest = 40;
                 //frameOuter.Padding = new Thickness(20, 20, 20, 20);
-                frameOuter.HeightRequest = 36;
+                //frameOuter.HeightRequest = 66;
                 frameOuter.Margin = new Thickness(10, 5, 10, 5);
                 //frameInner.OutlineColor = Color.Black;
                 frameOuter.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
-				//frameOuter.Padding = new Thickness(2, 1, 1, 2);
+				//frameOuter.Padding = new Thickness(0, 0, 20, 0);
 
 				//verticaLayout.Children.Add(nameLabel);
 				horizontalLayout.Children.Add(icone);

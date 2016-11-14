@@ -219,6 +219,8 @@
     <AndroidResource Include="Resources\drawable\velocimetro.png" />
     <AndroidResource Include="Resources\drawable\navicon.png" />
     <AndroidResource Include="Resources\drawable\autoiniciodesligamento.png" />
+    <AndroidResource Include="Resources\drawable\bussolaagulha.png" />
+    <AndroidResource Include="Resources\drawable\bussolacorpo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">

@@ -126,9 +126,6 @@
     </BundleResource>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <BundleResource Include="Resources\anterior.png" />
-    <BundleResource Include="Resources\appradar curvadireita.png" />
-    <BundleResource Include="Resources\appradar curvaesquerda.png" />
-    <BundleResource Include="Resources\appradar redimensionamento.png" />
     <BundleResource Include="Resources\appradarinstrucoes.png" />
     <BundleResource Include="Resources\appradarmaosesetas.png" />
     <BundleResource Include="Resources\atualizar.png" />
@@ -163,11 +160,12 @@
     <BundleResource Include="Resources\meusradares.png" />
     <BundleResource Include="Resources\alerta.png" />
     <BundleResource Include="Resources\audio.png" />
-    <BundleResource Include="Resources\auto inicio desligamento.png" />
+    <BundleResource Include="Resources\autoiniciodesligamento.png" />
     <BundleResource Include="Resources\gerais.png" />
     <BundleResource Include="Resources\modomapa.png" />
-    <BundleResource Include="Resources\reproducao de voz.png" />
+    <BundleResource Include="Resources\reproducaodevoz.png" />
     <BundleResource Include="Resources\DefaultIcon.png" />
+    <BundleResource Include="Resources\navicon.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

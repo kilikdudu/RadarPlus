@@ -6,10 +6,11 @@
   <ContentPage.Content>
     <StackLayout Orientation="Vertical" Padding="5, 10, 5, 10">
     <StackLayout Padding="0, 25, 0, 0" Orientation="Vertical"> 
-			<Image Source="navicon.png" HorizontalOptions="Center" WidthRequest="80" HeightRequest="80" />
+			<Image Source="navicon.png" HorizontalOptions="Start" WidthRequest="110" HeightRequest="110" />
 		      
 	</StackLayout>
-      <ListView x:Name="listView" GroupDisplayBinding="{Binding Nome}" SeparatorVisibility="None" IsGroupingEnabled="true" BackgroundColor="#ffffff">
+      <ListView x:Name="listView" GroupDisplayBinding="{Binding Nome}" HasUnevenRows="true" SeparatorVisibility="Default" IsGroupingEnabled="true" BackgroundColor="#ffffff" SeparatorColor="#009688">
+
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
@@ -23,10 +24,11 @@
         <ListView.GroupHeaderTemplate>
           <DataTemplate>
             <ViewCell>
-              <StackLayout Orientation="Vertical" BackgroundColor="#ffffff">
+              <StackLayout Orientation="Vertical" BackgroundColor="#ffffff" VerticalOptions="FillAndExpand">
                 <Label Text="{Binding Nome}" FontSize="28" TextColor="#009688"/>
-                <BoxView HeightRequest="3" BackgroundColor="#bdbdbd" />
+                <BoxView HeightRequest="5" BackgroundColor="#009688" />
               </StackLayout>
+							
             </ViewCell>
           </DataTemplate>
         </ListView.GroupHeaderTemplate>
