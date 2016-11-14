@@ -6,9 +6,8 @@
   <ContentPage.Content>
     <StackLayout Orientation="Vertical" Padding="5, 10, 5, 10">
     <StackLayout Padding="0, 25, 0, 0" Orientation="Vertical"> 
-			<Image Source="navicon.png" HorizontalOptions="Center" WidthRequest="50" HeightRequest="50" />
-			<Label Text="Radar+" HorizontalOptions="Center" FontSize="20"/>
-              
+			<Image Source="navicon.png" HorizontalOptions="Center" WidthRequest="80" HeightRequest="80" />
+		      
 	</StackLayout>
       <ListView x:Name="listView" GroupDisplayBinding="{Binding Nome}" SeparatorVisibility="None" IsGroupingEnabled="true" BackgroundColor="#ffffff">
         <ListView.ItemTemplate>

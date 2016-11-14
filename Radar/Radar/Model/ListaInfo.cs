@@ -9,6 +9,7 @@ namespace Radar.Model
 	public  class ListaInfo
 	{
 		
+
 		public  string Titulo
 		{
 			get; set;
@@ -19,7 +20,7 @@ namespace Radar.Model
 			get; set;
 
 		}
-
+		public EventHandler aoClicar { get; set; }
 	}
 }
 

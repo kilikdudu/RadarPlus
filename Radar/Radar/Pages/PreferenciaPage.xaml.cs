@@ -37,14 +37,69 @@ namespace Radar
 			this.Title = "Preferências";
 			lstView.ItemTemplate = new DataTemplate(typeof(MenusCelula));
 			lstView.ItemTapped += OnTap;
-			menus.Add(new ListaInfo() { Titulo = "Modo Mapa", Imagem = "modomapa.png" });
-			menus.Add(new ListaInfo() { Titulo = "Alertas", Imagem = "alerta.png" });
-			menus.Add(new ListaInfo() { Titulo = "Audio", Imagem = "audio.png" });
-			menus.Add(new ListaInfo() { Titulo = "Reprodução de Voz", Imagem = "reproducao de voz.png" });
-			menus.Add(new ListaInfo() { Titulo = "Gerais", Imagem = "gerais.png" });
-			menus.Add(new ListaInfo() { Titulo = "Auto Início/Desligamento", Imagem = "auto inicio desligamento.png" });
-			menus.Add(new ListaInfo() { Titulo = "Percurso", Imagem = "percursos.png" });
-			menus.Add(new ListaInfo() { Titulo = "Meus Radares", Imagem = "meusradares.png" });			
+			menus.Add(new ListaInfo() { 
+				Titulo= "Modo Mapa", 
+				Imagem = "modomapa.png", 
+				aoClicar = (sender, e) => { 
+					this.Navigation.PushAsync(new ModoMapaPage()); 
+				} 
+			});
+			menus.Add(new ListaInfo() { 
+				Titulo = "Alertas", 
+				Imagem = "alerta.png",
+				aoClicar = (sender, e) =>
+				{
+					this.Navigation.PushAsync(new ModoAlertaPage());
+				}
+			});
+			menus.Add(new ListaInfo() { 
+				Titulo = "Audio", 
+				Imagem = "audio.png",
+				aoClicar = (sender, e) =>
+				{
+					this.Navigation.PushAsync(new ModoAudioPage());
+				}
+			});
+			menus.Add(new ListaInfo() { 
+				Titulo = "Reprodução de Voz", 
+				Imagem = "reproducaodevoz.png",
+				aoClicar = (sender, e) =>
+				{
+					this.Navigation.PushAsync(new ModoReproducaoVozPage());
+				}
+			});
+			menus.Add(new ListaInfo() { 
+				Titulo = "Gerais", 
+				Imagem = "gerais.png", 
+				aoClicar = (sender, e) =>
+				{
+					this.Navigation.PushAsync(new ModoGeralPage());
+				}
+			});
+			menus.Add(new ListaInfo() { 
+				Titulo = "Auto Início/Desligamento", 
+				Imagem = "autoiniciodesligamento.png",
+				aoClicar = (sender, e) =>
+				{
+					this.Navigation.PushAsync(new ModoAutoInicioPage());
+				}
+			});
+			menus.Add(new ListaInfo() { 
+				Titulo = "Percurso", 
+				Imagem = "percursos.png",
+				aoClicar = (sender, e) =>
+				{
+					this.Navigation.PushAsync(new ModoPercursoPage());
+				}
+			});
+			menus.Add(new ListaInfo() { 
+				Titulo = "Meus Radares", 
+				Imagem = "meusradares.png",
+				aoClicar = (sender, e) =>
+				{
+					this.Navigation.PushAsync(new ModoMeuRadarPage());
+				}
+			});			
 			lstView.ItemsSource = menus;
 			lstView.HasUnevenRows = true;
             lstView.SeparatorColor = Color.Transparent;
@@ -57,70 +112,15 @@ namespace Radar
 
 		public void OnTap(object sender, ItemTappedEventArgs e)
 		{
-			
-			
-				switch (e.Item.ToString())
+
+			ListaInfo item = (ListaInfo)e.Item;
+			if (item.aoClicar != null)
+			{
+				if (this.Navigation.NavigationStack.Count == 1)
 				{
-					case "Modo Mapa":
-
-					if (this.Navigation.NavigationStack.Count == 1)
-					{
-						this.Navigation.PushAsync(new ModoMapaPage());
-						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
-					}
-						break;
-					case "Alertas":
-					if (this.Navigation.NavigationStack.Count == 1)
-					{
-						this.Navigation.PushAsync(new ModoAlertaPage());
-						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
-					}
-						break;
-					case "Audio":
-					if (this.Navigation.NavigationStack.Count == 1)
-					{
-						this.Navigation.PushAsync(new ModoAudioPage());
-						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
-					}
-						break;
-					case "Reprodução de Voz":
-					if (this.Navigation.NavigationStack.Count == 1)
-					{
-						this.Navigation.PushAsync(new ModoReproducaoVozPage());
-						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
-					}
-						break;
-					case "Gerais":
-					if (this.Navigation.NavigationStack.Count == 1)
-					{
-						this.Navigation.PushAsync(new ModoGeralPage());
-						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
-					}
-						break;
-					case "Auto Início/Desligamento":
-					if (this.Navigation.NavigationStack.Count == 1)
-					{
-						this.Navigation.PushAsync(new ModoAutoInicioPage());
-						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
-					}
-						break;
-					case "Percurso":
-					if (this.Navigation.NavigationStack.Count == 1)
-					{
-						this.Navigation.PushAsync(new ModoPercursoPage());
-						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
-					}
-						break;
-					case "Meus Radares":
-					if (this.Navigation.NavigationStack.Count == 1)
-					{
-						this.Navigation.PushAsync(new ModoMeuRadarPage());
-						Debug.WriteLine("NavigationStack" + this.Navigation.NavigationStack.Count);
-					}
-					break;
-					
+					item.aoClicar(sender, e);
+				}
 			}
-
 
 		}
 
@@ -137,7 +137,7 @@ namespace Radar
 					FontFamily = "Roboto-Condensed",
 					FontSize = 20,
 					HeightRequest = 36,
-					HorizontalOptions = LayoutOptions.Center,
+					HorizontalOptions = LayoutOptions.CenterAndExpand,
 							VerticalOptions = LayoutOptions.Center
 
 				};
@@ -149,8 +149,8 @@ namespace Radar
 				var frameOuter = new Frame();
 
 				icone.SetBinding(Image.SourceProperty, new Binding("Imagem"));
-				icone.WidthRequest = 40;
-				icone.HeightRequest = 40;
+				icone.WidthRequest = 80;
+				icone.HeightRequest = 80;
 				icone.HorizontalOptions = LayoutOptions.Center;
 				icone.VerticalOptions = LayoutOptions.Center;
 
