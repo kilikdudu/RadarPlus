@@ -53,8 +53,8 @@
         <Frame Style="{StaticResource StyleFrame}">
           <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal">
-              <Label Text="Volume Personalizado" Style="{StaticResource LabelStyle}"/>
-              <Switch Style="{StaticResource StyleSwitch}" x:Name="volumePersonalizado" Toggled="volumePersonalizadoToggled"/>
+              <Label Text="Volume Personalizado            " Style="{StaticResource LabelStyle}"/>
+              <Switch Margin="20,0,0,0" Style="{StaticResource StyleSwitch}" x:Name="volumePersonalizado" Toggled="volumePersonalizadoToggled"/>
             </StackLayout>
             <Label Style="{StaticResource LabelStyleDescription}" Text="Configurar um volume padrão para alertas, sobrepondo o" />
             <Label Style="{StaticResource LabelStyleDescription}" Text="volume definido no aparelho" />

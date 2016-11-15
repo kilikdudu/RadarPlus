@@ -27,8 +27,1947 @@ namespace Radar.Droid
 		public static void UpdateIdValues()
 		{
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Radar.Droid.Resource.Attribute.actionBarSize;
+			global::ClubManagement.Droid.Resource.Animation.abc_fade_in = global::Radar.Droid.Resource.Animation.abc_fade_in;
+			global::ClubManagement.Droid.Resource.Animation.abc_fade_out = global::Radar.Droid.Resource.Animation.abc_fade_out;
+			global::ClubManagement.Droid.Resource.Animation.abc_grow_fade_in_from_bottom = global::Radar.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
+			global::ClubManagement.Droid.Resource.Animation.abc_popup_enter = global::Radar.Droid.Resource.Animation.abc_popup_enter;
+			global::ClubManagement.Droid.Resource.Animation.abc_popup_exit = global::Radar.Droid.Resource.Animation.abc_popup_exit;
+			global::ClubManagement.Droid.Resource.Animation.abc_shrink_fade_out_from_bottom = global::Radar.Droid.Resource.Animation.abc_shrink_fade_out_from_bottom;
+			global::ClubManagement.Droid.Resource.Animation.abc_slide_in_bottom = global::Radar.Droid.Resource.Animation.abc_slide_in_bottom;
+			global::ClubManagement.Droid.Resource.Animation.abc_slide_in_top = global::Radar.Droid.Resource.Animation.abc_slide_in_top;
+			global::ClubManagement.Droid.Resource.Animation.abc_slide_out_bottom = global::Radar.Droid.Resource.Animation.abc_slide_out_bottom;
+			global::ClubManagement.Droid.Resource.Animation.abc_slide_out_top = global::Radar.Droid.Resource.Animation.abc_slide_out_top;
+			global::ClubManagement.Droid.Resource.Animation.design_bottom_sheet_slide_in = global::Radar.Droid.Resource.Animation.design_bottom_sheet_slide_in;
+			global::ClubManagement.Droid.Resource.Animation.design_bottom_sheet_slide_out = global::Radar.Droid.Resource.Animation.design_bottom_sheet_slide_out;
+			global::ClubManagement.Droid.Resource.Animation.design_fab_in = global::Radar.Droid.Resource.Animation.design_fab_in;
+			global::ClubManagement.Droid.Resource.Animation.design_fab_out = global::Radar.Droid.Resource.Animation.design_fab_out;
+			global::ClubManagement.Droid.Resource.Animation.design_snackbar_in = global::Radar.Droid.Resource.Animation.design_snackbar_in;
+			global::ClubManagement.Droid.Resource.Animation.design_snackbar_out = global::Radar.Droid.Resource.Animation.design_snackbar_out;
+			global::ClubManagement.Droid.Resource.Attribute.MediaRouteControllerWindowBackground = global::Radar.Droid.Resource.Attribute.MediaRouteControllerWindowBackground;
+			global::ClubManagement.Droid.Resource.Attribute.actionBarDivider = global::Radar.Droid.Resource.Attribute.actionBarDivider;
+			global::ClubManagement.Droid.Resource.Attribute.actionBarItemBackground = global::Radar.Droid.Resource.Attribute.actionBarItemBackground;
+			global::ClubManagement.Droid.Resource.Attribute.actionBarPopupTheme = global::Radar.Droid.Resource.Attribute.actionBarPopupTheme;
+			global::ClubManagement.Droid.Resource.Attribute.actionBarSize = global::Radar.Droid.Resource.Attribute.actionBarSize;
+			global::ClubManagement.Droid.Resource.Attribute.actionBarSplitStyle = global::Radar.Droid.Resource.Attribute.actionBarSplitStyle;
+			global::ClubManagement.Droid.Resource.Attribute.actionBarStyle = global::Radar.Droid.Resource.Attribute.actionBarStyle;
+			global::ClubManagement.Droid.Resource.Attribute.actionBarTabBarStyle = global::Radar.Droid.Resource.Attribute.actionBarTabBarStyle;
+			global::ClubManagement.Droid.Resource.Attribute.actionBarTabStyle = global::Radar.Droid.Resource.Attribute.actionBarTabStyle;
+			global::ClubManagement.Droid.Resource.Attribute.actionBarTabTextStyle = global::Radar.Droid.Resource.Attribute.actionBarTabTextStyle;
+			global::ClubManagement.Droid.Resource.Attribute.actionBarTheme = global::Radar.Droid.Resource.Attribute.actionBarTheme;
+			global::ClubManagement.Droid.Resource.Attribute.actionBarWidgetTheme = global::Radar.Droid.Resource.Attribute.actionBarWidgetTheme;
+			global::ClubManagement.Droid.Resource.Attribute.actionButtonStyle = global::Radar.Droid.Resource.Attribute.actionButtonStyle;
+			global::ClubManagement.Droid.Resource.Attribute.actionDropDownStyle = global::Radar.Droid.Resource.Attribute.actionDropDownStyle;
+			global::ClubManagement.Droid.Resource.Attribute.actionLayout = global::Radar.Droid.Resource.Attribute.actionLayout;
+			global::ClubManagement.Droid.Resource.Attribute.actionMenuTextAppearance = global::Radar.Droid.Resource.Attribute.actionMenuTextAppearance;
+			global::ClubManagement.Droid.Resource.Attribute.actionMenuTextColor = global::Radar.Droid.Resource.Attribute.actionMenuTextColor;
+			global::ClubManagement.Droid.Resource.Attribute.actionModeBackground = global::Radar.Droid.Resource.Attribute.actionModeBackground;
+			global::ClubManagement.Droid.Resource.Attribute.actionModeCloseButtonStyle = global::Radar.Droid.Resource.Attribute.actionModeCloseButtonStyle;
+			global::ClubManagement.Droid.Resource.Attribute.actionModeCloseDrawable = global::Radar.Droid.Resource.Attribute.actionModeCloseDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.actionModeCopyDrawable = global::Radar.Droid.Resource.Attribute.actionModeCopyDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.actionModeCutDrawable = global::Radar.Droid.Resource.Attribute.actionModeCutDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.actionModeFindDrawable = global::Radar.Droid.Resource.Attribute.actionModeFindDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.actionModePasteDrawable = global::Radar.Droid.Resource.Attribute.actionModePasteDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.actionModePopupWindowStyle = global::Radar.Droid.Resource.Attribute.actionModePopupWindowStyle;
+			global::ClubManagement.Droid.Resource.Attribute.actionModeSelectAllDrawable = global::Radar.Droid.Resource.Attribute.actionModeSelectAllDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.actionModeShareDrawable = global::Radar.Droid.Resource.Attribute.actionModeShareDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.actionModeSplitBackground = global::Radar.Droid.Resource.Attribute.actionModeSplitBackground;
+			global::ClubManagement.Droid.Resource.Attribute.actionModeStyle = global::Radar.Droid.Resource.Attribute.actionModeStyle;
+			global::ClubManagement.Droid.Resource.Attribute.actionModeWebSearchDrawable = global::Radar.Droid.Resource.Attribute.actionModeWebSearchDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.actionOverflowButtonStyle = global::Radar.Droid.Resource.Attribute.actionOverflowButtonStyle;
+			global::ClubManagement.Droid.Resource.Attribute.actionOverflowMenuStyle = global::Radar.Droid.Resource.Attribute.actionOverflowMenuStyle;
+			global::ClubManagement.Droid.Resource.Attribute.actionProviderClass = global::Radar.Droid.Resource.Attribute.actionProviderClass;
+			global::ClubManagement.Droid.Resource.Attribute.actionViewClass = global::Radar.Droid.Resource.Attribute.actionViewClass;
+			global::ClubManagement.Droid.Resource.Attribute.activityChooserViewStyle = global::Radar.Droid.Resource.Attribute.activityChooserViewStyle;
+			global::ClubManagement.Droid.Resource.Attribute.alertDialogButtonGroupStyle = global::Radar.Droid.Resource.Attribute.alertDialogButtonGroupStyle;
+			global::ClubManagement.Droid.Resource.Attribute.alertDialogCenterButtons = global::Radar.Droid.Resource.Attribute.alertDialogCenterButtons;
+			global::ClubManagement.Droid.Resource.Attribute.alertDialogStyle = global::Radar.Droid.Resource.Attribute.alertDialogStyle;
+			global::ClubManagement.Droid.Resource.Attribute.alertDialogTheme = global::Radar.Droid.Resource.Attribute.alertDialogTheme;
+			global::ClubManagement.Droid.Resource.Attribute.allowStacking = global::Radar.Droid.Resource.Attribute.allowStacking;
+			global::ClubManagement.Droid.Resource.Attribute.ambientEnabled = global::Radar.Droid.Resource.Attribute.ambientEnabled;
+			global::ClubManagement.Droid.Resource.Attribute.arrowHeadLength = global::Radar.Droid.Resource.Attribute.arrowHeadLength;
+			global::ClubManagement.Droid.Resource.Attribute.arrowShaftLength = global::Radar.Droid.Resource.Attribute.arrowShaftLength;
+			global::ClubManagement.Droid.Resource.Attribute.autoCompleteTextViewStyle = global::Radar.Droid.Resource.Attribute.autoCompleteTextViewStyle;
+			global::ClubManagement.Droid.Resource.Attribute.background = global::Radar.Droid.Resource.Attribute.background;
+			global::ClubManagement.Droid.Resource.Attribute.backgroundSplit = global::Radar.Droid.Resource.Attribute.backgroundSplit;
+			global::ClubManagement.Droid.Resource.Attribute.backgroundStacked = global::Radar.Droid.Resource.Attribute.backgroundStacked;
+			global::ClubManagement.Droid.Resource.Attribute.backgroundTint = global::Radar.Droid.Resource.Attribute.backgroundTint;
+			global::ClubManagement.Droid.Resource.Attribute.backgroundTintMode = global::Radar.Droid.Resource.Attribute.backgroundTintMode;
+			global::ClubManagement.Droid.Resource.Attribute.barLength = global::Radar.Droid.Resource.Attribute.barLength;
+			global::ClubManagement.Droid.Resource.Attribute.behavior_hideable = global::Radar.Droid.Resource.Attribute.behavior_hideable;
+			global::ClubManagement.Droid.Resource.Attribute.behavior_overlapTop = global::Radar.Droid.Resource.Attribute.behavior_overlapTop;
+			global::ClubManagement.Droid.Resource.Attribute.behavior_peekHeight = global::Radar.Droid.Resource.Attribute.behavior_peekHeight;
+			global::ClubManagement.Droid.Resource.Attribute.borderWidth = global::Radar.Droid.Resource.Attribute.borderWidth;
+			global::ClubManagement.Droid.Resource.Attribute.borderlessButtonStyle = global::Radar.Droid.Resource.Attribute.borderlessButtonStyle;
+			global::ClubManagement.Droid.Resource.Attribute.bottomSheetDialogTheme = global::Radar.Droid.Resource.Attribute.bottomSheetDialogTheme;
+			global::ClubManagement.Droid.Resource.Attribute.bottomSheetStyle = global::Radar.Droid.Resource.Attribute.bottomSheetStyle;
+			global::ClubManagement.Droid.Resource.Attribute.buttonBarButtonStyle = global::Radar.Droid.Resource.Attribute.buttonBarButtonStyle;
+			global::ClubManagement.Droid.Resource.Attribute.buttonBarNegativeButtonStyle = global::Radar.Droid.Resource.Attribute.buttonBarNegativeButtonStyle;
+			global::ClubManagement.Droid.Resource.Attribute.buttonBarNeutralButtonStyle = global::Radar.Droid.Resource.Attribute.buttonBarNeutralButtonStyle;
+			global::ClubManagement.Droid.Resource.Attribute.buttonBarPositiveButtonStyle = global::Radar.Droid.Resource.Attribute.buttonBarPositiveButtonStyle;
+			global::ClubManagement.Droid.Resource.Attribute.buttonBarStyle = global::Radar.Droid.Resource.Attribute.buttonBarStyle;
+			global::ClubManagement.Droid.Resource.Attribute.buttonPanelSideLayout = global::Radar.Droid.Resource.Attribute.buttonPanelSideLayout;
+			global::ClubManagement.Droid.Resource.Attribute.buttonSize = global::Radar.Droid.Resource.Attribute.buttonSize;
+			global::ClubManagement.Droid.Resource.Attribute.buttonStyle = global::Radar.Droid.Resource.Attribute.buttonStyle;
+			global::ClubManagement.Droid.Resource.Attribute.buttonStyleSmall = global::Radar.Droid.Resource.Attribute.buttonStyleSmall;
+			global::ClubManagement.Droid.Resource.Attribute.buttonTint = global::Radar.Droid.Resource.Attribute.buttonTint;
+			global::ClubManagement.Droid.Resource.Attribute.buttonTintMode = global::Radar.Droid.Resource.Attribute.buttonTintMode;
+			global::ClubManagement.Droid.Resource.Attribute.cameraBearing = global::Radar.Droid.Resource.Attribute.cameraBearing;
+			global::ClubManagement.Droid.Resource.Attribute.cameraTargetLat = global::Radar.Droid.Resource.Attribute.cameraTargetLat;
+			global::ClubManagement.Droid.Resource.Attribute.cameraTargetLng = global::Radar.Droid.Resource.Attribute.cameraTargetLng;
+			global::ClubManagement.Droid.Resource.Attribute.cameraTilt = global::Radar.Droid.Resource.Attribute.cameraTilt;
+			global::ClubManagement.Droid.Resource.Attribute.cameraZoom = global::Radar.Droid.Resource.Attribute.cameraZoom;
+			global::ClubManagement.Droid.Resource.Attribute.cardBackgroundColor = global::Radar.Droid.Resource.Attribute.cardBackgroundColor;
+			global::ClubManagement.Droid.Resource.Attribute.cardCornerRadius = global::Radar.Droid.Resource.Attribute.cardCornerRadius;
+			global::ClubManagement.Droid.Resource.Attribute.cardElevation = global::Radar.Droid.Resource.Attribute.cardElevation;
+			global::ClubManagement.Droid.Resource.Attribute.cardMaxElevation = global::Radar.Droid.Resource.Attribute.cardMaxElevation;
+			global::ClubManagement.Droid.Resource.Attribute.cardPreventCornerOverlap = global::Radar.Droid.Resource.Attribute.cardPreventCornerOverlap;
+			global::ClubManagement.Droid.Resource.Attribute.cardUseCompatPadding = global::Radar.Droid.Resource.Attribute.cardUseCompatPadding;
+			global::ClubManagement.Droid.Resource.Attribute.checkboxStyle = global::Radar.Droid.Resource.Attribute.checkboxStyle;
+			global::ClubManagement.Droid.Resource.Attribute.checkedTextViewStyle = global::Radar.Droid.Resource.Attribute.checkedTextViewStyle;
+			global::ClubManagement.Droid.Resource.Attribute.circleCrop = global::Radar.Droid.Resource.Attribute.circleCrop;
+			global::ClubManagement.Droid.Resource.Attribute.closeIcon = global::Radar.Droid.Resource.Attribute.closeIcon;
+			global::ClubManagement.Droid.Resource.Attribute.closeItemLayout = global::Radar.Droid.Resource.Attribute.closeItemLayout;
+			global::ClubManagement.Droid.Resource.Attribute.collapseContentDescription = global::Radar.Droid.Resource.Attribute.collapseContentDescription;
+			global::ClubManagement.Droid.Resource.Attribute.collapseIcon = global::Radar.Droid.Resource.Attribute.collapseIcon;
+			global::ClubManagement.Droid.Resource.Attribute.collapsedTitleGravity = global::Radar.Droid.Resource.Attribute.collapsedTitleGravity;
+			global::ClubManagement.Droid.Resource.Attribute.collapsedTitleTextAppearance = global::Radar.Droid.Resource.Attribute.collapsedTitleTextAppearance;
+			global::ClubManagement.Droid.Resource.Attribute.color = global::Radar.Droid.Resource.Attribute.color;
+			global::ClubManagement.Droid.Resource.Attribute.colorAccent = global::Radar.Droid.Resource.Attribute.colorAccent;
+			global::ClubManagement.Droid.Resource.Attribute.colorButtonNormal = global::Radar.Droid.Resource.Attribute.colorButtonNormal;
+			global::ClubManagement.Droid.Resource.Attribute.colorControlActivated = global::Radar.Droid.Resource.Attribute.colorControlActivated;
+			global::ClubManagement.Droid.Resource.Attribute.colorControlHighlight = global::Radar.Droid.Resource.Attribute.colorControlHighlight;
+			global::ClubManagement.Droid.Resource.Attribute.colorControlNormal = global::Radar.Droid.Resource.Attribute.colorControlNormal;
+			global::ClubManagement.Droid.Resource.Attribute.colorPrimary = global::Radar.Droid.Resource.Attribute.colorPrimary;
+			global::ClubManagement.Droid.Resource.Attribute.colorPrimaryDark = global::Radar.Droid.Resource.Attribute.colorPrimaryDark;
+			global::ClubManagement.Droid.Resource.Attribute.colorScheme = global::Radar.Droid.Resource.Attribute.colorScheme;
+			global::ClubManagement.Droid.Resource.Attribute.colorSwitchThumbNormal = global::Radar.Droid.Resource.Attribute.colorSwitchThumbNormal;
+			global::ClubManagement.Droid.Resource.Attribute.commitIcon = global::Radar.Droid.Resource.Attribute.commitIcon;
+			global::ClubManagement.Droid.Resource.Attribute.contentInsetEnd = global::Radar.Droid.Resource.Attribute.contentInsetEnd;
+			global::ClubManagement.Droid.Resource.Attribute.contentInsetLeft = global::Radar.Droid.Resource.Attribute.contentInsetLeft;
+			global::ClubManagement.Droid.Resource.Attribute.contentInsetRight = global::Radar.Droid.Resource.Attribute.contentInsetRight;
+			global::ClubManagement.Droid.Resource.Attribute.contentInsetStart = global::Radar.Droid.Resource.Attribute.contentInsetStart;
+			global::ClubManagement.Droid.Resource.Attribute.contentPadding = global::Radar.Droid.Resource.Attribute.contentPadding;
+			global::ClubManagement.Droid.Resource.Attribute.contentPaddingBottom = global::Radar.Droid.Resource.Attribute.contentPaddingBottom;
+			global::ClubManagement.Droid.Resource.Attribute.contentPaddingLeft = global::Radar.Droid.Resource.Attribute.contentPaddingLeft;
+			global::ClubManagement.Droid.Resource.Attribute.contentPaddingRight = global::Radar.Droid.Resource.Attribute.contentPaddingRight;
+			global::ClubManagement.Droid.Resource.Attribute.contentPaddingTop = global::Radar.Droid.Resource.Attribute.contentPaddingTop;
+			global::ClubManagement.Droid.Resource.Attribute.contentScrim = global::Radar.Droid.Resource.Attribute.contentScrim;
+			global::ClubManagement.Droid.Resource.Attribute.controlBackground = global::Radar.Droid.Resource.Attribute.controlBackground;
+			global::ClubManagement.Droid.Resource.Attribute.counterEnabled = global::Radar.Droid.Resource.Attribute.counterEnabled;
+			global::ClubManagement.Droid.Resource.Attribute.counterMaxLength = global::Radar.Droid.Resource.Attribute.counterMaxLength;
+			global::ClubManagement.Droid.Resource.Attribute.counterOverflowTextAppearance = global::Radar.Droid.Resource.Attribute.counterOverflowTextAppearance;
+			global::ClubManagement.Droid.Resource.Attribute.counterTextAppearance = global::Radar.Droid.Resource.Attribute.counterTextAppearance;
+			global::ClubManagement.Droid.Resource.Attribute.customNavigationLayout = global::Radar.Droid.Resource.Attribute.customNavigationLayout;
+			global::ClubManagement.Droid.Resource.Attribute.defaultQueryHint = global::Radar.Droid.Resource.Attribute.defaultQueryHint;
+			global::ClubManagement.Droid.Resource.Attribute.dialogPreferredPadding = global::Radar.Droid.Resource.Attribute.dialogPreferredPadding;
+			global::ClubManagement.Droid.Resource.Attribute.dialogTheme = global::Radar.Droid.Resource.Attribute.dialogTheme;
+			global::ClubManagement.Droid.Resource.Attribute.displayOptions = global::Radar.Droid.Resource.Attribute.displayOptions;
+			global::ClubManagement.Droid.Resource.Attribute.divider = global::Radar.Droid.Resource.Attribute.divider;
+			global::ClubManagement.Droid.Resource.Attribute.dividerHorizontal = global::Radar.Droid.Resource.Attribute.dividerHorizontal;
+			global::ClubManagement.Droid.Resource.Attribute.dividerPadding = global::Radar.Droid.Resource.Attribute.dividerPadding;
+			global::ClubManagement.Droid.Resource.Attribute.dividerVertical = global::Radar.Droid.Resource.Attribute.dividerVertical;
+			global::ClubManagement.Droid.Resource.Attribute.drawableSize = global::Radar.Droid.Resource.Attribute.drawableSize;
+			global::ClubManagement.Droid.Resource.Attribute.drawerArrowStyle = global::Radar.Droid.Resource.Attribute.drawerArrowStyle;
+			global::ClubManagement.Droid.Resource.Attribute.dropDownListViewStyle = global::Radar.Droid.Resource.Attribute.dropDownListViewStyle;
+			global::ClubManagement.Droid.Resource.Attribute.dropdownListPreferredItemHeight = global::Radar.Droid.Resource.Attribute.dropdownListPreferredItemHeight;
+			global::ClubManagement.Droid.Resource.Attribute.editTextBackground = global::Radar.Droid.Resource.Attribute.editTextBackground;
+			global::ClubManagement.Droid.Resource.Attribute.editTextColor = global::Radar.Droid.Resource.Attribute.editTextColor;
+			global::ClubManagement.Droid.Resource.Attribute.editTextStyle = global::Radar.Droid.Resource.Attribute.editTextStyle;
+			global::ClubManagement.Droid.Resource.Attribute.elevation = global::Radar.Droid.Resource.Attribute.elevation;
+			global::ClubManagement.Droid.Resource.Attribute.errorEnabled = global::Radar.Droid.Resource.Attribute.errorEnabled;
+			global::ClubManagement.Droid.Resource.Attribute.errorTextAppearance = global::Radar.Droid.Resource.Attribute.errorTextAppearance;
+			global::ClubManagement.Droid.Resource.Attribute.expandActivityOverflowButtonDrawable = global::Radar.Droid.Resource.Attribute.expandActivityOverflowButtonDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.expanded = global::Radar.Droid.Resource.Attribute.expanded;
+			global::ClubManagement.Droid.Resource.Attribute.expandedTitleGravity = global::Radar.Droid.Resource.Attribute.expandedTitleGravity;
+			global::ClubManagement.Droid.Resource.Attribute.expandedTitleMargin = global::Radar.Droid.Resource.Attribute.expandedTitleMargin;
+			global::ClubManagement.Droid.Resource.Attribute.expandedTitleMarginBottom = global::Radar.Droid.Resource.Attribute.expandedTitleMarginBottom;
+			global::ClubManagement.Droid.Resource.Attribute.expandedTitleMarginEnd = global::Radar.Droid.Resource.Attribute.expandedTitleMarginEnd;
+			global::ClubManagement.Droid.Resource.Attribute.expandedTitleMarginStart = global::Radar.Droid.Resource.Attribute.expandedTitleMarginStart;
+			global::ClubManagement.Droid.Resource.Attribute.expandedTitleMarginTop = global::Radar.Droid.Resource.Attribute.expandedTitleMarginTop;
+			global::ClubManagement.Droid.Resource.Attribute.expandedTitleTextAppearance = global::Radar.Droid.Resource.Attribute.expandedTitleTextAppearance;
+			global::ClubManagement.Droid.Resource.Attribute.externalRouteEnabledDrawable = global::Radar.Droid.Resource.Attribute.externalRouteEnabledDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.fabSize = global::Radar.Droid.Resource.Attribute.fabSize;
+			global::ClubManagement.Droid.Resource.Attribute.foregroundInsidePadding = global::Radar.Droid.Resource.Attribute.foregroundInsidePadding;
+			global::ClubManagement.Droid.Resource.Attribute.gapBetweenBars = global::Radar.Droid.Resource.Attribute.gapBetweenBars;
+			global::ClubManagement.Droid.Resource.Attribute.goIcon = global::Radar.Droid.Resource.Attribute.goIcon;
+			global::ClubManagement.Droid.Resource.Attribute.headerLayout = global::Radar.Droid.Resource.Attribute.headerLayout;
+			global::ClubManagement.Droid.Resource.Attribute.height = global::Radar.Droid.Resource.Attribute.height;
+			global::ClubManagement.Droid.Resource.Attribute.hideOnContentScroll = global::Radar.Droid.Resource.Attribute.hideOnContentScroll;
+			global::ClubManagement.Droid.Resource.Attribute.hintAnimationEnabled = global::Radar.Droid.Resource.Attribute.hintAnimationEnabled;
+			global::ClubManagement.Droid.Resource.Attribute.hintEnabled = global::Radar.Droid.Resource.Attribute.hintEnabled;
+			global::ClubManagement.Droid.Resource.Attribute.hintTextAppearance = global::Radar.Droid.Resource.Attribute.hintTextAppearance;
+			global::ClubManagement.Droid.Resource.Attribute.homeAsUpIndicator = global::Radar.Droid.Resource.Attribute.homeAsUpIndicator;
+			global::ClubManagement.Droid.Resource.Attribute.homeLayout = global::Radar.Droid.Resource.Attribute.homeLayout;
+			global::ClubManagement.Droid.Resource.Attribute.icon = global::Radar.Droid.Resource.Attribute.icon;
+			global::ClubManagement.Droid.Resource.Attribute.iconifiedByDefault = global::Radar.Droid.Resource.Attribute.iconifiedByDefault;
+			global::ClubManagement.Droid.Resource.Attribute.imageAspectRatio = global::Radar.Droid.Resource.Attribute.imageAspectRatio;
+			global::ClubManagement.Droid.Resource.Attribute.imageAspectRatioAdjust = global::Radar.Droid.Resource.Attribute.imageAspectRatioAdjust;
+			global::ClubManagement.Droid.Resource.Attribute.imageButtonStyle = global::Radar.Droid.Resource.Attribute.imageButtonStyle;
+			global::ClubManagement.Droid.Resource.Attribute.indeterminateProgressStyle = global::Radar.Droid.Resource.Attribute.indeterminateProgressStyle;
+			global::ClubManagement.Droid.Resource.Attribute.initialActivityCount = global::Radar.Droid.Resource.Attribute.initialActivityCount;
+			global::ClubManagement.Droid.Resource.Attribute.insetForeground = global::Radar.Droid.Resource.Attribute.insetForeground;
+			global::ClubManagement.Droid.Resource.Attribute.isLightTheme = global::Radar.Droid.Resource.Attribute.isLightTheme;
+			global::ClubManagement.Droid.Resource.Attribute.itemBackground = global::Radar.Droid.Resource.Attribute.itemBackground;
+			global::ClubManagement.Droid.Resource.Attribute.itemIconTint = global::Radar.Droid.Resource.Attribute.itemIconTint;
+			global::ClubManagement.Droid.Resource.Attribute.itemPadding = global::Radar.Droid.Resource.Attribute.itemPadding;
+			global::ClubManagement.Droid.Resource.Attribute.itemTextAppearance = global::Radar.Droid.Resource.Attribute.itemTextAppearance;
+			global::ClubManagement.Droid.Resource.Attribute.itemTextColor = global::Radar.Droid.Resource.Attribute.itemTextColor;
+			global::ClubManagement.Droid.Resource.Attribute.keylines = global::Radar.Droid.Resource.Attribute.keylines;
+			global::ClubManagement.Droid.Resource.Attribute.layout = global::Radar.Droid.Resource.Attribute.layout;
+			global::ClubManagement.Droid.Resource.Attribute.layoutManager = global::Radar.Droid.Resource.Attribute.layoutManager;
+			global::ClubManagement.Droid.Resource.Attribute.layout_anchor = global::Radar.Droid.Resource.Attribute.layout_anchor;
+			global::ClubManagement.Droid.Resource.Attribute.layout_anchorGravity = global::Radar.Droid.Resource.Attribute.layout_anchorGravity;
+			global::ClubManagement.Droid.Resource.Attribute.layout_behavior = global::Radar.Droid.Resource.Attribute.layout_behavior;
+			global::ClubManagement.Droid.Resource.Attribute.layout_collapseMode = global::Radar.Droid.Resource.Attribute.layout_collapseMode;
+			global::ClubManagement.Droid.Resource.Attribute.layout_collapseParallaxMultiplier = global::Radar.Droid.Resource.Attribute.layout_collapseParallaxMultiplier;
+			global::ClubManagement.Droid.Resource.Attribute.layout_keyline = global::Radar.Droid.Resource.Attribute.layout_keyline;
+			global::ClubManagement.Droid.Resource.Attribute.layout_scrollFlags = global::Radar.Droid.Resource.Attribute.layout_scrollFlags;
+			global::ClubManagement.Droid.Resource.Attribute.layout_scrollInterpolator = global::Radar.Droid.Resource.Attribute.layout_scrollInterpolator;
+			global::ClubManagement.Droid.Resource.Attribute.listChoiceBackgroundIndicator = global::Radar.Droid.Resource.Attribute.listChoiceBackgroundIndicator;
+			global::ClubManagement.Droid.Resource.Attribute.listDividerAlertDialog = global::Radar.Droid.Resource.Attribute.listDividerAlertDialog;
+			global::ClubManagement.Droid.Resource.Attribute.listItemLayout = global::Radar.Droid.Resource.Attribute.listItemLayout;
+			global::ClubManagement.Droid.Resource.Attribute.listLayout = global::Radar.Droid.Resource.Attribute.listLayout;
+			global::ClubManagement.Droid.Resource.Attribute.listPopupWindowStyle = global::Radar.Droid.Resource.Attribute.listPopupWindowStyle;
+			global::ClubManagement.Droid.Resource.Attribute.listPreferredItemHeight = global::Radar.Droid.Resource.Attribute.listPreferredItemHeight;
+			global::ClubManagement.Droid.Resource.Attribute.listPreferredItemHeightLarge = global::Radar.Droid.Resource.Attribute.listPreferredItemHeightLarge;
+			global::ClubManagement.Droid.Resource.Attribute.listPreferredItemHeightSmall = global::Radar.Droid.Resource.Attribute.listPreferredItemHeightSmall;
+			global::ClubManagement.Droid.Resource.Attribute.listPreferredItemPaddingLeft = global::Radar.Droid.Resource.Attribute.listPreferredItemPaddingLeft;
+			global::ClubManagement.Droid.Resource.Attribute.listPreferredItemPaddingRight = global::Radar.Droid.Resource.Attribute.listPreferredItemPaddingRight;
+			global::ClubManagement.Droid.Resource.Attribute.liteMode = global::Radar.Droid.Resource.Attribute.liteMode;
+			global::ClubManagement.Droid.Resource.Attribute.logo = global::Radar.Droid.Resource.Attribute.logo;
+			global::ClubManagement.Droid.Resource.Attribute.logoDescription = global::Radar.Droid.Resource.Attribute.logoDescription;
+			global::ClubManagement.Droid.Resource.Attribute.mapType = global::Radar.Droid.Resource.Attribute.mapType;
+			global::ClubManagement.Droid.Resource.Attribute.maxActionInlineWidth = global::Radar.Droid.Resource.Attribute.maxActionInlineWidth;
+			global::ClubManagement.Droid.Resource.Attribute.maxButtonHeight = global::Radar.Droid.Resource.Attribute.maxButtonHeight;
+			global::ClubManagement.Droid.Resource.Attribute.measureWithLargestChild = global::Radar.Droid.Resource.Attribute.measureWithLargestChild;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteAudioTrackDrawable = global::Radar.Droid.Resource.Attribute.mediaRouteAudioTrackDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteBluetoothIconDrawable = global::Radar.Droid.Resource.Attribute.mediaRouteBluetoothIconDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteButtonStyle = global::Radar.Droid.Resource.Attribute.mediaRouteButtonStyle;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteCastDrawable = global::Radar.Droid.Resource.Attribute.mediaRouteCastDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteChooserPrimaryTextStyle = global::Radar.Droid.Resource.Attribute.mediaRouteChooserPrimaryTextStyle;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteChooserSecondaryTextStyle = global::Radar.Droid.Resource.Attribute.mediaRouteChooserSecondaryTextStyle;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteCloseDrawable = global::Radar.Droid.Resource.Attribute.mediaRouteCloseDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteCollapseGroupDrawable = global::Radar.Droid.Resource.Attribute.mediaRouteCollapseGroupDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteConnectingDrawable = global::Radar.Droid.Resource.Attribute.mediaRouteConnectingDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteControllerPrimaryTextStyle = global::Radar.Droid.Resource.Attribute.mediaRouteControllerPrimaryTextStyle;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteControllerSecondaryTextStyle = global::Radar.Droid.Resource.Attribute.mediaRouteControllerSecondaryTextStyle;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteControllerTitleTextStyle = global::Radar.Droid.Resource.Attribute.mediaRouteControllerTitleTextStyle;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteDefaultIconDrawable = global::Radar.Droid.Resource.Attribute.mediaRouteDefaultIconDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteExpandGroupDrawable = global::Radar.Droid.Resource.Attribute.mediaRouteExpandGroupDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteOffDrawable = global::Radar.Droid.Resource.Attribute.mediaRouteOffDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteOnDrawable = global::Radar.Droid.Resource.Attribute.mediaRouteOnDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRoutePauseDrawable = global::Radar.Droid.Resource.Attribute.mediaRoutePauseDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRoutePlayDrawable = global::Radar.Droid.Resource.Attribute.mediaRoutePlayDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteSpeakerGroupIconDrawable = global::Radar.Droid.Resource.Attribute.mediaRouteSpeakerGroupIconDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteSpeakerIconDrawable = global::Radar.Droid.Resource.Attribute.mediaRouteSpeakerIconDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.mediaRouteTvIconDrawable = global::Radar.Droid.Resource.Attribute.mediaRouteTvIconDrawable;
+			global::ClubManagement.Droid.Resource.Attribute.menu = global::Radar.Droid.Resource.Attribute.menu;
+			global::ClubManagement.Droid.Resource.Attribute.multiChoiceItemLayout = global::Radar.Droid.Resource.Attribute.multiChoiceItemLayout;
+			global::ClubManagement.Droid.Resource.Attribute.navigationContentDescription = global::Radar.Droid.Resource.Attribute.navigationContentDescription;
+			global::ClubManagement.Droid.Resource.Attribute.navigationIcon = global::Radar.Droid.Resource.Attribute.navigationIcon;
+			global::ClubManagement.Droid.Resource.Attribute.navigationMode = global::Radar.Droid.Resource.Attribute.navigationMode;
+			global::ClubManagement.Droid.Resource.Attribute.overlapAnchor = global::Radar.Droid.Resource.Attribute.overlapAnchor;
+			global::ClubManagement.Droid.Resource.Attribute.paddingEnd = global::Radar.Droid.Resource.Attribute.paddingEnd;
+			global::ClubManagement.Droid.Resource.Attribute.paddingStart = global::Radar.Droid.Resource.Attribute.paddingStart;
+			global::ClubManagement.Droid.Resource.Attribute.panelBackground = global::Radar.Droid.Resource.Attribute.panelBackground;
+			global::ClubManagement.Droid.Resource.Attribute.panelMenuListTheme = global::Radar.Droid.Resource.Attribute.panelMenuListTheme;
+			global::ClubManagement.Droid.Resource.Attribute.panelMenuListWidth = global::Radar.Droid.Resource.Attribute.panelMenuListWidth;
+			global::ClubManagement.Droid.Resource.Attribute.popupMenuStyle = global::Radar.Droid.Resource.Attribute.popupMenuStyle;
+			global::ClubManagement.Droid.Resource.Attribute.popupTheme = global::Radar.Droid.Resource.Attribute.popupTheme;
+			global::ClubManagement.Droid.Resource.Attribute.popupWindowStyle = global::Radar.Droid.Resource.Attribute.popupWindowStyle;
+			global::ClubManagement.Droid.Resource.Attribute.preserveIconSpacing = global::Radar.Droid.Resource.Attribute.preserveIconSpacing;
+			global::ClubManagement.Droid.Resource.Attribute.pressedTranslationZ = global::Radar.Droid.Resource.Attribute.pressedTranslationZ;
+			global::ClubManagement.Droid.Resource.Attribute.progressBarPadding = global::Radar.Droid.Resource.Attribute.progressBarPadding;
+			global::ClubManagement.Droid.Resource.Attribute.progressBarStyle = global::Radar.Droid.Resource.Attribute.progressBarStyle;
+			global::ClubManagement.Droid.Resource.Attribute.queryBackground = global::Radar.Droid.Resource.Attribute.queryBackground;
+			global::ClubManagement.Droid.Resource.Attribute.queryHint = global::Radar.Droid.Resource.Attribute.queryHint;
+			global::ClubManagement.Droid.Resource.Attribute.radioButtonStyle = global::Radar.Droid.Resource.Attribute.radioButtonStyle;
+			global::ClubManagement.Droid.Resource.Attribute.ratingBarStyle = global::Radar.Droid.Resource.Attribute.ratingBarStyle;
+			global::ClubManagement.Droid.Resource.Attribute.ratingBarStyleIndicator = global::Radar.Droid.Resource.Attribute.ratingBarStyleIndicator;
+			global::ClubManagement.Droid.Resource.Attribute.ratingBarStyleSmall = global::Radar.Droid.Resource.Attribute.ratingBarStyleSmall;
+			global::ClubManagement.Droid.Resource.Attribute.reverseLayout = global::Radar.Droid.Resource.Attribute.reverseLayout;
+			global::ClubManagement.Droid.Resource.Attribute.rippleColor = global::Radar.Droid.Resource.Attribute.rippleColor;
+			global::ClubManagement.Droid.Resource.Attribute.scopeUris = global::Radar.Droid.Resource.Attribute.scopeUris;
+			global::ClubManagement.Droid.Resource.Attribute.searchHintIcon = global::Radar.Droid.Resource.Attribute.searchHintIcon;
+			global::ClubManagement.Droid.Resource.Attribute.searchIcon = global::Radar.Droid.Resource.Attribute.searchIcon;
+			global::ClubManagement.Droid.Resource.Attribute.searchViewStyle = global::Radar.Droid.Resource.Attribute.searchViewStyle;
+			global::ClubManagement.Droid.Resource.Attribute.seekBarStyle = global::Radar.Droid.Resource.Attribute.seekBarStyle;
+			global::ClubManagement.Droid.Resource.Attribute.selectableItemBackground = global::Radar.Droid.Resource.Attribute.selectableItemBackground;
+			global::ClubManagement.Droid.Resource.Attribute.selectableItemBackgroundBorderless = global::Radar.Droid.Resource.Attribute.selectableItemBackgroundBorderless;
+			global::ClubManagement.Droid.Resource.Attribute.showAsAction = global::Radar.Droid.Resource.Attribute.showAsAction;
+			global::ClubManagement.Droid.Resource.Attribute.showDividers = global::Radar.Droid.Resource.Attribute.showDividers;
+			global::ClubManagement.Droid.Resource.Attribute.showText = global::Radar.Droid.Resource.Attribute.showText;
+			global::ClubManagement.Droid.Resource.Attribute.singleChoiceItemLayout = global::Radar.Droid.Resource.Attribute.singleChoiceItemLayout;
+			global::ClubManagement.Droid.Resource.Attribute.spanCount = global::Radar.Droid.Resource.Attribute.spanCount;
+			global::ClubManagement.Droid.Resource.Attribute.spinBars = global::Radar.Droid.Resource.Attribute.spinBars;
+			global::ClubManagement.Droid.Resource.Attribute.spinnerDropDownItemStyle = global::Radar.Droid.Resource.Attribute.spinnerDropDownItemStyle;
+			global::ClubManagement.Droid.Resource.Attribute.spinnerStyle = global::Radar.Droid.Resource.Attribute.spinnerStyle;
+			global::ClubManagement.Droid.Resource.Attribute.splitTrack = global::Radar.Droid.Resource.Attribute.splitTrack;
+			global::ClubManagement.Droid.Resource.Attribute.srcCompat = global::Radar.Droid.Resource.Attribute.srcCompat;
+			global::ClubManagement.Droid.Resource.Attribute.stackFromEnd = global::Radar.Droid.Resource.Attribute.stackFromEnd;
+			global::ClubManagement.Droid.Resource.Attribute.state_above_anchor = global::Radar.Droid.Resource.Attribute.state_above_anchor;
+			global::ClubManagement.Droid.Resource.Attribute.statusBarBackground = global::Radar.Droid.Resource.Attribute.statusBarBackground;
+			global::ClubManagement.Droid.Resource.Attribute.statusBarScrim = global::Radar.Droid.Resource.Attribute.statusBarScrim;
+			global::ClubManagement.Droid.Resource.Attribute.submitBackground = global::Radar.Droid.Resource.Attribute.submitBackground;
+			global::ClubManagement.Droid.Resource.Attribute.subtitle = global::Radar.Droid.Resource.Attribute.subtitle;
+			global::ClubManagement.Droid.Resource.Attribute.subtitleTextAppearance = global::Radar.Droid.Resource.Attribute.subtitleTextAppearance;
+			global::ClubManagement.Droid.Resource.Attribute.subtitleTextColor = global::Radar.Droid.Resource.Attribute.subtitleTextColor;
+			global::ClubManagement.Droid.Resource.Attribute.subtitleTextStyle = global::Radar.Droid.Resource.Attribute.subtitleTextStyle;
+			global::ClubManagement.Droid.Resource.Attribute.suggestionRowLayout = global::Radar.Droid.Resource.Attribute.suggestionRowLayout;
+			global::ClubManagement.Droid.Resource.Attribute.switchMinWidth = global::Radar.Droid.Resource.Attribute.switchMinWidth;
+			global::ClubManagement.Droid.Resource.Attribute.switchPadding = global::Radar.Droid.Resource.Attribute.switchPadding;
+			global::ClubManagement.Droid.Resource.Attribute.switchStyle = global::Radar.Droid.Resource.Attribute.switchStyle;
+			global::ClubManagement.Droid.Resource.Attribute.switchTextAppearance = global::Radar.Droid.Resource.Attribute.switchTextAppearance;
+			global::ClubManagement.Droid.Resource.Attribute.tabBackground = global::Radar.Droid.Resource.Attribute.tabBackground;
+			global::ClubManagement.Droid.Resource.Attribute.tabContentStart = global::Radar.Droid.Resource.Attribute.tabContentStart;
+			global::ClubManagement.Droid.Resource.Attribute.tabGravity = global::Radar.Droid.Resource.Attribute.tabGravity;
+			global::ClubManagement.Droid.Resource.Attribute.tabIndicatorColor = global::Radar.Droid.Resource.Attribute.tabIndicatorColor;
+			global::ClubManagement.Droid.Resource.Attribute.tabIndicatorHeight = global::Radar.Droid.Resource.Attribute.tabIndicatorHeight;
+			global::ClubManagement.Droid.Resource.Attribute.tabMaxWidth = global::Radar.Droid.Resource.Attribute.tabMaxWidth;
+			global::ClubManagement.Droid.Resource.Attribute.tabMinWidth = global::Radar.Droid.Resource.Attribute.tabMinWidth;
+			global::ClubManagement.Droid.Resource.Attribute.tabMode = global::Radar.Droid.Resource.Attribute.tabMode;
+			global::ClubManagement.Droid.Resource.Attribute.tabPadding = global::Radar.Droid.Resource.Attribute.tabPadding;
+			global::ClubManagement.Droid.Resource.Attribute.tabPaddingBottom = global::Radar.Droid.Resource.Attribute.tabPaddingBottom;
+			global::ClubManagement.Droid.Resource.Attribute.tabPaddingEnd = global::Radar.Droid.Resource.Attribute.tabPaddingEnd;
+			global::ClubManagement.Droid.Resource.Attribute.tabPaddingStart = global::Radar.Droid.Resource.Attribute.tabPaddingStart;
+			global::ClubManagement.Droid.Resource.Attribute.tabPaddingTop = global::Radar.Droid.Resource.Attribute.tabPaddingTop;
+			global::ClubManagement.Droid.Resource.Attribute.tabSelectedTextColor = global::Radar.Droid.Resource.Attribute.tabSelectedTextColor;
+			global::ClubManagement.Droid.Resource.Attribute.tabTextAppearance = global::Radar.Droid.Resource.Attribute.tabTextAppearance;
+			global::ClubManagement.Droid.Resource.Attribute.tabTextColor = global::Radar.Droid.Resource.Attribute.tabTextColor;
+			global::ClubManagement.Droid.Resource.Attribute.textAllCaps = global::Radar.Droid.Resource.Attribute.textAllCaps;
+			global::ClubManagement.Droid.Resource.Attribute.textAppearanceLargePopupMenu = global::Radar.Droid.Resource.Attribute.textAppearanceLargePopupMenu;
+			global::ClubManagement.Droid.Resource.Attribute.textAppearanceListItem = global::Radar.Droid.Resource.Attribute.textAppearanceListItem;
+			global::ClubManagement.Droid.Resource.Attribute.textAppearanceListItemSmall = global::Radar.Droid.Resource.Attribute.textAppearanceListItemSmall;
+			global::ClubManagement.Droid.Resource.Attribute.textAppearanceSearchResultSubtitle = global::Radar.Droid.Resource.Attribute.textAppearanceSearchResultSubtitle;
+			global::ClubManagement.Droid.Resource.Attribute.textAppearanceSearchResultTitle = global::Radar.Droid.Resource.Attribute.textAppearanceSearchResultTitle;
+			global::ClubManagement.Droid.Resource.Attribute.textAppearanceSmallPopupMenu = global::Radar.Droid.Resource.Attribute.textAppearanceSmallPopupMenu;
+			global::ClubManagement.Droid.Resource.Attribute.textColorAlertDialogListItem = global::Radar.Droid.Resource.Attribute.textColorAlertDialogListItem;
+			global::ClubManagement.Droid.Resource.Attribute.textColorError = global::Radar.Droid.Resource.Attribute.textColorError;
+			global::ClubManagement.Droid.Resource.Attribute.textColorSearchUrl = global::Radar.Droid.Resource.Attribute.textColorSearchUrl;
+			global::ClubManagement.Droid.Resource.Attribute.theme = global::Radar.Droid.Resource.Attribute.theme;
+			global::ClubManagement.Droid.Resource.Attribute.thickness = global::Radar.Droid.Resource.Attribute.thickness;
+			global::ClubManagement.Droid.Resource.Attribute.thumbTextPadding = global::Radar.Droid.Resource.Attribute.thumbTextPadding;
+			global::ClubManagement.Droid.Resource.Attribute.title = global::Radar.Droid.Resource.Attribute.title;
+			global::ClubManagement.Droid.Resource.Attribute.titleEnabled = global::Radar.Droid.Resource.Attribute.titleEnabled;
+			global::ClubManagement.Droid.Resource.Attribute.titleMarginBottom = global::Radar.Droid.Resource.Attribute.titleMarginBottom;
+			global::ClubManagement.Droid.Resource.Attribute.titleMarginEnd = global::Radar.Droid.Resource.Attribute.titleMarginEnd;
+			global::ClubManagement.Droid.Resource.Attribute.titleMarginStart = global::Radar.Droid.Resource.Attribute.titleMarginStart;
+			global::ClubManagement.Droid.Resource.Attribute.titleMarginTop = global::Radar.Droid.Resource.Attribute.titleMarginTop;
+			global::ClubManagement.Droid.Resource.Attribute.titleMargins = global::Radar.Droid.Resource.Attribute.titleMargins;
+			global::ClubManagement.Droid.Resource.Attribute.titleTextAppearance = global::Radar.Droid.Resource.Attribute.titleTextAppearance;
+			global::ClubManagement.Droid.Resource.Attribute.titleTextColor = global::Radar.Droid.Resource.Attribute.titleTextColor;
+			global::ClubManagement.Droid.Resource.Attribute.titleTextStyle = global::Radar.Droid.Resource.Attribute.titleTextStyle;
+			global::ClubManagement.Droid.Resource.Attribute.toolbarId = global::Radar.Droid.Resource.Attribute.toolbarId;
+			global::ClubManagement.Droid.Resource.Attribute.toolbarNavigationButtonStyle = global::Radar.Droid.Resource.Attribute.toolbarNavigationButtonStyle;
+			global::ClubManagement.Droid.Resource.Attribute.toolbarStyle = global::Radar.Droid.Resource.Attribute.toolbarStyle;
+			global::ClubManagement.Droid.Resource.Attribute.track = global::Radar.Droid.Resource.Attribute.track;
+			global::ClubManagement.Droid.Resource.Attribute.uiCompass = global::Radar.Droid.Resource.Attribute.uiCompass;
+			global::ClubManagement.Droid.Resource.Attribute.uiMapToolbar = global::Radar.Droid.Resource.Attribute.uiMapToolbar;
+			global::ClubManagement.Droid.Resource.Attribute.uiRotateGestures = global::Radar.Droid.Resource.Attribute.uiRotateGestures;
+			global::ClubManagement.Droid.Resource.Attribute.uiScrollGestures = global::Radar.Droid.Resource.Attribute.uiScrollGestures;
+			global::ClubManagement.Droid.Resource.Attribute.uiTiltGestures = global::Radar.Droid.Resource.Attribute.uiTiltGestures;
+			global::ClubManagement.Droid.Resource.Attribute.uiZoomControls = global::Radar.Droid.Resource.Attribute.uiZoomControls;
+			global::ClubManagement.Droid.Resource.Attribute.uiZoomGestures = global::Radar.Droid.Resource.Attribute.uiZoomGestures;
+			global::ClubManagement.Droid.Resource.Attribute.useCompatPadding = global::Radar.Droid.Resource.Attribute.useCompatPadding;
+			global::ClubManagement.Droid.Resource.Attribute.useViewLifecycle = global::Radar.Droid.Resource.Attribute.useViewLifecycle;
+			global::ClubManagement.Droid.Resource.Attribute.voiceIcon = global::Radar.Droid.Resource.Attribute.voiceIcon;
+			global::ClubManagement.Droid.Resource.Attribute.windowActionBar = global::Radar.Droid.Resource.Attribute.windowActionBar;
+			global::ClubManagement.Droid.Resource.Attribute.windowActionBarOverlay = global::Radar.Droid.Resource.Attribute.windowActionBarOverlay;
+			global::ClubManagement.Droid.Resource.Attribute.windowActionModeOverlay = global::Radar.Droid.Resource.Attribute.windowActionModeOverlay;
+			global::ClubManagement.Droid.Resource.Attribute.windowFixedHeightMajor = global::Radar.Droid.Resource.Attribute.windowFixedHeightMajor;
+			global::ClubManagement.Droid.Resource.Attribute.windowFixedHeightMinor = global::Radar.Droid.Resource.Attribute.windowFixedHeightMinor;
+			global::ClubManagement.Droid.Resource.Attribute.windowFixedWidthMajor = global::Radar.Droid.Resource.Attribute.windowFixedWidthMajor;
+			global::ClubManagement.Droid.Resource.Attribute.windowFixedWidthMinor = global::Radar.Droid.Resource.Attribute.windowFixedWidthMinor;
+			global::ClubManagement.Droid.Resource.Attribute.windowMinWidthMajor = global::Radar.Droid.Resource.Attribute.windowMinWidthMajor;
+			global::ClubManagement.Droid.Resource.Attribute.windowMinWidthMinor = global::Radar.Droid.Resource.Attribute.windowMinWidthMinor;
+			global::ClubManagement.Droid.Resource.Attribute.windowNoTitle = global::Radar.Droid.Resource.Attribute.windowNoTitle;
+			global::ClubManagement.Droid.Resource.Attribute.zOrderOnTop = global::Radar.Droid.Resource.Attribute.zOrderOnTop;
+			global::ClubManagement.Droid.Resource.Boolean.abc_action_bar_embed_tabs = global::Radar.Droid.Resource.Boolean.abc_action_bar_embed_tabs;
+			global::ClubManagement.Droid.Resource.Boolean.abc_action_bar_embed_tabs_pre_jb = global::Radar.Droid.Resource.Boolean.abc_action_bar_embed_tabs_pre_jb;
+			global::ClubManagement.Droid.Resource.Boolean.abc_action_bar_expanded_action_views_exclusive = global::Radar.Droid.Resource.Boolean.abc_action_bar_expanded_action_views_exclusive;
+			global::ClubManagement.Droid.Resource.Boolean.abc_allow_stacked_button_bar = global::Radar.Droid.Resource.Boolean.abc_allow_stacked_button_bar;
+			global::ClubManagement.Droid.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::Radar.Droid.Resource.Boolean.abc_config_actionMenuItemAllCaps;
+			global::ClubManagement.Droid.Resource.Boolean.abc_config_allowActionMenuItemTextWithIcon = global::Radar.Droid.Resource.Boolean.abc_config_allowActionMenuItemTextWithIcon;
+			global::ClubManagement.Droid.Resource.Boolean.abc_config_closeDialogWhenTouchOutside = global::Radar.Droid.Resource.Boolean.abc_config_closeDialogWhenTouchOutside;
+			global::ClubManagement.Droid.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent = global::Radar.Droid.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent;
+			global::ClubManagement.Droid.Resource.Color.abc_background_cache_hint_selector_material_dark = global::Radar.Droid.Resource.Color.abc_background_cache_hint_selector_material_dark;
+			global::ClubManagement.Droid.Resource.Color.abc_background_cache_hint_selector_material_light = global::Radar.Droid.Resource.Color.abc_background_cache_hint_selector_material_light;
+			global::ClubManagement.Droid.Resource.Color.abc_color_highlight_material = global::Radar.Droid.Resource.Color.abc_color_highlight_material;
+			global::ClubManagement.Droid.Resource.Color.abc_input_method_navigation_guard = global::Radar.Droid.Resource.Color.abc_input_method_navigation_guard;
+			global::ClubManagement.Droid.Resource.Color.abc_primary_text_disable_only_material_dark = global::Radar.Droid.Resource.Color.abc_primary_text_disable_only_material_dark;
+			global::ClubManagement.Droid.Resource.Color.abc_primary_text_disable_only_material_light = global::Radar.Droid.Resource.Color.abc_primary_text_disable_only_material_light;
+			global::ClubManagement.Droid.Resource.Color.abc_primary_text_material_dark = global::Radar.Droid.Resource.Color.abc_primary_text_material_dark;
+			global::ClubManagement.Droid.Resource.Color.abc_primary_text_material_light = global::Radar.Droid.Resource.Color.abc_primary_text_material_light;
+			global::ClubManagement.Droid.Resource.Color.abc_search_url_text = global::Radar.Droid.Resource.Color.abc_search_url_text;
+			global::ClubManagement.Droid.Resource.Color.abc_search_url_text_normal = global::Radar.Droid.Resource.Color.abc_search_url_text_normal;
+			global::ClubManagement.Droid.Resource.Color.abc_search_url_text_pressed = global::Radar.Droid.Resource.Color.abc_search_url_text_pressed;
+			global::ClubManagement.Droid.Resource.Color.abc_search_url_text_selected = global::Radar.Droid.Resource.Color.abc_search_url_text_selected;
+			global::ClubManagement.Droid.Resource.Color.abc_secondary_text_material_dark = global::Radar.Droid.Resource.Color.abc_secondary_text_material_dark;
+			global::ClubManagement.Droid.Resource.Color.abc_secondary_text_material_light = global::Radar.Droid.Resource.Color.abc_secondary_text_material_light;
+			global::ClubManagement.Droid.Resource.Color.accent_material_dark = global::Radar.Droid.Resource.Color.accent_material_dark;
+			global::ClubManagement.Droid.Resource.Color.accent_material_light = global::Radar.Droid.Resource.Color.accent_material_light;
+			global::ClubManagement.Droid.Resource.Color.background_floating_material_dark = global::Radar.Droid.Resource.Color.background_floating_material_dark;
+			global::ClubManagement.Droid.Resource.Color.background_floating_material_light = global::Radar.Droid.Resource.Color.background_floating_material_light;
+			global::ClubManagement.Droid.Resource.Color.background_material_dark = global::Radar.Droid.Resource.Color.background_material_dark;
+			global::ClubManagement.Droid.Resource.Color.background_material_light = global::Radar.Droid.Resource.Color.background_material_light;
+			global::ClubManagement.Droid.Resource.Color.bright_foreground_disabled_material_dark = global::Radar.Droid.Resource.Color.bright_foreground_disabled_material_dark;
+			global::ClubManagement.Droid.Resource.Color.bright_foreground_disabled_material_light = global::Radar.Droid.Resource.Color.bright_foreground_disabled_material_light;
+			global::ClubManagement.Droid.Resource.Color.bright_foreground_inverse_material_dark = global::Radar.Droid.Resource.Color.bright_foreground_inverse_material_dark;
+			global::ClubManagement.Droid.Resource.Color.bright_foreground_inverse_material_light = global::Radar.Droid.Resource.Color.bright_foreground_inverse_material_light;
+			global::ClubManagement.Droid.Resource.Color.bright_foreground_material_dark = global::Radar.Droid.Resource.Color.bright_foreground_material_dark;
+			global::ClubManagement.Droid.Resource.Color.bright_foreground_material_light = global::Radar.Droid.Resource.Color.bright_foreground_material_light;
+			global::ClubManagement.Droid.Resource.Color.button_material_dark = global::Radar.Droid.Resource.Color.button_material_dark;
+			global::ClubManagement.Droid.Resource.Color.button_material_light = global::Radar.Droid.Resource.Color.button_material_light;
+			global::ClubManagement.Droid.Resource.Color.cardview_dark_background = global::Radar.Droid.Resource.Color.cardview_dark_background;
+			global::ClubManagement.Droid.Resource.Color.cardview_light_background = global::Radar.Droid.Resource.Color.cardview_light_background;
+			global::ClubManagement.Droid.Resource.Color.cardview_shadow_end_color = global::Radar.Droid.Resource.Color.cardview_shadow_end_color;
+			global::ClubManagement.Droid.Resource.Color.cardview_shadow_start_color = global::Radar.Droid.Resource.Color.cardview_shadow_start_color;
+			global::ClubManagement.Droid.Resource.Color.common_action_bar_splitter = global::Radar.Droid.Resource.Color.common_action_bar_splitter;
+			global::ClubManagement.Droid.Resource.Color.common_google_signin_btn_text_dark = global::Radar.Droid.Resource.Color.common_google_signin_btn_text_dark;
+			global::ClubManagement.Droid.Resource.Color.common_google_signin_btn_text_dark_default = global::Radar.Droid.Resource.Color.common_google_signin_btn_text_dark_default;
+			global::ClubManagement.Droid.Resource.Color.common_google_signin_btn_text_dark_disabled = global::Radar.Droid.Resource.Color.common_google_signin_btn_text_dark_disabled;
+			global::ClubManagement.Droid.Resource.Color.common_google_signin_btn_text_dark_focused = global::Radar.Droid.Resource.Color.common_google_signin_btn_text_dark_focused;
+			global::ClubManagement.Droid.Resource.Color.common_google_signin_btn_text_dark_pressed = global::Radar.Droid.Resource.Color.common_google_signin_btn_text_dark_pressed;
+			global::ClubManagement.Droid.Resource.Color.common_google_signin_btn_text_light = global::Radar.Droid.Resource.Color.common_google_signin_btn_text_light;
+			global::ClubManagement.Droid.Resource.Color.common_google_signin_btn_text_light_default = global::Radar.Droid.Resource.Color.common_google_signin_btn_text_light_default;
+			global::ClubManagement.Droid.Resource.Color.common_google_signin_btn_text_light_disabled = global::Radar.Droid.Resource.Color.common_google_signin_btn_text_light_disabled;
+			global::ClubManagement.Droid.Resource.Color.common_google_signin_btn_text_light_focused = global::Radar.Droid.Resource.Color.common_google_signin_btn_text_light_focused;
+			global::ClubManagement.Droid.Resource.Color.common_google_signin_btn_text_light_pressed = global::Radar.Droid.Resource.Color.common_google_signin_btn_text_light_pressed;
+			global::ClubManagement.Droid.Resource.Color.common_plus_signin_btn_text_dark = global::Radar.Droid.Resource.Color.common_plus_signin_btn_text_dark;
+			global::ClubManagement.Droid.Resource.Color.common_plus_signin_btn_text_dark_default = global::Radar.Droid.Resource.Color.common_plus_signin_btn_text_dark_default;
+			global::ClubManagement.Droid.Resource.Color.common_plus_signin_btn_text_dark_disabled = global::Radar.Droid.Resource.Color.common_plus_signin_btn_text_dark_disabled;
+			global::ClubManagement.Droid.Resource.Color.common_plus_signin_btn_text_dark_focused = global::Radar.Droid.Resource.Color.common_plus_signin_btn_text_dark_focused;
+			global::ClubManagement.Droid.Resource.Color.common_plus_signin_btn_text_dark_pressed = global::Radar.Droid.Resource.Color.common_plus_signin_btn_text_dark_pressed;
+			global::ClubManagement.Droid.Resource.Color.common_plus_signin_btn_text_light = global::Radar.Droid.Resource.Color.common_plus_signin_btn_text_light;
+			global::ClubManagement.Droid.Resource.Color.common_plus_signin_btn_text_light_default = global::Radar.Droid.Resource.Color.common_plus_signin_btn_text_light_default;
+			global::ClubManagement.Droid.Resource.Color.common_plus_signin_btn_text_light_disabled = global::Radar.Droid.Resource.Color.common_plus_signin_btn_text_light_disabled;
+			global::ClubManagement.Droid.Resource.Color.common_plus_signin_btn_text_light_focused = global::Radar.Droid.Resource.Color.common_plus_signin_btn_text_light_focused;
+			global::ClubManagement.Droid.Resource.Color.common_plus_signin_btn_text_light_pressed = global::Radar.Droid.Resource.Color.common_plus_signin_btn_text_light_pressed;
+			global::ClubManagement.Droid.Resource.Color.design_fab_shadow_end_color = global::Radar.Droid.Resource.Color.design_fab_shadow_end_color;
+			global::ClubManagement.Droid.Resource.Color.design_fab_shadow_mid_color = global::Radar.Droid.Resource.Color.design_fab_shadow_mid_color;
+			global::ClubManagement.Droid.Resource.Color.design_fab_shadow_start_color = global::Radar.Droid.Resource.Color.design_fab_shadow_start_color;
+			global::ClubManagement.Droid.Resource.Color.design_fab_stroke_end_inner_color = global::Radar.Droid.Resource.Color.design_fab_stroke_end_inner_color;
+			global::ClubManagement.Droid.Resource.Color.design_fab_stroke_end_outer_color = global::Radar.Droid.Resource.Color.design_fab_stroke_end_outer_color;
+			global::ClubManagement.Droid.Resource.Color.design_fab_stroke_top_inner_color = global::Radar.Droid.Resource.Color.design_fab_stroke_top_inner_color;
+			global::ClubManagement.Droid.Resource.Color.design_fab_stroke_top_outer_color = global::Radar.Droid.Resource.Color.design_fab_stroke_top_outer_color;
+			global::ClubManagement.Droid.Resource.Color.design_snackbar_background_color = global::Radar.Droid.Resource.Color.design_snackbar_background_color;
+			global::ClubManagement.Droid.Resource.Color.design_textinput_error_color_dark = global::Radar.Droid.Resource.Color.design_textinput_error_color_dark;
+			global::ClubManagement.Droid.Resource.Color.design_textinput_error_color_light = global::Radar.Droid.Resource.Color.design_textinput_error_color_light;
+			global::ClubManagement.Droid.Resource.Color.dim_foreground_disabled_material_dark = global::Radar.Droid.Resource.Color.dim_foreground_disabled_material_dark;
+			global::ClubManagement.Droid.Resource.Color.dim_foreground_disabled_material_light = global::Radar.Droid.Resource.Color.dim_foreground_disabled_material_light;
+			global::ClubManagement.Droid.Resource.Color.dim_foreground_material_dark = global::Radar.Droid.Resource.Color.dim_foreground_material_dark;
+			global::ClubManagement.Droid.Resource.Color.dim_foreground_material_light = global::Radar.Droid.Resource.Color.dim_foreground_material_light;
+			global::ClubManagement.Droid.Resource.Color.foreground_material_dark = global::Radar.Droid.Resource.Color.foreground_material_dark;
+			global::ClubManagement.Droid.Resource.Color.foreground_material_light = global::Radar.Droid.Resource.Color.foreground_material_light;
+			global::ClubManagement.Droid.Resource.Color.highlighted_text_material_dark = global::Radar.Droid.Resource.Color.highlighted_text_material_dark;
+			global::ClubManagement.Droid.Resource.Color.highlighted_text_material_light = global::Radar.Droid.Resource.Color.highlighted_text_material_light;
+			global::ClubManagement.Droid.Resource.Color.hint_foreground_material_dark = global::Radar.Droid.Resource.Color.hint_foreground_material_dark;
+			global::ClubManagement.Droid.Resource.Color.hint_foreground_material_light = global::Radar.Droid.Resource.Color.hint_foreground_material_light;
+			global::ClubManagement.Droid.Resource.Color.material_blue_grey_800 = global::Radar.Droid.Resource.Color.material_blue_grey_800;
+			global::ClubManagement.Droid.Resource.Color.material_blue_grey_900 = global::Radar.Droid.Resource.Color.material_blue_grey_900;
+			global::ClubManagement.Droid.Resource.Color.material_blue_grey_950 = global::Radar.Droid.Resource.Color.material_blue_grey_950;
+			global::ClubManagement.Droid.Resource.Color.material_deep_teal_200 = global::Radar.Droid.Resource.Color.material_deep_teal_200;
+			global::ClubManagement.Droid.Resource.Color.material_deep_teal_500 = global::Radar.Droid.Resource.Color.material_deep_teal_500;
+			global::ClubManagement.Droid.Resource.Color.material_grey_100 = global::Radar.Droid.Resource.Color.material_grey_100;
+			global::ClubManagement.Droid.Resource.Color.material_grey_300 = global::Radar.Droid.Resource.Color.material_grey_300;
+			global::ClubManagement.Droid.Resource.Color.material_grey_50 = global::Radar.Droid.Resource.Color.material_grey_50;
+			global::ClubManagement.Droid.Resource.Color.material_grey_600 = global::Radar.Droid.Resource.Color.material_grey_600;
+			global::ClubManagement.Droid.Resource.Color.material_grey_800 = global::Radar.Droid.Resource.Color.material_grey_800;
+			global::ClubManagement.Droid.Resource.Color.material_grey_850 = global::Radar.Droid.Resource.Color.material_grey_850;
+			global::ClubManagement.Droid.Resource.Color.material_grey_900 = global::Radar.Droid.Resource.Color.material_grey_900;
+			global::ClubManagement.Droid.Resource.Color.primary_dark_material_dark = global::Radar.Droid.Resource.Color.primary_dark_material_dark;
+			global::ClubManagement.Droid.Resource.Color.primary_dark_material_light = global::Radar.Droid.Resource.Color.primary_dark_material_light;
+			global::ClubManagement.Droid.Resource.Color.primary_material_dark = global::Radar.Droid.Resource.Color.primary_material_dark;
+			global::ClubManagement.Droid.Resource.Color.primary_material_light = global::Radar.Droid.Resource.Color.primary_material_light;
+			global::ClubManagement.Droid.Resource.Color.primary_text_default_material_dark = global::Radar.Droid.Resource.Color.primary_text_default_material_dark;
+			global::ClubManagement.Droid.Resource.Color.primary_text_default_material_light = global::Radar.Droid.Resource.Color.primary_text_default_material_light;
+			global::ClubManagement.Droid.Resource.Color.primary_text_disabled_material_dark = global::Radar.Droid.Resource.Color.primary_text_disabled_material_dark;
+			global::ClubManagement.Droid.Resource.Color.primary_text_disabled_material_light = global::Radar.Droid.Resource.Color.primary_text_disabled_material_light;
+			global::ClubManagement.Droid.Resource.Color.ripple_material_dark = global::Radar.Droid.Resource.Color.ripple_material_dark;
+			global::ClubManagement.Droid.Resource.Color.ripple_material_light = global::Radar.Droid.Resource.Color.ripple_material_light;
+			global::ClubManagement.Droid.Resource.Color.secondary_text_default_material_dark = global::Radar.Droid.Resource.Color.secondary_text_default_material_dark;
+			global::ClubManagement.Droid.Resource.Color.secondary_text_default_material_light = global::Radar.Droid.Resource.Color.secondary_text_default_material_light;
+			global::ClubManagement.Droid.Resource.Color.secondary_text_disabled_material_dark = global::Radar.Droid.Resource.Color.secondary_text_disabled_material_dark;
+			global::ClubManagement.Droid.Resource.Color.secondary_text_disabled_material_light = global::Radar.Droid.Resource.Color.secondary_text_disabled_material_light;
+			global::ClubManagement.Droid.Resource.Color.switch_thumb_disabled_material_dark = global::Radar.Droid.Resource.Color.switch_thumb_disabled_material_dark;
+			global::ClubManagement.Droid.Resource.Color.switch_thumb_disabled_material_light = global::Radar.Droid.Resource.Color.switch_thumb_disabled_material_light;
+			global::ClubManagement.Droid.Resource.Color.switch_thumb_material_dark = global::Radar.Droid.Resource.Color.switch_thumb_material_dark;
+			global::ClubManagement.Droid.Resource.Color.switch_thumb_material_light = global::Radar.Droid.Resource.Color.switch_thumb_material_light;
+			global::ClubManagement.Droid.Resource.Color.switch_thumb_normal_material_dark = global::Radar.Droid.Resource.Color.switch_thumb_normal_material_dark;
+			global::ClubManagement.Droid.Resource.Color.switch_thumb_normal_material_light = global::Radar.Droid.Resource.Color.switch_thumb_normal_material_light;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_bar_content_inset_material = global::Radar.Droid.Resource.Dimension.abc_action_bar_content_inset_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_bar_default_height_material = global::Radar.Droid.Resource.Dimension.abc_action_bar_default_height_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_bar_default_padding_end_material = global::Radar.Droid.Resource.Dimension.abc_action_bar_default_padding_end_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_bar_default_padding_start_material = global::Radar.Droid.Resource.Dimension.abc_action_bar_default_padding_start_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_bar_icon_vertical_padding_material = global::Radar.Droid.Resource.Dimension.abc_action_bar_icon_vertical_padding_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_bar_overflow_padding_end_material = global::Radar.Droid.Resource.Dimension.abc_action_bar_overflow_padding_end_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_bar_overflow_padding_start_material = global::Radar.Droid.Resource.Dimension.abc_action_bar_overflow_padding_start_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_bar_progress_bar_size = global::Radar.Droid.Resource.Dimension.abc_action_bar_progress_bar_size;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_bar_stacked_max_height = global::Radar.Droid.Resource.Dimension.abc_action_bar_stacked_max_height;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_bar_stacked_tab_max_width = global::Radar.Droid.Resource.Dimension.abc_action_bar_stacked_tab_max_width;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material = global::Radar.Droid.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_bar_subtitle_top_margin_material = global::Radar.Droid.Resource.Dimension.abc_action_bar_subtitle_top_margin_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_button_min_height_material = global::Radar.Droid.Resource.Dimension.abc_action_button_min_height_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_button_min_width_material = global::Radar.Droid.Resource.Dimension.abc_action_button_min_width_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_action_button_min_width_overflow_material = global::Radar.Droid.Resource.Dimension.abc_action_button_min_width_overflow_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_alert_dialog_button_bar_height = global::Radar.Droid.Resource.Dimension.abc_alert_dialog_button_bar_height;
+			global::ClubManagement.Droid.Resource.Dimension.abc_button_inset_horizontal_material = global::Radar.Droid.Resource.Dimension.abc_button_inset_horizontal_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_button_inset_vertical_material = global::Radar.Droid.Resource.Dimension.abc_button_inset_vertical_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_button_padding_horizontal_material = global::Radar.Droid.Resource.Dimension.abc_button_padding_horizontal_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_button_padding_vertical_material = global::Radar.Droid.Resource.Dimension.abc_button_padding_vertical_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_config_prefDialogWidth = global::Radar.Droid.Resource.Dimension.abc_config_prefDialogWidth;
+			global::ClubManagement.Droid.Resource.Dimension.abc_control_corner_material = global::Radar.Droid.Resource.Dimension.abc_control_corner_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_control_inset_material = global::Radar.Droid.Resource.Dimension.abc_control_inset_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_control_padding_material = global::Radar.Droid.Resource.Dimension.abc_control_padding_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_dialog_fixed_height_major = global::Radar.Droid.Resource.Dimension.abc_dialog_fixed_height_major;
+			global::ClubManagement.Droid.Resource.Dimension.abc_dialog_fixed_height_minor = global::Radar.Droid.Resource.Dimension.abc_dialog_fixed_height_minor;
+			global::ClubManagement.Droid.Resource.Dimension.abc_dialog_fixed_width_major = global::Radar.Droid.Resource.Dimension.abc_dialog_fixed_width_major;
+			global::ClubManagement.Droid.Resource.Dimension.abc_dialog_fixed_width_minor = global::Radar.Droid.Resource.Dimension.abc_dialog_fixed_width_minor;
+			global::ClubManagement.Droid.Resource.Dimension.abc_dialog_list_padding_vertical_material = global::Radar.Droid.Resource.Dimension.abc_dialog_list_padding_vertical_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_dialog_min_width_major = global::Radar.Droid.Resource.Dimension.abc_dialog_min_width_major;
+			global::ClubManagement.Droid.Resource.Dimension.abc_dialog_min_width_minor = global::Radar.Droid.Resource.Dimension.abc_dialog_min_width_minor;
+			global::ClubManagement.Droid.Resource.Dimension.abc_dialog_padding_material = global::Radar.Droid.Resource.Dimension.abc_dialog_padding_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_dialog_padding_top_material = global::Radar.Droid.Resource.Dimension.abc_dialog_padding_top_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_disabled_alpha_material_dark = global::Radar.Droid.Resource.Dimension.abc_disabled_alpha_material_dark;
+			global::ClubManagement.Droid.Resource.Dimension.abc_disabled_alpha_material_light = global::Radar.Droid.Resource.Dimension.abc_disabled_alpha_material_light;
+			global::ClubManagement.Droid.Resource.Dimension.abc_dropdownitem_icon_width = global::Radar.Droid.Resource.Dimension.abc_dropdownitem_icon_width;
+			global::ClubManagement.Droid.Resource.Dimension.abc_dropdownitem_text_padding_left = global::Radar.Droid.Resource.Dimension.abc_dropdownitem_text_padding_left;
+			global::ClubManagement.Droid.Resource.Dimension.abc_dropdownitem_text_padding_right = global::Radar.Droid.Resource.Dimension.abc_dropdownitem_text_padding_right;
+			global::ClubManagement.Droid.Resource.Dimension.abc_edit_text_inset_bottom_material = global::Radar.Droid.Resource.Dimension.abc_edit_text_inset_bottom_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_edit_text_inset_horizontal_material = global::Radar.Droid.Resource.Dimension.abc_edit_text_inset_horizontal_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_edit_text_inset_top_material = global::Radar.Droid.Resource.Dimension.abc_edit_text_inset_top_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_floating_window_z = global::Radar.Droid.Resource.Dimension.abc_floating_window_z;
+			global::ClubManagement.Droid.Resource.Dimension.abc_list_item_padding_horizontal_material = global::Radar.Droid.Resource.Dimension.abc_list_item_padding_horizontal_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_panel_menu_list_width = global::Radar.Droid.Resource.Dimension.abc_panel_menu_list_width;
+			global::ClubManagement.Droid.Resource.Dimension.abc_search_view_preferred_width = global::Radar.Droid.Resource.Dimension.abc_search_view_preferred_width;
+			global::ClubManagement.Droid.Resource.Dimension.abc_search_view_text_min_width = global::Radar.Droid.Resource.Dimension.abc_search_view_text_min_width;
+			global::ClubManagement.Droid.Resource.Dimension.abc_seekbar_track_background_height_material = global::Radar.Droid.Resource.Dimension.abc_seekbar_track_background_height_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_seekbar_track_progress_height_material = global::Radar.Droid.Resource.Dimension.abc_seekbar_track_progress_height_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_select_dialog_padding_start_material = global::Radar.Droid.Resource.Dimension.abc_select_dialog_padding_start_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_switch_padding = global::Radar.Droid.Resource.Dimension.abc_switch_padding;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_body_1_material = global::Radar.Droid.Resource.Dimension.abc_text_size_body_1_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_body_2_material = global::Radar.Droid.Resource.Dimension.abc_text_size_body_2_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_button_material = global::Radar.Droid.Resource.Dimension.abc_text_size_button_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_caption_material = global::Radar.Droid.Resource.Dimension.abc_text_size_caption_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_display_1_material = global::Radar.Droid.Resource.Dimension.abc_text_size_display_1_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_display_2_material = global::Radar.Droid.Resource.Dimension.abc_text_size_display_2_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_display_3_material = global::Radar.Droid.Resource.Dimension.abc_text_size_display_3_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_display_4_material = global::Radar.Droid.Resource.Dimension.abc_text_size_display_4_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_headline_material = global::Radar.Droid.Resource.Dimension.abc_text_size_headline_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_large_material = global::Radar.Droid.Resource.Dimension.abc_text_size_large_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_medium_material = global::Radar.Droid.Resource.Dimension.abc_text_size_medium_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_menu_material = global::Radar.Droid.Resource.Dimension.abc_text_size_menu_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_small_material = global::Radar.Droid.Resource.Dimension.abc_text_size_small_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_subhead_material = global::Radar.Droid.Resource.Dimension.abc_text_size_subhead_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_subtitle_material_toolbar = global::Radar.Droid.Resource.Dimension.abc_text_size_subtitle_material_toolbar;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_title_material = global::Radar.Droid.Resource.Dimension.abc_text_size_title_material;
+			global::ClubManagement.Droid.Resource.Dimension.abc_text_size_title_material_toolbar = global::Radar.Droid.Resource.Dimension.abc_text_size_title_material_toolbar;
+			global::ClubManagement.Droid.Resource.Dimension.cardview_compat_inset_shadow = global::Radar.Droid.Resource.Dimension.cardview_compat_inset_shadow;
+			global::ClubManagement.Droid.Resource.Dimension.cardview_default_elevation = global::Radar.Droid.Resource.Dimension.cardview_default_elevation;
+			global::ClubManagement.Droid.Resource.Dimension.cardview_default_radius = global::Radar.Droid.Resource.Dimension.cardview_default_radius;
+			global::ClubManagement.Droid.Resource.Dimension.design_appbar_elevation = global::Radar.Droid.Resource.Dimension.design_appbar_elevation;
+			global::ClubManagement.Droid.Resource.Dimension.design_bottom_sheet_modal_elevation = global::Radar.Droid.Resource.Dimension.design_bottom_sheet_modal_elevation;
+			global::ClubManagement.Droid.Resource.Dimension.design_bottom_sheet_modal_peek_height = global::Radar.Droid.Resource.Dimension.design_bottom_sheet_modal_peek_height;
+			global::ClubManagement.Droid.Resource.Dimension.design_fab_border_width = global::Radar.Droid.Resource.Dimension.design_fab_border_width;
+			global::ClubManagement.Droid.Resource.Dimension.design_fab_elevation = global::Radar.Droid.Resource.Dimension.design_fab_elevation;
+			global::ClubManagement.Droid.Resource.Dimension.design_fab_image_size = global::Radar.Droid.Resource.Dimension.design_fab_image_size;
+			global::ClubManagement.Droid.Resource.Dimension.design_fab_size_mini = global::Radar.Droid.Resource.Dimension.design_fab_size_mini;
+			global::ClubManagement.Droid.Resource.Dimension.design_fab_size_normal = global::Radar.Droid.Resource.Dimension.design_fab_size_normal;
+			global::ClubManagement.Droid.Resource.Dimension.design_fab_translation_z_pressed = global::Radar.Droid.Resource.Dimension.design_fab_translation_z_pressed;
+			global::ClubManagement.Droid.Resource.Dimension.design_navigation_elevation = global::Radar.Droid.Resource.Dimension.design_navigation_elevation;
+			global::ClubManagement.Droid.Resource.Dimension.design_navigation_icon_padding = global::Radar.Droid.Resource.Dimension.design_navigation_icon_padding;
+			global::ClubManagement.Droid.Resource.Dimension.design_navigation_icon_size = global::Radar.Droid.Resource.Dimension.design_navigation_icon_size;
+			global::ClubManagement.Droid.Resource.Dimension.design_navigation_max_width = global::Radar.Droid.Resource.Dimension.design_navigation_max_width;
+			global::ClubManagement.Droid.Resource.Dimension.design_navigation_padding_bottom = global::Radar.Droid.Resource.Dimension.design_navigation_padding_bottom;
+			global::ClubManagement.Droid.Resource.Dimension.design_navigation_separator_vertical_padding = global::Radar.Droid.Resource.Dimension.design_navigation_separator_vertical_padding;
+			global::ClubManagement.Droid.Resource.Dimension.design_snackbar_action_inline_max_width = global::Radar.Droid.Resource.Dimension.design_snackbar_action_inline_max_width;
+			global::ClubManagement.Droid.Resource.Dimension.design_snackbar_background_corner_radius = global::Radar.Droid.Resource.Dimension.design_snackbar_background_corner_radius;
+			global::ClubManagement.Droid.Resource.Dimension.design_snackbar_elevation = global::Radar.Droid.Resource.Dimension.design_snackbar_elevation;
+			global::ClubManagement.Droid.Resource.Dimension.design_snackbar_extra_spacing_horizontal = global::Radar.Droid.Resource.Dimension.design_snackbar_extra_spacing_horizontal;
+			global::ClubManagement.Droid.Resource.Dimension.design_snackbar_max_width = global::Radar.Droid.Resource.Dimension.design_snackbar_max_width;
+			global::ClubManagement.Droid.Resource.Dimension.design_snackbar_min_width = global::Radar.Droid.Resource.Dimension.design_snackbar_min_width;
+			global::ClubManagement.Droid.Resource.Dimension.design_snackbar_padding_horizontal = global::Radar.Droid.Resource.Dimension.design_snackbar_padding_horizontal;
+			global::ClubManagement.Droid.Resource.Dimension.design_snackbar_padding_vertical = global::Radar.Droid.Resource.Dimension.design_snackbar_padding_vertical;
+			global::ClubManagement.Droid.Resource.Dimension.design_snackbar_padding_vertical_2lines = global::Radar.Droid.Resource.Dimension.design_snackbar_padding_vertical_2lines;
+			global::ClubManagement.Droid.Resource.Dimension.design_snackbar_text_size = global::Radar.Droid.Resource.Dimension.design_snackbar_text_size;
+			global::ClubManagement.Droid.Resource.Dimension.design_tab_max_width = global::Radar.Droid.Resource.Dimension.design_tab_max_width;
+			global::ClubManagement.Droid.Resource.Dimension.design_tab_scrollable_min_width = global::Radar.Droid.Resource.Dimension.design_tab_scrollable_min_width;
+			global::ClubManagement.Droid.Resource.Dimension.design_tab_text_size = global::Radar.Droid.Resource.Dimension.design_tab_text_size;
+			global::ClubManagement.Droid.Resource.Dimension.design_tab_text_size_2line = global::Radar.Droid.Resource.Dimension.design_tab_text_size_2line;
+			global::ClubManagement.Droid.Resource.Dimension.disabled_alpha_material_dark = global::Radar.Droid.Resource.Dimension.disabled_alpha_material_dark;
+			global::ClubManagement.Droid.Resource.Dimension.disabled_alpha_material_light = global::Radar.Droid.Resource.Dimension.disabled_alpha_material_light;
+			global::ClubManagement.Droid.Resource.Dimension.highlight_alpha_material_colored = global::Radar.Droid.Resource.Dimension.highlight_alpha_material_colored;
+			global::ClubManagement.Droid.Resource.Dimension.highlight_alpha_material_dark = global::Radar.Droid.Resource.Dimension.highlight_alpha_material_dark;
+			global::ClubManagement.Droid.Resource.Dimension.highlight_alpha_material_light = global::Radar.Droid.Resource.Dimension.highlight_alpha_material_light;
+			global::ClubManagement.Droid.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::Radar.Droid.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
+			global::ClubManagement.Droid.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity = global::Radar.Droid.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity;
+			global::ClubManagement.Droid.Resource.Dimension.item_touch_helper_swipe_escape_velocity = global::Radar.Droid.Resource.Dimension.item_touch_helper_swipe_escape_velocity;
+			global::ClubManagement.Droid.Resource.Dimension.mr_controller_volume_group_list_item_height = global::Radar.Droid.Resource.Dimension.mr_controller_volume_group_list_item_height;
+			global::ClubManagement.Droid.Resource.Dimension.mr_controller_volume_group_list_item_icon_size = global::Radar.Droid.Resource.Dimension.mr_controller_volume_group_list_item_icon_size;
+			global::ClubManagement.Droid.Resource.Dimension.mr_controller_volume_group_list_max_height = global::Radar.Droid.Resource.Dimension.mr_controller_volume_group_list_max_height;
+			global::ClubManagement.Droid.Resource.Dimension.mr_controller_volume_group_list_padding_top = global::Radar.Droid.Resource.Dimension.mr_controller_volume_group_list_padding_top;
+			global::ClubManagement.Droid.Resource.Dimension.mr_dialog_fixed_width_major = global::Radar.Droid.Resource.Dimension.mr_dialog_fixed_width_major;
+			global::ClubManagement.Droid.Resource.Dimension.mr_dialog_fixed_width_minor = global::Radar.Droid.Resource.Dimension.mr_dialog_fixed_width_minor;
+			global::ClubManagement.Droid.Resource.Dimension.notification_large_icon_height = global::Radar.Droid.Resource.Dimension.notification_large_icon_height;
+			global::ClubManagement.Droid.Resource.Dimension.notification_large_icon_width = global::Radar.Droid.Resource.Dimension.notification_large_icon_width;
+			global::ClubManagement.Droid.Resource.Dimension.notification_subtext_size = global::Radar.Droid.Resource.Dimension.notification_subtext_size;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ab_share_pack_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_ab_share_pack_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_action_bar_item_background_material = global::Radar.Droid.Resource.Drawable.abc_action_bar_item_background_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_btn_borderless_material = global::Radar.Droid.Resource.Drawable.abc_btn_borderless_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_btn_check_material = global::Radar.Droid.Resource.Drawable.abc_btn_check_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_btn_check_to_on_mtrl_000 = global::Radar.Droid.Resource.Drawable.abc_btn_check_to_on_mtrl_000;
+			global::ClubManagement.Droid.Resource.Drawable.abc_btn_check_to_on_mtrl_015 = global::Radar.Droid.Resource.Drawable.abc_btn_check_to_on_mtrl_015;
+			global::ClubManagement.Droid.Resource.Drawable.abc_btn_colored_material = global::Radar.Droid.Resource.Drawable.abc_btn_colored_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_btn_default_mtrl_shape = global::Radar.Droid.Resource.Drawable.abc_btn_default_mtrl_shape;
+			global::ClubManagement.Droid.Resource.Drawable.abc_btn_radio_material = global::Radar.Droid.Resource.Drawable.abc_btn_radio_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_btn_radio_to_on_mtrl_000 = global::Radar.Droid.Resource.Drawable.abc_btn_radio_to_on_mtrl_000;
+			global::ClubManagement.Droid.Resource.Drawable.abc_btn_radio_to_on_mtrl_015 = global::Radar.Droid.Resource.Drawable.abc_btn_radio_to_on_mtrl_015;
+			global::ClubManagement.Droid.Resource.Drawable.abc_btn_rating_star_off_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_btn_rating_star_off_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_btn_rating_star_on_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_btn_rating_star_on_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001 = global::Radar.Droid.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001;
+			global::ClubManagement.Droid.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012 = global::Radar.Droid.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012;
+			global::ClubManagement.Droid.Resource.Drawable.abc_cab_background_internal_bg = global::Radar.Droid.Resource.Drawable.abc_cab_background_internal_bg;
+			global::ClubManagement.Droid.Resource.Drawable.abc_cab_background_top_material = global::Radar.Droid.Resource.Drawable.abc_cab_background_top_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_cab_background_top_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_cab_background_top_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_control_background_material = global::Radar.Droid.Resource.Drawable.abc_control_background_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_dialog_material_background_dark = global::Radar.Droid.Resource.Drawable.abc_dialog_material_background_dark;
+			global::ClubManagement.Droid.Resource.Drawable.abc_dialog_material_background_light = global::Radar.Droid.Resource.Drawable.abc_dialog_material_background_light;
+			global::ClubManagement.Droid.Resource.Drawable.abc_edit_text_material = global::Radar.Droid.Resource.Drawable.abc_edit_text_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_ab_back_mtrl_am_alpha = global::Radar.Droid.Resource.Drawable.abc_ic_ab_back_mtrl_am_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_clear_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_ic_clear_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_go_search_api_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_ic_go_search_api_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha = global::Radar.Droid.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_menu_moreoverflow_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_ic_menu_moreoverflow_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha = global::Radar.Droid.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_menu_share_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_ic_menu_share_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_search_api_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_ic_search_api_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_star_black_16dp = global::Radar.Droid.Resource.Drawable.abc_ic_star_black_16dp;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_star_black_36dp = global::Radar.Droid.Resource.Drawable.abc_ic_star_black_36dp;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_star_half_black_16dp = global::Radar.Droid.Resource.Drawable.abc_ic_star_half_black_16dp;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_star_half_black_36dp = global::Radar.Droid.Resource.Drawable.abc_ic_star_half_black_36dp;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ic_voice_search_api_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_ic_voice_search_api_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_item_background_holo_dark = global::Radar.Droid.Resource.Drawable.abc_item_background_holo_dark;
+			global::ClubManagement.Droid.Resource.Drawable.abc_item_background_holo_light = global::Radar.Droid.Resource.Drawable.abc_item_background_holo_light;
+			global::ClubManagement.Droid.Resource.Drawable.abc_list_divider_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_list_divider_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_list_focused_holo = global::Radar.Droid.Resource.Drawable.abc_list_focused_holo;
+			global::ClubManagement.Droid.Resource.Drawable.abc_list_longpressed_holo = global::Radar.Droid.Resource.Drawable.abc_list_longpressed_holo;
+			global::ClubManagement.Droid.Resource.Drawable.abc_list_pressed_holo_dark = global::Radar.Droid.Resource.Drawable.abc_list_pressed_holo_dark;
+			global::ClubManagement.Droid.Resource.Drawable.abc_list_pressed_holo_light = global::Radar.Droid.Resource.Drawable.abc_list_pressed_holo_light;
+			global::ClubManagement.Droid.Resource.Drawable.abc_list_selector_background_transition_holo_dark = global::Radar.Droid.Resource.Drawable.abc_list_selector_background_transition_holo_dark;
+			global::ClubManagement.Droid.Resource.Drawable.abc_list_selector_background_transition_holo_light = global::Radar.Droid.Resource.Drawable.abc_list_selector_background_transition_holo_light;
+			global::ClubManagement.Droid.Resource.Drawable.abc_list_selector_disabled_holo_dark = global::Radar.Droid.Resource.Drawable.abc_list_selector_disabled_holo_dark;
+			global::ClubManagement.Droid.Resource.Drawable.abc_list_selector_disabled_holo_light = global::Radar.Droid.Resource.Drawable.abc_list_selector_disabled_holo_light;
+			global::ClubManagement.Droid.Resource.Drawable.abc_list_selector_holo_dark = global::Radar.Droid.Resource.Drawable.abc_list_selector_holo_dark;
+			global::ClubManagement.Droid.Resource.Drawable.abc_list_selector_holo_light = global::Radar.Droid.Resource.Drawable.abc_list_selector_holo_light;
+			global::ClubManagement.Droid.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult = global::Radar.Droid.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult;
+			global::ClubManagement.Droid.Resource.Drawable.abc_popup_background_mtrl_mult = global::Radar.Droid.Resource.Drawable.abc_popup_background_mtrl_mult;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ratingbar_full_material = global::Radar.Droid.Resource.Drawable.abc_ratingbar_full_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ratingbar_indicator_material = global::Radar.Droid.Resource.Drawable.abc_ratingbar_indicator_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_ratingbar_small_material = global::Radar.Droid.Resource.Drawable.abc_ratingbar_small_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000 = global::Radar.Droid.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000;
+			global::ClubManagement.Droid.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005 = global::Radar.Droid.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005;
+			global::ClubManagement.Droid.Resource.Drawable.abc_scrubber_primary_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_scrubber_primary_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_scrubber_track_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_scrubber_track_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_seekbar_thumb_material = global::Radar.Droid.Resource.Drawable.abc_seekbar_thumb_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_seekbar_track_material = global::Radar.Droid.Resource.Drawable.abc_seekbar_track_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_spinner_mtrl_am_alpha = global::Radar.Droid.Resource.Drawable.abc_spinner_mtrl_am_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_spinner_textfield_background_material = global::Radar.Droid.Resource.Drawable.abc_spinner_textfield_background_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_switch_thumb_material = global::Radar.Droid.Resource.Drawable.abc_switch_thumb_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_switch_track_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_switch_track_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_tab_indicator_material = global::Radar.Droid.Resource.Drawable.abc_tab_indicator_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_tab_indicator_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_tab_indicator_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_text_cursor_material = global::Radar.Droid.Resource.Drawable.abc_text_cursor_material;
+			global::ClubManagement.Droid.Resource.Drawable.abc_textfield_activated_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_textfield_activated_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_textfield_default_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_textfield_default_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_textfield_search_default_mtrl_alpha = global::Radar.Droid.Resource.Drawable.abc_textfield_search_default_mtrl_alpha;
+			global::ClubManagement.Droid.Resource.Drawable.abc_textfield_search_material = global::Radar.Droid.Resource.Drawable.abc_textfield_search_material;
+			global::ClubManagement.Droid.Resource.Drawable.common_full_open_on_phone = global::Radar.Droid.Resource.Drawable.common_full_open_on_phone;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_icon_dark = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_icon_dark;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_icon_dark_disabled = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_icon_dark_disabled;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_icon_dark_focused = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_icon_dark_focused;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_icon_dark_normal = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_icon_dark_normal;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_icon_dark_pressed = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_icon_dark_pressed;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_icon_light = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_icon_light;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_icon_light_disabled = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_icon_light_disabled;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_icon_light_focused = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_icon_light_focused;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_icon_light_normal = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_icon_light_normal;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_icon_light_pressed = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_icon_light_pressed;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_text_dark = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_text_dark;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_text_dark_disabled = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_text_dark_disabled;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_text_dark_focused = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_text_dark_focused;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_text_dark_normal = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_text_dark_normal;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_text_dark_pressed = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_text_dark_pressed;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_text_light = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_text_light;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_text_light_disabled = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_text_light_disabled;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_text_light_focused = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_text_light_focused;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_text_light_normal = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_text_light_normal;
+			global::ClubManagement.Droid.Resource.Drawable.common_google_signin_btn_text_light_pressed = global::Radar.Droid.Resource.Drawable.common_google_signin_btn_text_light_pressed;
+			global::ClubManagement.Droid.Resource.Drawable.common_ic_googleplayservices = global::Radar.Droid.Resource.Drawable.common_ic_googleplayservices;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_icon_dark = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_icon_dark;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_icon_dark_disabled = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_icon_dark_disabled;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_icon_dark_focused = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_icon_dark_focused;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_icon_dark_normal = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_icon_dark_normal;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_icon_dark_pressed = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_icon_dark_pressed;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_icon_light = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_icon_light;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_icon_light_disabled = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_icon_light_disabled;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_icon_light_focused = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_icon_light_focused;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_icon_light_normal = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_icon_light_normal;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_icon_light_pressed = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_icon_light_pressed;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_text_dark = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_text_dark;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_text_dark_disabled = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_text_dark_disabled;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_text_dark_focused = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_text_dark_focused;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_text_dark_normal = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_text_dark_normal;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_text_dark_pressed = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_text_dark_pressed;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_text_light = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_text_light;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_text_light_disabled = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_text_light_disabled;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_text_light_focused = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_text_light_focused;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_text_light_normal = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_text_light_normal;
+			global::ClubManagement.Droid.Resource.Drawable.common_plus_signin_btn_text_light_pressed = global::Radar.Droid.Resource.Drawable.common_plus_signin_btn_text_light_pressed;
+			global::ClubManagement.Droid.Resource.Drawable.design_fab_background = global::Radar.Droid.Resource.Drawable.design_fab_background;
+			global::ClubManagement.Droid.Resource.Drawable.design_snackbar_background = global::Radar.Droid.Resource.Drawable.design_snackbar_background;
+			global::ClubManagement.Droid.Resource.Drawable.ic_audiotrack = global::Radar.Droid.Resource.Drawable.ic_audiotrack;
+			global::ClubManagement.Droid.Resource.Drawable.ic_audiotrack_light = global::Radar.Droid.Resource.Drawable.ic_audiotrack_light;
+			global::ClubManagement.Droid.Resource.Drawable.ic_bluetooth_grey = global::Radar.Droid.Resource.Drawable.ic_bluetooth_grey;
+			global::ClubManagement.Droid.Resource.Drawable.ic_bluetooth_white = global::Radar.Droid.Resource.Drawable.ic_bluetooth_white;
+			global::ClubManagement.Droid.Resource.Drawable.ic_cast_dark = global::Radar.Droid.Resource.Drawable.ic_cast_dark;
+			global::ClubManagement.Droid.Resource.Drawable.ic_cast_disabled_light = global::Radar.Droid.Resource.Drawable.ic_cast_disabled_light;
+			global::ClubManagement.Droid.Resource.Drawable.ic_cast_grey = global::Radar.Droid.Resource.Drawable.ic_cast_grey;
+			global::ClubManagement.Droid.Resource.Drawable.ic_cast_light = global::Radar.Droid.Resource.Drawable.ic_cast_light;
+			global::ClubManagement.Droid.Resource.Drawable.ic_cast_off_light = global::Radar.Droid.Resource.Drawable.ic_cast_off_light;
+			global::ClubManagement.Droid.Resource.Drawable.ic_cast_on_0_light = global::Radar.Droid.Resource.Drawable.ic_cast_on_0_light;
+			global::ClubManagement.Droid.Resource.Drawable.ic_cast_on_1_light = global::Radar.Droid.Resource.Drawable.ic_cast_on_1_light;
+			global::ClubManagement.Droid.Resource.Drawable.ic_cast_on_2_light = global::Radar.Droid.Resource.Drawable.ic_cast_on_2_light;
+			global::ClubManagement.Droid.Resource.Drawable.ic_cast_on_light = global::Radar.Droid.Resource.Drawable.ic_cast_on_light;
+			global::ClubManagement.Droid.Resource.Drawable.ic_cast_white = global::Radar.Droid.Resource.Drawable.ic_cast_white;
+			global::ClubManagement.Droid.Resource.Drawable.ic_close_dark = global::Radar.Droid.Resource.Drawable.ic_close_dark;
+			global::ClubManagement.Droid.Resource.Drawable.ic_close_light = global::Radar.Droid.Resource.Drawable.ic_close_light;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse = global::Radar.Droid.Resource.Drawable.ic_collapse;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00000 = global::Radar.Droid.Resource.Drawable.ic_collapse_00000;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00001 = global::Radar.Droid.Resource.Drawable.ic_collapse_00001;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00002 = global::Radar.Droid.Resource.Drawable.ic_collapse_00002;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00003 = global::Radar.Droid.Resource.Drawable.ic_collapse_00003;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00004 = global::Radar.Droid.Resource.Drawable.ic_collapse_00004;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00005 = global::Radar.Droid.Resource.Drawable.ic_collapse_00005;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00006 = global::Radar.Droid.Resource.Drawable.ic_collapse_00006;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00007 = global::Radar.Droid.Resource.Drawable.ic_collapse_00007;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00008 = global::Radar.Droid.Resource.Drawable.ic_collapse_00008;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00009 = global::Radar.Droid.Resource.Drawable.ic_collapse_00009;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00010 = global::Radar.Droid.Resource.Drawable.ic_collapse_00010;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00011 = global::Radar.Droid.Resource.Drawable.ic_collapse_00011;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00012 = global::Radar.Droid.Resource.Drawable.ic_collapse_00012;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00013 = global::Radar.Droid.Resource.Drawable.ic_collapse_00013;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00014 = global::Radar.Droid.Resource.Drawable.ic_collapse_00014;
+			global::ClubManagement.Droid.Resource.Drawable.ic_collapse_00015 = global::Radar.Droid.Resource.Drawable.ic_collapse_00015;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand = global::Radar.Droid.Resource.Drawable.ic_expand;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00000 = global::Radar.Droid.Resource.Drawable.ic_expand_00000;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00001 = global::Radar.Droid.Resource.Drawable.ic_expand_00001;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00002 = global::Radar.Droid.Resource.Drawable.ic_expand_00002;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00003 = global::Radar.Droid.Resource.Drawable.ic_expand_00003;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00004 = global::Radar.Droid.Resource.Drawable.ic_expand_00004;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00005 = global::Radar.Droid.Resource.Drawable.ic_expand_00005;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00006 = global::Radar.Droid.Resource.Drawable.ic_expand_00006;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00007 = global::Radar.Droid.Resource.Drawable.ic_expand_00007;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00008 = global::Radar.Droid.Resource.Drawable.ic_expand_00008;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00009 = global::Radar.Droid.Resource.Drawable.ic_expand_00009;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00010 = global::Radar.Droid.Resource.Drawable.ic_expand_00010;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00011 = global::Radar.Droid.Resource.Drawable.ic_expand_00011;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00012 = global::Radar.Droid.Resource.Drawable.ic_expand_00012;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00013 = global::Radar.Droid.Resource.Drawable.ic_expand_00013;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00014 = global::Radar.Droid.Resource.Drawable.ic_expand_00014;
+			global::ClubManagement.Droid.Resource.Drawable.ic_expand_00015 = global::Radar.Droid.Resource.Drawable.ic_expand_00015;
+			global::ClubManagement.Droid.Resource.Drawable.ic_media_pause = global::Radar.Droid.Resource.Drawable.ic_media_pause;
+			global::ClubManagement.Droid.Resource.Drawable.ic_media_play = global::Radar.Droid.Resource.Drawable.ic_media_play;
+			global::ClubManagement.Droid.Resource.Drawable.ic_media_route_disabled_mono_dark = global::Radar.Droid.Resource.Drawable.ic_media_route_disabled_mono_dark;
+			global::ClubManagement.Droid.Resource.Drawable.ic_media_route_off_mono_dark = global::Radar.Droid.Resource.Drawable.ic_media_route_off_mono_dark;
+			global::ClubManagement.Droid.Resource.Drawable.ic_media_route_on_0_mono_dark = global::Radar.Droid.Resource.Drawable.ic_media_route_on_0_mono_dark;
+			global::ClubManagement.Droid.Resource.Drawable.ic_media_route_on_1_mono_dark = global::Radar.Droid.Resource.Drawable.ic_media_route_on_1_mono_dark;
+			global::ClubManagement.Droid.Resource.Drawable.ic_media_route_on_2_mono_dark = global::Radar.Droid.Resource.Drawable.ic_media_route_on_2_mono_dark;
+			global::ClubManagement.Droid.Resource.Drawable.ic_media_route_on_mono_dark = global::Radar.Droid.Resource.Drawable.ic_media_route_on_mono_dark;
+			global::ClubManagement.Droid.Resource.Drawable.ic_pause_dark = global::Radar.Droid.Resource.Drawable.ic_pause_dark;
+			global::ClubManagement.Droid.Resource.Drawable.ic_pause_light = global::Radar.Droid.Resource.Drawable.ic_pause_light;
+			global::ClubManagement.Droid.Resource.Drawable.ic_play_dark = global::Radar.Droid.Resource.Drawable.ic_play_dark;
+			global::ClubManagement.Droid.Resource.Drawable.ic_play_light = global::Radar.Droid.Resource.Drawable.ic_play_light;
+			global::ClubManagement.Droid.Resource.Drawable.ic_speaker_dark = global::Radar.Droid.Resource.Drawable.ic_speaker_dark;
+			global::ClubManagement.Droid.Resource.Drawable.ic_speaker_group_dark = global::Radar.Droid.Resource.Drawable.ic_speaker_group_dark;
+			global::ClubManagement.Droid.Resource.Drawable.ic_speaker_group_light = global::Radar.Droid.Resource.Drawable.ic_speaker_group_light;
+			global::ClubManagement.Droid.Resource.Drawable.ic_speaker_light = global::Radar.Droid.Resource.Drawable.ic_speaker_light;
+			global::ClubManagement.Droid.Resource.Drawable.ic_tv_dark = global::Radar.Droid.Resource.Drawable.ic_tv_dark;
+			global::ClubManagement.Droid.Resource.Drawable.ic_tv_light = global::Radar.Droid.Resource.Drawable.ic_tv_light;
+			global::ClubManagement.Droid.Resource.Drawable.mr_dialog_material_background_dark = global::Radar.Droid.Resource.Drawable.mr_dialog_material_background_dark;
+			global::ClubManagement.Droid.Resource.Drawable.mr_dialog_material_background_light = global::Radar.Droid.Resource.Drawable.mr_dialog_material_background_light;
+			global::ClubManagement.Droid.Resource.Drawable.mr_ic_audiotrack_light = global::Radar.Droid.Resource.Drawable.mr_ic_audiotrack_light;
+			global::ClubManagement.Droid.Resource.Drawable.mr_ic_cast_dark = global::Radar.Droid.Resource.Drawable.mr_ic_cast_dark;
+			global::ClubManagement.Droid.Resource.Drawable.mr_ic_cast_light = global::Radar.Droid.Resource.Drawable.mr_ic_cast_light;
+			global::ClubManagement.Droid.Resource.Drawable.mr_ic_close_dark = global::Radar.Droid.Resource.Drawable.mr_ic_close_dark;
+			global::ClubManagement.Droid.Resource.Drawable.mr_ic_close_light = global::Radar.Droid.Resource.Drawable.mr_ic_close_light;
+			global::ClubManagement.Droid.Resource.Drawable.mr_ic_media_route_connecting_mono_dark = global::Radar.Droid.Resource.Drawable.mr_ic_media_route_connecting_mono_dark;
+			global::ClubManagement.Droid.Resource.Drawable.mr_ic_media_route_connecting_mono_light = global::Radar.Droid.Resource.Drawable.mr_ic_media_route_connecting_mono_light;
+			global::ClubManagement.Droid.Resource.Drawable.mr_ic_media_route_mono_dark = global::Radar.Droid.Resource.Drawable.mr_ic_media_route_mono_dark;
+			global::ClubManagement.Droid.Resource.Drawable.mr_ic_media_route_mono_light = global::Radar.Droid.Resource.Drawable.mr_ic_media_route_mono_light;
+			global::ClubManagement.Droid.Resource.Drawable.mr_ic_pause_dark = global::Radar.Droid.Resource.Drawable.mr_ic_pause_dark;
+			global::ClubManagement.Droid.Resource.Drawable.mr_ic_pause_light = global::Radar.Droid.Resource.Drawable.mr_ic_pause_light;
+			global::ClubManagement.Droid.Resource.Drawable.mr_ic_play_dark = global::Radar.Droid.Resource.Drawable.mr_ic_play_dark;
+			global::ClubManagement.Droid.Resource.Drawable.mr_ic_play_light = global::Radar.Droid.Resource.Drawable.mr_ic_play_light;
+			global::ClubManagement.Droid.Resource.Drawable.notification_template_icon_bg = global::Radar.Droid.Resource.Drawable.notification_template_icon_bg;
+			global::ClubManagement.Droid.Resource.Id.action0 = global::Radar.Droid.Resource.Id.action0;
+			global::ClubManagement.Droid.Resource.Id.action_bar = global::Radar.Droid.Resource.Id.action_bar;
+			global::ClubManagement.Droid.Resource.Id.action_bar_activity_content = global::Radar.Droid.Resource.Id.action_bar_activity_content;
+			global::ClubManagement.Droid.Resource.Id.action_bar_container = global::Radar.Droid.Resource.Id.action_bar_container;
+			global::ClubManagement.Droid.Resource.Id.action_bar_root = global::Radar.Droid.Resource.Id.action_bar_root;
+			global::ClubManagement.Droid.Resource.Id.action_bar_spinner = global::Radar.Droid.Resource.Id.action_bar_spinner;
+			global::ClubManagement.Droid.Resource.Id.action_bar_subtitle = global::Radar.Droid.Resource.Id.action_bar_subtitle;
+			global::ClubManagement.Droid.Resource.Id.action_bar_title = global::Radar.Droid.Resource.Id.action_bar_title;
+			global::ClubManagement.Droid.Resource.Id.action_context_bar = global::Radar.Droid.Resource.Id.action_context_bar;
+			global::ClubManagement.Droid.Resource.Id.action_divider = global::Radar.Droid.Resource.Id.action_divider;
+			global::ClubManagement.Droid.Resource.Id.action_menu_divider = global::Radar.Droid.Resource.Id.action_menu_divider;
+			global::ClubManagement.Droid.Resource.Id.action_menu_presenter = global::Radar.Droid.Resource.Id.action_menu_presenter;
+			global::ClubManagement.Droid.Resource.Id.action_mode_bar = global::Radar.Droid.Resource.Id.action_mode_bar;
+			global::ClubManagement.Droid.Resource.Id.action_mode_bar_stub = global::Radar.Droid.Resource.Id.action_mode_bar_stub;
+			global::ClubManagement.Droid.Resource.Id.action_mode_close_button = global::Radar.Droid.Resource.Id.action_mode_close_button;
+			global::ClubManagement.Droid.Resource.Id.activity_chooser_view_content = global::Radar.Droid.Resource.Id.activity_chooser_view_content;
+			global::ClubManagement.Droid.Resource.Id.adjust_height = global::Radar.Droid.Resource.Id.adjust_height;
+			global::ClubManagement.Droid.Resource.Id.adjust_width = global::Radar.Droid.Resource.Id.adjust_width;
+			global::ClubManagement.Droid.Resource.Id.alertTitle = global::Radar.Droid.Resource.Id.alertTitle;
+			global::ClubManagement.Droid.Resource.Id.always = global::Radar.Droid.Resource.Id.always;
+			global::ClubManagement.Droid.Resource.Id.auto = global::Radar.Droid.Resource.Id.auto;
+			global::ClubManagement.Droid.Resource.Id.beginning = global::Radar.Droid.Resource.Id.beginning;
+			global::ClubManagement.Droid.Resource.Id.bottom = global::Radar.Droid.Resource.Id.bottom;
+			global::ClubManagement.Droid.Resource.Id.buttonPanel = global::Radar.Droid.Resource.Id.buttonPanel;
+			global::ClubManagement.Droid.Resource.Id.cancel_action = global::Radar.Droid.Resource.Id.cancel_action;
+			global::ClubManagement.Droid.Resource.Id.center = global::Radar.Droid.Resource.Id.center;
+			global::ClubManagement.Droid.Resource.Id.center_horizontal = global::Radar.Droid.Resource.Id.center_horizontal;
+			global::ClubManagement.Droid.Resource.Id.center_vertical = global::Radar.Droid.Resource.Id.center_vertical;
+			global::ClubManagement.Droid.Resource.Id.checkbox = global::Radar.Droid.Resource.Id.checkbox;
+			global::ClubManagement.Droid.Resource.Id.chronometer = global::Radar.Droid.Resource.Id.chronometer;
+			global::ClubManagement.Droid.Resource.Id.clip_horizontal = global::Radar.Droid.Resource.Id.clip_horizontal;
+			global::ClubManagement.Droid.Resource.Id.clip_vertical = global::Radar.Droid.Resource.Id.clip_vertical;
+			global::ClubManagement.Droid.Resource.Id.collapseActionView = global::Radar.Droid.Resource.Id.collapseActionView;
+			global::ClubManagement.Droid.Resource.Id.contentPanel = global::Radar.Droid.Resource.Id.contentPanel;
+			global::ClubManagement.Droid.Resource.Id.custom = global::Radar.Droid.Resource.Id.custom;
+			global::ClubManagement.Droid.Resource.Id.customPanel = global::Radar.Droid.Resource.Id.customPanel;
+			global::ClubManagement.Droid.Resource.Id.dark = global::Radar.Droid.Resource.Id.dark;
+			global::ClubManagement.Droid.Resource.Id.decor_content_parent = global::Radar.Droid.Resource.Id.decor_content_parent;
+			global::ClubManagement.Droid.Resource.Id.default_activity_button = global::Radar.Droid.Resource.Id.default_activity_button;
+			global::ClubManagement.Droid.Resource.Id.design_bottom_sheet = global::Radar.Droid.Resource.Id.design_bottom_sheet;
+			global::ClubManagement.Droid.Resource.Id.design_menu_item_action_area = global::Radar.Droid.Resource.Id.design_menu_item_action_area;
+			global::ClubManagement.Droid.Resource.Id.design_menu_item_action_area_stub = global::Radar.Droid.Resource.Id.design_menu_item_action_area_stub;
+			global::ClubManagement.Droid.Resource.Id.design_menu_item_text = global::Radar.Droid.Resource.Id.design_menu_item_text;
+			global::ClubManagement.Droid.Resource.Id.design_navigation_view = global::Radar.Droid.Resource.Id.design_navigation_view;
+			global::ClubManagement.Droid.Resource.Id.disableHome = global::Radar.Droid.Resource.Id.disableHome;
+			global::ClubManagement.Droid.Resource.Id.edit_query = global::Radar.Droid.Resource.Id.edit_query;
+			global::ClubManagement.Droid.Resource.Id.end = global::Radar.Droid.Resource.Id.end;
+			global::ClubManagement.Droid.Resource.Id.end_padder = global::Radar.Droid.Resource.Id.end_padder;
+			global::ClubManagement.Droid.Resource.Id.enterAlways = global::Radar.Droid.Resource.Id.enterAlways;
+			global::ClubManagement.Droid.Resource.Id.enterAlwaysCollapsed = global::Radar.Droid.Resource.Id.enterAlwaysCollapsed;
+			global::ClubManagement.Droid.Resource.Id.exitUntilCollapsed = global::Radar.Droid.Resource.Id.exitUntilCollapsed;
+			global::ClubManagement.Droid.Resource.Id.expand_activities_button = global::Radar.Droid.Resource.Id.expand_activities_button;
+			global::ClubManagement.Droid.Resource.Id.expanded_menu = global::Radar.Droid.Resource.Id.expanded_menu;
+			global::ClubManagement.Droid.Resource.Id.fill = global::Radar.Droid.Resource.Id.fill;
+			global::ClubManagement.Droid.Resource.Id.fill_horizontal = global::Radar.Droid.Resource.Id.fill_horizontal;
+			global::ClubManagement.Droid.Resource.Id.fill_vertical = global::Radar.Droid.Resource.Id.fill_vertical;
+			global::ClubManagement.Droid.Resource.Id.@fixed = global::Radar.Droid.Resource.Id.@fixed;
+			global::ClubManagement.Droid.Resource.Id.home = global::Radar.Droid.Resource.Id.home;
+			global::ClubManagement.Droid.Resource.Id.homeAsUp = global::Radar.Droid.Resource.Id.homeAsUp;
+			global::ClubManagement.Droid.Resource.Id.hybrid = global::Radar.Droid.Resource.Id.hybrid;
+			global::ClubManagement.Droid.Resource.Id.icon = global::Radar.Droid.Resource.Id.icon;
+			global::ClubManagement.Droid.Resource.Id.icon_only = global::Radar.Droid.Resource.Id.icon_only;
+			global::ClubManagement.Droid.Resource.Id.ifRoom = global::Radar.Droid.Resource.Id.ifRoom;
+			global::ClubManagement.Droid.Resource.Id.image = global::Radar.Droid.Resource.Id.image;
+			global::ClubManagement.Droid.Resource.Id.info = global::Radar.Droid.Resource.Id.info;
+			global::ClubManagement.Droid.Resource.Id.item_touch_helper_previous_elevation = global::Radar.Droid.Resource.Id.item_touch_helper_previous_elevation;
+			global::ClubManagement.Droid.Resource.Id.left = global::Radar.Droid.Resource.Id.left;
+			global::ClubManagement.Droid.Resource.Id.light = global::Radar.Droid.Resource.Id.light;
+			global::ClubManagement.Droid.Resource.Id.line1 = global::Radar.Droid.Resource.Id.line1;
+			global::ClubManagement.Droid.Resource.Id.line3 = global::Radar.Droid.Resource.Id.line3;
+			global::ClubManagement.Droid.Resource.Id.listMode = global::Radar.Droid.Resource.Id.listMode;
+			global::ClubManagement.Droid.Resource.Id.list_item = global::Radar.Droid.Resource.Id.list_item;
+			global::ClubManagement.Droid.Resource.Id.media_actions = global::Radar.Droid.Resource.Id.media_actions;
+			global::ClubManagement.Droid.Resource.Id.middle = global::Radar.Droid.Resource.Id.middle;
+			global::ClubManagement.Droid.Resource.Id.mini = global::Radar.Droid.Resource.Id.mini;
+			global::ClubManagement.Droid.Resource.Id.mr_art = global::Radar.Droid.Resource.Id.mr_art;
+			global::ClubManagement.Droid.Resource.Id.mr_chooser_list = global::Radar.Droid.Resource.Id.mr_chooser_list;
+			global::ClubManagement.Droid.Resource.Id.mr_chooser_route_desc = global::Radar.Droid.Resource.Id.mr_chooser_route_desc;
+			global::ClubManagement.Droid.Resource.Id.mr_chooser_route_icon = global::Radar.Droid.Resource.Id.mr_chooser_route_icon;
+			global::ClubManagement.Droid.Resource.Id.mr_chooser_route_name = global::Radar.Droid.Resource.Id.mr_chooser_route_name;
+			global::ClubManagement.Droid.Resource.Id.mr_close = global::Radar.Droid.Resource.Id.mr_close;
+			global::ClubManagement.Droid.Resource.Id.mr_control_divider = global::Radar.Droid.Resource.Id.mr_control_divider;
+			global::ClubManagement.Droid.Resource.Id.mr_control_play_pause = global::Radar.Droid.Resource.Id.mr_control_play_pause;
+			global::ClubManagement.Droid.Resource.Id.mr_control_subtitle = global::Radar.Droid.Resource.Id.mr_control_subtitle;
+			global::ClubManagement.Droid.Resource.Id.mr_control_title = global::Radar.Droid.Resource.Id.mr_control_title;
+			global::ClubManagement.Droid.Resource.Id.mr_control_title_container = global::Radar.Droid.Resource.Id.mr_control_title_container;
+			global::ClubManagement.Droid.Resource.Id.mr_custom_control = global::Radar.Droid.Resource.Id.mr_custom_control;
+			global::ClubManagement.Droid.Resource.Id.mr_default_control = global::Radar.Droid.Resource.Id.mr_default_control;
+			global::ClubManagement.Droid.Resource.Id.mr_dialog_area = global::Radar.Droid.Resource.Id.mr_dialog_area;
+			global::ClubManagement.Droid.Resource.Id.mr_expandable_area = global::Radar.Droid.Resource.Id.mr_expandable_area;
+			global::ClubManagement.Droid.Resource.Id.mr_group_expand_collapse = global::Radar.Droid.Resource.Id.mr_group_expand_collapse;
+			global::ClubManagement.Droid.Resource.Id.mr_media_main_control = global::Radar.Droid.Resource.Id.mr_media_main_control;
+			global::ClubManagement.Droid.Resource.Id.mr_name = global::Radar.Droid.Resource.Id.mr_name;
+			global::ClubManagement.Droid.Resource.Id.mr_playback_control = global::Radar.Droid.Resource.Id.mr_playback_control;
+			global::ClubManagement.Droid.Resource.Id.mr_title_bar = global::Radar.Droid.Resource.Id.mr_title_bar;
+			global::ClubManagement.Droid.Resource.Id.mr_volume_control = global::Radar.Droid.Resource.Id.mr_volume_control;
+			global::ClubManagement.Droid.Resource.Id.mr_volume_group_list = global::Radar.Droid.Resource.Id.mr_volume_group_list;
+			global::ClubManagement.Droid.Resource.Id.mr_volume_item_icon = global::Radar.Droid.Resource.Id.mr_volume_item_icon;
+			global::ClubManagement.Droid.Resource.Id.mr_volume_slider = global::Radar.Droid.Resource.Id.mr_volume_slider;
+			global::ClubManagement.Droid.Resource.Id.multiply = global::Radar.Droid.Resource.Id.multiply;
+			global::ClubManagement.Droid.Resource.Id.navigation_header_container = global::Radar.Droid.Resource.Id.navigation_header_container;
+			global::ClubManagement.Droid.Resource.Id.never = global::Radar.Droid.Resource.Id.never;
+			global::ClubManagement.Droid.Resource.Id.none = global::Radar.Droid.Resource.Id.none;
+			global::ClubManagement.Droid.Resource.Id.normal = global::Radar.Droid.Resource.Id.normal;
+			global::ClubManagement.Droid.Resource.Id.parallax = global::Radar.Droid.Resource.Id.parallax;
+			global::ClubManagement.Droid.Resource.Id.parentPanel = global::Radar.Droid.Resource.Id.parentPanel;
+			global::ClubManagement.Droid.Resource.Id.pin = global::Radar.Droid.Resource.Id.pin;
+			global::ClubManagement.Droid.Resource.Id.progress_circular = global::Radar.Droid.Resource.Id.progress_circular;
+			global::ClubManagement.Droid.Resource.Id.progress_horizontal = global::Radar.Droid.Resource.Id.progress_horizontal;
+			global::ClubManagement.Droid.Resource.Id.radio = global::Radar.Droid.Resource.Id.radio;
+			global::ClubManagement.Droid.Resource.Id.right = global::Radar.Droid.Resource.Id.right;
+			global::ClubManagement.Droid.Resource.Id.satellite = global::Radar.Droid.Resource.Id.satellite;
+			global::ClubManagement.Droid.Resource.Id.screen = global::Radar.Droid.Resource.Id.screen;
+			global::ClubManagement.Droid.Resource.Id.scroll = global::Radar.Droid.Resource.Id.scroll;
+			global::ClubManagement.Droid.Resource.Id.scrollIndicatorDown = global::Radar.Droid.Resource.Id.scrollIndicatorDown;
+			global::ClubManagement.Droid.Resource.Id.scrollIndicatorUp = global::Radar.Droid.Resource.Id.scrollIndicatorUp;
+			global::ClubManagement.Droid.Resource.Id.scrollView = global::Radar.Droid.Resource.Id.scrollView;
+			global::ClubManagement.Droid.Resource.Id.scrollable = global::Radar.Droid.Resource.Id.scrollable;
+			global::ClubManagement.Droid.Resource.Id.search_badge = global::Radar.Droid.Resource.Id.search_badge;
+			global::ClubManagement.Droid.Resource.Id.search_bar = global::Radar.Droid.Resource.Id.search_bar;
+			global::ClubManagement.Droid.Resource.Id.search_button = global::Radar.Droid.Resource.Id.search_button;
+			global::ClubManagement.Droid.Resource.Id.search_close_btn = global::Radar.Droid.Resource.Id.search_close_btn;
+			global::ClubManagement.Droid.Resource.Id.search_edit_frame = global::Radar.Droid.Resource.Id.search_edit_frame;
+			global::ClubManagement.Droid.Resource.Id.search_go_btn = global::Radar.Droid.Resource.Id.search_go_btn;
+			global::ClubManagement.Droid.Resource.Id.search_mag_icon = global::Radar.Droid.Resource.Id.search_mag_icon;
+			global::ClubManagement.Droid.Resource.Id.search_plate = global::Radar.Droid.Resource.Id.search_plate;
+			global::ClubManagement.Droid.Resource.Id.search_src_text = global::Radar.Droid.Resource.Id.search_src_text;
+			global::ClubManagement.Droid.Resource.Id.search_voice_btn = global::Radar.Droid.Resource.Id.search_voice_btn;
+			global::ClubManagement.Droid.Resource.Id.select_dialog_listview = global::Radar.Droid.Resource.Id.select_dialog_listview;
+			global::ClubManagement.Droid.Resource.Id.shortcut = global::Radar.Droid.Resource.Id.shortcut;
+			global::ClubManagement.Droid.Resource.Id.showCustom = global::Radar.Droid.Resource.Id.showCustom;
+			global::ClubManagement.Droid.Resource.Id.showHome = global::Radar.Droid.Resource.Id.showHome;
+			global::ClubManagement.Droid.Resource.Id.showTitle = global::Radar.Droid.Resource.Id.showTitle;
+			global::ClubManagement.Droid.Resource.Id.snackbar_action = global::Radar.Droid.Resource.Id.snackbar_action;
+			global::ClubManagement.Droid.Resource.Id.snackbar_text = global::Radar.Droid.Resource.Id.snackbar_text;
+			global::ClubManagement.Droid.Resource.Id.snap = global::Radar.Droid.Resource.Id.snap;
+			global::ClubManagement.Droid.Resource.Id.spacer = global::Radar.Droid.Resource.Id.spacer;
+			global::ClubManagement.Droid.Resource.Id.split_action_bar = global::Radar.Droid.Resource.Id.split_action_bar;
+			global::ClubManagement.Droid.Resource.Id.src_atop = global::Radar.Droid.Resource.Id.src_atop;
+			global::ClubManagement.Droid.Resource.Id.src_in = global::Radar.Droid.Resource.Id.src_in;
+			global::ClubManagement.Droid.Resource.Id.src_over = global::Radar.Droid.Resource.Id.src_over;
+			global::ClubManagement.Droid.Resource.Id.standard = global::Radar.Droid.Resource.Id.standard;
+			global::ClubManagement.Droid.Resource.Id.start = global::Radar.Droid.Resource.Id.start;
+			global::ClubManagement.Droid.Resource.Id.status_bar_latest_event_content = global::Radar.Droid.Resource.Id.status_bar_latest_event_content;
+			global::ClubManagement.Droid.Resource.Id.submit_area = global::Radar.Droid.Resource.Id.submit_area;
+			global::ClubManagement.Droid.Resource.Id.tabMode = global::Radar.Droid.Resource.Id.tabMode;
+			global::ClubManagement.Droid.Resource.Id.terrain = global::Radar.Droid.Resource.Id.terrain;
+			global::ClubManagement.Droid.Resource.Id.text = global::Radar.Droid.Resource.Id.text;
+			global::ClubManagement.Droid.Resource.Id.text2 = global::Radar.Droid.Resource.Id.text2;
+			global::ClubManagement.Droid.Resource.Id.textSpacerNoButtons = global::Radar.Droid.Resource.Id.textSpacerNoButtons;
+			global::ClubManagement.Droid.Resource.Id.time = global::Radar.Droid.Resource.Id.time;
+			global::ClubManagement.Droid.Resource.Id.title = global::Radar.Droid.Resource.Id.title;
+			global::ClubManagement.Droid.Resource.Id.title_template = global::Radar.Droid.Resource.Id.title_template;
+			global::ClubManagement.Droid.Resource.Id.top = global::Radar.Droid.Resource.Id.top;
+			global::ClubManagement.Droid.Resource.Id.topPanel = global::Radar.Droid.Resource.Id.topPanel;
+			global::ClubManagement.Droid.Resource.Id.touch_outside = global::Radar.Droid.Resource.Id.touch_outside;
+			global::ClubManagement.Droid.Resource.Id.up = global::Radar.Droid.Resource.Id.up;
+			global::ClubManagement.Droid.Resource.Id.useLogo = global::Radar.Droid.Resource.Id.useLogo;
+			global::ClubManagement.Droid.Resource.Id.view_offset_helper = global::Radar.Droid.Resource.Id.view_offset_helper;
+			global::ClubManagement.Droid.Resource.Id.volume_item_container = global::Radar.Droid.Resource.Id.volume_item_container;
+			global::ClubManagement.Droid.Resource.Id.wide = global::Radar.Droid.Resource.Id.wide;
+			global::ClubManagement.Droid.Resource.Id.withText = global::Radar.Droid.Resource.Id.withText;
+			global::ClubManagement.Droid.Resource.Id.wrap_content = global::Radar.Droid.Resource.Id.wrap_content;
+			global::ClubManagement.Droid.Resource.Integer.abc_config_activityDefaultDur = global::Radar.Droid.Resource.Integer.abc_config_activityDefaultDur;
+			global::ClubManagement.Droid.Resource.Integer.abc_config_activityShortDur = global::Radar.Droid.Resource.Integer.abc_config_activityShortDur;
+			global::ClubManagement.Droid.Resource.Integer.abc_max_action_buttons = global::Radar.Droid.Resource.Integer.abc_max_action_buttons;
+			global::ClubManagement.Droid.Resource.Integer.bottom_sheet_slide_duration = global::Radar.Droid.Resource.Integer.bottom_sheet_slide_duration;
+			global::ClubManagement.Droid.Resource.Integer.cancel_button_image_alpha = global::Radar.Droid.Resource.Integer.cancel_button_image_alpha;
+			global::ClubManagement.Droid.Resource.Integer.design_snackbar_text_max_lines = global::Radar.Droid.Resource.Integer.design_snackbar_text_max_lines;
+			global::ClubManagement.Droid.Resource.Integer.google_play_services_version = global::Radar.Droid.Resource.Integer.google_play_services_version;
+			global::ClubManagement.Droid.Resource.Integer.mr_controller_volume_group_list_animation_duration_ms = global::Radar.Droid.Resource.Integer.mr_controller_volume_group_list_animation_duration_ms;
+			global::ClubManagement.Droid.Resource.Integer.mr_controller_volume_group_list_fade_in_duration_ms = global::Radar.Droid.Resource.Integer.mr_controller_volume_group_list_fade_in_duration_ms;
+			global::ClubManagement.Droid.Resource.Integer.mr_controller_volume_group_list_fade_out_duration_ms = global::Radar.Droid.Resource.Integer.mr_controller_volume_group_list_fade_out_duration_ms;
+			global::ClubManagement.Droid.Resource.Integer.status_bar_notification_info_maxnum = global::Radar.Droid.Resource.Integer.status_bar_notification_info_maxnum;
+			global::ClubManagement.Droid.Resource.Interpolator.mr_fast_out_slow_in = global::Radar.Droid.Resource.Interpolator.mr_fast_out_slow_in;
+			global::ClubManagement.Droid.Resource.Interpolator.mr_linear_out_slow_in = global::Radar.Droid.Resource.Interpolator.mr_linear_out_slow_in;
+			global::ClubManagement.Droid.Resource.Layout.abc_action_bar_title_item = global::Radar.Droid.Resource.Layout.abc_action_bar_title_item;
+			global::ClubManagement.Droid.Resource.Layout.abc_action_bar_up_container = global::Radar.Droid.Resource.Layout.abc_action_bar_up_container;
+			global::ClubManagement.Droid.Resource.Layout.abc_action_bar_view_list_nav_layout = global::Radar.Droid.Resource.Layout.abc_action_bar_view_list_nav_layout;
+			global::ClubManagement.Droid.Resource.Layout.abc_action_menu_item_layout = global::Radar.Droid.Resource.Layout.abc_action_menu_item_layout;
+			global::ClubManagement.Droid.Resource.Layout.abc_action_menu_layout = global::Radar.Droid.Resource.Layout.abc_action_menu_layout;
+			global::ClubManagement.Droid.Resource.Layout.abc_action_mode_bar = global::Radar.Droid.Resource.Layout.abc_action_mode_bar;
+			global::ClubManagement.Droid.Resource.Layout.abc_action_mode_close_item_material = global::Radar.Droid.Resource.Layout.abc_action_mode_close_item_material;
+			global::ClubManagement.Droid.Resource.Layout.abc_activity_chooser_view = global::Radar.Droid.Resource.Layout.abc_activity_chooser_view;
+			global::ClubManagement.Droid.Resource.Layout.abc_activity_chooser_view_list_item = global::Radar.Droid.Resource.Layout.abc_activity_chooser_view_list_item;
+			global::ClubManagement.Droid.Resource.Layout.abc_alert_dialog_button_bar_material = global::Radar.Droid.Resource.Layout.abc_alert_dialog_button_bar_material;
+			global::ClubManagement.Droid.Resource.Layout.abc_alert_dialog_material = global::Radar.Droid.Resource.Layout.abc_alert_dialog_material;
+			global::ClubManagement.Droid.Resource.Layout.abc_dialog_title_material = global::Radar.Droid.Resource.Layout.abc_dialog_title_material;
+			global::ClubManagement.Droid.Resource.Layout.abc_expanded_menu_layout = global::Radar.Droid.Resource.Layout.abc_expanded_menu_layout;
+			global::ClubManagement.Droid.Resource.Layout.abc_list_menu_item_checkbox = global::Radar.Droid.Resource.Layout.abc_list_menu_item_checkbox;
+			global::ClubManagement.Droid.Resource.Layout.abc_list_menu_item_icon = global::Radar.Droid.Resource.Layout.abc_list_menu_item_icon;
+			global::ClubManagement.Droid.Resource.Layout.abc_list_menu_item_layout = global::Radar.Droid.Resource.Layout.abc_list_menu_item_layout;
+			global::ClubManagement.Droid.Resource.Layout.abc_list_menu_item_radio = global::Radar.Droid.Resource.Layout.abc_list_menu_item_radio;
+			global::ClubManagement.Droid.Resource.Layout.abc_popup_menu_item_layout = global::Radar.Droid.Resource.Layout.abc_popup_menu_item_layout;
+			global::ClubManagement.Droid.Resource.Layout.abc_screen_content_include = global::Radar.Droid.Resource.Layout.abc_screen_content_include;
+			global::ClubManagement.Droid.Resource.Layout.abc_screen_simple = global::Radar.Droid.Resource.Layout.abc_screen_simple;
+			global::ClubManagement.Droid.Resource.Layout.abc_screen_simple_overlay_action_mode = global::Radar.Droid.Resource.Layout.abc_screen_simple_overlay_action_mode;
+			global::ClubManagement.Droid.Resource.Layout.abc_screen_toolbar = global::Radar.Droid.Resource.Layout.abc_screen_toolbar;
+			global::ClubManagement.Droid.Resource.Layout.abc_search_dropdown_item_icons_2line = global::Radar.Droid.Resource.Layout.abc_search_dropdown_item_icons_2line;
+			global::ClubManagement.Droid.Resource.Layout.abc_search_view = global::Radar.Droid.Resource.Layout.abc_search_view;
+			global::ClubManagement.Droid.Resource.Layout.abc_select_dialog_material = global::Radar.Droid.Resource.Layout.abc_select_dialog_material;
+			global::ClubManagement.Droid.Resource.Layout.design_bottom_sheet_dialog = global::Radar.Droid.Resource.Layout.design_bottom_sheet_dialog;
+			global::ClubManagement.Droid.Resource.Layout.design_layout_snackbar = global::Radar.Droid.Resource.Layout.design_layout_snackbar;
+			global::ClubManagement.Droid.Resource.Layout.design_layout_snackbar_include = global::Radar.Droid.Resource.Layout.design_layout_snackbar_include;
+			global::ClubManagement.Droid.Resource.Layout.design_layout_tab_icon = global::Radar.Droid.Resource.Layout.design_layout_tab_icon;
+			global::ClubManagement.Droid.Resource.Layout.design_layout_tab_text = global::Radar.Droid.Resource.Layout.design_layout_tab_text;
+			global::ClubManagement.Droid.Resource.Layout.design_menu_item_action_area = global::Radar.Droid.Resource.Layout.design_menu_item_action_area;
+			global::ClubManagement.Droid.Resource.Layout.design_navigation_item = global::Radar.Droid.Resource.Layout.design_navigation_item;
+			global::ClubManagement.Droid.Resource.Layout.design_navigation_item_header = global::Radar.Droid.Resource.Layout.design_navigation_item_header;
+			global::ClubManagement.Droid.Resource.Layout.design_navigation_item_separator = global::Radar.Droid.Resource.Layout.design_navigation_item_separator;
+			global::ClubManagement.Droid.Resource.Layout.design_navigation_item_subheader = global::Radar.Droid.Resource.Layout.design_navigation_item_subheader;
+			global::ClubManagement.Droid.Resource.Layout.design_navigation_menu = global::Radar.Droid.Resource.Layout.design_navigation_menu;
+			global::ClubManagement.Droid.Resource.Layout.design_navigation_menu_item = global::Radar.Droid.Resource.Layout.design_navigation_menu_item;
+			global::ClubManagement.Droid.Resource.Layout.mr_chooser_dialog = global::Radar.Droid.Resource.Layout.mr_chooser_dialog;
+			global::ClubManagement.Droid.Resource.Layout.mr_chooser_list_item = global::Radar.Droid.Resource.Layout.mr_chooser_list_item;
+			global::ClubManagement.Droid.Resource.Layout.mr_controller_material_dialog_b = global::Radar.Droid.Resource.Layout.mr_controller_material_dialog_b;
+			global::ClubManagement.Droid.Resource.Layout.mr_controller_volume_item = global::Radar.Droid.Resource.Layout.mr_controller_volume_item;
+			global::ClubManagement.Droid.Resource.Layout.mr_playback_control = global::Radar.Droid.Resource.Layout.mr_playback_control;
+			global::ClubManagement.Droid.Resource.Layout.mr_volume_control = global::Radar.Droid.Resource.Layout.mr_volume_control;
+			global::ClubManagement.Droid.Resource.Layout.notification_media_action = global::Radar.Droid.Resource.Layout.notification_media_action;
+			global::ClubManagement.Droid.Resource.Layout.notification_media_cancel_action = global::Radar.Droid.Resource.Layout.notification_media_cancel_action;
+			global::ClubManagement.Droid.Resource.Layout.notification_template_big_media = global::Radar.Droid.Resource.Layout.notification_template_big_media;
+			global::ClubManagement.Droid.Resource.Layout.notification_template_big_media_narrow = global::Radar.Droid.Resource.Layout.notification_template_big_media_narrow;
+			global::ClubManagement.Droid.Resource.Layout.notification_template_lines = global::Radar.Droid.Resource.Layout.notification_template_lines;
+			global::ClubManagement.Droid.Resource.Layout.notification_template_media = global::Radar.Droid.Resource.Layout.notification_template_media;
+			global::ClubManagement.Droid.Resource.Layout.notification_template_part_chronometer = global::Radar.Droid.Resource.Layout.notification_template_part_chronometer;
+			global::ClubManagement.Droid.Resource.Layout.notification_template_part_time = global::Radar.Droid.Resource.Layout.notification_template_part_time;
+			global::ClubManagement.Droid.Resource.Layout.select_dialog_item_material = global::Radar.Droid.Resource.Layout.select_dialog_item_material;
+			global::ClubManagement.Droid.Resource.Layout.select_dialog_multichoice_material = global::Radar.Droid.Resource.Layout.select_dialog_multichoice_material;
+			global::ClubManagement.Droid.Resource.Layout.select_dialog_singlechoice_material = global::Radar.Droid.Resource.Layout.select_dialog_singlechoice_material;
+			global::ClubManagement.Droid.Resource.Layout.support_simple_spinner_dropdown_item = global::Radar.Droid.Resource.Layout.support_simple_spinner_dropdown_item;
 			global::ClubManagement.Droid.Resource.String.ApplicationName = global::Radar.Droid.Resource.String.ApplicationName;
 			global::ClubManagement.Droid.Resource.String.Hello = global::Radar.Droid.Resource.String.Hello;
+			global::ClubManagement.Droid.Resource.String.abc_action_bar_home_description = global::Radar.Droid.Resource.String.abc_action_bar_home_description;
+			global::ClubManagement.Droid.Resource.String.abc_action_bar_home_description_format = global::Radar.Droid.Resource.String.abc_action_bar_home_description_format;
+			global::ClubManagement.Droid.Resource.String.abc_action_bar_home_subtitle_description_format = global::Radar.Droid.Resource.String.abc_action_bar_home_subtitle_description_format;
+			global::ClubManagement.Droid.Resource.String.abc_action_bar_up_description = global::Radar.Droid.Resource.String.abc_action_bar_up_description;
+			global::ClubManagement.Droid.Resource.String.abc_action_menu_overflow_description = global::Radar.Droid.Resource.String.abc_action_menu_overflow_description;
+			global::ClubManagement.Droid.Resource.String.abc_action_mode_done = global::Radar.Droid.Resource.String.abc_action_mode_done;
+			global::ClubManagement.Droid.Resource.String.abc_activity_chooser_view_see_all = global::Radar.Droid.Resource.String.abc_activity_chooser_view_see_all;
+			global::ClubManagement.Droid.Resource.String.abc_activitychooserview_choose_application = global::Radar.Droid.Resource.String.abc_activitychooserview_choose_application;
+			global::ClubManagement.Droid.Resource.String.abc_capital_off = global::Radar.Droid.Resource.String.abc_capital_off;
+			global::ClubManagement.Droid.Resource.String.abc_capital_on = global::Radar.Droid.Resource.String.abc_capital_on;
+			global::ClubManagement.Droid.Resource.String.abc_search_hint = global::Radar.Droid.Resource.String.abc_search_hint;
+			global::ClubManagement.Droid.Resource.String.abc_searchview_description_clear = global::Radar.Droid.Resource.String.abc_searchview_description_clear;
+			global::ClubManagement.Droid.Resource.String.abc_searchview_description_query = global::Radar.Droid.Resource.String.abc_searchview_description_query;
+			global::ClubManagement.Droid.Resource.String.abc_searchview_description_search = global::Radar.Droid.Resource.String.abc_searchview_description_search;
+			global::ClubManagement.Droid.Resource.String.abc_searchview_description_submit = global::Radar.Droid.Resource.String.abc_searchview_description_submit;
+			global::ClubManagement.Droid.Resource.String.abc_searchview_description_voice = global::Radar.Droid.Resource.String.abc_searchview_description_voice;
+			global::ClubManagement.Droid.Resource.String.abc_shareactionprovider_share_with = global::Radar.Droid.Resource.String.abc_shareactionprovider_share_with;
+			global::ClubManagement.Droid.Resource.String.abc_shareactionprovider_share_with_application = global::Radar.Droid.Resource.String.abc_shareactionprovider_share_with_application;
+			global::ClubManagement.Droid.Resource.String.abc_toolbar_collapse_description = global::Radar.Droid.Resource.String.abc_toolbar_collapse_description;
+			global::ClubManagement.Droid.Resource.String.appbar_scrolling_view_behavior = global::Radar.Droid.Resource.String.appbar_scrolling_view_behavior;
+			global::ClubManagement.Droid.Resource.String.auth_google_play_services_client_facebook_display_name = global::Radar.Droid.Resource.String.auth_google_play_services_client_facebook_display_name;
+			global::ClubManagement.Droid.Resource.String.auth_google_play_services_client_google_display_name = global::Radar.Droid.Resource.String.auth_google_play_services_client_google_display_name;
+			global::ClubManagement.Droid.Resource.String.bottom_sheet_behavior = global::Radar.Droid.Resource.String.bottom_sheet_behavior;
+			global::ClubManagement.Droid.Resource.String.character_counter_pattern = global::Radar.Droid.Resource.String.character_counter_pattern;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_api_unavailable_text = global::Radar.Droid.Resource.String.common_google_play_services_api_unavailable_text;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_enable_button = global::Radar.Droid.Resource.String.common_google_play_services_enable_button;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_enable_text = global::Radar.Droid.Resource.String.common_google_play_services_enable_text;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_enable_title = global::Radar.Droid.Resource.String.common_google_play_services_enable_title;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_install_button = global::Radar.Droid.Resource.String.common_google_play_services_install_button;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_install_text_phone = global::Radar.Droid.Resource.String.common_google_play_services_install_text_phone;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_install_text_tablet = global::Radar.Droid.Resource.String.common_google_play_services_install_text_tablet;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_install_title = global::Radar.Droid.Resource.String.common_google_play_services_install_title;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_invalid_account_text = global::Radar.Droid.Resource.String.common_google_play_services_invalid_account_text;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_invalid_account_title = global::Radar.Droid.Resource.String.common_google_play_services_invalid_account_title;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_network_error_text = global::Radar.Droid.Resource.String.common_google_play_services_network_error_text;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_network_error_title = global::Radar.Droid.Resource.String.common_google_play_services_network_error_title;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_notification_ticker = global::Radar.Droid.Resource.String.common_google_play_services_notification_ticker;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_restricted_profile_text = global::Radar.Droid.Resource.String.common_google_play_services_restricted_profile_text;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_restricted_profile_title = global::Radar.Droid.Resource.String.common_google_play_services_restricted_profile_title;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_sign_in_failed_text = global::Radar.Droid.Resource.String.common_google_play_services_sign_in_failed_text;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_sign_in_failed_title = global::Radar.Droid.Resource.String.common_google_play_services_sign_in_failed_title;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_unknown_issue = global::Radar.Droid.Resource.String.common_google_play_services_unknown_issue;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_unsupported_text = global::Radar.Droid.Resource.String.common_google_play_services_unsupported_text;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_unsupported_title = global::Radar.Droid.Resource.String.common_google_play_services_unsupported_title;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_update_button = global::Radar.Droid.Resource.String.common_google_play_services_update_button;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_update_text = global::Radar.Droid.Resource.String.common_google_play_services_update_text;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_update_title = global::Radar.Droid.Resource.String.common_google_play_services_update_title;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_updating_text = global::Radar.Droid.Resource.String.common_google_play_services_updating_text;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_updating_title = global::Radar.Droid.Resource.String.common_google_play_services_updating_title;
+			global::ClubManagement.Droid.Resource.String.common_google_play_services_wear_update_text = global::Radar.Droid.Resource.String.common_google_play_services_wear_update_text;
+			global::ClubManagement.Droid.Resource.String.common_open_on_phone = global::Radar.Droid.Resource.String.common_open_on_phone;
+			global::ClubManagement.Droid.Resource.String.common_signin_button_text = global::Radar.Droid.Resource.String.common_signin_button_text;
+			global::ClubManagement.Droid.Resource.String.common_signin_button_text_long = global::Radar.Droid.Resource.String.common_signin_button_text_long;
+			global::ClubManagement.Droid.Resource.String.mr_button_content_description = global::Radar.Droid.Resource.String.mr_button_content_description;
+			global::ClubManagement.Droid.Resource.String.mr_chooser_searching = global::Radar.Droid.Resource.String.mr_chooser_searching;
+			global::ClubManagement.Droid.Resource.String.mr_chooser_title = global::Radar.Droid.Resource.String.mr_chooser_title;
+			global::ClubManagement.Droid.Resource.String.mr_controller_casting_screen = global::Radar.Droid.Resource.String.mr_controller_casting_screen;
+			global::ClubManagement.Droid.Resource.String.mr_controller_close_description = global::Radar.Droid.Resource.String.mr_controller_close_description;
+			global::ClubManagement.Droid.Resource.String.mr_controller_collapse_group = global::Radar.Droid.Resource.String.mr_controller_collapse_group;
+			global::ClubManagement.Droid.Resource.String.mr_controller_disconnect = global::Radar.Droid.Resource.String.mr_controller_disconnect;
+			global::ClubManagement.Droid.Resource.String.mr_controller_expand_group = global::Radar.Droid.Resource.String.mr_controller_expand_group;
+			global::ClubManagement.Droid.Resource.String.mr_controller_no_info_available = global::Radar.Droid.Resource.String.mr_controller_no_info_available;
+			global::ClubManagement.Droid.Resource.String.mr_controller_no_media_selected = global::Radar.Droid.Resource.String.mr_controller_no_media_selected;
+			global::ClubManagement.Droid.Resource.String.mr_controller_pause = global::Radar.Droid.Resource.String.mr_controller_pause;
+			global::ClubManagement.Droid.Resource.String.mr_controller_play = global::Radar.Droid.Resource.String.mr_controller_play;
+			global::ClubManagement.Droid.Resource.String.mr_controller_stop = global::Radar.Droid.Resource.String.mr_controller_stop;
+			global::ClubManagement.Droid.Resource.String.mr_system_route_name = global::Radar.Droid.Resource.String.mr_system_route_name;
+			global::ClubManagement.Droid.Resource.String.mr_user_route_category_name = global::Radar.Droid.Resource.String.mr_user_route_category_name;
+			global::ClubManagement.Droid.Resource.String.status_bar_notification_info_overflow = global::Radar.Droid.Resource.String.status_bar_notification_info_overflow;
+			global::ClubManagement.Droid.Resource.Style.AlertDialog_AppCompat = global::Radar.Droid.Resource.Style.AlertDialog_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.AlertDialog_AppCompat_Light = global::Radar.Droid.Resource.Style.AlertDialog_AppCompat_Light;
+			global::ClubManagement.Droid.Resource.Style.Animation_AppCompat_Dialog = global::Radar.Droid.Resource.Style.Animation_AppCompat_Dialog;
+			global::ClubManagement.Droid.Resource.Style.Animation_AppCompat_DropDownUp = global::Radar.Droid.Resource.Style.Animation_AppCompat_DropDownUp;
+			global::ClubManagement.Droid.Resource.Style.Animation_Design_BottomSheetDialog = global::Radar.Droid.Resource.Style.Animation_Design_BottomSheetDialog;
+			global::ClubManagement.Droid.Resource.Style.Base_AlertDialog_AppCompat = global::Radar.Droid.Resource.Style.Base_AlertDialog_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Base_AlertDialog_AppCompat_Light = global::Radar.Droid.Resource.Style.Base_AlertDialog_AppCompat_Light;
+			global::ClubManagement.Droid.Resource.Style.Base_Animation_AppCompat_Dialog = global::Radar.Droid.Resource.Style.Base_Animation_AppCompat_Dialog;
+			global::ClubManagement.Droid.Resource.Style.Base_Animation_AppCompat_DropDownUp = global::Radar.Droid.Resource.Style.Base_Animation_AppCompat_DropDownUp;
+			global::ClubManagement.Droid.Resource.Style.Base_CardView = global::Radar.Droid.Resource.Style.Base_CardView;
+			global::ClubManagement.Droid.Resource.Style.Base_DialogWindowTitle_AppCompat = global::Radar.Droid.Resource.Style.Base_DialogWindowTitle_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Base_DialogWindowTitleBackground_AppCompat = global::Radar.Droid.Resource.Style.Base_DialogWindowTitleBackground_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Body1 = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Body1;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Body2 = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Body2;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Button = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Button;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Caption = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Caption;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display1 = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display1;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display2 = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display2;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display3 = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display3;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display4 = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Display4;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Headline = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Headline;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Inverse = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Large = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Large;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Medium = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Medium;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Menu = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Menu;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_SearchResult = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_SearchResult;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Small = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Small;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Subhead = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Subhead;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Title = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Title;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::Radar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::Radar.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::Radar.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::ClubManagement.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title = global::Radar.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::ClubManagement.Droid.Resource.Style.Base_Theme_AppCompat = global::Radar.Droid.Resource.Style.Base_Theme_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Base_Theme_AppCompat_CompactMenu = global::Radar.Droid.Resource.Style.Base_Theme_AppCompat_CompactMenu;
+			global::ClubManagement.Droid.Resource.Style.Base_Theme_AppCompat_Dialog = global::Radar.Droid.Resource.Style.Base_Theme_AppCompat_Dialog;
+			global::ClubManagement.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_Alert = global::Radar.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_Alert;
+			global::ClubManagement.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize = global::Radar.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize;
+			global::ClubManagement.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth = global::Radar.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth;
+			global::ClubManagement.Droid.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge = global::Radar.Droid.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge;
+			global::ClubManagement.Droid.Resource.Style.Base_Theme_AppCompat_Light = global::Radar.Droid.Resource.Style.Base_Theme_AppCompat_Light;
+			global::ClubManagement.Droid.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar = global::Radar.Droid.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar;
+			global::ClubManagement.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog = global::Radar.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog;
+			global::ClubManagement.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert = global::Radar.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert;
+			global::ClubManagement.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize = global::Radar.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize;
+			global::ClubManagement.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth = global::Radar.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth;
+			global::ClubManagement.Droid.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge = global::Radar.Droid.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge;
+			global::ClubManagement.Droid.Resource.Style.Base_ThemeOverlay_AppCompat = global::Radar.Droid.Resource.Style.Base_ThemeOverlay_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar = global::Radar.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar;
+			global::ClubManagement.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dark = global::Radar.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dark;
+			global::ClubManagement.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar = global::Radar.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::ClubManagement.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::Radar.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
+			global::ClubManagement.Droid.Resource.Style.Base_V11_Theme_AppCompat_Dialog = global::Radar.Droid.Resource.Style.Base_V11_Theme_AppCompat_Dialog;
+			global::ClubManagement.Droid.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog = global::Radar.Droid.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog;
+			global::ClubManagement.Droid.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView = global::Radar.Droid.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView;
+			global::ClubManagement.Droid.Resource.Style.Base_V12_Widget_AppCompat_EditText = global::Radar.Droid.Resource.Style.Base_V12_Widget_AppCompat_EditText;
+			global::ClubManagement.Droid.Resource.Style.Base_V21_Theme_AppCompat = global::Radar.Droid.Resource.Style.Base_V21_Theme_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::Radar.Droid.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
+			global::ClubManagement.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light = global::Radar.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light;
+			global::ClubManagement.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog = global::Radar.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog;
+			global::ClubManagement.Droid.Resource.Style.Base_V22_Theme_AppCompat = global::Radar.Droid.Resource.Style.Base_V22_Theme_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Base_V22_Theme_AppCompat_Light = global::Radar.Droid.Resource.Style.Base_V22_Theme_AppCompat_Light;
+			global::ClubManagement.Droid.Resource.Style.Base_V23_Theme_AppCompat = global::Radar.Droid.Resource.Style.Base_V23_Theme_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Base_V23_Theme_AppCompat_Light = global::Radar.Droid.Resource.Style.Base_V23_Theme_AppCompat_Light;
+			global::ClubManagement.Droid.Resource.Style.Base_V7_Theme_AppCompat = global::Radar.Droid.Resource.Style.Base_V7_Theme_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Base_V7_Theme_AppCompat_Dialog = global::Radar.Droid.Resource.Style.Base_V7_Theme_AppCompat_Dialog;
+			global::ClubManagement.Droid.Resource.Style.Base_V7_Theme_AppCompat_Light = global::Radar.Droid.Resource.Style.Base_V7_Theme_AppCompat_Light;
+			global::ClubManagement.Droid.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog = global::Radar.Droid.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog;
+			global::ClubManagement.Droid.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView = global::Radar.Droid.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView;
+			global::ClubManagement.Droid.Resource.Style.Base_V7_Widget_AppCompat_EditText = global::Radar.Droid.Resource.Style.Base_V7_Widget_AppCompat_EditText;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ActionButton = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ActionButton;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ActionMode = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ActionMode;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ActivityChooserView = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ActivityChooserView;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Button = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Button;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Button_Borderless = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Button_Borderless;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Button_Colored = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Button_Colored;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Button_Small = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Button_Small;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ButtonBar = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ButtonBar;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_EditText = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_EditText;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ImageButton = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ImageButton;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ListPopupWindow = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ListPopupWindow;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ListView = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ListView;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ListView_DropDown = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ListView_DropDown;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ListView_Menu = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ListView_Menu;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_PopupMenu = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_PopupMenu;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_PopupWindow = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_PopupWindow;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ProgressBar = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ProgressBar;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_RatingBar = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_RatingBar;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_RatingBar_Small = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_RatingBar_Small;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_SearchView = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_SearchView;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_SeekBar = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_SeekBar;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Spinner = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Spinner;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation = global::Radar.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation;
+			global::ClubManagement.Droid.Resource.Style.Base_Widget_Design_TabLayout = global::Radar.Droid.Resource.Style.Base_Widget_Design_TabLayout;
+			global::ClubManagement.Droid.Resource.Style.CardView = global::Radar.Droid.Resource.Style.CardView;
+			global::ClubManagement.Droid.Resource.Style.CardView_Dark = global::Radar.Droid.Resource.Style.CardView_Dark;
+			global::ClubManagement.Droid.Resource.Style.CardView_Light = global::Radar.Droid.Resource.Style.CardView_Light;
+			global::ClubManagement.Droid.Resource.Style.Platform_AppCompat = global::Radar.Droid.Resource.Style.Platform_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Platform_AppCompat_Light = global::Radar.Droid.Resource.Style.Platform_AppCompat_Light;
+			global::ClubManagement.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat = global::Radar.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark = global::Radar.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark;
+			global::ClubManagement.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Light = global::Radar.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Light;
+			global::ClubManagement.Droid.Resource.Style.Platform_V11_AppCompat = global::Radar.Droid.Resource.Style.Platform_V11_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Platform_V11_AppCompat_Light = global::Radar.Droid.Resource.Style.Platform_V11_AppCompat_Light;
+			global::ClubManagement.Droid.Resource.Style.Platform_V14_AppCompat = global::Radar.Droid.Resource.Style.Platform_V14_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Platform_V14_AppCompat_Light = global::Radar.Droid.Resource.Style.Platform_V14_AppCompat_Light;
+			global::ClubManagement.Droid.Resource.Style.Platform_Widget_AppCompat_Spinner = global::Radar.Droid.Resource.Style.Platform_Widget_AppCompat_Spinner;
+			global::ClubManagement.Droid.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat = global::Radar.Droid.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = global::Radar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem;
+			global::ClubManagement.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon = global::Radar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon;
+			global::ClubManagement.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem = global::Radar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem;
+			global::ClubManagement.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = global::Radar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup;
+			global::ClubManagement.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = global::Radar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text;
+			global::ClubManagement.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown = global::Radar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown;
+			global::ClubManagement.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = global::Radar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1;
+			global::ClubManagement.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = global::Radar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2;
+			global::ClubManagement.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query = global::Radar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query;
+			global::ClubManagement.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text = global::Radar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text;
+			global::ClubManagement.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon = global::Radar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon;
+			global::ClubManagement.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton = global::Radar.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton;
+			global::ClubManagement.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = global::Radar.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Body1 = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Body1;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Body2 = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Body2;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Button = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Button;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Caption = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Caption;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Display1 = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Display1;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Display2 = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Display2;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Display3 = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Display3;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Display4 = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Display4;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Headline = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Headline;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Inverse = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Inverse;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Large = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Large;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Large_Inverse = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Large_Inverse;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Medium = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Medium;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Medium_Inverse = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Medium_Inverse;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Menu = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Menu;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_SearchResult_Title = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_SearchResult_Title;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Small = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Small;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Small_Inverse = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Small_Inverse;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Subhead = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Subhead;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Title = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Title;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Title_Inverse = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Title_Inverse;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Button = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Button;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Switch = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_Switch;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::Radar.Droid.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_Design_CollapsingToolbar_Expanded = global::Radar.Droid.Resource.Style.TextAppearance_Design_CollapsingToolbar_Expanded;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_Design_Counter = global::Radar.Droid.Resource.Style.TextAppearance_Design_Counter;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_Design_Counter_Overflow = global::Radar.Droid.Resource.Style.TextAppearance_Design_Counter_Overflow;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_Design_Error = global::Radar.Droid.Resource.Style.TextAppearance_Design_Error;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_Design_Hint = global::Radar.Droid.Resource.Style.TextAppearance_Design_Hint;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_Design_Snackbar_Message = global::Radar.Droid.Resource.Style.TextAppearance_Design_Snackbar_Message;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_Design_Tab = global::Radar.Droid.Resource.Style.TextAppearance_Design_Tab;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_StatusBar_EventContent = global::Radar.Droid.Resource.Style.TextAppearance_StatusBar_EventContent;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_StatusBar_EventContent_Info = global::Radar.Droid.Resource.Style.TextAppearance_StatusBar_EventContent_Info;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_StatusBar_EventContent_Line2 = global::Radar.Droid.Resource.Style.TextAppearance_StatusBar_EventContent_Line2;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_StatusBar_EventContent_Time = global::Radar.Droid.Resource.Style.TextAppearance_StatusBar_EventContent_Time;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_StatusBar_EventContent_Title = global::Radar.Droid.Resource.Style.TextAppearance_StatusBar_EventContent_Title;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::Radar.Droid.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::Radar.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::ClubManagement.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::Radar.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat = global::Radar.Droid.Resource.Style.Theme_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_CompactMenu = global::Radar.Droid.Resource.Style.Theme_AppCompat_CompactMenu;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_DayNight = global::Radar.Droid.Resource.Style.Theme_AppCompat_DayNight;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar = global::Radar.Droid.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog = global::Radar.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert = global::Radar.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth = global::Radar.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge = global::Radar.Droid.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_DayNight_NoActionBar = global::Radar.Droid.Resource.Style.Theme_AppCompat_DayNight_NoActionBar;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_Dialog = global::Radar.Droid.Resource.Style.Theme_AppCompat_Dialog;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_Dialog_Alert = global::Radar.Droid.Resource.Style.Theme_AppCompat_Dialog_Alert;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_Dialog_MinWidth = global::Radar.Droid.Resource.Style.Theme_AppCompat_Dialog_MinWidth;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_DialogWhenLarge = global::Radar.Droid.Resource.Style.Theme_AppCompat_DialogWhenLarge;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_Light = global::Radar.Droid.Resource.Style.Theme_AppCompat_Light;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_Light_DarkActionBar = global::Radar.Droid.Resource.Style.Theme_AppCompat_Light_DarkActionBar;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_Light_Dialog = global::Radar.Droid.Resource.Style.Theme_AppCompat_Light_Dialog;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_Light_Dialog_Alert = global::Radar.Droid.Resource.Style.Theme_AppCompat_Light_Dialog_Alert;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth = global::Radar.Droid.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge = global::Radar.Droid.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_Light_NoActionBar = global::Radar.Droid.Resource.Style.Theme_AppCompat_Light_NoActionBar;
+			global::ClubManagement.Droid.Resource.Style.Theme_AppCompat_NoActionBar = global::Radar.Droid.Resource.Style.Theme_AppCompat_NoActionBar;
+			global::ClubManagement.Droid.Resource.Style.Theme_Design = global::Radar.Droid.Resource.Style.Theme_Design;
+			global::ClubManagement.Droid.Resource.Style.Theme_Design_BottomSheetDialog = global::Radar.Droid.Resource.Style.Theme_Design_BottomSheetDialog;
+			global::ClubManagement.Droid.Resource.Style.Theme_Design_Light = global::Radar.Droid.Resource.Style.Theme_Design_Light;
+			global::ClubManagement.Droid.Resource.Style.Theme_Design_Light_BottomSheetDialog = global::Radar.Droid.Resource.Style.Theme_Design_Light_BottomSheetDialog;
+			global::ClubManagement.Droid.Resource.Style.Theme_Design_Light_NoActionBar = global::Radar.Droid.Resource.Style.Theme_Design_Light_NoActionBar;
+			global::ClubManagement.Droid.Resource.Style.Theme_Design_NoActionBar = global::Radar.Droid.Resource.Style.Theme_Design_NoActionBar;
+			global::ClubManagement.Droid.Resource.Style.Theme_MediaRouter = global::Radar.Droid.Resource.Style.Theme_MediaRouter;
+			global::ClubManagement.Droid.Resource.Style.Theme_MediaRouter_Light = global::Radar.Droid.Resource.Style.Theme_MediaRouter_Light;
+			global::ClubManagement.Droid.Resource.Style.Theme_MediaRouter_Light_DarkControlPanel = global::Radar.Droid.Resource.Style.Theme_MediaRouter_Light_DarkControlPanel;
+			global::ClubManagement.Droid.Resource.Style.Theme_MediaRouter_LightControlPanel = global::Radar.Droid.Resource.Style.Theme_MediaRouter_LightControlPanel;
+			global::ClubManagement.Droid.Resource.Style.ThemeOverlay_AppCompat = global::Radar.Droid.Resource.Style.ThemeOverlay_AppCompat;
+			global::ClubManagement.Droid.Resource.Style.ThemeOverlay_AppCompat_ActionBar = global::Radar.Droid.Resource.Style.ThemeOverlay_AppCompat_ActionBar;
+			global::ClubManagement.Droid.Resource.Style.ThemeOverlay_AppCompat_Dark = global::Radar.Droid.Resource.Style.ThemeOverlay_AppCompat_Dark;
+			global::ClubManagement.Droid.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar = global::Radar.Droid.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::ClubManagement.Droid.Resource.Style.ThemeOverlay_AppCompat_Light = global::Radar.Droid.Resource.Style.ThemeOverlay_AppCompat_Light;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ActionBar = global::Radar.Droid.Resource.Style.Widget_AppCompat_ActionBar;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ActionBar_Solid = global::Radar.Droid.Resource.Style.Widget_AppCompat_ActionBar_Solid;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabBar = global::Radar.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabBar;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabText = global::Radar.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabText;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabView = global::Radar.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabView;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ActionButton = global::Radar.Droid.Resource.Style.Widget_AppCompat_ActionButton;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ActionButton_CloseMode = global::Radar.Droid.Resource.Style.Widget_AppCompat_ActionButton_CloseMode;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ActionButton_Overflow = global::Radar.Droid.Resource.Style.Widget_AppCompat_ActionButton_Overflow;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ActionMode = global::Radar.Droid.Resource.Style.Widget_AppCompat_ActionMode;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ActivityChooserView = global::Radar.Droid.Resource.Style.Widget_AppCompat_ActivityChooserView;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_AutoCompleteTextView = global::Radar.Droid.Resource.Style.Widget_AppCompat_AutoCompleteTextView;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Button = global::Radar.Droid.Resource.Style.Widget_AppCompat_Button;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Button_Borderless = global::Radar.Droid.Resource.Style.Widget_AppCompat_Button_Borderless;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Button_Borderless_Colored = global::Radar.Droid.Resource.Style.Widget_AppCompat_Button_Borderless_Colored;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog = global::Radar.Droid.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Button_Colored = global::Radar.Droid.Resource.Style.Widget_AppCompat_Button_Colored;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Button_Small = global::Radar.Droid.Resource.Style.Widget_AppCompat_Button_Small;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ButtonBar = global::Radar.Droid.Resource.Style.Widget_AppCompat_ButtonBar;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog = global::Radar.Droid.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox = global::Radar.Droid.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton = global::Radar.Droid.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_CompoundButton_Switch = global::Radar.Droid.Resource.Style.Widget_AppCompat_CompoundButton_Switch;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_DrawerArrowToggle = global::Radar.Droid.Resource.Style.Widget_AppCompat_DrawerArrowToggle;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_DropDownItem_Spinner = global::Radar.Droid.Resource.Style.Widget_AppCompat_DropDownItem_Spinner;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_EditText = global::Radar.Droid.Resource.Style.Widget_AppCompat_EditText;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ImageButton = global::Radar.Droid.Resource.Style.Widget_AppCompat_ImageButton;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ActionButton = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ActionButton;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ActivityChooserView = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ActivityChooserView;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ListPopupWindow = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ListPopupWindow;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_ListView_DropDown = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_ListView_DropDown;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_PopupMenu = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_PopupMenu;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_SearchView = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_SearchView;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar = global::Radar.Droid.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ListPopupWindow = global::Radar.Droid.Resource.Style.Widget_AppCompat_ListPopupWindow;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ListView = global::Radar.Droid.Resource.Style.Widget_AppCompat_ListView;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ListView_DropDown = global::Radar.Droid.Resource.Style.Widget_AppCompat_ListView_DropDown;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ListView_Menu = global::Radar.Droid.Resource.Style.Widget_AppCompat_ListView_Menu;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_PopupMenu = global::Radar.Droid.Resource.Style.Widget_AppCompat_PopupMenu;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_PopupMenu_Overflow = global::Radar.Droid.Resource.Style.Widget_AppCompat_PopupMenu_Overflow;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_PopupWindow = global::Radar.Droid.Resource.Style.Widget_AppCompat_PopupWindow;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ProgressBar = global::Radar.Droid.Resource.Style.Widget_AppCompat_ProgressBar;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal = global::Radar.Droid.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_RatingBar = global::Radar.Droid.Resource.Style.Widget_AppCompat_RatingBar;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_RatingBar_Indicator = global::Radar.Droid.Resource.Style.Widget_AppCompat_RatingBar_Indicator;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_RatingBar_Small = global::Radar.Droid.Resource.Style.Widget_AppCompat_RatingBar_Small;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_SearchView = global::Radar.Droid.Resource.Style.Widget_AppCompat_SearchView;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_SearchView_ActionBar = global::Radar.Droid.Resource.Style.Widget_AppCompat_SearchView_ActionBar;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_SeekBar = global::Radar.Droid.Resource.Style.Widget_AppCompat_SeekBar;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Spinner = global::Radar.Droid.Resource.Style.Widget_AppCompat_Spinner;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Spinner_DropDown = global::Radar.Droid.Resource.Style.Widget_AppCompat_Spinner_DropDown;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar = global::Radar.Droid.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Spinner_Underlined = global::Radar.Droid.Resource.Style.Widget_AppCompat_Spinner_Underlined;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_TextView_SpinnerItem = global::Radar.Droid.Resource.Style.Widget_AppCompat_TextView_SpinnerItem;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Toolbar = global::Radar.Droid.Resource.Style.Widget_AppCompat_Toolbar;
+			global::ClubManagement.Droid.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation = global::Radar.Droid.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation;
+			global::ClubManagement.Droid.Resource.Style.Widget_Design_AppBarLayout = global::Radar.Droid.Resource.Style.Widget_Design_AppBarLayout;
+			global::ClubManagement.Droid.Resource.Style.Widget_Design_BottomSheet_Modal = global::Radar.Droid.Resource.Style.Widget_Design_BottomSheet_Modal;
+			global::ClubManagement.Droid.Resource.Style.Widget_Design_CollapsingToolbar = global::Radar.Droid.Resource.Style.Widget_Design_CollapsingToolbar;
+			global::ClubManagement.Droid.Resource.Style.Widget_Design_CoordinatorLayout = global::Radar.Droid.Resource.Style.Widget_Design_CoordinatorLayout;
+			global::ClubManagement.Droid.Resource.Style.Widget_Design_FloatingActionButton = global::Radar.Droid.Resource.Style.Widget_Design_FloatingActionButton;
+			global::ClubManagement.Droid.Resource.Style.Widget_Design_NavigationView = global::Radar.Droid.Resource.Style.Widget_Design_NavigationView;
+			global::ClubManagement.Droid.Resource.Style.Widget_Design_ScrimInsetsFrameLayout = global::Radar.Droid.Resource.Style.Widget_Design_ScrimInsetsFrameLayout;
+			global::ClubManagement.Droid.Resource.Style.Widget_Design_Snackbar = global::Radar.Droid.Resource.Style.Widget_Design_Snackbar;
+			global::ClubManagement.Droid.Resource.Style.Widget_Design_TabLayout = global::Radar.Droid.Resource.Style.Widget_Design_TabLayout;
+			global::ClubManagement.Droid.Resource.Style.Widget_Design_TextInputLayout = global::Radar.Droid.Resource.Style.Widget_Design_TextInputLayout;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ChooserText = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ChooserText;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ChooserText_Primary = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ChooserText_Primary;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ChooserText_Primary_Dark = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ChooserText_Primary_Dark;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ChooserText_Primary_Light = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ChooserText_Primary_Light;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ChooserText_Secondary = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ChooserText_Secondary;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ChooserText_Secondary_Dark = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ChooserText_Secondary_Dark;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ChooserText_Secondary_Light = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ChooserText_Secondary_Light;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ControllerText = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ControllerText;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Primary = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Primary;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Primary_Dark = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Primary_Dark;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Primary_Light = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Primary_Light;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Secondary = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Secondary;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Secondary_Dark = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Secondary_Dark;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Secondary_Light = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Secondary_Light;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Title = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Title;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Title_Dark = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Title_Dark;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Title_Light = global::Radar.Droid.Resource.Style.Widget_MediaRouter_ControllerText_Title_Light;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_Light_MediaRouteButton = global::Radar.Droid.Resource.Style.Widget_MediaRouter_Light_MediaRouteButton;
+			global::ClubManagement.Droid.Resource.Style.Widget_MediaRouter_MediaRouteButton = global::Radar.Droid.Resource.Style.Widget_MediaRouter_MediaRouteButton;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar = global::Radar.Droid.Resource.Styleable.ActionBar;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_background = global::Radar.Droid.Resource.Styleable.ActionBar_background;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_backgroundSplit = global::Radar.Droid.Resource.Styleable.ActionBar_backgroundSplit;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_backgroundStacked = global::Radar.Droid.Resource.Styleable.ActionBar_backgroundStacked;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_contentInsetEnd = global::Radar.Droid.Resource.Styleable.ActionBar_contentInsetEnd;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_contentInsetLeft = global::Radar.Droid.Resource.Styleable.ActionBar_contentInsetLeft;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_contentInsetRight = global::Radar.Droid.Resource.Styleable.ActionBar_contentInsetRight;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_contentInsetStart = global::Radar.Droid.Resource.Styleable.ActionBar_contentInsetStart;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_customNavigationLayout = global::Radar.Droid.Resource.Styleable.ActionBar_customNavigationLayout;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_displayOptions = global::Radar.Droid.Resource.Styleable.ActionBar_displayOptions;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_divider = global::Radar.Droid.Resource.Styleable.ActionBar_divider;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_elevation = global::Radar.Droid.Resource.Styleable.ActionBar_elevation;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_height = global::Radar.Droid.Resource.Styleable.ActionBar_height;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_hideOnContentScroll = global::Radar.Droid.Resource.Styleable.ActionBar_hideOnContentScroll;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_homeAsUpIndicator = global::Radar.Droid.Resource.Styleable.ActionBar_homeAsUpIndicator;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_homeLayout = global::Radar.Droid.Resource.Styleable.ActionBar_homeLayout;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_icon = global::Radar.Droid.Resource.Styleable.ActionBar_icon;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_indeterminateProgressStyle = global::Radar.Droid.Resource.Styleable.ActionBar_indeterminateProgressStyle;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_itemPadding = global::Radar.Droid.Resource.Styleable.ActionBar_itemPadding;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_logo = global::Radar.Droid.Resource.Styleable.ActionBar_logo;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_navigationMode = global::Radar.Droid.Resource.Styleable.ActionBar_navigationMode;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_popupTheme = global::Radar.Droid.Resource.Styleable.ActionBar_popupTheme;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_progressBarPadding = global::Radar.Droid.Resource.Styleable.ActionBar_progressBarPadding;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_progressBarStyle = global::Radar.Droid.Resource.Styleable.ActionBar_progressBarStyle;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_subtitle = global::Radar.Droid.Resource.Styleable.ActionBar_subtitle;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_subtitleTextStyle = global::Radar.Droid.Resource.Styleable.ActionBar_subtitleTextStyle;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_title = global::Radar.Droid.Resource.Styleable.ActionBar_title;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBar_titleTextStyle = global::Radar.Droid.Resource.Styleable.ActionBar_titleTextStyle;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBarLayout = global::Radar.Droid.Resource.Styleable.ActionBarLayout;
+			global::ClubManagement.Droid.Resource.Styleable.ActionBarLayout_android_layout_gravity = global::Radar.Droid.Resource.Styleable.ActionBarLayout_android_layout_gravity;
+			global::ClubManagement.Droid.Resource.Styleable.ActionMenuItemView = global::Radar.Droid.Resource.Styleable.ActionMenuItemView;
+			global::ClubManagement.Droid.Resource.Styleable.ActionMenuItemView_android_minWidth = global::Radar.Droid.Resource.Styleable.ActionMenuItemView_android_minWidth;
+			global::ClubManagement.Droid.Resource.Styleable.ActionMenuView = global::Radar.Droid.Resource.Styleable.ActionMenuView;
+			global::ClubManagement.Droid.Resource.Styleable.ActionMode = global::Radar.Droid.Resource.Styleable.ActionMode;
+			global::ClubManagement.Droid.Resource.Styleable.ActionMode_background = global::Radar.Droid.Resource.Styleable.ActionMode_background;
+			global::ClubManagement.Droid.Resource.Styleable.ActionMode_backgroundSplit = global::Radar.Droid.Resource.Styleable.ActionMode_backgroundSplit;
+			global::ClubManagement.Droid.Resource.Styleable.ActionMode_closeItemLayout = global::Radar.Droid.Resource.Styleable.ActionMode_closeItemLayout;
+			global::ClubManagement.Droid.Resource.Styleable.ActionMode_height = global::Radar.Droid.Resource.Styleable.ActionMode_height;
+			global::ClubManagement.Droid.Resource.Styleable.ActionMode_subtitleTextStyle = global::Radar.Droid.Resource.Styleable.ActionMode_subtitleTextStyle;
+			global::ClubManagement.Droid.Resource.Styleable.ActionMode_titleTextStyle = global::Radar.Droid.Resource.Styleable.ActionMode_titleTextStyle;
+			global::ClubManagement.Droid.Resource.Styleable.ActivityChooserView = global::Radar.Droid.Resource.Styleable.ActivityChooserView;
+			global::ClubManagement.Droid.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable = global::Radar.Droid.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable;
+			global::ClubManagement.Droid.Resource.Styleable.ActivityChooserView_initialActivityCount = global::Radar.Droid.Resource.Styleable.ActivityChooserView_initialActivityCount;
+			global::ClubManagement.Droid.Resource.Styleable.AlertDialog = global::Radar.Droid.Resource.Styleable.AlertDialog;
+			global::ClubManagement.Droid.Resource.Styleable.AlertDialog_android_layout = global::Radar.Droid.Resource.Styleable.AlertDialog_android_layout;
+			global::ClubManagement.Droid.Resource.Styleable.AlertDialog_buttonPanelSideLayout = global::Radar.Droid.Resource.Styleable.AlertDialog_buttonPanelSideLayout;
+			global::ClubManagement.Droid.Resource.Styleable.AlertDialog_listItemLayout = global::Radar.Droid.Resource.Styleable.AlertDialog_listItemLayout;
+			global::ClubManagement.Droid.Resource.Styleable.AlertDialog_listLayout = global::Radar.Droid.Resource.Styleable.AlertDialog_listLayout;
+			global::ClubManagement.Droid.Resource.Styleable.AlertDialog_multiChoiceItemLayout = global::Radar.Droid.Resource.Styleable.AlertDialog_multiChoiceItemLayout;
+			global::ClubManagement.Droid.Resource.Styleable.AlertDialog_singleChoiceItemLayout = global::Radar.Droid.Resource.Styleable.AlertDialog_singleChoiceItemLayout;
+			global::ClubManagement.Droid.Resource.Styleable.AppBarLayout = global::Radar.Droid.Resource.Styleable.AppBarLayout;
+			global::ClubManagement.Droid.Resource.Styleable.AppBarLayout_android_background = global::Radar.Droid.Resource.Styleable.AppBarLayout_android_background;
+			global::ClubManagement.Droid.Resource.Styleable.AppBarLayout_elevation = global::Radar.Droid.Resource.Styleable.AppBarLayout_elevation;
+			global::ClubManagement.Droid.Resource.Styleable.AppBarLayout_expanded = global::Radar.Droid.Resource.Styleable.AppBarLayout_expanded;
+			global::ClubManagement.Droid.Resource.Styleable.AppBarLayout_LayoutParams = global::Radar.Droid.Resource.Styleable.AppBarLayout_LayoutParams;
+			global::ClubManagement.Droid.Resource.Styleable.AppBarLayout_LayoutParams_layout_scrollFlags = global::Radar.Droid.Resource.Styleable.AppBarLayout_LayoutParams_layout_scrollFlags;
+			global::ClubManagement.Droid.Resource.Styleable.AppBarLayout_LayoutParams_layout_scrollInterpolator = global::Radar.Droid.Resource.Styleable.AppBarLayout_LayoutParams_layout_scrollInterpolator;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatImageView = global::Radar.Droid.Resource.Styleable.AppCompatImageView;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatImageView_android_src = global::Radar.Droid.Resource.Styleable.AppCompatImageView_android_src;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatImageView_srcCompat = global::Radar.Droid.Resource.Styleable.AppCompatImageView_srcCompat;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTextView = global::Radar.Droid.Resource.Styleable.AppCompatTextView;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTextView_android_textAppearance = global::Radar.Droid.Resource.Styleable.AppCompatTextView_android_textAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTextView_textAllCaps = global::Radar.Droid.Resource.Styleable.AppCompatTextView_textAllCaps;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme = global::Radar.Droid.Resource.Styleable.AppCompatTheme;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionBarDivider = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionBarDivider;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionBarItemBackground = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionBarItemBackground;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionBarPopupTheme = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionBarPopupTheme;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionBarSize = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionBarSize;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionBarSplitStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionBarSplitStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionBarStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionBarStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionBarTabStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionBarTabStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionBarTheme = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionBarTheme;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionButtonStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionButtonStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionDropDownStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionDropDownStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionMenuTextColor = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionMenuTextColor;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionModeBackground = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionModeBackground;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionModeCutDrawable = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionModeCutDrawable;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionModeFindDrawable = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionModeFindDrawable;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionModePasteDrawable = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionModePasteDrawable;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionModeShareDrawable = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionModeShareDrawable;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionModeSplitBackground = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionModeSplitBackground;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionModeStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionModeStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_activityChooserViewStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_activityChooserViewStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons = global::Radar.Droid.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_alertDialogStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_alertDialogStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_alertDialogTheme = global::Radar.Droid.Resource.Styleable.AppCompatTheme_alertDialogTheme;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_android_windowIsFloating = global::Radar.Droid.Resource.Styleable.AppCompatTheme_android_windowIsFloating;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_borderlessButtonStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_borderlessButtonStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_buttonBarStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_buttonBarStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_buttonStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_buttonStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_buttonStyleSmall = global::Radar.Droid.Resource.Styleable.AppCompatTheme_buttonStyleSmall;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_checkboxStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_checkboxStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_checkedTextViewStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_checkedTextViewStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_colorAccent = global::Radar.Droid.Resource.Styleable.AppCompatTheme_colorAccent;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_colorButtonNormal = global::Radar.Droid.Resource.Styleable.AppCompatTheme_colorButtonNormal;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_colorControlActivated = global::Radar.Droid.Resource.Styleable.AppCompatTheme_colorControlActivated;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_colorControlHighlight = global::Radar.Droid.Resource.Styleable.AppCompatTheme_colorControlHighlight;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_colorControlNormal = global::Radar.Droid.Resource.Styleable.AppCompatTheme_colorControlNormal;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_colorPrimary = global::Radar.Droid.Resource.Styleable.AppCompatTheme_colorPrimary;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_colorPrimaryDark = global::Radar.Droid.Resource.Styleable.AppCompatTheme_colorPrimaryDark;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal = global::Radar.Droid.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_controlBackground = global::Radar.Droid.Resource.Styleable.AppCompatTheme_controlBackground;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_dialogPreferredPadding = global::Radar.Droid.Resource.Styleable.AppCompatTheme_dialogPreferredPadding;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_dialogTheme = global::Radar.Droid.Resource.Styleable.AppCompatTheme_dialogTheme;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_dividerHorizontal = global::Radar.Droid.Resource.Styleable.AppCompatTheme_dividerHorizontal;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_dividerVertical = global::Radar.Droid.Resource.Styleable.AppCompatTheme_dividerVertical;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_dropDownListViewStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_dropDownListViewStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight = global::Radar.Droid.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_editTextBackground = global::Radar.Droid.Resource.Styleable.AppCompatTheme_editTextBackground;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_editTextColor = global::Radar.Droid.Resource.Styleable.AppCompatTheme_editTextColor;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_editTextStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_editTextStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_homeAsUpIndicator = global::Radar.Droid.Resource.Styleable.AppCompatTheme_homeAsUpIndicator;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_imageButtonStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_imageButtonStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator = global::Radar.Droid.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_listDividerAlertDialog = global::Radar.Droid.Resource.Styleable.AppCompatTheme_listDividerAlertDialog;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_listPopupWindowStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_listPopupWindowStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemHeight = global::Radar.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemHeight;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge = global::Radar.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall = global::Radar.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft = global::Radar.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight = global::Radar.Droid.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_panelBackground = global::Radar.Droid.Resource.Styleable.AppCompatTheme_panelBackground;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_panelMenuListTheme = global::Radar.Droid.Resource.Styleable.AppCompatTheme_panelMenuListTheme;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_panelMenuListWidth = global::Radar.Droid.Resource.Styleable.AppCompatTheme_panelMenuListWidth;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_popupMenuStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_popupMenuStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_popupWindowStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_popupWindowStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_radioButtonStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_radioButtonStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_ratingBarStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_ratingBarStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator = global::Radar.Droid.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall = global::Radar.Droid.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_searchViewStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_searchViewStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_seekBarStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_seekBarStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_selectableItemBackground = global::Radar.Droid.Resource.Styleable.AppCompatTheme_selectableItemBackground;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless = global::Radar.Droid.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_spinnerStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_spinnerStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_switchStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_switchStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu = global::Radar.Droid.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_textAppearanceListItem = global::Radar.Droid.Resource.Styleable.AppCompatTheme_textAppearanceListItem;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall = global::Radar.Droid.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu = global::Radar.Droid.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem = global::Radar.Droid.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_textColorSearchUrl = global::Radar.Droid.Resource.Styleable.AppCompatTheme_textColorSearchUrl;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_toolbarStyle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_toolbarStyle;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_windowActionBar = global::Radar.Droid.Resource.Styleable.AppCompatTheme_windowActionBar;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_windowActionBarOverlay = global::Radar.Droid.Resource.Styleable.AppCompatTheme_windowActionBarOverlay;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_windowActionModeOverlay = global::Radar.Droid.Resource.Styleable.AppCompatTheme_windowActionModeOverlay;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor = global::Radar.Droid.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor = global::Radar.Droid.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor = global::Radar.Droid.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor = global::Radar.Droid.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_windowMinWidthMajor = global::Radar.Droid.Resource.Styleable.AppCompatTheme_windowMinWidthMajor;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_windowMinWidthMinor = global::Radar.Droid.Resource.Styleable.AppCompatTheme_windowMinWidthMinor;
+			global::ClubManagement.Droid.Resource.Styleable.AppCompatTheme_windowNoTitle = global::Radar.Droid.Resource.Styleable.AppCompatTheme_windowNoTitle;
+			global::ClubManagement.Droid.Resource.Styleable.BottomSheetBehavior_Params = global::Radar.Droid.Resource.Styleable.BottomSheetBehavior_Params;
+			global::ClubManagement.Droid.Resource.Styleable.BottomSheetBehavior_Params_behavior_hideable = global::Radar.Droid.Resource.Styleable.BottomSheetBehavior_Params_behavior_hideable;
+			global::ClubManagement.Droid.Resource.Styleable.BottomSheetBehavior_Params_behavior_peekHeight = global::Radar.Droid.Resource.Styleable.BottomSheetBehavior_Params_behavior_peekHeight;
+			global::ClubManagement.Droid.Resource.Styleable.ButtonBarLayout = global::Radar.Droid.Resource.Styleable.ButtonBarLayout;
+			global::ClubManagement.Droid.Resource.Styleable.ButtonBarLayout_allowStacking = global::Radar.Droid.Resource.Styleable.ButtonBarLayout_allowStacking;
+			global::ClubManagement.Droid.Resource.Styleable.CardView = global::Radar.Droid.Resource.Styleable.CardView;
+			global::ClubManagement.Droid.Resource.Styleable.CardView_android_minHeight = global::Radar.Droid.Resource.Styleable.CardView_android_minHeight;
+			global::ClubManagement.Droid.Resource.Styleable.CardView_android_minWidth = global::Radar.Droid.Resource.Styleable.CardView_android_minWidth;
+			global::ClubManagement.Droid.Resource.Styleable.CardView_cardBackgroundColor = global::Radar.Droid.Resource.Styleable.CardView_cardBackgroundColor;
+			global::ClubManagement.Droid.Resource.Styleable.CardView_cardCornerRadius = global::Radar.Droid.Resource.Styleable.CardView_cardCornerRadius;
+			global::ClubManagement.Droid.Resource.Styleable.CardView_cardElevation = global::Radar.Droid.Resource.Styleable.CardView_cardElevation;
+			global::ClubManagement.Droid.Resource.Styleable.CardView_cardMaxElevation = global::Radar.Droid.Resource.Styleable.CardView_cardMaxElevation;
+			global::ClubManagement.Droid.Resource.Styleable.CardView_cardPreventCornerOverlap = global::Radar.Droid.Resource.Styleable.CardView_cardPreventCornerOverlap;
+			global::ClubManagement.Droid.Resource.Styleable.CardView_cardUseCompatPadding = global::Radar.Droid.Resource.Styleable.CardView_cardUseCompatPadding;
+			global::ClubManagement.Droid.Resource.Styleable.CardView_contentPadding = global::Radar.Droid.Resource.Styleable.CardView_contentPadding;
+			global::ClubManagement.Droid.Resource.Styleable.CardView_contentPaddingBottom = global::Radar.Droid.Resource.Styleable.CardView_contentPaddingBottom;
+			global::ClubManagement.Droid.Resource.Styleable.CardView_contentPaddingLeft = global::Radar.Droid.Resource.Styleable.CardView_contentPaddingLeft;
+			global::ClubManagement.Droid.Resource.Styleable.CardView_contentPaddingRight = global::Radar.Droid.Resource.Styleable.CardView_contentPaddingRight;
+			global::ClubManagement.Droid.Resource.Styleable.CardView_contentPaddingTop = global::Radar.Droid.Resource.Styleable.CardView_contentPaddingTop;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingAppBarLayout_LayoutParams = global::Radar.Droid.Resource.Styleable.CollapsingAppBarLayout_LayoutParams;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingAppBarLayout_LayoutParams_layout_collapseMode = global::Radar.Droid.Resource.Styleable.CollapsingAppBarLayout_LayoutParams_layout_collapseMode;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingAppBarLayout_LayoutParams_layout_collapseParallaxMultiplier = global::Radar.Droid.Resource.Styleable.CollapsingAppBarLayout_LayoutParams_layout_collapseParallaxMultiplier;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout_contentScrim = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout_contentScrim;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleGravity = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleGravity;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMargin = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMargin;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginBottom = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginBottom;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginEnd = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginEnd;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginStart = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginStart;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginTop = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginTop;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleTextAppearance = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleTextAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout_statusBarScrim = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout_statusBarScrim;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout_title = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout_title;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout_titleEnabled = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout_titleEnabled;
+			global::ClubManagement.Droid.Resource.Styleable.CollapsingToolbarLayout_toolbarId = global::Radar.Droid.Resource.Styleable.CollapsingToolbarLayout_toolbarId;
+			global::ClubManagement.Droid.Resource.Styleable.CompoundButton = global::Radar.Droid.Resource.Styleable.CompoundButton;
+			global::ClubManagement.Droid.Resource.Styleable.CompoundButton_android_button = global::Radar.Droid.Resource.Styleable.CompoundButton_android_button;
+			global::ClubManagement.Droid.Resource.Styleable.CompoundButton_buttonTint = global::Radar.Droid.Resource.Styleable.CompoundButton_buttonTint;
+			global::ClubManagement.Droid.Resource.Styleable.CompoundButton_buttonTintMode = global::Radar.Droid.Resource.Styleable.CompoundButton_buttonTintMode;
+			global::ClubManagement.Droid.Resource.Styleable.CoordinatorLayout = global::Radar.Droid.Resource.Styleable.CoordinatorLayout;
+			global::ClubManagement.Droid.Resource.Styleable.CoordinatorLayout_keylines = global::Radar.Droid.Resource.Styleable.CoordinatorLayout_keylines;
+			global::ClubManagement.Droid.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::Radar.Droid.Resource.Styleable.CoordinatorLayout_statusBarBackground;
+			global::ClubManagement.Droid.Resource.Styleable.CoordinatorLayout_LayoutParams = global::Radar.Droid.Resource.Styleable.CoordinatorLayout_LayoutParams;
+			global::ClubManagement.Droid.Resource.Styleable.CoordinatorLayout_LayoutParams_android_layout_gravity = global::Radar.Droid.Resource.Styleable.CoordinatorLayout_LayoutParams_android_layout_gravity;
+			global::ClubManagement.Droid.Resource.Styleable.CoordinatorLayout_LayoutParams_layout_anchor = global::Radar.Droid.Resource.Styleable.CoordinatorLayout_LayoutParams_layout_anchor;
+			global::ClubManagement.Droid.Resource.Styleable.CoordinatorLayout_LayoutParams_layout_anchorGravity = global::Radar.Droid.Resource.Styleable.CoordinatorLayout_LayoutParams_layout_anchorGravity;
+			global::ClubManagement.Droid.Resource.Styleable.CoordinatorLayout_LayoutParams_layout_behavior = global::Radar.Droid.Resource.Styleable.CoordinatorLayout_LayoutParams_layout_behavior;
+			global::ClubManagement.Droid.Resource.Styleable.CoordinatorLayout_LayoutParams_layout_keyline = global::Radar.Droid.Resource.Styleable.CoordinatorLayout_LayoutParams_layout_keyline;
+			global::ClubManagement.Droid.Resource.Styleable.DesignTheme = global::Radar.Droid.Resource.Styleable.DesignTheme;
+			global::ClubManagement.Droid.Resource.Styleable.DesignTheme_bottomSheetDialogTheme = global::Radar.Droid.Resource.Styleable.DesignTheme_bottomSheetDialogTheme;
+			global::ClubManagement.Droid.Resource.Styleable.DesignTheme_bottomSheetStyle = global::Radar.Droid.Resource.Styleable.DesignTheme_bottomSheetStyle;
+			global::ClubManagement.Droid.Resource.Styleable.DesignTheme_textColorError = global::Radar.Droid.Resource.Styleable.DesignTheme_textColorError;
+			global::ClubManagement.Droid.Resource.Styleable.DrawerArrowToggle = global::Radar.Droid.Resource.Styleable.DrawerArrowToggle;
+			global::ClubManagement.Droid.Resource.Styleable.DrawerArrowToggle_arrowHeadLength = global::Radar.Droid.Resource.Styleable.DrawerArrowToggle_arrowHeadLength;
+			global::ClubManagement.Droid.Resource.Styleable.DrawerArrowToggle_arrowShaftLength = global::Radar.Droid.Resource.Styleable.DrawerArrowToggle_arrowShaftLength;
+			global::ClubManagement.Droid.Resource.Styleable.DrawerArrowToggle_barLength = global::Radar.Droid.Resource.Styleable.DrawerArrowToggle_barLength;
+			global::ClubManagement.Droid.Resource.Styleable.DrawerArrowToggle_color = global::Radar.Droid.Resource.Styleable.DrawerArrowToggle_color;
+			global::ClubManagement.Droid.Resource.Styleable.DrawerArrowToggle_drawableSize = global::Radar.Droid.Resource.Styleable.DrawerArrowToggle_drawableSize;
+			global::ClubManagement.Droid.Resource.Styleable.DrawerArrowToggle_gapBetweenBars = global::Radar.Droid.Resource.Styleable.DrawerArrowToggle_gapBetweenBars;
+			global::ClubManagement.Droid.Resource.Styleable.DrawerArrowToggle_spinBars = global::Radar.Droid.Resource.Styleable.DrawerArrowToggle_spinBars;
+			global::ClubManagement.Droid.Resource.Styleable.DrawerArrowToggle_thickness = global::Radar.Droid.Resource.Styleable.DrawerArrowToggle_thickness;
+			global::ClubManagement.Droid.Resource.Styleable.FloatingActionButton = global::Radar.Droid.Resource.Styleable.FloatingActionButton;
+			global::ClubManagement.Droid.Resource.Styleable.FloatingActionButton_backgroundTint = global::Radar.Droid.Resource.Styleable.FloatingActionButton_backgroundTint;
+			global::ClubManagement.Droid.Resource.Styleable.FloatingActionButton_backgroundTintMode = global::Radar.Droid.Resource.Styleable.FloatingActionButton_backgroundTintMode;
+			global::ClubManagement.Droid.Resource.Styleable.FloatingActionButton_borderWidth = global::Radar.Droid.Resource.Styleable.FloatingActionButton_borderWidth;
+			global::ClubManagement.Droid.Resource.Styleable.FloatingActionButton_elevation = global::Radar.Droid.Resource.Styleable.FloatingActionButton_elevation;
+			global::ClubManagement.Droid.Resource.Styleable.FloatingActionButton_fabSize = global::Radar.Droid.Resource.Styleable.FloatingActionButton_fabSize;
+			global::ClubManagement.Droid.Resource.Styleable.FloatingActionButton_pressedTranslationZ = global::Radar.Droid.Resource.Styleable.FloatingActionButton_pressedTranslationZ;
+			global::ClubManagement.Droid.Resource.Styleable.FloatingActionButton_rippleColor = global::Radar.Droid.Resource.Styleable.FloatingActionButton_rippleColor;
+			global::ClubManagement.Droid.Resource.Styleable.FloatingActionButton_useCompatPadding = global::Radar.Droid.Resource.Styleable.FloatingActionButton_useCompatPadding;
+			global::ClubManagement.Droid.Resource.Styleable.ForegroundLinearLayout = global::Radar.Droid.Resource.Styleable.ForegroundLinearLayout;
+			global::ClubManagement.Droid.Resource.Styleable.ForegroundLinearLayout_android_foreground = global::Radar.Droid.Resource.Styleable.ForegroundLinearLayout_android_foreground;
+			global::ClubManagement.Droid.Resource.Styleable.ForegroundLinearLayout_android_foregroundGravity = global::Radar.Droid.Resource.Styleable.ForegroundLinearLayout_android_foregroundGravity;
+			global::ClubManagement.Droid.Resource.Styleable.ForegroundLinearLayout_foregroundInsidePadding = global::Radar.Droid.Resource.Styleable.ForegroundLinearLayout_foregroundInsidePadding;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat_android_baselineAligned = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat_android_baselineAligned;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat_android_gravity = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat_android_gravity;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat_android_orientation = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat_android_orientation;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat_android_weightSum = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat_android_weightSum;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat_divider = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat_divider;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat_dividerPadding = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat_dividerPadding;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat_showDividers = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat_showDividers;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat_Layout = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat_Layout;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight;
+			global::ClubManagement.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width = global::Radar.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width;
+			global::ClubManagement.Droid.Resource.Styleable.ListPopupWindow = global::Radar.Droid.Resource.Styleable.ListPopupWindow;
+			global::ClubManagement.Droid.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::Radar.Droid.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
+			global::ClubManagement.Droid.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::Radar.Droid.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
+			global::ClubManagement.Droid.Resource.Styleable.LoadingImageView = global::Radar.Droid.Resource.Styleable.LoadingImageView;
+			global::ClubManagement.Droid.Resource.Styleable.LoadingImageView_circleCrop = global::Radar.Droid.Resource.Styleable.LoadingImageView_circleCrop;
+			global::ClubManagement.Droid.Resource.Styleable.LoadingImageView_imageAspectRatio = global::Radar.Droid.Resource.Styleable.LoadingImageView_imageAspectRatio;
+			global::ClubManagement.Droid.Resource.Styleable.LoadingImageView_imageAspectRatioAdjust = global::Radar.Droid.Resource.Styleable.LoadingImageView_imageAspectRatioAdjust;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs = global::Radar.Droid.Resource.Styleable.MapAttrs;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_ambientEnabled = global::Radar.Droid.Resource.Styleable.MapAttrs_ambientEnabled;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_cameraBearing = global::Radar.Droid.Resource.Styleable.MapAttrs_cameraBearing;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_cameraTargetLat = global::Radar.Droid.Resource.Styleable.MapAttrs_cameraTargetLat;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_cameraTargetLng = global::Radar.Droid.Resource.Styleable.MapAttrs_cameraTargetLng;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_cameraTilt = global::Radar.Droid.Resource.Styleable.MapAttrs_cameraTilt;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_cameraZoom = global::Radar.Droid.Resource.Styleable.MapAttrs_cameraZoom;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_liteMode = global::Radar.Droid.Resource.Styleable.MapAttrs_liteMode;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_mapType = global::Radar.Droid.Resource.Styleable.MapAttrs_mapType;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_uiCompass = global::Radar.Droid.Resource.Styleable.MapAttrs_uiCompass;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_uiMapToolbar = global::Radar.Droid.Resource.Styleable.MapAttrs_uiMapToolbar;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_uiRotateGestures = global::Radar.Droid.Resource.Styleable.MapAttrs_uiRotateGestures;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_uiScrollGestures = global::Radar.Droid.Resource.Styleable.MapAttrs_uiScrollGestures;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_uiTiltGestures = global::Radar.Droid.Resource.Styleable.MapAttrs_uiTiltGestures;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_uiZoomControls = global::Radar.Droid.Resource.Styleable.MapAttrs_uiZoomControls;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_uiZoomGestures = global::Radar.Droid.Resource.Styleable.MapAttrs_uiZoomGestures;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_useViewLifecycle = global::Radar.Droid.Resource.Styleable.MapAttrs_useViewLifecycle;
+			global::ClubManagement.Droid.Resource.Styleable.MapAttrs_zOrderOnTop = global::Radar.Droid.Resource.Styleable.MapAttrs_zOrderOnTop;
+			global::ClubManagement.Droid.Resource.Styleable.MediaRouteButton = global::Radar.Droid.Resource.Styleable.MediaRouteButton;
+			global::ClubManagement.Droid.Resource.Styleable.MediaRouteButton_android_minHeight = global::Radar.Droid.Resource.Styleable.MediaRouteButton_android_minHeight;
+			global::ClubManagement.Droid.Resource.Styleable.MediaRouteButton_android_minWidth = global::Radar.Droid.Resource.Styleable.MediaRouteButton_android_minWidth;
+			global::ClubManagement.Droid.Resource.Styleable.MediaRouteButton_externalRouteEnabledDrawable = global::Radar.Droid.Resource.Styleable.MediaRouteButton_externalRouteEnabledDrawable;
+			global::ClubManagement.Droid.Resource.Styleable.MenuGroup = global::Radar.Droid.Resource.Styleable.MenuGroup;
+			global::ClubManagement.Droid.Resource.Styleable.MenuGroup_android_checkableBehavior = global::Radar.Droid.Resource.Styleable.MenuGroup_android_checkableBehavior;
+			global::ClubManagement.Droid.Resource.Styleable.MenuGroup_android_enabled = global::Radar.Droid.Resource.Styleable.MenuGroup_android_enabled;
+			global::ClubManagement.Droid.Resource.Styleable.MenuGroup_android_id = global::Radar.Droid.Resource.Styleable.MenuGroup_android_id;
+			global::ClubManagement.Droid.Resource.Styleable.MenuGroup_android_menuCategory = global::Radar.Droid.Resource.Styleable.MenuGroup_android_menuCategory;
+			global::ClubManagement.Droid.Resource.Styleable.MenuGroup_android_orderInCategory = global::Radar.Droid.Resource.Styleable.MenuGroup_android_orderInCategory;
+			global::ClubManagement.Droid.Resource.Styleable.MenuGroup_android_visible = global::Radar.Droid.Resource.Styleable.MenuGroup_android_visible;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem = global::Radar.Droid.Resource.Styleable.MenuItem;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_actionLayout = global::Radar.Droid.Resource.Styleable.MenuItem_actionLayout;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_actionProviderClass = global::Radar.Droid.Resource.Styleable.MenuItem_actionProviderClass;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_actionViewClass = global::Radar.Droid.Resource.Styleable.MenuItem_actionViewClass;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_android_alphabeticShortcut = global::Radar.Droid.Resource.Styleable.MenuItem_android_alphabeticShortcut;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_android_checkable = global::Radar.Droid.Resource.Styleable.MenuItem_android_checkable;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_android_checked = global::Radar.Droid.Resource.Styleable.MenuItem_android_checked;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_android_enabled = global::Radar.Droid.Resource.Styleable.MenuItem_android_enabled;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_android_icon = global::Radar.Droid.Resource.Styleable.MenuItem_android_icon;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_android_id = global::Radar.Droid.Resource.Styleable.MenuItem_android_id;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_android_menuCategory = global::Radar.Droid.Resource.Styleable.MenuItem_android_menuCategory;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_android_numericShortcut = global::Radar.Droid.Resource.Styleable.MenuItem_android_numericShortcut;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_android_onClick = global::Radar.Droid.Resource.Styleable.MenuItem_android_onClick;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_android_orderInCategory = global::Radar.Droid.Resource.Styleable.MenuItem_android_orderInCategory;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_android_title = global::Radar.Droid.Resource.Styleable.MenuItem_android_title;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_android_titleCondensed = global::Radar.Droid.Resource.Styleable.MenuItem_android_titleCondensed;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_android_visible = global::Radar.Droid.Resource.Styleable.MenuItem_android_visible;
+			global::ClubManagement.Droid.Resource.Styleable.MenuItem_showAsAction = global::Radar.Droid.Resource.Styleable.MenuItem_showAsAction;
+			global::ClubManagement.Droid.Resource.Styleable.MenuView = global::Radar.Droid.Resource.Styleable.MenuView;
+			global::ClubManagement.Droid.Resource.Styleable.MenuView_android_headerBackground = global::Radar.Droid.Resource.Styleable.MenuView_android_headerBackground;
+			global::ClubManagement.Droid.Resource.Styleable.MenuView_android_horizontalDivider = global::Radar.Droid.Resource.Styleable.MenuView_android_horizontalDivider;
+			global::ClubManagement.Droid.Resource.Styleable.MenuView_android_itemBackground = global::Radar.Droid.Resource.Styleable.MenuView_android_itemBackground;
+			global::ClubManagement.Droid.Resource.Styleable.MenuView_android_itemIconDisabledAlpha = global::Radar.Droid.Resource.Styleable.MenuView_android_itemIconDisabledAlpha;
+			global::ClubManagement.Droid.Resource.Styleable.MenuView_android_itemTextAppearance = global::Radar.Droid.Resource.Styleable.MenuView_android_itemTextAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.MenuView_android_verticalDivider = global::Radar.Droid.Resource.Styleable.MenuView_android_verticalDivider;
+			global::ClubManagement.Droid.Resource.Styleable.MenuView_android_windowAnimationStyle = global::Radar.Droid.Resource.Styleable.MenuView_android_windowAnimationStyle;
+			global::ClubManagement.Droid.Resource.Styleable.MenuView_preserveIconSpacing = global::Radar.Droid.Resource.Styleable.MenuView_preserveIconSpacing;
+			global::ClubManagement.Droid.Resource.Styleable.NavigationView = global::Radar.Droid.Resource.Styleable.NavigationView;
+			global::ClubManagement.Droid.Resource.Styleable.NavigationView_android_background = global::Radar.Droid.Resource.Styleable.NavigationView_android_background;
+			global::ClubManagement.Droid.Resource.Styleable.NavigationView_android_fitsSystemWindows = global::Radar.Droid.Resource.Styleable.NavigationView_android_fitsSystemWindows;
+			global::ClubManagement.Droid.Resource.Styleable.NavigationView_android_maxWidth = global::Radar.Droid.Resource.Styleable.NavigationView_android_maxWidth;
+			global::ClubManagement.Droid.Resource.Styleable.NavigationView_elevation = global::Radar.Droid.Resource.Styleable.NavigationView_elevation;
+			global::ClubManagement.Droid.Resource.Styleable.NavigationView_headerLayout = global::Radar.Droid.Resource.Styleable.NavigationView_headerLayout;
+			global::ClubManagement.Droid.Resource.Styleable.NavigationView_itemBackground = global::Radar.Droid.Resource.Styleable.NavigationView_itemBackground;
+			global::ClubManagement.Droid.Resource.Styleable.NavigationView_itemIconTint = global::Radar.Droid.Resource.Styleable.NavigationView_itemIconTint;
+			global::ClubManagement.Droid.Resource.Styleable.NavigationView_itemTextAppearance = global::Radar.Droid.Resource.Styleable.NavigationView_itemTextAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.NavigationView_itemTextColor = global::Radar.Droid.Resource.Styleable.NavigationView_itemTextColor;
+			global::ClubManagement.Droid.Resource.Styleable.NavigationView_menu = global::Radar.Droid.Resource.Styleable.NavigationView_menu;
+			global::ClubManagement.Droid.Resource.Styleable.PopupWindow = global::Radar.Droid.Resource.Styleable.PopupWindow;
+			global::ClubManagement.Droid.Resource.Styleable.PopupWindow_android_popupBackground = global::Radar.Droid.Resource.Styleable.PopupWindow_android_popupBackground;
+			global::ClubManagement.Droid.Resource.Styleable.PopupWindow_overlapAnchor = global::Radar.Droid.Resource.Styleable.PopupWindow_overlapAnchor;
+			global::ClubManagement.Droid.Resource.Styleable.PopupWindowBackgroundState = global::Radar.Droid.Resource.Styleable.PopupWindowBackgroundState;
+			global::ClubManagement.Droid.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor = global::Radar.Droid.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor;
+			global::ClubManagement.Droid.Resource.Styleable.RecyclerView = global::Radar.Droid.Resource.Styleable.RecyclerView;
+			global::ClubManagement.Droid.Resource.Styleable.RecyclerView_android_orientation = global::Radar.Droid.Resource.Styleable.RecyclerView_android_orientation;
+			global::ClubManagement.Droid.Resource.Styleable.RecyclerView_layoutManager = global::Radar.Droid.Resource.Styleable.RecyclerView_layoutManager;
+			global::ClubManagement.Droid.Resource.Styleable.RecyclerView_reverseLayout = global::Radar.Droid.Resource.Styleable.RecyclerView_reverseLayout;
+			global::ClubManagement.Droid.Resource.Styleable.RecyclerView_spanCount = global::Radar.Droid.Resource.Styleable.RecyclerView_spanCount;
+			global::ClubManagement.Droid.Resource.Styleable.RecyclerView_stackFromEnd = global::Radar.Droid.Resource.Styleable.RecyclerView_stackFromEnd;
+			global::ClubManagement.Droid.Resource.Styleable.ScrimInsetsFrameLayout = global::Radar.Droid.Resource.Styleable.ScrimInsetsFrameLayout;
+			global::ClubManagement.Droid.Resource.Styleable.ScrimInsetsFrameLayout_insetForeground = global::Radar.Droid.Resource.Styleable.ScrimInsetsFrameLayout_insetForeground;
+			global::ClubManagement.Droid.Resource.Styleable.ScrollingViewBehavior_Params = global::Radar.Droid.Resource.Styleable.ScrollingViewBehavior_Params;
+			global::ClubManagement.Droid.Resource.Styleable.ScrollingViewBehavior_Params_behavior_overlapTop = global::Radar.Droid.Resource.Styleable.ScrollingViewBehavior_Params_behavior_overlapTop;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView = global::Radar.Droid.Resource.Styleable.SearchView;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_android_focusable = global::Radar.Droid.Resource.Styleable.SearchView_android_focusable;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_android_imeOptions = global::Radar.Droid.Resource.Styleable.SearchView_android_imeOptions;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_android_inputType = global::Radar.Droid.Resource.Styleable.SearchView_android_inputType;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_android_maxWidth = global::Radar.Droid.Resource.Styleable.SearchView_android_maxWidth;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_closeIcon = global::Radar.Droid.Resource.Styleable.SearchView_closeIcon;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_commitIcon = global::Radar.Droid.Resource.Styleable.SearchView_commitIcon;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_defaultQueryHint = global::Radar.Droid.Resource.Styleable.SearchView_defaultQueryHint;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_goIcon = global::Radar.Droid.Resource.Styleable.SearchView_goIcon;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_iconifiedByDefault = global::Radar.Droid.Resource.Styleable.SearchView_iconifiedByDefault;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_layout = global::Radar.Droid.Resource.Styleable.SearchView_layout;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_queryBackground = global::Radar.Droid.Resource.Styleable.SearchView_queryBackground;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_queryHint = global::Radar.Droid.Resource.Styleable.SearchView_queryHint;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_searchHintIcon = global::Radar.Droid.Resource.Styleable.SearchView_searchHintIcon;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_searchIcon = global::Radar.Droid.Resource.Styleable.SearchView_searchIcon;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_submitBackground = global::Radar.Droid.Resource.Styleable.SearchView_submitBackground;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_suggestionRowLayout = global::Radar.Droid.Resource.Styleable.SearchView_suggestionRowLayout;
+			global::ClubManagement.Droid.Resource.Styleable.SearchView_voiceIcon = global::Radar.Droid.Resource.Styleable.SearchView_voiceIcon;
+			global::ClubManagement.Droid.Resource.Styleable.SignInButton = global::Radar.Droid.Resource.Styleable.SignInButton;
+			global::ClubManagement.Droid.Resource.Styleable.SignInButton_buttonSize = global::Radar.Droid.Resource.Styleable.SignInButton_buttonSize;
+			global::ClubManagement.Droid.Resource.Styleable.SignInButton_colorScheme = global::Radar.Droid.Resource.Styleable.SignInButton_colorScheme;
+			global::ClubManagement.Droid.Resource.Styleable.SignInButton_scopeUris = global::Radar.Droid.Resource.Styleable.SignInButton_scopeUris;
+			global::ClubManagement.Droid.Resource.Styleable.SnackbarLayout = global::Radar.Droid.Resource.Styleable.SnackbarLayout;
+			global::ClubManagement.Droid.Resource.Styleable.SnackbarLayout_android_maxWidth = global::Radar.Droid.Resource.Styleable.SnackbarLayout_android_maxWidth;
+			global::ClubManagement.Droid.Resource.Styleable.SnackbarLayout_elevation = global::Radar.Droid.Resource.Styleable.SnackbarLayout_elevation;
+			global::ClubManagement.Droid.Resource.Styleable.SnackbarLayout_maxActionInlineWidth = global::Radar.Droid.Resource.Styleable.SnackbarLayout_maxActionInlineWidth;
+			global::ClubManagement.Droid.Resource.Styleable.Spinner = global::Radar.Droid.Resource.Styleable.Spinner;
+			global::ClubManagement.Droid.Resource.Styleable.Spinner_android_dropDownWidth = global::Radar.Droid.Resource.Styleable.Spinner_android_dropDownWidth;
+			global::ClubManagement.Droid.Resource.Styleable.Spinner_android_entries = global::Radar.Droid.Resource.Styleable.Spinner_android_entries;
+			global::ClubManagement.Droid.Resource.Styleable.Spinner_android_popupBackground = global::Radar.Droid.Resource.Styleable.Spinner_android_popupBackground;
+			global::ClubManagement.Droid.Resource.Styleable.Spinner_android_prompt = global::Radar.Droid.Resource.Styleable.Spinner_android_prompt;
+			global::ClubManagement.Droid.Resource.Styleable.Spinner_popupTheme = global::Radar.Droid.Resource.Styleable.Spinner_popupTheme;
+			global::ClubManagement.Droid.Resource.Styleable.SwitchCompat = global::Radar.Droid.Resource.Styleable.SwitchCompat;
+			global::ClubManagement.Droid.Resource.Styleable.SwitchCompat_android_textOff = global::Radar.Droid.Resource.Styleable.SwitchCompat_android_textOff;
+			global::ClubManagement.Droid.Resource.Styleable.SwitchCompat_android_textOn = global::Radar.Droid.Resource.Styleable.SwitchCompat_android_textOn;
+			global::ClubManagement.Droid.Resource.Styleable.SwitchCompat_android_thumb = global::Radar.Droid.Resource.Styleable.SwitchCompat_android_thumb;
+			global::ClubManagement.Droid.Resource.Styleable.SwitchCompat_showText = global::Radar.Droid.Resource.Styleable.SwitchCompat_showText;
+			global::ClubManagement.Droid.Resource.Styleable.SwitchCompat_splitTrack = global::Radar.Droid.Resource.Styleable.SwitchCompat_splitTrack;
+			global::ClubManagement.Droid.Resource.Styleable.SwitchCompat_switchMinWidth = global::Radar.Droid.Resource.Styleable.SwitchCompat_switchMinWidth;
+			global::ClubManagement.Droid.Resource.Styleable.SwitchCompat_switchPadding = global::Radar.Droid.Resource.Styleable.SwitchCompat_switchPadding;
+			global::ClubManagement.Droid.Resource.Styleable.SwitchCompat_switchTextAppearance = global::Radar.Droid.Resource.Styleable.SwitchCompat_switchTextAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.SwitchCompat_thumbTextPadding = global::Radar.Droid.Resource.Styleable.SwitchCompat_thumbTextPadding;
+			global::ClubManagement.Droid.Resource.Styleable.SwitchCompat_track = global::Radar.Droid.Resource.Styleable.SwitchCompat_track;
+			global::ClubManagement.Droid.Resource.Styleable.TabItem = global::Radar.Droid.Resource.Styleable.TabItem;
+			global::ClubManagement.Droid.Resource.Styleable.TabItem_android_icon = global::Radar.Droid.Resource.Styleable.TabItem_android_icon;
+			global::ClubManagement.Droid.Resource.Styleable.TabItem_android_layout = global::Radar.Droid.Resource.Styleable.TabItem_android_layout;
+			global::ClubManagement.Droid.Resource.Styleable.TabItem_android_text = global::Radar.Droid.Resource.Styleable.TabItem_android_text;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout = global::Radar.Droid.Resource.Styleable.TabLayout;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabBackground = global::Radar.Droid.Resource.Styleable.TabLayout_tabBackground;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabContentStart = global::Radar.Droid.Resource.Styleable.TabLayout_tabContentStart;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabGravity = global::Radar.Droid.Resource.Styleable.TabLayout_tabGravity;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabIndicatorColor = global::Radar.Droid.Resource.Styleable.TabLayout_tabIndicatorColor;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabIndicatorHeight = global::Radar.Droid.Resource.Styleable.TabLayout_tabIndicatorHeight;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabMaxWidth = global::Radar.Droid.Resource.Styleable.TabLayout_tabMaxWidth;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabMinWidth = global::Radar.Droid.Resource.Styleable.TabLayout_tabMinWidth;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabMode = global::Radar.Droid.Resource.Styleable.TabLayout_tabMode;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabPadding = global::Radar.Droid.Resource.Styleable.TabLayout_tabPadding;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabPaddingBottom = global::Radar.Droid.Resource.Styleable.TabLayout_tabPaddingBottom;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabPaddingEnd = global::Radar.Droid.Resource.Styleable.TabLayout_tabPaddingEnd;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabPaddingStart = global::Radar.Droid.Resource.Styleable.TabLayout_tabPaddingStart;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabPaddingTop = global::Radar.Droid.Resource.Styleable.TabLayout_tabPaddingTop;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabSelectedTextColor = global::Radar.Droid.Resource.Styleable.TabLayout_tabSelectedTextColor;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabTextAppearance = global::Radar.Droid.Resource.Styleable.TabLayout_tabTextAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.TabLayout_tabTextColor = global::Radar.Droid.Resource.Styleable.TabLayout_tabTextColor;
+			global::ClubManagement.Droid.Resource.Styleable.TextAppearance = global::Radar.Droid.Resource.Styleable.TextAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.TextAppearance_android_shadowColor = global::Radar.Droid.Resource.Styleable.TextAppearance_android_shadowColor;
+			global::ClubManagement.Droid.Resource.Styleable.TextAppearance_android_shadowDx = global::Radar.Droid.Resource.Styleable.TextAppearance_android_shadowDx;
+			global::ClubManagement.Droid.Resource.Styleable.TextAppearance_android_shadowDy = global::Radar.Droid.Resource.Styleable.TextAppearance_android_shadowDy;
+			global::ClubManagement.Droid.Resource.Styleable.TextAppearance_android_shadowRadius = global::Radar.Droid.Resource.Styleable.TextAppearance_android_shadowRadius;
+			global::ClubManagement.Droid.Resource.Styleable.TextAppearance_android_textColor = global::Radar.Droid.Resource.Styleable.TextAppearance_android_textColor;
+			global::ClubManagement.Droid.Resource.Styleable.TextAppearance_android_textSize = global::Radar.Droid.Resource.Styleable.TextAppearance_android_textSize;
+			global::ClubManagement.Droid.Resource.Styleable.TextAppearance_android_textStyle = global::Radar.Droid.Resource.Styleable.TextAppearance_android_textStyle;
+			global::ClubManagement.Droid.Resource.Styleable.TextAppearance_android_typeface = global::Radar.Droid.Resource.Styleable.TextAppearance_android_typeface;
+			global::ClubManagement.Droid.Resource.Styleable.TextAppearance_textAllCaps = global::Radar.Droid.Resource.Styleable.TextAppearance_textAllCaps;
+			global::ClubManagement.Droid.Resource.Styleable.TextInputLayout = global::Radar.Droid.Resource.Styleable.TextInputLayout;
+			global::ClubManagement.Droid.Resource.Styleable.TextInputLayout_android_hint = global::Radar.Droid.Resource.Styleable.TextInputLayout_android_hint;
+			global::ClubManagement.Droid.Resource.Styleable.TextInputLayout_android_textColorHint = global::Radar.Droid.Resource.Styleable.TextInputLayout_android_textColorHint;
+			global::ClubManagement.Droid.Resource.Styleable.TextInputLayout_counterEnabled = global::Radar.Droid.Resource.Styleable.TextInputLayout_counterEnabled;
+			global::ClubManagement.Droid.Resource.Styleable.TextInputLayout_counterMaxLength = global::Radar.Droid.Resource.Styleable.TextInputLayout_counterMaxLength;
+			global::ClubManagement.Droid.Resource.Styleable.TextInputLayout_counterOverflowTextAppearance = global::Radar.Droid.Resource.Styleable.TextInputLayout_counterOverflowTextAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.TextInputLayout_counterTextAppearance = global::Radar.Droid.Resource.Styleable.TextInputLayout_counterTextAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.TextInputLayout_errorEnabled = global::Radar.Droid.Resource.Styleable.TextInputLayout_errorEnabled;
+			global::ClubManagement.Droid.Resource.Styleable.TextInputLayout_errorTextAppearance = global::Radar.Droid.Resource.Styleable.TextInputLayout_errorTextAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.TextInputLayout_hintAnimationEnabled = global::Radar.Droid.Resource.Styleable.TextInputLayout_hintAnimationEnabled;
+			global::ClubManagement.Droid.Resource.Styleable.TextInputLayout_hintEnabled = global::Radar.Droid.Resource.Styleable.TextInputLayout_hintEnabled;
+			global::ClubManagement.Droid.Resource.Styleable.TextInputLayout_hintTextAppearance = global::Radar.Droid.Resource.Styleable.TextInputLayout_hintTextAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar = global::Radar.Droid.Resource.Styleable.Toolbar;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_android_gravity = global::Radar.Droid.Resource.Styleable.Toolbar_android_gravity;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_android_minHeight = global::Radar.Droid.Resource.Styleable.Toolbar_android_minHeight;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_collapseContentDescription = global::Radar.Droid.Resource.Styleable.Toolbar_collapseContentDescription;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_collapseIcon = global::Radar.Droid.Resource.Styleable.Toolbar_collapseIcon;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_contentInsetEnd = global::Radar.Droid.Resource.Styleable.Toolbar_contentInsetEnd;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_contentInsetLeft = global::Radar.Droid.Resource.Styleable.Toolbar_contentInsetLeft;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_contentInsetRight = global::Radar.Droid.Resource.Styleable.Toolbar_contentInsetRight;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_contentInsetStart = global::Radar.Droid.Resource.Styleable.Toolbar_contentInsetStart;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_logo = global::Radar.Droid.Resource.Styleable.Toolbar_logo;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_logoDescription = global::Radar.Droid.Resource.Styleable.Toolbar_logoDescription;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_maxButtonHeight = global::Radar.Droid.Resource.Styleable.Toolbar_maxButtonHeight;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_navigationContentDescription = global::Radar.Droid.Resource.Styleable.Toolbar_navigationContentDescription;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_navigationIcon = global::Radar.Droid.Resource.Styleable.Toolbar_navigationIcon;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_popupTheme = global::Radar.Droid.Resource.Styleable.Toolbar_popupTheme;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_subtitle = global::Radar.Droid.Resource.Styleable.Toolbar_subtitle;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_subtitleTextAppearance = global::Radar.Droid.Resource.Styleable.Toolbar_subtitleTextAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_subtitleTextColor = global::Radar.Droid.Resource.Styleable.Toolbar_subtitleTextColor;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_title = global::Radar.Droid.Resource.Styleable.Toolbar_title;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_titleMarginBottom = global::Radar.Droid.Resource.Styleable.Toolbar_titleMarginBottom;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_titleMarginEnd = global::Radar.Droid.Resource.Styleable.Toolbar_titleMarginEnd;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_titleMarginStart = global::Radar.Droid.Resource.Styleable.Toolbar_titleMarginStart;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_titleMarginTop = global::Radar.Droid.Resource.Styleable.Toolbar_titleMarginTop;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_titleMargins = global::Radar.Droid.Resource.Styleable.Toolbar_titleMargins;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_titleTextAppearance = global::Radar.Droid.Resource.Styleable.Toolbar_titleTextAppearance;
+			global::ClubManagement.Droid.Resource.Styleable.Toolbar_titleTextColor = global::Radar.Droid.Resource.Styleable.Toolbar_titleTextColor;
+			global::ClubManagement.Droid.Resource.Styleable.View = global::Radar.Droid.Resource.Styleable.View;
+			global::ClubManagement.Droid.Resource.Styleable.View_android_focusable = global::Radar.Droid.Resource.Styleable.View_android_focusable;
+			global::ClubManagement.Droid.Resource.Styleable.View_android_theme = global::Radar.Droid.Resource.Styleable.View_android_theme;
+			global::ClubManagement.Droid.Resource.Styleable.View_paddingEnd = global::Radar.Droid.Resource.Styleable.View_paddingEnd;
+			global::ClubManagement.Droid.Resource.Styleable.View_paddingStart = global::Radar.Droid.Resource.Styleable.View_paddingStart;
+			global::ClubManagement.Droid.Resource.Styleable.View_theme = global::Radar.Droid.Resource.Styleable.View_theme;
+			global::ClubManagement.Droid.Resource.Styleable.ViewBackgroundHelper = global::Radar.Droid.Resource.Styleable.ViewBackgroundHelper;
+			global::ClubManagement.Droid.Resource.Styleable.ViewBackgroundHelper_android_background = global::Radar.Droid.Resource.Styleable.ViewBackgroundHelper_android_background;
+			global::ClubManagement.Droid.Resource.Styleable.ViewBackgroundHelper_backgroundTint = global::Radar.Droid.Resource.Styleable.ViewBackgroundHelper_backgroundTint;
+			global::ClubManagement.Droid.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode = global::Radar.Droid.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode;
+			global::ClubManagement.Droid.Resource.Styleable.ViewStubCompat = global::Radar.Droid.Resource.Styleable.ViewStubCompat;
+			global::ClubManagement.Droid.Resource.Styleable.ViewStubCompat_android_id = global::Radar.Droid.Resource.Styleable.ViewStubCompat_android_id;
+			global::ClubManagement.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId = global::Radar.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
+			global::ClubManagement.Droid.Resource.Styleable.ViewStubCompat_android_layout = global::Radar.Droid.Resource.Styleable.ViewStubCompat_android_layout;
 		}
 		
 		public partial class Animation
@@ -2077,442 +4016,472 @@ namespace Radar.Droid
 			public const int abc_textfield_search_material = 2130837578;
 			
 			// aapt resource value: 0x7f02004b
-			public const int anterior = 2130837579;
+			public const int alerta = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int appicon = 2130837580;
+			public const int anterior = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int atualizar = 2130837581;
+			public const int appicon = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int bussolaagulha = 2130837582;
+			public const int atualizar = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int bussolacorpo = 2130837583;
+			public const int audio = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int common_full_open_on_phone = 2130837584;
+			public const int autoiniciodesligamento = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int common_google_signin_btn_icon_dark = 2130837585;
+			public const int bg = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int common_google_signin_btn_icon_dark_disabled = 2130837586;
+			public const int bussolaagulha = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int common_google_signin_btn_icon_dark_focused = 2130837587;
+			public const int bussolacorpo = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int common_google_signin_btn_icon_dark_normal = 2130837588;
+			public const int cameramais = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int common_google_signin_btn_icon_dark_pressed = 2130837589;
+			public const int common_full_open_on_phone = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int common_google_signin_btn_icon_light = 2130837590;
+			public const int common_google_signin_btn_icon_dark = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int common_google_signin_btn_icon_light_disabled = 2130837591;
+			public const int common_google_signin_btn_icon_dark_disabled = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int common_google_signin_btn_icon_light_focused = 2130837592;
+			public const int common_google_signin_btn_icon_dark_focused = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int common_google_signin_btn_icon_light_normal = 2130837593;
+			public const int common_google_signin_btn_icon_dark_normal = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int common_google_signin_btn_icon_light_pressed = 2130837594;
+			public const int common_google_signin_btn_icon_dark_pressed = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int common_google_signin_btn_text_dark = 2130837595;
+			public const int common_google_signin_btn_icon_light = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int common_google_signin_btn_text_dark_disabled = 2130837596;
+			public const int common_google_signin_btn_icon_light_disabled = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int common_google_signin_btn_text_dark_focused = 2130837597;
+			public const int common_google_signin_btn_icon_light_focused = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int common_google_signin_btn_text_dark_normal = 2130837598;
+			public const int common_google_signin_btn_icon_light_normal = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int common_google_signin_btn_text_dark_pressed = 2130837599;
+			public const int common_google_signin_btn_icon_light_pressed = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int common_google_signin_btn_text_light = 2130837600;
+			public const int common_google_signin_btn_text_dark = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int common_google_signin_btn_text_light_disabled = 2130837601;
+			public const int common_google_signin_btn_text_dark_disabled = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int common_google_signin_btn_text_light_focused = 2130837602;
+			public const int common_google_signin_btn_text_dark_focused = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int common_google_signin_btn_text_light_normal = 2130837603;
+			public const int common_google_signin_btn_text_dark_normal = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int common_google_signin_btn_text_light_pressed = 2130837604;
+			public const int common_google_signin_btn_text_dark_pressed = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int common_ic_googleplayservices = 2130837605;
+			public const int common_google_signin_btn_text_light = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int common_plus_signin_btn_icon_dark = 2130837606;
+			public const int common_google_signin_btn_text_light_disabled = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int common_plus_signin_btn_icon_dark_disabled = 2130837607;
+			public const int common_google_signin_btn_text_light_focused = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int common_plus_signin_btn_icon_dark_focused = 2130837608;
+			public const int common_google_signin_btn_text_light_normal = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int common_plus_signin_btn_icon_dark_normal = 2130837609;
+			public const int common_google_signin_btn_text_light_pressed = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int common_plus_signin_btn_icon_dark_pressed = 2130837610;
+			public const int common_ic_googleplayservices = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int common_plus_signin_btn_icon_light = 2130837611;
+			public const int common_plus_signin_btn_icon_dark = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int common_plus_signin_btn_icon_light_disabled = 2130837612;
+			public const int common_plus_signin_btn_icon_dark_disabled = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int common_plus_signin_btn_icon_light_focused = 2130837613;
+			public const int common_plus_signin_btn_icon_dark_focused = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int common_plus_signin_btn_icon_light_normal = 2130837614;
+			public const int common_plus_signin_btn_icon_dark_normal = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int common_plus_signin_btn_icon_light_pressed = 2130837615;
+			public const int common_plus_signin_btn_icon_dark_pressed = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int common_plus_signin_btn_text_dark = 2130837616;
+			public const int common_plus_signin_btn_icon_light = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int common_plus_signin_btn_text_dark_disabled = 2130837617;
+			public const int common_plus_signin_btn_icon_light_disabled = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int common_plus_signin_btn_text_dark_focused = 2130837618;
+			public const int common_plus_signin_btn_icon_light_focused = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int common_plus_signin_btn_text_dark_normal = 2130837619;
+			public const int common_plus_signin_btn_icon_light_normal = 2130837619;
 			
 			// aapt resource value: 0x7f020074
-			public const int common_plus_signin_btn_text_dark_pressed = 2130837620;
+			public const int common_plus_signin_btn_icon_light_pressed = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int common_plus_signin_btn_text_light = 2130837621;
+			public const int common_plus_signin_btn_text_dark = 2130837621;
 			
 			// aapt resource value: 0x7f020076
-			public const int common_plus_signin_btn_text_light_disabled = 2130837622;
+			public const int common_plus_signin_btn_text_dark_disabled = 2130837622;
 			
 			// aapt resource value: 0x7f020077
-			public const int common_plus_signin_btn_text_light_focused = 2130837623;
+			public const int common_plus_signin_btn_text_dark_focused = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int common_plus_signin_btn_text_light_normal = 2130837624;
+			public const int common_plus_signin_btn_text_dark_normal = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int common_plus_signin_btn_text_light_pressed = 2130837625;
+			public const int common_plus_signin_btn_text_dark_pressed = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int config = 2130837626;
+			public const int common_plus_signin_btn_text_light = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int design_fab_background = 2130837627;
+			public const int common_plus_signin_btn_text_light_disabled = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int design_snackbar_background = 2130837628;
+			public const int common_plus_signin_btn_text_light_focused = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int ic_audiotrack = 2130837629;
+			public const int common_plus_signin_btn_text_light_normal = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int ic_audiotrack_light = 2130837630;
+			public const int common_plus_signin_btn_text_light_pressed = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int ic_bluetooth_grey = 2130837631;
+			public const int config = 2130837631;
 			
 			// aapt resource value: 0x7f020080
-			public const int ic_bluetooth_white = 2130837632;
+			public const int design_fab_background = 2130837632;
 			
 			// aapt resource value: 0x7f020081
-			public const int ic_cast_dark = 2130837633;
+			public const int design_snackbar_background = 2130837633;
 			
 			// aapt resource value: 0x7f020082
-			public const int ic_cast_disabled_light = 2130837634;
+			public const int gerais = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int ic_cast_grey = 2130837635;
+			public const int ic_audiotrack = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int ic_cast_light = 2130837636;
+			public const int ic_audiotrack_light = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int ic_cast_off_light = 2130837637;
+			public const int ic_bluetooth_grey = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int ic_cast_on_0_light = 2130837638;
+			public const int ic_bluetooth_white = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int ic_cast_on_1_light = 2130837639;
+			public const int ic_cast_dark = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int ic_cast_on_2_light = 2130837640;
+			public const int ic_cast_disabled_light = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int ic_cast_on_light = 2130837641;
+			public const int ic_cast_grey = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int ic_cast_white = 2130837642;
+			public const int ic_cast_light = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int ic_close_dark = 2130837643;
+			public const int ic_cast_off_light = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int ic_close_light = 2130837644;
+			public const int ic_cast_on_0_light = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int ic_collapse = 2130837645;
+			public const int ic_cast_on_1_light = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int ic_collapse_00000 = 2130837646;
+			public const int ic_cast_on_2_light = 2130837646;
 			
 			// aapt resource value: 0x7f02008f
-			public const int ic_collapse_00001 = 2130837647;
+			public const int ic_cast_on_light = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int ic_collapse_00002 = 2130837648;
+			public const int ic_cast_white = 2130837648;
 			
 			// aapt resource value: 0x7f020091
-			public const int ic_collapse_00003 = 2130837649;
+			public const int ic_close_dark = 2130837649;
 			
 			// aapt resource value: 0x7f020092
-			public const int ic_collapse_00004 = 2130837650;
+			public const int ic_close_light = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int ic_collapse_00005 = 2130837651;
+			public const int ic_collapse = 2130837651;
 			
 			// aapt resource value: 0x7f020094
-			public const int ic_collapse_00006 = 2130837652;
+			public const int ic_collapse_00000 = 2130837652;
 			
 			// aapt resource value: 0x7f020095
-			public const int ic_collapse_00007 = 2130837653;
+			public const int ic_collapse_00001 = 2130837653;
 			
 			// aapt resource value: 0x7f020096
-			public const int ic_collapse_00008 = 2130837654;
+			public const int ic_collapse_00002 = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int ic_collapse_00009 = 2130837655;
+			public const int ic_collapse_00003 = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int ic_collapse_00010 = 2130837656;
+			public const int ic_collapse_00004 = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int ic_collapse_00011 = 2130837657;
+			public const int ic_collapse_00005 = 2130837657;
 			
 			// aapt resource value: 0x7f02009a
-			public const int ic_collapse_00012 = 2130837658;
+			public const int ic_collapse_00006 = 2130837658;
 			
 			// aapt resource value: 0x7f02009b
-			public const int ic_collapse_00013 = 2130837659;
+			public const int ic_collapse_00007 = 2130837659;
 			
 			// aapt resource value: 0x7f02009c
-			public const int ic_collapse_00014 = 2130837660;
+			public const int ic_collapse_00008 = 2130837660;
 			
 			// aapt resource value: 0x7f02009d
-			public const int ic_collapse_00015 = 2130837661;
+			public const int ic_collapse_00009 = 2130837661;
 			
 			// aapt resource value: 0x7f02009e
-			public const int ic_expand = 2130837662;
+			public const int ic_collapse_00010 = 2130837662;
 			
 			// aapt resource value: 0x7f02009f
-			public const int ic_expand_00000 = 2130837663;
+			public const int ic_collapse_00011 = 2130837663;
 			
 			// aapt resource value: 0x7f0200a0
-			public const int ic_expand_00001 = 2130837664;
+			public const int ic_collapse_00012 = 2130837664;
 			
 			// aapt resource value: 0x7f0200a1
-			public const int ic_expand_00002 = 2130837665;
+			public const int ic_collapse_00013 = 2130837665;
 			
 			// aapt resource value: 0x7f0200a2
-			public const int ic_expand_00003 = 2130837666;
+			public const int ic_collapse_00014 = 2130837666;
 			
 			// aapt resource value: 0x7f0200a3
-			public const int ic_expand_00004 = 2130837667;
+			public const int ic_collapse_00015 = 2130837667;
 			
 			// aapt resource value: 0x7f0200a4
-			public const int ic_expand_00005 = 2130837668;
+			public const int ic_expand = 2130837668;
 			
 			// aapt resource value: 0x7f0200a5
-			public const int ic_expand_00006 = 2130837669;
+			public const int ic_expand_00000 = 2130837669;
 			
 			// aapt resource value: 0x7f0200a6
-			public const int ic_expand_00007 = 2130837670;
+			public const int ic_expand_00001 = 2130837670;
 			
 			// aapt resource value: 0x7f0200a7
-			public const int ic_expand_00008 = 2130837671;
+			public const int ic_expand_00002 = 2130837671;
 			
 			// aapt resource value: 0x7f0200a8
-			public const int ic_expand_00009 = 2130837672;
+			public const int ic_expand_00003 = 2130837672;
 			
 			// aapt resource value: 0x7f0200a9
-			public const int ic_expand_00010 = 2130837673;
+			public const int ic_expand_00004 = 2130837673;
 			
 			// aapt resource value: 0x7f0200aa
-			public const int ic_expand_00011 = 2130837674;
+			public const int ic_expand_00005 = 2130837674;
 			
 			// aapt resource value: 0x7f0200ab
-			public const int ic_expand_00012 = 2130837675;
+			public const int ic_expand_00006 = 2130837675;
 			
 			// aapt resource value: 0x7f0200ac
-			public const int ic_expand_00013 = 2130837676;
+			public const int ic_expand_00007 = 2130837676;
 			
 			// aapt resource value: 0x7f0200ad
-			public const int ic_expand_00014 = 2130837677;
+			public const int ic_expand_00008 = 2130837677;
 			
 			// aapt resource value: 0x7f0200ae
-			public const int ic_expand_00015 = 2130837678;
+			public const int ic_expand_00009 = 2130837678;
 			
 			// aapt resource value: 0x7f0200af
-			public const int ic_media_pause = 2130837679;
+			public const int ic_expand_00010 = 2130837679;
 			
 			// aapt resource value: 0x7f0200b0
-			public const int ic_media_play = 2130837680;
+			public const int ic_expand_00011 = 2130837680;
 			
 			// aapt resource value: 0x7f0200b1
-			public const int ic_media_route_disabled_mono_dark = 2130837681;
+			public const int ic_expand_00012 = 2130837681;
 			
 			// aapt resource value: 0x7f0200b2
-			public const int ic_media_route_off_mono_dark = 2130837682;
+			public const int ic_expand_00013 = 2130837682;
 			
 			// aapt resource value: 0x7f0200b3
-			public const int ic_media_route_on_0_mono_dark = 2130837683;
+			public const int ic_expand_00014 = 2130837683;
 			
 			// aapt resource value: 0x7f0200b4
-			public const int ic_media_route_on_1_mono_dark = 2130837684;
+			public const int ic_expand_00015 = 2130837684;
 			
 			// aapt resource value: 0x7f0200b5
-			public const int ic_media_route_on_2_mono_dark = 2130837685;
+			public const int ic_media_pause = 2130837685;
 			
 			// aapt resource value: 0x7f0200b6
-			public const int ic_media_route_on_mono_dark = 2130837686;
+			public const int ic_media_play = 2130837686;
 			
 			// aapt resource value: 0x7f0200b7
-			public const int ic_pause_dark = 2130837687;
+			public const int ic_media_route_disabled_mono_dark = 2130837687;
 			
 			// aapt resource value: 0x7f0200b8
-			public const int ic_pause_light = 2130837688;
+			public const int ic_media_route_off_mono_dark = 2130837688;
 			
 			// aapt resource value: 0x7f0200b9
-			public const int ic_play_dark = 2130837689;
+			public const int ic_media_route_on_0_mono_dark = 2130837689;
 			
 			// aapt resource value: 0x7f0200ba
-			public const int ic_play_light = 2130837690;
+			public const int ic_media_route_on_1_mono_dark = 2130837690;
 			
 			// aapt resource value: 0x7f0200bb
-			public const int ic_speaker_dark = 2130837691;
+			public const int ic_media_route_on_2_mono_dark = 2130837691;
 			
 			// aapt resource value: 0x7f0200bc
-			public const int ic_speaker_group_dark = 2130837692;
+			public const int ic_media_route_on_mono_dark = 2130837692;
 			
 			// aapt resource value: 0x7f0200bd
-			public const int ic_speaker_group_light = 2130837693;
+			public const int ic_pause_dark = 2130837693;
 			
 			// aapt resource value: 0x7f0200be
-			public const int ic_speaker_light = 2130837694;
+			public const int ic_pause_light = 2130837694;
 			
 			// aapt resource value: 0x7f0200bf
-			public const int ic_tv_dark = 2130837695;
+			public const int ic_play_dark = 2130837695;
 			
 			// aapt resource value: 0x7f0200c0
-			public const int ic_tv_light = 2130837696;
+			public const int ic_play_light = 2130837696;
 			
 			// aapt resource value: 0x7f0200c1
-			public const int icon = 2130837697;
+			public const int ic_speaker_dark = 2130837697;
 			
 			// aapt resource value: 0x7f0200c2
-			public const int instrucoes = 2130837698;
+			public const int ic_speaker_group_dark = 2130837698;
 			
 			// aapt resource value: 0x7f0200c3
-			public const int interrogacaoi = 2130837699;
+			public const int ic_speaker_group_light = 2130837699;
 			
 			// aapt resource value: 0x7f0200c4
-			public const int mais = 2130837700;
+			public const int ic_speaker_light = 2130837700;
 			
 			// aapt resource value: 0x7f0200c5
-			public const int mapas = 2130837701;
+			public const int ic_tv_dark = 2130837701;
 			
 			// aapt resource value: 0x7f0200c6
-			public const int menos = 2130837702;
+			public const int ic_tv_light = 2130837702;
 			
 			// aapt resource value: 0x7f0200c7
-			public const int mr_dialog_material_background_dark = 2130837703;
+			public const int icon = 2130837703;
 			
 			// aapt resource value: 0x7f0200c8
-			public const int mr_dialog_material_background_light = 2130837704;
+			public const int instrucoes = 2130837704;
 			
 			// aapt resource value: 0x7f0200c9
-			public const int mr_ic_audiotrack_light = 2130837705;
+			public const int interrogacaoi = 2130837705;
 			
 			// aapt resource value: 0x7f0200ca
-			public const int mr_ic_cast_dark = 2130837706;
+			public const int mais = 2130837706;
 			
 			// aapt resource value: 0x7f0200cb
-			public const int mr_ic_cast_light = 2130837707;
+			public const int mapas = 2130837707;
 			
 			// aapt resource value: 0x7f0200cc
-			public const int mr_ic_close_dark = 2130837708;
+			public const int menos = 2130837708;
 			
 			// aapt resource value: 0x7f0200cd
-			public const int mr_ic_close_light = 2130837709;
+			public const int meusradares = 2130837709;
 			
 			// aapt resource value: 0x7f0200ce
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837710;
+			public const int modomapa = 2130837710;
 			
 			// aapt resource value: 0x7f0200cf
-			public const int mr_ic_media_route_connecting_mono_light = 2130837711;
+			public const int mr_dialog_material_background_dark = 2130837711;
 			
 			// aapt resource value: 0x7f0200d0
-			public const int mr_ic_media_route_mono_dark = 2130837712;
+			public const int mr_dialog_material_background_light = 2130837712;
 			
 			// aapt resource value: 0x7f0200d1
-			public const int mr_ic_media_route_mono_light = 2130837713;
+			public const int mr_ic_audiotrack_light = 2130837713;
 			
 			// aapt resource value: 0x7f0200d2
-			public const int mr_ic_pause_dark = 2130837714;
+			public const int mr_ic_cast_dark = 2130837714;
 			
 			// aapt resource value: 0x7f0200d3
-			public const int mr_ic_pause_light = 2130837715;
+			public const int mr_ic_cast_light = 2130837715;
 			
 			// aapt resource value: 0x7f0200d4
-			public const int mr_ic_play_dark = 2130837716;
+			public const int mr_ic_close_dark = 2130837716;
 			
 			// aapt resource value: 0x7f0200d5
-			public const int mr_ic_play_light = 2130837717;
-			
-			// aapt resource value: 0x7f0200dc
-			public const int notification_template_icon_bg = 2130837724;
+			public const int mr_ic_close_light = 2130837717;
 			
 			// aapt resource value: 0x7f0200d6
-			public const int novidade = 2130837718;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837718;
 			
 			// aapt resource value: 0x7f0200d7
-			public const int percursos = 2130837719;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837719;
 			
 			// aapt resource value: 0x7f0200d8
-			public const int sair = 2130837720;
+			public const int mr_ic_media_route_mono_dark = 2130837720;
 			
 			// aapt resource value: 0x7f0200d9
-			public const int seguinte = 2130837721;
+			public const int mr_ic_media_route_mono_light = 2130837721;
 			
 			// aapt resource value: 0x7f0200da
-			public const int sobre = 2130837722;
+			public const int mr_ic_pause_dark = 2130837722;
 			
 			// aapt resource value: 0x7f0200db
-			public const int velocimetro = 2130837723;
+			public const int mr_ic_pause_light = 2130837723;
+			
+			// aapt resource value: 0x7f0200dc
+			public const int mr_ic_play_dark = 2130837724;
+			
+			// aapt resource value: 0x7f0200dd
+			public const int mr_ic_play_light = 2130837725;
+			
+			// aapt resource value: 0x7f0200de
+			public const int navicon = 2130837726;
+			
+			// aapt resource value: 0x7f0200e6
+			public const int notification_template_icon_bg = 2130837734;
+			
+			// aapt resource value: 0x7f0200df
+			public const int novidade = 2130837727;
+			
+			// aapt resource value: 0x7f0200e0
+			public const int percursos = 2130837728;
+			
+			// aapt resource value: 0x7f0200e1
+			public const int reproducaodevoz = 2130837729;
+			
+			// aapt resource value: 0x7f0200e2
+			public const int sair = 2130837730;
+			
+			// aapt resource value: 0x7f0200e3
+			public const int seguinte = 2130837731;
+			
+			// aapt resource value: 0x7f0200e4
+			public const int sobre = 2130837732;
+			
+			// aapt resource value: 0x7f0200e5
+			public const int velocimetro = 2130837733;
 			
 			static Drawable()
 			{
@@ -3525,8 +5494,8 @@ namespace Radar.Droid
 			// aapt resource value: 0x7f0b015a
 			public const int Animation_Design_BottomSheetDialog = 2131427674;
 			
-			// aapt resource value: 0x7f0b0174
-			public const int AppCompatDialogStyle = 2131427700;
+			// aapt resource value: 0x7f0b0175
+			public const int AppCompatDialogStyle = 2131427701;
 			
 			// aapt resource value: 0x7f0b00a5
 			public const int Base_AlertDialog_AppCompat = 2131427493;
@@ -3969,11 +5938,11 @@ namespace Radar.Droid
 			// aapt resource value: 0x7f0b001a
 			public const int CardView_Light = 2131427354;
 			
-			// aapt resource value: 0x7f0b0172
-			public const int MainTheme = 2131427698;
-			
 			// aapt resource value: 0x7f0b0173
-			public const int MainTheme_Base = 2131427699;
+			public const int MainTheme = 2131427699;
+			
+			// aapt resource value: 0x7f0b0174
+			public const int MainTheme_Base = 2131427700;
 			
 			// aapt resource value: 0x7f0b0032
 			public const int Platform_AppCompat = 2131427378;
@@ -4316,6 +6285,9 @@ namespace Radar.Droid
 			
 			// aapt resource value: 0x7f0b0003
 			public const int Theme_MediaRouter_LightControlPanel = 2131427331;
+			
+			// aapt resource value: 0x7f0b0172
+			public const int Theme_Splash = 2131427698;
 			
 			// aapt resource value: 0x7f0b010e
 			public const int ThemeOverlay_AppCompat = 2131427598;

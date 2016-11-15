@@ -14,7 +14,7 @@ using System.Collections.Generic;
 using Android;
 using Radar.Pages;
 using Android.Content;
-
+using ClubManagement.Droid;
 
 namespace Radar.Droid
 {

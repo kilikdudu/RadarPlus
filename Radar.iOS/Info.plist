@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleDisplayName</key>
-	<string>Radar.iOS</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.companyname.Radar.iOS</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -46,8 +42,6 @@
 	<string>Necessário para geolocalizar a imagem.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Necessário para geolocalizar a imagem.</string>
-	<key>CFBundleName</key>
-	<string>Radar.iOS</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -55,7 +49,7 @@
 			<string>MKDirectionsRequest</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.apple.maps.directionsrequest</string>
+				<string>br.com.cmapps.radar</string>
 			</array>
 		</dict>
 	</array>
@@ -67,5 +61,9 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>XSLaunchImageAssets</key>
 	<string>Assets.xcassets/LaunchImage.launchimage</string>
+	<key>CFBundleIdentifier</key>
+	<string>br.com.cmapps.radar</string>
+	<key>CFBundleName</key>
+	<string>DevRadarPlus</string>
 </dict>
 </plist>
