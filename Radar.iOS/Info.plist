@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Radar.iOS</string>
+	<string>DevRadarPlus</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.Radar.iOS</string>
+	<string>br.com.cmapps.radar</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
