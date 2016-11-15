@@ -5,7 +5,7 @@
 		     BackgroundColor="#ffffff">
   <ContentPage.Content>
     <StackLayout Orientation="Vertical" Padding="5, 10, 5, 10">
-    <StackLayout Padding="0, 25, 0, 0" Orientation="Vertical"> 
+    <StackLayout Padding="0, 15, 0, 0" Orientation="Vertical"> 
 			<Image Source="navicon.png" HorizontalOptions="Start" WidthRequest="110" HeightRequest="110" />
 		      
 	</StackLayout>

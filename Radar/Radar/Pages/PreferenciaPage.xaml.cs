@@ -7,6 +7,7 @@ using Radar.Model;
 using Radar.Controls;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Radar.BLL;
 
 namespace Radar
 {
@@ -131,50 +132,50 @@ namespace Radar
 
 				Label nameLabel = new Label
 				{
-					YAlign = TextAlignment.Center,
 					TextColor = Color.FromHex(TemaInfo.PrimaryText),
 					FontFamily = "Roboto-Condensed",
 					FontSize = 20,
-					HeightRequest = 36,
-					HorizontalOptions = LayoutOptions.CenterAndExpand,
+					HorizontalOptions = LayoutOptions.Start,
 							VerticalOptions = LayoutOptions.Center,
 
 
 				};
 				var icone = new Image();
 				nameLabel.SetBinding(Label.TextProperty, new Binding("Titulo"));
-
-				var horizontalLayout = new StackLayout();
-				var frameInner = new Frame();
-				var frameOuter = new Frame();
 				if (Device.OS == TargetPlatform.iOS)
 				{
-					icone.WidthRequest = 40;
-					icone.HeightRequest = 40;
+					icone.Margin = new Thickness(20,0,0,0);
+				}
+				var horizontalLayout = new StackLayout();
+				var frameOuter = new Frame();
 
-				}
-				else
-				{
-					icone.WidthRequest = 60;
-					icone.HeightRequest = 60;
-					icone.Margin = new Thickness(20, 0, 10, 0);
-				}
+				icone.WidthRequest = 40;
+				icone.HeightRequest = 40;
 				icone.SetBinding(Image.SourceProperty, new Binding("Imagem"));
 
 
-				icone.HorizontalOptions = LayoutOptions.StartAndExpand;
+				icone.HorizontalOptions = LayoutOptions.Start;
 
 				horizontalLayout.Padding = new Thickness(20, 0, 20, 0);
 		        horizontalLayout.Orientation = StackOrientation.Horizontal;
-				horizontalLayout.HorizontalOptions = LayoutOptions.StartAndExpand;
-				horizontalLayout.VerticalOptions = LayoutOptions.FillAndExpand;
+				horizontalLayout.HorizontalOptions = LayoutOptions.Fill;
+				horizontalLayout.VerticalOptions = LayoutOptions.Fill;
+				horizontalLayout.HeightRequest = AbsoluteLayout.AutoSize;
+				horizontalLayout.WidthRequest = AbsoluteLayout.AutoSize;
 				//horizontalLayout.HeightRequest = 40;
                 //frameOuter.Padding = new Thickness(20, 20, 20, 20);
                 //frameOuter.HeightRequest = 66;
-                frameOuter.Margin = new Thickness(10, 5, 10, 5);
                 //frameInner.OutlineColor = Color.Black;
                 frameOuter.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
-				//frameOuter.Padding = new Thickness(0, 0, 20, 0);
+				frameOuter.HeightRequest = AbsoluteLayout.AutoSize;
+				if (Device.OS == TargetPlatform.iOS)
+				{
+					frameOuter.WidthRequest = TelaUtils.Largura * 0.9;
+				}
+				else {
+					frameOuter.Margin = new Thickness(5, 0, 5, 0);
+				}
+
 
 				//verticaLayout.Children.Add(nameLabel);
 				horizontalLayout.Children.Add(icone);
