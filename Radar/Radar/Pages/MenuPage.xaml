@@ -6,16 +6,6 @@
   <ContentPage.Content>
     <StackLayout Orientation="Vertical" Padding="5, 10, 5, 10">
       <ListView x:Name="listView" GroupDisplayBinding="{Binding Nome}" SeparatorVisibility="None" IsGroupingEnabled="true" BackgroundColor="#b2dfdb">
-        <ListView.ItemTemplate>
-          <DataTemplate>
-            <ViewCell>
-              <StackLayout Orientation="Horizontal" BackgroundColor="#b2dfdb">                
-				<Image Source="{Binding Icone}" HorizontalOptions="Start"  VerticalOptions="Center"/>
-				<Label Text="{Binding Titulo}" HorizontalOptions="Center" VerticalOptions="Center" />
-              </StackLayout>
-            </ViewCell>
-          </DataTemplate>
-        </ListView.ItemTemplate>
         <ListView.GroupHeaderTemplate>
           <DataTemplate>
             <ViewCell>
@@ -26,6 +16,16 @@
             </ViewCell>
           </DataTemplate>
         </ListView.GroupHeaderTemplate>
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Orientation="Horizontal" BackgroundColor="#b2dfdb">                
+				        <Image Source="{Binding Icone}" HorizontalOptions="Start"  VerticalOptions="Center"/>
+				        <Label Text="{Binding Titulo}" HorizontalOptions="Center" VerticalOptions="Center" />
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
       </ListView>
     </StackLayout>
   </ContentPage.Content>
