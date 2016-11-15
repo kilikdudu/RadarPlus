@@ -1,4 +1,4 @@
-﻿using ClubManagement.Utils;
+using ClubManagement.Utils;
 using Radar.BLL;
 using System;
 using System.Collections.Generic;
