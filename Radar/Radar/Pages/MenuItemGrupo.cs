@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Radar.Pages
 {
-    public class MenuItemGrupo : ObservableCollection<MenuItemInfo>
+    public class MenuItemGrupo : List<MenuItemInfo>
     {
         public string Nome { get; private set; }
         public string NomeCurto { get; private set; }

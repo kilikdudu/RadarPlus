@@ -5,7 +5,7 @@
       <Style x:Key="LabelStyle" TargetType="Label">
         <Setter Property="HorizontalOptions" Value="StartAndExpand" />
         <Setter Property="TextColor" Value="#757575" />
-        <Setter Property="FontSize" Value="26" />
+        <Setter Property="FontSize" Value="22" />
         <Setter Property="Margin" Value="20,0,0,0" />
         <Setter Property="FontFamily" Value="Roboto-Condensed" />
       </Style>
@@ -49,8 +49,8 @@
           </Frame>
           <Frame Style="{StaticResource StyleFrame}">
             <StackLayout Orientation="Horizontal">
-              <Label Text="Polícia Rodoviária" Style="{StaticResource LabelStyle}"/>
-              <Switch Style="{StaticResource StyleSwitch}" x:Name="policiaRodoviaria" Toggled="policiaRodoviariaToggled"/>
+              <Label Text="Polícia Rodoviária         " Style="{StaticResource LabelStyle}"/>
+              <Switch Margin="70,0,0,0" Style="{StaticResource StyleSwitch}" x:Name="policiaRodoviaria" Toggled="policiaRodoviariaToggled"/>
             </StackLayout>
           </Frame>
           <Frame Style="{StaticResource StyleFrame}">
@@ -62,8 +62,8 @@
           <Frame Style="{StaticResource StyleFrame}">
             <StackLayout Orientation="Vertical">
               <StackLayout Orientation="Horizontal">
-                <Label Text="Alerta Inteligente" Style="{StaticResource LabelStyle}"/>
-                <Switch Style="{StaticResource StyleSwitch}" x:Name="alertaInteligente" Toggled="alertaInteligenteToggled"/>
+                <Label Text="Alerta Inteligente             " Style="{StaticResource LabelStyle}"/>
+                <Switch Margin="70,0,0,0" Style="{StaticResource StyleSwitch}" x:Name="alertaInteligente" Toggled="alertaInteligenteToggled"/>
               </StackLayout>
               <Label Text="Só emitir alerta caso a velocidade atual esteja próxima da velocidade limite" Style="{StaticResource LabelStyleDescription}" />
             </StackLayout>
@@ -79,8 +79,8 @@
           </Frame>
           <Frame Style="{StaticResource StyleFrame}">
             <StackLayout Orientation="Horizontal">
-              <Label Text="Vibrar ao emitir Alerta" Style="{StaticResource LabelStyle}" />
-              <Switch Style="{StaticResource StyleSwitch}" x:Name="vibrarAlerta" Toggled="vibrarAlertaToggled"/>
+              <Label Text="Vibrar ao emitir Alerta                " Style="{StaticResource LabelStyle}" />
+              <Switch Margin="25,0,0,0" Style="{StaticResource StyleSwitch}" x:Name="vibrarAlerta" Toggled="vibrarAlertaToggled"/>
             </StackLayout>
           </Frame>
           <Frame Style="{StaticResource StyleFrame}">
@@ -119,8 +119,8 @@
           <Frame Style="{StaticResource StyleFrame}">
             <StackLayout Orientation="Vertical">
               <StackLayout Orientation="Horizontal">
-                <Label Text="Sobreposição Visual" Style="{StaticResource LabelStyle}"  />
-                <Switch Style="{StaticResource StyleSwitch}" x:Name="sobreposicaoVisual" Toggled="sobreposicaoVisualToggled"/>
+                <Label Text="Sobreposição Visual                " Style="{StaticResource LabelStyle}"  />
+                <Switch Margin="40,0,0,0" Style="{StaticResource StyleSwitch}" x:Name="sobreposicaoVisual" Toggled="sobreposicaoVisualToggled"/>
               </StackLayout>
               <Label Text="Exibir alertas visuais quando o App estiver funcionando em segundo plano" Style="{StaticResource LabelStyleDescription}" />
             </StackLayout>

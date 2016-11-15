@@ -6,14 +6,16 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Radar.Model;
 using Xamarin.Forms;
 
 namespace Radar.Pages
 {
     public partial class MenuPage : ContentPage
     {
-        public ListView ListView { get { return listView; } }
+        public ListView ListView { get {
+
+				return listView; } }
 
         private MenuItemGrupo criarGrupoModo() {
             var grupo = new MenuItemGrupo("MODO", "MODO");
@@ -114,6 +116,7 @@ namespace Radar.Pages
             paginas.Add(criarGrupoModo());
             paginas.Add(criarGrupoAcao());
             paginas.Add(criarGrupoAplicativo());
+
             listView.ItemsSource = paginas;
         }
     }

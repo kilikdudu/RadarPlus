@@ -156,6 +156,7 @@
     <Compile Include="DALFactory\PreferenciaDALFactory.cs" />
     <Compile Include="Factory\PreferenciaFactory.cs" />
     <Compile Include="Model\TemaInfo.cs" />
+    <Compile Include="Model\ListaInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\RadarListaPage.xaml">
