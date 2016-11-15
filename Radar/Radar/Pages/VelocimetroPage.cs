@@ -33,13 +33,17 @@ namespace Radar.Pages
         private float _precisao;
         private float _distanciaRadar;
         private Velocimetro _velocimetro;
-        private Label _GPSPrecisaoLabel;
         private Label _GPSSentidoLabel;
         private Label _VelocidadeRadarLabel;
         private Label _DistanciaRadarLabel;
         private Image _AdicionarRadarButton;
+
         private Image _BussolaFundo;
         private Image _BussolaAgulha;
+
+        private Image _PrecisaoFundoImage;
+        private Image _PrecisaoImage;
+        private Label _PrecisaoLabel;
 
         public float VelocidadeAtual {
             get {
@@ -79,7 +83,15 @@ namespace Radar.Pages
             }
             set {
                 _precisao = value;
-                _GPSPrecisaoLabel.Text = ((int)Math.Floor(_precisao)).ToString() + " m";
+                if (_precisao <= 0)
+                    _PrecisaoImage.Source = ImageSource.FromFile("sat04.png");
+                else if (_precisao <= 5)
+                    _PrecisaoImage.Source = ImageSource.FromFile("sat03.png");
+                else if (_precisao <= 10)
+                    _PrecisaoImage.Source = ImageSource.FromFile("sat02.png");
+                else
+                    _PrecisaoImage.Source = ImageSource.FromFile("sat01.png");
+                _PrecisaoLabel.Text = ((int)Math.Floor(_precisao)).ToString() + " m";
             }
         }
 
@@ -114,15 +126,6 @@ namespace Radar.Pages
 				HeightRequest = TelaUtils.Altura,
 				BackgroundColor = Color.White
             };
-
-            _GPSPrecisaoLabel = new Label {
-                Text = "Precisão",
-                FontSize = 16,
-                HorizontalTextAlignment = TextAlignment.Center,
-                VerticalTextAlignment = TextAlignment.Center
-            };
-            AbsoluteLayout.SetLayoutBounds(_GPSPrecisaoLabel, new Rectangle(0.1, 0.025, 0.1, 0.1));
-            AbsoluteLayout.SetLayoutFlags(_GPSPrecisaoLabel, AbsoluteLayoutFlags.All);
 
             _GPSSentidoLabel = new Label
             {
@@ -214,19 +217,51 @@ namespace Radar.Pages
             AbsoluteLayout.SetLayoutBounds(_BussolaAgulha, new Rectangle(0.93, 0, 0.2, 0.2));
             AbsoluteLayout.SetLayoutFlags(_BussolaAgulha, AbsoluteLayoutFlags.All);
 
+            _PrecisaoFundoImage = new Image
+            {
+                Aspect = Aspect.AspectFit,
+                Source = ImageSource.FromFile("bussolacorpo.png"),
+                WidthRequest = 180,
+                HeightRequest = 180
+            };
+            AbsoluteLayout.SetLayoutBounds(_PrecisaoFundoImage, new Rectangle(0.07, 0, 0.2, 0.2));
+            AbsoluteLayout.SetLayoutFlags(_PrecisaoFundoImage, AbsoluteLayoutFlags.All);
+
+            _PrecisaoImage = new Image
+            {
+                Aspect = Aspect.AspectFit,
+                Source = ImageSource.FromFile("sat04.png"),
+                WidthRequest = 180,
+                HeightRequest = 180
+            };
+            AbsoluteLayout.SetLayoutBounds(_PrecisaoImage, new Rectangle(0.07, 0, 0.2, 0.2));
+            AbsoluteLayout.SetLayoutFlags(_PrecisaoImage, AbsoluteLayoutFlags.All);
+
+            _PrecisaoLabel = new Label
+            {
+                Text = "0 m",
+                FontSize = 16,
+                HorizontalTextAlignment = TextAlignment.Center,
+                VerticalTextAlignment = TextAlignment.Center
+            };
+            AbsoluteLayout.SetLayoutBounds(_PrecisaoLabel, new Rectangle(0.1, 0.025, 0.1, 0.1));
+            AbsoluteLayout.SetLayoutFlags(_PrecisaoLabel, AbsoluteLayoutFlags.All);
+
             Title = "Velocimetro";
             Padding = 5;
             Content = new AbsoluteLayout
             {
                 Children = {
                     _velocimetro,
-                    _GPSPrecisaoLabel,
                     _GPSSentidoLabel,
                     _VelocidadeRadarLabel,
                     _DistanciaRadarLabel,
                     _AdicionarRadarButton,
                     _BussolaFundo,
-                    _BussolaAgulha
+                    _BussolaAgulha,
+                    _PrecisaoFundoImage,
+                    _PrecisaoImage,
+                    _PrecisaoLabel
                 }
             };
         }
