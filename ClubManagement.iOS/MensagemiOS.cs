@@ -1,4 +1,5 @@
-﻿using ClubManagement.Utils;
+﻿using ClubManagement.IDevice;
+using ClubManagement.Utils;
 using Radar.iOS;
 using System;
 using System.Collections.Generic;

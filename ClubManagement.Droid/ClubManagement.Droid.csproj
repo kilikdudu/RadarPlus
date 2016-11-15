@@ -118,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArquivoAndroid.cs" />
+    <Compile Include="CurrentActivityUtils.cs" />
     <Compile Include="DownloaderAndroid.cs" />
     <Compile Include="MensagemAndroid.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

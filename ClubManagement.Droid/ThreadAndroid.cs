@@ -20,11 +20,11 @@ namespace ClubManagement.Droid
 {
     public class ThreadAndroid : IThread
     {
-        public static Activity CurrentActivity;
-
         public void RunOnUiThread(Action acao)
         {
-            CurrentActivity.RunOnUiThread(acao);
+            if (CurrentActivityUtils.Current == null)
+                throw new Exception("'CurrentActivityUtils.Current' não foi inicializado!");
+            CurrentActivityUtils.Current.RunOnUiThread(acao);
         }
     }
 }

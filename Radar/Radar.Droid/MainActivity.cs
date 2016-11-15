@@ -38,7 +38,8 @@ namespace Radar.Droid
             TelaAndroid.Largura = (int)Resources.DisplayMetrics.WidthPixels; // real pixels
             TelaAndroid.Altura = (int)Resources.DisplayMetrics.HeightPixels;
 
-            ThreadAndroid.CurrentActivity = this;
+            CurrentActivityUtils.Current = this;
+            //ThreadAndroid.CurrentActivity = this;
 
             LoadApplication(new App());
         }
