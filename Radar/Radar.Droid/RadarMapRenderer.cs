@@ -50,11 +50,14 @@ namespace Radar.Droid
                         CameraPosition.Builder builder = CameraPosition.InvokeBuilder(map.CameraPosition);
                         builder.Target(new LatLng(local.Latitude, local.Longitude));
                         builder.Bearing(local.Sentido);
-                        builder.Zoom(PreferenciaUtils.MapaZoom);
+                        builder.Zoom(PreferenciaUtils.NivelZoom);
                         builder.Tilt(PreferenciaUtils.MapaTilt);
                         CameraPosition cameraPosition = builder.Build();
                         CameraUpdate cameraUpdate = CameraUpdateFactory.NewCameraPosition(cameraPosition);
-                        map.AnimateCamera(cameraUpdate);
+                        if (PreferenciaUtils.SuavizarAnimacao)
+                            map.AnimateCamera(cameraUpdate);
+                        else
+                            map.MoveCamera(cameraUpdate);
                         animando = true;
                     }
                 };
@@ -89,6 +92,13 @@ namespace Radar.Droid
         public void OnMapReady(GoogleMap googleMap)
         {
             map = googleMap;
+            if (PreferenciaUtils.InfoTrafego)
+                googleMap.TrafficEnabled = true;
+            googleMap.UiSettings.SetAllGesturesEnabled(PreferenciaUtils.RotacionarMapa);
+            //googleMap.UiSettings.RotateGesturesEnabled = PreferenciaUtils.RotacionarMapa;
+            googleMap.UiSettings.MyLocationButtonEnabled = false;
+            googleMap.UiSettings.ZoomControlsEnabled = false;
+            googleMap.UiSettings.MapToolbarEnabled = false;
             map.CameraChange += (sender, e) => {
                 animando = false;
                 LatLng c = map.Projection.VisibleRegion.LatLngBounds.Center;

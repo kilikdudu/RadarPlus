@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Radar.Factory;
 using Radar.Model;
+using Xamarin.Forms;
 
 namespace Radar.BLL
 {
@@ -13,6 +14,8 @@ namespace Radar.BLL
         private const string URL_ATUALIZACAO = "http://pavmanager.com.br/maparadar.txt";
 
         private static PreferenciaBLL _regraPreferencia = PreferenciaFactory.create();
+
+        private const int ZOOM_MAPA_PADRAO_ANDROID = 18;
 
         private const string ALTURA_VOLUME = "alturaVolume";
         private const string CANAL_AUDIO = "canalAudio";
@@ -301,19 +304,12 @@ namespace Radar.BLL
         public static bool Lombada
 		{
 			get {
-				return _regraPreferencia.pegarBool(LOMBADA);
+				return _regraPreferencia.pegarBool(LOMBADA, true);
 			}
             set {
                 _regraPreferencia.gravar(LOMBADA, value);
             }
 		}
-
-		public static float MapaZoom {
-            get
-            {
-                return 18;
-            }
-        }
 
         public static float MapaTilt
         {
@@ -327,7 +323,10 @@ namespace Radar.BLL
 		{
 			get
 			{
-				return _regraPreferencia.pegarInt(NIVEL_ZOOM);
+                int padrao = 10;
+                if (Device.OS == TargetPlatform.Android)
+                    padrao = ZOOM_MAPA_PADRAO_ANDROID;
+                return _regraPreferencia.pegarInt(NIVEL_ZOOM, padrao);
 			}
             set {
                 _regraPreferencia.gravar(NIVEL_ZOOM, value);
@@ -337,7 +336,7 @@ namespace Radar.BLL
 		public static bool Pedagio
 		{
 			get {
-				return _regraPreferencia.pegarBool(PEDAGIO);
+				return _regraPreferencia.pegarBool(PEDAGIO, true);
 			}
             set {
                 _regraPreferencia.gravar(PEDAGIO, value);
@@ -347,7 +346,7 @@ namespace Radar.BLL
 		public static bool PoliciaRodoviaria
 		{
 			get {
-				return _regraPreferencia.pegarBool(POLICIA_RODOVIARIA);
+				return _regraPreferencia.pegarBool(POLICIA_RODOVIARIA, true);
 			}
             set {
                 _regraPreferencia.gravar(POLICIA_RODOVIARIA, value);
@@ -357,7 +356,7 @@ namespace Radar.BLL
 		public static bool RadarMovel
 		{
 			get {
-				return _regraPreferencia.pegarBool(RADAR_MOVEL);
+				return _regraPreferencia.pegarBool(RADAR_MOVEL, true);
 			}
             set {
                 _regraPreferencia.gravar(RADAR_MOVEL, value);
@@ -390,7 +389,7 @@ namespace Radar.BLL
 		public static bool SinalGPS
 		{
 			get {
-				return _regraPreferencia.pegarBool(SINAL_GPS);
+				return _regraPreferencia.pegarBool(SINAL_GPS, true);
 			}
             set {
                 _regraPreferencia.gravar(SINAL_GPS, value);
@@ -430,7 +429,7 @@ namespace Radar.BLL
         public static bool SuavizarAnimacao
 		{
 			get {
-				return _regraPreferencia.pegarBool(SUAVIZAR_ANIMACAO);
+				return _regraPreferencia.pegarBool(SUAVIZAR_ANIMACAO, true);
 			}
             set {
                 _regraPreferencia.gravar(SUAVIZAR_ANIMACAO, value);
