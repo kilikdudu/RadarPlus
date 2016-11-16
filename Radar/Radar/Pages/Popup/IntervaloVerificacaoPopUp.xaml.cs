@@ -9,21 +9,25 @@ using System.Diagnostics;
 
 namespace Radar.Pages.Popup {
     public partial class InvervaloVerificacaoPopUp : PopupPage {
-        private String valorSlider;
-        private double sliderValor;
+        //private String valorSlider;
+        //private double sliderValor;
         PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
 
         public InvervaloVerificacaoPopUp() {
             InitializeComponent();
-            valorSlider = Configuracao.IntervaloVerificacao;
-            SliderVerificacao.Value = int.Parse(valorSlider);
-            if (int.Parse(valorSlider) > 1) {
-                textValor.Text = SliderVerificacao.Value.ToString() + " Dias";
-            } else {
-                textValor.Text = SliderVerificacao.Value.ToString() + " Dia";
-            }
-            
-            SliderVerificacao.ValueChanged += OnSliderValueChanged;
+            SliderVerificacao.ValueChanged += (sender, e) => {
+                var newStep = Math.Round(e.NewValue);
+                SliderVerificacao.Value = newStep;
+                textValor.Text = SliderVerificacao.Value.ToString() + ((SliderVerificacao.Value > 1) ? " Dias" : " Dia");
+            };
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            int valorSlider = PreferenciaUtils.IntervaloVerificacao;
+            SliderVerificacao.Value = valorSlider;
+            textValor.Text = SliderVerificacao.Value.ToString() + ((valorSlider > 1) ? " Dias" : " Dia");
         }
 
         private void OnCancelar(object sender, EventArgs e) {
@@ -32,22 +36,9 @@ namespace Radar.Pages.Popup {
 
         private void OnOk(object sender, EventArgs e) {
             //PopupNavigation.PopAsync();
-            regraPreferencia.gravar("intervaloVerificacao", (int)Math.Floor(SliderVerificacao.Value));
-           
+            //regraPreferencia.gravar("intervaloVerificacao", (int)Math.Floor(SliderVerificacao.Value));
+            PreferenciaUtils.IntervaloVerificacao = (int)Math.Floor(SliderVerificacao.Value);
             PopupNavigation.PopAsync();
-        }
-
-        private void OnSliderValueChanged(object sender, ValueChangedEventArgs e) {
-            var newStep = Math.Round(e.NewValue);
-            SliderVerificacao.Value = newStep;
-           
-            if (SliderVerificacao.Value > 1) {
-                textValor.Text = SliderVerificacao.Value.ToString() + " Dias";
-            } else {
-                textValor.Text = SliderVerificacao.Value.ToString() + " Dia";
-            }
-            
-           
         }
 
         protected override Task OnAppearingAnimationEnd() {

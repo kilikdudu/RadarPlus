@@ -63,7 +63,7 @@ namespace Radar.Controls
         }
 
         public void download() {
-            download(Configuracao.UrlAtualizacao, NOME_ARQUIVO);
+            download(PreferenciaUtils.UrlAtualizacao, NOME_ARQUIVO);
         }
 
 

@@ -11,32 +11,24 @@ using Rg.Plugins.Popup.Extensions;
 
 namespace Radar.Pages {
     public partial class ModoAudioPage : ContentPage {
-		private static ModoAudioPage _ModoAudioPage;
-		PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
-		public static ModoAudioPage Atual
-		{
-			get
-			{
-				return _ModoAudioPage;
-			}
-			private set
-			{
-				_ModoAudioPage = value;
-			}
-		}
+
         public ModoAudioPage() {
             InitializeComponent();
             Title = "Áudio";
             //Content = new ScrollView() { Content = teststack };
-
-			volumePersonalizado.IsToggled = Configuracao.SomCaixa;
-
-			somCaixa.IsToggled = Configuracao.VolumePersonalizado;
-
         }
 
-		public void volumePersonalizadoToggled(object sender, ToggledEventArgs e)
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            volumePersonalizado.IsToggled = PreferenciaUtils.VolumePersonalizado;
+            somCaixa.IsToggled = PreferenciaUtils.SomCaixa;
+        }
+
+
+        public void volumePersonalizadoToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("volumePersonalizado", 1);
@@ -44,10 +36,13 @@ namespace Radar.Pages {
 			else {
 				regraPreferencia.gravar("volumePersonalizado", 0);
 			}
-		}
+            */
+            PreferenciaUtils.VolumePersonalizado = e.Value;
+        }
 
 		public void somCaixaToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("somCaixa", 1);
@@ -55,7 +50,9 @@ namespace Radar.Pages {
 			else {
 				regraPreferencia.gravar("somCaixa", 0);
 			}
-		}
+            */
+            PreferenciaUtils.SomCaixa = e.Value;
+        }
         async void canalAudioTapped(object sender, EventArgs e) {
 
             var page = new CanalAudioPopUp();
@@ -72,6 +69,7 @@ namespace Radar.Pages {
             // or
             //await Navigation.PushAsync(page);
         }
+
         async void somAlertaTapped(object sender, EventArgs e) {
 
             var page = new SomAlertaPopUp();
@@ -80,17 +78,5 @@ namespace Radar.Pages {
             // or
             //await Navigation.PushAsync(page);
         }
-        protected override void OnAppearing()
-		{
-
-			base.OnAppearing();
-			_ModoAudioPage = this;
-		}
-
-		protected override void OnDisappearing()
-		{
-			base.OnDisappearing();
-			_ModoAudioPage = null;
-		}
     }
 }

@@ -11,32 +11,24 @@ namespace Radar
 {
 	public partial class ModoMeuRadarPage : ContentPage
 	{
-		private static ModoMeuRadarPage _ModoMeuRadarPage;
-		PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
-		public static ModoMeuRadarPage Atual
-		{
-			get
-			{
-				return _ModoMeuRadarPage;
-			}
-			private set
-			{
-				_ModoMeuRadarPage = value;
-			}
-		}
         public ModoMeuRadarPage()
         {
             InitializeComponent();
             Title = "Meus Radares";
            // Content = new ScrollView() { Content = teststack };
-
-			exibirBotaoAdcionar.IsToggled = Configuracao.ExibirBotaoAdcionar;
-
-			exibirBotaoRemover.IsToggled = Configuracao.ExibirBotaoRemover;
         }
 
-		public void exibirBotaoAdcionarToggled(object sender, ToggledEventArgs e)
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            exibirBotaoAdcionar.IsToggled = PreferenciaUtils.ExibirBotaoAdicionar;
+            exibirBotaoRemover.IsToggled = PreferenciaUtils.ExibirBotaoRemover;
+        }
+
+
+        public void exibirBotaoAdcionarToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("exibirBotaoAdcionar", 1);
@@ -44,11 +36,13 @@ namespace Radar
 			else {
 				regraPreferencia.gravar("exibirBotaoAdcionar", 0);
 			}
-
-		}
+            */
+            PreferenciaUtils.ExibirBotaoAdicionar = e.Value;
+        }
 
 		public void exibirBotaoRemoverToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("exibirBotaoRemover", 1);
@@ -56,21 +50,9 @@ namespace Radar
 			else {
 				regraPreferencia.gravar("exibirBotaoRemover", 0);
 			}
-
-		}
-
-
-        protected override void OnAppearing()
-		{
-			base.OnAppearing();
-			_ModoMeuRadarPage = this;
-		}
-
-		protected override void OnDisappearing()
-		{
-			base.OnDisappearing();
-			_ModoMeuRadarPage = null;
-		}
+            */
+            PreferenciaUtils.ExibirBotaoRemover = e.Value;
+        }
 	}
 }
 

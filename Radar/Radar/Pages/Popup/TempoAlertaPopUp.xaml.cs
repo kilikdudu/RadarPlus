@@ -9,20 +9,30 @@ using System.Diagnostics;
 
 namespace Radar.Pages.Popup {
     public partial class TempoAlertaPopUp : PopupPage {
-        private String valorSliderTempo;
+        //private String valorSliderTempo;
         PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
 
         public TempoAlertaPopUp() {
             InitializeComponent();
-            valorSliderTempo = Configuracao.TempoAlerta;
-            SliderTempo.Value = int.Parse(valorSliderTempo);
-            textValorAlerta.Text = valorSliderTempo;
-            SliderTempo.ValueChanged += OnSliderValueChanged;
-            if (SliderTempo.Value > 1) {
+            SliderTempo.ValueChanged += (sender, e) => {
+                var newStep = Math.Round(e.NewValue);
+                SliderTempo.Value = newStep;
+                if (SliderTempo.Value > 1)
+                    textValorAlerta.Text = SliderTempo.Value.ToString() + " Segundos";
+                else
+                    textValorAlerta.Text = SliderTempo.Value.ToString() + " Segundo";
+            };
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            int valorSliderTempo = PreferenciaUtils.TempoAlerta;
+            textValorAlerta.Text = valorSliderTempo.ToString();
+            if (SliderTempo.Value > 1)
                 textValorAlerta.Text = SliderTempo.Value.ToString() + " Segundos";
-            } else {
+            else
                 textValorAlerta.Text = SliderTempo.Value.ToString() + " Segundo";
-            }
         }
 
         private void OnCancelar(object sender, EventArgs e) {
@@ -31,19 +41,9 @@ namespace Radar.Pages.Popup {
 
         private void OnOk(object sender, EventArgs e) {
             //PopupNavigation.PopAsync();
-            regraPreferencia.gravar("tempoAlerta", (int)Math.Floor(SliderTempo.Value));
+            //regraPreferencia.gravar("tempoAlerta", (int)Math.Floor(SliderTempo.Value));
+            PreferenciaUtils.TempoAlerta = (int)Math.Floor(SliderTempo.Value);
             PopupNavigation.PopAsync();
-        }
-
-        private void OnSliderValueChanged(object sender, ValueChangedEventArgs e) {
-            var newStep = Math.Round(e.NewValue);
-            SliderTempo.Value = newStep;
-            if(SliderTempo.Value > 1) {
-                textValorAlerta.Text = SliderTempo.Value.ToString() + " Segundos";
-            }else {
-                textValorAlerta.Text = SliderTempo.Value.ToString() + " Segundo";
-            }
-            
         }
 
         protected override Task OnAppearingAnimationEnd() {

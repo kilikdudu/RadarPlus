@@ -26,50 +26,59 @@ namespace Radar.BLL
 			return preferencias;
 		}
 
-		public string pegar(string preferencia)
+        [Obsolete("Usar pegarBool agora.")]
+        public bool pegarBooleano(string preferencia)
+        {
+            return pegarBool(preferencia);
+        }
+
+        public string pegar(string preferencia, string padrao = "")
 		{
 			PreferenciaInfo _preferencia = _preferenciaDB.pegar(preferencia);
-			if (_preferencia != null)
-			{
-				return _preferencia.valor;
-			}
-			else {
-				return "0";
-			}
+    		return (_preferencia != null) ? _preferencia.Valor : padrao;
 		}
 
-		public bool pegarBooleano(string preferencia)
-		{
-			PreferenciaInfo _preferencia = _preferenciaDB.pegar(preferencia);
-			if (_preferencia != null)
-			{
-				if (_preferencia.valor == "1")
-				{
-					return true;
-				}
-				else {
-					return false;
-				}
+        public bool pegarBool(string chave, bool padrao = false) {
+            PreferenciaInfo preferencia = _preferenciaDB.pegar(chave);
+            if (preferencia != null) {
+                bool retorno = padrao;
+                if (bool.TryParse(preferencia.Valor, out retorno)) {
+                    return retorno;
+                }
+            }
+            return padrao;
+        }
 
-			}
-			else {
-				return false;
-			}
-		}
+        public int pegarInt(string chave, int padrao = 0) {
+            PreferenciaInfo preferencia = _preferenciaDB.pegar(chave);
+            if (preferencia != null) {
+                int retorno = padrao;
+                if (int.TryParse(preferencia.Valor, out retorno))
+                    return retorno;
+            }
+            return padrao;
+        }
 
-		public int gravar(string preferencia, int valor)
+		public void gravar(string preferencia, int valor)
 		{
 			PreferenciaInfo pref = new PreferenciaInfo() { 
-				preferencia = preferencia,
-				valor = valor.ToString()
+				Preferencia = preferencia,
+				Valor = valor.ToString()
 			};
-			//percurso.Id = _percursoDB.gravar(percurso);
-			return _preferenciaDB.gravar(pref);
-			//return percurso.Id;
+			_preferenciaDB.gravar(pref);
 		}
 
+        public void gravar(string preferencia, bool valor)
+        {
+            PreferenciaInfo pref = new PreferenciaInfo()
+            {
+                Preferencia = preferencia,
+                Valor = valor.ToString()
+            };
+            _preferenciaDB.gravar(pref);
+        }
 
-		public void excluir(string preferencia)
+        public void excluir(string preferencia)
 		{
 			
 		}

@@ -45,7 +45,7 @@ namespace Radar.iOS
                 _radarMap.AoAtualizaPosicao += (object sender, LocalizacaoInfo local) => {
                     CoreLocation.CLLocationCoordinate2D target = new CoreLocation.CLLocationCoordinate2D(local.Latitude, local.Longitude);
 
-                    MKMapCamera camera = MKMapCamera.CameraLookingAtCenterCoordinate(target, Configuracao.MapaZoom, local.Sentido, local.Sentido);
+                    MKMapCamera camera = MKMapCamera.CameraLookingAtCenterCoordinate(target, PreferenciaUtils.MapaZoom, local.Sentido, local.Sentido);
                     _nativeMap.Camera = camera;
                     /*
                     if (!animando)

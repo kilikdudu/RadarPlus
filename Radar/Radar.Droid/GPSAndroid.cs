@@ -79,7 +79,7 @@ namespace Radar.Droid
                 Accuracy = Accuracy.Fine
             };
             _locationProvider = _locationManager.GetBestProvider(criteriaForLocationService, true);
-            _locationManager.RequestLocationUpdates(_locationProvider, Configuracao.GPSTempoAtualiazacao, Configuracao.GPSDistanciaAtualizacao, this);
+            _locationManager.RequestLocationUpdates(_locationProvider, PreferenciaUtils.GPSTempoAtualiazacao, PreferenciaUtils.GPSDistanciaAtualizacao, this);
             return true;
         }
 

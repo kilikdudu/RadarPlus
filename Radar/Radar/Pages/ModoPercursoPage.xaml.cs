@@ -13,33 +13,24 @@ namespace Radar
 {
 	public partial class ModoPercursoPage : ContentPage
 	{
-		private static ModoPercursoPage _ModoPercursoPage;
-		PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
-		public static ModoPercursoPage Atual
-		{
-			get
-			{
-				return _ModoPercursoPage;
-			}
-			private set
-			{
-				_ModoPercursoPage = value;
-			}
-		}
-
         public ModoPercursoPage() 
         {
             InitializeComponent();
-                Title = "Percursos";
+            Title = "Percursos";
             //Content = new ScrollView() { Content = teststack };
-
-			salvarPercurso.IsToggled = Configuracao.SalvarPercurso;
-
-			excluirAntigos.IsToggled = Configuracao.ExcluirAntigos;
         }
 
-		public void salvarPercursoToggled(object sender, ToggledEventArgs e)
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            salvarPercurso.IsToggled = PreferenciaUtils.SalvarPercurso;
+            excluirAntigos.IsToggled = PreferenciaUtils.ExcluirAntigo;
+        }
+
+
+        public void salvarPercursoToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("salvarPercurso", 1);
@@ -47,11 +38,13 @@ namespace Radar
 			else {
 				regraPreferencia.gravar("salvarPercurso", 0);
 			}
-
-		}
+            */
+            PreferenciaUtils.SalvarPercurso = e.Value;
+        }
 
 		public void excluirAntigosToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("excluirAntigos", 1);
@@ -59,8 +52,9 @@ namespace Radar
 			else {
 				regraPreferencia.gravar("excluirAntigos", 0);
 			}
-
-		}
+            */
+            PreferenciaUtils.ExcluirAntigo = e.Value;
+        }
 
         async void tempoPercursoTapped(object sender, EventArgs e) {
 
@@ -70,18 +64,6 @@ namespace Radar
             // or
             //await Navigation.PushAsync(page);
         }
-
-        protected override void OnAppearing()
-		{
-			base.OnAppearing();
-			_ModoPercursoPage = this;
-		}
-
-		protected override void OnDisappearing()
-		{
-			base.OnDisappearing();
-			_ModoPercursoPage = null;
-		}
 	}
 }
 
