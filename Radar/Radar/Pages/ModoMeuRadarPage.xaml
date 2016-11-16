@@ -35,20 +35,22 @@
   <ContentPage.Content>
     <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
       <StackLayout Style="{StaticResource StyleStack}">
+				
         <Frame Style="{StaticResource StyleFrame}">
-          <StackLayout Orientation="Vertical">
-            <StackLayout Orientation="Horizontal">
-                  <Label Text="Exibir botão para adicionar                 " Style="{StaticResource LabelStyle}"/>
+		<StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+	      <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">                         
+                  <Label Text="Exibir botão para adicionar" Style="{StaticResource LabelStyle}"/>
                   <Switch Margin="30,0,0,0" Style="{StaticResource StyleSwitch}" x:Name="exibirBotaoAdcionar" Toggled="exibirBotaoAdcionarToggled"/>
                 </StackLayout>
                 <Label Style="{StaticResource LabelStyleDescription}" Text="Se habilitado um botão de Adicionar(+)"  />
                 <Label Style="{StaticResource LabelStyleDescription}" Text="será exibido na tela de Mapa e Velocimetro"  />
               </StackLayout>
             </Frame>
+				
             <Frame Style="{StaticResource StyleFrame}">
-              <StackLayout Orientation="Vertical">
-                <StackLayout Orientation="Horizontal">
-                  <Label Text="Exibir botão para remover               " Style="{StaticResource LabelStyle}"/>
+				<StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+			      <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">                         
+		           <Label Text="Exibir botão para remover" Style="{StaticResource LabelStyle}"/>
                   <Switch Margin="35,0,0,0" Style="{StaticResource StyleSwitch}" x:Name="exibirBotaoRemover" Toggled="exibirBotaoRemoverToggled"/>
                 </StackLayout>
                 <Label Style="{StaticResource LabelStyleDescription}" Text="Se habilitado um botão de Remover(-)"  />
