@@ -50,8 +50,8 @@ namespace Radar.Droid
                         CameraPosition.Builder builder = CameraPosition.InvokeBuilder(map.CameraPosition);
                         builder.Target(new LatLng(local.Latitude, local.Longitude));
                         builder.Bearing(local.Sentido);
-                        builder.Zoom(Configuracao.MapaZoom);
-                        builder.Tilt(Configuracao.MapaTilt);
+                        builder.Zoom(PreferenciaUtils.MapaZoom);
+                        builder.Tilt(PreferenciaUtils.MapaTilt);
                         CameraPosition cameraPosition = builder.Build();
                         CameraUpdate cameraUpdate = CameraUpdateFactory.NewCameraPosition(cameraPosition);
                         map.AnimateCamera(cameraUpdate);
