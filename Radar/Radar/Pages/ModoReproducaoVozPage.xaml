@@ -66,7 +66,7 @@
 				
             <Frame Style="{StaticResource StyleFrame}">
 			  <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-	            <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">                         
+	            <StackLayout Orientation="Horizontal" Spacing="60" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">                         
                   <Label Text="Ao Ligar e Desligar" Style="{StaticResource LabelStyle}"/>
                   <Switch Style="{StaticResource StyleSwitch}" x:Name="ligarDesligar" Toggled="ligarDesligarToggled"/>
                 </StackLayout>

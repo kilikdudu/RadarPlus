@@ -31,12 +31,13 @@ namespace Radar.Pages
                 Icone = "mapas.png",
                 TargetType = typeof(MapaPage)
             });
+			/*
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Radares",
                 Icone = "meusradares.png",
                 TargetType = typeof(RadarListaPage)
-            });
+            });*/
             return grupo;
         }
 

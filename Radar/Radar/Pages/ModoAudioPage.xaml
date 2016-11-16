@@ -54,9 +54,9 @@
 				
         <Frame Style="{StaticResource StyleFrame}">
  			<StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-	        <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">             
-              <Label FontSize="20" Text="Volume Personalizado" Style="{StaticResource LabelStyle}"/>
-              <Switch Style="{StaticResource StyleSwitch}" x:Name="volumePersonalizado" Toggled="volumePersonalizadoToggled"/>
+	        <StackLayout Orientation="Horizontal" Spacing="60" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">             
+              <Label  Text="Volume Personalizado" Style="{StaticResource LabelStyle}"/>
+              <Switch  Style="{StaticResource StyleSwitch}" x:Name="volumePersonalizado" Toggled="volumePersonalizadoToggled"/>
             </StackLayout>
             <Label Style="{StaticResource LabelStyleDescription}" Text="Configurar um volume padrão para alertas, sobrepondo o" />
             <Label Style="{StaticResource LabelStyleDescription}" Text="volume definido no aparelho" />
@@ -65,7 +65,7 @@
 				
         <Frame Style="{StaticResource StyleFrame}">
 		  <StackLayout.GestureRecognizers>
-             <TapGestureRecognizer Tapped="canalAudioTapped"/>
+             <TapGestureRecognizer Tapped="alturaVolumeTapped"/>
           </StackLayout.GestureRecognizers>
           <StackLayout Orientation="Horizontal">
             <Label Text="Altura Volume" Style="{StaticResource LabelStyle}"/>
