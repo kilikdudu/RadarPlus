@@ -163,7 +163,7 @@ namespace Radar
 				horizontalLayout.HeightRequest = AbsoluteLayout.AutoSize;
 				horizontalLayout.WidthRequest = AbsoluteLayout.AutoSize;
 				//horizontalLayout.HeightRequest = 40;
-                frameOuter.Padding = new Thickness(5, 0, 5, 0);
+                //frameOuter.Padding = new Thickness(5, 0, 5, 0);
                 //frameOuter.HeightRequest = 66;
                 //frameInner.OutlineColor = Color.Black;
                 frameOuter.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);

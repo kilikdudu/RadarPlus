@@ -4,28 +4,67 @@
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
              x:Class="Radar.Pages.Popup.DistanciaAlertaPopUp">
-
-  <AbsoluteLayout VerticalOptions="Center" Opacity="0.00"  HorizontalOptions="Fill" Padding="20, 20, 20, 20" HeightRequest="380">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="AbsoluteStyle" TargetType="AbsoluteLayout">
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="Opacity" Value="0.00" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="Padding" Value="20,20,20,20" />
+		
+      </Style>
+      <Style x:Key="StyleText" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="Margin" Value="20,0,0,0" />
+        <Setter Property="FontFamily" Value="Roboto-Condensed" />
+      </Style>
+      <Style x:Key="StyleStack" TargetType="StackLayout">
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="Padding" Value="0,10,0,0" />
+      </Style>
+      <Style x:Key="StyleButton" TargetType="Button">
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="TextColor" Value="#009688" />
+		<Setter Property="FontFamily" Value="Roboto-Condensed" />
+		<Setter Property="FontSize" Value="20" />
+		<Setter Property="BackgroundColor" Value="Transparent" />
+      </Style>
+      <Style x:Key="StyleTitulo" TargetType="Label">
+        <Setter Property="FontSize" Value="26" />
+        <Setter Property="TextColor" Value="#009688" />
+        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+		<Setter Property="FontFamily" Value="Roboto-Condensed" />
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+	
+  <AbsoluteLayout Style="{StaticResource AbsoluteStyle}" AbsoluteLayout.LayoutBounds="1,0.7,1,1" AbsoluteLayout.LayoutFlags="All">
     <Frame AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
     
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-          <Label Text="Distância para o Alerta" TextColor="Red" FontSize="28" HorizontalOptions="Start" Margin="20, 0, 0, 0" />
+          <Label Text="Distância para o Alerta" Style="{StaticResource StyleTitulo}" />
+          <BoxView HeightRequest="1" BackgroundColor="#bdbdbd" />
+          <ScrollView>
+			<StackLayout>
+	          <Label Text="No Perítro Urbano" TextColor="Black" FontSize="18" HorizontalOptions="Center" />
+	          <Label Text="Velocidade de até 90 Km/H" TextColor="Black" FontSize="14" HorizontalOptions="Center" />
+	          <Label Text="" Style="{StaticResource StyleText}" x:Name="distanciaUrbano" />
+	          <Slider Maximum="500" Minimum="50"  x:Name="SliderUrbano" />
 
-          <Label Text="No Perítro Urbano" TextColor="Black" FontSize="18" HorizontalOptions="Center" />
-          <Label Text="Velocidade de até 90 Km/H" TextColor="Black" FontSize="14" HorizontalOptions="Center" />
-          <Label Text="" TextColor="Black" FontSize="20" HorizontalOptions="Center" x:Name="distanciaUrbano" />
-          <Slider Maximum="500" Minimum="50"  x:Name="SliderUrbano" />
-
-          <Label Text="No Estrada" TextColor="Black" FontSize="18" HorizontalOptions="Center" />
-          <Label Text="Velocidade acima de 90 Km/H" TextColor="Black" FontSize="14" HorizontalOptions="Center" />
-          <Label Text="" TextColor="Black" FontSize="20" HorizontalOptions="Center" x:Name="distanciaEstrada" />
-          <Slider Maximum="1500" Minimum="300"  x:Name="SliderEstrada" />
-
+	          <Label Text="No Estrada" TextColor="Black" FontSize="18" HorizontalOptions="Center" />
+	          <Label Text="Velocidade acima de 90 Km/H" TextColor="Black" FontSize="14" HorizontalOptions="Center" />
+	          <Label Text="" Style="{StaticResource StyleText}" x:Name="distanciaEstrada" />
+	          <Slider Maximum="1500" Minimum="300"  x:Name="SliderEstrada" />
+          </StackLayout>
+		  </ScrollView>
 
           <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
             <Label Text="" HorizontalOptions="StartAndExpand" />
-            <Button Text="Cancelar" TextColor="Black" Clicked="OnCancelar" HorizontalOptions="End"/>
-            <Button Text="Ok" TextColor="Black" Clicked="OnOk" HorizontalOptions="End"></Button>
+            <Button Text="Cancelar" Clicked="OnCancelar" Style="{StaticResource StyleButton}"/>
+            <Button Text="Ok" Clicked="OnOk" Style="{StaticResource StyleButton}"></Button>
 
           </StackLayout>
 
