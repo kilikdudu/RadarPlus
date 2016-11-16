@@ -76,6 +76,7 @@ namespace Radar.Pages
                 WidthRequest = 960,
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
+            _map.MapType = (PreferenciaUtils.ImagemSatelite) ? MapType.Hybrid : MapType.Street;
             AbsoluteLayout.SetLayoutBounds(_map, new Rectangle(0, 0, 1, 0.9));
             AbsoluteLayout.SetLayoutFlags(_map, AbsoluteLayoutFlags.All);
             _map.PropertyChanged += (sender, e) =>
@@ -116,6 +117,29 @@ namespace Radar.Pages
             */
             Title = "Mapa";
             Padding = 5;
+            var absoluteLayout = new AbsoluteLayout();
+
+            absoluteLayout.Children.Add(_map);
+            absoluteLayout.Children.Add(_VelocidadeRadarLabel);
+            absoluteLayout.Children.Add(_DistanciaRadarLabel);
+            if (PreferenciaUtils.Bussola)
+            {
+                absoluteLayout.Children.Add(_BussolaFundo);
+                absoluteLayout.Children.Add(_BussolaAgulha);
+                absoluteLayout.Children.Add(_GPSSentidoLabel);
+            }
+            if (PreferenciaUtils.SinalGPS)
+            {
+                absoluteLayout.Children.Add(_PrecisaoFundoImage);
+                absoluteLayout.Children.Add(_PrecisaoImage);
+                absoluteLayout.Children.Add(_PrecisaoLabel);
+            }
+            absoluteLayout.Children.Add(_velocidadeFundo);
+            absoluteLayout.Children.Add(_velocidadeLabel);
+            absoluteLayout.Children.Add(_AdicionarRadarButton);
+            Content = absoluteLayout;
+
+            /*
             Content = new AbsoluteLayout
             {
                 Children = {
@@ -133,6 +157,7 @@ namespace Radar.Pages
                     _AdicionarRadarButton
                 }
             };
+            */
 
             //Atual = this;
         }

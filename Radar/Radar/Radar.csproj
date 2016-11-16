@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BLL\Configuracao.cs" />
+    <Compile Include="BLL\PreferenciaUtils.cs" />
     <Compile Include="BLL\GPSUtils.cs" />
     <Compile Include="BLL\IGPS.cs" />
     <Compile Include="BLL\ITela.cs" />
@@ -54,9 +54,12 @@
     <Compile Include="Factory\PercursoFactory.cs" />
     <Compile Include="IDAL\IPercursoDAL.cs" />
     <Compile Include="IDAL\IPercursoPontoDAL.cs" />
+    <Compile Include="Model\AoDesativarGPSEnum.cs" />
+    <Compile Include="Model\CanalAudioEnum.cs" />
     <Compile Include="Model\PercursoInfo.cs" />
     <Compile Include="Model\PercursoPontoInfo.cs" />
     <Compile Include="Model\GPSSinalEnum.cs" />
+    <Compile Include="Model\SomAlarmeEnum.cs" />
     <Compile Include="Model\VelocidadeInfo.cs" />
     <Compile Include="DALFactory\RadarDALFactory.cs" />
     <Compile Include="DALSQLite\RadarDALSQLite.cs" />

@@ -9,16 +9,24 @@ using System.Diagnostics;
 
 namespace Radar.Pages.Popup {
     public partial class NivelZoomPopUp : PopupPage {
-        private String valorSlider;
+        //private String valorSlider;
         
         PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
 
         public NivelZoomPopUp() {
             InitializeComponent();
-            valorSlider = Configuracao.NivelZoom;
-            Slider.Value = int.Parse(valorSlider);
-            textValor.Text = valorSlider;
-            Slider.ValueChanged += OnSliderValueChanged;
+            Slider.ValueChanged += (sender, e) => {
+                var newStep = Math.Round(e.NewValue);
+                Slider.Value = newStep;
+                textValor.Text = Slider.Value.ToString();
+            };
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Slider.Value = PreferenciaUtils.NivelZoom;
+            textValor.Text = Slider.Value.ToString();
         }
 
         private void OnCancelar(object sender, EventArgs e) {
@@ -27,17 +35,10 @@ namespace Radar.Pages.Popup {
 
         private void OnOk(object sender, EventArgs e) {
             //PopupNavigation.PopAsync();
-            regraPreferencia.gravar("nivelZoom", (int)Math.Floor(Slider.Value));
-           
-            PopupNavigation.PopAsync();
-        }
+            //regraPreferencia.gravar("nivelZoom", (int)Math.Floor(Slider.Value));
+            PreferenciaUtils.NivelZoom = (int)Math.Floor(Slider.Value);
 
-        private void OnSliderValueChanged(object sender, ValueChangedEventArgs e) {
-            var newStep = Math.Round(e.NewValue);
-            Slider.Value = newStep;
-            
-            textValor.Text = Slider.Value.ToString();
-            
+            PopupNavigation.PopAsync();
         }
 
         protected override Task OnAppearingAnimationEnd() {

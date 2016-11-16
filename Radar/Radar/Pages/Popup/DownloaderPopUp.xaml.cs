@@ -11,15 +11,22 @@ namespace Radar.Pages.Popup {
 
     public partial class DownloaderPopUp : PopupPage {
 
-        private String valorSlider;
-        private double sliderValor;
+        //private String valorSlider;
+        //private double sliderValor;
         PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
 
         public DownloaderPopUp() {
             InitializeComponent();
-            valorSlider = Configuracao.AlturaVolume;
-            SliderAlturaVolume.Value = int.Parse(valorSlider);
-            textValor.Text = valorSlider;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            //valorSlider = PreferenciaUtils.AlturaVolume;
+            //SliderAlturaVolume.Value = int.Parse(valorSlider);
+            int valorSlider = PreferenciaUtils.AlturaVolume;
+            SliderAlturaVolume.Value = valorSlider;
+            textValor.Text = valorSlider.ToString();
             SliderAlturaVolume.ValueChanged += OnSliderValueChanged;
         }
 
@@ -28,8 +35,9 @@ namespace Radar.Pages.Popup {
         }
 
         private void OnOk(object sender, EventArgs e) {
-            regraPreferencia.gravar("alturaVolume", (int)Math.Floor(SliderAlturaVolume.Value));
-            
+            //regraPreferencia.gravar("alturaVolume", (int)Math.Floor(SliderAlturaVolume.Value));
+            PreferenciaUtils.AlturaVolume = (int)Math.Floor(SliderAlturaVolume.Value);
+
             PopupNavigation.PopAsync();
         }
 

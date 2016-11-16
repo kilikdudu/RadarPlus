@@ -12,46 +12,30 @@ using Rg.Plugins.Popup.Extensions;
 namespace Radar
 {
 	public partial class ModoAlertaPage : ContentPage
-	{
-		private static ModoAlertaPage _ModoAlertaPage;
-		PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
-
-		public static ModoAlertaPage Atual
-		{
-			get
-			{
-				return _ModoAlertaPage;
-			}
-			private set
-			{
-                _ModoAlertaPage = value;
-			}
-		}
-        
+	{           
         public ModoAlertaPage() {
             InitializeComponent();
             Title = "Alertas";
             //Content = new ScrollView() { Content = teststack };
-
-			radarMovel.IsToggled = Configuracao.RadarMovel;
-
-			pedagio.IsToggled = Configuracao.Pedagio;
-
-			policiaRodoviaria.IsToggled = Configuracao.PoliciaRodoviaria;
-
-			lombada.IsToggled = Configuracao.Lombada;
-
-			alertaInteligente.IsToggled = Configuracao.AlertaInteligente;
-
-			beepAviso.IsToggled = Configuracao.BeepAviso;
-
-			vibrarAlerta.IsToggled = Configuracao.VibrarAlerta;
-
-            sobreposicaoVisual.IsToggled = Configuracao.SobreposicaoVisual;
         }
 
-		public void radarMovelToggled(object sender, ToggledEventArgs e)
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            radarMovel.IsToggled = PreferenciaUtils.RadarMovel;
+            pedagio.IsToggled = PreferenciaUtils.Pedagio;
+            policiaRodoviaria.IsToggled = PreferenciaUtils.PoliciaRodoviaria;
+            lombada.IsToggled = PreferenciaUtils.Lombada;
+            alertaInteligente.IsToggled = PreferenciaUtils.AlertaInteligente;
+            beepAviso.IsToggled = PreferenciaUtils.BeepAviso;
+            vibrarAlerta.IsToggled = PreferenciaUtils.VibrarAlerta;
+            sobreposicaoVisual.IsToggled = PreferenciaUtils.SobreposicaoVisual;
+        }
+
+
+        public void radarMovelToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("radarMovel", 1);
@@ -59,10 +43,13 @@ namespace Radar
 			else {
 				regraPreferencia.gravar("radarMovel", 0);
 			}
+            */
+            PreferenciaUtils.RadarMovel = e.Value;
 		}
 
 		public void pedagioToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("pedagio", 1);
@@ -70,10 +57,13 @@ namespace Radar
 			else {
 				regraPreferencia.gravar("pedagio", 0);
 			}
-		}
+            */
+            PreferenciaUtils.Pedagio = e.Value;
+        }
 
 		public void policiaRodoviariaToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("policiaRodoviaria", 1);
@@ -81,9 +71,13 @@ namespace Radar
 			else {
 				regraPreferencia.gravar("policiaRodoviaria", 0);
 			}
-		}
+            */
+            PreferenciaUtils.PoliciaRodoviaria = e.Value;
+        }
+
 		public void lombadaToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("lombada", 1);
@@ -91,9 +85,13 @@ namespace Radar
 			else {
 				regraPreferencia.gravar("lombada", 0);
 			}
-		}
+            */
+            PreferenciaUtils.Lombada = e.Value;
+        }
+
 		public void alertaInteligenteToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("alertaInteligente", 1);
@@ -101,9 +99,13 @@ namespace Radar
 			else {
 				regraPreferencia.gravar("alertaInteligente", 0);
 			}
-		}
+            */
+            PreferenciaUtils.AlertaInteligente = e.Value;
+        }
+
 		public void beepAvisoToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("beepAviso", 1);
@@ -111,9 +113,12 @@ namespace Radar
 			else {
 				regraPreferencia.gravar("beepAviso", 0);
 			}
-		}
+            */
+            PreferenciaUtils.BeepAviso = e.Value;
+        }
 		public void vibrarAlertaToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("vibrarAlerta", 1);
@@ -121,14 +126,19 @@ namespace Radar
 			else {
 				regraPreferencia.gravar("vibrarAlerta", 0);
 			}
-		}
+            */
+            PreferenciaUtils.VibrarAlerta = e.Value;
+        }
 
         public void sobreposicaoVisualToggled(object sender, ToggledEventArgs e) {
+            /*
             if (e.Value == true) {
                 regraPreferencia.gravar("sobreposicaoVisual", 1);
             } else {
                 regraPreferencia.gravar("sobreposicaoVisual", 0);
             }
+            */
+            PreferenciaUtils.SobreposicaoVisual = e.Value;
         }
         async void tempoDuracaoTapped(object sender, EventArgs e) {
 
@@ -156,18 +166,6 @@ namespace Radar
             // or
             //await Navigation.PushAsync(page);
         }
-
-        protected override void OnAppearing()
-		{
-			base.OnAppearing();
-            _ModoAlertaPage = this;
-		}
-
-		protected override void OnDisappearing()
-		{
-			base.OnDisappearing();
-            _ModoAlertaPage = null;
-		}
 	}
 }
 

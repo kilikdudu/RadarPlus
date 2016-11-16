@@ -9,21 +9,33 @@ using System.Diagnostics;
 
 namespace Radar.Pages.Popup {
     public partial class TempoPercursoPopUp : PopupPage {
-        private String valorSlider;
+        //private String valorSlider;
         
         PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
 
         public TempoPercursoPopUp() {
             InitializeComponent();
-            valorSlider = Configuracao.TempoPercurso;
-            SliderTempo.Value = int.Parse(valorSlider);
-            if (int.Parse(valorSlider) > 1) {
-                textValor.Text = SliderTempo.Value.ToString() + " Dias";
-            } else {
-                textValor.Text = SliderTempo.Value.ToString() + " Dia";
-            }
+            SliderTempo.ValueChanged += (sender, e) => {
+                var newStep = Math.Round(e.NewValue);
+                SliderTempo.Value = newStep;
 
-            SliderTempo.ValueChanged += OnSliderValueChanged;
+                if (SliderTempo.Value > 1)
+                    textValor.Text = SliderTempo.Value.ToString() + " Dias";
+                else
+                    textValor.Text = SliderTempo.Value.ToString() + " Dia";
+            };
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            int valorSlider = PreferenciaUtils.TempoPercurso;
+            SliderTempo.Value = valorSlider;
+            if (valorSlider > 1)
+                textValor.Text = SliderTempo.Value.ToString() + " Dias";
+            else
+                textValor.Text = SliderTempo.Value.ToString() + " Dia";
+
         }
 
         private void OnCancelar(object sender, EventArgs e) {
@@ -32,22 +44,10 @@ namespace Radar.Pages.Popup {
 
         private void OnOk(object sender, EventArgs e) {
             //PopupNavigation.PopAsync();
-            regraPreferencia.gravar("tempoPercurso", (int)Math.Floor(SliderTempo.Value));
-            
-            PopupNavigation.PopAsync();
-        }
+            //regraPreferencia.gravar("tempoPercurso", (int)Math.Floor(SliderTempo.Value));
+            PreferenciaUtils.TempoPercurso = (int)Math.Floor(SliderTempo.Value);
 
-        private void OnSliderValueChanged(object sender, ValueChangedEventArgs e) {
-            var newStep = Math.Round(e.NewValue);
-            SliderTempo.Value = newStep;
-           
-            if (SliderTempo.Value > 1) {
-                textValor.Text = SliderTempo.Value.ToString() + " Dias";
-            } else {
-                textValor.Text = SliderTempo.Value.ToString() + " Dia";
-            }
-            
-            
+            PopupNavigation.PopAsync();
         }
 
         protected override Task OnAppearingAnimationEnd() {

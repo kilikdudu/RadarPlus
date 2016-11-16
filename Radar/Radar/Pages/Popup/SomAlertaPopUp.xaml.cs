@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using Radar.BLL;
 using Radar.Factory;
 using System.Diagnostics;
+using Radar.Model;
 
 namespace Radar.Pages.Popup {
     public partial class SomAlertaPopUp : PopupPage {
@@ -15,49 +16,53 @@ namespace Radar.Pages.Popup {
         public SomAlertaPopUp() {
             InitializeComponent();
            // Content = new ScrollView() { Content = list };
-            switch (Configuracao.SomAlarme) {
-                case "1":
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            switch (PreferenciaUtils.SomAlarme)
+            {
+                case SomAlarmeEnum.Alarme01:
                     SwitchAlarme01.IsToggled = true;
                     break;
-                case "2":
+                case SomAlarmeEnum.Alarme02:
                     SwitchAlarme02.IsToggled = true;
                     break;
-                case "3":
+                case SomAlarmeEnum.Alarme03:
                     SwitchAlarme03.IsToggled = true;
                     break;
-                case "4":
+                case SomAlarmeEnum.Alarme04:
                     SwitchAlarme04.IsToggled = true;
                     break;
-                case "5":
+                case SomAlarmeEnum.Alarme05:
                     SwitchAlarme05.IsToggled = true;
                     break;
-                case "6":
+                case SomAlarmeEnum.Alarme06:
                     SwitchAlarme06.IsToggled = true;
                     break;
-                case "7":
+                case SomAlarmeEnum.Alarme07:
                     SwitchAlarme07.IsToggled = true;
                     break;
-                case "8":
+                case SomAlarmeEnum.Alarme08:
                     SwitchAlarme08.IsToggled = true;
                     break;
-                case "9":
+                case SomAlarmeEnum.Alarme09:
                     SwitchAlarme09.IsToggled = true;
                     break;
-                case "10":
+                case SomAlarmeEnum.Alarme10:
                     SwitchAlarme10.IsToggled = true;
                     break;
-                case "11":
+                case SomAlarmeEnum.Alarme11:
                     SwitchAlarme11.IsToggled = true;
                     break;
-                case "12":
+                case SomAlarmeEnum.Alarme12:
                     SwitchAlarme12.IsToggled = true;
                     break;
-                case "13":
+                case SomAlarmeEnum.Alarme13:
                     SwitchAlarme13.IsToggled = true;
                     break;
-
             }
-            
         }
 
         private void OnCancelar(object sender, EventArgs e) {
@@ -72,9 +77,11 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme08.IsToggled = false; SwitchAlarme09.IsToggled = false; SwitchAlarme10.IsToggled = false;
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
-                regraPreferencia.gravar("somAlarme", 001);
+                //regraPreferencia.gravar("somAlarme", 001);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme01;
             } else {
-                regraPreferencia.gravar("somAlarme", 000);
+                //regraPreferencia.gravar("somAlarme", 000);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
         }
 
@@ -86,9 +93,9 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme08.IsToggled = false; SwitchAlarme09.IsToggled = false; SwitchAlarme10.IsToggled = false;
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
-                regraPreferencia.gravar("somAlarme", 002);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme02;
             } else {
-                regraPreferencia.gravar("somAlarme", 000);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
         }
 
@@ -100,9 +107,9 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme08.IsToggled = false; SwitchAlarme09.IsToggled = false; SwitchAlarme10.IsToggled = false;
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
-                regraPreferencia.gravar("somAlarme", 003);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme03;
             } else {
-                regraPreferencia.gravar("somAlarme", 000);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
         }
 
@@ -114,9 +121,9 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme08.IsToggled = false; SwitchAlarme09.IsToggled = false; SwitchAlarme10.IsToggled = false;
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
-                regraPreferencia.gravar("somAlarme", 004);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme04;
             } else {
-                regraPreferencia.gravar("somAlarme", 000);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
         }
 
@@ -128,9 +135,9 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme08.IsToggled = false; SwitchAlarme09.IsToggled = false; SwitchAlarme10.IsToggled = false;
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
-                regraPreferencia.gravar("somAlarme", 005);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme05;
             } else {
-                regraPreferencia.gravar("somAlarme", 000);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
         }
 
@@ -142,9 +149,9 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme08.IsToggled = false; SwitchAlarme09.IsToggled = false; SwitchAlarme10.IsToggled = false;
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
-                regraPreferencia.gravar("somAlarme", 006);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme06;
             } else {
-                regraPreferencia.gravar("somAlarme", 000);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
         }
 
@@ -156,9 +163,9 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme08.IsToggled = false; SwitchAlarme09.IsToggled = false; SwitchAlarme10.IsToggled = false;
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
-                regraPreferencia.gravar("somAlarme", 007);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme07;
             } else {
-                regraPreferencia.gravar("somAlarme", 000);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
         }
 
@@ -170,9 +177,9 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme07.IsToggled = false; SwitchAlarme09.IsToggled = false; SwitchAlarme10.IsToggled = false;
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
-                regraPreferencia.gravar("somAlarme", 008);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme08;
             } else {
-                regraPreferencia.gravar("somAlarme", 000);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
         }
 
@@ -184,9 +191,9 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme07.IsToggled = false; SwitchAlarme08.IsToggled = false; SwitchAlarme10.IsToggled = false;
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
-                regraPreferencia.gravar("somAlarme", 009);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme09;
             } else {
-                regraPreferencia.gravar("somAlarme", 000);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
         }
 
@@ -198,9 +205,9 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme07.IsToggled = false; SwitchAlarme08.IsToggled = false; SwitchAlarme09.IsToggled = false;
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
-                regraPreferencia.gravar("somAlarme", 010);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme10;
             } else {
-                regraPreferencia.gravar("somAlarme", 000);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
         }
 
@@ -212,9 +219,9 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme07.IsToggled = false; SwitchAlarme08.IsToggled = false; SwitchAlarme09.IsToggled = false;
                 SwitchAlarme10.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
-                regraPreferencia.gravar("somAlarme", 011);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme11;
             } else {
-                regraPreferencia.gravar("somAlarme", 000);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
         }
 
@@ -226,9 +233,9 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme07.IsToggled = false; SwitchAlarme08.IsToggled = false; SwitchAlarme09.IsToggled = false;
                 SwitchAlarme10.IsToggled = false; SwitchAlarme11.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
-                regraPreferencia.gravar("somAlarme", 012);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme12;
             } else {
-                regraPreferencia.gravar("somAlarme", 000);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
         }
 
@@ -240,9 +247,9 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme07.IsToggled = false; SwitchAlarme08.IsToggled = false; SwitchAlarme09.IsToggled = false;
                 SwitchAlarme10.IsToggled = false; SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false;
 
-                regraPreferencia.gravar("somAlarme", 013);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme13;
             } else {
-                regraPreferencia.gravar("somAlarme", 000);
+                PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
         }
         protected override Task OnAppearingAnimationEnd() {

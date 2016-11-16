@@ -46,7 +46,7 @@ namespace Radar.Controls
             var latitudeDelta = region.LatitudeDegrees / 2;
             var longitudeDelta = region.LongitudeDegrees / 2;
 
-            if (!(latitudeDelta <= Configuracao.GPSDeltaMax && longitudeDelta <= Configuracao.GPSDeltaMax))
+            if (!(latitudeDelta <= PreferenciaUtils.GPSDeltaMax && longitudeDelta <= PreferenciaUtils.GPSDeltaMax))
                 return;
 
             RadarBLL regraRadar = RadarFactory.create();
