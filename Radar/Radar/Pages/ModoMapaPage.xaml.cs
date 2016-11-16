@@ -9,43 +9,27 @@ using Radar.Controls;
 namespace Radar {
     public partial class ModoMapaPage : ContentPage
 	{
-		private static ModoMapaPage _ModoMapaPage;
-		PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
-
-        public static ModoMapaPage Atual
-		{
-			get
-			{
-				return _ModoMapaPage;
-			}
-			private set
-			{
-				_ModoMapaPage = value;
-			}
-		}
-        
-        public ModoMapaPage() {
+        public ModoMapaPage()
+        {
             InitializeComponent();
             Title = "Modo Mapa";
 
             //Content = new ScrollView() { Content = teststack };
-
-				bussola.IsToggled = Configuracao.Bussola;
-
-				sinalGPS.IsToggled = Configuracao.SinalGPS;
-
-				imagenSatelite.IsToggled = Configuracao.ImagenSatelite;
-		
-				infoTrafego.IsToggled = Configuracao.InfoTrafego;
-
-				rotacionarMapa.IsToggled = Configuracao.RotacionarMapa;
-
-				suavizarAnimacao.IsToggled = Configuracao.SuavizarAnimacao;
-            
         }
 
-		public void bussolaToggled(object sender, ToggledEventArgs e)
+        protected override void OnAppearing() {
+            base.OnAppearing();
+            bussola.IsToggled = PreferenciaUtils.Bussola;
+            sinalGPS.IsToggled = PreferenciaUtils.SinalGPS;
+            imagenSatelite.IsToggled = PreferenciaUtils.ImagemSatelite;
+            infoTrafego.IsToggled = PreferenciaUtils.InfoTrafego;
+            rotacionarMapa.IsToggled = PreferenciaUtils.RotacionarMapa;
+            suavizarAnimacao.IsToggled = PreferenciaUtils.SuavizarAnimacao;
+        }
+
+        public void bussolaToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("bussola",1);
@@ -53,10 +37,13 @@ namespace Radar {
 			else {
 				regraPreferencia.gravar("bussola", 0);
 			}
-		}
+            */
+            PreferenciaUtils.Bussola = e.Value;
+        }
 
 		public void sinalGPSToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("sinalGPS", 1);
@@ -64,10 +51,13 @@ namespace Radar {
 			else {
 				regraPreferencia.gravar("sinalGPS", 0);
 			}
-		}
+            */
+            PreferenciaUtils.SinalGPS = e.Value;
+        }
 
 		public void imagenSateliteToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("imagenSatelite", 1);
@@ -75,9 +65,13 @@ namespace Radar {
 			else {
 				regraPreferencia.gravar("imagenSatelite", 0);
 			}
-		}
+            */
+            PreferenciaUtils.ImagemSatelite = e.Value;
+        }
+
 		public void infoTrafegoToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("infoTrafego", 1);
@@ -85,9 +79,13 @@ namespace Radar {
 			else {
 				regraPreferencia.gravar("infoTrafego", 0);
 			}
-		}
+            */
+            PreferenciaUtils.InfoTrafego = e.Value;
+        }
+
 		public void rotacionarMapaToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("rotacionarMapa", 1);
@@ -95,10 +93,13 @@ namespace Radar {
 			else {
 				regraPreferencia.gravar("rotacionarMapa", 0);
 			}
-		}
+            */
+            PreferenciaUtils.RotacionarMapa = e.Value;
+        }
 
         public void suavizarAnimacaoToggled(object sender, ToggledEventArgs e)
 		{
+            /*
 			if (e.Value == true)
 			{
 				regraPreferencia.gravar("suavizarAnimacao", 1);
@@ -106,7 +107,9 @@ namespace Radar {
 			else {
 				regraPreferencia.gravar("suavizarAnimacao", 0);
 			}
-		}
+            */
+            PreferenciaUtils.SuavizarAnimacao = e.Value;
+        }
 
         async void nivelZoomTapped(object sender, EventArgs e) {
         
@@ -192,19 +195,6 @@ namespace Radar {
         }
     }
     */
-    protected override void OnAppearing()
-		{
-			
-			base.OnAppearing();
-			_ModoMapaPage = this;
-		}
-
-		protected override void OnDisappearing()
-		{
-			
-			base.OnDisappearing();
-			_ModoMapaPage = null;
-		}
 	}
 }
 

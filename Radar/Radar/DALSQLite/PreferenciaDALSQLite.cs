@@ -33,7 +33,7 @@ namespace Radar.DALSQLite
 		{
 			lock (locker)
 			{
-				return database.Table<PreferenciaInfo>().FirstOrDefault(x => x.preferencia == preferencia);
+				return database.Table<PreferenciaInfo>().FirstOrDefault(x => x.Preferencia == preferencia);
 			}
 		}
 

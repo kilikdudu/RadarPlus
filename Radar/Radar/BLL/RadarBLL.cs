@@ -141,7 +141,7 @@ namespace Radar.BLL
                 str = alerta.Key.Substring(alerta.Key.IndexOf('|') + 1);
                 double longitudeRadar = Convert.ToDouble(str);
                 double distancia = Math.Floor(calcularDistancia(Latitude, Longitude, latitudeRadar, longitudeRadar));
-                if (distancia > Configuracao.DistanciaRadar && _radares.ContainsKey(alerta.Key))
+                if (distancia > PreferenciaUtils.DistanciaRadar && _radares.ContainsKey(alerta.Key))
                     //_radares[alerta.Key] = false;
                     desativado.Add(alerta.Key);
             }
@@ -159,7 +159,7 @@ namespace Radar.BLL
         public bool radarEstaAFrente(LocalizacaoInfo local, RadarInfo radar) {
             if (local.Velocidade > radar.Velocidade) {
                 double anguloRelacaoRadar = local.Sentido - radar.Direcao;
-                if (((Math.Abs(anguloRelacaoRadar) % 360) <= Configuracao.AnguloRadar) || ((360 - Math.Abs(anguloRelacaoRadar)) % 360) <= Configuracao.AnguloRadar) {
+                if (((Math.Abs(anguloRelacaoRadar) % 360) <= PreferenciaUtils.AnguloRadar) || ((360 - Math.Abs(anguloRelacaoRadar)) % 360) <= PreferenciaUtils.AnguloRadar) {
                     string posLatLong = radar.Latitude.ToString() + "|" + radar.Longitude.ToString();
                     if ((_radares.ContainsKey(posLatLong) && _radares[posLatLong] == false) || !_radares.ContainsKey(posLatLong))
                     {
@@ -173,7 +173,7 @@ namespace Radar.BLL
                         if (anguloDiferencial > 360)
                             anguloDiferencial -= 360;
 
-                        if (((Math.Abs(anguloDiferencial) % 360) <= Configuracao.AnguloCone) || ((360 - Math.Abs(anguloDiferencial)) % 360) <= Configuracao.AnguloCone)
+                        if (((Math.Abs(anguloDiferencial) % 360) <= PreferenciaUtils.AnguloCone) || ((360 - Math.Abs(anguloDiferencial)) % 360) <= PreferenciaUtils.AnguloCone)
                         {
                             _radares.Add(posLatLong, true);
                             //alertar(local, radar);
@@ -196,7 +196,7 @@ namespace Radar.BLL
             if (local.Velocidade > radar.Velocidade)
             {
                 double anguloRelacaoRadar = local.Sentido - radar.Direcao;
-                if (((Math.Abs(anguloRelacaoRadar) % 360) <= Configuracao.AnguloRadar) || ((360 - Math.Abs(anguloRelacaoRadar)) % 360) <= Configuracao.AnguloRadar)
+                if (((Math.Abs(anguloRelacaoRadar) % 360) <= PreferenciaUtils.AnguloRadar) || ((360 - Math.Abs(anguloRelacaoRadar)) % 360) <= PreferenciaUtils.AnguloRadar)
                 {
                     double anguloRadar = angleFromCoordinate(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
 
@@ -206,7 +206,7 @@ namespace Radar.BLL
                     if (anguloDiferencial > 360)
                         anguloDiferencial -= 360;
 
-                    if (((Math.Abs(anguloDiferencial) % 360) <= Configuracao.AnguloCone) || ((360 - Math.Abs(anguloDiferencial)) % 360) <= Configuracao.AnguloCone)
+                    if (((Math.Abs(anguloDiferencial) % 360) <= PreferenciaUtils.AnguloCone) || ((360 - Math.Abs(anguloDiferencial)) % 360) <= PreferenciaUtils.AnguloCone)
                         return true;
                     else
                         Debug.WriteLine("Radar não está no cone. Meu angulo (" + Math.Floor(local.Sentido) + ") + eu/radar(" + Math.Floor(anguloRadar) + ").");
@@ -227,7 +227,7 @@ namespace Radar.BLL
             double latitudeOld = local.Latitude;
             double longitudeOld = local.Longitude;
 
-            double distanciaCos = Math.Cos((Configuracao.DistanciaRadar / 1000) / DIAMETRO_TERRA);
+            double distanciaCos = Math.Cos((PreferenciaUtils.DistanciaRadar / 1000) / DIAMETRO_TERRA);
 
             double latitudeCos = Math.Cos(local.Latitude * Math.PI / 180);
             double latitudeSin = Math.Sin(local.Latitude * Math.PI / 180);
