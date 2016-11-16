@@ -19,6 +19,7 @@ namespace Radar.Pages
 
         public NavegacaoPage()
         {
+			
             masterPage = new MenuPage();
             Master = masterPage;
             _paginaAtual = new VelocimetroPage();

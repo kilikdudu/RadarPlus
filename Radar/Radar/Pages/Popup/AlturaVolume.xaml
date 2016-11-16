@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
@@ -16,8 +16,8 @@
           <Slider  Minimum="0" Maximum="15" x:Name="SliderAlturaVolume" />
           <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
             <Label Text="" HorizontalOptions="StartAndExpand" />
-            <Button Text="Cancelar" TextColor="Black" Clicked="OnCancelar" HorizontalOptions="End"/>
-            <Button Text="Ok" TextColor="Black" Clicked="OnOk" HorizontalOptions="End"></Button>
+            <Button Text="Cancelar" TextColor="#009688" Clicked="OnCancelar" HorizontalOptions="End" BackgroundColor="Transparent" />
+            <Button Text="Ok" TextColor="#009688" Clicked="OnOk" HorizontalOptions="End" BackgroundColor="Transparent" />
 
           </StackLayout>
           

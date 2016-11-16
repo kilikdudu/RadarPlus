@@ -34,12 +34,12 @@
 	</ContentPage.Resources>
 	<ContentPage.Content>
 		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
-		    <StackLayout Style="{StaticResource StyleStack}">
+		 <StackLayout Style="{StaticResource StyleStack}">
           <Frame Style="{StaticResource StyleFrame}">
             <StackLayout Orientation="Vertical">
               <StackLayout Orientation="Horizontal">
-                <Label Text="Salvar Percurso" Style="{StaticResource LabelStyle}"/>
-                <Switch Style="{StaticResource StyleSwitch}" x:Name="salvarPercurso" Toggled="salvarPercursoToggled"/>
+                <Label Text="Salvar Percurso            "  Style="{StaticResource LabelStyle}"/>
+                <Switch Margin="70,0,0,0" Style="{StaticResource StyleSwitch}" x:Name="salvarPercurso" Toggled="salvarPercursoToggled"/>
               </StackLayout>
               <Label Style="{StaticResource LabelStyleDescription}" Text="Salvar o percurso(dados recebidos pelo GPS)" />
               <Label Style="{StaticResource LabelStyleDescription}" Text="enquanto o MapaRadar estiver em funcionamento"  />
@@ -48,8 +48,8 @@
           <Frame Style="{StaticResource StyleFrame}">
             <StackLayout Orientation="Vertical">
               <StackLayout Orientation="Horizontal">
-                <Label Text="Excluir Antigos" Style="{StaticResource LabelStyle}"/>
-                <Switch Style="{StaticResource StyleSwitch}" x:Name="excluirAntigos" Toggled="excluirAntigosToggled"/>
+                <Label Text="Excluir Antigos                " Style="{StaticResource LabelStyle}"/>
+                <Switch Margin="80,0,0,0"   Style="{StaticResource StyleSwitch}" x:Name="excluirAntigos" Toggled="excluirAntigosToggled"/>
               </StackLayout>
               <Label Style="{StaticResource LabelStyleDescription}" Text="Excluir automaticamente os registros de percurso" />
               <Label Style="{StaticResource LabelStyleDescription}" Text="que forem considerados antigos" />
