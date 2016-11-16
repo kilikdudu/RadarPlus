@@ -102,7 +102,7 @@ namespace Radar
 			});			
 			lstView.ItemsSource = menus;
 			lstView.HasUnevenRows = true;
-            lstView.SeparatorColor = Color.Transparent;
+			lstView.SeparatorColor = Color.Transparent;
 			//lstView.BackgroundColor = Color.FromHex(TemaInfo.TextIcons);
 			//lstView.SeparatorColor = Color.FromHex(TemaInfo.DividerColor);
 
@@ -144,7 +144,7 @@ namespace Radar
 				nameLabel.SetBinding(Label.TextProperty, new Binding("Titulo"));
 				if (Device.OS == TargetPlatform.iOS)
 				{
-					icone.Margin = new Thickness(20,0,0,0);
+					icone.Margin = new Thickness(10,0,0,0);
 				}
 				var horizontalLayout = new StackLayout();
 				var frameOuter = new Frame();
@@ -156,14 +156,14 @@ namespace Radar
 
 				icone.HorizontalOptions = LayoutOptions.Start;
 
-				horizontalLayout.Padding = new Thickness(20, 0, 20, 0);
+				//horizontalLayout.Padding = new Thickness(10, 20, 10, 20);
 		        horizontalLayout.Orientation = StackOrientation.Horizontal;
 				horizontalLayout.HorizontalOptions = LayoutOptions.Fill;
 				horizontalLayout.VerticalOptions = LayoutOptions.Fill;
 				horizontalLayout.HeightRequest = AbsoluteLayout.AutoSize;
 				horizontalLayout.WidthRequest = AbsoluteLayout.AutoSize;
 				//horizontalLayout.HeightRequest = 40;
-                //frameOuter.Padding = new Thickness(20, 20, 20, 20);
+                frameOuter.Padding = new Thickness(5, 0, 5, 0);
                 //frameOuter.HeightRequest = 66;
                 //frameInner.OutlineColor = Color.Black;
                 frameOuter.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
@@ -171,9 +171,10 @@ namespace Radar
 				if (Device.OS == TargetPlatform.iOS)
 				{
 					frameOuter.WidthRequest = TelaUtils.Largura * 0.9;
+					frameOuter.Margin = new Thickness(5, 10, 5, 0);
 				}
 				else {
-					frameOuter.Margin = new Thickness(5, 0, 5, 0);
+					frameOuter.Margin = new Thickness(5, 10, 5, 10);
 				}
 
 
