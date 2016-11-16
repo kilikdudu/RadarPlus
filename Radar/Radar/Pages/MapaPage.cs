@@ -2,6 +2,7 @@
 using Radar.Controls;
 using Radar.Factory;
 using Radar.Model;
+using Radar.Utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,25 +15,60 @@ using Xamarin.Forms.Maps;
 
 namespace Radar.Pages
 {
-    public class MapaPage : ContentPage
+    public class MapaPage : BaseVisualPage
     {
-        private RadarMap _map;
-        private RadarBLL _regraRadar = RadarFactory.create();
-
+        /*
         private static MapaPage _mapaPageAtual;
 
         public static MapaPage Atual
         {
-            get {
+            get
+            {
                 return _mapaPageAtual;
             }
-            private set {
+            private set
+            {
                 _mapaPageAtual = value;
             }
         }
+        */
+        private RadarBLL _regraRadar = RadarFactory.create();
 
-        public MapaPage()
+        private RadarMap _map;
+        private BoxView _velocidadeFundo;
+        private Label _velocidadeLabel;
+        private float _velocidadeAtual = 0;
+        private float _velocidadeRadar = 0;
+
+        public override float VelocidadeAtual
         {
+            get
+            {
+                return _velocidadeAtual;
+            }
+            set
+            {
+                _velocidadeAtual = value;
+                _velocidadeLabel.Text = ((int)Math.Floor(_velocidadeAtual)).ToString() + "Km/h";
+            }
+        }
+
+        public override float VelocidadeRadar
+        {
+            get
+            {
+                return _velocidadeRadar;
+            }
+            set
+            {
+                _velocidadeAtual = value;
+            }
+        }
+
+        protected override void inicializarComponente()
+        {
+            base.inicializarComponente();
+
             _map = new RadarMap
             {
                 IsShowingUser = true,
@@ -40,51 +76,87 @@ namespace Radar.Pages
                 WidthRequest = 960,
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
-
-            // You can use MapSpan.FromCenterAndRadius 
-            //map.MoveToRegion (MapSpan.FromCenterAndRadius (new Position (37, -122), Distance.FromMiles (0.3)));
-            // or create a new MapSpan object directly
-            //map.MoveToRegion(new MapSpan(new Position(0, 0), 360, 360));
-
-            // add the slider
-            /*
-            var slider = new Slider(1, 18, 1);
-            slider.ValueChanged += (sender, e) => {
-                var zoomLevel = e.NewValue; // between 1 and 18
-                var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
-                Debug.WriteLine(zoomLevel + " -> " + latlongdegrees);
-                if (map.VisibleRegion != null)
-                    map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
+            AbsoluteLayout.SetLayoutBounds(_map, new Rectangle(0, 0, 1, 0.9));
+            AbsoluteLayout.SetLayoutFlags(_map, AbsoluteLayoutFlags.All);
+            _map.PropertyChanged += (sender, e) =>
+            {
+                Debug.WriteLine(e.PropertyName + " just changed!");
+                if (e.PropertyName == "VisibleRegion" && _map.VisibleRegion != null)
+                    _map.atualizarAreaVisivel(_map.VisibleRegion);
             };
-            */
 
+            _velocidadeFundo = new BoxView {
+                BackgroundColor = Color.White,
+            };
+            AbsoluteLayout.SetLayoutBounds(_velocidadeFundo, new Rectangle(0, 1, 1, 0.1));
+            AbsoluteLayout.SetLayoutFlags(_velocidadeFundo, AbsoluteLayoutFlags.All);
+            _velocidadeLabel = new Label
+            {
+                FontSize = 30,
+                FontAttributes = FontAttributes.Bold,
+                HorizontalTextAlignment = TextAlignment.Center,
+                VerticalTextAlignment = TextAlignment.Center,
+                Text = "Parado"
+            };
+            AbsoluteLayout.SetLayoutBounds(_velocidadeLabel, new Rectangle(0, 1, 1, 0.1));
+            AbsoluteLayout.SetLayoutFlags(_velocidadeLabel, AbsoluteLayoutFlags.All);
+        }
+
+        public MapaPage()
+        {
+            inicializarComponente();
+
+            /*
             Content = new StackLayout {
                 Spacing = 0,
                 Children = {
                     _map
                 }
             };
-
-            // for debugging output only
-            _map.PropertyChanged += (sender, e) => {
-                Debug.WriteLine(e.PropertyName + " just changed!");
-                if (e.PropertyName == "VisibleRegion" && _map.VisibleRegion != null)
-                    _map.atualizarAreaVisivel(_map.VisibleRegion);
+            */
+            Title = "Mapa";
+            Padding = 5;
+            Content = new AbsoluteLayout
+            {
+                Children = {
+                    _map,
+                    _GPSSentidoLabel,
+                    _VelocidadeRadarLabel,
+                    _DistanciaRadarLabel,
+                    _BussolaFundo,
+                    _BussolaAgulha,
+                    _PrecisaoFundoImage,
+                    _PrecisaoImage,
+                    _PrecisaoLabel,
+                    _velocidadeFundo,
+                    _velocidadeLabel,
+                    _AdicionarRadarButton
+                }
             };
 
-            Atual = this;
+            //Atual = this;
         }
 
-        public void atualizarPosicao(LocalizacaoInfo posicao) {
-            /*
-            posicao.Latitude = -16.702400;
-            posicao.Longitude = -49.231129;
-            posicao.Sentido = 180;
-            posicao.Velocidade = 30;
-            */
-            //_regraRadar.calcularLocalizacao(posicao);
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            GlobalUtils.Visual = this;
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            GlobalUtils.Visual = null;
+        }
+
+        public override void atualizarPosicao(LocalizacaoInfo posicao)
+        {
             _map.atualizarPosicao(posicao);
-            //map.MoveToRegion(new MapSpan(new Position(posicao.Latitude, posicao.Longitude), Configuracao.GPSDeltaPadrao, Configuracao.GPSDeltaPadrao));
+        }
+
+        public override void redesenhar()
+        {
+            //nada
         }
     }
 }
