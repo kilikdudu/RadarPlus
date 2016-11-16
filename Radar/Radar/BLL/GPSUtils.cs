@@ -75,32 +75,34 @@ namespace Radar.BLL
                         MensagemUtils.notificar(RADAR_ID, "Alerta de Radar", mensagem);
                     }
                 }
-                if (MapaPage.Atual != null)
-                    MapaPage.Atual.atualizarPosicao(local);
-                regraPercurso.executarGravacao(local);
+                //if (MapaPage.Atual != null)
+                //    MapaPage.Atual.atualizarPosicao(local);
 
-                VelocimetroPage velocimentro = VelocimetroPage.Atual;
-                if (velocimentro != null)
+                var visualPage = GlobalUtils.Visual;
+                //VelocimetroPage velocimentro = VelocimetroPage.Atual;
+                if (visualPage != null)
                 {
 
-                    velocimentro.VelocidadeAtual = (float)local.Velocidade;
-                    velocimentro.Precisao = local.Precisao;
-                    velocimentro.Sentido = local.Sentido;
+                    visualPage.VelocidadeAtual = (float)local.Velocidade;
+                    visualPage.Precisao = local.Precisao;
+                    visualPage.Sentido = local.Sentido;
                     RadarInfo radar = RadarBLL.RadarAtual;
                     if (radar != null)
                     {
-                        velocimentro.VelocidadeRadar = radar.Velocidade;
+                        visualPage.VelocidadeRadar = radar.Velocidade;
                         double distancia = regraRadar.calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
-                        velocimentro.DistanciaRadar = (float)distancia;
+                        visualPage.DistanciaRadar = (float)distancia;
                     }
                     else {
-                        velocimentro.VelocidadeRadar = 0;
-                        velocimentro.DistanciaRadar = 0;
+                        visualPage.VelocidadeRadar = 0;
+                        visualPage.DistanciaRadar = 0;
                     }
                     //velocimentro.VelocidadeRadar = 40;
                     //if (VelocimetroPage.Atual.Velocimetro.redesenhar != null)
-                    velocimentro.redesenhar();
+                    visualPage.atualizarPosicao(local);
+                    visualPage.redesenhar();
                 }
+                regraPercurso.executarGravacao(local);
             }
             catch (Exception e) {
                 ErroPage.exibir(e);
