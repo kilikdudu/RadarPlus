@@ -62,8 +62,8 @@
 	<key>XSLaunchImageAssets</key>
 	<string>Assets.xcassets/LaunchImage.launchimage</string>
 	<key>CFBundleName</key>
-	<string>Radar.iOS</string>
+	<string>Radar</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.Radar.iOS</string>
+	<string>br.com.cmapps.radar</string>
 </dict>
 </plist>
