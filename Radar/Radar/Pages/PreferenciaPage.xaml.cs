@@ -149,8 +149,8 @@ namespace Radar
 				var horizontalLayout = new StackLayout();
 				var frameOuter = new Frame();
 
-				icone.WidthRequest = 40;
-				icone.HeightRequest = 40;
+				icone.WidthRequest = 60;
+				icone.HeightRequest = 60;
 				icone.SetBinding(Image.SourceProperty, new Binding("Imagem"));
 
 
@@ -163,15 +163,19 @@ namespace Radar
 				horizontalLayout.HeightRequest = AbsoluteLayout.AutoSize;
 				horizontalLayout.WidthRequest = AbsoluteLayout.AutoSize;
 				//horizontalLayout.HeightRequest = 40;
-                frameOuter.Padding = new Thickness(5, 0, 5, 0);
+                //frameOuter.Padding = new Thickness(5, 0, 5, 0);
                 //frameOuter.HeightRequest = 66;
                 //frameInner.OutlineColor = Color.Black;
                 frameOuter.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
 				frameOuter.HeightRequest = AbsoluteLayout.AutoSize;
 				if (Device.OS == TargetPlatform.iOS)
 				{
+					icone.WidthRequest = 60;
+				
+					frameOuter.Padding = new Thickness(5, 10, 5, 10);
 					frameOuter.WidthRequest = TelaUtils.Largura * 0.9;
 					frameOuter.Margin = new Thickness(5, 10, 5, 0);
+
 				}
 				else {
 					frameOuter.Margin = new Thickness(5, 10, 5, 10);

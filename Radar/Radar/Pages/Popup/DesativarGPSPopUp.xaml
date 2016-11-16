@@ -4,27 +4,73 @@
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
              x:Class="Radar.Pages.Popup.DesativarGPSPopUp">
-
-  <AbsoluteLayout VerticalOptions="Center" Opacity="0.00"  HorizontalOptions="Fill" Padding="20, 20, 20, 20" HeightRequest="250">
-    <StackLayout BackgroundColor="Transparent" Padding="0, 10, 0, 0" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="AbsoluteStyle" TargetType="AbsoluteLayout">
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="Opacity" Value="0.00" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="Padding" Value="20,20,20,20" />
+		<Setter Property="HeightRequest" Value="240" />
+      </Style>
+      <Style x:Key="StyleText" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Margin" Value="20,0,0,0" />
+        <Setter Property="FontFamily" Value="Roboto-Condensed" />
+      </Style>
+      <Style x:Key="StyleStack" TargetType="StackLayout">
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="Padding" Value="0,10,0,0" />
+      </Style>
+      <Style x:Key="StyleButton" TargetType="Button">
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+        <Setter Property="TextColor" Value="#009688" />
+		<Setter Property="FontFamily" Value="Roboto-Condensed" />
+		<Setter Property="BackgroundColor" Value="Transparent" />
+		<Setter Property="FontSize" Value="20" />
+      </Style>
+      <Style x:Key="StyleTitulo" TargetType="Label">
+        <Setter Property="FontSize" Value="26" />
+        <Setter Property="TextColor" Value="#009688" />
+        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+		<Setter Property="FontFamily" Value="Roboto-Condensed" />
+      </Style>
+	  <Style x:Key="StyleSwitch" TargetType="Switch">
+        <Setter Property="HorizontalOptions" Value="End" />
+		<Setter Property="Margin" Value="0,0,0,20" />
+      </Style>
+		<Style x:Key="StyleBoxView" TargetType="BoxView">
+        <Setter Property="Color" Value="#bdbdbd" />
+		<Setter Property="HeightRequest" Value="1" />
+      </Style>
+    </ResourceDictionary>
+	</ContentPage.Resources> 
+  <AbsoluteLayout Style="{StaticResource AbsoluteStyle}">  
+    <StackLayout Style="{StaticResource StyleStack}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
       <Frame>
       <StackLayout HorizontalOptions="FillAndExpand">
-        <Label Text="Ao Desativar o GPS" TextColor="Red" FontSize="28" HorizontalOptions="Start" Margin="20, 0, 0, 0" />
-
-        <StackLayout Orientation="Horizontal">
-          <Label Text="Fechar o MapaRadar" TextColor="Black" FontSize="20" HorizontalOptions="StartAndExpand" Margin="20,0,0,0"/>
-          <Switch x:Name="SwitchFechar" Toggled="fecharToggled" HorizontalOptions="End" Margin="0,0,0,20"/>
-        </StackLayout>
-        <BoxView Color="Gray" HeightRequest="1" />
-        <StackLayout Orientation="Horizontal">
-          <Label Text="Exibir Notificação" TextColor="Black" FontSize="20" HorizontalOptions="StartAndExpand" Margin="20,0,0,0"/>
-          <Switch x:Name="SwitchExibir" Toggled="exibirToggled" HorizontalOptions="End" Margin="0,0,0,20"/>
-        </StackLayout>
-        <BoxView Color="Gray" HeightRequest="1" />
-        
+        <Label Text="Ao Desativar o GPS" Style="{StaticResource StyleTitulo}" />
+        <BoxView Style="{StaticResource StyleBoxView}" />
+		 <ScrollView>
+			<StackLayout>
+		        <StackLayout Orientation="Horizontal">
+		          <Label Text="Fechar o MapaRadar" Style="{StaticResource StyleText}"/>
+		          <Switch x:Name="SwitchFechar" Toggled="fecharToggled" Style="{StaticResource StyleSwitch}"/>
+		        </StackLayout>
+		        <BoxView Style="{StaticResource StyleBoxView}" />
+		        <StackLayout Orientation="Horizontal">
+		          <Label Text="Exibir Notificação" Style="{StaticResource StyleText}"/>
+		          <Switch x:Name="SwitchExibir" Toggled="exibirToggled" Style="{StaticResource StyleSwitch}"/>
+		        </StackLayout>
+		        <BoxView Style="{StaticResource StyleBoxView}" />
+			</StackLayout>
+        </ScrollView>
         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 
-          <Button Text="Sair" TextColor="Black" Clicked="OnCancelar" HorizontalOptions="CenterAndExpand"/>
+          <Button Text="Sair" Clicked="OnCancelar" Style="{StaticResource StyleButton}"/>
    
         </StackLayout>
 

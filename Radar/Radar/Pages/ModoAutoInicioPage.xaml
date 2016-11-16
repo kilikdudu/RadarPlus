@@ -35,16 +35,18 @@
 	<ContentPage.Content>
 		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
      		<StackLayout Style="{StaticResource StyleStack}" >
+				
           <Frame Style="{StaticResource StyleFrame}">
-            <StackLayout Orientation="Vertical" >
-              <StackLayout Orientation="Horizontal" >
-              <Label Text="Habilitar" Style="{StaticResource LabelStyle}"/>
+			<StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+	        <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">             
+               <Label Text="Habilitar" Style="{StaticResource LabelStyle}"/>
               <Switch Style="{StaticResource StyleSwitch}" x:Name="habilitar" Toggled="habilitarToggled"/>
             </StackLayout>
             <Label Style="{StaticResource LabelStyleDescription}" Text="Inicia ou desliga automaticamente quanto qualquer"  />
             <Label Style="{StaticResource LabelStyleDescription}" Text="outro App que consome GPS for iniciado ou desligado" />
            </StackLayout>
-          </Frame>    
+          </Frame>  
+				
 		    </StackLayout>
 		</ScrollView>
 	</ContentPage.Content>
