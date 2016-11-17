@@ -24,12 +24,12 @@
       </ListView.ItemTemplate>
     </ListView>
 
-   <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Margin="30,30,30,40">
+   <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="30,30,30,40" >
 		<StackLayout.GestureRecognizers>
            <TapGestureRecognizer Tapped="gravarPercurso"/>
         </StackLayout.GestureRecognizers>
-	        <Image Source="Play" WidthRequest="60" HorizontalOptions="Center" x:Name="icoPlay"/>
-			<StackLayout Orientation="Vertical" HorizontalOptions="Center">
+	        <Image Source="Play" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Center" x:Name="icoPlay"/>
+			<StackLayout Orientation="Vertical" HorizontalOptions="Start" VerticalOptions="Center" x:Name="stackDescricaoGravando" >
 			 <Label Text="Gravar Percurso!" x:Name="gravarLabel" Font="Bold,24" FontFamily="Roboto-Condensed" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Center"/>		
 			 <Label Text="Toque aqui para gravar percurso" x:Name="infoLabel" FontSize="18"  FontFamily="Roboto-Condensed" HorizontalOptions="Start" VerticalOptions="Center"/>		
 			</StackLayout>

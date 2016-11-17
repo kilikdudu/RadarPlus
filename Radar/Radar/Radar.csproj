@@ -163,6 +163,8 @@
     <Compile Include="Factory\PreferenciaFactory.cs" />
     <Compile Include="Model\TemaInfo.cs" />
     <Compile Include="Model\ListaInfo.cs" />
+    <Compile Include="Pages\SobrePage.cs" />
+    <Compile Include="Controls\WrapLayout.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\RadarListaPage.xaml">
