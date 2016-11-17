@@ -47,16 +47,14 @@ namespace Radar.BLL
             return _db.listar(usuario);
         }
 
-        /// <summary>
-        /// Lista dos radares dentro de uma região
-        /// </summary>
-        /// <param name="latitude">Latitude do centro da região</param>
-        /// <param name="longitude">Longitude do centro da região</param>
-        /// <param name="latitudeDelta">Delta da latitude</param>
-        /// <param name="longitudeDelta">Delta da longitude</param>
-        /// <returns>Lista de radares da região</returns>
-        public IList<RadarInfo> listar(double latitude, double longitude, double latitudeDelta, double longitudeDelta) {
-            return _db.listar(latitude, longitude, latitudeDelta, longitudeDelta);
+        public IList<RadarInfo> listar(RadarBuscaInfo busca) {
+            return _db.listar(busca);
+        }
+
+        public IList<RadarInfo> listar(double latitude, double longitude, double latitudeDelta, double longitudeDelta)
+        {
+            var filtros = listarRadarTipo();
+            return _db.listar(latitude, longitude, latitudeDelta, longitudeDelta, filtros);
         }
 
         public RadarInfo pegar(int idRadar)
@@ -217,6 +215,28 @@ namespace Radar.BLL
             return false;
         }
 
+        private IList<RadarTipoEnum> listarRadarTipo() {
+            var filtros = new List<RadarTipoEnum>();
+            if (PreferenciaUtils.RadarMovel)
+                filtros.Add(RadarTipoEnum.RadarMovel);
+            if (PreferenciaUtils.Pedagio)
+                filtros.Add(RadarTipoEnum.Pedagio);
+            if (PreferenciaUtils.PoliciaRodoviaria)
+                filtros.Add(RadarTipoEnum.PoliciaRodoviaria);
+            if (PreferenciaUtils.Lombada)
+                filtros.Add(RadarTipoEnum.Lombada);
+            if (filtros.Count() == 4)
+            {
+                filtros.Clear();
+            }   
+            else {
+                filtros.Add(RadarTipoEnum.RadarFixo);
+                filtros.Add(RadarTipoEnum.SemaforoComRadar);
+                filtros.Add(RadarTipoEnum.SemaforoComCamera);
+            }
+            return filtros;
+        }
+
 
         /// <summary>
         /// Faz todos os calculos referentes a posição do radar referente a posição do usuário
@@ -227,17 +247,27 @@ namespace Radar.BLL
             double latitudeOld = local.Latitude;
             double longitudeOld = local.Longitude;
 
-            double distanciaCos = Math.Cos((PreferenciaUtils.DistanciaRadar / 1000) / DIAMETRO_TERRA);
-
+            /*
             double latitudeCos = Math.Cos(local.Latitude * Math.PI / 180);
             double latitudeSin = Math.Sin(local.Latitude * Math.PI / 180);
             double longitudeCos = Math.Cos(local.Longitude * Math.PI / 180);
             double longitudeSin = Math.Sin(local.Longitude * Math.PI / 180);
+            double distanciaCos = Math.Cos((PreferenciaUtils.DistanciaRadar / 1000) / DIAMETRO_TERRA);
+            */
+
+            var args = new RadarBuscaInfo {
+                latitudeCos = Math.Cos(local.Latitude * Math.PI / 180),
+                latitudeSin = Math.Sin(local.Latitude * Math.PI / 180),
+                longitudeCos = Math.Cos(local.Longitude * Math.PI / 180),
+                longitudeSin = Math.Sin(local.Longitude * Math.PI / 180),
+                distanciaCos = Math.Cos((PreferenciaUtils.DistanciaRadar / 1000) / DIAMETRO_TERRA),
+                Filtros = listarRadarTipo()
+            };
 
             limparAlertado(local.Latitude, local.Longitude);
 
             RadarInfo radarCapturado = null; 
-            IList<RadarInfo> radares = _db.listar(latitudeCos, longitudeCos, latitudeSin, longitudeSin, distanciaCos);
+            IList<RadarInfo> radares = _db.listar(args);
             foreach (RadarInfo radar in radares) {
                 if (radarEstaAFrente(local, radar)) {
                     radarCapturado = radar;

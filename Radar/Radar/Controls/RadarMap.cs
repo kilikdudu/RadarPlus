@@ -50,7 +50,8 @@ namespace Radar.Controls
                 return;
 
             RadarBLL regraRadar = RadarFactory.create();
-            foreach (RadarInfo radar in regraRadar.listar(region.Center.Latitude, region.Center.Longitude, latitudeDelta, longitudeDelta))
+            var radares = regraRadar.listar(region.Center.Latitude, region.Center.Longitude, latitudeDelta, longitudeDelta);
+            foreach (RadarInfo radar in radares)
             {
                 adicionarRadar(radar);
             }

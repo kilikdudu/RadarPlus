@@ -73,6 +73,13 @@ namespace Radar.BLL
                         RadarBLL.RadarAtual = radar;
                         string mensagem = "Tem um radar a frente, diminua para " + radar.Velocidade.ToString() + "km/h!";
                         MensagemUtils.notificar(RADAR_ID, "Alerta de Radar", mensagem);
+                        if (PreferenciaUtils.VibrarAlerta) {
+                            int tempo = PreferenciaUtils.TempoDuracaoVibracao;
+                            if (tempo <= 0)
+                                tempo = 1;
+                            tempo = tempo * 1000;
+                            MensagemUtils.vibrar(tempo);
+                        }
                     }
                 }
                 //if (MapaPage.Atual != null)

@@ -15,5 +15,6 @@ namespace ClubManagement.IDevice
         bool notificarGravacaoPercurso();
         bool pararNotificaoPercurso();
         bool enviarEmail(string para, string titulo, string mensagem);
+        void vibrar(int milisegundo);
     }
 }

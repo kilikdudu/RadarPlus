@@ -61,5 +61,12 @@ namespace ClubManagement.Utils
                 _mensagem = DependencyService.Get<IMensagem>();
             return _mensagem.enviarEmail(para, titulo, mensagem);
         }
+
+        public static void vibrar(int milisegundo)
+        {
+            if (_mensagem == null)
+                _mensagem = DependencyService.Get<IMensagem>();
+            _mensagem.vibrar(milisegundo);
+        }
     }
 }

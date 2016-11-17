@@ -15,6 +15,9 @@ using Android.Media;
 using ClubManagement.Droid;
 using ClubManagement.Utils;
 using ClubManagement.IDevice;
+using Android;
+
+[assembly: UsesPermission(Manifest.Permission.Vibrate)]
 
 [assembly: Dependency(typeof(MensagemAndroid))]
 
@@ -135,6 +138,12 @@ namespace ClubManagement.Droid {
             Context context = Android.App.Application.Context;
             context.StartActivity(email);
             return true;
+        }
+
+        public void vibrar(int milisegundo) {
+            Context context = Android.App.Application.Context;
+            Vibrator vibrator = (Vibrator)context.GetSystemService(Context.VibratorService);
+            vibrator.Vibrate(milisegundo);
         }
     }
 }

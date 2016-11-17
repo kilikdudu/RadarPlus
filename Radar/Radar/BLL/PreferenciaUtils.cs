@@ -104,7 +104,7 @@ namespace Radar.BLL
 		public static bool BeepAviso
 		{
 			get {
-				return _regraPreferencia.pegarBool(BEEP_AVISO);
+				return _regraPreferencia.pegarBool(BEEP_AVISO, true);
 			}
             set {
                 _regraPreferencia.gravar(BEEP_AVISO, value);
@@ -446,10 +446,10 @@ namespace Radar.BLL
             }
         }
 
-        public static int TempoDuracao
+        public static int TempoDuracaoVibracao
         {
             get {
-                return _regraPreferencia.pegarInt(TEMPO_DURACAO);
+                return _regraPreferencia.pegarInt(TEMPO_DURACAO, 1);
             }
             set {
                 _regraPreferencia.gravar(TEMPO_DURACAO, value);

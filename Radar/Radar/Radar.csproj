@@ -59,6 +59,8 @@
     <Compile Include="Model\PercursoInfo.cs" />
     <Compile Include="Model\PercursoPontoInfo.cs" />
     <Compile Include="Model\GPSSinalEnum.cs" />
+    <Compile Include="Model\RadarBuscaInfo.cs" />
+    <Compile Include="Model\RadarTipoEnum.cs" />
     <Compile Include="Model\SomAlarmeEnum.cs" />
     <Compile Include="Model\VelocidadeInfo.cs" />
     <Compile Include="DALFactory\RadarDALFactory.cs" />
