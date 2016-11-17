@@ -28,14 +28,17 @@ namespace Radar.Pages
             this.BindingContext = percursos;
         }
 
-        public void gravarPercurso(object sender, EventArgs e) {
-            Button gravarButton = (Button)sender;
+        async void gravarPercurso(object sender, EventArgs e)
+		{
+            //Label gravarButton = (Label)sender;
             PercursoBLL regraPercurso = PercursoFactory.create();
             if (PercursoBLL.Gravando)
             {
                 if (regraPercurso.pararGravacao())
                 {
-                    gravarButton.Text = "Gravar Percurso!";
+                    gravarLabel.Text = "Gravar Percurso!";
+					infoLabel.Text = "Toque aqui para iniciar a gravação";
+					icoPlay.Source = "Play.png";
                     MensagemUtils.avisar("Gravação finalizada!");
                     MensagemUtils.pararNotificaoPercurso();
                     OnAppearing();
@@ -47,7 +50,9 @@ namespace Radar.Pages
             else {
                 if (regraPercurso.iniciarGravacao())
                 {
-                    gravarButton.Text = "Parar Gravação!";
+                    gravarLabel.Text = "Parar Gravação!";
+					infoLabel.Text = "Toque aqui para parar a gravação";
+					icoPlay.Source = "Stop.png";
                     MensagemUtils.avisar("Iniciando gravação do percurso!");
                     MensagemUtils.notificarGravacaoPercurso();
                 }

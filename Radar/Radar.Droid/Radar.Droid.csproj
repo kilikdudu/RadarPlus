@@ -221,6 +221,9 @@
     <AndroidResource Include="Resources\drawable\autoiniciodesligamento.png" />
     <AndroidResource Include="Resources\drawable\bussolaagulha.png" />
     <AndroidResource Include="Resources\drawable\bussolacorpo.png" />
+    <AndroidResource Include="Resources\drawable\iconePlay.png" />
+    <AndroidResource Include="Resources\drawable\Stop.png" />
+    <AndroidResource Include="Resources\drawable\Play.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">
