@@ -28,7 +28,7 @@
 		<StackLayout.GestureRecognizers>
            <TapGestureRecognizer Tapped="gravarPercurso"/>
         </StackLayout.GestureRecognizers>
-	        <Image Source="Play" WidthRequest="60" HorizontalOptions="Center"/>
+	        <Image Source="Play" WidthRequest="60" HorizontalOptions="Center" x:Name="icoPlay"/>
 			<StackLayout Orientation="Vertical" HorizontalOptions="Center">
 			 <Label Text="Gravar Percurso!" x:Name="gravarLabel" Font="Bold,24" FontFamily="Roboto-Condensed" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Center"/>		
 			 <Label Text="Toque aqui para gravar percurso" x:Name="infoLabel" FontSize="18"  FontFamily="Roboto-Condensed" HorizontalOptions="Start" VerticalOptions="Center"/>		
