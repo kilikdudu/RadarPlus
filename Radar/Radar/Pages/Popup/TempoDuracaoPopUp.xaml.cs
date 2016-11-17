@@ -29,7 +29,7 @@ namespace Radar.Pages.Popup {
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            int valorSliderDuracao = PreferenciaUtils.TempoDuracao;
+            int valorSliderDuracao = PreferenciaUtils.TempoDuracaoVibracao;
             SliderDuracao.Value = valorSliderDuracao;
 
             if (valorSliderDuracao > 1)
@@ -45,7 +45,7 @@ namespace Radar.Pages.Popup {
         private void OnOk(object sender, EventArgs e) {
             //PopupNavigation.PopAsync();
             //regraPreferencia.gravar("tempoDuracao", (int)Math.Floor(SliderDuracao.Value));
-            PreferenciaUtils.TempoDuracao = (int)Math.Floor(SliderDuracao.Value);
+            PreferenciaUtils.TempoDuracaoVibracao = (int)Math.Floor(SliderDuracao.Value);
             PopupNavigation.PopAsync();
         }
 

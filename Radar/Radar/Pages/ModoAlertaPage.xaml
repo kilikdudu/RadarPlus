@@ -65,7 +65,7 @@
 	          </Frame>
 				
 	          <Frame Style="{StaticResource StyleFrame}">
-				<StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+				      <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
 	              <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
 	                <Label Text="Alerta Inteligente" Style="{StaticResource LabelStyle}"/>
 	                <Switch Style="{StaticResource StyleSwitch}" x:Name="alertaInteligente" Toggled="alertaInteligenteToggled"/>
@@ -116,10 +116,10 @@
 	          </Frame>
 				
 	          <Frame Style="{StaticResource StyleFrame}">
-				<StackLayout.GestureRecognizers>
+				      <StackLayout.GestureRecognizers>
 	              <TapGestureRecognizer Tapped="distanciaAlertaTapped"/>
 	            </StackLayout.GestureRecognizers>
-	 			 <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+	 			      <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
 	              <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">                
 	                <Label Text="Distância para o Alerta" Style="{StaticResource LabelStyle}" />
 	              </StackLayout>

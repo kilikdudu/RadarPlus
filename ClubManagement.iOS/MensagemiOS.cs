@@ -44,5 +44,10 @@ namespace Radar.iOS
 		public bool enviarEmail(string para, string titulo, string mensagem) {
 			return false;
 		}
+
+        public void vibrar(int milisegundo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

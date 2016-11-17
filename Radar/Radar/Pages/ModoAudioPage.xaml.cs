@@ -8,6 +8,7 @@ using Radar.Factory;
 using Xamarin.Forms;
 using Radar.Pages.Popup;
 using Rg.Plugins.Popup.Extensions;
+using ClubManagement.Utils;
 
 namespace Radar.Pages {
     public partial class ModoAudioPage : ContentPage {
@@ -15,7 +16,6 @@ namespace Radar.Pages {
         public ModoAudioPage() {
             InitializeComponent();
             Title = "Áudio";
-            //Content = new ScrollView() { Content = teststack };
         }
 
         protected override void OnAppearing()
@@ -28,55 +28,24 @@ namespace Radar.Pages {
 
         public void volumePersonalizadoToggled(object sender, ToggledEventArgs e)
 		{
-            /*
-			if (e.Value == true)
-			{
-				regraPreferencia.gravar("volumePersonalizado", 1);
-			}
-			else {
-				regraPreferencia.gravar("volumePersonalizado", 0);
-			}
-            */
             PreferenciaUtils.VolumePersonalizado = e.Value;
         }
 
 		public void somCaixaToggled(object sender, ToggledEventArgs e)
 		{
-            /*
-			if (e.Value == true)
-			{
-				regraPreferencia.gravar("somCaixa", 1);
-			}
-			else {
-				regraPreferencia.gravar("somCaixa", 0);
-			}
-            */
             PreferenciaUtils.SomCaixa = e.Value;
         }
-        async void canalAudioTapped(object sender, EventArgs e) {
 
-            var page = new CanalAudioPopUp();
-
-            await Navigation.PushPopupAsync(page);
-            // or
-            //await Navigation.PushAsync(page);
-        }
-        async void alturaVolumeTapped(object sender, EventArgs e) {
-
-            var page = new AlturaVolumePopUp();
-
-            await Navigation.PushPopupAsync(page);
-            // or
-            //await Navigation.PushAsync(page);
+        public void canalAudioTapped(object sender, EventArgs e) {
+            NavigationX.create(this).PushPopupAsyncX(new CanalAudioPopUp(), true);
         }
 
-        async void somAlertaTapped(object sender, EventArgs e) {
+        public void alturaVolumeTapped(object sender, EventArgs e) {
+            NavigationX.create(this).PushPopupAsyncX(new AlturaVolumePopUp(), true);
+        }
 
-            var page = new SomAlertaPopUp();
-
-            await Navigation.PushPopupAsync(page);
-            // or
-            //await Navigation.PushAsync(page);
+        public void somAlertaTapped(object sender, EventArgs e) {
+            NavigationX.create(this).PushPopupAsyncX(new SomAlertaPopUp(), true);
         }
     }
 }

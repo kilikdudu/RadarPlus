@@ -7,6 +7,7 @@ using System.Text;
 using Radar.Model;
 
 using Xamarin.Forms;
+using ClubManagement.Utils;
 
 namespace Radar.Pages
 {

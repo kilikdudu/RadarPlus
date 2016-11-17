@@ -45,6 +45,7 @@
     <Compile Include="IDevice\IThread.cs" />
     <Compile Include="Utils\DownloaderProcessar.cs" />
     <Compile Include="Utils\MensagemUtils.cs" />
+    <Compile Include="Utils\NavigationX.cs" />
     <Compile Include="Utils\ThreadUtils.cs" />
   </ItemGroup>
   <ItemGroup />

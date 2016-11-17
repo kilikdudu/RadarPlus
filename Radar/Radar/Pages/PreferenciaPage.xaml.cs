@@ -8,6 +8,7 @@ using Radar.Controls;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Radar.BLL;
+using ClubManagement.Utils;
 
 namespace Radar
 {
@@ -40,65 +41,74 @@ namespace Radar
 			menus.Add(new ListaInfo() { 
 				Titulo= "Modo Mapa", 
 				Imagem = "modomapa.png", 
-				aoClicar = (sender, e) => { 
-					this.Navigation.PushAsync(new ModoMapaPage()); 
-				} 
+				aoClicar = (sender, e) => {
+                    //this.Navigation.PushAsync(new ModoMapaPage()); 
+                    NavigationX.create(this).PushAsync(new ModoMapaPage(), true);
+                } 
 			});
 			menus.Add(new ListaInfo() { 
 				Titulo = "Alertas", 
 				Imagem = "alerta.png",
 				aoClicar = (sender, e) =>
 				{
-					this.Navigation.PushAsync(new ModoAlertaPage());
-				}
+                    //this.Navigation.PushAsync(new ModoAlertaPage());
+                    NavigationX.create(this).PushAsync(new ModoAlertaPage(), true);
+                }
 			});
 			menus.Add(new ListaInfo() { 
 				Titulo = "Audio", 
 				Imagem = "audio.png",
 				aoClicar = (sender, e) =>
 				{
-					this.Navigation.PushAsync(new ModoAudioPage());
-				}
+                    //this.Navigation.PushAsync(new ModoAudioPage());
+                    NavigationX.create(this).PushAsync(new ModoAudioPage(), true);
+                }
 			});
 			menus.Add(new ListaInfo() { 
 				Titulo = "Reprodução de Voz", 
 				Imagem = "reproducaodevoz.png",
 				aoClicar = (sender, e) =>
 				{
-					this.Navigation.PushAsync(new ModoReproducaoVozPage());
-				}
+                    //this.Navigation.PushAsync(new ModoReproducaoVozPage());
+                    NavigationX.create(this).PushAsync(new ModoReproducaoVozPage(), true);
+                }
 			});
 			menus.Add(new ListaInfo() { 
 				Titulo = "Gerais", 
 				Imagem = "gerais.png", 
 				aoClicar = (sender, e) =>
 				{
-					this.Navigation.PushAsync(new ModoGeralPage());
-				}
+					//this.Navigation.PushAsync(new ModoGeralPage());
+                    NavigationX.create(this).PushAsync(new ModoGeralPage(), true);
+                }
 			});
 			menus.Add(new ListaInfo() { 
 				Titulo = "Auto Início/Desligamento", 
 				Imagem = "autoiniciodesligamento.png",
 				aoClicar = (sender, e) =>
 				{
-					this.Navigation.PushAsync(new ModoAutoInicioPage());
-				}
+                    //this.Navigation.PushAsync(new ModoAutoInicioPage());
+                    NavigationX.create(this).PushAsync(new ModoAutoInicioPage(), true);
+                }
 			});
 			menus.Add(new ListaInfo() { 
 				Titulo = "Percurso", 
 				Imagem = "percursos.png",
 				aoClicar = (sender, e) =>
 				{
-					this.Navigation.PushAsync(new ModoPercursoPage());
-				}
+                    //this.Navigation.PushAsync(new ModoPercursoPage());
+                    NavigationX.create(this).PushAsync(new ModoPercursoPage(), true);
+
+                }
 			});
 			menus.Add(new ListaInfo() { 
 				Titulo = "Meus Radares", 
 				Imagem = "meusradares.png",
 				aoClicar = (sender, e) =>
 				{
-					this.Navigation.PushAsync(new ModoMeuRadarPage());
-				}
+                    //this.Navigation.PushAsync(new ModoMeuRadarPage());
+                    NavigationX.create(this).PushAsync(new ModoMeuRadarPage(), true);
+                }
 			});			
 			lstView.ItemsSource = menus;
 			lstView.HasUnevenRows = true;
