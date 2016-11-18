@@ -49,11 +49,7 @@ namespace Radar.Pages
 
 			//desc.VerticalOptions = LayoutOptions.Center;
 			desc.HorizontalOptions = LayoutOptions.Fill;
-
-
-		
-			desc.WidthRequest = TelaUtils.Largura - (TelaUtils.Largura * 0.5);
-
+			desc.WidthRequest = TelaUtils.LarguraSemPixel * 0.7;
 			desc.Spacing = 1;
 
 
@@ -266,7 +262,8 @@ namespace Radar.Pages
 				Frame cardLeft = new Frame()
 				{
 					HorizontalOptions = LayoutOptions.Start,
-					Margin = new Thickness(0, 0, 0, 100)
+					Margin = new Thickness(0, 0, 0, 100),
+					WidthRequest = TelaUtils.LarguraSemPixel * 0.2
 
 				};
 
@@ -309,13 +306,14 @@ namespace Radar.Pages
 				{
 					HorizontalOptions = LayoutOptions.Start,
 
-					//WidthRequest = 0;
+					WidthRequest = TelaUtils.LarguraSemPixel * 0.65
+
 				};
-				Debug.WriteLine("Largura: " + cardRigth.Width);
+				Debug.WriteLine("Largura: " + TelaUtils.LarguraSemPixel);
 				StackLayout cardRigthStack = new StackLayout()
 				{
-					//Orientation = StackOrientation.Vertical,
-					//HorizontalOptions = LayoutOptions.Fill
+					Orientation = StackOrientation.Vertical,
+					HorizontalOptions = LayoutOptions.Fill
 
 				};
 
@@ -346,7 +344,7 @@ namespace Radar.Pages
 				};
 
 				cardRigthStack.Children.Add(titulo);
-				cardRigthStack.Children.Add(traco);
+				//cardRigthStack.Children.Add(traco);
 				cardRigthStack.Children.Add(endereco);
 				cardRigthStack.Children.Add(desc);
 				cardRigth.Content = cardRigthStack;

@@ -323,8 +323,6 @@
     <AndroidResource Include="Resources\bg.png" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="LaunchScreen.xib" />
     <InterfaceDefinition Include="Resources\Launch Screen.storyboard" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
