@@ -135,6 +135,7 @@ namespace Radar
 			
 			public MenusCelula()
 			{
+				
 
 				Label nameLabel = new Label
 				{

@@ -96,7 +96,7 @@ namespace Radar.Pages
             {
                 Titulo = "Sobre",
                 Icone = "sobre.png",
-                TargetType = typeof(VelocimetroPage)
+				TargetType = typeof(SobrePage)
             });
             grupo.Add(new MenuItemInfo
             {

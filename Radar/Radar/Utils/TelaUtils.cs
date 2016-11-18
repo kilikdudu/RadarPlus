@@ -23,7 +23,7 @@ namespace Radar.Utils
 
         public static float Altura {
             get
-            {
+			{
                 if (_tela == null)
                     _tela = DependencyService.Get<ITela>();
                 return _tela.pegarAltura();

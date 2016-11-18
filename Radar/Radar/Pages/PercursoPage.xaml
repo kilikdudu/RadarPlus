@@ -4,25 +4,32 @@
              x:Class="Radar.Pages.PercursoPage"
              Title="Meus Percursos">
   <StackLayout Orientation="Vertical">
-    <ListView x:Name="percursoListView" ItemTapped="abrirPercurso" RowHeight="60">
+    <ListView x:Name="percursoListView" ItemTapped="abrirPercurso" RowHeight="270">
       <ListView.ItemTemplate>
         <DataTemplate>
-          <ViewCell>
+          <ViewCell >
             <ViewCell.ContextActions>
               <MenuItem Clicked="simularPercurso" CommandParameter="{Binding .}" Text="Simular" />
               <MenuItem Clicked="excluirPercurso" CommandParameter="{Binding .}" Text="Excluir" IsDestructive="True" />
             </ViewCell.ContextActions>
-            <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-              <Label Text="{Binding Nome}" VerticalTextAlignment="Center" FontSize="Medium" />
-              <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                <Label Text="Tempo Gasto:" FontSize="Small" />
-                <Label Text="{Binding TempoGravacaoStr}" FontSize="Small" />
-              </StackLayout>
-            </StackLayout>
+
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>
-    <Button Text="Gravar Percurso!" Clicked="gravarPercurso" />
+
+   <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="30,30,30,40" >
+		<StackLayout.GestureRecognizers>
+           <TapGestureRecognizer Tapped="gravarPercurso"/>
+        </StackLayout.GestureRecognizers>
+	        <Image Source="Play" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Center" x:Name="icoPlay"/>
+			<StackLayout Orientation="Vertical" HorizontalOptions="Start" VerticalOptions="Center" x:Name="stackDescricaoGravando" >
+			 <Label Text="Gravar Percurso!" x:Name="gravarLabel" Font="Bold,24" FontFamily="Roboto-Condensed" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Center"/>		
+			 <Label Text="Toque aqui para gravar percurso" x:Name="infoLabel" FontSize="18"  FontFamily="Roboto-Condensed" HorizontalOptions="Start" VerticalOptions="Center"/>		
+			</StackLayout>
+ 	</StackLayout>
+			
+	
+		
   </StackLayout>
 </ContentPage>
