@@ -11,6 +11,7 @@ namespace ClubManagement.Utils
 {
     public static class AudioUtils
     {
+        private const float VOLUME_MAXIMO = 15;
         private static IAudio _audio;
 
         private static string pegarArquivo(AlarmeEnum audio) {
@@ -59,24 +60,52 @@ namespace ClubManagement.Utils
             return arquivo;
         }
 
-        public static void play(AlarmeEnum arquivo) {
+        private static void inicilizarAudio() {
             if (_audio == null)
+            {
                 _audio = DependencyService.Get<IAudio>();
+                _audio.Volume = VOLUME_MAXIMO;
+                _audio.Canal = AudioCanalEnum.Notificacao;
+            }
+        }
+
+        public static float Volume {
+            get {
+                inicilizarAudio();
+                return _audio.Volume;
+            }
+            set {
+                inicilizarAudio();
+                _audio.Volume = value;
+            }
+        }
+
+        public static AudioCanalEnum Canal {
+            get {
+                inicilizarAudio();
+                return _audio.Canal;
+            }
+            set {
+                inicilizarAudio();
+                _audio.Canal = value;
+            }
+        }
+
+        public static void play(AlarmeEnum arquivo) {
+            inicilizarAudio();
             var arquivoStr = "alarmes/" + pegarArquivo(arquivo);
             _audio.play(arquivoStr);
         }
 
         public static void play(string arquivo)
         {
-            if (_audio == null)
-                _audio = DependencyService.Get<IAudio>();
+            inicilizarAudio();
             _audio.play(arquivo);
         }
 
         public static void play(string[] arquivos)
         {
-            if (_audio == null)
-                _audio = DependencyService.Get<IAudio>();
+            inicilizarAudio();
             _audio.play(arquivos);
         }
     }
