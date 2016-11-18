@@ -9,7 +9,7 @@
       <Style x:Key="AbsoluteStyle" TargetType="AbsoluteLayout">
         <Setter Property="VerticalOptions" Value="StartAndExpand" />
         <Setter Property="Opacity" Value="0.00" />
-        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
         <Setter Property="Padding" Value="20,20,20,20" />
 		
       </Style>
@@ -18,7 +18,7 @@
 		<Setter Property="VerticalOptions" Value="Start" />
         <Setter Property="TextColor" Value="White" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="Margin" Value="20,0,0,0" />
+        <Setter Property="Margin" Value="-100,0,0,0" />
         <Setter Property="FontFamily" Value="Roboto-Condensed" />
 		<Setter Property="Text" Value="Toque acionar o menu, toque aqui." />
       </Style>
@@ -26,37 +26,23 @@
         <Setter Property="HorizontalOptions" Value="Start" />
 		<Setter Property="VerticalOptions" Value="Start" />
 		<Setter Property="WidthRequest" Value="100" />
-		<Setter Property="Margin" Value="20,0,0,0" />
+		<Setter Property="Margin" Value="-100,0,0,0" />
 		<Setter Property="Source" Value="appSetaEsquerda.png" />
       </Style>
      
-     <Style x:Key="SytleLabelRedimensionar" TargetType="Label">
-        <Setter Property="HorizontalOptions" Value="Start" />
-        <Setter Property="TextColor" Value="White" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="Margin" Value="20,0,0,0" />
-        <Setter Property="FontFamily" Value="Roboto-Condensed" />
-		<Setter Property="Text" Value="Para ver em tela cheia toque em qualquer lugar na tela no modo Mapa ou Velocimetro. Para voltar ao normal toque novamente." />
-      </Style>
-		<Style x:Key="SytleRedimensionar" TargetType="Image">
-        <Setter Property="HorizontalOptions" Value="Center" />
-		<Setter Property="WidthRequest" Value="100" />
-		<Setter Property="Margin" Value="0,0,0,0" />
-		<Setter Property="Source" Value="appRedimensionar.png" />
-      </Style>
+    
 
 	<Style x:Key="SytleLabelDeslizar" TargetType="Label">
-        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+		<Setter Property="VerticalOptions" Value="CenterAndExpand" />
         <Setter Property="TextColor" Value="White" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="Margin" Value="0,0,0,0" />
         <Setter Property="FontFamily" Value="Roboto-Condensed" />
 		<Setter Property="Text" Value="Para alterar os modos mapa e velocimetro deslize para esquerda ou para direita." />
       </Style>
 		<Style x:Key="SytleDeslizar" TargetType="Image">
         <Setter Property="HorizontalOptions" Value="Center" />
 		<Setter Property="WidthRequest" Value="100" />
-		<Setter Property="Margin" Value="0,0,0,0" />
 		<Setter Property="Source" Value="appMaoSetas.png" />
       </Style>
 
@@ -64,39 +50,32 @@
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="TextColor" Value="White" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="Margin" Value="0,0,0,0" />
         <Setter Property="FontFamily" Value="Roboto-Condensed" />
 		<Setter Property="Text" Value="Toque aqui para ver mais instruções." />
       </Style>
 		<Style x:Key="SytleInstrucoes" TargetType="Image">
         <Setter Property="HorizontalOptions" Value="Center" />
 		<Setter Property="WidthRequest" Value="100" />
-		<Setter Property="Margin" Value="0,0,0,0" />
 		<Setter Property="Source" Value="appInstrucoes.png" />
       </Style>
 
     </ResourceDictionary>
   </ContentPage.Resources>
 	
-  <AbsoluteLayout Style="{StaticResource AbsoluteStyle}" AbsoluteLayout.LayoutBounds="1,0.7,1,1" AbsoluteLayout.LayoutFlags="All">
-        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Fill" Orientation="Vertical">
+  <AbsoluteLayout Style="{StaticResource AbsoluteStyle}" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+        <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill" Orientation="Vertical">
    
 		 
 	          <Image Style="{StaticResource SytleSetaEsquerda}"/>
 	          <Label Style="{StaticResource SytleLabelSetaEsquerda}"/>
          
 		 
-
-		  <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
 	          <Image Style="{StaticResource SytleDeslizar}"/>
 	          <Label Style="{StaticResource SytleLabelDeslizar}"/>
-          </StackLayout>
-
-		  <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
+        
 	          <Image Style="{StaticResource SytleInstrucoes}"/>
 	          <Label Style="{StaticResource SytleLabelInstrucoes}"/>
-          </StackLayout>
-        
+         
       </StackLayout>
     
   </AbsoluteLayout>
