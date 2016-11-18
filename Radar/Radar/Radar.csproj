@@ -166,6 +166,9 @@
     <Compile Include="Pages\SobrePage.cs" />
     <Compile Include="Controls\WrapLayout.cs" />
     <Compile Include="Pages\InstrucaoPage.cs" />
+    <Compile Include="Pages\Popup\InstrucaoPopUp.xaml.cs">
+      <DependentUpon>InstrucaoPopUp.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\RadarListaPage.xaml">
@@ -194,6 +197,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\ModoMeuRadarPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Popup\InstrucaoPopUp.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -168,6 +168,11 @@
     <BundleResource Include="Resources\reproducaodevoz.png" />
     <BundleResource Include="Resources\DefaultIcon.png" />
     <BundleResource Include="Resources\navicon.png" />
+    <BundleResource Include="Resources\appSetaDireita.png" />
+    <BundleResource Include="Resources\appSetaEsquerda.png" />
+    <BundleResource Include="Resources\appRedimensionar.png" />
+    <BundleResource Include="Resources\appInstrucoes.png" />
+    <BundleResource Include="Resources\appMaoSetas.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

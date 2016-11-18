@@ -229,6 +229,11 @@
     <AndroidResource Include="Resources\drawable\radar_20x20_preto.png" />
     <AndroidResource Include="Resources\drawable\relogio_20x20_preto.png" />
     <AndroidResource Include="Resources\drawable\velocimetro_20x20_preto.png" />
+    <AndroidResource Include="Resources\drawable\appSetaDireita.png" />
+    <AndroidResource Include="Resources\drawable\appSetaEsquerda.png" />
+    <AndroidResource Include="Resources\drawable\appRedimensionar.png" />
+    <AndroidResource Include="Resources\drawable\appInstrucoes.png" />
+    <AndroidResource Include="Resources\drawable\appMaoSetas.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">

@@ -30,6 +30,7 @@ namespace Radar.Pages
                 Titulo = "Mapa",
                 Icone = "mapas.png",
                 TargetType = typeof(MapaPage)
+
             });
 			/*
             grupo.Add(new MenuItemInfo
@@ -79,12 +80,13 @@ namespace Radar.Pages
 
         private MenuItemGrupo criarGrupoAplicativo()
         {
+			
             var grupo = new MenuItemGrupo("APLICATIVO", "APPS");
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Instruções",
                 Icone = "instrucoes.png",
-                TargetType = typeof(VelocimetroPage)
+				TargetType = typeof(MapaPage)
             });
             grupo.Add(new MenuItemInfo
             {
