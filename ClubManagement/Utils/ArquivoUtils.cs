@@ -1,4 +1,4 @@
-﻿using ClubManagement.IDevice;
+﻿using ClubManagement.IBLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;

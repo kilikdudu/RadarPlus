@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Radar.Utils
+namespace Radar.IBLL
 {
-    public interface IAudio
+    public interface ITela
     {
-        bool play(string arquivo);
+        float pegarLargura();
+        float pegarAltura();
+		string pegarOrientacao();
     }
 }

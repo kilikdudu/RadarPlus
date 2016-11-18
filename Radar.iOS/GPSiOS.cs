@@ -9,6 +9,8 @@ using Radar.iOS;
 using Xamarin.Forms;
 using Radar.Model;
 using Foundation;
+using Radar.IBLL;
+using Radar.Utils;
 
 [assembly: Dependency(typeof(GPSiOS))]
 

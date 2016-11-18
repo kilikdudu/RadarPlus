@@ -1,11 +1,10 @@
-﻿using ClubManagement.IDevice;
+﻿using ClubManagement.IBLL;
 using ClubManagement.Utils;
 using Radar.iOS;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
-using ClubManagement.IDevice;
 
 [assembly: Dependency(typeof(MensagemiOS))]
 
@@ -44,5 +43,10 @@ namespace Radar.iOS
 		public bool enviarEmail(string para, string titulo, string mensagem) {
 			return false;
 		}
+
+        public void vibrar(int milisegundo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

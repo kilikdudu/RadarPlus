@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using ClubManagement.IDevice;
+using ClubManagement.IBLL;
 using Xamarin.Forms;
 using ClubManagement.Droid;
 using System.IO;

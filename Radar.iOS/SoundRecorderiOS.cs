@@ -8,6 +8,7 @@ using AVFoundation;
 using Foundation;
 using Radar.Utils;
 using System.IO;
+using Radar.IBLL;
 
 [assembly: Dependency(typeof(SoundRecorderiOS))]
 

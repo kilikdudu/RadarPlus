@@ -25,7 +25,8 @@
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer: Carlos Eduardo Santos Alves Domingos (677A6X9W66)</CodesignKey>
-    <CodesignEntitlements></CodesignEntitlements>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
     <CodesignProvision>5a53f6c9-630e-459c-8b45-f6ab1be67de5</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
@@ -49,7 +50,8 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <CodesignEntitlements></CodesignEntitlements>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
   </PropertyGroup>
@@ -90,7 +92,6 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AudioiOS.cs" />
     <Compile Include="GPSiOS.cs" />
     <Compile Include="GPSAtualizacaoEventArgs.cs" />
     <Compile Include="Main.cs" />
@@ -167,18 +168,6 @@
     <BundleResource Include="Resources\reproducaodevoz.png" />
     <BundleResource Include="Resources\DefaultIcon.png" />
     <BundleResource Include="Resources\navicon.png" />
-    <Compile Include="AppDelegate.designer.cs">
-      <DependentUpon>AppDelegate.cs</DependentUpon>
-    </Compile>
-    <BundleResource Include="Resources\iconePlay.png" />
-    <BundleResource Include="Resources\Stop.png" />
-    <BundleResource Include="Resources\Play.png" />
-    <BundleResource Include="Resources\logoclubmanagement.png" />
-    <BundleResource Include="Resources\ampulheta_20x20_preto.png" />
-    <BundleResource Include="Resources\mao_20x20_preto.png" />
-    <BundleResource Include="Resources\radar_20x20_preto.png" />
-    <BundleResource Include="Resources\relogio_20x20_preto.png" />
-    <BundleResource Include="Resources\velocimetro_20x20_preto.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -294,16 +283,33 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-667h%402x.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-Portrait-736h%403x.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-Landscape-736h%403x.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-Landscape%402x.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-Portrait.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-Landscape.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-568h%402x.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default%402x.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-Portrait%402x.png" />
-    <ImageAsset Include="Resources\Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-667h%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-Portrait-736h%403x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-Landscape-736h%403x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-Landscape%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-Portrait.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-Landscape.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-568h%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-Portrait%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork%402x" />
@@ -315,6 +321,11 @@
     <AndroidResource Include="Resources\sat03.png" />
     <AndroidResource Include="Resources\sat04.png" />
     <AndroidResource Include="Resources\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="LaunchScreen.xib" />
+    <InterfaceDefinition Include="Resources\Launch Screen.storyboard" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

@@ -8,6 +8,7 @@ using Radar.BLL;
 using Radar.Factory;
 using Radar.Pages.Popup;
 using Rg.Plugins.Popup.Extensions;
+using ClubManagement.Utils;
 
 namespace Radar
 {
@@ -17,7 +18,6 @@ namespace Radar
         {
             InitializeComponent();
             Title = "Gerais";
-            //Content = new ScrollView() { Content = teststack };
         }
 
         protected override void OnAppearing()
@@ -29,34 +29,15 @@ namespace Radar
 
         public void verificarIniciarToggled(object sender, ToggledEventArgs e)
 		{
-            /*
-			if (e.Value == true)
-			{
-				regraPreferencia.gravar("verificarIniciar", 1);
-			}
-			else {
-				regraPreferencia.gravar("verificarIniciar", 0);
-			}
-            */
             PreferenciaUtils.VerificarIniciar = e.Value;
         }
 
-        async void intervaloVerificacaoTapped(object sender, EventArgs e) {
-
-            var page = new InvervaloVerificacaoPopUp();
-
-            await Navigation.PushPopupAsync(page);
-            // or
-            //await Navigation.PushAsync(page);
+        public void intervaloVerificacaoTapped(object sender, EventArgs e) {
+            NavigationX.create(this).PushPopupAsyncX(new InvervaloVerificacaoPopUp(), true);
         }
 
-        async void desativarGPSTapped(object sender, EventArgs e) {
-
-            var page = new DesativarGPSPopUp();
-
-            await Navigation.PushPopupAsync(page);
-            // or
-            //await Navigation.PushAsync(page);
+        public void desativarGPSTapped(object sender, EventArgs e) {
+            NavigationX.create(this).PushPopupAsyncX(new DesativarGPSPopUp(), true);
         }
 	}
 }

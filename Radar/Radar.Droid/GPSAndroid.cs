@@ -9,6 +9,8 @@ using Radar.BLL;
 using Radar.Model;
 using Radar.Droid;
 using Xamarin.Forms;
+using Radar.IBLL;
+using Radar.Utils;
 
 [assembly: UsesPermission(Manifest.Permission.AccessFineLocation)]
 [assembly: UsesPermission(Manifest.Permission.AccessCoarseLocation)]
@@ -86,9 +88,11 @@ namespace Radar.Droid
         public bool estaAtivo()
         {
             Context context = Android.App.Application.Context;
-            LocationManager gpsServico  = (LocationManager)context.GetSystemService(LocationManager.GpsProvider);
-            if (gpsServico != null)
-                return gpsServico.IsProviderEnabled(LocationManager.GpsProvider);
+            if (_locationManager == null)
+                _locationManager = (LocationManager)context.GetSystemService(LocationService);
+            //LocationManager gpsServico  = (LocationManager)context.GetSystemService(LocationManager.GpsProvider);
+            if (_locationManager != null)
+                return _locationManager.IsProviderEnabled(LocationManager.GpsProvider);
             return false;
         }
 

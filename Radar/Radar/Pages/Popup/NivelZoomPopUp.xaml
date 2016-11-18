@@ -49,7 +49,7 @@
 			<ScrollView>
 			  <StackLayout>
           		<Label Text="" Style="{StaticResource StyleText}" x:Name="textValor" />
-          		<Slider Minimum="0" Maximum="15" x:Name="Slider" />
+          		<Slider Minimum="0" Maximum="30" x:Name="Slider" />
 			  </StackLayout>
 			</ScrollView>
           <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">

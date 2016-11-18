@@ -1,7 +1,7 @@
 ﻿using AVFoundation;
+using ClubManagement.IBLL;
 using Foundation;
 using Radar.iOS;
-using Radar.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +14,11 @@ namespace Radar.iOS
 {
     public class AudioiOS : IAudio
     {
+        public void play(string[] arquivos)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool play(string arquivo)
         {
             string alarme = "alarmes/" + arquivo;
@@ -36,6 +41,11 @@ namespace Radar.iOS
             player.Play();
 
             return true;
+        }
+
+        void IAudio.play(string arquivo)
+        {
+            throw new NotImplementedException();
         }
     }
 }

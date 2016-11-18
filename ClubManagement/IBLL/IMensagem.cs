@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubManagement.IDevice
+namespace ClubManagement.IBLL
 {
     public interface IMensagem
     {
@@ -15,5 +15,6 @@ namespace ClubManagement.IDevice
         bool notificarGravacaoPercurso();
         bool pararNotificaoPercurso();
         bool enviarEmail(string para, string titulo, string mensagem);
+        void vibrar(int milisegundo);
     }
 }
