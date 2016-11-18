@@ -221,6 +221,15 @@
     <AndroidResource Include="Resources\drawable\autoiniciodesligamento.png" />
     <AndroidResource Include="Resources\drawable\bussolaagulha.png" />
     <AndroidResource Include="Resources\drawable\bussolacorpo.png" />
+    <AndroidResource Include="Resources\drawable\iconePlay.png" />
+    <AndroidResource Include="Resources\drawable\Stop.png" />
+    <AndroidResource Include="Resources\drawable\Play.png" />
+    <AndroidResource Include="Resources\drawable\logoclubmanagement.png" />
+    <AndroidResource Include="Resources\drawable\ampulheta_20x20_preto.png" />
+    <AndroidResource Include="Resources\drawable\mao_20x20_preto.png" />
+    <AndroidResource Include="Resources\drawable\radar_20x20_preto.png" />
+    <AndroidResource Include="Resources\drawable\relogio_20x20_preto.png" />
+    <AndroidResource Include="Resources\drawable\velocimetro_20x20_preto.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">
