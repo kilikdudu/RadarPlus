@@ -52,7 +52,7 @@ namespace Radar.Droid
                 string arquivo = _audioAtual[_audioIndex];
                 _audioIndex++;
                 _player = criarAudio(arquivo);
-                _player.SetVolume();
+                //_player.SetVolume();
                 _player.Completion += (sender, e) =>
                 {
                     playProximo();

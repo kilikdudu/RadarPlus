@@ -103,7 +103,7 @@ namespace Radar
 				aoClicar = (sender, e) =>
 				{
                     //this.Navigation.PushAsync(new ModoMeuRadarPage());
-                    NavigationX.create(this).PushAsync(new ModoMeuRadarPage(), true);
+                   
                 }
 			});			
 			lstView.ItemsSource = menus;

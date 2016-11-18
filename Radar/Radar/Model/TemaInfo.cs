@@ -60,6 +60,13 @@ namespace Radar.Model
 			get { return "#ebf5ed"; }
 
 		}
+
+		private static bool _isInstrucaoPopUp = false;
+		public static bool isInstrucaoPopUp
+		{
+			get { return _isInstrucaoPopUp; }
+			set { _isInstrucaoPopUp = value; }
+		}
 	}
 }
 

@@ -11,6 +11,7 @@ namespace Radar.Pages
     public class MenuItemInfo
     {
         public string Titulo { get; set; }
+		public bool IsInstrucaoPopUp { get; set; }
         public string Icone { get; set; }
         public Type TargetType { get; set; }
         public EventHandler aoClicar { get; set; }
@@ -22,5 +23,7 @@ namespace Radar.Pages
                 return Titulo;
             }
         }
-    }
+
+
+	}
 }

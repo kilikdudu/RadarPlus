@@ -21,6 +21,16 @@ namespace Radar.Utils
             }
         }
 
+		public static float LarguraSemPixel
+		{
+			get
+			{
+				if (_tela == null)
+					_tela = DependencyService.Get<ITela>();
+				return _tela.pegarLarguraSemPixel();
+			}
+		}
+
         public static float Altura {
             get
 			{
