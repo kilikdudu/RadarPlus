@@ -12,7 +12,7 @@ using Android.Widget;
 using Xamarin.Forms;
 using ClubManagement.Droid;
 using ClubManagement.Utils;
-using ClubManagement.IDevice;
+using ClubManagement.IBLL;
 
 [assembly: Dependency(typeof(ThreadAndroid))]
 

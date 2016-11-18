@@ -35,16 +35,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="IDevice\IArquivo.cs" />
+    <Compile Include="IBLL\IArquivo.cs" />
+    <Compile Include="IBLL\IAudio.cs" />
+    <Compile Include="Model\AlarmeEnum.cs" />
     <Compile Include="Popup\ProgressBarPopUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\ArquivoUtils.cs" />
+    <Compile Include="Utils\AudioUtils.cs" />
     <Compile Include="Utils\DownloaderArquivo.cs" />
-    <Compile Include="IDevice\IDownloader.cs" />
-    <Compile Include="IDevice\IMensagem.cs" />
-    <Compile Include="IDevice\IThread.cs" />
+    <Compile Include="IBLL\IDownloader.cs" />
+    <Compile Include="IBLL\IMensagem.cs" />
+    <Compile Include="IBLL\IThread.cs" />
     <Compile Include="Utils\DownloaderProcessar.cs" />
     <Compile Include="Utils\MensagemUtils.cs" />
+    <Compile Include="Utils\NavigationX.cs" />
     <Compile Include="Utils\ThreadUtils.cs" />
   </ItemGroup>
   <ItemGroup />

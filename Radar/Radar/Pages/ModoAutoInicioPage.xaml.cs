@@ -11,7 +11,6 @@ namespace Radar {
         public ModoAutoInicioPage() {
             InitializeComponent();
             Title = "Auto Inicio/Desligamento";
-            //Content = new ScrollView() { Content = teststack };
         }
 
         protected override void OnAppearing()
@@ -21,13 +20,6 @@ namespace Radar {
         }
 
         public void habilitarToggled(object sender, ToggledEventArgs e) {
-            /*
-            if (e.Value == true) {
-                regraPreferencia.gravar("inicioDesligamento", 1);
-            } else {
-                regraPreferencia.gravar("inicioDesligamento", 0);
-            }
-            */
             PreferenciaUtils.InicioDesligamento = e.Value;
         }
     }

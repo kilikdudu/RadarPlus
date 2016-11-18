@@ -42,23 +42,24 @@ namespace Radar.DALSQLite
             }
         }
 
-        /// <summary>
-        /// Lista os radares dentro de um certo raio usando Seno e Coseno.
-        /// </summary>
-        /// <param name="latitudeCos">Coseno da Latitude</param>
-        /// <param name="longitudeCos">Coseno da Longitude</param>
-        /// <param name="latitudeSin">Seno da Latitude</param>
-        /// <param name="longitudeSin">Seno da Longitude</param>
-        /// <param name="distanciaCos">Coseno do raio da distancia</param>
-        /// <returns>Lista de radares no raio</returns>
-        public IList<RadarInfo> listar(double latitudeCos, double longitudeCos, double latitudeSin, double longitudeSin, double distanciaCos) {
+        public IList<RadarInfo> listar(RadarBuscaInfo busca) {
             lock (locker)
             {
                 string query =
-                    "select * from radar where (" +
-                    "((latsin * " + latitudeSin.ToString().Replace(',', '.') + ") + (latcos * " + latitudeCos.ToString().Replace(',', '.') + ")) * " +
-                    "((loncos * " + longitudeCos.ToString().Replace(',', '.') + ") + (lonsin * " + longitudeSin.ToString().Replace(',', '.') + "))" +
-                    ") > " + distanciaCos.ToString().Replace(',', '.');
+                    "SELECT * FROM radar WHERE (" +
+                    "((latsin * " + busca.latitudeSin.ToString().Replace(',', '.') + ") + (latcos * " + busca.latitudeCos.ToString().Replace(',', '.') + ")) * " +
+                    "((loncos * " + busca.longitudeCos.ToString().Replace(',', '.') + ") + (lonsin * " + busca.longitudeSin.ToString().Replace(',', '.') + "))" +
+                    ") > " + busca.distanciaCos.ToString().Replace(',', '.');
+                if (busca.Filtros.Count() > 0) {
+                    if (busca.Filtros.Count() == 1)
+                        query += " AND type = " + ((int)busca.Filtros[0]).ToString();
+                    else {
+                        var lista = new List<string>();
+                        foreach (var str in busca.Filtros)
+                            lista.Add(((int)str).ToString());
+                        query += " AND type IN (" + string.Join(", ", lista.ToArray()) + ")";
+                    }
+                }
                 return database.Query<RadarInfo>(query);
                 /*
                 return database.Query<RadarInfo>(
@@ -77,12 +78,24 @@ namespace Radar.DALSQLite
         /// <param name="latitudeDelta">Delta da latitude</param>
         /// <param name="longitudeDelta">Delta da longitude</param>
         /// <returns>Lista de radares da região</returns>
-        public IList<RadarInfo> listar(double latitude, double longitude, double latitudeDelta, double longitudeDelta)
+        public IList<RadarInfo> listar(double latitude, double longitude, double latitudeDelta, double longitudeDelta, IList<RadarTipoEnum> filtro)
         {
             lock (locker)
             {
+                string query = "select * from radar where lon between ? and ? and lat between ? and ?";
+                if (filtro.Count() > 0)
+                {
+                    if (filtro.Count() == 1)
+                        query += " AND type = " + ((int)filtro[0]).ToString();
+                    else {
+                        var lista = new List<string>();
+                        foreach (var str in filtro)
+                            lista.Add(((int)str).ToString());
+                        query += " AND type IN (" + string.Join(", ", lista.ToArray()) + ")";
+                    }
+                }
                 return database.Query<RadarInfo>(
-                    "select * from radar where lon between ? and ? and lat between ? and ?",
+                    query,
                     new object[4] {
                         longitude - longitudeDelta,
                         longitude + longitudeDelta,

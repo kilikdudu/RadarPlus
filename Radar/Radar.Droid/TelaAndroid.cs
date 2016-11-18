@@ -13,6 +13,7 @@ using Radar.BLL;
 using Xamarin.Forms;
 using Radar.Droid;
 using Android.Content.Res;
+using Radar.IBLL;
 
 [assembly: Dependency(typeof(TelaAndroid))]
 

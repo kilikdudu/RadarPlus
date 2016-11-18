@@ -1,5 +1,7 @@
 ﻿using ClubManagement.Utils;
+using Radar.BLL;
 using Radar.Factory;
+using Radar.IBLL;
 using Radar.Model;
 using Radar.Pages;
 using Radar.Utils;
@@ -10,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Radar.BLL
+namespace Radar.Utils
 {
     public static class GPSUtils
     {
@@ -73,6 +75,13 @@ namespace Radar.BLL
                         RadarBLL.RadarAtual = radar;
                         string mensagem = "Tem um radar a frente, diminua para " + radar.Velocidade.ToString() + "km/h!";
                         MensagemUtils.notificar(RADAR_ID, "Alerta de Radar", mensagem);
+                        if (PreferenciaUtils.VibrarAlerta) {
+                            int tempo = PreferenciaUtils.TempoDuracaoVibracao;
+                            if (tempo <= 0)
+                                tempo = 1;
+                            tempo = tempo * 1000;
+                            MensagemUtils.vibrar(tempo);
+                        }
                     }
                 }
                 //if (MapaPage.Atual != null)

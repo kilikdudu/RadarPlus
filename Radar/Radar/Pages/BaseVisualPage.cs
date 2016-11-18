@@ -1,5 +1,8 @@
-﻿using Radar.Controls;
+﻿using ClubManagement.Utils;
+using Radar.BLL;
+using Radar.Controls;
 using Radar.Model;
+using Radar.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -159,10 +162,12 @@ namespace Radar.Pages
                 new TapGestureRecognizer()
                 {
                     Command = new Command(() => {
+                        var regraAviso = new AvisoSonoroBLL();
+                        regraAviso.play(RadarTipoEnum.RadarFixo, 40, 300);
                         //AudioUtils.play(AudioEnum.Alarm001);
                         //MensagemUtils.avisar("teste");
-                        var downloader = new DownloaderAtualizacao();
-                        downloader.download();
+                        //var downloader = new DownloaderAtualizacao();
+                        //downloader.download();
                         /*
                         try
                         {

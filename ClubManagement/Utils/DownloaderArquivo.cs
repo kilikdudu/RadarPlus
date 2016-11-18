@@ -1,4 +1,4 @@
-﻿using ClubManagement.IDevice;
+﻿using ClubManagement.IBLL;
 using ClubManagement.Popup;
 using System;
 using System.Collections.Generic;

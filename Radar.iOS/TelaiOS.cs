@@ -7,6 +7,7 @@ using Radar.BLL;
 using Xamarin.Forms;
 using Radar.iOS;
 using UIKit;
+using Radar.IBLL;
 
 [assembly: Dependency(typeof(TelaiOS))]
 

@@ -1,5 +1,6 @@
 ﻿using Radar.BLL;
 using Radar.Model;
+using Radar.Utils;
 using System;
 using System.Diagnostics;
 using Xamarin.Forms;
