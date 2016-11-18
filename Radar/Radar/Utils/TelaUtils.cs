@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Radar.IBLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Radar.BLL
+namespace Radar.Utils
 {
     public static class TelaUtils
     {

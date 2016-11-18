@@ -175,4 +175,8 @@ namespace Radar.Droid
             MessagingCenter.Send<ISoundRecorder, bool>(this, "finishReplaying", true);
         }
     }
+
+    internal interface ISoundRecorder
+    {
+    }
 }

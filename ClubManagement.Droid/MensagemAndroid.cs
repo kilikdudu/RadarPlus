@@ -14,7 +14,7 @@ using Android.Support.V7.App;
 using Android.Media;
 using ClubManagement.Droid;
 using ClubManagement.Utils;
-using ClubManagement.IDevice;
+using ClubManagement.IBLL;
 using Android;
 
 [assembly: UsesPermission(Manifest.Permission.Vibrate)]

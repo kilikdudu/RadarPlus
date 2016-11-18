@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Radar.BLL
+namespace ClubManagement.IBLL
 {
-    public interface IGPS
+    public interface IAudio
     {
-        bool inicializar();
-        bool estaAtivo();
-        void abrirPreferencia();
+        void play(string[] arquivos);
+        void play(string arquivo);
     }
 }

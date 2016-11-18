@@ -1,11 +1,10 @@
-﻿using ClubManagement.IDevice;
+﻿using ClubManagement.IBLL;
 using ClubManagement.Utils;
 using Radar.iOS;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
-using ClubManagement.IDevice;
 
 [assembly: Dependency(typeof(MensagemiOS))]
 

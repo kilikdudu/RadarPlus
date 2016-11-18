@@ -80,7 +80,7 @@ namespace ClubManagement.Utils
 
         public Task PushAsync(Page page)
         {
-            if (!carregandoPagina && _paginaAtual.GetType() != page.GetType()) {
+            if (!carregandoPagina && (_paginaAtual == null || _paginaAtual.GetType() != page.GetType())) { 
                 carregandoPagina = true;
                 _paginaAtual = page;
                 _paginaAtual.Appearing += (sender, e) => {
@@ -93,7 +93,7 @@ namespace ClubManagement.Utils
 
         public Task PushAsync(Page page, bool animated)
         {
-            if (!carregandoPagina && _paginaAtual.GetType() != page.GetType())
+            if (!carregandoPagina && (_paginaAtual == null || _paginaAtual.GetType() != page.GetType()))
             {
                 carregandoPagina = true;
                 _paginaAtual = page;
@@ -107,7 +107,7 @@ namespace ClubManagement.Utils
 
         public Task PushModalAsync(Page page)
         {
-            if (!carregandoPagina && _paginaAtual.GetType() != page.GetType())
+            if (!carregandoPagina && (_paginaAtual == null || _paginaAtual.GetType() != page.GetType()))
             {
                 carregandoPagina = true;
                 _paginaAtual = page;
@@ -121,7 +121,7 @@ namespace ClubManagement.Utils
 
         public Task PushModalAsync(Page page, bool animated)
         {
-            if (!carregandoPagina && _paginaAtual.GetType() != page.GetType())
+            if (!carregandoPagina && (_paginaAtual == null || _paginaAtual.GetType() != page.GetType()))
             {
                 carregandoPagina = true;
                 _paginaAtual = page;
@@ -134,7 +134,7 @@ namespace ClubManagement.Utils
         }
 
         public Task PushPopupAsyncX(PopupPage page, bool animated = false) {
-            if (!carregandoPagina && (_popupAtual == null || (_popupAtual != null && _popupAtual.GetType() != page.GetType())))
+            if (!carregandoPagina && (_popupAtual == null || _popupAtual.GetType() != page.GetType()))
             {
                 carregandoPagina = true;
                 _popupAtual = page;

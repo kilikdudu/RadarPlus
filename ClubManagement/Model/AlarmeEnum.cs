@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Radar.Utils
+namespace ClubManagement.Model
 {
-    public enum AudioEnum
+    public enum AlarmeEnum
     {
         Alarm001 = 1,
         Alarm002 = 2,

@@ -13,7 +13,7 @@ using Xamarin.Forms;
 using System.Net;
 using ClubManagement.Droid;
 using ClubManagement.Utils;
-using ClubManagement.IDevice;
+using ClubManagement.IBLL;
 
 [assembly: Dependency(typeof(DownloaderAndroid))]
 

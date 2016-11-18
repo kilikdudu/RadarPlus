@@ -35,14 +35,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BLL\AvisoSonoroBLL.cs" />
     <Compile Include="BLL\PreferenciaUtils.cs" />
-    <Compile Include="BLL\GPSUtils.cs" />
-    <Compile Include="BLL\IGPS.cs" />
-    <Compile Include="BLL\ITela.cs" />
+    <Compile Include="Utils\GPSUtils.cs" />
+    <Compile Include="IBLL\IGPS.cs" />
+    <Compile Include="IBLL\ITela.cs" />
     <Compile Include="BLL\MapaBLL.cs" />
     <Compile Include="BLL\PercursoBLL.cs" />
     <Compile Include="BLL\RadarBLL.cs" />
-    <Compile Include="BLL\TelaUtils.cs" />
+    <Compile Include="Utils\TelaUtils.cs" />
     <Compile Include="Controls\DownloaderAtualizacao.cs" />
     <Compile Include="Controls\PonteiroCorEnum.cs" />
     <Compile Include="Controls\RadarMap.cs" />
@@ -125,11 +126,8 @@
     <Compile Include="Pages\NavegacaoPage.cs" />
     <Compile Include="Pages\VelocimetroPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\AudioEnum.cs" />
-    <Compile Include="Utils\AudioUtils.cs" />
     <Compile Include="Utils\GlobalUtils.cs" />
-    <Compile Include="Utils\IAudio.cs" />
-    <Compile Include="Utils\ISoundRecorder.cs" />
+    <Compile Include="IBLL\ISoundRecorder.cs" />
     <Compile Include="App.cs" />
     <Compile Include="Pages\CustomMap.cs" />
     <Compile Include="Pages\CustomPin.cs" />

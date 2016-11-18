@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Radar.BLL;
 using ClubManagement.Utils;
+using Radar.Utils;
 
 namespace Radar
 {
@@ -42,7 +43,6 @@ namespace Radar
 				Titulo= "Modo Mapa", 
 				Imagem = "modomapa.png", 
 				aoClicar = (sender, e) => {
-                    //this.Navigation.PushAsync(new ModoMapaPage()); 
                     NavigationX.create(this).PushAsync(new ModoMapaPage(), true);
                 } 
 			});
@@ -51,7 +51,6 @@ namespace Radar
 				Imagem = "alerta.png",
 				aoClicar = (sender, e) =>
 				{
-                    //this.Navigation.PushAsync(new ModoAlertaPage());
                     NavigationX.create(this).PushAsync(new ModoAlertaPage(), true);
                 }
 			});
@@ -60,7 +59,6 @@ namespace Radar
 				Imagem = "audio.png",
 				aoClicar = (sender, e) =>
 				{
-                    //this.Navigation.PushAsync(new ModoAudioPage());
                     NavigationX.create(this).PushAsync(new ModoAudioPage(), true);
                 }
 			});
@@ -69,7 +67,6 @@ namespace Radar
 				Imagem = "reproducaodevoz.png",
 				aoClicar = (sender, e) =>
 				{
-                    //this.Navigation.PushAsync(new ModoReproducaoVozPage());
                     NavigationX.create(this).PushAsync(new ModoReproducaoVozPage(), true);
                 }
 			});
@@ -78,7 +75,6 @@ namespace Radar
 				Imagem = "gerais.png", 
 				aoClicar = (sender, e) =>
 				{
-					//this.Navigation.PushAsync(new ModoGeralPage());
                     NavigationX.create(this).PushAsync(new ModoGeralPage(), true);
                 }
 			});

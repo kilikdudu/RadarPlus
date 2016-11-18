@@ -18,21 +18,17 @@ namespace Radar.Pages {
             Title = "Áudio";
         }
 
-        protected override void OnAppearing()
-        {
+        protected override void OnAppearing() {
             base.OnAppearing();
             volumePersonalizado.IsToggled = PreferenciaUtils.VolumePersonalizado;
             somCaixa.IsToggled = PreferenciaUtils.SomCaixa;
         }
 
-
-        public void volumePersonalizadoToggled(object sender, ToggledEventArgs e)
-		{
+        public void volumePersonalizadoToggled(object sender, ToggledEventArgs e) {
             PreferenciaUtils.VolumePersonalizado = e.Value;
         }
 
-		public void somCaixaToggled(object sender, ToggledEventArgs e)
-		{
+		public void somCaixaToggled(object sender, ToggledEventArgs e) {
             PreferenciaUtils.SomCaixa = e.Value;
         }
 

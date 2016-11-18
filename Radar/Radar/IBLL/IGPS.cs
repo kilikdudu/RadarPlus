@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Radar.BLL
+namespace Radar.IBLL
 {
-    public interface ITela
+    public interface IGPS
     {
-        float pegarLargura();
-        float pegarAltura();
-		string pegarOrientacao();
+        bool inicializar();
+        bool estaAtivo();
+        void abrirPreferencia();
     }
 }

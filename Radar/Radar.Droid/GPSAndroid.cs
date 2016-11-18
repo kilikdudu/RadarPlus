@@ -9,6 +9,8 @@ using Radar.BLL;
 using Radar.Model;
 using Radar.Droid;
 using Xamarin.Forms;
+using Radar.IBLL;
+using Radar.Utils;
 
 [assembly: UsesPermission(Manifest.Permission.AccessFineLocation)]
 [assembly: UsesPermission(Manifest.Permission.AccessCoarseLocation)]

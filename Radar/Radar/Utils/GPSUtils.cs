@@ -1,5 +1,7 @@
 ﻿using ClubManagement.Utils;
+using Radar.BLL;
 using Radar.Factory;
+using Radar.IBLL;
 using Radar.Model;
 using Radar.Pages;
 using Radar.Utils;
@@ -10,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Radar.BLL
+namespace Radar.Utils
 {
     public static class GPSUtils
     {
