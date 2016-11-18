@@ -165,6 +165,7 @@
     <Compile Include="Model\ListaInfo.cs" />
     <Compile Include="Pages\SobrePage.cs" />
     <Compile Include="Controls\WrapLayout.cs" />
+    <Compile Include="Pages\InstrucaoPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\RadarListaPage.xaml">

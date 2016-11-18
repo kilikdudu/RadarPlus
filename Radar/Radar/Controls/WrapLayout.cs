@@ -32,7 +32,7 @@ namespace Radar.Controls
 
 		public WrapLayout()
 		{
-			VerticalOptions = HorizontalOptions = LayoutOptions.FillAndExpand;
+			VerticalOptions = HorizontalOptions = LayoutOptions.Start;
 		}
 
 		protected override void OnChildMeasureInvalidated()
