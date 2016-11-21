@@ -14,19 +14,19 @@
 		
       </Style>
       <Style x:Key="SytleLabelSetaEsquerda" TargetType="Label">
-        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
 		<Setter Property="VerticalOptions" Value="Start" />
         <Setter Property="TextColor" Value="White" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="Margin" Value="-100,0,0,0" />
+        <Setter Property="Margin" Value="20,0,0,0" />
         <Setter Property="FontFamily" Value="Roboto-Condensed" />
 		<Setter Property="Text" Value="Toque acionar o menu, toque aqui." />
       </Style>
 		<Style x:Key="SytleSetaEsquerda" TargetType="Image">
-        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
 		<Setter Property="VerticalOptions" Value="Start" />
 		<Setter Property="WidthRequest" Value="100" />
-		<Setter Property="Margin" Value="-100,0,0,0" />
+		<Setter Property="Margin" Value="20,0,0,0" />
 		<Setter Property="Source" Value="appSetaEsquerda.png" />
       </Style>
      
