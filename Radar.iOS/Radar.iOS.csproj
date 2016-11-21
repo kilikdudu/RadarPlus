@@ -173,6 +173,15 @@
     <BundleResource Include="Resources\appRedimensionar.png" />
     <BundleResource Include="Resources\appInstrucoes.png" />
     <BundleResource Include="Resources\appMaoSetas.png" />
+    <BundleResource Include="Resources\ampulheta_20x20_preto.png" />
+    <BundleResource Include="Resources\iconePlay.png" />
+    <BundleResource Include="Resources\logoclubmanagement.png" />
+    <BundleResource Include="Resources\mao_20x20_preto.png" />
+    <BundleResource Include="Resources\Play.png" />
+    <BundleResource Include="Resources\radar_20x20_preto.png" />
+    <BundleResource Include="Resources\relogio_20x20_preto.png" />
+    <BundleResource Include="Resources\Stop.png" />
+    <BundleResource Include="Resources\velocimetro_20x20_preto.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

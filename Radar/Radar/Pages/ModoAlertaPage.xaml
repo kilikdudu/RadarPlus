@@ -92,11 +92,12 @@
 	          </Frame>
 				
 	          <Frame Style="{StaticResource StyleFrame}">
-	 			<StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-	              <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-	                <StackLayout.GestureRecognizers>
+					<StackLayout.GestureRecognizers>
 	                  <TapGestureRecognizer Tapped="tempoDuracaoTapped"/>
 	                </StackLayout.GestureRecognizers>
+	 			<StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+	              <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+	                
 	                <Label Text="Tempo de Duração" Style="{StaticResource LabelStyle}" />
 	              </StackLayout>
 	              <Label Text="Defina por quanto tempo o dispositivo deverá vibrar" Style="{StaticResource LabelStyleDescription}" />
