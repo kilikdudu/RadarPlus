@@ -25,7 +25,7 @@ namespace Radar.Pages
 
         protected override void OnAppearing()
         {
-			PercursoBLL regraRadar = PercursoFactory.create();
+			RadarBLL regraRadar = RadarFactory.create();
 			RadarListView.RowHeight = 150;
 			RadarListView.ItemTapped += OnTap;
 
@@ -93,7 +93,7 @@ namespace Radar.Pages
 				StackLayout main = new StackLayout()
 				{
 					Margin = new Thickness(5, 0, 5, 0),
-					VerticalOptions = LayoutOptions.StartAndExpand,
+					VerticalOptions = LayoutOptions.Fill,
 					Orientation = StackOrientation.Horizontal,
 					HorizontalOptions = LayoutOptions.Fill,
 					WidthRequest = TelaUtils.LarguraSemPixel
@@ -203,8 +203,14 @@ namespace Radar.Pages
 					FontFamily = "Roboto-Condensed",
 					//HorizontalTextAlignment = TextAlignment.Center
 				};
-
+				BoxView linha = new BoxView()
+				{
+					HeightRequest = 1,
+					BackgroundColor = Color.FromHex(TemaInfo.DividerColor),
+					VerticalOptions = LayoutOptions.CenterAndExpand
+				};
 				cardRigthStackVer.Children.Add(titulo);
+				cardRigthStackVer.Children.Add(linha);
 				cardRigthStackHor.Children.Add(limite);
 				cardRigthStackHor.Children.Add(latitude);
 				cardRigthStackHor.Children.Add(longitude);

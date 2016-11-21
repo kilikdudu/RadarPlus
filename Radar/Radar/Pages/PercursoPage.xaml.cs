@@ -211,8 +211,7 @@ namespace Radar.Pages
 
 				//desc.VerticalOptions = LayoutOptions.Center;
 				desc.HorizontalOptions = LayoutOptions.Fill;
-				desc.Spacing = 1;
-				desc.VerticalOptions = LayoutOptions.Fill;
+				desc.VerticalOptions = LayoutOptions.CenterAndExpand;
 				desc.Spacing = 1;
 
 				tempoCorrendo.HorizontalOptions = LayoutOptions.Start;
@@ -256,7 +255,7 @@ namespace Radar.Pages
 				StackLayout main = new StackLayout()
 				{
 					Margin = new Thickness(5, 0, 5, 0),
-					VerticalOptions = LayoutOptions.StartAndExpand,
+					VerticalOptions = LayoutOptions.Fill,
 					Orientation = StackOrientation.Horizontal,
 					HorizontalOptions = LayoutOptions.Fill,
 					WidthRequest = TelaUtils.LarguraSemPixel
@@ -264,31 +263,34 @@ namespace Radar.Pages
 
 				Frame cardLeft = new Frame()
 				{
-					HorizontalOptions = LayoutOptions.Start,
-					Margin = new Thickness(0, 0, 0, 0),
+					HorizontalOptions = LayoutOptions.Center,
+					Margin = new Thickness(0, 0, 0, 90),
 					WidthRequest = main.WidthRequest * 0.2
 
 				};
 
 				StackLayout cardLeftStack = new StackLayout()
 				{
-					Orientation = StackOrientation.Vertical
+					Orientation = StackOrientation.Vertical,
+					HorizontalOptions = LayoutOptions.Fill,
+					VerticalOptions = LayoutOptions.Fill
 				
 				};
 
 				Image percursoIco = new Image()
 				{
 					Source = "percursos.png",
-					WidthRequest = cardLeft.WidthRequest / 2,
+					WidthRequest = cardLeft.WidthRequest  * 0.3,
 					HorizontalOptions = LayoutOptions.Center,
-					VerticalOptions = LayoutOptions.CenterAndExpand
+					VerticalOptions = LayoutOptions.Start
 				};
 
 				BoxView linha = new BoxView()
 				{
 					HeightRequest = 1,
 					BackgroundColor = Color.FromHex(TemaInfo.DividerColor),
-					VerticalOptions = LayoutOptions.CenterAndExpand
+					HorizontalOptions = LayoutOptions.Fill,
+					VerticalOptions = LayoutOptions.Start
 				};
 
 				Label distanciaText = new Label()
@@ -297,11 +299,11 @@ namespace Radar.Pages
 					//FontSize = 20,
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor),
 					FontFamily = "Roboto-Condensed",
-					HorizontalOptions = LayoutOptions.CenterAndExpand,
-					VerticalOptions = LayoutOptions.CenterAndExpand
+					HorizontalOptions = LayoutOptions.Center,
+					VerticalOptions = LayoutOptions.Start
 				};
 				cardLeftStack.Children.Add(percursoIco);
-				cardLeftStack.Children.Add(linha);
+				//cardLeftStack.Children.Add(linha);
 				cardLeftStack.Children.Add(distanciaText);
 				cardLeft.Content = cardLeftStack;
 
