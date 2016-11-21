@@ -229,7 +229,7 @@ namespace Radar.Pages
 				velocimetroIco2.Source = "velocimetro_20x20_preto.png";
 				radarIco.Source = "radar_20x20_preto.png";
 
-				tempoCorrendo.Text = "Tempo: 00:00:15";
+				tempoCorrendo.SetBinding(Label.TextProperty, new Binding("TempoGravacaoStr"));
 				tempoParado.Text = "Parado: 00:00:15";
 
 				paradas.Text = "Paradas: 0";
@@ -295,13 +295,14 @@ namespace Radar.Pages
 
 				Label distanciaText = new Label()
 				{
-					Text = "14 km",
 					//FontSize = 20,
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor),
 					FontFamily = "Roboto-Condensed",
 					HorizontalOptions = LayoutOptions.Center,
 					VerticalOptions = LayoutOptions.Start
 				};
+				distanciaText.SetBinding(Label.TextProperty, new Binding("DistanciaTotal"));
+
 				cardLeftStack.Children.Add(percursoIco);
 				//cardLeftStack.Children.Add(linha);
 				cardLeftStack.Children.Add(distanciaText);

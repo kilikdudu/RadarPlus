@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Radar.Factory;
 
 namespace Radar.BLL
 {
@@ -60,6 +61,7 @@ namespace Radar.BLL
                     percurso.TempoGravacao = maiorTempo.Subtract(menorTempo);
                 }
                 percurso.Pontos = pontos;
+				percurso.DistanciaTotal = distanciaTotal(percurso);
             }
         }
 
@@ -166,5 +168,27 @@ namespace Radar.BLL
                 _pontoDB.excluir(ponto.Id);
             _percursoDB.excluir(id);
         }
+
+		public double distanciaTotal(PercursoInfo percurso) {
+			var regraRadar = RadarFactory.create();
+			int count = 0;
+			double total = 0;
+			double initialLat = 0;
+			double initialLong = 0;
+			double finalLat = 0;
+			double finalLong = 0;
+			foreach (var pontos in percurso.Pontos){
+				initialLat = pontos.Latitude;
+				initialLong = pontos.Longitude;
+				if (count > 0)
+				{
+					total  += regraRadar.calcularDistancia(initialLat, initialLong, finalLat, finalLong);
+				}
+				finalLat = pontos.Latitude;
+				finalLong = pontos.Longitude;
+				count++;
+			}
+			return total;
+		}
     }
 }

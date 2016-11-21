@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Radar.BLL;
 
 namespace Radar.Model
 {
@@ -12,7 +13,7 @@ namespace Radar.Model
     {
         private IList<PercursoPontoInfo> _pontos = new List<PercursoPontoInfo>();
 
-        [AutoIncrement, PrimaryKey]
+		[AutoIncrement, PrimaryKey]
         public int Id { get; set; }
         public string Nome { get; set; }
 
@@ -26,6 +27,12 @@ namespace Radar.Model
             }
         }
 
+		[Ignore]
+		public double DistanciaTotal { get; set; }
+
+		[Ignore]
+		public double VelocidadeMedia { get; set; }
+
         [Ignore]
         public TimeSpan TempoGravacao { get; set; }
 
@@ -35,7 +42,7 @@ namespace Radar.Model
             get
             {
                 TimeSpan tempo = TempoGravacao;
-                return tempo.ToString();
+                return "Tempo: " + tempo.ToString();
             }
         }
     }
