@@ -19,7 +19,13 @@ namespace Radar.Pages
 {
     public class MapaPage : BaseVisualPage
     {
-		
+		public MapaPage(bool isInstrucoes = false)
+		{
+			if (isInstrucoes == true)
+			{
+				NavigationX.create(this).PushPopupAsyncX(new InstrucaoPopUp(), true);
+			}
+		}
         /*
         private static MapaPage _mapaPageAtual;
 
@@ -108,9 +114,6 @@ namespace Radar.Pages
 
         public MapaPage()
         {
-			
-
-				NavigationX.create(this).PushPopupAsyncX(new InstrucaoPopUp(), true);
 
             inicializarComponente();
 

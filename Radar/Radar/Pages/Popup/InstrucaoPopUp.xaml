@@ -6,10 +6,10 @@
              x:Class="Radar.Pages.Popup.InstrucaoPopUp">
   <ContentPage.Resources>
     <ResourceDictionary>
-      <Style x:Key="AbsoluteStyle" TargetType="AbsoluteLayout">
+      <Style x:Key="AbsoluteStyle" TargetType="StackLayout">
         <Setter Property="VerticalOptions" Value="StartAndExpand" />
-        <Setter Property="Opacity" Value="0.00" />
-        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
         <Setter Property="Padding" Value="20,20,20,20" />
 		
       </Style>
@@ -62,9 +62,8 @@
     </ResourceDictionary>
   </ContentPage.Resources>
 	
-  <AbsoluteLayout Style="{StaticResource AbsoluteStyle}" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
-        <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill" Orientation="Vertical">
-   
+  <StackLayout Style="{StaticResource AbsoluteStyle}" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+    
 		 
 	          <Image Style="{StaticResource SytleSetaEsquerda}"/>
 	          <Label Style="{StaticResource SytleLabelSetaEsquerda}"/>
@@ -76,7 +75,6 @@
 	          <Image Style="{StaticResource SytleInstrucoes}"/>
 	          <Label Style="{StaticResource SytleLabelInstrucoes}"/>
          
-      </StackLayout>
     
-  </AbsoluteLayout>
+  </StackLayout>
 </pages:PopupPage>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Radar.Model;
 using Xamarin.Forms;
+using Rg.Plugins.Popup;
 
 namespace Radar.Pages
 {
@@ -86,7 +87,12 @@ namespace Radar.Pages
             {
                 Titulo = "Instruções",
                 Icone = "instrucoes.png",
-				TargetType = typeof(MapaPage)
+				TargetType = null,
+				aoClicar = (sender, e) =>
+				{
+					//this.Navigation.PushAsync(new ModoAutoInicioPage());
+					Navigation.PushModalAsync(new MapaPage(true));
+				}
             });
             grupo.Add(new MenuItemInfo
             {
@@ -118,9 +124,23 @@ namespace Radar.Pages
             var paginas = new List<MenuItemGrupo>();
             paginas.Add(criarGrupoModo());
             paginas.Add(criarGrupoAcao());
+			ListView.ItemTapped += OnTap;
             paginas.Add(criarGrupoAplicativo());
 
             listView.ItemsSource = paginas;
         }
+		public void OnTap(object sender, ItemTappedEventArgs e)
+		{
+
+			MenuItemInfo item = (MenuItemInfo)e.Item;
+			if (item.aoClicar != null)
+			{
+				if (this.Navigation.NavigationStack.Count == 1)
+				{
+					item.aoClicar(sender, e);
+				}
+			}
+
+		}
     }
 }
