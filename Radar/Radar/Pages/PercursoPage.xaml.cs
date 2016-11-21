@@ -256,14 +256,15 @@ namespace Radar.Pages
 					Margin = new Thickness(5, 0, 5, 0),
 					VerticalOptions = LayoutOptions.StartAndExpand,
 					Orientation = StackOrientation.Horizontal,
-					HorizontalOptions = LayoutOptions.Fill
+					HorizontalOptions = LayoutOptions.Fill,
+					WidthRequest = TelaUtils.LarguraSemPixel
 				};
 
 				Frame cardLeft = new Frame()
 				{
 					HorizontalOptions = LayoutOptions.Start,
 					Margin = new Thickness(0, 0, 0, 100),
-					WidthRequest = TelaUtils.LarguraSemPixel * 0.2
+					WidthRequest = main.WidthRequest * 0.2
 
 				};
 
@@ -305,15 +306,15 @@ namespace Radar.Pages
 				Frame cardRigth = new Frame()
 				{
 					HorizontalOptions = LayoutOptions.Start,
-
-					WidthRequest = TelaUtils.LarguraSemPixel * 0.65
+					WidthRequest = main.WidthRequest * 0.8
 
 				};
 				Debug.WriteLine("Largura: " + TelaUtils.LarguraSemPixel);
 				StackLayout cardRigthStack = new StackLayout()
 				{
 					Orientation = StackOrientation.Vertical,
-					HorizontalOptions = LayoutOptions.Fill
+					HorizontalOptions = LayoutOptions.Fill,
+
 
 				};
 
@@ -326,30 +327,31 @@ namespace Radar.Pages
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
 				};
 
-				Label traco = new Label()
-				{
-					Text = "---",
-					FontSize = 26,
-					FontFamily = "Roboto-Condensed",
-					HorizontalOptions = LayoutOptions.Start
-				};
 
 				Label endereco = new Label()
 				{
 					Text = "Rua H-149, 1-73 Cidade Vera Cruz/ Aparecida de Goiânia",
+					WidthRequest = main.WidthRequest * 0.7,
 					HorizontalOptions = LayoutOptions.Start,
 					FontSize = 20,
 					FontFamily = "Roboto-Condensed",
-					HorizontalTextAlignment = TextAlignment.Start
+					//HorizontalTextAlignment = TextAlignment.Start
 				};
-
+				Debug.WriteLine("stack main largura: " + main.WidthRequest);
+				Debug.WriteLine("stack left largura: " + cardLeft.WidthRequest);
+				Debug.WriteLine("frame right largura: " + cardRigth.WidthRequest);
 				cardRigthStack.Children.Add(titulo);
 				//cardRigthStack.Children.Add(traco);
 				cardRigthStack.Children.Add(endereco);
+				desc.WidthRequest = main.WidthRequest * 0.7;
 				cardRigthStack.Children.Add(desc);
 				cardRigth.Content = cardRigthStack;
 
-				main.Children.Add(cardLeft);
+				if (main.WidthRequest > 320)
+				{
+
+					main.Children.Add(cardLeft);
+				}
 				main.Children.Add(cardRigth);
 
 				View = main;

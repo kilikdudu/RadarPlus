@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Radar.Controls;
 using Radar.Utils;
+using System.Diagnostics;
 
 namespace Radar.Pages
 {
@@ -18,25 +19,40 @@ namespace Radar.Pages
         public RadarListaPage()
         {
             InitializeComponent();
+
+
         }
 
         protected override void OnAppearing()
         {
-            RadarBLL regraRadar = RadarFactory.create();
+			PercursoBLL regraRadar = PercursoFactory.create();
+			RadarListView.RowHeight = 150;
+			RadarListView.ItemTapped += OnTap;
 
-            RadarListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+			RadarListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
 			RadarListView.ItemTemplate = new DataTemplate(typeof(ConteudoCelula));
-            this.BindingContext = regraRadar.listar(true);
-        }
 
-        void OnItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            if (e == null)
-                return;
+			var percursos = regraRadar.listar();
 
-            //Navigation.PushAsync(new ImovelForm((ImovelDTO)((ListView)sender).SelectedItem));
-            //((ListView)sender).SelectedItem = null; // de-select the row
+			//desc.VerticalOptions = LayoutOptions.Center;
+
+
+			if (percursos.Count > 0)
+			{
+				//percursoListView.SetBinding(Label.TextProperty, new Binding("Data"));
+				this.BindingContext = percursos;
+
+			}
+            
         }
+		public void OnTap(object sender, ItemTappedEventArgs e)
+		{
+
+			if (e == null)
+				return;
+
+		}
+        
 
         public void excluirRadar(object sender, EventArgs e)
         {
@@ -48,11 +64,12 @@ namespace Radar.Pages
 
 		public class ConteudoCelula : ViewCell
 		{
-			WrapLayout desc = new WrapLayout();
+			StackLayout desc = new StackLayout();
 
 
 			public ConteudoCelula()
 			{
+				
 				MenuItem excluirRadar = new MenuItem();
 
 				excluirRadar.CommandParameter = "{Binding .}";
@@ -70,22 +87,23 @@ namespace Radar.Pages
 
 
 				//desc.VerticalOptions = LayoutOptions.Center;
-				desc.HorizontalOptions = LayoutOptions.Fill;
-				desc.Spacing = 1;
+				desc.HorizontalOptions = LayoutOptions.FillAndExpand;
+				desc.Orientation = StackOrientation.Horizontal;
 
 				StackLayout main = new StackLayout()
 				{
 					Margin = new Thickness(5, 0, 5, 0),
 					VerticalOptions = LayoutOptions.StartAndExpand,
 					Orientation = StackOrientation.Horizontal,
-					HorizontalOptions = LayoutOptions.Fill
+					HorizontalOptions = LayoutOptions.Fill,
+					WidthRequest = TelaUtils.LarguraSemPixel
 				};
 
 				Frame cardLeft = new Frame()
 				{
 					HorizontalOptions = LayoutOptions.Start,
-					Margin = new Thickness(0, 0, 0, 100),
-					WidthRequest = TelaUtils.LarguraSemPixel * 0.2
+					Margin = new Thickness(0, 0, 0, 0),
+					WidthRequest = main.WidthRequest * 0.2
 
 				};
 
@@ -98,7 +116,7 @@ namespace Radar.Pages
 				Image percursoIco = new Image()
 				{
 					Source = "meusradares.png",
-					WidthRequest = 50,
+					WidthRequest = cardLeft.WidthRequest / 1.5,
 					HorizontalOptions = LayoutOptions.Center,
 					VerticalOptions = LayoutOptions.CenterAndExpand
 				};
@@ -110,22 +128,32 @@ namespace Radar.Pages
 				Frame cardRigth = new Frame()
 				{
 					HorizontalOptions = LayoutOptions.Start,
-
-					WidthRequest = TelaUtils.LarguraSemPixel * 0.65
+					WidthRequest = main.WidthRequest * 0.7
 
 				};
 
-				StackLayout cardRigthStack = new StackLayout()
+				Debug.WriteLine("stack main largura: " + main.WidthRequest);
+				Debug.WriteLine("stack left largura: " + cardLeft.WidthRequest);
+				Debug.WriteLine("frame right largura: " + cardRigth.WidthRequest);
+				WrapLayout cardRigthStackHor = new WrapLayout()
+				{
+					//Orientation = StackOrientation.Horizontal,
+					HorizontalOptions = LayoutOptions.Fill,
+					VerticalOptions = LayoutOptions.Fill,
+					Spacing = 1
+
+				};
+				StackLayout cardRigthStackVer = new StackLayout()
 				{
 					Orientation = StackOrientation.Vertical,
-					HorizontalOptions = LayoutOptions.Fill
+					Spacing = 1
 
 				};
 
 				Label titulo = new Label()
 				{
 					Text = "31/0ut, 17:41",
-					HorizontalOptions = LayoutOptions.Start,
+					HorizontalOptions = LayoutOptions.StartAndExpand,
 					FontSize = 26,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
@@ -133,17 +161,17 @@ namespace Radar.Pages
 
 				Label limite = new Label()
 				{
-					Text = "Limite: 60 km/h",
-					HorizontalOptions = LayoutOptions.Start,
+					Text = "Limite: 60 km/h ",
+					HorizontalOptions = LayoutOptions.StartAndExpand,
 					//FontSize = 28,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
 				};
 
 				Label latitude = new Label()
-				{
-					Text = "Latitude: 16,73456",
-					HorizontalOptions = LayoutOptions.Start,
+				{ 
+					Text = "Latitude: 16,73456 ",
+					HorizontalOptions = LayoutOptions.StartAndExpand,
 					//FontSize = 28,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
@@ -151,8 +179,8 @@ namespace Radar.Pages
 
 				Label longitude = new Label()
 				{
-					Text = "Longitude: -49,23480",
-					HorizontalOptions = LayoutOptions.Start,
+					Text = "Longitude: -49,23480 ",
+					HorizontalOptions = LayoutOptions.StartAndExpand,
 					//FontSize = 28,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
@@ -160,8 +188,8 @@ namespace Radar.Pages
 
 				Label angulo = new Label()
 				{
-					Text = "Ângulo: 179.0",
-					HorizontalOptions = LayoutOptions.Start,
+					Text = "Ângulo: 179.0 ",
+					HorizontalOptions = LayoutOptions.StartAndExpand,
 					//FontSize = 28,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
@@ -170,24 +198,32 @@ namespace Radar.Pages
 
 				Label endereco = new Label()
 				{
-					Text = "Rua H-149, 1-73 Cidade Vera Cruz/ Aparecida de Goiânia",
-					HorizontalOptions = LayoutOptions.Start,
+					Text = "Rua H-149, 1-73 Cidade Vera Cruz/ Aparecida de Goiânia ",
+					HorizontalOptions = LayoutOptions.StartAndExpand,
+					//VerticalOptions = LayoutOptions.StartAndExpand,
+					//WidthRequest = cardRigth.WidthRequest * 0.8,
 					//FontSize = 20,
 					FontFamily = "Roboto-Condensed",
-					HorizontalTextAlignment = TextAlignment.Start
+					//HorizontalTextAlignment = TextAlignment.Center
 				};
 
-				cardRigthStack.Children.Add(titulo);
-				desc.Children.Add(limite);
-				desc.Children.Add(latitude);
-				desc.Children.Add(longitude);
-				desc.Children.Add(angulo);
-				desc.Children.Add(endereco);
-				//scardRigthStack.Children.Add(endereco);
-				cardRigthStack.Children.Add(desc);
-				cardRigth.Content = cardRigthStack;
+				cardRigthStackVer.Children.Add(titulo);
+				cardRigthStackHor.Children.Add(limite);
+				cardRigthStackHor.Children.Add(latitude);
+				cardRigthStackHor.Children.Add(longitude);
+				cardRigthStackHor.Children.Add(angulo);
+				cardRigthStackVer.Children.Add(cardRigthStackHor);
+				cardRigthStackVer.Children.Add(endereco);
 
-				main.Children.Add(cardLeft);
+				cardRigthStackVer.WidthRequest = main.WidthRequest * 0.8;
+				//desc.Children.Add(cardRigthStack);
+
+				cardRigth.Content = cardRigthStackVer;
+				//if (main.WidthRequest > 320)
+				//{
+
+					main.Children.Add(cardLeft);
+				//}
 				main.Children.Add(cardRigth);
 
 				View = main;

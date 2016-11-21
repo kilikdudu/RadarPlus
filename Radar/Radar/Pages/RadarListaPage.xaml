@@ -4,13 +4,12 @@
              x:Class="Radar.Pages.RadarListaPage"
              Padding="0,20,0,0"
              Title="Meus Radares">
-  <ListView x:Name="RadarListView" ItemTapped="OnItemTapped" RowHeight="80">
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-  </ListView>
+
+
+	<ContentPage.Content>
+
+		<ListView  x:Name="RadarListView" />
+	
+   
+	</ContentPage.Content>
 </ContentPage>

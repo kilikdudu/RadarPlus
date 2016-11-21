@@ -8,11 +8,7 @@
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell >
-            <ViewCell.ContextActions>
-              <MenuItem Clicked="simularPercurso" CommandParameter="{Binding .}" Text="Simular" />
-              <MenuItem Clicked="excluirPercurso" CommandParameter="{Binding .}" Text="Excluir" IsDestructive="True" />
-            </ViewCell.ContextActions>
-
+    
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
