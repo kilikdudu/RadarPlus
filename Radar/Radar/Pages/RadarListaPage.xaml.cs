@@ -132,9 +132,6 @@ namespace Radar.Pages
 
 				};
 
-				Debug.WriteLine("stack main largura: " + main.WidthRequest);
-				Debug.WriteLine("stack left largura: " + cardLeft.WidthRequest);
-				Debug.WriteLine("frame right largura: " + cardRigth.WidthRequest);
 				WrapLayout cardRigthStackHor = new WrapLayout()
 				{
 					//Orientation = StackOrientation.Horizontal,

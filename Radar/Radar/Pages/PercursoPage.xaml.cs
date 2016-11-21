@@ -212,6 +212,8 @@ namespace Radar.Pages
 				//desc.VerticalOptions = LayoutOptions.Center;
 				desc.HorizontalOptions = LayoutOptions.Fill;
 				desc.Spacing = 1;
+				desc.VerticalOptions = LayoutOptions.Fill;
+				desc.Spacing = 1;
 
 				tempoCorrendo.HorizontalOptions = LayoutOptions.Start;
 				tempoParado.HorizontalOptions = LayoutOptions.Start;
@@ -263,7 +265,7 @@ namespace Radar.Pages
 				Frame cardLeft = new Frame()
 				{
 					HorizontalOptions = LayoutOptions.Start,
-					Margin = new Thickness(0, 0, 0, 100),
+					Margin = new Thickness(0, 0, 0, 0),
 					WidthRequest = main.WidthRequest * 0.2
 
 				};
@@ -277,7 +279,7 @@ namespace Radar.Pages
 				Image percursoIco = new Image()
 				{
 					Source = "percursos.png",
-					WidthRequest = 50,
+					WidthRequest = cardLeft.WidthRequest / 2,
 					HorizontalOptions = LayoutOptions.Center,
 					VerticalOptions = LayoutOptions.CenterAndExpand
 				};
@@ -292,7 +294,7 @@ namespace Radar.Pages
 				Label distanciaText = new Label()
 				{
 					Text = "14 km",
-					FontSize = 20,
+					//FontSize = 20,
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor),
 					FontFamily = "Roboto-Condensed",
 					HorizontalOptions = LayoutOptions.CenterAndExpand,
@@ -306,23 +308,23 @@ namespace Radar.Pages
 				Frame cardRigth = new Frame()
 				{
 					HorizontalOptions = LayoutOptions.Start,
-					WidthRequest = main.WidthRequest * 0.8
+					WidthRequest = main.WidthRequest * 0.7
 
 				};
-				Debug.WriteLine("Largura: " + TelaUtils.LarguraSemPixel);
-				StackLayout cardRigthStack = new StackLayout()
+
+				StackLayout cardRigthStackVer = new StackLayout()
 				{
 					Orientation = StackOrientation.Vertical,
-					HorizontalOptions = LayoutOptions.Fill,
-
+					Spacing = 1
 
 				};
+
 
 				Label titulo = new Label()
 				{
 					Text = "31/0ut, 17:41",
-					HorizontalOptions = LayoutOptions.Start,
-					FontSize = 28,
+					HorizontalOptions = LayoutOptions.StartAndExpand,
+					FontSize = 26,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
 				};
@@ -332,26 +334,25 @@ namespace Radar.Pages
 				{
 					Text = "Rua H-149, 1-73 Cidade Vera Cruz/ Aparecida de Goiânia",
 					WidthRequest = main.WidthRequest * 0.7,
-					HorizontalOptions = LayoutOptions.Start,
-					FontSize = 20,
+					HorizontalOptions = LayoutOptions.StartAndExpand,
+					//FontSize = 20,
 					FontFamily = "Roboto-Condensed",
 					//HorizontalTextAlignment = TextAlignment.Start
 				};
-				Debug.WriteLine("stack main largura: " + main.WidthRequest);
-				Debug.WriteLine("stack left largura: " + cardLeft.WidthRequest);
-				Debug.WriteLine("frame right largura: " + cardRigth.WidthRequest);
-				cardRigthStack.Children.Add(titulo);
-				//cardRigthStack.Children.Add(traco);
-				cardRigthStack.Children.Add(endereco);
-				desc.WidthRequest = main.WidthRequest * 0.7;
-				cardRigthStack.Children.Add(desc);
-				cardRigth.Content = cardRigthStack;
 
-				if (main.WidthRequest > 320)
-				{
+
+				cardRigthStackVer.Children.Add(titulo);
+				cardRigthStackVer.Children.Add(linha);
+				cardRigthStackVer.Children.Add(endereco);
+				cardRigthStackVer.Children.Add(desc);
+
+				cardRigth.Content = cardRigthStackVer;
+
+				//if (main.WidthRequest > 320)
+				//{
 
 					main.Children.Add(cardLeft);
-				}
+				//}
 				main.Children.Add(cardRigth);
 
 				View = main;

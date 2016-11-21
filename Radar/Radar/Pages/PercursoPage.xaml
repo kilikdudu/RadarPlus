@@ -4,7 +4,7 @@
              x:Class="Radar.Pages.PercursoPage"
              Title="Meus Percursos">
   <StackLayout Orientation="Vertical">
-    <ListView x:Name="percursoListView" ItemTapped="abrirPercurso" RowHeight="270">
+    <ListView x:Name="percursoListView" ItemTapped="abrirPercurso" RowHeight="200">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell >
