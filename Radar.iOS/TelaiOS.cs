@@ -25,6 +25,11 @@ namespace Radar.iOS
             return (float)UIScreen.MainScreen.Bounds.Height;
         }
 
+		public float pegarLarguraSemPixel()
+		{
+			return (float)UIScreen.MainScreen.Bounds.Width;
+		}
+
 		public string pegarOrientacao()
 		{
 			UIInterfaceOrientation orientation = UIApplication.SharedApplication.StatusBarOrientation;

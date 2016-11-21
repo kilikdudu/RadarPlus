@@ -10,6 +10,7 @@ namespace Radar.IBLL
     {
         float pegarLargura();
         float pegarAltura();
+		float pegarLarguraSemPixel();
 		string pegarOrientacao();
     }
 }
