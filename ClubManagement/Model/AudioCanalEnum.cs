@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Radar.Model
+namespace ClubManagement.Model
 {
-    public enum CanalAudioEnum
+    public enum AudioCanalEnum
     {
         Nenhum = 0,
         Musica = 1,

@@ -62,6 +62,8 @@ namespace Radar.BLL
                 audios.Add(Path.Combine(DIR_AUDIO, AUDIO_VELOCIDADE[velocidade]));
             if (distancia > 0)
                 audios.Add(Path.Combine(DIR_AUDIO, AUDIO_DISTANCIA[distancia]));
+            AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
+            AudioUtils.Canal = PreferenciaUtils.CanalAudio;
             AudioUtils.play(audios.ToArray());
         }
     }

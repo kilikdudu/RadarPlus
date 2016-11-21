@@ -143,7 +143,8 @@ namespace Radar.Pages
             }
             absoluteLayout.Children.Add(_velocidadeFundo);
             absoluteLayout.Children.Add(_velocidadeLabel);
-            absoluteLayout.Children.Add(_AdicionarRadarButton);
+            if (PreferenciaUtils.ExibirBotaoAdicionar)
+                absoluteLayout.Children.Add(_AdicionarRadarButton);
             Content = absoluteLayout;
 
             /*

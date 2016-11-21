@@ -16,6 +16,7 @@ using Android.Content.Res;
 using System.IO;
 using System.Threading.Tasks;
 using ClubManagement.IBLL;
+using ClubManagement.Model;
 
 [assembly: Dependency(typeof(AudioAndroid))]
 
@@ -23,11 +24,33 @@ namespace Radar.Droid
 {
     public class AudioAndroid: IAudio
     {
-        MediaPlayer _player;
-        int _audioIndex;
-        string[] _audioAtual;
+        //MediaPlayer _player;
+        //int _audioIndex;
+        //string[] _audioAtual;
+        //MediaPlayer[] _players;
+        float _volume = 15;
+        AudioCanalEnum _canal = AudioCanalEnum.Nenhum;
 
         public AudioAndroid() {
+        }
+
+        public float Volume {
+            get {
+                return _volume;
+            }
+            set {
+                _volume = value;
+            }
+        }
+
+        public AudioCanalEnum Canal
+        {
+            get{
+                return _canal;
+            }
+            set {
+                _canal = value;
+            }
         }
 
         private MediaPlayer criarAudio(string arquivo) {
@@ -43,16 +66,30 @@ namespace Radar.Droid
                 audioStream.Close();
                 destino.Close();
             }
-            return MediaPlayer.Create(context, Android.Net.Uri.Parse(path));
+            var player = MediaPlayer.Create(context, Android.Net.Uri.Parse(path));
+            switch (_canal) {
+                case AudioCanalEnum.Alarme:
+                    player.SetAudioStreamType(Android.Media.Stream.Alarm);
+                    break;
+                case AudioCanalEnum.Musica:
+                    player.SetAudioStreamType(Android.Media.Stream.Music);
+                    break;
+                default:
+                    player.SetAudioStreamType(Android.Media.Stream.Notification);
+                    break;
+            }
+            float volume = _volume / 15;
+            player.SetVolume(volume, volume);
+            return player;
         }
 
+        /*
         private void playProximo() {
             if (_audioAtual != null && _audioIndex < _audioAtual.Length)
             {
                 string arquivo = _audioAtual[_audioIndex];
                 _audioIndex++;
                 _player = criarAudio(arquivo);
-                //_player.SetVolume();
                 _player.Completion += (sender, e) =>
                 {
                     playProximo();
@@ -64,9 +101,11 @@ namespace Radar.Droid
                 _player = null;
             }
         }
+        */
 
         public void play(string[] arquivos)
         {
+            /*
             _audioIndex = 0;
             _audioAtual = null;
             if (_player != null) {
@@ -78,12 +117,30 @@ namespace Radar.Droid
             _audioIndex = 0;
             _audioAtual = arquivos;
             playProximo();
+            */
+            var players = new List<MediaPlayer>();
+            foreach (var arquivo in arquivos)
+                players.Add(criarAudio(arquivo));
+            MediaPlayer player = null, playerAnterior = null;
+            for (int i = players.Count - 1; i >= 0; i--)
+            {
+                player = players[i];
+                if (playerAnterior != null)
+                    player.SetNextMediaPlayer(playerAnterior);
+                playerAnterior = player;
+            }
+            if (player != null)
+                player.Start();
         }
 
         public void play(string arquivo) {
 
+            /*
             _player = criarAudio(arquivo);
             _player.Start();
+            */
+            var player = criarAudio(arquivo);
+            player.Start();
         }
     }
 }

@@ -68,6 +68,7 @@ namespace Radar.Pages
 
             Title = "Velocimetro";
             Padding = 5;
+            /*
             Content = new AbsoluteLayout
             {
                 Children = {
@@ -83,6 +84,26 @@ namespace Radar.Pages
                     _PrecisaoLabel
                 }
             };
+            */
+            var absoluteLayout = new AbsoluteLayout();
+            absoluteLayout.Children.Add(_velocimetro);
+            absoluteLayout.Children.Add(_VelocidadeRadarLabel);
+            absoluteLayout.Children.Add(_DistanciaRadarLabel);
+            if (PreferenciaUtils.Bussola)
+            {
+                absoluteLayout.Children.Add(_BussolaFundo);
+                absoluteLayout.Children.Add(_BussolaAgulha);
+                absoluteLayout.Children.Add(_GPSSentidoLabel);
+            }
+            if (PreferenciaUtils.SinalGPS)
+            {
+                absoluteLayout.Children.Add(_PrecisaoFundoImage);
+                absoluteLayout.Children.Add(_PrecisaoImage);
+                absoluteLayout.Children.Add(_PrecisaoLabel);
+            }
+            if (PreferenciaUtils.ExibirBotaoAdicionar)
+                absoluteLayout.Children.Add(_AdicionarRadarButton);
+            Content = absoluteLayout;
         }
 
         protected override void OnAppearing()

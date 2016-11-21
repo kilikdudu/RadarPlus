@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Xamarin.Forms;
+using ClubManagement.Model;
 
 [assembly: Dependency(typeof(AudioiOS))]
 
@@ -14,6 +15,32 @@ namespace Radar.iOS
 {
     public class AudioiOS : IAudio
     {
+        public AudioCanalEnum Canal
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public float Volume
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public void play(string[] arquivos)
         {
             throw new NotImplementedException();

@@ -149,21 +149,24 @@ namespace Radar.Pages
             AbsoluteLayout.SetLayoutBounds(_DistanciaRadarLabel, new Rectangle(1, 0.975, 1, 0.1));
             AbsoluteLayout.SetLayoutFlags(_DistanciaRadarLabel, AbsoluteLayoutFlags.All);
 
-            _AdicionarRadarButton = new Image
+            if (PreferenciaUtils.ExibirBotaoAdicionar)
             {
-                Aspect = Aspect.AspectFit,
-                Source = ImageSource.FromFile("mais.png"),
-                WidthRequest = 180,
-                HeightRequest = 180
-            };
-            AbsoluteLayout.SetLayoutBounds(_AdicionarRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
-            AbsoluteLayout.SetLayoutFlags(_AdicionarRadarButton, AbsoluteLayoutFlags.All);
-            _AdicionarRadarButton.GestureRecognizers.Add(
-                new TapGestureRecognizer()
+                _AdicionarRadarButton = new Image
                 {
-                    Command = new Command(() => {
-                        var regraAviso = new AvisoSonoroBLL();
-                        regraAviso.play(RadarTipoEnum.RadarFixo, 40, 300);
+                    Aspect = Aspect.AspectFit,
+                    Source = ImageSource.FromFile("mais.png"),
+                    WidthRequest = 180,
+                    HeightRequest = 180
+                };
+                AbsoluteLayout.SetLayoutBounds(_AdicionarRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
+                AbsoluteLayout.SetLayoutFlags(_AdicionarRadarButton, AbsoluteLayoutFlags.All);
+                _AdicionarRadarButton.GestureRecognizers.Add(
+                    new TapGestureRecognizer()
+                    {
+                        Command = new Command(() =>
+                        {
+                            var regraAviso = new AvisoSonoroBLL();
+                            regraAviso.play(RadarTipoEnum.RadarFixo, 40, 300);
                         //AudioUtils.play(AudioEnum.Alarm001);
                         //MensagemUtils.avisar("teste");
                         //var downloader = new DownloaderAtualizacao();
@@ -185,9 +188,10 @@ namespace Radar.Pages
                             MensagemUtils.avisar(e.Message);
                         }
                         */
-                    }
-                )
+                        }
+                    )
                 });
+            }
 
             _BussolaFundo = new Image
             {

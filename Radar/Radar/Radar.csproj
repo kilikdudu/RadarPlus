@@ -56,7 +56,6 @@
     <Compile Include="IDAL\IPercursoDAL.cs" />
     <Compile Include="IDAL\IPercursoPontoDAL.cs" />
     <Compile Include="Model\AoDesativarGPSEnum.cs" />
-    <Compile Include="Model\CanalAudioEnum.cs" />
     <Compile Include="Model\PercursoInfo.cs" />
     <Compile Include="Model\PercursoPontoInfo.cs" />
     <Compile Include="Model\GPSSinalEnum.cs" />
