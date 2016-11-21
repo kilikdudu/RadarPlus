@@ -6,27 +6,27 @@
              x:Class="Radar.Pages.Popup.InstrucaoPopUp">
   <ContentPage.Resources>
     <ResourceDictionary>
-      <Style x:Key="AbsoluteStyle" TargetType="AbsoluteLayout">
+      <Style x:Key="AbsoluteStyle" TargetType="StackLayout">
         <Setter Property="VerticalOptions" Value="StartAndExpand" />
-        <Setter Property="Opacity" Value="0.00" />
-        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
         <Setter Property="Padding" Value="20,20,20,20" />
 		
       </Style>
       <Style x:Key="SytleLabelSetaEsquerda" TargetType="Label">
-        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
 		<Setter Property="VerticalOptions" Value="Start" />
         <Setter Property="TextColor" Value="White" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="Margin" Value="-100,0,0,0" />
+        <Setter Property="Margin" Value="20,0,0,0" />
         <Setter Property="FontFamily" Value="Roboto-Condensed" />
 		<Setter Property="Text" Value="Toque acionar o menu, toque aqui." />
       </Style>
 		<Style x:Key="SytleSetaEsquerda" TargetType="Image">
-        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
 		<Setter Property="VerticalOptions" Value="Start" />
 		<Setter Property="WidthRequest" Value="100" />
-		<Setter Property="Margin" Value="-100,0,0,0" />
+		<Setter Property="Margin" Value="20,0,0,0" />
 		<Setter Property="Source" Value="appSetaEsquerda.png" />
       </Style>
      
@@ -62,9 +62,8 @@
     </ResourceDictionary>
   </ContentPage.Resources>
 	
-  <AbsoluteLayout Style="{StaticResource AbsoluteStyle}" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
-        <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill" Orientation="Vertical">
-   
+  <StackLayout Style="{StaticResource AbsoluteStyle}" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+    
 		 
 	          <Image Style="{StaticResource SytleSetaEsquerda}"/>
 	          <Label Style="{StaticResource SytleLabelSetaEsquerda}"/>
@@ -76,7 +75,6 @@
 	          <Image Style="{StaticResource SytleInstrucoes}"/>
 	          <Label Style="{StaticResource SytleLabelInstrucoes}"/>
          
-      </StackLayout>
     
-  </AbsoluteLayout>
+  </StackLayout>
 </pages:PopupPage>
