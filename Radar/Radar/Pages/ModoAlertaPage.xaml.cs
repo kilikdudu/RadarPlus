@@ -73,6 +73,7 @@ namespace Radar
         }
 
         public void tempoDuracaoTapped(object sender, EventArgs e) {
+            //Navigation.PushPopupAsync(new TempoDuracaoPopUp());
             NavigationX.create(this).PushPopupAsyncX(new TempoDuracaoPopUp(), true);
         }
 

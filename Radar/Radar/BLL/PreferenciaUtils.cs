@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Radar.Factory;
 using Radar.Model;
 using Xamarin.Forms;
+using ClubManagement.Model;
 
 namespace Radar.BLL
 {
@@ -78,7 +79,7 @@ namespace Radar.BLL
         public static int AlturaVolume
         {
             get {
-                return _regraPreferencia.pegarInt(ALTURA_VOLUME);
+                return _regraPreferencia.pegarInt(ALTURA_VOLUME, 15);
             }
             set {
                 _regraPreferencia.gravar(ALTURA_VOLUME, value);
@@ -124,10 +125,10 @@ namespace Radar.BLL
             }
 		}
 
-        public static CanalAudioEnum CanalAudio
+        public static AudioCanalEnum CanalAudio
         {
             get {
-                return (CanalAudioEnum) _regraPreferencia.pegarInt(CANAL_AUDIO, (int)CanalAudioEnum.Notificacao);
+                return (AudioCanalEnum) _regraPreferencia.pegarInt(CANAL_AUDIO, (int)AudioCanalEnum.Notificacao);
             }
             set {
                 _regraPreferencia.gravar(CANAL_AUDIO, (int)value);
@@ -486,6 +487,7 @@ namespace Radar.BLL
             }
 		}
 
+        /*
 		public static bool VolumePersonalizado
 		{
 			get {
@@ -495,6 +497,7 @@ namespace Radar.BLL
                 _regraPreferencia.gravar(VOLUME_PERSONALIZADO, value);
             }
 		}
+        */
 
         public static string UrlAtualizacao {
             get {

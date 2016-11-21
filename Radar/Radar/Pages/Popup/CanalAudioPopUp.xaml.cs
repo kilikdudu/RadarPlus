@@ -7,6 +7,7 @@ using Radar.BLL;
 using Radar.Factory;
 using System.Diagnostics;
 using Radar.Model;
+using ClubManagement.Model;
 
 namespace Radar.Pages.Popup {
     public partial class CanalAudioPopUp : PopupPage {
@@ -22,13 +23,13 @@ namespace Radar.Pages.Popup {
             base.OnAppearing();
             switch (PreferenciaUtils.CanalAudio)
             {
-                case CanalAudioEnum.Musica:
+                case AudioCanalEnum.Musica:
                     SwitchMusica.IsToggled = true;
                     break;
-                case CanalAudioEnum.Alarme:
+                case AudioCanalEnum.Alarme:
                     SwitchAlarmes.IsToggled = true;
                     break;
-                case CanalAudioEnum.Notificacao:
+                case AudioCanalEnum.Notificacao:
                     SwitchNotificacoes.IsToggled = true;
                     break;
             }
@@ -43,10 +44,10 @@ namespace Radar.Pages.Popup {
                 SwitchAlarmes.IsToggled = false;
                 SwitchNotificacoes.IsToggled = false;
                 //regraPreferencia.gravar("canalAudio", 1);
-                PreferenciaUtils.CanalAudio = CanalAudioEnum.Musica;
+                PreferenciaUtils.CanalAudio = AudioCanalEnum.Musica;
             } else {
                 //regraPreferencia.gravar("canalAudio", 0);
-                PreferenciaUtils.CanalAudio = CanalAudioEnum.Nenhum;
+                PreferenciaUtils.CanalAudio = AudioCanalEnum.Nenhum;
             }
         }
 
@@ -57,10 +58,10 @@ namespace Radar.Pages.Popup {
                 SwitchMusica.IsToggled = false;
                 SwitchNotificacoes.IsToggled = false;
                 //regraPreferencia.gravar("canalAudio", 2);
-                PreferenciaUtils.CanalAudio = CanalAudioEnum.Alarme;
+                PreferenciaUtils.CanalAudio = AudioCanalEnum.Alarme;
             } else {
                 //regraPreferencia.gravar("canalAudio", 0);
-                PreferenciaUtils.CanalAudio = CanalAudioEnum.Nenhum;
+                PreferenciaUtils.CanalAudio = AudioCanalEnum.Nenhum;
             }
         }
 
@@ -71,10 +72,10 @@ namespace Radar.Pages.Popup {
                 SwitchMusica.IsToggled = false;
                 SwitchAlarmes.IsToggled = false;
                 //regraPreferencia.gravar("canalAudio", 3);
-                PreferenciaUtils.CanalAudio = CanalAudioEnum.Notificacao;
+                PreferenciaUtils.CanalAudio = AudioCanalEnum.Notificacao;
             } else {
                 //regraPreferencia.gravar("canalAudio", 0);
-                PreferenciaUtils.CanalAudio = CanalAudioEnum.Nenhum;
+                PreferenciaUtils.CanalAudio = AudioCanalEnum.Nenhum;
             }
         }
 
