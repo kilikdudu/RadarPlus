@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
 using ClubManagement.IBLL;
 using Xamarin.Forms;
 using ClubManagement.iOS;

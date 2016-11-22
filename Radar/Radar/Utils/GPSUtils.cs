@@ -100,11 +100,18 @@ namespace Radar.Utils
                         RadarBLL.RadarAtual = null;
                 }
                 else {
-                    RadarInfo radar = regraRadar.calcularRadar(local);
+                    double distanciaRadar = (local.Velocidade < 90) ? PreferenciaUtils.DistanciaAlertaUrbano : PreferenciaUtils.DistanciaAlertaEstrada;
+                    RadarInfo radar = regraRadar.calcularRadar(local, distanciaRadar);
                     if (radar != null)
                     {
                         local.Distancia = regraRadar.calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
-                        avisarRadar(local, radar);
+                        if (PreferenciaUtils.AlertaInteligente)
+                        {
+                            if ((local.Velocidade - 5) > radar.Velocidade)
+                                avisarRadar(local, radar);
+                        }
+                        else
+                            avisarRadar(local, radar);
                     }
                 }
                 //if (MapaPage.Atual != null)
