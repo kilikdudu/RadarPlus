@@ -19,6 +19,7 @@ using Radar.Droid;
 using Xamarin.Forms.Maps;
 using System.ComponentModel;
 using Radar.BLL;
+using Radar.Utils;
 
 [assembly: ExportRenderer(typeof(RadarMap), typeof(RadarMapRenderer))]
 
@@ -34,6 +35,7 @@ namespace Radar.Droid
         GoogleMap map;
         RadarMap _radarMap;
         bool animando = false;
+        Marker minhaPosicao;
 
         protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<Xamarin.Forms.View> e)
         {
@@ -58,6 +60,8 @@ namespace Radar.Droid
                             map.AnimateCamera(cameraUpdate);
                         else
                             map.MoveCamera(cameraUpdate);
+                        if (GPSUtils.Simulado)
+                            atualizarMinhaPosicao(local);
                         animando = true;
                     }
                 };
@@ -67,7 +71,19 @@ namespace Radar.Droid
                 ((MapView)Control).GetMapAsync(this);
             }
         }
-            
+
+        private void atualizarMinhaPosicao(LocalizacaoInfo local)
+        {
+            if (minhaPosicao != null)
+                minhaPosicao.Position = (new LatLng(local.Latitude, local.Longitude));
+            else {
+                var marker = new MarkerOptions();
+                marker.SetPosition(new LatLng(local.Latitude, local.Longitude));
+                marker.SetTitle("Minha Posição");
+                minhaPosicao = map.AddMarker(marker);
+            }
+        }
+
         private void desenharRadar(RadarPin radar)
         {
             var marker = new MarkerOptions();

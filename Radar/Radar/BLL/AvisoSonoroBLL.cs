@@ -12,6 +12,55 @@ namespace Radar.BLL
     public class AvisoSonoroBLL
     {
         private const string DIR_AUDIO = "audios";
+        private const string DIR_ALARME = "alarmes";
+
+        private static string pegarArquivo(SomAlarmeEnum audio)
+        {
+            string arquivo;
+            switch (audio)
+            {
+                case SomAlarmeEnum.Alarme02:
+                    arquivo = "alarm-002.wav";
+                    break;
+                case SomAlarmeEnum.Alarme03:
+                    arquivo = "alarm-003.wav";
+                    break;
+                case SomAlarmeEnum.Alarme04:
+                    arquivo = "alarm-004.wav";
+                    break;
+                case SomAlarmeEnum.Alarme05:
+                    arquivo = "alarm-005.wav";
+                    break;
+                case SomAlarmeEnum.Alarme06:
+                    arquivo = "alarm-006.wav";
+                    break;
+                case SomAlarmeEnum.Alarme07:
+                    arquivo = "alarm-007.wav";
+                    break;
+                case SomAlarmeEnum.Alarme08:
+                    arquivo = "alarm-008.wav";
+                    break;
+                case SomAlarmeEnum.Alarme09:
+                    arquivo = "alarm-009.wav";
+                    break;
+                case SomAlarmeEnum.Alarme10:
+                    arquivo = "alarm-010.wav";
+                    break;
+                case SomAlarmeEnum.Alarme11:
+                    arquivo = "alarm-011.wav";
+                    break;
+                case SomAlarmeEnum.Alarme12:
+                    arquivo = "alarm-012.wav";
+                    break;
+                case SomAlarmeEnum.Alarme13:
+                    arquivo = "alarm-013.wav";
+                    break;
+                default:
+                    arquivo = "alarm-001.wav";
+                    break;
+            }
+            return arquivo;
+        }
 
         private IDictionary<RadarTipoEnum, string> AUDIO_RADAR = new Dictionary<RadarTipoEnum, string>() {
             {  RadarTipoEnum.Lombada, "lombada.mp3" },
@@ -53,6 +102,14 @@ namespace Radar.BLL
         public void play(RadarTipoEnum tipoRadar, int distancia)
         {
             play(tipoRadar, 0, distancia);
+        }
+
+        public void play(SomAlarmeEnum alarme)
+        {
+            var arquivoStr = Path.Combine(DIR_ALARME, pegarArquivo(alarme));
+            AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
+            AudioUtils.Canal = PreferenciaUtils.CanalAudio;
+            AudioUtils.play(arquivoStr);
         }
 
         public void play(RadarTipoEnum tipoRadar, int velocidade, int distancia) {

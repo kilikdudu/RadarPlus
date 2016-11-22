@@ -18,14 +18,14 @@ namespace Radar
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            desabilitar.IsToggled = PreferenciaUtils.HabilitarVoz;
+            habilitar.IsToggled = PreferenciaUtils.HabilitarVoz;
             ligarDesligar.IsToggled = PreferenciaUtils.LigarDesligar;
             encurtar.IsToggled = PreferenciaUtils.Encurtar;
             alertaSonoro.IsToggled = PreferenciaUtils.AlertaSonoro;
         }
 
-        public void desabilitarToggled(object sender, ToggledEventArgs e) {
-            PreferenciaUtils.HabilitarVoz = !e.Value;
+        public void habilitarToggled(object sender, ToggledEventArgs e) {
+            PreferenciaUtils.HabilitarVoz = e.Value;
         }
 
         public void ligarDesligarToggled(object sender, ToggledEventArgs e) {
