@@ -171,8 +171,9 @@ namespace Radar.BLL
         public void excluir(int id)
         {
             PercursoInfo percurso = _percursoDB.pegar(id);
-            foreach (PercursoPontoInfo ponto in percurso.Pontos)
-                _pontoDB.excluir(ponto.Id);
+			if(percurso != null)
+            	foreach (PercursoPontoInfo ponto in percurso.Pontos)
+                	_pontoDB.excluir(ponto.Id);
             _percursoDB.excluir(id);
         }
 
