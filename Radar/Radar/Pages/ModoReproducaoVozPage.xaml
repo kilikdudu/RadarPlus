@@ -39,10 +39,10 @@
             <Frame Style="{StaticResource StyleFrame}">
 			 <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
 	           <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">                         
-                  <Label Text="Desabilitar" Style="{StaticResource LabelStyle}"/>
-                  <Switch Style="{StaticResource StyleSwitch}" x:Name="desabilitar" Toggled="desabilitarToggled"/>
+                  <Label Text="Habilitar Voz" Style="{StaticResource LabelStyle}"/>
+                  <Switch Style="{StaticResource StyleSwitch}" x:Name="habilitar" Toggled="habilitarToggled"/>
                 </StackLayout>
-                <Label Style="{StaticResource LabelStyleDescription}" Text="Não utilizar o recurso, mesmo que disponível" />
+                <Label Style="{StaticResource LabelStyleDescription}" Text="Avisa com voz a chegada em algum radar" />
               </StackLayout>
             </Frame>
 				

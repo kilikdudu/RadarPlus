@@ -43,7 +43,7 @@ namespace ClubManagement.Droid {
             //builder.SetSmallIcon(Resource.Drawable.icon);
             builder.SetContentTitle(titulo);
             builder.SetContentText(mensagem);
-            builder.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification));
+            //builder.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification));
 
             NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
             notificationManager.Notify(id, builder.Build());

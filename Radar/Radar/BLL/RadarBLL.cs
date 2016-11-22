@@ -155,48 +155,16 @@ namespace Radar.BLL
         */
 
         public bool radarEstaAFrente(LocalizacaoInfo local, RadarInfo radar) {
-            if (local.Velocidade > radar.Velocidade) {
-                double anguloRelacaoRadar = local.Sentido - radar.Direcao;
-                if (((Math.Abs(anguloRelacaoRadar) % 360) <= PreferenciaUtils.AnguloRadar) || ((360 - Math.Abs(anguloRelacaoRadar)) % 360) <= PreferenciaUtils.AnguloRadar) {
-                    string posLatLong = radar.Latitude.ToString() + "|" + radar.Longitude.ToString();
-                    if ((_radares.ContainsKey(posLatLong) && _radares[posLatLong] == false) || !_radares.ContainsKey(posLatLong))
-                    {
-
-                        double anguloRadar = angleFromCoordinate(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
-                        //double meuAngulo = local.Sentido;
-
-                        double anguloDiferencial = local.Sentido - anguloRadar;
-                        if (anguloDiferencial < 0)
-                            anguloDiferencial += 360;
-                        if (anguloDiferencial > 360)
-                            anguloDiferencial -= 360;
-
-                        if (((Math.Abs(anguloDiferencial) % 360) <= PreferenciaUtils.AnguloCone) || ((360 - Math.Abs(anguloDiferencial)) % 360) <= PreferenciaUtils.AnguloCone)
-                        {
-                            _radares.Add(posLatLong, true);
-                            //alertar(local, radar);
-                            return true;
-                        }
-                        else
-                            Debug.WriteLine("Radar não está no cone. Meu angulo (" + Math.Floor(local.Sentido) + ") + eu/radar(" + Math.Floor(anguloRadar) + ").");
-                    }
-                    else
-                        Debug.WriteLine("Radar encontrado mas já foi alertado.");
-                }
-                else
-                    Debug.WriteLine("Radar encontrado mas angulo não bate com o do radar = " + Math.Floor(anguloRelacaoRadar) + ".");
-            }
-            return false;
-        }
-
-        public bool radarContinuaAFrente(LocalizacaoInfo local, RadarInfo radar)
-        {
-            if (local.Velocidade > radar.Velocidade)
+            //if (local.Velocidade > radar.Velocidade) {
+            double anguloRelacaoRadar = local.Sentido - radar.Direcao;
+            if (((Math.Abs(anguloRelacaoRadar) % 360) <= PreferenciaUtils.AnguloRadar) || ((360 - Math.Abs(anguloRelacaoRadar)) % 360) <= PreferenciaUtils.AnguloRadar)
             {
-                double anguloRelacaoRadar = local.Sentido - radar.Direcao;
-                if (((Math.Abs(anguloRelacaoRadar) % 360) <= PreferenciaUtils.AnguloRadar) || ((360 - Math.Abs(anguloRelacaoRadar)) % 360) <= PreferenciaUtils.AnguloRadar)
+                string posLatLong = radar.Latitude.ToString() + "|" + radar.Longitude.ToString();
+                if ((_radares.ContainsKey(posLatLong) && _radares[posLatLong] == false) || !_radares.ContainsKey(posLatLong))
                 {
+
                     double anguloRadar = angleFromCoordinate(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
+                    //double meuAngulo = local.Sentido;
 
                     double anguloDiferencial = local.Sentido - anguloRadar;
                     if (anguloDiferencial < 0)
@@ -205,13 +173,45 @@ namespace Radar.BLL
                         anguloDiferencial -= 360;
 
                     if (((Math.Abs(anguloDiferencial) % 360) <= PreferenciaUtils.AnguloCone) || ((360 - Math.Abs(anguloDiferencial)) % 360) <= PreferenciaUtils.AnguloCone)
+                    {
+                        _radares.Add(posLatLong, true);
+                        //alertar(local, radar);
                         return true;
+                    }
                     else
                         Debug.WriteLine("Radar não está no cone. Meu angulo (" + Math.Floor(local.Sentido) + ") + eu/radar(" + Math.Floor(anguloRadar) + ").");
                 }
                 else
-                    Debug.WriteLine("Radar encontrado mas angulo não bate com o do radar = " + Math.Floor(anguloRelacaoRadar) + ".");
+                    Debug.WriteLine("Radar encontrado mas já foi alertado.");
             }
+            else
+                Debug.WriteLine("Radar encontrado mas angulo não bate com o do radar = " + Math.Floor(anguloRelacaoRadar) + ".");
+            //}
+            return false;
+        }
+
+        public bool radarContinuaAFrente(LocalizacaoInfo local, RadarInfo radar)
+        {
+            //if (local.Velocidade > radar.Velocidade) {
+            double anguloRelacaoRadar = local.Sentido - radar.Direcao;
+            if (((Math.Abs(anguloRelacaoRadar) % 360) <= PreferenciaUtils.AnguloRadar) || ((360 - Math.Abs(anguloRelacaoRadar)) % 360) <= PreferenciaUtils.AnguloRadar)
+            {
+                double anguloRadar = angleFromCoordinate(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
+
+                double anguloDiferencial = local.Sentido - anguloRadar;
+                if (anguloDiferencial < 0)
+                    anguloDiferencial += 360;
+                if (anguloDiferencial > 360)
+                    anguloDiferencial -= 360;
+
+                if (((Math.Abs(anguloDiferencial) % 360) <= PreferenciaUtils.AnguloCone) || ((360 - Math.Abs(anguloDiferencial)) % 360) <= PreferenciaUtils.AnguloCone)
+                    return true;
+                else
+                    Debug.WriteLine("Radar não está no cone. Meu angulo (" + Math.Floor(local.Sentido) + ") + eu/radar(" + Math.Floor(anguloRadar) + ").");
+            }
+            else
+                Debug.WriteLine("Radar encontrado mas angulo não bate com o do radar = " + Math.Floor(anguloRelacaoRadar) + ".");
+            //}
             return false;
         }
 
