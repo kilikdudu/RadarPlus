@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="ArquivoiOS.cs" />
     <Compile Include="AudioiOS.cs" />
+    <Compile Include="InternetiOS.cs" />
     <Compile Include="MensagemiOS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

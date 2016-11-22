@@ -156,17 +156,11 @@ namespace Radar.BLL
 
         }
 
-        public static double DistanciaRadar {
-            get {
-                return 500;
-            }
-        }
-
         public static int DistanciaAlertaUrbano
         {
             get
             {
-                return _regraPreferencia.pegarInt(DISTANCIA_ALERTA_URBANO, 50);
+                return _regraPreferencia.pegarInt(DISTANCIA_ALERTA_URBANO, 250);
             }
             set {
                 _regraPreferencia.gravar(DISTANCIA_ALERTA_URBANO, value);
@@ -177,7 +171,7 @@ namespace Radar.BLL
         {
             get
             {
-                return _regraPreferencia.pegarInt(DISTANCIA_ALERTA_ESTRADA, 300);
+                return _regraPreferencia.pegarInt(DISTANCIA_ALERTA_ESTRADA, 900);
             }
             set {
                 _regraPreferencia.gravar(DISTANCIA_ALERTA_ESTRADA, value);
