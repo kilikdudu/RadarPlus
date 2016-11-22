@@ -15,6 +15,7 @@ using Xamarin.Forms.Maps;
 using Radar.iOS;
 using Radar.Model;
 using Radar.BLL;
+using System.Drawing;
 
 [assembly: ExportRenderer(typeof(RadarMap), typeof(RadarMapRenderer))]
 
@@ -24,6 +25,7 @@ namespace Radar.iOS
     {
         RadarMap _radarMap;
         MKMapView _nativeMap;
+
         //UIView customPinView;
         //bool animando = false;
 
@@ -40,13 +42,17 @@ namespace Radar.iOS
             if (e.NewElement != null)
             {
                 _radarMap = (RadarMap)e.NewElement;
-                _nativeMap = Control as MKMapView;
+				SetNativeControl(new MKMapView(CGRect.Empty));
+				_nativeMap = (MapKit.MKMapView)Control;
+				MeuCustomPin customPin = new MeuCustomPin();
+				_nativeMap.Delegate = customPin;
                 //_nativeMap.GetViewForAnnotation = GetViewForAnnotation;
                 _radarMap.AoAtualizaPosicao += (object sender, LocalizacaoInfo local) => {
                     CoreLocation.CLLocationCoordinate2D target = new CoreLocation.CLLocationCoordinate2D(local.Latitude, local.Longitude);
 
                     MKMapCamera camera = MKMapCamera.CameraLookingAtCenterCoordinate(target, PreferenciaUtils.NivelZoom, local.Sentido, local.Sentido);
                     _nativeMap.Camera = camera;
+					_nativeMap.ZoomEnabled = false;
                     /*
                     if (!animando)
                     {
@@ -72,12 +78,16 @@ namespace Radar.iOS
 
         private void desenharRadar(RadarPin radar)
         {
+			
+			_nativeMap = Control as MKMapView;
+
             var marker = new MKPointAnnotation()
             {
                 Coordinate = new CoreLocation.CLLocationCoordinate2D(radar.Pin.Position.Latitude, radar.Pin.Position.Longitude),
                 Title = radar.Pin.Label,
-                Subtitle = radar.Pin.Address
+				Subtitle = radar.Pin.Address
             };
+
             _nativeMap.AddAnnotation(marker);
             /*
             var marker = new MarkerOptions();
@@ -89,7 +99,34 @@ namespace Radar.iOS
             map.AddMarker(marker);
             */
         }
+		public class MeuCustomPin : MKMapViewDelegate
+		{
+			protected string annotationIdentifier = "PinAnnotation";
 
+			public override MKAnnotationView GetViewForAnnotation(MKMapView mapView, IMKAnnotation annotation)
+			{
+				MKAnnotationView anView;
+
+				if (annotation is MKUserLocation)
+					return null;
+			    anView = (MKAnnotationView)mapView.DequeueReusableAnnotation(annotationIdentifier);
+
+				if (anView == null)
+				{
+					anView = new MKAnnotationView(annotation, annotationIdentifier);
+				}
+
+				anView.Image = GetImage("40_radar.png");
+				anView.CanShowCallout = true;
+				return anView;
+			}
+
+			public UIImage GetImage(String imageName)
+			{
+				var image = UIImage.FromFile(imageName).Scale(new SizeF() { Height = 20, Width = 30 });
+				return image;
+			}
+		}
         /*
         MKAnnotationView GetViewForAnnotation(MKMapView mapView, IMKAnnotation annotation)
         {
