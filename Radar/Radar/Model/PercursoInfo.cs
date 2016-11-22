@@ -31,25 +31,25 @@ namespace Radar.Model
 		public double DistanciaTotal { get; set; }
 
 		[Ignore]
-		public String DataTitulo { get; set; }
+		public DateTime DataTitulo { get; set; }
 
 		[Ignore]
 		public String EnderecoDestino { get; set; }
 
 		[Ignore]
-		public String VelocidadeMedia { get; set; }
+		public int VelocidadeMedia { get; set; }
 
 		[Ignore]
-		public String VelocidadeMaxima { get; set; }
+		public int VelocidadeMaxima { get; set; }
 
 		[Ignore]
-		public String TempoParado { get; set; }
+		public TimeSpan TempoParado { get; set; }
 
 		[Ignore]
-		public String QuantRadares { get; set; }
+		public int QuantidadeRadar { get; set; }
 
 		[Ignore]
-		public String QuantParadas { get; set; }
+		public int QuantidadeParada { get; set; }
 
         [Ignore]
         public TimeSpan TempoGravacao { get; set; }
@@ -63,5 +63,68 @@ namespace Radar.Model
                 return "Tempo: " + tempo.ToString();
             }
         }
+
+		public string VelocidadeMediaStr
+		{
+			get
+			{
+				double velocidadeMedia = VelocidadeMedia;
+				return "V Méd: " + velocidadeMedia.ToString()+ " Km/h ";
+			}
+		}
+
+		public string VelocidadeMaximaStr
+		{
+			get
+			{
+				double velocidadeMaxima = VelocidadeMaxima;
+				return "V Max: " + velocidadeMaxima.ToString() + " Km/h ";
+			}
+		}
+
+		public string DataTituloStr
+		{
+			get
+			{
+				DateTime dataTitulo = DataTitulo;
+				return dataTitulo.ToString("dd/MMM - HH:mm");
+			}
+		}
+
+		public string TempoParadoStr
+		{
+			get
+			{
+				TimeSpan tempoParado = TempoParado;
+				return "Parado: " + tempoParado.ToString();
+			}
+		}
+
+		public string QuantidadeRadarStr
+		{
+			get
+			{
+				int quantidadeRadar = QuantidadeRadar;
+				return "Radares: " + quantidadeRadar.ToString();
+			}
+		}
+
+		public string QuantidadeParadaStr
+		{
+			get
+			{
+				int quantidadeParada = QuantidadeParada;
+				return "Paradas: " + quantidadeParada.ToString();
+			}
+		}
+
+		public string DistanciaTotalStr
+		{
+			get
+			{
+				double distanciaTotal = Math.Floor(DistanciaTotal / 1000);
+				return  distanciaTotal.ToString() + " Km ";
+			}
+		}
     }
 }

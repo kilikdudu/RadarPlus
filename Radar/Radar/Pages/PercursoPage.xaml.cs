@@ -107,7 +107,13 @@ namespace Radar.Pages
 					icoPlay.Source = "Play.png";
 					MensagemUtils.avisar("Gravação finalizada!");
 					MensagemUtils.pararNotificaoPercurso();
-					OnAppearing();
+
+
+					percursoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+
+					var percursos = regraPercurso.listar();
+					percursoListView.BindingContext = percursos;
+					percursoListView.ItemTemplate = new DataTemplate(typeof(PercursoPageCell));
 				}
 				else {
 					MensagemUtils.avisar("Não foi possível parar a gravação!");
@@ -121,17 +127,19 @@ namespace Radar.Pages
 					stackDescricaoGravando.Children.Remove(infoLabel);
 					stackDescricaoGravando.Children.Add(desc);
 
+					PercursoInfo percursoInfo = new PercursoInfo();
 
-					tempoCorrendo.Text = "Tempo: 00:00:15";
-					tempoParado.Text = "Parado: 00:00:15";
+					tempoCorrendo.Text = percursoInfo.TempoGravacaoStr ;
 
-					paradas.Text = "Paradas: 0";
+					tempoParado.Text = percursoInfo.TempoParadoStr;
 
-					velocidadeMedia.Text = "V Méd: 0 km/h";
-					velocidadeMaxima.Text = "V Max: 0 km/h";
+					paradas.Text = percursoInfo.QuantidadeParadaStr;
 
-					radares.Text = "Radares: 0";
+					velocidadeMedia.Text = percursoInfo.VelocidadeMediaStr;
 
+					velocidadeMaxima.Text = percursoInfo.VelocidadeMaximaStr;
+
+					radares.Text = percursoInfo.QuantidadeRadarStr;
 
 					icoPlay.Source = "Stop.png";
 					MensagemUtils.avisar("Iniciando gravação do percurso!");
@@ -182,31 +190,43 @@ namespace Radar.Pages
 
 			public PercursoPageCell()
 			{
-				MenuItem excluirPercurso = new MenuItem();
-			
-				excluirPercurso.CommandParameter = "{Binding .}";
-				excluirPercurso.Text = "Excluir";
-				excluirPercurso.IsDestructive = true;
-				excluirPercurso.Clicked += async (object sender, EventArgs e) => { 
-				PercursoInfo percurso = (PercursoInfo)((MenuItem)sender).BindingContext;
+				var excluiPercurso = new MenuItem
+				{
+					Text = "Excluir"
+				};
+
+				excluiPercurso.SetBinding(MenuItem.CommandParameterProperty, new Binding("."));
+				excluiPercurso.Clicked += (sender, e) =>
+				{
+					PercursoInfo percurso = (PercursoInfo)((MenuItem)sender).BindingContext;
 					PercursoBLL regraPercurso = PercursoFactory.create();
 					regraPercurso.excluir(percurso.Id);
-					OnAppearing();
-				};
-					
-				MenuItem simularPercurso = new MenuItem();
 
-				simularPercurso.CommandParameter = "{Binding .}";
-				simularPercurso.Text = "Simular";
-				simularPercurso.Clicked += async (object sender, EventArgs e) =>
+					ListView percursoListView = this.Parent as ListView;
+
+					percursoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+
+					var percursos = regraPercurso.listar();
+					percursoListView.BindingContext = percursos;
+					percursoListView.ItemTemplate = new DataTemplate(typeof(PercursoPageCell));
+				};
+
+				var simulaPercurso = new MenuItem
+				{
+					Text = "Simular"
+				};
+
+				simulaPercurso.SetBinding(MenuItem.CommandParameterProperty, new Binding("."));
+				simulaPercurso.Clicked += ( sender, e) =>
 				{
 					PercursoInfo percurso = (PercursoInfo)((MenuItem)sender).BindingContext;
 					if (percurso != null)
 						GPSUtils.simularPercurso(percurso.Id);
 					OnAppearing();
 				};
-				this.ContextActions.Add(simularPercurso);
-				this.ContextActions.Add(excluirPercurso);
+
+				ContextActions.Add(simulaPercurso);
+				ContextActions.Add(excluiPercurso);
 
 
 				//desc.VerticalOptions = LayoutOptions.Center;
@@ -231,15 +251,15 @@ namespace Radar.Pages
 
 				tempoCorrendo.SetBinding(Label.TextProperty, new Binding("TempoGravacaoStr"));
 
-				tempoParado.SetBinding(Label.TextProperty, new Binding("TempoParado"));
+				tempoParado.SetBinding(Label.TextProperty, new Binding("TempoParadoStr"));
 
-				paradas.SetBinding(Label.TextProperty, new Binding("QuantParadas"));
+				paradas.SetBinding(Label.TextProperty, new Binding("QuantidadeParadaStr"));
 
-				velocidadeMedia.SetBinding(Label.TextProperty, new Binding("VelocidadeMedia"));
+				velocidadeMedia.SetBinding(Label.TextProperty, new Binding("VelocidadeMediaStr"));
 
-				velocidadeMaxima.SetBinding(Label.TextProperty, new Binding("VelocidadeMaxima"));
+				velocidadeMaxima.SetBinding(Label.TextProperty, new Binding("VelocidadeMaximaStr"));
 
-				radares.SetBinding(Label.TextProperty, new Binding("QuantRadares"));
+				radares.SetBinding(Label.TextProperty, new Binding("QuantidadeRadarStr"));
 
 				desc.Children.Add(relogioIco);
 				desc.Children.Add(tempoCorrendo);
@@ -303,7 +323,7 @@ namespace Radar.Pages
 					HorizontalOptions = LayoutOptions.Center,
 					VerticalOptions = LayoutOptions.Start
 				};
-				distanciaText.SetBinding(Label.TextProperty, new Binding("DistanciaTotal"));
+				distanciaText.SetBinding(Label.TextProperty, new Binding("DistanciaTotalStr"));
 
 				cardLeftStack.Children.Add(percursoIco);
 				//cardLeftStack.Children.Add(linha);
@@ -332,7 +352,7 @@ namespace Radar.Pages
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
 				};
-				titulo.SetBinding(Label.TextProperty, new Binding("DataTitulo"));
+				titulo.SetBinding(Label.TextProperty, new Binding("DataTituloStr"));
 
 				Label endereco = new Label()
 				{
