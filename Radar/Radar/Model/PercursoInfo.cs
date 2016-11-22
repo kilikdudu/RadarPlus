@@ -31,7 +31,25 @@ namespace Radar.Model
 		public double DistanciaTotal { get; set; }
 
 		[Ignore]
-		public double VelocidadeMedia { get; set; }
+		public String DataTitulo { get; set; }
+
+		[Ignore]
+		public String EnderecoDestino { get; set; }
+
+		[Ignore]
+		public String VelocidadeMedia { get; set; }
+
+		[Ignore]
+		public String VelocidadeMaxima { get; set; }
+
+		[Ignore]
+		public String TempoParado { get; set; }
+
+		[Ignore]
+		public String QuantRadares { get; set; }
+
+		[Ignore]
+		public String QuantParadas { get; set; }
 
         [Ignore]
         public TimeSpan TempoGravacao { get; set; }

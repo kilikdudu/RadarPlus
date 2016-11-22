@@ -230,14 +230,16 @@ namespace Radar.Pages
 				radarIco.Source = "radar_20x20_preto.png";
 
 				tempoCorrendo.SetBinding(Label.TextProperty, new Binding("TempoGravacaoStr"));
-				tempoParado.Text = "Parado: 00:00:15";
 
-				paradas.Text = "Paradas: 0";
+				tempoParado.SetBinding(Label.TextProperty, new Binding("TempoParado"));
 
-				velocidadeMedia.Text = "V Méd: 0 km/h";
-				velocidadeMaxima.Text = "V Max: 0 km/h";
+				paradas.SetBinding(Label.TextProperty, new Binding("QuantParadas"));
 
-				radares.Text = "Radares: 0";
+				velocidadeMedia.SetBinding(Label.TextProperty, new Binding("VelocidadeMedia"));
+
+				velocidadeMaxima.SetBinding(Label.TextProperty, new Binding("VelocidadeMaxima"));
+
+				radares.SetBinding(Label.TextProperty, new Binding("QuantRadares"));
 
 				desc.Children.Add(relogioIco);
 				desc.Children.Add(tempoCorrendo);
@@ -325,23 +327,23 @@ namespace Radar.Pages
 
 				Label titulo = new Label()
 				{
-					Text = "31/0ut, 17:41",
 					HorizontalOptions = LayoutOptions.StartAndExpand,
 					FontSize = 26,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
 				};
-
+				titulo.SetBinding(Label.TextProperty, new Binding("DataTitulo"));
 
 				Label endereco = new Label()
 				{
-					Text = "Rua H-149, 1-73 Cidade Vera Cruz/ Aparecida de Goiânia",
+					//Text = "Rua H-149, 1-73 Cidade Vera Cruz/ Aparecida de Goiânia",
 					WidthRequest = main.WidthRequest * 0.7,
 					HorizontalOptions = LayoutOptions.StartAndExpand,
 					//FontSize = 20,
 					FontFamily = "Roboto-Condensed",
 					//HorizontalTextAlignment = TextAlignment.Start
 				};
+				endereco.SetBinding(Label.TextProperty, new Binding("EnderecoDestino"));
 
 
 				cardRigthStackVer.Children.Add(titulo);

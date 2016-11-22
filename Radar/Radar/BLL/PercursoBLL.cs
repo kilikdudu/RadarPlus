@@ -61,7 +61,14 @@ namespace Radar.BLL
                     percurso.TempoGravacao = maiorTempo.Subtract(menorTempo);
                 }
                 percurso.Pontos = pontos;
+				percurso.DataTitulo = dataTitulo(percurso);
+				percurso.EnderecoDestino = enderecoDestino(percurso);
 				percurso.DistanciaTotal = distanciaTotal(percurso);
+				percurso.VelocidadeMedia = velocidadeMedia(percurso);
+				percurso.VelocidadeMaxima = velocidadeMaxima(percurso);
+				percurso.QuantParadas = "Paradas: " + 0;
+				percurso.QuantRadares = "Radares: " + 0;
+				percurso.TempoParado = "Parado: " + TEMPO_MINIMO_PARADO;
             }
         }
 
@@ -169,6 +176,18 @@ namespace Radar.BLL
             _percursoDB.excluir(id);
         }
 
+		public String enderecoDestino(PercursoInfo percurso)
+		{
+
+			String total = null;
+
+
+				total = "Rua H- 149, 1-73 Cidade Vera Cruz/ Aparecida de Goiânia ";
+
+
+			return total;
+		}
+
 		public double distanciaTotal(PercursoInfo percurso) {
 			var regraRadar = RadarFactory.create();
 			int count = 0;
@@ -187,6 +206,46 @@ namespace Radar.BLL
 				finalLat = pontos.Latitude;
 				finalLong = pontos.Longitude;
 				count++;
+			}
+			return total;
+		}
+
+		public String dataTitulo(PercursoInfo percurso)
+		{
+
+			String total = null;
+
+			if (percurso.Pontos.Count > 0)
+			{
+				total = percurso.Pontos[0].Data.ToString();
+			}
+
+			return total;
+		}
+
+		public String velocidadeMedia(PercursoInfo percurso)
+		{
+			var regraRadar = RadarFactory.create();
+
+			String total = null;
+
+			if (percurso.Pontos.Count > 0)
+			{
+				total = "V Méd: " + percurso.Pontos[0].Data.ToString() + " Km/h ";
+			}
+
+			return total;
+		}
+
+		public String velocidadeMaxima(PercursoInfo percurso)
+		{
+			var regraRadar = RadarFactory.create();
+
+			String total = null;
+
+			if (percurso.Pontos.Count > 0)
+			{
+				total = "V Max: " + percurso.Pontos[0].Velocidade.ToString() + " Km/h ";
 			}
 			return total;
 		}
