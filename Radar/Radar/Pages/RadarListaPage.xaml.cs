@@ -32,15 +32,15 @@ namespace Radar.Pages
 			RadarListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
 			RadarListView.ItemTemplate = new DataTemplate(typeof(ConteudoCelula));
 
-			var percursos = regraRadar.listar();
+			var radar = regraRadar.listar();
 
 			//desc.VerticalOptions = LayoutOptions.Center;
 
 
-			if (percursos.Count > 0)
+			if (radar.Count > 0)
 			{
 				//percursoListView.SetBinding(Label.TextProperty, new Binding("Data"));
-				this.BindingContext = percursos;
+				this.BindingContext = radar;
 
 			}
             
@@ -158,39 +158,44 @@ namespace Radar.Pages
 
 				Label limite = new Label()
 				{
-					Text = "Limite: 60 km/h ",
 					HorizontalOptions = LayoutOptions.StartAndExpand,
 					//FontSize = 28,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
 				};
+				limite.SetBinding(Label.TextProperty, new Binding("VelocidadeStr"));
+
 
 				Label latitude = new Label()
 				{ 
-					Text = "Latitude: 16,73456 ",
+					
 					HorizontalOptions = LayoutOptions.StartAndExpand,
 					//FontSize = 28,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
 				};
-
+				latitude.SetBinding(Label.TextProperty,  new Binding("LatitudeText"));
+			
 				Label longitude = new Label()
 				{
-					Text = "Longitude: -49,23480 ",
+					//Text = "Longitude: -49,23480 ",
 					HorizontalOptions = LayoutOptions.StartAndExpand,
 					//FontSize = 28,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
 				};
+				longitude.SetBinding(Label.TextProperty, new Binding("LongitudeText"));
+
 
 				Label angulo = new Label()
 				{
-					Text = "Ângulo: 179.0 ",
+					//Text = "Ângulo: 179.0 ",
 					HorizontalOptions = LayoutOptions.StartAndExpand,
 					//FontSize = 28,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
 				};
+				angulo.SetBinding(Label.TextProperty,  new Binding("DirecaoText"));
 
 
 				Label endereco = new Label()

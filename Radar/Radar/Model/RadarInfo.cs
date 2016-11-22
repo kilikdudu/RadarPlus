@@ -31,6 +31,8 @@ namespace Radar.Model
             }
         }
 
+		public DateTime DataInclusao { get; set; }
+
         [Obsolete("Usando Latitude")]
         public double lat {
             get {
@@ -148,6 +150,16 @@ namespace Radar.Model
             }
         }
 
+		[Ignore]
+		public string LatitudeText
+		{
+			get
+			{
+				return "Latitude: " + _Latitude.ToString() + " ";
+			}
+
+		}
+
         [Ignore]
         public double Longitude {
             get {
@@ -157,6 +169,15 @@ namespace Radar.Model
                 _Longitude = value;
             }
         }
+
+		[Ignore]
+		public String LongitudeText
+		{
+			get
+			{
+				return "Longitude: " +_Longitude.ToString() + " ";
+			}
+		}
 
         [Ignore]
         public double LatitudeCos {
@@ -223,7 +244,7 @@ namespace Radar.Model
         public string VelocidadeStr
         {
             get {
-                return Velocidade.ToString() + "km/h";
+                return "Limite: " + Velocidade.ToString() + "km/h ";
             }
         }
 
@@ -236,6 +257,16 @@ namespace Radar.Model
                 _Direcao = value;
             }
         }
+
+		[Ignore]
+		public string DirecaoText
+		{
+			get
+			{
+				return "Ângulo: " + _Direcao.ToString() + " ";
+			}
+
+		}
 
         [Ignore]
         public bool Usuario {
