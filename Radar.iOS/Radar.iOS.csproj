@@ -182,6 +182,20 @@
     <BundleResource Include="Resources\relogio_20x20_preto.png" />
     <BundleResource Include="Resources\Stop.png" />
     <BundleResource Include="Resources\velocimetro_20x20_preto.png" />
+    <BundleResource Include="Resources\sat01.png" />
+    <BundleResource Include="Resources\sat02.png" />
+    <BundleResource Include="Resources\sat03.png" />
+    <BundleResource Include="Resources\sat04.png" />
+    <BundleResource Include="Resources\100_radar.png" />
+    <BundleResource Include="Resources\110_radar.png" />
+    <BundleResource Include="Resources\20_radar.png" />
+    <BundleResource Include="Resources\30_radar.png" />
+    <BundleResource Include="Resources\40_radar.png" />
+    <BundleResource Include="Resources\50_radar.png" />
+    <BundleResource Include="Resources\60_radar.png" />
+    <BundleResource Include="Resources\70_radar.png" />
+    <BundleResource Include="Resources\80_radar.png" />
+    <BundleResource Include="Resources\90_radar.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -330,10 +344,6 @@
     <ITunesArtwork Include="iTunesArtwork" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\sat01.png" />
-    <AndroidResource Include="Resources\sat02.png" />
-    <AndroidResource Include="Resources\sat03.png" />
-    <AndroidResource Include="Resources\sat04.png" />
     <AndroidResource Include="Resources\bg.png" />
   </ItemGroup>
   <ItemGroup>
