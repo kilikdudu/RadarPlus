@@ -66,9 +66,9 @@ namespace Radar.BLL
 				percurso.DistanciaTotal = distanciaTotal(percurso);
 				percurso.VelocidadeMedia = velocidadeMedia(percurso);
 				percurso.VelocidadeMaxima = velocidadeMaxima(percurso);
-				percurso.QuantParadas = "Paradas: " + 0;
-				percurso.QuantRadares = "Radares: " + 0;
-				percurso.TempoParado = "Parado: " + TEMPO_MINIMO_PARADO;
+				percurso.QuantidadeParada = 0;
+				percurso.QuantidadeRadar =  0;
+				percurso.TempoParado = tempoParado(percurso);
             }
         }
 
@@ -211,42 +211,58 @@ namespace Radar.BLL
 			return total;
 		}
 
-		public String dataTitulo(PercursoInfo percurso)
+		public DateTime dataTitulo(PercursoInfo percurso)
 		{
 
-			String total = null;
+			DateTime total = new DateTime();
 
 			if (percurso.Pontos.Count > 0)
 			{
-				total = percurso.Pontos[0].Data.ToString();
+				total = percurso.Pontos[0].Data;
 			}
 
 			return total;
 		}
 
-		public String velocidadeMedia(PercursoInfo percurso)
-		{
-			var regraRadar = RadarFactory.create();
-
-			String total = null;
-
-			if (percurso.Pontos.Count > 0)
+		public int velocidadeMedia(PercursoInfo percurso)
+		{     
+			int total = 0;
+			var pontos = _pontoDB.listar(percurso.Id);
+			if (pontos.Count() > 0)
 			{
-				total = "V Méd: " + percurso.Pontos[0].Data.ToString() + " Km/h ";
+				DateTime maiorTempo = (from p in pontos select p.Data).Max();
+				DateTime menorTempo = (from p in pontos select p.Data).Min();
+				double horas = maiorTempo.Subtract(menorTempo).TotalHours;
+
+				total = (int)Math.Floor(((distanciaTotal(percurso) / 1000) / horas));
 			}
+
 
 			return total;
 		}
 
-		public String velocidadeMaxima(PercursoInfo percurso)
+		public int velocidadeMaxima(PercursoInfo percurso)
 		{
-			var regraRadar = RadarFactory.create();
-
-			String total = null;
+			int total = 0;
 
 			if (percurso.Pontos.Count > 0)
 			{
-				total = "V Max: " + percurso.Pontos[0].Velocidade.ToString() + " Km/h ";
+				total =  (int)Math.Floor((from p in percurso.Pontos select p.Velocidade).Max());
+			}
+			return total;
+		}
+
+		public TimeSpan tempoParado(PercursoInfo percurso)
+		{
+			TimeSpan total = new TimeSpan();
+
+			if (percurso.Pontos.Count > 0)
+			{
+				
+				DateTime maiorTempo = (from p in percurso.Pontos select p.Data).Max();
+					DateTime menorTempo = (from p in percurso.Pontos select p.Data).Min();
+					total = maiorTempo.Subtract(menorTempo);
+
 			}
 			return total;
 		}
