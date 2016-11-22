@@ -26,6 +26,7 @@ namespace Radar.Utils
         private static int _indexPercuso = 0;
         private static DateTime _ultimoPonto;
         private static LocalizacaoInfo _ultimaLocalizacao = null;
+        private static int DistanciaOld = 0;
 
         public static bool Simulado {
             get {
@@ -57,6 +58,34 @@ namespace Radar.Utils
             _gpsServico.inicializar();            
         }
 
+        private static int arredondarDistancia(double distancia) {
+            return Convert.ToInt32(Math.Floor(distancia / 100) * 100);
+        }
+
+        private static void avisarRadar(LocalizacaoInfo local, RadarInfo radar) {
+            RadarBLL.RadarAtual = radar;
+            string mensagem = "Tem um radar a frente, diminua para " + radar.Velocidade.ToString() + "km/h!";
+            MensagemUtils.notificar(RADAR_ID, "Alerta de Radar", mensagem);
+            if (PreferenciaUtils.VibrarAlerta)
+            {
+                int tempo = PreferenciaUtils.TempoDuracaoVibracao;
+                if (tempo <= 0)
+                    tempo = 1;
+                tempo = tempo * 1000;
+                MensagemUtils.vibrar(tempo);
+            }
+            if (PreferenciaUtils.HabilitarVoz)
+            {
+                int distancia = arredondarDistancia(local.Distancia);
+                if (distancia != DistanciaOld)
+                {
+                    var regraAviso = new AvisoSonoroBLL();
+                    regraAviso.play(RadarTipoEnum.RadarFixo, radar.Velocidade, distancia);
+                    DistanciaOld = distancia;
+                }
+            }
+        }
+
         private static void executarPosicao(LocalizacaoInfo local) {
             try
             {
@@ -72,16 +101,8 @@ namespace Radar.Utils
                     RadarInfo radar = regraRadar.calcularRadar(local);
                     if (radar != null)
                     {
-                        RadarBLL.RadarAtual = radar;
-                        string mensagem = "Tem um radar a frente, diminua para " + radar.Velocidade.ToString() + "km/h!";
-                        MensagemUtils.notificar(RADAR_ID, "Alerta de Radar", mensagem);
-                        if (PreferenciaUtils.VibrarAlerta) {
-                            int tempo = PreferenciaUtils.TempoDuracaoVibracao;
-                            if (tempo <= 0)
-                                tempo = 1;
-                            tempo = tempo * 1000;
-                            MensagemUtils.vibrar(tempo);
-                        }
+                        local.Distancia = regraRadar.calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
+                        avisarRadar(local, radar);
                     }
                 }
                 //if (MapaPage.Atual != null)
@@ -99,8 +120,7 @@ namespace Radar.Utils
                     if (radar != null)
                     {
                         visualPage.VelocidadeRadar = radar.Velocidade;
-                        double distancia = regraRadar.calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
-                        visualPage.DistanciaRadar = (float)distancia;
+                        visualPage.DistanciaRadar = (float)local.Distancia;
                     }
                     else {
                         visualPage.VelocidadeRadar = 0;

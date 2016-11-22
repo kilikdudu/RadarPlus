@@ -34,5 +34,6 @@ namespace Radar.Model
         /// </summary>
         public double Velocidade { get; set; }
         public DateTime Tempo { get; set; }
+        public double Distancia { get; set; }
     }
 }

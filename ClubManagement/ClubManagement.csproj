@@ -35,10 +35,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers\GeoEnderecoEventArgs.cs" />
+    <Compile Include="Helpers\GeoEnderecoEventHandler.cs" />
     <Compile Include="IBLL\IArquivo.cs" />
     <Compile Include="IBLL\IAudio.cs" />
+    <Compile Include="IBLL\IGeocoder.cs" />
+    <Compile Include="IBLL\IInternet.cs" />
     <Compile Include="Model\AlarmeEnum.cs" />
     <Compile Include="Model\AudioCanalEnum.cs" />
+    <Compile Include="Model\GeoEnderecoInfo.cs" />
     <Compile Include="Popup\ProgressBarPopUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\ArquivoUtils.cs" />
@@ -48,6 +53,8 @@
     <Compile Include="IBLL\IMensagem.cs" />
     <Compile Include="IBLL\IThread.cs" />
     <Compile Include="Utils\DownloaderProcessar.cs" />
+    <Compile Include="Utils\GeocoderUtils.cs" />
+    <Compile Include="Utils\InternetUtils.cs" />
     <Compile Include="Utils\MensagemUtils.cs" />
     <Compile Include="Utils\NavigationX.cs" />
     <Compile Include="Utils\ThreadUtils.cs" />
