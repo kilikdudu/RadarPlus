@@ -1,6 +1,7 @@
 ﻿using ClubManagement.Utils;
 using Radar.BLL;
 using Radar.Controls;
+using Radar.Factory;
 using Radar.Model;
 using Radar.Utils;
 using System;
@@ -165,29 +166,42 @@ namespace Radar.Pages
                     {
                         Command = new Command(() =>
                         {
-                            var regraAviso = new AvisoSonoroBLL();
-                            regraAviso.play(RadarTipoEnum.RadarFixo, 40, 300);
-                        //AudioUtils.play(AudioEnum.Alarm001);
-                        //MensagemUtils.avisar("teste");
-                        //var downloader = new DownloaderAtualizacao();
-                        //downloader.download();
-                        /*
-                        try
-                        {
-                            LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
-                            if (local != null)
+                            //var regraAviso = new AvisoSonoroBLL();
+                            //regraAviso.play(RadarTipoEnum.RadarFixo, 40, 300);
+                            //AudioUtils.play(AudioEnum.Alarm001);
+                            //MensagemUtils.avisar("teste");
+                            //var downloader = new DownloaderAtualizacao();
+                            //downloader.download();
+
+                            if (InternetUtils.estarConectado())
                             {
-                                RadarBLL regraRadar = RadarFactory.create();
-                                regraRadar.gravar(local);
-                                MensagemUtils.avisar("Radar incluído com sucesso.");
+                                float latitude = -16.697807f;
+                                float longitude = -49.231589f;
+                                GeocoderUtils.pegarAsync(latitude, longitude, (sender, e) =>
+                                {
+                                    var endereco = e.Endereco;
+                                    MensagemUtils.avisar(endereco.Logradouro);
+                                });
                             }
-                            else
-                                MensagemUtils.avisar("Nenhum movimento registrado pelo GPS.");
-                        }
-                        catch (Exception e) {
-                            MensagemUtils.avisar(e.Message);
-                        }
-                        */
+                            
+                            /*
+                            try
+                            {
+                                LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
+                                if (local != null)
+                                {
+                                    RadarBLL regraRadar = RadarFactory.create();
+                                    regraRadar.gravar(local);
+                                    MensagemUtils.avisar("Radar incluído com sucesso.");
+                                }
+                                else
+                                    MensagemUtils.avisar("Nenhum movimento registrado pelo GPS.");
+                            }
+                            catch (Exception e)
+                            {
+                                MensagemUtils.avisar(e.Message);
+                            }
+                            */
                         }
                     )
                 });
