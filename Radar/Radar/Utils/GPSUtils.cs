@@ -63,9 +63,12 @@ namespace Radar.Utils
         }
 
         private static void avisarRadar(LocalizacaoInfo local, RadarInfo radar) {
+            var regraAviso = new AvisoSonoroBLL();
             RadarBLL.RadarAtual = radar;
             string mensagem = "Tem um radar a frente, diminua para " + radar.Velocidade.ToString() + "km/h!";
-            MensagemUtils.notificar(RADAR_ID, "Alerta de Radar", mensagem);
+            MensagemUtils.notificar(RADAR_ID, "Radar de " + radar.Velocidade.ToString() + "km/h", mensagem);
+            if (PreferenciaUtils.BeepAviso)
+                regraAviso.play(PreferenciaUtils.SomAlarme);
             if (PreferenciaUtils.VibrarAlerta)
             {
                 int tempo = PreferenciaUtils.TempoDuracaoVibracao;
@@ -79,7 +82,6 @@ namespace Radar.Utils
                 int distancia = arredondarDistancia(local.Distancia);
                 if (distancia != DistanciaOld)
                 {
-                    var regraAviso = new AvisoSonoroBLL();
                     regraAviso.play(RadarTipoEnum.RadarFixo, radar.Velocidade, distancia);
                     DistanciaOld = distancia;
                 }
@@ -112,7 +114,6 @@ namespace Radar.Utils
                 //VelocimetroPage velocimentro = VelocimetroPage.Atual;
                 if (visualPage != null)
                 {
-
                     visualPage.VelocidadeAtual = (float)local.Velocidade;
                     visualPage.Precisao = local.Precisao;
                     visualPage.Sentido = local.Sentido;

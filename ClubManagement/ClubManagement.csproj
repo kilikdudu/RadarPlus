@@ -41,7 +41,6 @@
     <Compile Include="IBLL\IAudio.cs" />
     <Compile Include="IBLL\IGeocoder.cs" />
     <Compile Include="IBLL\IInternet.cs" />
-    <Compile Include="Model\AlarmeEnum.cs" />
     <Compile Include="Model\AudioCanalEnum.cs" />
     <Compile Include="Model\GeoEnderecoInfo.cs" />
     <Compile Include="Popup\ProgressBarPopUp.cs" />
