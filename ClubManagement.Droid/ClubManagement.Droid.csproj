@@ -121,6 +121,8 @@
     <Compile Include="AudioAndroid.cs" />
     <Compile Include="CurrentActivityUtils.cs" />
     <Compile Include="DownloaderAndroid.cs" />
+    <Compile Include="GeocoderAndroid.cs" />
+    <Compile Include="InternetAndroid.cs" />
     <Compile Include="MensagemAndroid.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
