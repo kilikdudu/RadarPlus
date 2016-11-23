@@ -21,7 +21,7 @@ using Radar.Utils;
 namespace Radar.Droid
 {
     [Service]
-    //[IntentFilter(new String[] { "br.com.cmapps.radarservice" })]
+    [IntentFilter(new String[] { "br.com.cmapps.radar" })]
     public class GPSAndroid : Service, ILocationListener, IGPS
     {
         LocationManager _locationManager;

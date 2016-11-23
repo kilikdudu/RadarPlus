@@ -15,12 +15,15 @@ using Android;
 using Radar.Pages;
 using Android.Content;
 using ClubManagement.Droid;
+using Android.Support.V7.App;
 
 namespace Radar.Droid
 {
     [Activity(Label = "Radar", Icon = "@drawable/appicon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        private const int ID_RADAR_CLUB = 5;
+
         protected override void OnCreate(Bundle bundle)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -50,8 +53,32 @@ namespace Radar.Droid
         protected override void OnStart()
         {
             base.OnStart();
-            StartService(new Intent(this, typeof(GPSAndroid)));
-            //StartService(new Intent("br.com.cmapps.radarservice"));
+            //StartService(new Intent(this, typeof(GPSAndroid)));
+
+            //Intent intent = new Intent(this, typeof(MainActivity));
+            Intent intent = new Intent(this, typeof(GPSAndroid));
+            StartService(intent);
+            var intentPrincipal = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
+
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+            builder.SetPriority((int)NotificationPriority.Max);
+            builder.SetAutoCancel(true);
+            builder.SetContentIntent(intentPrincipal);
+            builder.SetNumber(ID_RADAR_CLUB);
+            builder.SetSmallIcon(Resource.Drawable.icon);
+            builder.SetContentTitle("Radar+ em Funcionamento");
+            //builder.SetContentText("");
+            //builder.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Alarm));
+
+            var acao = new Intent(this, typeof(BroadcastAndroid));
+            acao.SetAction("fechar-servico");
+            var pendingIntent = PendingIntent.GetBroadcast(this, 0, acao, PendingIntentFlags.UpdateCurrent);
+            builder.AddAction(new Android.Support.V4.App.NotificationCompat.Action(Resource.Drawable.mystop, "Fechar", pendingIntent));
+
+            NotificationManager notificationManager = (NotificationManager)this.GetSystemService(Context.NotificationService);
+            Notification notificacao = builder.Build();
+            notificacao.Flags = NotificationFlags.NoClear;
+            notificationManager.Notify(ID_RADAR_CLUB, notificacao);
         }
 
         protected override void OnResume()
