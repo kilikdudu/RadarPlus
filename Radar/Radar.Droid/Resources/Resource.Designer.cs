@@ -4484,58 +4484,94 @@ namespace Radar.Droid
 			public const int mr_ic_play_light = 2130837734;
 			
 			// aapt resource value: 0x7f0200e7
-			public const int navicon = 2130837735;
-			
-			// aapt resource value: 0x7f0200f8
-			public const int notification_template_icon_bg = 2130837752;
+			public const int my100 = 2130837735;
 			
 			// aapt resource value: 0x7f0200e8
-			public const int novidade = 2130837736;
+			public const int my110 = 2130837736;
 			
 			// aapt resource value: 0x7f0200e9
-			public const int percursos = 2130837737;
+			public const int my20 = 2130837737;
 			
 			// aapt resource value: 0x7f0200ea
-			public const int Play = 2130837738;
+			public const int my30 = 2130837738;
 			
 			// aapt resource value: 0x7f0200eb
-			public const int radar_20x20_preto = 2130837739;
+			public const int my40 = 2130837739;
 			
 			// aapt resource value: 0x7f0200ec
-			public const int relogio_20x20_preto = 2130837740;
+			public const int my50 = 2130837740;
 			
 			// aapt resource value: 0x7f0200ed
-			public const int reproducaodevoz = 2130837741;
+			public const int my60 = 2130837741;
 			
 			// aapt resource value: 0x7f0200ee
-			public const int sair = 2130837742;
+			public const int my70 = 2130837742;
 			
 			// aapt resource value: 0x7f0200ef
-			public const int sat01 = 2130837743;
+			public const int my80 = 2130837743;
 			
 			// aapt resource value: 0x7f0200f0
-			public const int sat02 = 2130837744;
+			public const int my90 = 2130837744;
 			
 			// aapt resource value: 0x7f0200f1
-			public const int sat03 = 2130837745;
+			public const int mypercursos = 2130837745;
 			
 			// aapt resource value: 0x7f0200f2
-			public const int sat04 = 2130837746;
+			public const int mystop = 2130837746;
 			
 			// aapt resource value: 0x7f0200f3
-			public const int seguinte = 2130837747;
+			public const int navicon = 2130837747;
+			
+			// aapt resource value: 0x7f020104
+			public const int notification_template_icon_bg = 2130837764;
 			
 			// aapt resource value: 0x7f0200f4
-			public const int sobre = 2130837748;
+			public const int novidade = 2130837748;
 			
 			// aapt resource value: 0x7f0200f5
-			public const int Stop = 2130837749;
+			public const int percursos = 2130837749;
 			
 			// aapt resource value: 0x7f0200f6
-			public const int velocimetro = 2130837750;
+			public const int Play = 2130837750;
 			
 			// aapt resource value: 0x7f0200f7
-			public const int velocimetro_20x20_preto = 2130837751;
+			public const int radar_20x20_preto = 2130837751;
+			
+			// aapt resource value: 0x7f0200f8
+			public const int relogio_20x20_preto = 2130837752;
+			
+			// aapt resource value: 0x7f0200f9
+			public const int reproducaodevoz = 2130837753;
+			
+			// aapt resource value: 0x7f0200fa
+			public const int sair = 2130837754;
+			
+			// aapt resource value: 0x7f0200fb
+			public const int sat01 = 2130837755;
+			
+			// aapt resource value: 0x7f0200fc
+			public const int sat02 = 2130837756;
+			
+			// aapt resource value: 0x7f0200fd
+			public const int sat03 = 2130837757;
+			
+			// aapt resource value: 0x7f0200fe
+			public const int sat04 = 2130837758;
+			
+			// aapt resource value: 0x7f0200ff
+			public const int seguinte = 2130837759;
+			
+			// aapt resource value: 0x7f020100
+			public const int sobre = 2130837760;
+			
+			// aapt resource value: 0x7f020101
+			public const int Stop = 2130837761;
+			
+			// aapt resource value: 0x7f020102
+			public const int velocimetro = 2130837762;
+			
+			// aapt resource value: 0x7f020103
+			public const int velocimetro_20x20_preto = 2130837763;
 			
 			static Drawable()
 			{

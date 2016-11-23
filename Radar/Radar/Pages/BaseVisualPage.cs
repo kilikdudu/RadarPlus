@@ -180,7 +180,7 @@ namespace Radar.Pages
                                 GeocoderUtils.pegarAsync(latitude, longitude, (sender, e) =>
                                 {
                                     var endereco = e.Endereco;
-                                    MensagemUtils.avisar(endereco.Logradouro);
+                                    ClubManagement.Utils.MensagemUtils.avisar(endereco.Logradouro);
                                 });
                             }
                             

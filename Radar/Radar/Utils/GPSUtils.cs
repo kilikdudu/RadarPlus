@@ -16,7 +16,6 @@ namespace Radar.Utils
 {
     public static class GPSUtils
     {
-        private const int NOTIFICACAO_SIMULACAO_ID = 1034;
         private const int RADAR_ID = 1;
 
         private static IGPS _gpsServico;
@@ -66,7 +65,7 @@ namespace Radar.Utils
             var regraAviso = new AvisoSonoroBLL();
             RadarBLL.RadarAtual = radar;
             string mensagem = "Tem um radar a frente, diminua para " + radar.Velocidade.ToString() + "km/h!";
-            MensagemUtils.notificar(RADAR_ID, "Radar de " + radar.Velocidade.ToString() + "km/h", mensagem);
+            MensagemUtils.notificar(RADAR_ID, "Radar Club", mensagem, radar.Velocidade);
             if (PreferenciaUtils.BeepAviso)
                 regraAviso.play(PreferenciaUtils.SomAlarme);
             if (PreferenciaUtils.VibrarAlerta)
@@ -151,9 +150,16 @@ namespace Radar.Utils
                 executarPosicao(local);
         }
 
+        public static void pararSimulacao() {
+            _simulando = false;
+            _indexPercuso = 0;
+            ClubManagement.Utils.MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_SIMULACAO_PERCURSO_ID);
+            ClubManagement.Utils.MensagemUtils.avisar("Simulação finalizada!");
+        }
+
         public static bool simularPercurso(int idPercurso) {
             if (_simulando) {
-                MensagemUtils.avisar("Já existe uma simulação em andamento.");
+                ClubManagement.Utils.MensagemUtils.avisar("Já existe uma simulação em andamento.");
                 return false;
             }
             PercursoBLL regraPercurso = PercursoFactory.create();
@@ -162,18 +168,25 @@ namespace Radar.Utils
             _indexPercuso = 0;
             _ultimoPonto = DateTime.MinValue;
             if (_percursoSimulado == null) {
-                MensagemUtils.avisar("Percurso não encontrado.");
+                ClubManagement.Utils.MensagemUtils.avisar("Percurso não encontrado.");
                 return false;
             }
             if (_percursoSimulado.Pontos.Count() == 0) {
-                MensagemUtils.avisar("Nenhum movimento registrado nesse percurso.");
+                ClubManagement.Utils.MensagemUtils.avisar("Nenhum movimento registrado nesse percurso.");
                 return false;
             }
-            MensagemUtils.notificarPermanente(NOTIFICACAO_SIMULACAO_ID, "Simulando percurso!", string.Empty);
-            MensagemUtils.avisar("Iniciando simulação!");
+            //MensagemUtils.notificarPermanente(NOTIFICACAO_SIMULACAO_ID, "Simulando percurso!", string.Empty);
+            ClubManagement.Utils.MensagemUtils.notificarPermanente(
+                PercursoBLL.NOTIFICACAO_SIMULACAO_PERCURSO_ID,
+                "Radar Club", "Simulando percurso...",
+                PercursoBLL.NOTIFICACAO_SIMULACAO_PARAR_PERCURSO_ID, 
+                "Parar",
+                PercursoBLL.ACAO_PARAR_SIMULACAO
+            );
+            ClubManagement.Utils.MensagemUtils.avisar("Iniciando simulação!");
             var task = Task.Factory.StartNew(() =>
             {
-                while (true)
+                while (_simulando)
                 {
                     if (_indexPercuso < _percursoSimulado.Pontos.Count())
                     {
@@ -203,10 +216,7 @@ namespace Radar.Utils
                         _indexPercuso++;
                     }
                     else {
-                        _simulando = false;
-                        _indexPercuso = 0;
-                        MensagemUtils.pararNotificaoPermanente(NOTIFICACAO_SIMULACAO_ID);
-                        MensagemUtils.avisar("Simulação terminada!");
+                        pararSimulacao();
                         break;
                     }
                 }

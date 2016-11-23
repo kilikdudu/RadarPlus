@@ -106,8 +106,8 @@ namespace Radar.Model
         [Obsolete("Usando Velocidade")]
         public int speed {
             get {
-                //return _Velocidade;
-                return 40;
+                return _Velocidade;
+                //return 40;
             }
             set {
                 _Velocidade = value;
@@ -232,8 +232,8 @@ namespace Radar.Model
         [Ignore]
         public int Velocidade {
             get {
-                //return _Velocidade;
-                return 40;
+                return _Velocidade;
+                //return 40;
             }
             set {
                 _Velocidade = value;

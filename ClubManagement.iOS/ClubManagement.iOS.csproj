@@ -68,9 +68,13 @@
   <ItemGroup>
     <Compile Include="ArquivoiOS.cs" />
     <Compile Include="AudioiOS.cs" />
+    <Compile Include="CurrentDelegateUtils.cs" />
+    <Compile Include="DownloaderiOS.cs" />
+    <Compile Include="GeocoderiOS.cs" />
     <Compile Include="InternetiOS.cs" />
     <Compile Include="MensagemiOS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThreadiOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

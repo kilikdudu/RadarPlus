@@ -6,6 +6,7 @@ using Foundation;
 using UIKit;
 
 using Xamarin.Forms;
+using ClubManagement.iOS;
 
 namespace Radar.iOS
 {
@@ -15,9 +16,11 @@ namespace Radar.iOS
 	{
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
-			global::Xamarin.Forms.Forms.Init();
+            global::Xamarin.Forms.Forms.Init();
 			global::Xamarin.FormsMaps.Init();
 			LoadApplication(new App());  // method is new in 1.3
+
+            CurrentDelegateUtils.Current = this;
 
             bool retorno = base.FinishedLaunching(app, options);
 
