@@ -17,8 +17,11 @@ namespace Radar.iOS
 		public void exibirAviso(string Titulo, string Mensagem)
         {
         }
-
-        public bool notificar(int id, string titulo, string mensagem)
+		public bool notificar(int id, string titulo, string descricao)
+        {
+            return true;
+        }
+        public bool notificar(int id, string titulo, string mensagem, double velocidade)
         {
             return true;
         }

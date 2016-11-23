@@ -164,14 +164,8 @@ namespace Radar.Controls {
             PonteiroCorEnum textoCor = PonteiroCorEnum.Verde;
             if (VelocidadeRadar > 0 && VelocidadeAtual > VelocidadeRadar)
                 textoCor = PonteiroCorEnum.Vermelho;
-			if (Device.OS == TargetPlatform.iOS)
-			{
+			
 
-				desenharTextoLabel("km/h", TelaUtils.Largura / 2.5F, TelaUtils.Altura / 3F, textoCor);
-				desenharTextoVelocidade(Math.Floor(VelocidadeAtual).ToString(), TelaUtils.Largura / 2.3F, TelaUtils.Altura / 3.5F, textoCor);
-
-			}
-			else {
 				if (TelaUtils.Largura > TelaUtils.Altura)
 				{
 					desenharTextoLabel("km/h", TelaUtils.Largura / 4.3F, TelaUtils.Altura / 1.7F, textoCor);
@@ -190,7 +184,7 @@ namespace Radar.Controls {
 					desenharTextoLabel("km/h", TelaUtils.Largura / 2.5F, TelaUtils.Altura / 3F, textoCor);
 					desenharTextoVelocidade(Math.Floor(VelocidadeAtual).ToString(), TelaUtils.Largura / 2.3F, TelaUtils.Altura / 3.5F, textoCor);
 				}
-			}
+
             //int contadorTexto = 0;
             if (Device.OS == TargetPlatform.iOS)
             {
@@ -269,24 +263,21 @@ namespace Radar.Controls {
 
                     //int posicao = loop + 20;
                     int posicao = 100 - loop;
-					if (TelaUtils.Largura > TelaUtils.Altura)
+
+					if (TelaUtils.Orientacao == "Landscape")
 					{
 
-						rect.Left = (int)Math.Floor((TelaUtils.Largura / 3.5F) + (float)((TelaUtils.Largura * 40 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
-						rect.Right = (int)Math.Floor(TelaUtils.Largura / 3.5F + (float)((TelaUtils.Largura * 40 / 100) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240)));
-						rect.Top = (int)Math.Floor((TelaUtils.Altura / 2F) + (float)((TelaUtils.Largura * 40 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
-						rect.Bottom = (int)Math.Floor(TelaUtils.Altura / 2F + (float)((TelaUtils.Largura * 40 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240)));
+						rect.Left = (int)Math.Floor((TelaUtils.Largura / 3.5F) + (float)((TelaUtils.Largura * 30 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
+						rect.Right = (int)Math.Floor(TelaUtils.Largura / 3.5F + (float)((TelaUtils.Largura * 30 / 100) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240)));
+						rect.Top = (int)Math.Floor((TelaUtils.Altura / 2F) + (float)((TelaUtils.Largura * 30 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
+						rect.Bottom = (int)Math.Floor(TelaUtils.Altura / 2F + (float)((TelaUtils.Largura * 30 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240)));
 
-						tamX = (TelaUtils.Largura / 3.8F) + (float)Math.Floor(((TelaUtils.Largura * 25 / 100) / 1.50F * Math.Cos(posicao * 6 * Math.PI / 240)));
-						tamY = (TelaUtils.Altura / 2F) + (float)Math.Floor(((TelaUtils.Largura * 25 / 100) / 1.50F * Math.Sin(posicao * 6 * Math.PI / 240)));
+						tamX = (TelaUtils.Largura / 3.8F) + (float)Math.Floor(((TelaUtils.Largura * 18 / 100) / 1.50F * Math.Cos(posicao * 6 * Math.PI / 240)));
+						tamY = (TelaUtils.Altura / 2F) + (float)Math.Floor(((TelaUtils.Largura * 18 / 100) / 1.50F * Math.Sin(posicao * 6 * Math.PI / 240)));
 
 					}
 					else {
-						if (Device.OS == TargetPlatform.iOS)
-						{
-							
-						}
-						else {
+						
 							rect.Left = (int)Math.Floor((TelaUtils.Largura / 2F) + (float)((TelaUtils.Largura * 60 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
 							rect.Right = (int)Math.Floor(TelaUtils.Largura / 2F + (float)((TelaUtils.Largura * 60 / 100) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240)));
 							rect.Top = (int)Math.Floor((TelaUtils.Altura / 3.5F) + (float)((TelaUtils.Largura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
@@ -294,6 +285,18 @@ namespace Radar.Controls {
 
 							tamX = (TelaUtils.Largura / 2.2F) + (float)Math.Floor(((TelaUtils.Altura * 23 / 100) / 1.50F * Math.Cos(posicao * 6 * Math.PI / 240)));
 							tamY = (TelaUtils.Altura / 3.4F) + (float)Math.Floor(((TelaUtils.Altura * 23 / 100) / 1.50F * Math.Sin(posicao * 6 * Math.PI / 240)));
+
+						if (TelaUtils.Orientacao == "LandscapeLeft" || TelaUtils.Orientacao == "LandscapeRight")
+						{
+
+							rect.Left = (int)Math.Floor((TelaUtils.Largura / 2F) + (float)((TelaUtils.Largura * 50 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
+							rect.Right = (int)Math.Floor(TelaUtils.Largura / 2F + (float)((TelaUtils.Largura * 50 / 100) / 1.90F * Math.Sin(loop * 6 * Math.PI / 240)));
+							rect.Top = (int)Math.Floor((TelaUtils.Altura / 3F) + (float)((TelaUtils.Largura * 50 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
+							rect.Bottom = (int)Math.Floor(TelaUtils.Altura / 3F + (float)((TelaUtils.Largura * 50 / 100) / 1.90 * Math.Cos(loop * 6 * Math.PI / 240)));
+
+							tamX = (TelaUtils.Largura / 2F) + (float)Math.Floor(((TelaUtils.Altura * 23 / 100) / 1.50F * Math.Cos(posicao * 6 * Math.PI / 240)));
+							tamY = (TelaUtils.Altura / 3F) + (float)Math.Floor(((TelaUtils.Altura * 23 / 100) / 1.50F * Math.Sin(posicao * 6 * Math.PI / 240)));
+
 						}
 					}
 
@@ -324,21 +327,27 @@ namespace Radar.Controls {
                 else {
 					if (TelaUtils.Largura > TelaUtils.Altura)
 					{
-						rect.Left = (int)Math.Floor((TelaUtils.Largura / 3.5F) + (float)((TelaUtils.Largura * 40 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
-						rect.Right = (int)Math.Floor(TelaUtils.Largura / 3.5F + (float)((TelaUtils.Largura * 40 / 100) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240)));
-						rect.Top = (int)Math.Floor((TelaUtils.Altura / 2F) + (float)((TelaUtils.Largura * 40 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
-						rect.Bottom = (int)Math.Floor(TelaUtils.Altura / 2F + (float)((TelaUtils.Largura * 40 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240)));
+						rect.Left = (int)Math.Floor((TelaUtils.Largura / 3.5F) + (float)((TelaUtils.Largura * 30 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
+						rect.Right = (int)Math.Floor(TelaUtils.Largura / 3.5F + (float)((TelaUtils.Largura * 30 / 100) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240)));
+						rect.Top = (int)Math.Floor((TelaUtils.Altura / 2F) + (float)((TelaUtils.Largura * 30 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
+						rect.Bottom = (int)Math.Floor(TelaUtils.Altura / 2F + (float)((TelaUtils.Largura * 30 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240)));
 					}
 					else {
-						if (Device.OS == TargetPlatform.iOS)
-						{
-							
-						}
-						else {
+						
 							rect.Left = (int)Math.Floor((TelaUtils.Largura / 2F) + (float)((TelaUtils.Largura * 60 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
 							rect.Right = (int)Math.Floor(TelaUtils.Largura / 2F + (float)((TelaUtils.Largura * 60 / 100) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240)));
 							rect.Top = (int)Math.Floor((TelaUtils.Altura / 3.5F) + (float)((TelaUtils.Largura * 60 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
 							rect.Bottom = (int)Math.Floor(TelaUtils.Altura / 3.5F + (float)((TelaUtils.Largura * 60 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240)));
+
+						if (TelaUtils.Orientacao == "LandscapeLeft" || TelaUtils.Orientacao == "LandscapeRight")
+						{
+
+							rect.Left = (int)Math.Floor((TelaUtils.Largura / 2F) + (float)((TelaUtils.Largura * 50 / 100) / 1.50F * Math.Sin(loop * 6 * Math.PI / 240)));
+							rect.Right = (int)Math.Floor(TelaUtils.Largura / 2F + (float)((TelaUtils.Largura * 50 / 100) / 1.70F * Math.Sin(loop * 6 * Math.PI / 240)));
+							rect.Top = (int)Math.Floor((TelaUtils.Altura / 3F) + (float)((TelaUtils.Largura * 50 / 100) / 1.50F * Math.Cos(loop * 6 * Math.PI / 240)));
+							rect.Bottom = (int)Math.Floor(TelaUtils.Altura / 3F + (float)((TelaUtils.Largura * 50 / 100) / 1.70 * Math.Cos(loop * 6 * Math.PI / 240)));
+
+				
 						}
 					}
 
