@@ -1,10 +1,12 @@
-﻿using ClubManagement.IBLL;
+﻿using AudioToolbox;
+using ClubManagement.IBLL;
 using ClubManagement.Utils;
 using Radar.iOS;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using static CoreMidi.Midi;
 
 [assembly: Dependency(typeof(MensagemiOS))]
 
@@ -21,18 +23,9 @@ namespace Radar.iOS
             return true;
         }
 
-        public bool notificarGravacaoPercurso()
-        {
-            return true;
-        }
-
-        public bool notificarPermanente(int id, string titulo, string descricao)
+        public bool notificarPermanente(int id, string titulo, string descricao, int idRadar, string textoRadar, string acaoParar)
         {
             throw new NotImplementedException();
-        }
-
-        public bool pararNotificaoPercurso() {
-            return true;
         }
 
         public bool pararNotificaoPermanente(int id)
@@ -46,7 +39,9 @@ namespace Radar.iOS
 
         public void vibrar(int milisegundo)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            //Notifications.Instance.Vibrate(2000);
+            SystemSound.Vibrate.PlayAlertSound();
         }
     }
 }

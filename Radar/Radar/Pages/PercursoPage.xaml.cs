@@ -105,8 +105,8 @@ namespace Radar.Pages
 					stackDescricaoGravando.Children.Remove(desc);
 
 					icoPlay.Source = "Play.png";
-					MensagemUtils.avisar("Gravação finalizada!");
-					MensagemUtils.pararNotificaoPercurso();
+                    ClubManagement.Utils.MensagemUtils.avisar("Gravação finalizada!");
+                    ClubManagement.Utils.MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
 
 
 					percursoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
@@ -116,7 +116,7 @@ namespace Radar.Pages
 					percursoListView.ItemTemplate = new DataTemplate(typeof(PercursoPageCell));
 				}
 				else {
-					MensagemUtils.avisar("Não foi possível parar a gravação!");
+                    ClubManagement.Utils.MensagemUtils.avisar("Não foi possível parar a gravação!");
 				}
 			}
 			else {
@@ -142,11 +142,16 @@ namespace Radar.Pages
 					radares.Text = percursoInfo.QuantidadeRadarStr;
 
 					icoPlay.Source = "Stop.png";
-					MensagemUtils.avisar("Iniciando gravação do percurso!");
-					MensagemUtils.notificarGravacaoPercurso();
+                    ClubManagement.Utils.MensagemUtils.avisar("Iniciando gravação do percurso!");
+                    ClubManagement.Utils.MensagemUtils.notificarPermanente(
+                        PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID, 
+                        "Gravando Percurso...", "",
+                        PercursoBLL.NOTIFICACAO_PARAR_PERCURSO_ID, 
+                        "Parar", PercursoBLL.ACAO_PARAR_GRAVACAO
+                    );
 				}
 				else {
-					MensagemUtils.avisar("Não foi possível iniciar a gravação!");
+                    ClubManagement.Utils.MensagemUtils.avisar("Não foi possível iniciar a gravação!");
 				}
 			}
 		}

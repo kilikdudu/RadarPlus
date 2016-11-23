@@ -18,7 +18,13 @@ namespace Radar.BLL
 
         private const int TEMPO_ATUALIZACAO_PONTO = 5;
         private const int TEMPO_MINIMO_PARADO = 120;
-        private const int VELOCIDADE_MAXIMA_PARADO = 3;//3;
+        private const int VELOCIDADE_MAXIMA_PARADO = 3;
+        public const int NOTIFICACAO_GRAVAR_PERCURSO_ID = 2301;
+        public const int NOTIFICACAO_PARAR_PERCURSO_ID = 2302;
+        public const int NOTIFICACAO_SIMULACAO_PERCURSO_ID = 1034;
+        public const int NOTIFICACAO_SIMULACAO_PARAR_PERCURSO_ID = 1035;
+        public const string ACAO_PARAR_SIMULACAO = "parar-simulacao";
+        public const string ACAO_PARAR_GRAVACAO = "parar-gravacao";
 
         private static PercursoInfo _percursoAtual;
         private static bool _gravando = false;
