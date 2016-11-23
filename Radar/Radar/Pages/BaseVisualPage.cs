@@ -210,7 +210,7 @@ namespace Radar.Pages
             _BussolaFundo = new Image
             {
                 Aspect = Aspect.AspectFit,
-                Source = ImageSource.FromFile("icones/bussolacorpo.png"),
+                Source = ImageSource.FromFile("bussolacorpo.png"),
                 WidthRequest = 180,
                 HeightRequest = 180
             };
@@ -220,7 +220,7 @@ namespace Radar.Pages
             _BussolaAgulha = new Image
             {
                 Aspect = Aspect.AspectFit,
-                Source = ImageSource.FromFile("icones/bussolaagulha.png"),
+                Source = ImageSource.FromFile("bussolaagulha.png"),
                 WidthRequest = 180,
                 HeightRequest = 180
             };

@@ -15,6 +15,8 @@ using Xamarin.Forms.Maps;
 using Radar.iOS;
 using Radar.Model;
 using Radar.BLL;
+using System.Drawing;
+using CoreLocation;
 
 [assembly: ExportRenderer(typeof(RadarMap), typeof(RadarMapRenderer))]
 
@@ -24,13 +26,14 @@ namespace Radar.iOS
     {
         RadarMap _radarMap;
         MKMapView _nativeMap;
+
         //UIView customPinView;
         //bool animando = false;
 
         protected override void OnElementChanged(ElementChangedEventArgs<View> e)
         {
             base.OnElementChanged(e);
-
+			var map = e.NewElement;
             if (e.OldElement != null)
             {
                 _nativeMap = Control as MKMapView;
@@ -39,14 +42,33 @@ namespace Radar.iOS
 
             if (e.NewElement != null)
             {
+				//RadarPin radar = new RadarPin();
+				//RadarMKAnnotation radarMKAnnotation = new RadarMKAnnotation(radar);
                 _radarMap = (RadarMap)e.NewElement;
-                _nativeMap = Control as MKMapView;
+				//SetNativeControl(new MKMapView(CGRect.Empty));
+				_nativeMap = Control as MKMapView;
+				//MeuCustomPin customPin = new MeuCustomPin();
+				//_nativeMap.Delegate = customPin;
+				//_nativeMap.AddAnnotation(new MKPointAnnotation()
+				//{
+				//	Coordinate = new CLLocationCoordinate2D(radar.Pin.Position.Latitude, radar.Pin.Position.Longitude)
+				//});
                 //_nativeMap.GetViewForAnnotation = GetViewForAnnotation;
                 _radarMap.AoAtualizaPosicao += (object sender, LocalizacaoInfo local) => {
-                    CoreLocation.CLLocationCoordinate2D target = new CoreLocation.CLLocationCoordinate2D(local.Latitude, local.Longitude);
+					
+					CLLocationCoordinate2D target = new CLLocationCoordinate2D(local.Latitude, local.Longitude);
 
-                    MKMapCamera camera = MKMapCamera.CameraLookingAtCenterCoordinate(target, PreferenciaUtils.NivelZoom, local.Sentido, local.Sentido);
-                    _nativeMap.Camera = camera;
+					MKMapCamera camera = MKMapCamera.CameraLookingAtCenterCoordinate(target, PreferenciaUtils.NivelZoom, local.Sentido, local.Sentido);
+					_nativeMap.Camera = camera;
+					//MKCoordinateRegion mapRegion = MKCoordinateRegion.FromDistance(target, 100, 100);
+					//_nativeMap.CenterCoordinate = target;
+					//_nativeMap.Region = mapRegion;
+					_nativeMap.ZoomEnabled = true;
+					//_nativeMap.ShowsUserLocation = true;
+					//MeuCustomPin customPin = new MeuCustomPin();
+
+					_nativeMap.UserInteractionEnabled = PreferenciaUtils.RotacionarMapa;
+					//_nativeMap.UserInteractionEnabled = false;
                     /*
                     if (!animando)
                     {
@@ -72,12 +94,16 @@ namespace Radar.iOS
 
         private void desenharRadar(RadarPin radar)
         {
+			
+			_nativeMap = Control as MKMapView;
+
             var marker = new MKPointAnnotation()
             {
                 Coordinate = new CoreLocation.CLLocationCoordinate2D(radar.Pin.Position.Latitude, radar.Pin.Position.Longitude),
                 Title = radar.Pin.Label,
-                Subtitle = radar.Pin.Address
+				Subtitle = radar.Pin.Address
             };
+			_nativeMap.GetViewForAnnotation = GetViewForAnnotation;
             _nativeMap.AddAnnotation(marker);
             /*
             var marker = new MarkerOptions();
@@ -89,6 +115,33 @@ namespace Radar.iOS
             map.AddMarker(marker);
             */
         }
+
+
+			 MKAnnotationView GetViewForAnnotation(MKMapView mapView, IMKAnnotation annotation)
+			{
+				var annotationIdentifier = "radarLocal";
+				MKAnnotationView anView;
+
+				if (annotation is MKUserLocation)
+					return null;
+			    anView = (MKAnnotationView)mapView.DequeueReusableAnnotation(annotationIdentifier);
+
+				if (anView == null)
+				{
+					anView = new MKAnnotationView(annotation, annotationIdentifier);
+				}
+			RadarInfo radar = new RadarInfo();
+
+			anView.Image = GetImage(_radarMap.imagemRadar(radar));
+				anView.CanShowCallout = true;
+				return anView;
+			}
+
+			public UIImage GetImage(String imageName)
+			{
+				var image = UIImage.FromFile(imageName).Scale(new SizeF() { Height = 70, Width = 70 });
+				return image;
+			}
 
         /*
         MKAnnotationView GetViewForAnnotation(MKMapView mapView, IMKAnnotation annotation)
