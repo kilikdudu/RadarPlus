@@ -57,7 +57,7 @@ namespace Radar.Controls
             }
         }
 
-        private string imagemRadar(RadarInfo radar)
+        public string imagemRadar(RadarInfo radar)
         {
             string imagem = string.Empty;
             if (radar.Velocidade >= 20 && radar.Velocidade < 30)
