@@ -51,7 +51,7 @@ namespace Radar.Pages
             };
             _reportarButton.Clicked += (sender, e) => {
                 if (_erro != null)
-                    MensagemUtils.enviarEmail(EMAIL_SUPORTE, "[" + DateTime.Now.ToString("dd/MM/yyyy hh:mm") + "] Ocorreu um erro no Radar", _erro.ToString());
+                    ClubManagement.Utils.MensagemUtils.enviarEmail(EMAIL_SUPORTE, "[" + DateTime.Now.ToString("dd/MM/yyyy hh:mm") + "] Ocorreu um erro no Radar", _erro.ToString());
             };
 
             Title = "Ocorreu um erro inesperado";

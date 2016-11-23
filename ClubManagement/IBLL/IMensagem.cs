@@ -10,10 +10,11 @@ namespace ClubManagement.IBLL
     {
         void exibirAviso(string Titulo, string Mensagem);
         bool notificar(int id, string titulo, string descricao);
-        bool notificarPermanente(int id, string titulo, string descricao);
+        bool notificar(int id, string titulo, string descricao, double velocidade);
+        bool notificarPermanente(int id, string titulo, string descricao, int idParar, string textoParar, string acaoParar);
         bool pararNotificaoPermanente(int id);
-        bool notificarGravacaoPercurso();
-        bool pararNotificaoPercurso();
+        //bool notificarGravacaoPercurso();
+        //bool pararNotificaoPercurso();
         bool enviarEmail(string para, string titulo, string mensagem);
         void vibrar(int milisegundo);
     }
