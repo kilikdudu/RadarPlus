@@ -55,20 +55,19 @@ namespace Radar.iOS
 				//});
                 //_nativeMap.GetViewForAnnotation = GetViewForAnnotation;
                 _radarMap.AoAtualizaPosicao += (object sender, LocalizacaoInfo local) => {
-					double lat = 16.6940941406801;
-					double lon = -49.2277389433755;
-                    CLLocationCoordinate2D target = new CLLocationCoordinate2D(lat, lon);
+					
+					CLLocationCoordinate2D target = new CLLocationCoordinate2D(local.Latitude, local.Longitude);
 
 					MKMapCamera camera = MKMapCamera.CameraLookingAtCenterCoordinate(target, PreferenciaUtils.NivelZoom, local.Sentido, local.Sentido);
-					//_nativeMap.Camera = camera;
-					MKCoordinateRegion mapRegion = MKCoordinateRegion.FromDistance(target, 100, 100);
+					_nativeMap.Camera = camera;
+					//MKCoordinateRegion mapRegion = MKCoordinateRegion.FromDistance(target, 100, 100);
 					//_nativeMap.CenterCoordinate = target;
 					//_nativeMap.Region = mapRegion;
 					_nativeMap.ZoomEnabled = true;
-					_nativeMap.ShowsUserLocation = true;
+					//_nativeMap.ShowsUserLocation = true;
 					//MeuCustomPin customPin = new MeuCustomPin();
 
-					//_nativeMap.UserInteractionEnabled = false;
+					_nativeMap.UserInteractionEnabled = PreferenciaUtils.RotacionarMapa;
 					//_nativeMap.UserInteractionEnabled = false;
                     /*
                     if (!animando)
@@ -140,7 +139,7 @@ namespace Radar.iOS
 
 			public UIImage GetImage(String imageName)
 			{
-				var image = UIImage.FromFile(imageName).Scale(new SizeF() { Height = 80, Width = 80 });
+				var image = UIImage.FromFile(imageName).Scale(new SizeF() { Height = 70, Width = 70 });
 				return image;
 			}
 
