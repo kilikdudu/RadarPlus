@@ -132,9 +132,21 @@ namespace Radar.Pages
 					AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
 				}
 				else {
+<<<<<<< HEAD
 					AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.77, 0.5, 0.28, 0.5));
 					AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
 				}
+=======
+                    if (size > 7) {
+                        AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.72, 0.4, 0.3, 0.5));
+                        AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
+                    }else {
+                        AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.72, 0.5, 0.3, 0.5));
+                        AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
+
+                    }
+                }
+>>>>>>> origin/Fabio
 				//placa.Margin = new Thickness(TelaUtils.LarguraSemPixel / 3, 0, 0, 0);
 
 				radarImage.WidthRequest = 50;
