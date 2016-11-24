@@ -110,7 +110,7 @@ namespace Radar.Pages
 			{
 				radarImage.WidthRequest = 70;
 				radarImage.HeightRequest = 70;
-				AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.525, 1, 0.3, 0.25));
+				AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.52, 1, 0.3, 0.25));
 				AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
 			}
 			else {
@@ -167,7 +167,7 @@ namespace Radar.Pages
 				{
 					_velocimetro.Margin = new Thickness(10, -270, 0, 0);
 
-					AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.525, 1, 0.2, 0.3));
+					AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.52, 1, 0.2, 0.3));
 					AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
 					radarImage.VerticalOptions = LayoutOptions.StartAndExpand;
 				}
