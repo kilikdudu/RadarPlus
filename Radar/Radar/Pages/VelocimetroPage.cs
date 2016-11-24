@@ -70,7 +70,7 @@ namespace Radar.Pages
             };
 
 			var absoluteLayout = new AbsoluteLayout();
-			absoluteLayout.HorizontalOptions = LayoutOptions.Fill;
+			//absoluteLayout.HorizontalOptions = LayoutOptions.Fill;
 
 			Frame placa = new Frame();
 			placa.HorizontalOptions = LayoutOptions.FillAndExpand;
@@ -82,8 +82,7 @@ namespace Radar.Pages
 			dentroPlaca.Orientation = StackOrientation.Vertical;
 			dentroPlaca.Spacing = 1;
 
-			AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.5, 0.9, 0.4, 0.3));
-			AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
+
 
 			RadarBLL radarBLL = new RadarBLL();
 
@@ -106,12 +105,18 @@ namespace Radar.Pages
 			_DistanciaRadarLabel.VerticalOptions = LayoutOptions.CenterAndExpand;
 			_DistanciaRadarLabel.HorizontalOptions = LayoutOptions.Center;
 
-			dentroPlaca.Children.Add(radarImage);
-			dentroPlaca.Children.Add(fiscalizacao);
-			dentroPlaca.Children.Add(_DistanciaRadarLabel);
-			//_DistanciaRadarLabel.Margin = new Thickness(0, -30, 0, 0);
-			//AbsoluteLayout.SetLayoutBounds(radarImage, new Rectangle(1, 0.1, 0.2, 0.2));
-			//AbsoluteLayout.SetLayoutFlags(radarImage, AbsoluteLayoutFlags.All);
+
+			if (TelaUtils.Dispositivo == "Pad")
+			{
+				radarImage.WidthRequest = 70;
+				radarImage.HeightRequest = 70;
+				AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.525, 1, 0.3, 0.25));
+				AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
+			}
+			else {
+				AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.5, 0.9, 0.4, 0.3));
+				AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
+			}
 
 
 			if (TelaUtils.Orientacao == "Landscape")
@@ -126,7 +131,7 @@ namespace Radar.Pages
 					AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
 				}
 				else {
-					AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.7, 0.5, 0.3, 0.5));
+					AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.72, 0.5, 0.3, 0.5));
 					AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
 				}
 				//placa.Margin = new Thickness(TelaUtils.LarguraSemPixel / 3, 0, 0, 0);
@@ -155,9 +160,27 @@ namespace Radar.Pages
 
 				//_AdicionarRadarButton.Margin = new Thickness(TelaUtils.LarguraSemPixel / 2 + 200, 0, 0, 20);
 			}
+
 			if (TelaUtils.Orientacao == "LandscapeLeft" || TelaUtils.Orientacao == "LandscapeRight")
 			{
-				_velocimetro.Margin = new Thickness(10, -270, 0, 0);
+				if (TelaUtils.Dispositivo == "Pad")
+				{
+					_velocimetro.Margin = new Thickness(10, -270, 0, 0);
+
+					AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.525, 1, 0.2, 0.3));
+					AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
+					radarImage.VerticalOptions = LayoutOptions.StartAndExpand;
+				}
+				else {
+					_velocimetro.Margin = new Thickness(TelaUtils.Largura * 0.5 - 70, -270, 0, 0);
+					AbsoluteLayout.SetLayoutBounds(_velocimetro, new Rectangle(1, 1, 1, 0.5));
+					AbsoluteLayout.SetLayoutFlags(_velocimetro, AbsoluteLayoutFlags.All);
+					radarImage.WidthRequest = 50;
+					radarImage.HeightRequest = 50;
+					AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.5, 1, 0.2, 0.3));
+					AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
+					radarImage.VerticalOptions = LayoutOptions.StartAndExpand;
+				}
 			}
             Padding = 5;
             /*
@@ -177,6 +200,9 @@ namespace Radar.Pages
                 }
             };
             */
+			dentroPlaca.Children.Add(radarImage);
+			dentroPlaca.Children.Add(fiscalizacao);
+			dentroPlaca.Children.Add(_DistanciaRadarLabel);
             
             absoluteLayout.Children.Add(_velocimetro);
 			placa.Content = dentroPlaca;

@@ -107,7 +107,13 @@ namespace Radar.iOS
 			currentContext.SetFillColor(UIColor.Red.CGColor);
 			currentContext.SetFillColor(pegarCor(cor));
 
-			currentContext.ShowTextAtPoint(y - 10, x + 15, Texto);
+			if (TelaUtils.Orientacao == "LandscapeLeft" || TelaUtils.Orientacao == "LandscapeRight")
+			{
+				currentContext.ShowTextAtPoint(y - 10, x , Texto);
+			}
+			else {
+				currentContext.ShowTextAtPoint(y - 10, x + 15, Texto);
+			}
 			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 		}
 
@@ -138,7 +144,7 @@ namespace Radar.iOS
 				currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 3, y , Texto);
 			}
 			else {
-				currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y, Texto);
+				currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y - 40, Texto);
 			}
 			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 		}
@@ -166,7 +172,7 @@ namespace Radar.iOS
 				currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 3, y - 65, Texto);
 			}
 			else {
-				currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y - 55, Texto);
+				currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y -35, Texto);
 
 			}
 

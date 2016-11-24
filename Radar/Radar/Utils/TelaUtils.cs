@@ -79,5 +79,15 @@ namespace Radar.Utils
 				return _tela.pegarOrientacao();
 			}
 		}
+
+		public static string Dispositivo
+		{
+			get
+			{
+				if (_tela == null)
+					_tela = DependencyService.Get<ITela>();
+				return _tela.pegarDispositivo();
+			}
+		}
     }
 }

@@ -186,6 +186,16 @@
     <BundleResource Include="Resources\sat02.png" />
     <BundleResource Include="Resources\sat03.png" />
     <BundleResource Include="Resources\sat04.png" />
+    <BundleResource Include="Resources\radar_100.png" />
+    <BundleResource Include="Resources\radar_110.png" />
+    <BundleResource Include="Resources\radar_20.png" />
+    <BundleResource Include="Resources\radar_30.png" />
+    <BundleResource Include="Resources\radar_40.png" />
+    <BundleResource Include="Resources\radar_50.png" />
+    <BundleResource Include="Resources\radar_60.png" />
+    <BundleResource Include="Resources\radar_70.png" />
+    <BundleResource Include="Resources\radar_80.png" />
+    <BundleResource Include="Resources\radar_90.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -345,16 +355,6 @@
     <AndroidResource Include="Resources\my70.png" />
     <AndroidResource Include="Resources\my80.png" />
     <AndroidResource Include="Resources\my90.png" />
-    <AndroidResource Include="Resources\radar_100.png" />
-    <AndroidResource Include="Resources\radar_110.png" />
-    <AndroidResource Include="Resources\radar_20.png" />
-    <AndroidResource Include="Resources\radar_30.png" />
-    <AndroidResource Include="Resources\radar_40.png" />
-    <AndroidResource Include="Resources\radar_50.png" />
-    <AndroidResource Include="Resources\radar_60.png" />
-    <AndroidResource Include="Resources\radar_70.png" />
-    <AndroidResource Include="Resources\radar_80.png" />
-    <AndroidResource Include="Resources\radar_90.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\Launch Screen.storyboard" />

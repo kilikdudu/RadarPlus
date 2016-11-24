@@ -343,8 +343,6 @@ namespace Radar.Pages
 					WidthRequest = main.WidthRequest * 0.7
 
 				};
-				Debug.WriteLine("Largura: " + TelaUtils.Largura);
-				Debug.WriteLine("Altura: " + TelaUtils.Altura);
 				if (TelaUtils.Orientacao == "LandscapeLeft" || TelaUtils.Orientacao == "LandscapeRight")
 				{
 					cardLeft.Margin = new Thickness(0, 0, 0, 70);

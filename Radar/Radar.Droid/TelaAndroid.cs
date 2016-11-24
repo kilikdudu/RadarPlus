@@ -27,6 +27,7 @@ namespace Radar.Droid
 		public static float AlturaDPI { get; set; }
         public static float Altura { get; set; }
         public static string Orientacao { get; set; }
+		public static string Dispositivo { get; set; }
 
         public float pegarAltura() {
             return (float)Altura;
@@ -59,6 +60,11 @@ namespace Radar.Droid
         public string pegarOrientacao() {
             return Orientacao;
         }
+
+		public string pegarDispositivo()
+		{
+			return Dispositivo;
+		}
 
     }
 }
