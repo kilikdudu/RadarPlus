@@ -135,17 +135,17 @@ namespace Radar.Pages
 
 					if (size > 7)
 					{
-						AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.72, 0.4, 0.3, 0.5));
+						AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.35, 1, 0.25, 0.25));
 						AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
 					}
 					else {
-						AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.72, 0.5, 0.3, 0.5));
+						AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.78, 0.5, 0.25, 0.5));
 						AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
 
 					}
 				}
                    
-                }
+                
 
 				//placa.Margin = new Thickness(TelaUtils.LarguraSemPixel / 3, 0, 0, 0);
 
