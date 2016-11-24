@@ -141,10 +141,23 @@ namespace Radar.iOS
 
 			if (TelaUtils.Orientacao == "LandscapeLeft" || TelaUtils.Orientacao == "LandscapeRight")
 			{
-				currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 3, y , Texto);
+				if (TelaUtils.Dispositivo == "Pad")
+				{
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 3, y + 20, Texto);
+
+				}
+				else {
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 3, y, Texto);
+				}
 			}
 			else {
-				currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y - 40, Texto);
+				if (TelaUtils.Dispositivo == "Pad")
+				{
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y - 210, Texto);
+				}
+				else {
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y - 40, Texto);
+				}
 			}
 			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 		}
@@ -169,10 +182,24 @@ namespace Radar.iOS
 			var sizeF = nsText.GetBoundingRect(boundSize, options, attributes, null).Size;
 			if (TelaUtils.Orientacao == "LandscapeLeft" || TelaUtils.Orientacao == "LandscapeRight")
 			{
-				currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 3, y - 65, Texto);
+				if (TelaUtils.Dispositivo == "Pad")
+				{
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 3, y -60, Texto);
+
+				}
+				else {
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 3, y - 65, Texto);
+				}
 			}
 			else {
-				currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y -35, Texto);
+				if (TelaUtils.Dispositivo == "Pad")
+				{
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y - 300, Texto);
+
+				}
+				else {
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y - 35, Texto);
+				}
 
 			}
 

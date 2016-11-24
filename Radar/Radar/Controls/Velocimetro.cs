@@ -179,6 +179,7 @@ namespace Radar.Controls
 						desenharTextoVelocidade(Math.Floor(VelocidadeAtual).ToString(), TelaUtils.Largura / 4F, TelaUtils.Altura / 2F, textoCor);
 
 					}
+					
 				}
 				else
 				{

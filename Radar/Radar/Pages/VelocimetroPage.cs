@@ -108,6 +108,7 @@ namespace Radar.Pages
 
 			if (TelaUtils.Dispositivo == "Pad")
 			{
+				_velocimetro.Margin = new Thickness(0, -50, 0, 0);
 				radarImage.WidthRequest = 70;
 				radarImage.HeightRequest = 70;
 				AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.52, 1, 0.3, 0.25));
@@ -165,7 +166,7 @@ namespace Radar.Pages
 			{
 				if (TelaUtils.Dispositivo == "Pad")
 				{
-					_velocimetro.Margin = new Thickness(10, -270, 0, 0);
+					_velocimetro.Margin = new Thickness(10, -310, 0, 0);
 
 					AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.52, 1, 0.2, 0.3));
 					AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
@@ -175,11 +176,17 @@ namespace Radar.Pages
 					_velocimetro.Margin = new Thickness(TelaUtils.Largura * 0.5 - 70, -270, 0, 0);
 					AbsoluteLayout.SetLayoutBounds(_velocimetro, new Rectangle(1, 1, 1, 0.5));
 					AbsoluteLayout.SetLayoutFlags(_velocimetro, AbsoluteLayoutFlags.All);
-					radarImage.WidthRequest = 50;
-					radarImage.HeightRequest = 50;
+					radarImage.WidthRequest = 40;
+					radarImage.HeightRequest = 40;
+					radarImage.Margin = new Thickness(0,-9,0,0);
+					fiscalizacao.Margin = new Thickness(0, -5, 0, 0);
+					fiscalizacao.VerticalOptions = LayoutOptions.FillAndExpand;
+					fiscalizacao.FontSize = 9;
+					dentroPlaca.Margin = new Thickness(0, -5, 0, 0);
+					_DistanciaRadarLabel.VerticalOptions = LayoutOptions.Start;
 					AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.5, 1, 0.2, 0.3));
 					AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
-					radarImage.VerticalOptions = LayoutOptions.StartAndExpand;
+
 				}
 			}
             Padding = 5;
