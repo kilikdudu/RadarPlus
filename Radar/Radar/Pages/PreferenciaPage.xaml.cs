@@ -102,7 +102,7 @@ namespace Radar
 				Imagem = "meusradares.png",
 				aoClicar = (sender, e) =>
 				{
-                    //this.Navigation.PushAsync(new ModoMeuRadarPage());
+                    this.Navigation.PushAsync(new ModoMeuRadarPage());
                    
                 }
 			});			

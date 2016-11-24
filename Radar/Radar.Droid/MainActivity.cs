@@ -41,6 +41,11 @@ namespace Radar.Droid
             TelaAndroid.Largura = (int)Resources.DisplayMetrics.WidthPixels; // real pixels
             TelaAndroid.Altura = (int)Resources.DisplayMetrics.HeightPixels;
 			TelaAndroid.LarguraSemPixel = (int)Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density; // real pixels
+			TelaAndroid.AlturaSemPixel = (int)Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density; // real pixels
+
+			TelaAndroid.LarguraDPI = (int)Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Xdpi; // real pixels
+			TelaAndroid.AlturaDPI = (int)Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Ydpi; // real pixels
+
 			TelaAndroid.Orientacao = Resources.Configuration.Orientation.ToString();
 
 

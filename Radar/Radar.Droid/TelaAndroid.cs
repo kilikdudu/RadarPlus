@@ -22,6 +22,9 @@ namespace Radar.Droid
     public class TelaAndroid : ITela {
         public static float Largura { get; set; }
 		public static float LarguraSemPixel { get; set; }
+		public static float AlturaSemPixel { get; set; }
+		public static float LarguraDPI { get; set; }
+		public static float AlturaDPI { get; set; }
         public static float Altura { get; set; }
         public static string Orientacao { get; set; }
 
@@ -36,6 +39,21 @@ namespace Radar.Droid
 		public float pegarLarguraSemPixel()
 		{
 			return (float)LarguraSemPixel;
+		}
+
+		public float pegarAlturaSemPixel()
+		{
+			return (float)AlturaSemPixel;
+		}
+
+		public float pegarAlturaDPI()
+		{
+			return (float)AlturaDPI;
+		}
+
+		public float pegarLarguraDPI()
+		{
+			return (float)LarguraDPI;
 		}
 
         public string pegarOrientacao() {

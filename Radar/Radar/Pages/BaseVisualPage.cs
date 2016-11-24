@@ -147,11 +147,11 @@ namespace Radar.Pages
             {
                 Text = "0 m",
                 FontSize = 16,
-                HorizontalTextAlignment = TextAlignment.Center,
-                VerticalTextAlignment = TextAlignment.Center
+                //HorizontalTextAlignment = TextAlignment.Center,
+                //VerticalTextAlignment = TextAlignment.Center
             };
-            AbsoluteLayout.SetLayoutBounds(_DistanciaRadarLabel, new Rectangle(1, 0.975, 1, 0.1));
-            AbsoluteLayout.SetLayoutFlags(_DistanciaRadarLabel, AbsoluteLayoutFlags.All);
+            //AbsoluteLayout.SetLayoutBounds(_DistanciaRadarLabel, new Rectangle(1, 0.975, 1, 0.1));
+            //AbsoluteLayout.SetLayoutFlags(_DistanciaRadarLabel, AbsoluteLayoutFlags.All);
 
             if (PreferenciaUtils.ExibirBotaoAdicionar)
             {

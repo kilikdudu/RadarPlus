@@ -69,24 +69,30 @@ namespace Radar.Pages
 				Margin = new Thickness(0,50,0,0)
             };
 
+			var absoluteLayout = new AbsoluteLayout();
+			absoluteLayout.HorizontalOptions = LayoutOptions.Fill;
+
 			Frame placa = new Frame();
-			placa.HorizontalOptions = LayoutOptions.Fill;
-			placa.VerticalOptions = LayoutOptions.Fill;
+			placa.HorizontalOptions = LayoutOptions.FillAndExpand;
+			placa.VerticalOptions = LayoutOptions.FillAndExpand;
 			StackLayout dentroPlaca = new StackLayout();
 
-			dentroPlaca.HorizontalOptions = LayoutOptions.Fill;
+			dentroPlaca.HorizontalOptions = LayoutOptions.FillAndExpand;
 			dentroPlaca.VerticalOptions = LayoutOptions.Fill;
+			dentroPlaca.Orientation = StackOrientation.Vertical;
+			dentroPlaca.Spacing = 1;
 
-			AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.5, 0.9, 0.3, 0.2));
+			AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.5, 0.9, 0.4, 0.3));
 			AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
 
 			RadarBLL radarBLL = new RadarBLL();
 
 			Image radarImage = new Image();
 			radarImage.Source = radarBLL.imagemRadar((double)100);
-			radarImage.WidthRequest = 100;
-			radarImage.HeightRequest = 100;
-			radarImage.VerticalOptions = LayoutOptions.StartAndExpand;
+			radarImage.Aspect = Aspect.Fill;
+			radarImage.WidthRequest = 50;
+			radarImage.HeightRequest = 50;
+			radarImage.VerticalOptions = LayoutOptions.CenterAndExpand;
 			radarImage.HorizontalOptions = LayoutOptions.Center;
 
 			Label fiscalizacao = new Label();
@@ -97,12 +103,13 @@ namespace Radar.Pages
 			fiscalizacao.HorizontalOptions = LayoutOptions.Center;
 
 			_DistanciaRadarLabel.TextColor = Color.Black;
-			_DistanciaRadarLabel.VerticalOptions = LayoutOptions.EndAndExpand;
+			_DistanciaRadarLabel.VerticalOptions = LayoutOptions.CenterAndExpand;
 			_DistanciaRadarLabel.HorizontalOptions = LayoutOptions.Center;
 
 			dentroPlaca.Children.Add(radarImage);
 			dentroPlaca.Children.Add(fiscalizacao);
 			dentroPlaca.Children.Add(_DistanciaRadarLabel);
+			//_DistanciaRadarLabel.Margin = new Thickness(0, -30, 0, 0);
 			//AbsoluteLayout.SetLayoutBounds(radarImage, new Rectangle(1, 0.1, 0.2, 0.2));
 			//AbsoluteLayout.SetLayoutFlags(radarImage, AbsoluteLayoutFlags.All);
 
@@ -111,27 +118,40 @@ namespace Radar.Pages
 			{
 				_velocimetro.Margin = new Thickness(0, -40, 0, 0);
 
-				AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(1, 0.1, 0.2, 0.2));
-				AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
+				double size = Math.Sqrt(Math.Pow(TelaUtils.LarguraDPI, 2) + Math.Pow(TelaUtils.AlturaDPI, 2));
 
-				AbsoluteLayout.SetLayoutBounds(_BussolaFundo, new Rectangle(1, 0.1, 0.2, 0.2));
+				if (size > 6)
+				{
+					AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.4, 1, 0.25, 0.25));
+					AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
+				}
+				else {
+					AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.7, 0.5, 0.3, 0.5));
+					AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
+				}
+				//placa.Margin = new Thickness(TelaUtils.LarguraSemPixel / 3, 0, 0, 0);
+
+				radarImage.WidthRequest = 50;
+				radarImage.HeightRequest = 50;
+
+				AbsoluteLayout.SetLayoutBounds(_BussolaFundo, new Rectangle(1, 0.05, 0.2, 0.2));
 				AbsoluteLayout.SetLayoutFlags(_BussolaFundo, AbsoluteLayoutFlags.All);
-				AbsoluteLayout.SetLayoutBounds(_BussolaAgulha, new Rectangle(1, 0.1, 0.2, 0.2));
+				AbsoluteLayout.SetLayoutBounds(_BussolaAgulha, new Rectangle(1, 0.05, 0.2, 0.2));
 				AbsoluteLayout.SetLayoutFlags(_BussolaAgulha, AbsoluteLayoutFlags.All);
-				AbsoluteLayout.SetLayoutBounds(_GPSSentidoLabel, new Rectangle(1, 0.3, 0.2, 0.2));
+				AbsoluteLayout.SetLayoutBounds(_GPSSentidoLabel, new Rectangle(1, 0.25, 0.2, 0.2));
 				AbsoluteLayout.SetLayoutFlags(_GPSSentidoLabel, AbsoluteLayoutFlags.All);
 
-				AbsoluteLayout.SetLayoutBounds(_PrecisaoFundoImage, new Rectangle(0.6, 0.1, 0.2, 0.2));
+				AbsoluteLayout.SetLayoutBounds(_PrecisaoFundoImage, new Rectangle(1, 0.8, 0.2, 0.2));
 				AbsoluteLayout.SetLayoutFlags(_PrecisaoFundoImage, AbsoluteLayoutFlags.All);
-				AbsoluteLayout.SetLayoutBounds(_PrecisaoImage, new Rectangle(0.6, 0.1, 0.2, 0.2));
+				AbsoluteLayout.SetLayoutBounds(_PrecisaoImage, new Rectangle(1, 0.8, 0.2, 0.2));
 				AbsoluteLayout.SetLayoutFlags(_PrecisaoImage, AbsoluteLayoutFlags.All);
-				AbsoluteLayout.SetLayoutBounds(_PrecisaoLabel, new Rectangle(0.6, 0.3, 0.2, 0.2));
+				AbsoluteLayout.SetLayoutBounds(_PrecisaoLabel, new Rectangle(1, 1, 0.2, 0.2));
 				AbsoluteLayout.SetLayoutFlags(_PrecisaoLabel, AbsoluteLayoutFlags.All);
 
-				AbsoluteLayout.SetLayoutBounds(_VelocidadeRadarLabel, new Rectangle(0.8, 0.85, 0.2, 0.2));
-				AbsoluteLayout.SetLayoutFlags(_VelocidadeRadarLabel, AbsoluteLayoutFlags.All);
-				AbsoluteLayout.SetLayoutBounds(_DistanciaRadarLabel, new Rectangle(0.8, 0.95, 0.2, 0.2));
-				AbsoluteLayout.SetLayoutFlags(_DistanciaRadarLabel, AbsoluteLayoutFlags.All);
+				//AbsoluteLayout.SetLayoutBounds(_VelocidadeRadarLabel, new Rectangle(0.8, 0.85, 0.2, 0.2));
+				//AbsoluteLayout.SetLayoutFlags(_VelocidadeRadarLabel, AbsoluteLayoutFlags.All);
+				//AbsoluteLayout.SetLayoutBounds(_DistanciaRadarLabel, new Rectangle(0.8, 0.95, 0.2, 0.2));
+				//AbsoluteLayout.SetLayoutFlags(_DistanciaRadarLabel, AbsoluteLayoutFlags.All);
 
 				//_AdicionarRadarButton.Margin = new Thickness(TelaUtils.LarguraSemPixel / 2 + 200, 0, 0, 20);
 			}
@@ -157,7 +177,7 @@ namespace Radar.Pages
                 }
             };
             */
-            var absoluteLayout = new AbsoluteLayout();
+            
             absoluteLayout.Children.Add(_velocimetro);
 			placa.Content = dentroPlaca;
 			absoluteLayout.Children.Add(placa);
