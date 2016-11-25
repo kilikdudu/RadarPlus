@@ -113,11 +113,7 @@ namespace Radar.Utils
                             avisarRadar(local, radar);
                     }
                 }
-                //if (MapaPage.Atual != null)
-                //    MapaPage.Atual.atualizarPosicao(local);
-
                 var visualPage = GlobalUtils.Visual;
-                //VelocimetroPage velocimentro = VelocimetroPage.Atual;
                 if (visualPage != null)
                 {
                     visualPage.VelocidadeAtual = (float)local.Velocidade;
@@ -133,8 +129,6 @@ namespace Radar.Utils
                         visualPage.VelocidadeRadar = 0;
                         visualPage.DistanciaRadar = 0;
                     }
-                    //velocimentro.VelocidadeRadar = 40;
-                    //if (VelocimetroPage.Atual.Velocimetro.redesenhar != null)
                     visualPage.atualizarPosicao(local);
                     visualPage.redesenhar();
                 }

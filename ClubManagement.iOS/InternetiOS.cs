@@ -15,7 +15,7 @@ namespace ClubManagement.iOS
     {
         public bool estarConectado()
         {
-            return false;
+            return Reachability.IsHostReachable("http://google.com");
         }
     }
 }

@@ -15,45 +15,41 @@ namespace Radar.iOS
 {
     public class AudioiOS : IAudio
     {
+        float _volume = 15;
+        AudioCanalEnum _canal = AudioCanalEnum.Nenhum;
+        IList<string> _audioAtual = new List<string>();
+        int _audioIndex = 0;
+        AVAudioPlayer _player;
+
         public AudioCanalEnum Canal
         {
-            get
-            {
-                throw new NotImplementedException();
+            get {
+                return _canal;
             }
 
             set
             {
-                throw new NotImplementedException();
+                _canal = value;
             }
         }
 
-        public float Volume
-        {
-            get
-            {
-                throw new NotImplementedException();
+        public float Volume {
+            get {
+                return _volume;
             }
-
-            set
-            {
-                throw new NotImplementedException();
+            set {
+                _volume = value;
             }
         }
 
-        public void play(string[] arquivos)
+        private AVAudioPlayer criarAudio(string arquivo)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool play(string arquivo)
-        {
-            string alarme = "alarmes/" + arquivo;
+            //string alarme = "alarmes/" + arquivo;
             string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string path = Path.Combine(documentsPath, arquivo);
             if (!System.IO.File.Exists(path))
             {
-                Stream origem = File.Open(alarme, FileMode.Open, FileAccess.Read);
+                Stream origem = File.Open(arquivo, FileMode.Open, FileAccess.Read);
                 FileStream destino = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
                 origem.CopyTo(destino);
                 origem.Close();
@@ -65,14 +61,49 @@ namespace Radar.iOS
             AVAudioPlayer player = new AVAudioPlayer(songURL, "wav", out err);
             player.Volume = 15;
             player.NumberOfLoops = 0;
-            player.Play();
 
-            return true;
+            return player;
         }
 
-        void IAudio.play(string arquivo)
+        private void playProximo()
         {
-            throw new NotImplementedException();
+            if (_audioAtual != null && _audioIndex < _audioAtual.Count)
+            {
+                string arquivo = _audioAtual[_audioIndex];
+                _audioIndex++;
+                _player = criarAudio(arquivo);
+                _player.FinishedPlaying += (sender, e) =>
+                {
+                    playProximo();
+                };
+                _player.Play();
+            }
+            else {
+                _player.Dispose();
+                _player = null;
+            }
+        }
+
+        public void play(string[] arquivos)
+        {
+            _audioIndex = 0;
+            _audioAtual = null;
+            if (_player != null)
+            {
+                if (_player.Playing)
+                    _player.Stop();
+                _player.Dispose();
+                _player = null;
+            }
+            _audioIndex = 0;
+            _audioAtual = arquivos;
+            playProximo();
+        }
+
+        public void play(string arquivo)
+        {
+            var player = criarAudio(arquivo);
+            player.Play();
         }
     }
 }

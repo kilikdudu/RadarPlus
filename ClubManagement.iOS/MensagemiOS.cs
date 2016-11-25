@@ -1,10 +1,12 @@
 ﻿using AudioToolbox;
 using ClubManagement.IBLL;
 using ClubManagement.Utils;
+using Foundation;
 using Radar.iOS;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UIKit;
 using Xamarin.Forms;
 using static CoreMidi.Midi;
 
@@ -14,8 +16,17 @@ namespace Radar.iOS
 {
     public class MensagemiOS: IMensagem
     {
+        public void solicitarPermissao() {
+            var settings = UIUserNotificationSettings.GetSettingsForTypes(
+                UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, 
+                null
+            );
+            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+        }
+
 		public void exibirAviso(string Titulo, string Mensagem)
         {
+
         }
 		public bool notificar(int id, string titulo, string descricao)
         {
@@ -23,6 +34,12 @@ namespace Radar.iOS
         }
         public bool notificar(int id, string titulo, string mensagem, double velocidade)
         {
+            UILocalNotification notification = new UILocalNotification();
+            NSDate.FromTimeIntervalSinceNow(15);
+            //notification.AlertTitle = "Alert Title"; // required for Apple Watch notifications
+            notification.AlertAction = titulo;
+            notification.AlertBody = mensagem;
+            UIApplication.SharedApplication.ScheduleLocalNotification(notification);
             return true;
         }
 
@@ -37,14 +54,20 @@ namespace Radar.iOS
         }
 
 		public bool enviarEmail(string para, string titulo, string mensagem) {
-			return false;
-		}
+            //Device.OpenUri(new Uri("mailto:" + para + "&subject=" + UrlE));
+            return false;
+        }
 
         public void vibrar(int milisegundo)
         {
             //throw new NotImplementedException();
             //Notifications.Instance.Vibrate(2000);
             SystemSound.Vibrate.PlayAlertSound();
+        }
+
+        public bool notificar(int id, string titulo, string descricao, double velocidade)
+        {
+            throw new NotImplementedException();
         }
     }
 }
