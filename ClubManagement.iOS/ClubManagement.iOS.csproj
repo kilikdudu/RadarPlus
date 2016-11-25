@@ -74,6 +74,7 @@
     <Compile Include="InternetiOS.cs" />
     <Compile Include="MensagemiOS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reachability.cs" />
     <Compile Include="ThreadiOS.cs" />
   </ItemGroup>
   <ItemGroup>
