@@ -43,7 +43,7 @@ namespace Radar.iOS
                 local.Latitude = location.Coordinate.Latitude;
                 local.Longitude = location.Coordinate.Longitude;
                 local.Precisao = (float)((location.HorizontalAccuracy + location.VerticalAccuracy) / 2);
-                local.Sentido = (float)location.Course;
+                local.Sentido = (float)location.Course * - 1;
                 local.Tempo = NSDateToDateTime(location.Timestamp);
                 local.Velocidade = location.Speed * 3.6;
 

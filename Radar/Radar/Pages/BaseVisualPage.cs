@@ -169,12 +169,13 @@ namespace Radar.Pages
                     {
                         Command = new Command(() =>
                         {
-                            //var regraAviso = new AvisoSonoroBLL();
-                            //regraAviso.play(RadarTipoEnum.RadarFixo, 40, 300);
-                            //AudioUtils.play(AudioEnum.Alarm001);
-                            //MensagemUtils.avisar("teste");
-                            //var downloader = new DownloaderAtualizacao();
-                            //downloader.download();
+							//var regraAviso = new AvisoSonoroBLL();
+							//regraAviso.play(RadarTipoEnum.RadarFixo, 40, 300);
+							//AudioUtils.play(AudioEnum.Alarm001);
+							//MensagemUtils.avisar("teste");
+							//var downloader = new DownloaderAtualizacao();
+							//downloader.download();
+							AudioUtils.play("alarm-001");
 
                             if (InternetUtils.estarConectado())
                             {

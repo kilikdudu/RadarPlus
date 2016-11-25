@@ -359,6 +359,18 @@
   <ItemGroup>
     <InterfaceDefinition Include="Resources\Launch Screen.storyboard" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\alarmes\metros-100.mp3" />
+    <AndroidAsset Include="Resources\alarmes\metros-1000.mp3" />
+    <AndroidAsset Include="Resources\alarmes\metros-200.mp3" />
+    <AndroidAsset Include="Resources\alarmes\metros-300.mp3" />
+    <AndroidAsset Include="Resources\alarmes\metros-400.mp3" />
+    <AndroidAsset Include="Resources\alarmes\metros-500.mp3" />
+    <AndroidAsset Include="Resources\alarmes\metros-600.mp3" />
+    <AndroidAsset Include="Resources\alarmes\metros-700.mp3" />
+    <AndroidAsset Include="Resources\alarmes\metros-800.mp3" />
+    <AndroidAsset Include="Resources\alarmes\metros-900.mp3" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

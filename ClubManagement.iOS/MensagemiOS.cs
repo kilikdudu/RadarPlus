@@ -45,12 +45,12 @@ namespace Radar.iOS
 
         public bool notificarPermanente(int id, string titulo, string descricao, int idRadar, string textoRadar, string acaoParar)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public bool pararNotificaoPermanente(int id)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
 		public bool enviarEmail(string para, string titulo, string mensagem) {
@@ -65,9 +65,6 @@ namespace Radar.iOS
             SystemSound.Vibrate.PlayAlertSound();
         }
 
-        public bool notificar(int id, string titulo, string descricao, double velocidade)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
