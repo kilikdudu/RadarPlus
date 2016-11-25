@@ -39,6 +39,7 @@ namespace Radar
 			this.Title = "Preferências";
 			lstView.ItemTemplate = new DataTemplate(typeof(MenusCelula));
 			lstView.ItemTapped += OnTap;
+
 			menus.Add(new ListaInfo() { 
 				Titulo= "Modo Mapa", 
 				Imagem = "modomapa.png", 
@@ -109,6 +110,7 @@ namespace Radar
 			lstView.ItemsSource = menus;
 			lstView.HasUnevenRows = true;
 			lstView.SeparatorColor = Color.Transparent;
+
 			//lstView.BackgroundColor = Color.FromHex(TemaInfo.TextIcons);
 			//lstView.SeparatorColor = Color.FromHex(TemaInfo.DividerColor);
 
@@ -118,7 +120,7 @@ namespace Radar
 
 		public void OnTap(object sender, ItemTappedEventArgs e)
 		{
-
+			lstView.SelectedItem = BackgroundColor =  Color.White;
 			ListaInfo item = (ListaInfo)e.Item;
 			if (item.aoClicar != null)
 			{
@@ -147,6 +149,7 @@ namespace Radar
 
 
 				};
+
 				var icone = new Image();
 				nameLabel.SetBinding(Label.TextProperty, new Binding("Titulo"));
 				if (Device.OS == TargetPlatform.iOS)
@@ -200,6 +203,7 @@ namespace Radar
 				// add to parent view
 				View = frameOuter;
 				this.View.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
+
 				//this.Tapped += (sender, e) =>
 				//{
 				//	this.View.BackgroundColor = Color.FromHex(TemaInfo.AccentColor);

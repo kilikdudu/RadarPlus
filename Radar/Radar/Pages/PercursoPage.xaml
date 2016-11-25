@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Radar.Pages.PercursoPage"
              Title="Meus Percursos">
-  <StackLayout Orientation="Vertical">
-    <ListView x:Name="percursoListView" ItemTapped="abrirPercurso" RowHeight="190">
+  <StackLayout Orientation="Vertical" VerticalOptions="Fill">
+    <ListView x:Name="percursoListView" ItemTapped="abrirPercurso" RowHeight="190" VerticalOptions="StartAndExpand">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell >
@@ -14,7 +14,7 @@
       </ListView.ItemTemplate>
     </ListView>
 
-   <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="30,30,30,40" >
+   <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="30,30,30,40" VerticalOptions="EndAndExpand" >
 		<StackLayout.GestureRecognizers>
            <TapGestureRecognizer Tapped="gravarPercurso"/>
         </StackLayout.GestureRecognizers>
