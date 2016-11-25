@@ -120,7 +120,7 @@ namespace Radar
 
 		public void OnTap(object sender, ItemTappedEventArgs e)
 		{
-			lstView.SelectedItem = BackgroundColor =  Color.White;
+			
 			ListaInfo item = (ListaInfo)e.Item;
 			if (item.aoClicar != null)
 			{
