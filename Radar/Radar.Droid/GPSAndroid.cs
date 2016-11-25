@@ -11,6 +11,7 @@ using Radar.Droid;
 using Xamarin.Forms;
 using Radar.IBLL;
 using Radar.Utils;
+using Android.Support.V7.App;
 
 [assembly: UsesPermission(Manifest.Permission.AccessFineLocation)]
 [assembly: UsesPermission(Manifest.Permission.AccessCoarseLocation)]
@@ -24,18 +25,48 @@ namespace Radar.Droid
     [IntentFilter(new String[] { "br.com.cmapps.radar" })]
     public class GPSAndroid : Service, ILocationListener, IGPS
     {
+        private const int ID_RADAR_CLUB = 5;
+
         LocationManager _locationManager;
         string _locationProvider;
 
         public GPSAndroid() {
             //InitializeLocationManager();
-            inicializar();
         }
+
+        DemoServiceBinder binder;
+
+        public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
+        {
+            inicializar();
+            StartServiceInForeground();
+            //DoWork();
+            return StartCommandResult.NotSticky;
+        }
+
+        void StartServiceInForeground()
+        {
+            var ongoing = new Notification(Resource.Drawable.navicon, "Radar+");
+            var pendingIntent = PendingIntent.GetActivity(this, 0, new Intent(this, typeof(MainActivity)), 0);
+            ongoing.SetLatestEventInfo(this, "Radar+", "Está em funcionamento", pendingIntent);
+            StartForeground((int)NotificationFlags.ForegroundService, ongoing);
+        }
+
+        /*
+        void SendNotification()
+        {
+            var nMgr = (NotificationManager)GetSystemService(NotificationService);
+            var notification = new Notification(Resource.Drawable.icon, "Message from demo service");
+            var pendingIntent = PendingIntent.GetActivity(this, 0, new Intent(this, typeof(MainActivity)), 0);
+            notification.SetLatestEventInfo(this, "Demo Service Notification", "Message from demo service", pendingIntent);
+            nMgr.Notify(0, notification);
+        }
+        */
 
         public override IBinder OnBind(Intent intent)
         {
-            //throw new NotImplementedException();
-            return null;
+            binder = new DemoServiceBinder(this);
+            return binder;
         }
 
         private LocalizacaoInfo converterLocalizacao(Location location)
@@ -82,7 +113,45 @@ namespace Radar.Droid
             };
             _locationProvider = _locationManager.GetBestProvider(criteriaForLocationService, true);
             _locationManager.RequestLocationUpdates(_locationProvider, PreferenciaUtils.GPSTempoAtualiazacao, PreferenciaUtils.GPSDistanciaAtualizacao, this);
+            exibirNotificacao();
             return true;
+        }
+
+        public void exibirNotificacao() {
+
+            //Intent servIntent = new Intent(this, typeof(GPSAndroid));
+            //Intent servIntent = new Intent();
+            //var intentPrincipal = PendingIntent.GetActivity(this, 0, servIntent, PendingIntentFlags.OneShot);
+
+            /*
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+            builder.SetPriority((int)NotificationPriority.Max);
+            builder.SetAutoCancel(true);
+            //builder.SetContentIntent(intentPrincipal);
+            builder.SetNumber(ID_RADAR_CLUB);
+            builder.SetSmallIcon(Resource.Drawable.icon);
+            builder.SetContentTitle("Radar+ em Funcionamento");
+            */
+            /*
+            var acao = new Intent(this, typeof(BroadcastAndroid));
+            acao.SetAction("fechar-servico");
+            var pendingIntent = PendingIntent.GetBroadcast(this, 0, acao, PendingIntentFlags.UpdateCurrent);
+            builder.AddAction(new NotificationCompat.Action(Resource.Drawable.mystop, "Fechar", pendingIntent));
+            */
+
+            /*
+            //NotificationManager notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
+            Notification notificacao = builder.Build();
+            notificacao.Flags = NotificationFlags.NoClear;
+            //notificationManager.Notify(ID_RADAR_CLUB, notificacao);
+
+            StartForeground(ID_RADAR_CLUB, notificacao);
+            */
+            //var ongoing = new Notification(Resource.Drawable.icon, "DemoService in foreground");
+            //var pendingIntent = PendingIntent.GetActivity(this, 0, new Intent(this, typeof(MainActivity)), 0);
+            //ongoing.SetLatestEventInfo(this, "DemoService", "DemoService is running in the foreground", pendingIntent);
+
+            //StartForeground((int)NotificationFlags.ForegroundService, ongoing);
         }
 
         public bool estaAtivo()
@@ -102,6 +171,21 @@ namespace Radar.Droid
             Intent myIntent = new Intent(Android.Provider.Settings.ActionLocationSourceSettings);
             myIntent.AddFlags(ActivityFlags.NewTask);
             context.StartActivity(myIntent);
+        }
+
+        public class DemoServiceBinder : Binder
+        {
+            GPSAndroid service;
+
+            public DemoServiceBinder(GPSAndroid service)
+            {
+                this.service = service;
+            }
+
+            public GPSAndroid GetDemoService()
+            {
+                return service;
+            }
         }
     }
 }
