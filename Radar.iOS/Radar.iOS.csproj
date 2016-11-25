@@ -186,16 +186,16 @@
     <BundleResource Include="Resources\sat02.png" />
     <BundleResource Include="Resources\sat03.png" />
     <BundleResource Include="Resources\sat04.png" />
-    <BundleResource Include="Resources\100_radar.png" />
-    <BundleResource Include="Resources\110_radar.png" />
-    <BundleResource Include="Resources\20_radar.png" />
-    <BundleResource Include="Resources\30_radar.png" />
-    <BundleResource Include="Resources\40_radar.png" />
-    <BundleResource Include="Resources\50_radar.png" />
-    <BundleResource Include="Resources\60_radar.png" />
-    <BundleResource Include="Resources\70_radar.png" />
-    <BundleResource Include="Resources\80_radar.png" />
-    <BundleResource Include="Resources\90_radar.png" />
+    <BundleResource Include="Resources\radar_100.png" />
+    <BundleResource Include="Resources\radar_110.png" />
+    <BundleResource Include="Resources\radar_20.png" />
+    <BundleResource Include="Resources\radar_30.png" />
+    <BundleResource Include="Resources\radar_40.png" />
+    <BundleResource Include="Resources\radar_50.png" />
+    <BundleResource Include="Resources\radar_60.png" />
+    <BundleResource Include="Resources\radar_70.png" />
+    <BundleResource Include="Resources\radar_80.png" />
+    <BundleResource Include="Resources\radar_90.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -345,6 +345,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\bg.png" />
+    <AndroidResource Include="Resources\my100.png" />
+    <AndroidResource Include="Resources\my110.png" />
+    <AndroidResource Include="Resources\my20.png" />
+    <AndroidResource Include="Resources\my30.png" />
+    <AndroidResource Include="Resources\my40.png" />
+    <AndroidResource Include="Resources\my50.png" />
+    <AndroidResource Include="Resources\my60.png" />
+    <AndroidResource Include="Resources\my70.png" />
+    <AndroidResource Include="Resources\my80.png" />
+    <AndroidResource Include="Resources\my90.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\Launch Screen.storyboard" />

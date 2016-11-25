@@ -6,6 +6,7 @@ using Radar.Pages.Popup;
 using Rg.Plugins.Popup.Extensions;
 using Radar.Controls;
 using ClubManagement.Utils;
+using Radar.Model;
 
 namespace Radar {
     public partial class ModoMapaPage : ContentPage
@@ -14,6 +15,7 @@ namespace Radar {
         {
             InitializeComponent();
             Title = "Modo Mapa";
+
         }
 
         protected override void OnAppearing() {

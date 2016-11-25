@@ -255,16 +255,17 @@ namespace Radar.Pages
 				radarIco.Source = "radar_20x20_preto.png";
 
 				tempoCorrendo.SetBinding(Label.TextProperty, new Binding("TempoGravacaoStr"));
-
+				tempoCorrendo.FontSize = 14;
 				tempoParado.SetBinding(Label.TextProperty, new Binding("TempoParadoStr"));
-
+				tempoParado.FontSize = 14;
 				paradas.SetBinding(Label.TextProperty, new Binding("QuantidadeParadaStr"));
-
+				paradas.FontSize = 14;
 				velocidadeMedia.SetBinding(Label.TextProperty, new Binding("VelocidadeMediaStr"));
-
+				velocidadeMedia.FontSize = 14;
 				velocidadeMaxima.SetBinding(Label.TextProperty, new Binding("VelocidadeMaximaStr"));
-
+				velocidadeMaxima.FontSize = 14;
 				radares.SetBinding(Label.TextProperty, new Binding("QuantidadeRadarStr"));
+				radares.FontSize = 14;
 
 				desc.Children.Add(relogioIco);
 				desc.Children.Add(tempoCorrendo);
@@ -285,6 +286,7 @@ namespace Radar.Pages
 					VerticalOptions = LayoutOptions.Fill,
 					Orientation = StackOrientation.Horizontal,
 					HorizontalOptions = LayoutOptions.Fill,
+
 					WidthRequest = TelaUtils.LarguraSemPixel
 				};
 
@@ -322,7 +324,7 @@ namespace Radar.Pages
 
 				Label distanciaText = new Label()
 				{
-					//FontSize = 20,
+					FontSize = 14,
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor),
 					FontFamily = "Roboto-Condensed",
 					HorizontalOptions = LayoutOptions.Center,
@@ -341,7 +343,12 @@ namespace Radar.Pages
 					WidthRequest = main.WidthRequest * 0.7
 
 				};
-
+				if (TelaUtils.Orientacao == "LandscapeLeft" || TelaUtils.Orientacao == "LandscapeRight")
+				{
+					cardLeft.Margin = new Thickness(0, 0, 0, 70);
+					cardLeft.WidthRequest = main.WidthRequest * 0.15;
+					cardRigth.WidthRequest = main.WidthRequest * 0.5;
+				}
 				StackLayout cardRigthStackVer = new StackLayout()
 				{
 					Orientation = StackOrientation.Vertical,
@@ -364,7 +371,7 @@ namespace Radar.Pages
 					//Text = "Rua H-149, 1-73 Cidade Vera Cruz/ Aparecida de Goiânia",
 					WidthRequest = main.WidthRequest * 0.7,
 					HorizontalOptions = LayoutOptions.StartAndExpand,
-					//FontSize = 20,
+					FontSize = 16,
 					FontFamily = "Roboto-Condensed",
 					//HorizontalTextAlignment = TextAlignment.Start
 				};

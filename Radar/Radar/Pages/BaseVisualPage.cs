@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace Radar.Pages
 {
@@ -115,6 +116,8 @@ namespace Radar.Pages
         }
 
         protected virtual void inicializarComponente() {
+
+
             _GPSSentidoLabel = new Label
             {
                 Text = "Sentido",
@@ -144,11 +147,11 @@ namespace Radar.Pages
             {
                 Text = "0 m",
                 FontSize = 16,
-                HorizontalTextAlignment = TextAlignment.Center,
-                VerticalTextAlignment = TextAlignment.Center
+                //HorizontalTextAlignment = TextAlignment.Center,
+                //VerticalTextAlignment = TextAlignment.Center
             };
-            AbsoluteLayout.SetLayoutBounds(_DistanciaRadarLabel, new Rectangle(1, 0.975, 1, 0.1));
-            AbsoluteLayout.SetLayoutFlags(_DistanciaRadarLabel, AbsoluteLayoutFlags.All);
+            //AbsoluteLayout.SetLayoutBounds(_DistanciaRadarLabel, new Rectangle(1, 0.975, 1, 0.1));
+            //AbsoluteLayout.SetLayoutFlags(_DistanciaRadarLabel, AbsoluteLayoutFlags.All);
 
             if (PreferenciaUtils.ExibirBotaoAdicionar)
             {
@@ -207,6 +210,7 @@ namespace Radar.Pages
                 });
             }
 
+
             _BussolaFundo = new Image
             {
                 Aspect = Aspect.AspectFit,
@@ -234,8 +238,8 @@ namespace Radar.Pages
                 WidthRequest = 180,
                 HeightRequest = 180
             };
-            AbsoluteLayout.SetLayoutBounds(_PrecisaoFundoImage, new Rectangle(0.07, 0, 0.2, 0.2));
-            AbsoluteLayout.SetLayoutFlags(_PrecisaoFundoImage, AbsoluteLayoutFlags.All);
+             AbsoluteLayout.SetLayoutBounds(_PrecisaoFundoImage, new Rectangle(0.07, 0, 0.2, 0.2)); 
+			 AbsoluteLayout.SetLayoutFlags(_PrecisaoFundoImage, AbsoluteLayoutFlags.All);
 
             _PrecisaoImage = new Image
             {

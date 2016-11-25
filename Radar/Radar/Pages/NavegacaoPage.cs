@@ -27,7 +27,7 @@ namespace Radar.Pages
             _paginaAtual = new VelocimetroPage();
             var nav = new NavigationPage(_paginaAtual);
 			nav.BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor);
-			nav.BarTextColor = Color.FromHex(TemaInfo.PrimaryText);
+			nav.BarTextColor = Color.FromHex(TemaInfo.TextIcons);
 
 			Detail = nav;
 

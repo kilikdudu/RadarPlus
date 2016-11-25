@@ -13,21 +13,26 @@ using Radar.IBLL;
 
 namespace Radar.iOS
 {
-    public class TelaiOS : ITela
-    {
-        public float pegarAltura()
-        {
-            return (float)UIScreen.MainScreen.Bounds.Width;
-        }
+	public class TelaiOS : ITela
+	{
+		public float pegarAltura()
+		{
+			return (float)UIScreen.MainScreen.Bounds.Width;
+		}
 
-        public float pegarLargura()
-        {
-            return (float)UIScreen.MainScreen.Bounds.Height;
-        }
+		public float pegarLargura()
+		{
+			return (float)UIScreen.MainScreen.Bounds.Height;
+		}
 
 		public float pegarLarguraSemPixel()
 		{
 			return (float)UIScreen.MainScreen.Bounds.Width;
+		}
+
+		public float pegarAlturaSemPixel()
+		{
+			return (float)UIScreen.MainScreen.Bounds.Height;
 		}
 
 		public string pegarOrientacao()
@@ -36,5 +41,23 @@ namespace Radar.iOS
 			Console.WriteLine("Orientacao: " + orientation);
 			return orientation.ToString();
 		}
-    }
+
+		public float pegarLarguraDPI()
+		{
+			return (float)UIScreen.MainScreen.Bounds.Width;
+		}
+
+		public float pegarAlturaDPI()
+		{
+
+			return (float)UIScreen.MainScreen.Bounds.Height;
+		}
+
+		public string pegarDispositivo()
+		{
+			UIDevice ui = new UIDevice();
+			return ui.UserInterfaceIdiom.ToString();
+
+		}
+	}
 }

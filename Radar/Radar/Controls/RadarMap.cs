@@ -57,36 +57,10 @@ namespace Radar.Controls
             }
         }
 
-        public string imagemRadar(RadarInfo radar)
-        {
-            string imagem = string.Empty;
-            if (radar.Velocidade >= 20 && radar.Velocidade < 30)
-                imagem = "20_radar.png";
-            else if (radar.Velocidade >= 30 && radar.Velocidade < 40)
-                imagem = "30_radar.png";
-            else if (radar.Velocidade >= 40 && radar.Velocidade < 50)
-                imagem = "40_radar.png";
-            else if (radar.Velocidade >= 50 && radar.Velocidade < 60)
-                imagem = "50_radar.png";
-            else if (radar.Velocidade >= 60 && radar.Velocidade < 70)
-                imagem = "60_radar.png";
-            else if (radar.Velocidade >= 70 && radar.Velocidade < 80)
-                imagem = "70_radar.png";
-            else if (radar.Velocidade >= 80 && radar.Velocidade < 90)
-                imagem = "80_radar.png";
-            else if (radar.Velocidade >= 90 && radar.Velocidade < 100)
-                imagem = "90_radar.png";
-            else if (radar.Velocidade >= 100 && radar.Velocidade < 110)
-                imagem = "100_radar.png";
-            else if (radar.Velocidade >= 110 && radar.Velocidade < 120)
-                imagem = "110_radar.png";
-            else
-                imagem = "cameramais.png";
-            return imagem;
-        }
-
+        
         private void adicionarRadar(RadarInfo radar)
         {
+			RadarBLL radarBLL = new RadarBLL();
             string radarId = radar.Latitude.ToString() + "|" + radar.Longitude.ToString();
             if (!Radares.ContainsKey(radarId))
             {
@@ -101,7 +75,7 @@ namespace Radar.Controls
                     },
                     Sentido = radar.Direcao,
                     Velocidade = radar.Velocidade,
-                    Imagem = imagemRadar(radar)
+					Imagem = radarBLL.imagemRadar(radar.Velocidade)
                 };
                 Radares.Add(ponto.Id, ponto);
                 if (AoDesenharRadar != null)

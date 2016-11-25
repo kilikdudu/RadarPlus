@@ -44,7 +44,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -59,5 +58,7 @@
 	<string>Assets.xcassets/LaunchImage.launchimage</string>
 	<key>CFBundleName</key>
 	<string>Radar</string>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 </dict>
 </plist>

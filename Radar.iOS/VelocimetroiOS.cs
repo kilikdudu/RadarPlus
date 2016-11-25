@@ -9,6 +9,7 @@ using UIKit;
 using Radar.Model;
 using Foundation;
 using System.Collections.Generic;
+using Radar.Utils;
 
 namespace Radar.iOS
 {
@@ -106,7 +107,13 @@ namespace Radar.iOS
 			currentContext.SetFillColor(UIColor.Red.CGColor);
 			currentContext.SetFillColor(pegarCor(cor));
 
-			currentContext.ShowTextAtPoint(y - 10, x + 15, Texto);
+			if (TelaUtils.Orientacao == "LandscapeLeft" || TelaUtils.Orientacao == "LandscapeRight")
+			{
+				currentContext.ShowTextAtPoint(y - 10, x , Texto);
+			}
+			else {
+				currentContext.ShowTextAtPoint(y - 10, x + 15, Texto);
+			}
 			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 		}
 
@@ -132,8 +139,26 @@ namespace Radar.iOS
 
 			//return new Xamarin.Forms.Size((double)sizeF.Width, (double)sizeF.Height);
 
-			currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2 , y, Texto);
+			if (TelaUtils.Orientacao == "LandscapeLeft" || TelaUtils.Orientacao == "LandscapeRight")
+			{
+				if (TelaUtils.Dispositivo == "Pad")
+				{
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 3, y + 20, Texto);
 
+				}
+				else {
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 3, y, Texto);
+				}
+			}
+			else {
+				if (TelaUtils.Dispositivo == "Pad")
+				{
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y - 210, Texto);
+				}
+				else {
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y - 40, Texto);
+				}
+			}
 			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 		}
 
@@ -155,7 +180,29 @@ namespace Radar.iOS
 			};
 
 			var sizeF = nsText.GetBoundingRect(boundSize, options, attributes, null).Size;
-			currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y - 55, Texto);
+			if (TelaUtils.Orientacao == "LandscapeLeft" || TelaUtils.Orientacao == "LandscapeRight")
+			{
+				if (TelaUtils.Dispositivo == "Pad")
+				{
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 3, y -60, Texto);
+
+				}
+				else {
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 3, y - 65, Texto);
+				}
+			}
+			else {
+				if (TelaUtils.Dispositivo == "Pad")
+				{
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y - 300, Texto);
+
+				}
+				else {
+					currentContext.ShowTextAtPoint((this.pegarLarguraTela() - sizeF.Width) / 2, y - 35, Texto);
+				}
+
+			}
+
 
 			currentContext.DrawPath(CoreGraphics.CGPathDrawingMode.FillStroke);
 

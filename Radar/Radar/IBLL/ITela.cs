@@ -12,5 +12,9 @@ namespace Radar.IBLL
         float pegarAltura();
 		float pegarLarguraSemPixel();
 		string pegarOrientacao();
-    }
+		float pegarAlturaSemPixel();
+		float pegarLarguraDPI();
+		float pegarAlturaDPI();
+		string pegarDispositivo();
+	}
 }

@@ -7,6 +7,7 @@ using Android.Util;
 using Radar.Controls;
 using Radar.Pages;
 using Radar.Model;
+using System.Diagnostics;
 
 namespace Radar.Droid {
     /// <summary>
@@ -54,7 +55,7 @@ namespace Radar.Droid {
             strokePaint.StrokeWidth = 3;
             strokePaint.Color = pegarCor(cor);
             if (TelaAndroid.Largura > TelaAndroid.Altura) {
-                float testTextSize = 5f;
+                float testTextSize = 7f;
                 float desiredTextSize = (float)(TelaAndroid.Altura * 30 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
             } else {
@@ -72,7 +73,7 @@ namespace Radar.Droid {
 			float tamanhoTexto = 0;
             strokePaint.Color = pegarCor(cor);
             if (TelaAndroid.Largura > TelaAndroid.Altura) {
-                float testTextSize = 4.3f;
+                float testTextSize = 5.3f;
                 float desiredTextSize = (float)(TelaAndroid.Altura * 45 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
 				tamanhoTexto = strokePaint.MeasureText(Texto);
@@ -97,7 +98,7 @@ namespace Radar.Droid {
             strokePaint.StrokeWidth = 3F;
             strokePaint.Color = pegarCor(cor);
             if (TelaAndroid.Largura > TelaAndroid.Altura) {
-                float testTextSize = 4.5f;
+                float testTextSize = 5.5f;
                 float desiredTextSize = (float)(TelaAndroid.Altura * 39 / 100) / testTextSize;
                 strokePaint.TextSize = desiredTextSize;
             } else {
@@ -112,6 +113,7 @@ namespace Radar.Droid {
         {
 			get { return base.Width - (int)(this.velocimetro.Padding.HorizontalThickness); }
         }
+
 
         public new int Height
         {

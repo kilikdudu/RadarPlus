@@ -280,5 +280,33 @@ namespace Radar.BLL
 
         public void atualizar() {
         }
+
+		public string imagemRadar(double velocidade)
+		{
+			string imagem = string.Empty;
+			if (velocidade >= 20 && velocidade < 30)
+				imagem = "radar_20.png";
+			else if (velocidade >= 30 && velocidade < 40)
+				imagem = "radar_30.png";
+			else if (velocidade >= 40 && velocidade < 50)
+				imagem = "radar_40.png";
+			else if (velocidade >= 50 && velocidade < 60)
+				imagem = "radar_50.png";
+			else if (velocidade >= 60 && velocidade < 70)
+				imagem = "radar_60.png";
+			else if (velocidade >= 70 && velocidade < 80)
+				imagem = "radar_70.png";
+			else if (velocidade >= 80 && velocidade < 90)
+				imagem = "radar_80.png";
+			else if (velocidade >= 90 && velocidade < 100)
+				imagem = "radar_90.png";
+			else if (velocidade >= 100 && velocidade < 110)
+				imagem = "radar_100.png";
+			else if (velocidade >= 110 && velocidade < 120)
+				imagem = "radar_110.png";
+			else
+				imagem = "cameramais.png";
+			return imagem;
+		}
     }
 }
