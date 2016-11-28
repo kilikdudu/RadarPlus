@@ -33,7 +33,7 @@ namespace Radar.Droid
     {
         private const int ID_RADAR_CLUB = 5;
         private const int TRAY_DIM_X_DP = 160;   // Width of the tray in dps
-        private const int TRAY_DIM_Y_DP = 220; 	// Height of the tray in dps
+        private const int TRAY_DIM_Y_DP = 240; 	// Height of the tray in dps
         private const int ANIMATION_FRAME_RATE = 30;	// Animation frame rate per second.
         private const int TRAY_MOVEMENT_REGION_FRACTION = 6; // Controls fraction of y-axis on screen within which the tray stays.
 

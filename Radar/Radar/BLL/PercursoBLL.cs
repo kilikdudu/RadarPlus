@@ -32,6 +32,8 @@ namespace Radar.BLL
         private static DateTime _ultimoMovimentoReal;
         private static bool _emMovimento = true;
 
+        public ProcessarPontoEventHandler AoProcessar { get; set; }
+
         public static bool Gravando {
             get {
                 return _gravando;
@@ -102,7 +104,7 @@ namespace Radar.BLL
             return _pontoDB.gravar(ponto);
         }
 
-        public bool iniciarGravacao() {
+        public bool iniciarGravacao(ProcessarPontoEventHandler AoProcessar) {
             if (_gravando)
                 return false;
             PercursoInfo percurso = new PercursoInfo();
@@ -143,6 +145,8 @@ namespace Radar.BLL
                 Movimento = emMovimento
             };
             gravarPonto(ponto);
+            if (AoProcessar != null)
+                AoProcessar(this, new ProcessarPontoEventArgs(ponto));
             _dataAnterior = local.Tempo;
         }
 
