@@ -32,8 +32,8 @@ namespace Radar.Droid
     public class GPSAndroid : Service, ILocationListener, IGPS
     {
         private const int ID_RADAR_CLUB = 5;
-        private const int TRAY_DIM_X_DP = 170;   // Width of the tray in dps
-        private const int TRAY_DIM_Y_DP = 160; 	// Height of the tray in dps
+        private const int TRAY_DIM_X_DP = 160;   // Width of the tray in dps
+        private const int TRAY_DIM_Y_DP = 220; 	// Height of the tray in dps
         private const int ANIMATION_FRAME_RATE = 30;	// Animation frame rate per second.
         private const int TRAY_MOVEMENT_REGION_FRACTION = 6; // Controls fraction of y-axis on screen within which the tray stays.
 
@@ -173,7 +173,7 @@ namespace Radar.Droid
             mWindowManager = context.GetSystemService(Context.WindowService).JavaCast<IWindowManager>();
             mRootLayout = LayoutInflater.From(context).Inflate(Resource.Layout.service_player, null);
             var mContentContainerLayout = mRootLayout.FindViewById(Resource.Id.root_layout);
-            mContentContainerLayout.SetBackgroundColor(Android.Graphics.Color.Argb(200, 255, 255, 255));
+            //mContentContainerLayout.SetBackgroundColor(Android.Graphics.Color.Argb(200, 255, 255, 255));
             // Erro de Invalid Cast - Depois a gente vé essa merda!
             //mContentContainerLayout.SetOnTouchListener(new TrayTouchListener(this));
             mRootLayoutParams = new WindowManagerLayoutParams(
@@ -186,9 +186,9 @@ namespace Radar.Droid
             mRootLayoutParams.Gravity = GravityFlags.Top | GravityFlags.Left;
             //mRootLayout.SetBackgroundColor(Android.Graphics.Color.White);
             mWindowManager.AddView(mRootLayout, mRootLayoutParams);
-            var velocidadeRadar = mRootLayout.FindViewById<TextView>(Resource.Id.velocidadeRadar);
+            //var velocidadeRadar = mRootLayout.FindViewById<TextView>(Resource.Id.velocidadeRadar);
             var distanciaRadar = mRootLayout.FindViewById<TextView>(Resource.Id.distanciaRadar);
-            velocidadeRadar.Text = "0 KM/H";
+            //velocidadeRadar.Text = "0 KM/H";
             distanciaRadar.Text = "0 m";
             mRootLayout.Visibility = ViewStates.Visible;
         }

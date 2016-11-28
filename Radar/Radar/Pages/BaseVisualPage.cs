@@ -37,9 +37,8 @@ namespace Radar.Pages
             get; set;
         }
 
-        protected void atualizarVelocidadeRadar(float velocidadeRadar)
-        {
-            _VelocidadeRadarLabel.Text = ((int)Math.Floor(velocidadeRadar)).ToString() + "Km/h";
+        protected virtual void atualizarVelocidadeRadar(float velocidadeRadar) {
+            //nada
         }
 
         public abstract float VelocidadeRadar
@@ -47,27 +46,21 @@ namespace Radar.Pages
             get; set; 
         }
 
-        public float DistanciaRadar
-        {
-            get
-            {
+        public float DistanciaRadar {
+            get {
                 return _distanciaRadar;
             }
-            set
-            {
+            set {
                 _distanciaRadar = value;
                 _DistanciaRadarLabel.Text = ((int)Math.Floor(_distanciaRadar)).ToString() + "m";
             }
         }
 
-        public float Precisao
-        {
-            get
-            {
+        public float Precisao {
+            get {
                 return _precisao;
             }
-            set
-            {
+            set {
                 _precisao = value;
                 GPSSinalEnum sinal = GPSSinalEnum.Nenhum;
                 if (_precisao <= 0)
