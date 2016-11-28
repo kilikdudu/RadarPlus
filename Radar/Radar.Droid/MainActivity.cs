@@ -65,6 +65,7 @@ namespace Radar.Droid
         protected override void OnResume()
         {
             base.OnResume();
+            //var servico = (GPSAndroid)GetSystemService("br.com.cmapps.radar");
             /*
             if (_locationProvider != null)
                 _locationManager.RequestLocationUpdates(_locationProvider, Configuracao.GPSTempoAtualiazacao, Configuracao.GPSDistanciaAtualizacao, this);
@@ -79,7 +80,7 @@ namespace Radar.Droid
             //Log.Debug(TAG, "No longer listening for location updates.");
         }
 
-        void HandleAndroidException(object sender, RaiseThrowableEventArgs e)
+        private void HandleAndroidException(object sender, RaiseThrowableEventArgs e)
         {
             /*
             Log.Error("ERROR", e.Exception.Message);
