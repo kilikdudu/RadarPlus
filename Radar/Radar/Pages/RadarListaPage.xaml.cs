@@ -149,7 +149,7 @@ namespace Radar.Pages
 
 				Label titulo = new Label()
 				{
-					Text = "31/0ut, 17:41",
+					Text = "31/0ut - 17:41",
 					HorizontalOptions = LayoutOptions.StartAndExpand,
 					FontSize = 26,
 					FontFamily = "Roboto-Condensed",
@@ -159,7 +159,7 @@ namespace Radar.Pages
 				Label limite = new Label()
 				{
 					HorizontalOptions = LayoutOptions.StartAndExpand,
-					//FontSize = 28,
+					FontSize = 14,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
 				};
@@ -170,7 +170,7 @@ namespace Radar.Pages
 				{ 
 					
 					HorizontalOptions = LayoutOptions.StartAndExpand,
-					//FontSize = 28,
+					FontSize = 14,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
 				};
@@ -180,7 +180,7 @@ namespace Radar.Pages
 				{
 					//Text = "Longitude: -49,23480 ",
 					HorizontalOptions = LayoutOptions.StartAndExpand,
-					//FontSize = 28,
+					FontSize = 14,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
 				};
@@ -191,7 +191,7 @@ namespace Radar.Pages
 				{
 					//Text = "Ângulo: 179.0 ",
 					HorizontalOptions = LayoutOptions.StartAndExpand,
-					//FontSize = 28,
+					FontSize = 14,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
 				};
@@ -204,7 +204,7 @@ namespace Radar.Pages
 					HorizontalOptions = LayoutOptions.StartAndExpand,
 					//VerticalOptions = LayoutOptions.StartAndExpand,
 					//WidthRequest = cardRigth.WidthRequest * 0.8,
-					//FontSize = 20,
+					FontSize = 16,
 					FontFamily = "Roboto-Condensed",
 					//HorizontalTextAlignment = TextAlignment.Center
 				};
@@ -214,6 +214,13 @@ namespace Radar.Pages
 					BackgroundColor = Color.FromHex(TemaInfo.DividerColor),
 					VerticalOptions = LayoutOptions.CenterAndExpand
 				};
+
+				if (TelaUtils.Orientacao == "LandscapeLeft" || TelaUtils.Orientacao == "LandscapeRight")
+				{
+					percursoIco.WidthRequest = cardLeft.WidthRequest / 2;
+					//cardLeft.WidthRequest = main.WidthRequest * 0.15;
+					cardRigth.WidthRequest = main.WidthRequest * 0.45;
+				}
 				cardRigthStackVer.Children.Add(titulo);
 				cardRigthStackVer.Children.Add(linha);
 				cardRigthStackHor.Children.Add(limite);

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
   <style name="Theme.Splash" parent="android:Theme">
-    <item name="android:windowBackground">@drawable/bg</item>
+   <item name="android:windowBackground">@drawable/bg</item>
     <item name="android:windowNoTitle">true</item>
   </style>
   <style name="MainTheme" parent="MainTheme.Base">
   </style>
+	<color name="DarkYellow">#FFFFFF</color>
   <!-- Base theme applied no matter what API -->
   <style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
     <!--If you are using revision 22.1 please use just windowNoTitle. Without android:-->
@@ -17,9 +18,21 @@
     <item name="colorPrimary">#009688</item>
     <!-- colorPrimaryDark is used for the status bar -->
     <item name="colorPrimaryDark">#00796b</item>
+	<item name="colorControlNormal">#ffffff</item>
     <!-- colorAccent is used as the default value for colorControlActivated
          which is used to tint widgets -->
-    <item name="colorAccent">#cddc39</item>
+    <!--<item name="colorAccent">#ffffff</item>-->
+	<!--<item name="colorControlHighlight">#ffffff</item>-->
+	<!--<item name="colorControlActivated">#ffffff</item>-->
+
+ 
+    <item name="android:colorPressedHighlight">@color/DarkYellow</item>
+    <item name="android:colorLongPressedHighlight">@color/DarkYellow</item>
+    <item name="android:colorFocusedHighlight">@color/DarkYellow</item>
+    <item name="android:colorActivatedHighlight">@color/DarkYellow</item>
+    <item name="android:activatedBackgroundIndicator">@color/DarkYellow</item>
+ 
+
     <!-- You can also set colorControlNormal, colorControlActivated
          colorControlHighlight and colorSwitchThumbNormal. -->
     <item name="windowActionModeOverlay">true</item>

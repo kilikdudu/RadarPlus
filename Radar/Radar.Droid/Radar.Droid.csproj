@@ -238,6 +238,17 @@
     <AndroidResource Include="Resources\drawable\appRedimensionar.png" />
     <AndroidResource Include="Resources\drawable\appInstrucoes.png" />
     <AndroidResource Include="Resources\drawable\appMaoSetas.png" />
+    <AndroidResource Include="Resources\drawable\bgLand.png" />
+    <AndroidResource Include="Resources\drawable\radar_100.png" />
+    <AndroidResource Include="Resources\drawable\radar_110.png" />
+    <AndroidResource Include="Resources\drawable\radar_20.png" />
+    <AndroidResource Include="Resources\drawable\radar_30.png" />
+    <AndroidResource Include="Resources\drawable\radar_40.png" />
+    <AndroidResource Include="Resources\drawable\radar_50.png" />
+    <AndroidResource Include="Resources\drawable\radar_60.png" />
+    <AndroidResource Include="Resources\drawable\radar_70.png" />
+    <AndroidResource Include="Resources\drawable\radar_80.png" />
+    <AndroidResource Include="Resources\drawable\radar_90.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">

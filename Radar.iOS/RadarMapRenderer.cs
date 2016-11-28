@@ -119,7 +119,8 @@ namespace Radar.iOS
 
 			 MKAnnotationView GetViewForAnnotation(MKMapView mapView, IMKAnnotation annotation)
 			{
-				var annotationIdentifier = "radarLocal";
+			RadarBLL radarBLL = new RadarBLL();
+			var annotationIdentifier = "radarLocal";
 				MKAnnotationView anView;
 
 				if (annotation is MKUserLocation)
@@ -132,7 +133,7 @@ namespace Radar.iOS
 				}
 			RadarInfo radar = new RadarInfo();
 
-			anView.Image = GetImage(_radarMap.imagemRadar(radar));
+			anView.Image = GetImage(radarBLL.imagemRadar(radar.Velocidade));
 				anView.CanShowCallout = true;
 				return anView;
 			}
