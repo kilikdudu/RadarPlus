@@ -33,7 +33,7 @@ namespace Radar.iOS
         {
             UILocalNotification notification = new UILocalNotification();
             NSDate.FromTimeIntervalSinceNow(15);
-            //notification.AlertTitle = "Alert Title"; // required for Apple Watch notifications
+            notification.AlertTitle = titulo;
             notification.AlertAction = titulo;
             notification.AlertBody = mensagem;
             UIApplication.SharedApplication.ScheduleLocalNotification(notification);
@@ -51,7 +51,10 @@ namespace Radar.iOS
         }
 
 		public bool enviarEmail(string para, string titulo, string mensagem) {
-            //Device.OpenUri(new Uri("mailto:" + para + "&subject=" + UrlE));
+            Device.OpenUri(new Uri(
+                "mailto:" + para + 
+                "&subject=" + System.Net.WebUtility.UrlEncode(titulo) +
+                "&body=" + mensagem));
             return false;
         }
 
@@ -64,7 +67,14 @@ namespace Radar.iOS
 
         public bool notificar(int id, string titulo, string descricao, double velocidade)
         {
-            throw new NotImplementedException();
+            UILocalNotification notification = new UILocalNotification();
+            NSDate.FromTimeIntervalSinceNow(15);
+            notification.AlertTitle = titulo;
+            notification.AlertAction = titulo;
+            notification.AlertBody = descricao;
+            UIApplication.SharedApplication.ScheduleLocalNotification(notification);
+
+            return true;
         }
     }
 }
