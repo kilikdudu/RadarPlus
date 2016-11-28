@@ -128,7 +128,7 @@ namespace Radar.BLL
         public static AudioCanalEnum CanalAudio
         {
             get {
-                return (AudioCanalEnum) _regraPreferencia.pegarInt(CANAL_AUDIO, (int)AudioCanalEnum.Notificacao);
+                return (AudioCanalEnum) _regraPreferencia.pegarInt(CANAL_AUDIO, (int)AudioCanalEnum.Musica);
             }
             set {
                 _regraPreferencia.gravar(CANAL_AUDIO, (int)value);
