@@ -16,7 +16,7 @@ namespace Radar.BLL
         private IPercursoDAL _percursoDB;
         private IPercursoPontoDAL _pontoDB;
 
-        private const int TEMPO_ATUALIZACAO_PONTO = 5;
+        //private const int TEMPO_ATUALIZACAO_PONTO = 5;
         private const int TEMPO_MINIMO_PARADO = 120;
         private const int VELOCIDADE_MAXIMA_PARADO = 3;
         public const int NOTIFICACAO_GRAVAR_PERCURSO_ID = 2301;
@@ -150,27 +150,29 @@ namespace Radar.BLL
         {
             if (!_gravando)
                 return false;
-            TimeSpan tempo = local.Tempo.Subtract(_dataAnterior);
-            if (tempo.TotalSeconds > TEMPO_ATUALIZACAO_PONTO) {
-                if (local.Velocidade >= VELOCIDADE_MAXIMA_PARADO) {
+            //TimeSpan tempo = local.Tempo.Subtract(_dataAnterior);
+            //if (tempo.TotalSeconds > TEMPO_ATUALIZACAO_PONTO) {
+            if (local.Velocidade >= VELOCIDADE_MAXIMA_PARADO)
+            {
+                _ultimoMovimentoReal = local.Tempo;
+                _emMovimento = true;
+            }
+            else {
+                TimeSpan tempoMovimento = local.Tempo.Subtract(_ultimoMovimentoReal);
+                if (_emMovimento && tempoMovimento.TotalSeconds > TEMPO_MINIMO_PARADO)
+                {
+                    _emMovimento = false;
                     _ultimoMovimentoReal = local.Tempo;
-                    _emMovimento = true;
-                }
-                else {
-                    TimeSpan tempoMovimento = local.Tempo.Subtract(_ultimoMovimentoReal);
-                    if (_emMovimento && tempoMovimento.TotalSeconds > TEMPO_MINIMO_PARADO)
-                    {
-                        _emMovimento = false;
-                        _ultimoMovimentoReal = local.Tempo;
-                        processarPonto(local, false);
-                    }
-                }
-
-                if (_emMovimento) {
-                    processarPonto(local, true);
-                    return true;
+                    processarPonto(local, false);
                 }
             }
+
+            if (_emMovimento)
+            {
+                processarPonto(local, true);
+                return true;
+            }
+            //}
             return false;
         }
 

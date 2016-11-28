@@ -277,34 +277,34 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\radares\20_radar.png" />
+    <AndroidAsset Include="Assets\radares\radar_20.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\radares\30_radar.png" />
+    <AndroidAsset Include="Assets\radares\radar_30.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\radares\40_radar.png" />
+    <AndroidAsset Include="Assets\radares\radar_40.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\radares\50_radar.png" />
+    <AndroidAsset Include="Assets\radares\radar_50.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\radares\60_radar.png" />
+    <AndroidAsset Include="Assets\radares\radar_60.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\radares\70_radar.png" />
+    <AndroidAsset Include="Assets\radares\radar_70.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\radares\80_radar.png" />
+    <AndroidAsset Include="Assets\radares\radar_80.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\radares\90_radar.png" />
+    <AndroidAsset Include="Assets\radares\radar_90.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\radares\100_radar.png" />
+    <AndroidAsset Include="Assets\radares\radar_100.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\radares\110_radar.png" />
+    <AndroidAsset Include="Assets\radares\radar_110.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\radares\cameramais.png" />

@@ -87,7 +87,7 @@ namespace Radar.Utils
             }
         }
 
-        private static void executarPosicao(LocalizacaoInfo local) {
+        private static LocalizacaoInfo executarPosicao(LocalizacaoInfo local) {
             try
             {
                 _ultimaLocalizacao = local;
@@ -95,7 +95,12 @@ namespace Radar.Utils
                 PercursoBLL regraPercurso = PercursoFactory.create();
                 if (RadarBLL.RadarAtual != null)
                 {
-                    if (!regraRadar.radarContinuaAFrente(local, RadarBLL.RadarAtual))
+                    if (regraRadar.radarContinuaAFrente(local, RadarBLL.RadarAtual))
+                    {
+                        RadarInfo radar = RadarBLL.RadarAtual;
+                        local.Distancia = regraRadar.calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
+                    }
+                    else
                         RadarBLL.RadarAtual = null;
                 }
                 else {
@@ -137,11 +142,32 @@ namespace Radar.Utils
             catch (Exception e) {
                 ErroPage.exibir(e);
             }
+            return local;
         }
 
-        public static void atualizarPosicao(LocalizacaoInfo local) {
-            if (!_simulando)
-                executarPosicao(local);
+        public static LocalizacaoInfo atualizarPosicao(LocalizacaoInfo local) {
+            var localRetorno = local;
+            if (_simulando)
+            {
+                if (_indexPercuso < _percursoSimulado.Pontos.Count())
+                {
+                    PercursoPontoInfo ponto = _percursoSimulado.Pontos[_indexPercuso];
+                    localRetorno = executarPosicao(new LocalizacaoInfo {
+                        Latitude = ponto.Latitude,
+                        Longitude = ponto.Longitude,
+                        Sentido = ponto.Sentido,
+                        Precisao = ponto.Precisao,
+                        Tempo = ponto.Data,
+                        Velocidade = ponto.Velocidade
+                    });
+                    _indexPercuso++;
+                }
+                else
+                    pararSimulacao();
+            }
+            else
+                localRetorno = executarPosicao(local);
+            return localRetorno;
         }
 
         public static void pararSimulacao() {
@@ -178,6 +204,7 @@ namespace Radar.Utils
                 PercursoBLL.ACAO_PARAR_SIMULACAO
             );
             ClubManagement.Utils.MensagemUtils.avisar("Iniciando simulação!");
+            /*
             var task = Task.Factory.StartNew(() =>
             {
                 while (_simulando)
@@ -215,6 +242,7 @@ namespace Radar.Utils
                     }
                 }
             });
+            */
             return true;
         }
     }
