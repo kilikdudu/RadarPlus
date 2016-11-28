@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace Radar.Pages
 {
@@ -87,6 +88,10 @@ namespace Radar.Pages
 			RadarBLL radarBLL = new RadarBLL();
 
 			Image radarImage = new Image();
+			if (VelocidadeRadar == 80)
+			{
+				Debug.WriteLine("radar de 80 km");
+			}
 			radarImage.Source = radarBLL.imagemRadar((double)VelocidadeRadar);
 			radarImage.Aspect = Aspect.Fill;
 			radarImage.WidthRequest = 50;

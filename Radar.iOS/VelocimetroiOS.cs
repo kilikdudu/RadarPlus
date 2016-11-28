@@ -86,7 +86,7 @@ namespace Radar.iOS
 		{
 			var currentContext2 = UIGraphics.GetCurrentContext();
 			currentContext2.SetLineWidth(3);
-			currentContext2.SetFillColor(UIColor.Red.CGColor);
+			currentContext2.SetFillColor(pegarCor(cor));
 			//currentContext2.SetStrokeColor(UIColor.Red.CGColor);
 
 			currentContext2.SetStrokeColor(pegarCor(cor));
@@ -104,7 +104,7 @@ namespace Radar.iOS
 			var currentContext = UIGraphics.GetCurrentContext();
 			currentContext.SelectFont("Arial", 16f, CGTextEncoding.MacRoman);
 			currentContext.SetTextDrawingMode(CGTextDrawingMode.Fill);
-			currentContext.SetFillColor(UIColor.Red.CGColor);
+			//currentContext.SetFillColor(UIColor.Red.CGColor);
 			currentContext.SetFillColor(pegarCor(cor));
 
 			if (TelaUtils.Orientacao == "LandscapeLeft" || TelaUtils.Orientacao == "LandscapeRight")

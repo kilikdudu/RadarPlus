@@ -65,10 +65,12 @@ namespace Radar.iOS
                 {
                     playProximo();
                 };
-                _player.Play();
+
+					_player.Play();
+
             }
             else {
-                _player.Dispose();
+                //_player.Dispose();
                 _player = null;
             }
         }
