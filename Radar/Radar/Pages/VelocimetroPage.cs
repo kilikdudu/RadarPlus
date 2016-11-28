@@ -34,6 +34,7 @@ namespace Radar.Pages
         */
 
         private Velocimetro _velocimetro;
+        Image _radarImage;
 
 
 
@@ -51,9 +52,18 @@ namespace Radar.Pages
 				return _velocimetro.VelocidadeRadar;
             }
             set {
-                _velocimetro.VelocidadeRadar = value;
-                atualizarVelocidadeRadar(value);
+                if (_velocimetro.VelocidadeRadar != value)
+                {
+                    _velocimetro.VelocidadeRadar = value;
+                    atualizarVelocidadeRadar(value);
+                }
             }
+        }
+
+        protected override void atualizarVelocidadeRadar(float velocidadeRadar) {
+            var regraRadar = RadarFactory.create();
+            var pathRadar = regraRadar.imagemRadar(velocidadeRadar);
+            _radarImage.Source = ImageSource.FromFile(pathRadar);
         }
 
         public VelocimetroPage()
@@ -85,19 +95,15 @@ namespace Radar.Pages
 
 
 
-			RadarBLL radarBLL = new RadarBLL();
+			RadarBLL radarBLL = RadarFactory.create();
 
-			Image radarImage = new Image();
-			if (VelocidadeRadar == 80)
-			{
-				Debug.WriteLine("radar de 80 km");
-			}
-			radarImage.Source = radarBLL.imagemRadar((double)VelocidadeRadar);
-			radarImage.Aspect = Aspect.Fill;
-			radarImage.WidthRequest = 50;
-			radarImage.HeightRequest = 50;
-			radarImage.VerticalOptions = LayoutOptions.CenterAndExpand;
-			radarImage.HorizontalOptions = LayoutOptions.Center;
+            _radarImage = new Image();
+            _radarImage.Source = radarBLL.imagemRadar((double)VelocidadeRadar);
+            _radarImage.Aspect = Aspect.Fill;
+            _radarImage.WidthRequest = 50;
+            _radarImage.HeightRequest = 50;
+            _radarImage.VerticalOptions = LayoutOptions.CenterAndExpand;
+            _radarImage.HorizontalOptions = LayoutOptions.Center;
 
 			Label fiscalizacao = new Label();
 			fiscalizacao.Text = "FISCALIZAÇÃO ELETRÔNICA";
@@ -114,8 +120,8 @@ namespace Radar.Pages
 			if (TelaUtils.Dispositivo == "Pad")
 			{
 				_velocimetro.Margin = new Thickness(0, -50, 0, 0);
-				radarImage.WidthRequest = 70;
-				radarImage.HeightRequest = 70;
+				_radarImage.WidthRequest = 70;
+				_radarImage.HeightRequest = 70;
 				AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.52, 1, 0.3, 0.25));
 				AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
 			}
@@ -154,8 +160,8 @@ namespace Radar.Pages
 
 				//placa.Margin = new Thickness(TelaUtils.LarguraSemPixel / 3, 0, 0, 0);
 
-				radarImage.WidthRequest = 50;
-				radarImage.HeightRequest = 50;
+				_radarImage.WidthRequest = 50;
+				_radarImage.HeightRequest = 50;
 
 				AbsoluteLayout.SetLayoutBounds(_BussolaFundo, new Rectangle(1, 0.05, 0.2, 0.2));
 				AbsoluteLayout.SetLayoutFlags(_BussolaFundo, AbsoluteLayoutFlags.All);
@@ -187,15 +193,15 @@ namespace Radar.Pages
 
 					AbsoluteLayout.SetLayoutBounds(placa, new Rectangle(0.52, 1, 0.2, 0.3));
 					AbsoluteLayout.SetLayoutFlags(placa, AbsoluteLayoutFlags.All);
-					radarImage.VerticalOptions = LayoutOptions.StartAndExpand;
+					_radarImage.VerticalOptions = LayoutOptions.StartAndExpand;
 				}
 				else {
 					_velocimetro.Margin = new Thickness(TelaUtils.Largura * 0.5 - 70, -270, 0, 0);
 					AbsoluteLayout.SetLayoutBounds(_velocimetro, new Rectangle(1, 1, 1, 0.5));
 					AbsoluteLayout.SetLayoutFlags(_velocimetro, AbsoluteLayoutFlags.All);
-					radarImage.WidthRequest = 40;
-					radarImage.HeightRequest = 40;
-					radarImage.Margin = new Thickness(0,-9,0,0);
+					_radarImage.WidthRequest = 40;
+					_radarImage.HeightRequest = 40;
+					_radarImage.Margin = new Thickness(0,-9,0,0);
 					fiscalizacao.Margin = new Thickness(0, -5, 0, 0);
 					fiscalizacao.VerticalOptions = LayoutOptions.FillAndExpand;
 					fiscalizacao.FontSize = 9;
@@ -224,7 +230,7 @@ namespace Radar.Pages
                 }
             };
             */
-			dentroPlaca.Children.Add(radarImage);
+			dentroPlaca.Children.Add(_radarImage);
 			dentroPlaca.Children.Add(fiscalizacao);
 			dentroPlaca.Children.Add(_DistanciaRadarLabel);
             
