@@ -39,18 +39,19 @@ namespace Radar.iOS
             notification.AlertTitle = titulo;
             notification.AlertAction = titulo;
             notification.AlertBody = mensagem;
+			notification.SoundName = UILocalNotification.DefaultSoundName;
             UIApplication.SharedApplication.ScheduleLocalNotification(notification);
             return true;
         }
 
         public bool notificarPermanente(int id, string titulo, string descricao, int idRadar, string textoRadar, string acaoParar)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public bool pararNotificaoPermanente(int id)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
 		public bool enviarEmail(string para, string titulo, string mensagem) {

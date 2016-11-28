@@ -87,7 +87,7 @@ namespace Radar.Pages
 			RadarBLL radarBLL = new RadarBLL();
 
 			Image radarImage = new Image();
-			radarImage.Source = radarBLL.imagemRadar((double)100);
+			radarImage.Source = radarBLL.imagemRadar((double)VelocidadeRadar);
 			radarImage.Aspect = Aspect.Fill;
 			radarImage.WidthRequest = 50;
 			radarImage.HeightRequest = 50;
