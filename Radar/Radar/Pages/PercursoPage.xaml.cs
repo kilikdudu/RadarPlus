@@ -172,7 +172,9 @@ namespace Radar.Pages
 		{
 			PercursoInfo percurso = (PercursoInfo)((MenuItem)sender).BindingContext;
 			if (percurso != null)
+			{
 				GPSUtils.simularPercurso(percurso.Id);
+			}
 		}
 
 		public class PercursoPageCell : ViewCell
