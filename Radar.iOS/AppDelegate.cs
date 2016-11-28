@@ -21,7 +21,9 @@ namespace Radar.iOS
 			LoadApplication(new App());  // method is new in 1.3
 
             CurrentDelegateUtils.Current = this;
-
+			var settings = UIUserNotificationSettings.GetSettingsForTypes( UIUserNotificationType.Badge , null);
+			UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+			notification.SoundName = UILocalNotification.DefaultSoundName;
             bool retorno = base.FinishedLaunching(app, options);
 
             //GPSiOS gps = new GPSiOS();

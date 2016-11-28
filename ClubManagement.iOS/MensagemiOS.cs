@@ -39,6 +39,7 @@ namespace Radar.iOS
             //notification.AlertTitle = "Alert Title"; // required for Apple Watch notifications
             notification.AlertAction = titulo;
             notification.AlertBody = mensagem;
+			notification.SoundName = UILocalNotification.DefaultSoundName;
             UIApplication.SharedApplication.ScheduleLocalNotification(notification);
             return true;
         }

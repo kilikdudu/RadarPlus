@@ -175,7 +175,6 @@ namespace Radar.Pages
 							//MensagemUtils.avisar("teste");
 							//var downloader = new DownloaderAtualizacao();
 							//downloader.download();
-							AudioUtils.play("alarm-001");
 
                             if (InternetUtils.estarConectado())
                             {
