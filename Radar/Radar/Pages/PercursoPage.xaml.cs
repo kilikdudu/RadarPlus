@@ -173,7 +173,7 @@ namespace Radar.Pages
 			PercursoInfo percurso = (PercursoInfo)((MenuItem)sender).BindingContext;
 			if (percurso != null)
 			{
-				GPSUtils.simularPercurso(percurso.Id);
+				//GPSUtils.simularPercurso(percurso.Id);
 			}
 		}
 
@@ -227,8 +227,8 @@ namespace Radar.Pages
 				simulaPercurso.Clicked += ( sender, e) =>
 				{
 					PercursoInfo percurso = (PercursoInfo)((MenuItem)sender).BindingContext;
-					if (percurso != null)
-						GPSUtils.simularPercurso(percurso.Id);
+					//if (percurso != null)
+					//	GPSUtils.simularPercurso(percurso.Id);
 					OnAppearing();
 				};
 

@@ -42,10 +42,12 @@ namespace Radar.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
+			/*
             if (Device.OS == TargetPlatform.iOS)
                 GPSUtils.inicializar();
             if (Device.OS == TargetPlatform.Android)
                 GPSUtils.verificarFuncionamentoGPS();
+*/
         }
 
         protected void OnItemSelected(object sender, SelectedItemChangedEventArgs e)

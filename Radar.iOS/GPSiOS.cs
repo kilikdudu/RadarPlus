@@ -47,7 +47,7 @@ namespace Radar.iOS
                 local.Tempo = NSDateToDateTime(location.Timestamp);
                 local.Velocidade = location.Speed * 3.6;
 
-                GPSUtils.atualizarPosicao(local);
+                //GPSUtils.atualizarPosicao(local);
             };
 
         }
