@@ -120,7 +120,9 @@ namespace Radar.Pages
 				}
 			}
 			else {
-				if (regraPercurso.iniciarGravacao())
+				if (regraPercurso.iniciarGravacao((s2, e2) => {
+                    //e2.Ponto;
+                }))
 				{
 
 					stackDescricaoGravando.Children.Remove(gravarLabel);
