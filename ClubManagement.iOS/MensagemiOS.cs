@@ -1,4 +1,4 @@
-﻿using AudioToolbox;
+using AudioToolbox;
 using ClubManagement.IBLL;
 using ClubManagement.Utils;
 using Foundation;
@@ -71,6 +71,7 @@ namespace Radar.iOS
             SystemSound.Vibrate.PlayAlertSound();
         }
 
+        
         public bool notificar(int id, string titulo, string descricao, double velocidade)
         {
             UILocalNotification notification = new UILocalNotification();

@@ -1,4 +1,4 @@
-﻿using ClubManagement.Utils;
+using ClubManagement.Utils;
 using Radar.BLL;
 using Radar.Factory;
 using Radar.IBLL;
@@ -94,65 +94,88 @@ namespace Radar.Utils
 			}
 		}
 
-		private static void executarPosicao(LocalizacaoInfo local)
-		{
-			try
-			{
-				_ultimaLocalizacao = local;
-				RadarBLL regraRadar = RadarFactory.create();
-				PercursoBLL regraPercurso = PercursoFactory.create();
-				if (RadarBLL.RadarAtual != null)
-				{
-					if (!regraRadar.radarContinuaAFrente(local, RadarBLL.RadarAtual))
-						RadarBLL.RadarAtual = null;
-				}
-				else {
-					double distanciaRadar = (local.Velocidade < 90) ? PreferenciaUtils.DistanciaAlertaUrbano : PreferenciaUtils.DistanciaAlertaEstrada;
-					RadarInfo radar = regraRadar.calcularRadar(local, distanciaRadar);
-					if (radar != null)
-					{
-						local.Distancia = regraRadar.calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
-						if (PreferenciaUtils.AlertaInteligente)
-						{
-							if ((local.Velocidade - 5) > radar.Velocidade)
-								avisarRadar(local, radar);
-						}
-						else
-							avisarRadar(local, radar);
-					}
-				}
-				var visualPage = GlobalUtils.Visual;
-				if (visualPage != null)
-				{
-					visualPage.VelocidadeAtual = (float)local.Velocidade;
-					visualPage.Precisao = local.Precisao;
-					visualPage.Sentido = local.Sentido;
-					RadarInfo radar = RadarBLL.RadarAtual;
-					if (radar != null)
-					{
-						visualPage.VelocidadeRadar = radar.Velocidade;
-						visualPage.DistanciaRadar = (float)local.Distancia;
-					}
-					else {
-						visualPage.VelocidadeRadar = 0;
-						visualPage.DistanciaRadar = 0;
-					}
-					visualPage.atualizarPosicao(local);
-					visualPage.redesenhar();
-				}
-				regraPercurso.executarGravacao(local);
-			}
-			catch (Exception e)
-			{
-				ErroPage.exibir(e);
-			}
-		}
+        private static LocalizacaoInfo executarPosicao(LocalizacaoInfo local) {
+            try
+            {
+                _ultimaLocalizacao = local;
+                RadarBLL regraRadar = RadarFactory.create();
+                PercursoBLL regraPercurso = PercursoFactory.create();
+                if (RadarBLL.RadarAtual != null)
+                {
+                    if (regraRadar.radarContinuaAFrente(local, RadarBLL.RadarAtual))
+                    {
+                        RadarInfo radar = RadarBLL.RadarAtual;
+                        local.Distancia = regraRadar.calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
+                    }
+                    else
+                        RadarBLL.RadarAtual = null;
+                }
+                else {
+                    double distanciaRadar = (local.Velocidade < 90) ? PreferenciaUtils.DistanciaAlertaUrbano : PreferenciaUtils.DistanciaAlertaEstrada;
+                    RadarInfo radar = regraRadar.calcularRadar(local, distanciaRadar);
+                    if (radar != null)
+                    {
+                        local.Distancia = regraRadar.calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
+                        if (PreferenciaUtils.AlertaInteligente)
+                        {
+                            if ((local.Velocidade - 5) > radar.Velocidade)
+                                avisarRadar(local, radar);
+                        }
+                        else
+                            avisarRadar(local, radar);
+                    }
+                }
+                var visualPage = GlobalUtils.Visual;
+                if (visualPage != null)
+                {
+                    visualPage.VelocidadeAtual = (float)local.Velocidade;
+                    visualPage.Precisao = local.Precisao;
+                    visualPage.Sentido = local.Sentido;
+                    RadarInfo radar = RadarBLL.RadarAtual;
+                    if (radar != null)
+                    {
+                        visualPage.VelocidadeRadar = radar.Velocidade;
+                        visualPage.DistanciaRadar = (float)local.Distancia;
+                    }
+                    else {
+                        visualPage.VelocidadeRadar = 0;
+                        visualPage.DistanciaRadar = 0;
+                    }
+                    visualPage.atualizarPosicao(local);
+                    visualPage.redesenhar();
+                }
+                regraPercurso.executarGravacao(local);
+            }
+            catch (Exception e) {
+                ErroPage.exibir(e);
+            }
+            return local;
+        }
 
-		public static void atualizarPosicao(LocalizacaoInfo local)
-		{
-			if (!_simulando)
-				executarPosicao(local);
-		}
+        public static LocalizacaoInfo atualizarPosicao(LocalizacaoInfo local) {
+            var localRetorno = local;
+            if (_simulando)
+            {
+                if (_indexPercuso < _percursoSimulado.Pontos.Count())
+                {
+                    PercursoPontoInfo ponto = _percursoSimulado.Pontos[_indexPercuso];
+                    localRetorno = executarPosicao(new LocalizacaoInfo {
+                        Latitude = ponto.Latitude,
+                        Longitude = ponto.Longitude,
+                        Sentido = ponto.Sentido,
+                        Precisao = ponto.Precisao,
+                        Tempo = ponto.Data,
+                        Velocidade = ponto.Velocidade
+                    });
+                    _indexPercuso++;
+                }
+                else
+                    pararSimulacao();
+            }
+            else
+                localRetorno = executarPosicao(local);
+            return localRetorno;
+        }
 
 		public static void pararSimulacao()
 		{
@@ -162,44 +185,42 @@ namespace Radar.Utils
 			ClubManagement.Utils.MensagemUtils.avisar("Simulação finalizada!");
 		}
 
-		public static bool simularPercurso(int idPercurso)
-		{
-			if (_simulando)
-			{
-				ClubManagement.Utils.MensagemUtils.avisar("Já existe uma simulação em andamento.");
-				return false;
-			}
-			PercursoBLL regraPercurso = PercursoFactory.create();
-			_percursoSimulado = regraPercurso.pegar(idPercurso);
-			_simulando = true;
-			_indexPercuso = 0;
-			_ultimoPonto = DateTime.MinValue;
-			if (_percursoSimulado == null)
-			{
-				ClubManagement.Utils.MensagemUtils.avisar("Percurso não encontrado.");
-				return false;
-			}
-			if (_percursoSimulado.Pontos.Count() == 0)
-			{
-				ClubManagement.Utils.MensagemUtils.avisar("Nenhum movimento registrado nesse percurso.");
-				return false;
-			}
-			//MensagemUtils.notificarPermanente(NOTIFICACAO_SIMULACAO_ID, "Simulando percurso!", string.Empty);
-			ClubManagement.Utils.MensagemUtils.notificarPermanente(
-				PercursoBLL.NOTIFICACAO_SIMULACAO_PERCURSO_ID,
-				"Radar Club", "Simulando percurso...",
-				PercursoBLL.NOTIFICACAO_SIMULACAO_PARAR_PERCURSO_ID,
-				"Parar",
-				PercursoBLL.ACAO_PARAR_SIMULACAO
-			);
-			ClubManagement.Utils.MensagemUtils.avisar("Iniciando simulação!");
-			var task = Task.Factory.StartNew(() =>
-			{
-				while (_simulando)
-				{
-					if (_indexPercuso < _percursoSimulado.Pontos.Count())
-					{
-						PercursoPontoInfo ponto = _percursoSimulado.Pontos[_indexPercuso];
+
+        public static bool simularPercurso(int idPercurso) {
+            if (_simulando) {
+                ClubManagement.Utils.MensagemUtils.avisar("Já existe uma simulação em andamento.");
+                return false;
+            }
+            PercursoBLL regraPercurso = PercursoFactory.create();
+            _percursoSimulado = regraPercurso.pegar(idPercurso);
+            _simulando = true;
+            _indexPercuso = 0;
+            _ultimoPonto = DateTime.MinValue;
+            if (_percursoSimulado == null) {
+                ClubManagement.Utils.MensagemUtils.avisar("Percurso não encontrado.");
+                return false;
+            }
+            if (_percursoSimulado.Pontos.Count() == 0) {
+                ClubManagement.Utils.MensagemUtils.avisar("Nenhum movimento registrado nesse percurso.");
+                return false;
+            }
+            //MensagemUtils.notificarPermanente(NOTIFICACAO_SIMULACAO_ID, "Simulando percurso!", string.Empty);
+            ClubManagement.Utils.MensagemUtils.notificarPermanente(
+                PercursoBLL.NOTIFICACAO_SIMULACAO_PERCURSO_ID,
+                "Radar Club", "Simulando percurso...",
+                PercursoBLL.NOTIFICACAO_SIMULACAO_PARAR_PERCURSO_ID, 
+                "Parar",
+                PercursoBLL.ACAO_PARAR_SIMULACAO
+            );
+            ClubManagement.Utils.MensagemUtils.avisar("Iniciando simulação!");
+            /*
+            var task = Task.Factory.StartNew(() =>
+            {
+                while (_simulando)
+                {
+                    if (_indexPercuso < _percursoSimulado.Pontos.Count())
+                    {
+                        PercursoPontoInfo ponto = _percursoSimulado.Pontos[_indexPercuso];
 
 						LocalizacaoInfo local = new LocalizacaoInfo
 						{
@@ -216,22 +237,25 @@ namespace Radar.Utils
 							executarPosicao(local);
 						});
 
-						if (_ultimoPonto != DateTime.MinValue)
-						{
-							TimeSpan delay = ponto.Data.Subtract(_ultimoPonto);
-							Task.Delay((int)delay.TotalMilliseconds).Wait();
-							//_ultimoPonto = ponto.Data;
-						}
-						_ultimoPonto = ponto.Data;
-						_indexPercuso++;
-					}
-					else {
-						pararSimulacao();
-						break;
-					}
-				}
-			});
-			return true;
-		}
-	}
+
+                        if (_ultimoPonto != DateTime.MinValue)
+                        {
+                            TimeSpan delay = ponto.Data.Subtract(_ultimoPonto);
+                            Task.Delay((int)delay.TotalMilliseconds).Wait();
+                            //_ultimoPonto = ponto.Data;
+                        }
+                        _ultimoPonto = ponto.Data;
+                        _indexPercuso++;
+                    }
+                    else {
+                        pararSimulacao();
+                        break;
+                    }
+                }
+            });
+            */
+            return true;
+        }
+    }
+
 }
