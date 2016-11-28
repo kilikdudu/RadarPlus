@@ -3,17 +3,28 @@
     android:id="@+id/root_layout"
     android:layout_width="0dp"
     android:layout_height="0dp"
+    android:background="@drawable/widget_fundo"
     android:visibility="invisible">
 
   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp"
     android:orientation="vertical" >
-    <TextView android:id="@+id/velocidadeRadar"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content" />
+    <ImageView 
+      android:id="@+id/velocidadeImagem"
+      android:src="@drawable/cameramais" 
+      android:layout_width="fill_parent" 
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_centerHorizontal="true"
+      android:scaleType="centerInside" />
     <TextView android:id="@+id/distanciaRadar"
       android:layout_width="fill_parent"
-      android:layout_height="wrap_content" />
+      android:layout_height="wrap_content"
+      android:layout_gravity="center" />
   </LinearLayout>
 </RelativeLayout>

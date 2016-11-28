@@ -4528,8 +4528,8 @@ namespace Radar.Droid
 			// aapt resource value: 0x7f0200f4
 			public const int navicon = 2130837748;
 			
-			// aapt resource value: 0x7f02010f
-			public const int notification_template_icon_bg = 2130837775;
+			// aapt resource value: 0x7f020110
+			public const int notification_template_icon_bg = 2130837776;
 			
 			// aapt resource value: 0x7f0200f5
 			public const int novidade = 2130837749;
@@ -4608,6 +4608,9 @@ namespace Radar.Droid
 			
 			// aapt resource value: 0x7f02010e
 			public const int velocimetro_20x20_preto = 2130837774;
+			
+			// aapt resource value: 0x7f02010f
+			public const int widget_fundo = 2130837775;
 			
 			static Drawable()
 			{
@@ -5109,7 +5112,7 @@ namespace Radar.Droid
 			public const int useLogo = 2131361823;
 			
 			// aapt resource value: 0x7f0a00a4
-			public const int velocidadeRadar = 2131361956;
+			public const int velocidadeImagem = 2131361956;
 			
 			// aapt resource value: 0x7f0a000a
 			public const int view_offset_helper = 2131361802;
