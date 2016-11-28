@@ -68,7 +68,7 @@ namespace Radar.iOS
             //Notifications.Instance.Vibrate(2000);
             SystemSound.Vibrate.PlayAlertSound();
         }
-
+		/*
         public bool notificar(int id, string titulo, string descricao, double velocidade)
         {
             UILocalNotification notification = new UILocalNotification();
@@ -80,5 +80,6 @@ namespace Radar.iOS
 
             return true;
         }
+        */
     }
 }

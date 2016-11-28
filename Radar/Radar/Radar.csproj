@@ -37,7 +37,6 @@
   <ItemGroup>
     <Compile Include="BLL\AvisoSonoroBLL.cs" />
     <Compile Include="BLL\PreferenciaUtils.cs" />
-    <Compile Include="Utils\GPSUtils.cs" />
     <Compile Include="IBLL\IGPS.cs" />
     <Compile Include="IBLL\ITela.cs" />
     <Compile Include="BLL\MapaBLL.cs" />
@@ -201,6 +200,7 @@
     <EmbeddedResource Include="Pages\Popup\InstrucaoPopUp.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Utils\GPSUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Mono.Android">
