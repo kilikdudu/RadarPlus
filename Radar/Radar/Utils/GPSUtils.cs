@@ -25,7 +25,7 @@ namespace Radar.Utils
 		private static int _indexPercuso = 0;
 		private static DateTime _ultimoPonto;
 		private static LocalizacaoInfo _ultimaLocalizacao = null;
-		private static int DistanciaOld = 0;
+		private static int _distanciaOld = 0;
 
 		public static bool Simulado
 		{
@@ -86,10 +86,10 @@ namespace Radar.Utils
 			if (PreferenciaUtils.HabilitarVoz)
 			{
 				int distancia = arredondarDistancia(local.Distancia);
-				if (distancia != DistanciaOld)
+				if (distancia != _distanciaOld)
 				{
 					regraAviso.play(RadarTipoEnum.RadarFixo, radar.Velocidade, distancia);
-					DistanciaOld = distancia;
+                    _distanciaOld = distancia;
 				}
 			}
 		}
@@ -111,6 +111,7 @@ namespace Radar.Utils
                         RadarBLL.RadarAtual = null;
                 }
                 else {
+                    _distanciaOld = 0;
                     double distanciaRadar = (local.Velocidade < 90) ? PreferenciaUtils.DistanciaAlertaUrbano : PreferenciaUtils.DistanciaAlertaEstrada;
                     RadarInfo radar = regraRadar.calcularRadar(local, distanciaRadar);
                     if (radar != null)
