@@ -21,6 +21,7 @@ namespace ClubManagement.Utils
         {
             if (Device.OS == TargetPlatform.iOS)
                 Application.Current.MainPage.DisplayAlert(titulo, mensagem, "Fechar");
+			
             else {
                 if (_mensagem == null)
                     _mensagem = DependencyService.Get<IMensagem>();

@@ -72,16 +72,16 @@ namespace Radar.BLL
         };
 
         private IDictionary<int, string> AUDIO_DISTANCIA = new Dictionary<int, string>() {
-            { 100, "100-metros.mp3" },
-            { 200, "200-metros.mp3" },
-            { 300, "300-metros.mp3" },
-            { 400, "400-metros.mp3" },
-            { 500, "500-metros.mp3" },
-            { 600, "600-metros.mp3" },
-            { 700, "700-metros.mp3" },
-            { 800, "800-metros.mp3" },
-            { 900, "900-metros.mp3" },
-            { 1000, "1000-metros.mp3" }
+            { 100, "metros-100.mp3" },
+            { 200, "metros-200.mp3" },
+            { 300, "metros-300.mp3" },
+            { 400, "metros-400.mp3" },
+            { 500, "metros-500.mp3" },
+            { 600, "metros-600.mp3" },
+            { 700, "metros-700.mp3" },
+            { 800, "metros-800.mp3" },
+            { 900, "metros-900.mp3" },
+            { 1000, "metros-1000.mp3" }
         };
 
         private IDictionary<int, string> AUDIO_VELOCIDADE = new Dictionary<int, string>() {

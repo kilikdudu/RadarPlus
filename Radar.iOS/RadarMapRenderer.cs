@@ -26,7 +26,7 @@ namespace Radar.iOS
     {
         RadarMap _radarMap;
         MKMapView _nativeMap;
-
+		public RadarPin _radar = null;
         //UIView customPinView;
         //bool animando = false;
 
@@ -94,6 +94,7 @@ namespace Radar.iOS
 
         private void desenharRadar(RadarPin radar)
         {
+			_radar = radar;
 			
 			_nativeMap = Control as MKMapView;
 
@@ -131,9 +132,8 @@ namespace Radar.iOS
 				{
 					anView = new MKAnnotationView(annotation, annotationIdentifier);
 				}
-			RadarInfo radar = new RadarInfo();
 
-			anView.Image = GetImage(radarBLL.imagemRadar(radar.Velocidade));
+			anView.Image = GetImage(radarBLL.imagemRadar(_radar.Velocidade));
 				anView.CanShowCallout = true;
 				return anView;
 			}

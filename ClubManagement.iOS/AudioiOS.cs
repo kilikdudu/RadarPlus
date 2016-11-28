@@ -44,22 +44,11 @@ namespace Radar.iOS
 
         private AVAudioPlayer criarAudio(string arquivo)
         {
-            //string alarme = "alarmes/" + arquivo;
-            string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            string path = Path.Combine(documentsPath, arquivo);
-            if (!System.IO.File.Exists(path))
-            {
-                Stream origem = File.Open(arquivo, FileMode.Open, FileAccess.Read);
-                FileStream destino = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
-                origem.CopyTo(destino);
-                origem.Close();
-                destino.Close();
-            }
-
-            NSUrl songURL = new NSUrl(path);
+         
+			NSUrl songURL = new NSUrl( arquivo);
             NSError err;
             AVAudioPlayer player = new AVAudioPlayer(songURL, "wav", out err);
-            player.Volume = 15;
+			player.Volume = Volume;
             player.NumberOfLoops = 0;
 
             return player;
