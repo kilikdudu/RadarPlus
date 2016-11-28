@@ -37,7 +37,6 @@
   <ItemGroup>
     <Compile Include="BLL\AvisoSonoroBLL.cs" />
     <Compile Include="BLL\PreferenciaUtils.cs" />
-    <Compile Include="Utils\GPSUtils.cs" />
     <Compile Include="IBLL\IGPS.cs" />
     <Compile Include="IBLL\ITela.cs" />
     <Compile Include="BLL\MapaBLL.cs" />
@@ -168,6 +167,7 @@
     <Compile Include="Pages\Popup\InstrucaoPopUp.xaml.cs">
       <DependentUpon>InstrucaoPopUp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\GPSUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\RadarListaPage.xaml">
