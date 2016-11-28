@@ -115,18 +115,44 @@ namespace Radar.Droid
             return local;
         }
 
+        private void atualizarVelocidadeRadar(float velocidade)
+        {
+            var velocidadeImagem = mRootLayout.FindViewById<ImageView>(Resource.Id.velocidadeImagem);
+            if (velocidade <= 20)
+                velocidadeImagem.SetImageResource(Resource.Drawable.radar_20);
+            else if (velocidade > 20 && velocidade <= 30)
+                velocidadeImagem.SetImageResource(Resource.Drawable.radar_30);
+            else if (velocidade > 30 && velocidade <= 40)
+                velocidadeImagem.SetImageResource(Resource.Drawable.radar_40);
+            else if (velocidade > 40 && velocidade <= 50)
+                velocidadeImagem.SetImageResource(Resource.Drawable.radar_50);
+            else if (velocidade > 50 && velocidade <= 60)
+                velocidadeImagem.SetImageResource(Resource.Drawable.radar_60);
+            else if (velocidade > 60 && velocidade <= 70)
+                velocidadeImagem.SetImageResource(Resource.Drawable.radar_70);
+            else if (velocidade > 70 && velocidade <= 80)
+                velocidadeImagem.SetImageResource(Resource.Drawable.radar_80);
+            else if (velocidade > 80 && velocidade <= 90)
+                velocidadeImagem.SetImageResource(Resource.Drawable.radar_90);
+            else if (velocidade > 90 && velocidade <= 100)
+                velocidadeImagem.SetImageResource(Resource.Drawable.radar_100);
+            else if (velocidade > 90 && velocidade <= 100)
+                velocidadeImagem.SetImageResource(Resource.Drawable.radar_110);
+        }
+
         public void OnLocationChanged(Location location)
         {
             LocalizacaoInfo local = converterLocalizacao(location);
             local = GPSUtils.atualizarPosicao(local);
-            /*
             RadarInfo radar = RadarBLL.RadarAtual;
             if (radar != null)
             {
-                var velocidadeRadar = mRootLayout.FindViewById<TextView>(Resource.Id.velocidadeRadar);
+                //var velocidadeImagem = mRootLayout.FindViewById<ImageView>(Resource.Id.velocidadeImagem);
+                atualizarVelocidadeRadar(radar.Velocidade);
                 var distanciaRadar = mRootLayout.FindViewById<TextView>(Resource.Id.distanciaRadar);
                 int distancia = Convert.ToInt32(Math.Floor(local.Distancia));
-                velocidadeRadar.Text = radar.VelocidadeStr;
+                //velocidadeImagem.SetImageResource(Resource.Drawable.radar_20);
+                //velocidadeRadar.Text = radar.VelocidadeStr;
                 distanciaRadar.Text = distancia.ToString() + " m";
                 if (mRootLayout.Visibility != ViewStates.Visible)
                     mRootLayout.Visibility = ViewStates.Visible;
@@ -135,7 +161,6 @@ namespace Radar.Droid
                 if (mRootLayout.Visibility == ViewStates.Visible)
                     mRootLayout.Visibility = ViewStates.Invisible;
             }
-            */
         }
 
         public void OnProviderDisabled(string provider)
@@ -190,7 +215,7 @@ namespace Radar.Droid
             var distanciaRadar = mRootLayout.FindViewById<TextView>(Resource.Id.distanciaRadar);
             //velocidadeRadar.Text = "0 KM/H";
             distanciaRadar.Text = "0 m";
-            mRootLayout.Visibility = ViewStates.Visible;
+            //mRootLayout.Visibility = ViewStates.Visible;
         }
 
         public bool estaAtivo()

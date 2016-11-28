@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="BLL\AvisoSonoroBLL.cs" />
     <Compile Include="BLL\PreferenciaUtils.cs" />
+    <Compile Include="BLL\ProcessarPontoEventHandler.cs" />
     <Compile Include="IBLL\IGPS.cs" />
     <Compile Include="IBLL\ITela.cs" />
     <Compile Include="BLL\MapaBLL.cs" />
