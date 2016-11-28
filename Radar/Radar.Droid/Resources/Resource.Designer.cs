@@ -4724,6 +4724,9 @@ namespace Radar.Droid
 			// aapt resource value: 0x7f0a0055
 			public const int contentPanel = 2131361877;
 			
+			// aapt resource value: 0x7f0a00a4
+			public const int content_container = 2131361956;
+			
 			// aapt resource value: 0x7f0a005b
 			public const int custom = 2131361883;
 			
@@ -4756,6 +4759,9 @@ namespace Radar.Droid
 			
 			// aapt resource value: 0x7f0a001a
 			public const int disableHome = 2131361818;
+			
+			// aapt resource value: 0x7f0a00a6
+			public const int distanciaRadar = 2131361958;
 			
 			// aapt resource value: 0x7f0a0067
 			public const int edit_query = 2131361895;
@@ -4955,6 +4961,9 @@ namespace Radar.Droid
 			// aapt resource value: 0x7f0a003b
 			public const int right = 2131361851;
 			
+			// aapt resource value: 0x7f0a00a3
+			public const int root_layout = 2131361955;
+			
 			// aapt resource value: 0x7f0a000e
 			public const int satellite = 2131361806;
 			
@@ -5021,8 +5030,8 @@ namespace Radar.Droid
 			// aapt resource value: 0x7f0a001e
 			public const int showTitle = 2131361822;
 			
-			// aapt resource value: 0x7f0a00a3
-			public const int sliding_tabs = 2131361955;
+			// aapt resource value: 0x7f0a00a7
+			public const int sliding_tabs = 2131361959;
 			
 			// aapt resource value: 0x7f0a0077
 			public const int snackbar_action = 2131361911;
@@ -5084,8 +5093,8 @@ namespace Radar.Droid
 			// aapt resource value: 0x7f0a0053
 			public const int title_template = 2131361875;
 			
-			// aapt resource value: 0x7f0a00a4
-			public const int toolbar = 2131361956;
+			// aapt resource value: 0x7f0a00a8
+			public const int toolbar = 2131361960;
 			
 			// aapt resource value: 0x7f0a003d
 			public const int top = 2131361853;
@@ -5101,6 +5110,9 @@ namespace Radar.Droid
 			
 			// aapt resource value: 0x7f0a001f
 			public const int useLogo = 2131361823;
+			
+			// aapt resource value: 0x7f0a00a5
+			public const int velocidadeRadar = 2131361957;
 			
 			// aapt resource value: 0x7f0a000a
 			public const int view_offset_helper = 2131361802;
@@ -5358,13 +5370,16 @@ namespace Radar.Droid
 			public const int select_dialog_singlechoice_material = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int support_simple_spinner_dropdown_item = 2130903094;
+			public const int service_player = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int Tabbar = 2130903095;
+			public const int support_simple_spinner_dropdown_item = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int Toolbar = 2130903096;
+			public const int Tabbar = 2130903096;
+			
+			// aapt resource value: 0x7f030039
+			public const int Toolbar = 2130903097;
 			
 			static Layout()
 			{
