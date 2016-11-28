@@ -52,6 +52,7 @@ namespace Radar.Droid
         private int mPrevDragY;
 
         private bool mIsTrayOpen = true;
+        private bool widgetInicializado = false;
 
         public GPSAndroid() {
         }
@@ -62,7 +63,11 @@ namespace Radar.Droid
         {
             inicializar();
             notificar(intent);
-            criarWidget();
+            if (!widgetInicializado)
+            {
+                criarWidget();
+                widgetInicializado = true;
+            }
             return StartCommandResult.NotSticky;
         }
 
@@ -113,14 +118,16 @@ namespace Radar.Droid
         public void OnLocationChanged(Location location)
         {
             LocalizacaoInfo local = converterLocalizacao(location);
-            GPSUtils.atualizarPosicao(local);
+            local = GPSUtils.atualizarPosicao(local);
+            /*
             RadarInfo radar = RadarBLL.RadarAtual;
             if (radar != null)
             {
                 var velocidadeRadar = mRootLayout.FindViewById<TextView>(Resource.Id.velocidadeRadar);
                 var distanciaRadar = mRootLayout.FindViewById<TextView>(Resource.Id.distanciaRadar);
+                int distancia = Convert.ToInt32(Math.Floor(local.Distancia));
                 velocidadeRadar.Text = radar.VelocidadeStr;
-                distanciaRadar.Text = local.Distancia.ToString() + " m";
+                distanciaRadar.Text = distancia.ToString() + " m";
                 if (mRootLayout.Visibility != ViewStates.Visible)
                     mRootLayout.Visibility = ViewStates.Visible;
             }
@@ -128,6 +135,7 @@ namespace Radar.Droid
                 if (mRootLayout.Visibility == ViewStates.Visible)
                     mRootLayout.Visibility = ViewStates.Invisible;
             }
+            */
         }
 
         public void OnProviderDisabled(string provider)
@@ -164,8 +172,9 @@ namespace Radar.Droid
             Context context = Android.App.Application.Context;
             mWindowManager = context.GetSystemService(Context.WindowService).JavaCast<IWindowManager>();
             mRootLayout = LayoutInflater.From(context).Inflate(Resource.Layout.service_player, null);
-            var mContentContainerLayout = mRootLayout.FindViewById(Resource.Id.content_container);
-            // Erro de Invelid Cast - Depois a gente vé essa merda!
+            var mContentContainerLayout = mRootLayout.FindViewById(Resource.Id.root_layout);
+            mContentContainerLayout.SetBackgroundColor(Android.Graphics.Color.Argb(200, 255, 255, 255));
+            // Erro de Invalid Cast - Depois a gente vé essa merda!
             //mContentContainerLayout.SetOnTouchListener(new TrayTouchListener(this));
             mRootLayoutParams = new WindowManagerLayoutParams(
                 dpToPixels(TRAY_DIM_X_DP, context.Resources),
@@ -174,13 +183,14 @@ namespace Radar.Droid
                 WindowManagerFlags.NotFocusable | WindowManagerFlags.LayoutNoLimits,
                 Android.Graphics.Format.Translucent
             );
-            mRootLayout.SetBackgroundColor(Android.Graphics.Color.White);
+            mRootLayoutParams.Gravity = GravityFlags.Top | GravityFlags.Left;
+            //mRootLayout.SetBackgroundColor(Android.Graphics.Color.White);
             mWindowManager.AddView(mRootLayout, mRootLayoutParams);
             var velocidadeRadar = mRootLayout.FindViewById<TextView>(Resource.Id.velocidadeRadar);
             var distanciaRadar = mRootLayout.FindViewById<TextView>(Resource.Id.distanciaRadar);
             velocidadeRadar.Text = "0 KM/H";
             distanciaRadar.Text = "0 m";
-            //mRootLayout.Visibility = ViewStates.Visible;
+            mRootLayout.Visibility = ViewStates.Visible;
         }
 
         public bool estaAtivo()
