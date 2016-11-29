@@ -171,6 +171,7 @@
     <Compile Include="GPSAndroid.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MensagemAndroid.cs" />
+    <Compile Include="PreferenciaAndroid.cs" />
     <Compile Include="RadarMapRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
