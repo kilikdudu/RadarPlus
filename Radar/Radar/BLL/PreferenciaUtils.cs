@@ -14,7 +14,7 @@ namespace Radar.BLL
     {
         private const string URL_ATUALIZACAO = "http://pavmanager.com.br/maparadar.txt";
 
-        private static PreferenciaBLL _regraPreferencia = PreferenciaFactory.create();
+        private static PreferenciaBLL _regraPreferencia;
 
         private const int ZOOM_MAPA_PADRAO_ANDROID = 18;
 
@@ -50,18 +50,25 @@ namespace Radar.BLL
         private const string IMAGEM_SATELITE = "imagemSatelite";
         private const string INICIO_DESLIGAMENTO = "inicioDesligamento";
         private const string INFO_TRAFEGO = "infoTrafego";
-        private const string LIGAR_DESLIGAR = "ligarDesligar";
+        public const string LIGAR_DESLIGAR = "ligarDesligar";
         private const string LOMBADA = "lombada";
         private const string VERIFICAR_INICIAR = "verificarIniciar";
         private const string VIBRAR_ALERTA = "vibrarAlerta";
         private const string VOLUME_PERSONALIZADO = "volumePersonalizado";
 
+        public static void inicializar() {
+            if (_regraPreferencia == null)
+                _regraPreferencia = PreferenciaFactory.create();
+        }
+
         public static bool AlertaInteligente
 		{
 			get {
+                inicializar();
 				return _regraPreferencia.pegarBool(ALERTA_INTELIGENTE);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(ALERTA_INTELIGENTE, value);
             }
 		}
@@ -69,9 +76,11 @@ namespace Radar.BLL
         public static bool AlertaSonoro
         {
             get {
+                inicializar();
                 return _regraPreferencia.pegarBool(ALERTA_SONORO);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(ALERTA_SONORO, value);
             }
         }
@@ -79,9 +88,11 @@ namespace Radar.BLL
         public static int AlturaVolume
         {
             get {
+                inicializar();
                 return _regraPreferencia.pegarInt(ALTURA_VOLUME, 15);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(ALTURA_VOLUME, value);
             }
         }
@@ -105,9 +116,11 @@ namespace Radar.BLL
 		public static bool BeepAviso
 		{
 			get {
-				return _regraPreferencia.pegarBool(BEEP_AVISO, true);
+                inicializar();
+                return _regraPreferencia.pegarBool(BEEP_AVISO, true);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(BEEP_AVISO, value);
             }
 		}
@@ -118,9 +131,11 @@ namespace Radar.BLL
 		public static bool Bussola
 		{
 			get {
-				return _regraPreferencia.pegarBool(BUSSOLA, true);
+                inicializar();
+                return _regraPreferencia.pegarBool(BUSSOLA, true);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(BUSSOLA, value);
             }
 		}
@@ -128,9 +143,11 @@ namespace Radar.BLL
         public static AudioCanalEnum CanalAudio
         {
             get {
+                inicializar();
                 return (AudioCanalEnum) _regraPreferencia.pegarInt(CANAL_AUDIO, (int)AudioCanalEnum.Musica);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(CANAL_AUDIO, (int)value);
             }
         }
@@ -138,9 +155,11 @@ namespace Radar.BLL
         public static bool HabilitarVoz
         {
             get {
+                inicializar();
                 return _regraPreferencia.pegarBool(VOZ_HABILITADA, false);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(VOZ_HABILITADA, value);
             }
         }
@@ -148,9 +167,11 @@ namespace Radar.BLL
         public static AoDesativarGPSEnum AoDesativarGPS
         {
             get {
+                inicializar();
                 return (AoDesativarGPSEnum)_regraPreferencia.pegarInt(AO_DESATIVAR_GPS, (int) AoDesativarGPSEnum.FecharOPrograma);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(AO_DESATIVAR_GPS, (int)value);
             }
 
@@ -160,9 +181,11 @@ namespace Radar.BLL
         {
             get
             {
+                inicializar();
                 return _regraPreferencia.pegarInt(DISTANCIA_ALERTA_URBANO, 250);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(DISTANCIA_ALERTA_URBANO, value);
             }
         }
@@ -171,9 +194,11 @@ namespace Radar.BLL
         {
             get
             {
+                inicializar();
                 return _regraPreferencia.pegarInt(DISTANCIA_ALERTA_ESTRADA, 900);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(DISTANCIA_ALERTA_ESTRADA, value);
             }
         }
@@ -181,9 +206,11 @@ namespace Radar.BLL
         public static bool Encurtar
         {
             get {
+                inicializar();
                 return _regraPreferencia.pegarBool(ENCURTAR);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(ENCURTAR, value);
             }
         }
@@ -191,9 +218,11 @@ namespace Radar.BLL
         public static bool ExcluirAntigo
 		{
 			get {
-				return _regraPreferencia.pegarBool(EXCLUIR_ANTIGO);
+                inicializar();
+                return _regraPreferencia.pegarBool(EXCLUIR_ANTIGO);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(EXCLUIR_ANTIGO, value);
             }
 		}
@@ -201,9 +230,11 @@ namespace Radar.BLL
 		public static bool ExibirBotaoAdicionar
 		{
 			get {
-				return _regraPreferencia.pegarBool(EXIBIR_BOTAO_ADICIONAR);
+                inicializar();
+                return _regraPreferencia.pegarBool(EXIBIR_BOTAO_ADICIONAR);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(EXIBIR_BOTAO_ADICIONAR, value);
             }
 		}
@@ -211,9 +242,11 @@ namespace Radar.BLL
 		public static bool ExibirBotaoRemover
 		{
 			get {
-				return _regraPreferencia.pegarBool(EXIBIR_BOTAO_REMOVER);
+                inicializar();
+                return _regraPreferencia.pegarBool(EXIBIR_BOTAO_REMOVER);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(EXIBIR_BOTAO_REMOVER, value);
             }
 		}
@@ -249,9 +282,11 @@ namespace Radar.BLL
         public static bool ImagemSatelite
 		{
 			get {
-				return _regraPreferencia.pegarBool(IMAGEM_SATELITE);
+                inicializar();
+                return _regraPreferencia.pegarBool(IMAGEM_SATELITE);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(IMAGEM_SATELITE, value);
             }
 		}
@@ -259,9 +294,11 @@ namespace Radar.BLL
         public static bool InicioDesligamento
         {
             get {
+                inicializar();
                 return _regraPreferencia.pegarBool(INICIO_DESLIGAMENTO);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(INICIO_DESLIGAMENTO, value);
             }
         }
@@ -269,9 +306,11 @@ namespace Radar.BLL
         public static bool InfoTrafego
 		{
 			get {
-				return _regraPreferencia.pegarBool(INFO_TRAFEGO);
+                inicializar();
+                return _regraPreferencia.pegarBool(INFO_TRAFEGO);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(INFO_TRAFEGO, value);
             }
 		}
@@ -279,9 +318,11 @@ namespace Radar.BLL
 		public static int IntervaloVerificacao
 		{
 			get {
-				return _regraPreferencia.pegarInt(INTERVALO_VERIFICACAO);
+                inicializar();
+                return _regraPreferencia.pegarInt(INTERVALO_VERIFICACAO);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(INTERVALO_VERIFICACAO, value);
             }
 		}
@@ -289,9 +330,11 @@ namespace Radar.BLL
         public static bool LigarDesligar
         {
             get {
+                inicializar();
                 return _regraPreferencia.pegarBool(LIGAR_DESLIGAR);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(LIGAR_DESLIGAR, value);
             }
         }
@@ -299,9 +342,11 @@ namespace Radar.BLL
         public static bool Lombada
 		{
 			get {
-				return _regraPreferencia.pegarBool(LOMBADA, true);
+                inicializar();
+                return _regraPreferencia.pegarBool(LOMBADA, true);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(LOMBADA, value);
             }
 		}
@@ -318,12 +363,14 @@ namespace Radar.BLL
 		{
 			get
 			{
+                inicializar();
                 int padrao = 10;
                 if (Device.OS == TargetPlatform.Android)
                     padrao = ZOOM_MAPA_PADRAO_ANDROID;
                 return _regraPreferencia.pegarInt(NIVEL_ZOOM, padrao);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(NIVEL_ZOOM, value);
             }
 		}
@@ -331,9 +378,11 @@ namespace Radar.BLL
 		public static bool Pedagio
 		{
 			get {
-				return _regraPreferencia.pegarBool(PEDAGIO, true);
+                inicializar();
+                return _regraPreferencia.pegarBool(PEDAGIO, true);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(PEDAGIO, value);
             }
 		}
@@ -341,9 +390,11 @@ namespace Radar.BLL
 		public static bool PoliciaRodoviaria
 		{
 			get {
-				return _regraPreferencia.pegarBool(POLICIA_RODOVIARIA, true);
+                inicializar();
+                return _regraPreferencia.pegarBool(POLICIA_RODOVIARIA, true);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(POLICIA_RODOVIARIA, value);
             }
 		}
@@ -351,9 +402,11 @@ namespace Radar.BLL
 		public static bool RadarMovel
 		{
 			get {
-				return _regraPreferencia.pegarBool(RADAR_MOVEL, true);
+                inicializar();
+                return _regraPreferencia.pegarBool(RADAR_MOVEL, true);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(RADAR_MOVEL, value);
             }
 		}
@@ -361,9 +414,11 @@ namespace Radar.BLL
 		public static bool RotacionarMapa
 		{
 			get {
-				return _regraPreferencia.pegarBool(ROTACIONAR_MAPA);
+                inicializar();
+                return _regraPreferencia.pegarBool(ROTACIONAR_MAPA);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(ROTACIONAR_MAPA, value);
             }
 		}
@@ -371,9 +426,11 @@ namespace Radar.BLL
 		public static bool SalvarPercurso
 		{
 			get {
-				return _regraPreferencia.pegarBool(SALVAR_PERCURSO);
+                inicializar();
+                return _regraPreferencia.pegarBool(SALVAR_PERCURSO);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(SALVAR_PERCURSO, value);
             }
 		}
@@ -384,9 +441,11 @@ namespace Radar.BLL
 		public static bool SinalGPS
 		{
 			get {
-				return _regraPreferencia.pegarBool(SINAL_GPS, true);
+                inicializar();
+                return _regraPreferencia.pegarBool(SINAL_GPS, true);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(SINAL_GPS, value);
             }
 		}
@@ -394,9 +453,11 @@ namespace Radar.BLL
         public static bool SobreposicaoVisual
         {
             get {
+                inicializar();
                 return _regraPreferencia.pegarBool(SOBREPOSICAO_VISUAL);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(SOBREPOSICAO_VISUAL, value);
             }
         }
@@ -404,9 +465,11 @@ namespace Radar.BLL
         public static SomAlarmeEnum SomAlarme
         {
             get {
+                inicializar();
                 return (SomAlarmeEnum) _regraPreferencia.pegarInt(SOM_ALARME, (int) SomAlarmeEnum.Alarme01);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(SOM_ALARME, (int)value);
             }
         }
@@ -414,9 +477,11 @@ namespace Radar.BLL
         public static bool SomCaixa
 		{
 			get {
-				return _regraPreferencia.pegarBool(SOM_CAIXA);
+                inicializar();
+                return _regraPreferencia.pegarBool(SOM_CAIXA);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(SOM_CAIXA, value);
             }
 		}  
@@ -424,9 +489,11 @@ namespace Radar.BLL
         public static bool SuavizarAnimacao
 		{
 			get {
-				return _regraPreferencia.pegarBool(SUAVIZAR_ANIMACAO, true);
+                inicializar();
+                return _regraPreferencia.pegarBool(SUAVIZAR_ANIMACAO, true);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(SUAVIZAR_ANIMACAO, value);
             }
 		}
@@ -434,9 +501,11 @@ namespace Radar.BLL
         public static int TempoAlerta
         {
             get {
+                inicializar();
                 return _regraPreferencia.pegarInt(TEMPO_ALERTA);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(TEMPO_ALERTA, value);
             }
         }
@@ -444,9 +513,11 @@ namespace Radar.BLL
         public static int TempoDuracaoVibracao
         {
             get {
+                inicializar();
                 return _regraPreferencia.pegarInt(TEMPO_DURACAO, 1);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(TEMPO_DURACAO, value);
             }
         }
@@ -454,9 +525,11 @@ namespace Radar.BLL
         public static int TempoPercurso
         {
             get {
+                inicializar();
                 return _regraPreferencia.pegarInt(TEMPO_PERCURSO);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(TEMPO_PERCURSO, value);
             }
         }
@@ -464,9 +537,11 @@ namespace Radar.BLL
         public static bool VerificarIniciar
         {
             get {
+                inicializar();
                 return _regraPreferencia.pegarBool(VERIFICAR_INICIAR);
             }
             set {
+                inicializar();
                 _regraPreferencia.gravar(VERIFICAR_INICIAR, value);
             }
         }
@@ -474,24 +549,14 @@ namespace Radar.BLL
         public static bool VibrarAlerta
 		{
 			get {
-				return _regraPreferencia.pegarBool(VIBRAR_ALERTA);
+                inicializar();
+                return _regraPreferencia.pegarBool(VIBRAR_ALERTA);
 			}
             set {
+                inicializar();
                 _regraPreferencia.gravar(VIBRAR_ALERTA, value);
             }
 		}
-
-        /*
-		public static bool VolumePersonalizado
-		{
-			get {
-				return _regraPreferencia.pegarBool(VOLUME_PERSONALIZADO);
-			}
-            set {
-                _regraPreferencia.gravar(VOLUME_PERSONALIZADO, value);
-            }
-		}
-        */
 
         public static string UrlAtualizacao {
             get {

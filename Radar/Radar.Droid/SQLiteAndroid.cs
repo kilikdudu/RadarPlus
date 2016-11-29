@@ -34,8 +34,6 @@ namespace Radar.Droid
                 origem.CopyTo(destino);
                 origem.Close();
                 destino.Close();
-                //writeStream.Write()
-                //ReadWriteStream(input, writeStream);
             }
             SQLiteConnection cnn = new SQLiteConnection(path);
             return cnn;

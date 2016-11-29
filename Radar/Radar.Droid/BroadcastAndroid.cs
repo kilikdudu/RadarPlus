@@ -17,11 +17,12 @@ using Radar.Utils;
 namespace Radar.Droid
 {
     [BroadcastReceiver(Enabled = true)]
+    [IntentFilter(new[] { Intent.ActionBootCompleted })]
     public class BroadcastAndroid : BroadcastReceiver
     {
         public override void OnReceive(Context context, Intent intent)
         {
-            if (intent.Action == "android.intent.action.BOOT_COMPLETED")
+            if (intent.Action == Intent.ActionBootCompleted)
             {
                 Intent pushIntent = new Intent(context, typeof(GPSAndroid));
                 context.StartService(pushIntent);
