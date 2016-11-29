@@ -21,7 +21,12 @@ namespace Radar.Droid
     {
         public override void OnReceive(Context context, Intent intent)
         {
-            if (intent.Action == PercursoBLL.ACAO_PARAR_SIMULACAO)
+            if (intent.Action == "android.intent.action.BOOT_COMPLETED")
+            {
+                Intent pushIntent = new Intent(context, typeof(GPSAndroid));
+                context.StartService(pushIntent);
+            }
+            else if (intent.Action == PercursoBLL.ACAO_PARAR_SIMULACAO)
             {
                 GPSUtils.pararSimulacao();
                 ClubManagement.Utils.MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_SIMULACAO_PERCURSO_ID);
