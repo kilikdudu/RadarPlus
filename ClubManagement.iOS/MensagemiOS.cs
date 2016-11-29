@@ -32,7 +32,7 @@ namespace Radar.iOS
         {
             return true;
         }
-		/*
+
         public bool notificar(int id, string titulo, string mensagem, double velocidade)
         {
             UILocalNotification notification = new UILocalNotification();
@@ -44,7 +44,7 @@ namespace Radar.iOS
             UIApplication.SharedApplication.ScheduleLocalNotification(notification);
             return true;
         }
-        */
+        
 
         public bool notificarPermanente(int id, string titulo, string descricao, int idRadar, string textoRadar, string acaoParar)
         {
@@ -71,30 +71,22 @@ namespace Radar.iOS
             SystemSound.Vibrate.PlayAlertSound();
         }
 
-        
-        public bool notificar(int id, string titulo, string descricao, double velocidade)
-        {
-            UILocalNotification notification = new UILocalNotification();
-            NSDate.FromTimeIntervalSinceNow(15);
-            notification.AlertTitle = titulo;
-            notification.AlertAction = titulo;
-            notification.AlertBody = descricao;
-			notification.ApplicationIconBadgeNumber += 1;
-			//notification.SoundName = UILocalNotification.DefaultSoundName;
-			TriggerSoundAndViber();
-            UIApplication.SharedApplication.ScheduleLocalNotification(notification);
 
-            return true;
-        }
 
-		private const string NotificationSoundPath = @"/System/Library/Audio/UISounds/New/Fanfare.caf";
 
-		public static void TriggerSoundAndViber()
+
+
+
+		public static void TriggerSoundAndViber(string audio)
 		{
-			SystemSound notificationSound = SystemSound.FromFile(NotificationSoundPath);
-			notificationSound.AddSystemSoundCompletion(SystemSound.Vibrate.PlaySystemSound);
-			notificationSound.PlaySystemSound();
+			NSUrl url = NSUrl.FromFilename(audio);
+			//SystemSound notificationSound = SystemSound.FromFile(NotificationSoundPath);
+			SystemSound mySound = new SystemSound(url);
+			mySound.AddSystemSoundCompletion(SystemSound.Vibrate.PlaySystemSound);
+			mySound.PlaySystemSound();
+
 		}
-        
-    }
+
+
+	}
 }
