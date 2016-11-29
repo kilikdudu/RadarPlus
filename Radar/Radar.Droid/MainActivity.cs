@@ -50,7 +50,7 @@ namespace Radar.Droid
             CurrentActivityUtils.Current = this;
             //ThreadAndroid.CurrentActivity = this;
             var broadcast = new BroadcastAndroid();
-            RegisterReceiver(broadcast, new IntentFilter("br.com.cmapps.radar"));
+            RegisterReceiver(broadcast, new IntentFilter(Intent.ActionBootCompleted));
 
             LoadApplication(new App());
         }

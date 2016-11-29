@@ -142,24 +142,27 @@ namespace Radar.Droid
 
         public void OnLocationChanged(Location location)
         {
-            LocalizacaoInfo local = converterLocalizacao(location);
-            local = GPSUtils.atualizarPosicao(local);
-            RadarInfo radar = RadarBLL.RadarAtual;
-            if (radar != null)
+            if (Xamarin.Forms.Forms.IsInitialized)
             {
-                //var velocidadeImagem = mRootLayout.FindViewById<ImageView>(Resource.Id.velocidadeImagem);
-                atualizarVelocidadeRadar(radar.Velocidade);
-                var distanciaRadar = mRootLayout.FindViewById<TextView>(Resource.Id.distanciaRadar);
-                int distancia = Convert.ToInt32(Math.Floor(local.Distancia));
-                //velocidadeImagem.SetImageResource(Resource.Drawable.radar_20);
-                //velocidadeRadar.Text = radar.VelocidadeStr;
-                distanciaRadar.Text = distancia.ToString() + " m";
-                if (mRootLayout.Visibility != ViewStates.Visible)
-                    mRootLayout.Visibility = ViewStates.Visible;
-            }
-            else {
-                if (mRootLayout.Visibility == ViewStates.Visible)
-                    mRootLayout.Visibility = ViewStates.Invisible;
+                LocalizacaoInfo local = converterLocalizacao(location);
+                local = GPSUtils.atualizarPosicao(local);
+                RadarInfo radar = RadarBLL.RadarAtual;
+                if (radar != null)
+                {
+                    //var velocidadeImagem = mRootLayout.FindViewById<ImageView>(Resource.Id.velocidadeImagem);
+                    atualizarVelocidadeRadar(radar.Velocidade);
+                    var distanciaRadar = mRootLayout.FindViewById<TextView>(Resource.Id.distanciaRadar);
+                    int distancia = Convert.ToInt32(Math.Floor(local.Distancia));
+                    //velocidadeImagem.SetImageResource(Resource.Drawable.radar_20);
+                    //velocidadeRadar.Text = radar.VelocidadeStr;
+                    distanciaRadar.Text = distancia.ToString() + " m";
+                    if (mRootLayout.Visibility != ViewStates.Visible)
+                        mRootLayout.Visibility = ViewStates.Visible;
+                }
+                else {
+                    if (mRootLayout.Visibility == ViewStates.Visible)
+                        mRootLayout.Visibility = ViewStates.Invisible;
+                }
             }
         }
 
@@ -185,6 +188,7 @@ namespace Radar.Droid
             };
             _locationProvider = _locationManager.GetBestProvider(criteriaForLocationService, true);
             _locationManager.RequestLocationUpdates(_locationProvider, PreferenciaUtils.GPSTempoAtualiazacao, PreferenciaUtils.GPSDistanciaAtualizacao, this);
+            //_locationManager.RequestLocationUpdates(_locationProvider, 1000, 0, this);
             return true;
         }
 
