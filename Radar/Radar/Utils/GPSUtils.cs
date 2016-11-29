@@ -72,13 +72,10 @@ namespace Radar.Utils
 			var regraAviso = new AvisoSonoroBLL();
 			RadarBLL.RadarAtual = radar;
 			string mensagem = "Tem um radar a frente, diminua para " + radar.Velocidade.ToString() + "km/h!";
-			if (Device.OS == TargetPlatform.iOS)
-			{
-				MensagemUtils.notificariOS(RADAR_ID, "Radar Club", mensagem, radar.Velocidade, null);
-			}
-			else {
+	
+
 				MensagemUtils.notificar(RADAR_ID, "Radar Club", mensagem, radar.Velocidade);
-			}
+
 
 
 			if (PreferenciaUtils.BeepAviso)

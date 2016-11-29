@@ -72,32 +72,7 @@ namespace Radar.iOS
         }
 
 
-		//private const string NotificationSoundPath = @"/System/Library/Audio/UISounds/New/Fanfare.caf";
-        public bool notificariOS(int id, string titulo, string descricao, double velocidade, string audio)
-        {
-            UILocalNotification notification = new UILocalNotification();
-            NSDate.FromTimeIntervalSinceNow(15);
-            notification.AlertTitle = titulo;
-            notification.AlertAction = titulo;
-            notification.AlertBody = descricao;
-			notification.ApplicationIconBadgeNumber += 1;
-			//notification.SoundName = UILocalNotification.DefaultSoundName;
 
-			//if (count == 0)
-			//{
-			if (audio == null)
-			{
-				audio = @"/System/Library/Audio/UISounds/New/Fanfare.caf";
-			}
-			//	TriggerSoundAndViber(audio);
-				UIApplication.SharedApplication.ScheduleLocalNotification(notification);
-			//}
-			//else {
-			//TriggerSoundAndViber(audio);
-			//}
-			return true;
-
-        }
 
 
 
