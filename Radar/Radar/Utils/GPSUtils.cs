@@ -91,11 +91,11 @@ namespace Radar.Utils
 			if (PreferenciaUtils.HabilitarVoz)
 			{
 				int distancia = arredondarDistancia(local.Distancia);
-				if (distancia != DistanciaOld)
-				{
+				//if (distancia != DistanciaOld)
+				//{
 					regraAviso.play(RadarTipoEnum.RadarFixo, radar.Velocidade, distancia);
 					DistanciaOld = distancia;
-				}
+				//}
 			}
 		}
 
