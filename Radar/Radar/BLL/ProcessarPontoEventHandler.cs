@@ -11,10 +11,10 @@ namespace Radar.BLL
 
     public class ProcessarPontoEventArgs : EventArgs {
 
-        public ProcessarPontoEventArgs(PercursoPontoInfo ponto) {
-            Ponto = ponto;
+		public ProcessarPontoEventArgs(PercursoInfo percurso) {
+			Ponto = percurso;
         }
 
-        public PercursoPontoInfo Ponto { get; set; }
+		public PercursoInfo Ponto { get; set; }
     }
 }

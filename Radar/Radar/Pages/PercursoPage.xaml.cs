@@ -120,16 +120,28 @@ namespace Radar.Pages
 				}
 			}
 			else {
-				if (regraPercurso.iniciarGravacao((s2, e2) => {
-                    //e2.Ponto;
-                }))
+				
+				if (regraPercurso.iniciarGravacao((s2, e2) =>
+				{
+					tempoCorrendo.Text = e2.Ponto.TempoGravacao.ToString();
+					tempoParado.Text = e2.Ponto.TempoParadoStr;
+
+					paradas.Text = e2.Ponto.QuantidadeParadaStr;
+
+					velocidadeMedia.Text = e2.Ponto.VelocidadeMediaStr;
+
+					velocidadeMaxima.Text = e2.Ponto.VelocidadeMaximaStr;
+
+					radares.Text = e2.Ponto.QuantidadeRadarStr;
+				})) 
 				{
 
 					stackDescricaoGravando.Children.Remove(gravarLabel);
 					stackDescricaoGravando.Children.Remove(infoLabel);
 					stackDescricaoGravando.Children.Add(desc);
 
-					PercursoInfo percursoInfo = new PercursoInfo();
+					/*
+					//PercursoInfo percursoInfo = new PercursoInfo();
 
 					tempoCorrendo.Text = percursoInfo.TempoGravacaoStr ;
 
@@ -142,6 +154,7 @@ namespace Radar.Pages
 					velocidadeMaxima.Text = percursoInfo.VelocidadeMaximaStr;
 
 					radares.Text = percursoInfo.QuantidadeRadarStr;
+					*/
 
 					icoPlay.Source = "Stop.png";
                     ClubManagement.Utils.MensagemUtils.avisar("Iniciando gravação do percurso!");
@@ -161,7 +174,7 @@ namespace Radar.Pages
 		public void abrirPercurso(object sender, EventArgs e)
 		{
 		}
-
+		/*
 		public void excluirPercurso(object sender, EventArgs e)
 		{
 			PercursoInfo percurso = (PercursoInfo)((MenuItem)sender).BindingContext;
@@ -178,7 +191,7 @@ namespace Radar.Pages
 				GPSUtils.simularPercurso(percurso.Id);
 			}
 		}
-
+		*/
 		public class PercursoPageCell : ViewCell
 		{
 			WrapLayout desc = new WrapLayout();

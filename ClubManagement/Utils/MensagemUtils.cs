@@ -43,6 +43,8 @@ namespace ClubManagement.Utils
             return _mensagem.notificar(id, titulo, mensagem, velocidade);
         }
 
+
+
         public static bool notificarPermanente(int id, string titulo, string mensagem, int idParar, string textoParar, string acaoParar) {
             if (_mensagem == null)
                 _mensagem = DependencyService.Get<IMensagem>();

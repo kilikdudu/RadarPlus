@@ -25,7 +25,7 @@ namespace Radar.Utils
 		private static int _indexPercuso = 0;
 		private static DateTime _ultimoPonto;
 		private static LocalizacaoInfo _ultimaLocalizacao = null;
-		private static int _distanciaOld = 0;
+		private static int DistanciaOld = 0;
 
 		public static bool Simulado
 		{
@@ -72,7 +72,12 @@ namespace Radar.Utils
 			var regraAviso = new AvisoSonoroBLL();
 			RadarBLL.RadarAtual = radar;
 			string mensagem = "Tem um radar a frente, diminua para " + radar.Velocidade.ToString() + "km/h!";
-			MensagemUtils.notificar(RADAR_ID, "Radar Club", mensagem, radar.Velocidade);
+	
+
+				MensagemUtils.notificar(RADAR_ID, "Radar Club", mensagem, radar.Velocidade);
+
+
+
 			if (PreferenciaUtils.BeepAviso)
 				regraAviso.play(PreferenciaUtils.SomAlarme);
 			if (PreferenciaUtils.VibrarAlerta)
@@ -86,11 +91,11 @@ namespace Radar.Utils
 			if (PreferenciaUtils.HabilitarVoz)
 			{
 				int distancia = arredondarDistancia(local.Distancia);
-				if (distancia != _distanciaOld)
-				{
+				//if (distancia != DistanciaOld)
+				//{
 					regraAviso.play(RadarTipoEnum.RadarFixo, radar.Velocidade, distancia);
-                    _distanciaOld = distancia;
-				}
+					DistanciaOld = distancia;
+				//}
 			}
 		}
 
@@ -111,7 +116,6 @@ namespace Radar.Utils
                         RadarBLL.RadarAtual = null;
                 }
                 else {
-                    _distanciaOld = 0;
                     double distanciaRadar = (local.Velocidade < 90) ? PreferenciaUtils.DistanciaAlertaUrbano : PreferenciaUtils.DistanciaAlertaEstrada;
                     RadarInfo radar = regraRadar.calcularRadar(local, distanciaRadar);
                     if (radar != null)

@@ -8,6 +8,9 @@ using System.IO;
 using System.Text;
 using Xamarin.Forms;
 using ClubManagement.Model;
+using AudioToolbox;
+using System.Threading.Tasks;
+using CoreMedia;
 
 [assembly: Dependency(typeof(AudioiOS))]
 
@@ -42,40 +45,60 @@ namespace Radar.iOS
             }
         }
 
-        private AVAudioPlayer criarAudio(string arquivo)
-        {
-         
-			NSUrl songURL = new NSUrl( arquivo);
-            NSError err;
-            AVAudioPlayer player = new AVAudioPlayer(songURL, "wav", out err);
+		private AVAudioPlayer criarAudio(string arquivo)
+		{
+
+			NSUrl songURL = new NSUrl(arquivo);
+			NSError err;
+			AVAudioPlayer player = new AVAudioPlayer(songURL, "wav", out err);
 			player.Volume = Volume;
-            player.NumberOfLoops = 0;
+			player.NumberOfLoops = 0;
 
-            return player;
-        }
+			NSUrl url = NSUrl.FromFilename(arquivo);
+			//SystemSound notificationSound = SystemSound.FromFile(NotificationSoundPath);
+			SystemSound mySound = new SystemSound(url);
 
-        private void playProximo()
-        {
-            if (_audioAtual != null && _audioIndex < _audioAtual.Count)
-            {
-                string arquivo = _audioAtual[_audioIndex];
-                _audioIndex++;
-                _player = criarAudio(arquivo);
-                _player.FinishedPlaying += (sender, e) =>
-                {
-                    playProximo();
-                };
+			mySound.AddSystemSoundCompletion(SystemSound.Vibrate.PlaySystemSound);
+			var asset = AVAsset.FromUrl(NSUrl.FromFilename(arquivo));
 
-					_player.Play();
+			CMTime audioDuration = asset.Duration;
+			double tempo = (double)audioDuration.Value / (double)audioDuration.TimeScale;
+			esperaFinalizarSom(tempo)
+			mySound.PlaySystemSound();
 
-            }
-            else {
-                //_player.Dispose();
-                _player = null;
-            }
-        }
 
-        public void play(string[] arquivos)
+			return player;
+		}
+
+		public async void esperaFinalizarSom(double tempo)
+		{
+			await Task.Delay((int)Math.Floor(tempo) * 1000);
+		}
+
+		private async void playProximo()
+		{
+			if (_audioAtual != null && _audioIndex < _audioAtual.Count)
+			{
+				string arquivo = _audioAtual[_audioIndex];
+				_audioIndex++;
+
+				_player = criarAudio(arquivo);
+				_player.FinishedPlaying += (sender, e) =>
+				{
+					playProximo();
+				};
+
+				playProximo();
+				//_player.Play();
+
+			}
+			else {
+				//_player.Dispose();
+				_player = null;
+			}
+		}
+
+		public void play(string[] arquivos)
         {
             _audioIndex = 0;
             _audioAtual = null;
@@ -87,6 +110,7 @@ namespace Radar.iOS
                 _player = null;
             }
             _audioIndex = 0;
+			if(arquivos != null)
             _audioAtual = arquivos;
             playProximo();
         }

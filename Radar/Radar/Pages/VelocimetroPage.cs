@@ -35,10 +35,10 @@ namespace Radar.Pages
 
         private Velocimetro _velocimetro;
         Image _radarImage;
+		Label caminhoLivre;
 
 
-
-        public override float VelocidadeAtual {
+		public override float VelocidadeAtual {
             get {
                 return _velocimetro.VelocidadeAtual;
             }
@@ -52,7 +52,7 @@ namespace Radar.Pages
 				return _velocimetro.VelocidadeRadar;
             }
             set {
-                if (_velocimetro.VelocidadeRadar != value)
+				if ((int)_velocimetro.VelocidadeRadar != (int)value)
                 {
                     _velocimetro.VelocidadeRadar = value;
                     atualizarVelocidadeRadar(value);
@@ -63,7 +63,16 @@ namespace Radar.Pages
         protected override void atualizarVelocidadeRadar(float velocidadeRadar) {
             var regraRadar = RadarFactory.create();
             var pathRadar = regraRadar.imagemRadar(velocidadeRadar);
-            _radarImage.Source = ImageSource.FromFile(pathRadar);
+			if (velocidadeRadar > 0)
+			{
+				_radarImage.Source = ImageSource.FromFile(pathRadar);
+				caminhoLivre.Text = null;
+			}
+			else {
+				caminhoLivre.Text = "CAMINHO LIVRE";
+				_radarImage.Source = null;
+			}
+					
         }
 
         public VelocimetroPage()
@@ -98,7 +107,7 @@ namespace Radar.Pages
 			RadarBLL radarBLL = RadarFactory.create();
 
             _radarImage = new Image();
-            _radarImage.Source = radarBLL.imagemRadar((double)VelocidadeRadar);
+
             _radarImage.Aspect = Aspect.Fill;
             _radarImage.WidthRequest = 50;
             _radarImage.HeightRequest = 50;
@@ -111,6 +120,13 @@ namespace Radar.Pages
 			fiscalizacao.TextColor = Color.Black;
 			fiscalizacao.VerticalOptions = LayoutOptions.CenterAndExpand;
 			fiscalizacao.HorizontalOptions = LayoutOptions.Center;
+
+			caminhoLivre = new Label();
+			caminhoLivre.Text = "CAMINHO LIVRE";
+			caminhoLivre.FontSize = 10;
+			caminhoLivre.TextColor = Color.Black;
+			caminhoLivre.VerticalOptions = LayoutOptions.CenterAndExpand;
+			caminhoLivre.HorizontalOptions = LayoutOptions.Center;
 
 			_DistanciaRadarLabel.TextColor = Color.Black;
 			_DistanciaRadarLabel.VerticalOptions = LayoutOptions.CenterAndExpand;
@@ -213,7 +229,7 @@ namespace Radar.Pages
 				}
 			}
             Padding = 5;
-            /*
+			/*
             Content = new AbsoluteLayout
             {
                 Children = {
@@ -230,7 +246,13 @@ namespace Radar.Pages
                 }
             };
             */
-			dentroPlaca.Children.Add(_radarImage);
+		
+				dentroPlaca.Children.Add(_radarImage);
+
+				dentroPlaca.Children.Add(caminhoLivre);
+		
+
+
 			dentroPlaca.Children.Add(fiscalizacao);
 			dentroPlaca.Children.Add(_DistanciaRadarLabel);
             

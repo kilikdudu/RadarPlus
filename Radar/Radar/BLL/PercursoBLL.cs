@@ -77,6 +77,7 @@ namespace Radar.BLL
 				percurso.QuantidadeParada = 0;
 				percurso.QuantidadeRadar =  0;
 				percurso.TempoParado = tempoParado(percurso);
+				_percursoAtual = percurso;
             }
         }
 
@@ -145,8 +146,8 @@ namespace Radar.BLL
                 Movimento = emMovimento
             };
             gravarPonto(ponto);
-            if (AoProcessar != null)
-                AoProcessar(this, new ProcessarPontoEventArgs(ponto));
+           if (AoProcessar != null)
+				AoProcessar(this, new ProcessarPontoEventArgs(_percursoAtual));
             _dataAnterior = local.Tempo;
         }
 
