@@ -8,6 +8,7 @@ using System.IO;
 using System.Text;
 using Xamarin.Forms;
 using ClubManagement.Model;
+using AudioToolbox;
 
 [assembly: Dependency(typeof(AudioiOS))]
 
@@ -44,12 +45,20 @@ namespace Radar.iOS
 
         private AVAudioPlayer criarAudio(string arquivo)
         {
-         
+			MensagemiOS audioiOS = new MensagemiOS();
+			//audioiOS.notificariOS(0, null, null, 0, arquivo);
 			NSUrl songURL = new NSUrl( arquivo);
             NSError err;
             AVAudioPlayer player = new AVAudioPlayer(songURL, "wav", out err);
 			player.Volume = Volume;
             player.NumberOfLoops = 0;
+
+			NSUrl url = NSUrl.FromFilename(arquivo);
+			//SystemSound notificationSound = SystemSound.FromFile(NotificationSoundPath);
+			SystemSound mySound = new SystemSound(url);
+			mySound.AddSystemSoundCompletion(SystemSound.Vibrate.PlaySystemSound);
+			mySound.PlaySystemSound();
+
 
             return player;
         }

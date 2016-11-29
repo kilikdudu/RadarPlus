@@ -43,6 +43,13 @@ namespace ClubManagement.Utils
             return _mensagem.notificar(id, titulo, mensagem, velocidade);
         }
 
+		public static bool notificariOS(int id, string titulo, string mensagem, double velocidade, string audio)
+		{
+			if (_mensagem == null)
+				_mensagem = DependencyService.Get<IMensagem>();
+			return _mensagem.notificariOS(id, titulo, mensagem, velocidade, audio);
+		}
+
         public static bool notificarPermanente(int id, string titulo, string mensagem, int idParar, string textoParar, string acaoParar) {
             if (_mensagem == null)
                 _mensagem = DependencyService.Get<IMensagem>();
