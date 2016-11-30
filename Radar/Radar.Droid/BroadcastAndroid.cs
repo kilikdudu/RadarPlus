@@ -26,6 +26,7 @@ namespace Radar.Droid
             {
                 Intent pushIntent = new Intent(context, typeof(GPSAndroid));
                 context.StartService(pushIntent);
+                InvokeAbortBroadcast();
             }
             else if (intent.Action == PercursoBLL.ACAO_PARAR_SIMULACAO)
             {

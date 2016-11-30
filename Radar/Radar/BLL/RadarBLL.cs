@@ -106,7 +106,7 @@ namespace Radar.BLL
         }
 
         private double toRadians(double deg) {
-            return deg * (Math.PI / 100);
+            return deg * (Math.PI / 180);
         }
 
         public double calcularDistancia(double initialLat, double initialLong, double finalLat, double finalLong)

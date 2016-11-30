@@ -169,7 +169,6 @@
       <DependentUpon>InstrucaoPopUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\GPSUtils.cs" />
-    <Compile Include="BLL\ProcessarPontoEventHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\RadarListaPage.xaml">

@@ -28,7 +28,7 @@ using Java.Util;
 namespace Radar.Droid
 {
     [Service]
-    [IntentFilter(new String[] { "br.com.cmapps.radar" })]
+    [IntentFilter(new String[] { "br.com.cmapps.radar.service" })]
     public class GPSAndroid : Service, ILocationListener, IGPS
     {
         private const int ID_RADAR_CLUB = 5;
@@ -36,6 +36,10 @@ namespace Radar.Droid
         private const int TRAY_DIM_Y_DP = 240; 	// Height of the tray in dps
         private const int ANIMATION_FRAME_RATE = 30;	// Animation frame rate per second.
         private const int TRAY_MOVEMENT_REGION_FRACTION = 6; // Controls fraction of y-axis on screen within which the tray stays.
+
+        private bool _inicializado = false;
+        private bool desativando = false;
+        public GPSSituacaoEnum Situacao { get; set; }
 
         LocationManager _locationManager;
         string _locationProvider;
@@ -61,12 +65,20 @@ namespace Radar.Droid
 
         public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
-            inicializar();
-            notificar(intent);
-            if (!widgetInicializado)
+            if (!_inicializado)
             {
-                criarWidget();
-                widgetInicializado = true;
+                if (intent.GetBooleanExtra("ativo", false))
+                    Situacao = GPSSituacaoEnum.Ativo;
+                else
+                    Situacao = GPSSituacaoEnum.Espera;
+                notificar(intent);
+                if (!widgetInicializado)
+                {
+                    criarWidget();
+                    widgetInicializado = true;
+                }
+                ativarGPS();
+                _inicializado = true;
             }
             return StartCommandResult.NotSticky;
         }
@@ -142,26 +154,56 @@ namespace Radar.Droid
 
         public void OnLocationChanged(Location location)
         {
-            if (Xamarin.Forms.Forms.IsInitialized)
+            if (desativando)
+                return;
+            LocalizacaoInfo local = converterLocalizacao(location);
+            //local.Velocidade = 20;
+            if (Situacao == GPSSituacaoEnum.Ativo)
             {
-                LocalizacaoInfo local = converterLocalizacao(location);
-                local = GPSUtils.atualizarPosicao(local);
-                RadarInfo radar = RadarBLL.RadarAtual;
-                if (radar != null)
+                if (Xamarin.Forms.Forms.IsInitialized)
                 {
-                    //var velocidadeImagem = mRootLayout.FindViewById<ImageView>(Resource.Id.velocidadeImagem);
-                    atualizarVelocidadeRadar(radar.Velocidade);
-                    var distanciaRadar = mRootLayout.FindViewById<TextView>(Resource.Id.distanciaRadar);
-                    int distancia = Convert.ToInt32(Math.Floor(local.Distancia));
-                    //velocidadeImagem.SetImageResource(Resource.Drawable.radar_20);
-                    //velocidadeRadar.Text = radar.VelocidadeStr;
-                    distanciaRadar.Text = distancia.ToString() + " m";
-                    if (mRootLayout.Visibility != ViewStates.Visible)
-                        mRootLayout.Visibility = ViewStates.Visible;
+                    local = GPSUtils.atualizarPosicao(local);
+                    RadarInfo radar = RadarBLL.RadarAtual;
+                    if (radar != null)
+                    {
+                        //var velocidadeImagem = mRootLayout.FindViewById<ImageView>(Resource.Id.velocidadeImagem);
+                        atualizarVelocidadeRadar(radar.Velocidade);
+                        var distanciaRadar = mRootLayout.FindViewById<TextView>(Resource.Id.distanciaRadar);
+                        int distancia = Convert.ToInt32(Math.Floor(local.Distancia));
+                        //velocidadeImagem.SetImageResource(Resource.Drawable.radar_20);
+                        //velocidadeRadar.Text = radar.VelocidadeStr;
+                        distanciaRadar.Text = distancia.ToString() + " m";
+                        if (mRootLayout.Visibility != ViewStates.Visible)
+                            mRootLayout.Visibility = ViewStates.Visible;
+                    }
+                    else {
+                        if (mRootLayout.Visibility == ViewStates.Visible)
+                            mRootLayout.Visibility = ViewStates.Invisible;
+                    }
                 }
-                else {
-                    if (mRootLayout.Visibility == ViewStates.Visible)
-                        mRootLayout.Visibility = ViewStates.Invisible;
+            }
+            else if (Situacao == GPSSituacaoEnum.Espera) {
+                if (local.Precisao <= 30)
+                {
+                    if (local.Velocidade >= 15)
+                    {
+                        Situacao = GPSSituacaoEnum.Ativo;
+                        if (!Xamarin.Forms.Forms.IsInitialized) {
+                            Intent intent = new Intent(this, typeof(MainActivity));
+                            intent.AddFlags(ActivityFlags.NewTask);
+                            StartActivity(intent);
+                        }
+                        else if (MainActivity.Situacao != JanelaSituacaoEnum.Aberta)
+                        {
+                            Intent intent = new Intent(this, typeof(MainActivity));
+                            intent.AddFlags(ActivityFlags.NewTask);
+                            StartActivity(intent);
+                        }
+                    }
+                    else {
+                        desativarGPS();
+                        new Handler().PostDelayed(() => { ativarGPS(); }, 30000);
+                    }
                 }
             }
         }
@@ -180,16 +222,32 @@ namespace Radar.Droid
 
         public bool inicializar()
         {
+            ativarGPS();
+            return true;
+        }
+
+        public void ativarGPS()
+        {
+            desativando = false;
             Context context = Android.App.Application.Context;
-            _locationManager = (LocationManager)context.GetSystemService(LocationService);
+            if (_locationManager == null)
+                _locationManager = (LocationManager)context.GetSystemService(LocationService);
             Criteria criteriaForLocationService = new Criteria
             {
-                Accuracy = Accuracy.Fine
+                Accuracy = Accuracy.Fine,
+                
             };
             _locationProvider = _locationManager.GetBestProvider(criteriaForLocationService, true);
             _locationManager.RequestLocationUpdates(_locationProvider, PreferenciaUtils.GPSTempoAtualiazacao, PreferenciaUtils.GPSDistanciaAtualizacao, this);
-            //_locationManager.RequestLocationUpdates(_locationProvider, 1000, 0, this);
-            return true;
+        }
+
+        public void desativarGPS() {
+            desativando = true;
+            Context context = Android.App.Application.Context;
+            if (_locationManager == null)
+                _locationManager = (LocationManager)context.GetSystemService(LocationService);
+            _locationManager.RemoveUpdates(this);
+            _locationManager = null;
         }
 
         public static int dpToPixels(int dp, Resources res)
