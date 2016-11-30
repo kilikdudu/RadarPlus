@@ -287,19 +287,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClubManagement.iOS\ClubManagement.iOS.csproj">
-      <Project>{d6ea51ad-1dca-4367-8593-ea189252b19d}</Project>
-      <Name>ClubManagement.iOS</Name>
-      <IsAppExtension>false</IsAppExtension>
-      <IsWatchApp>false</IsWatchApp>
-    </ProjectReference>
-    <ProjectReference Include="..\Radar\Radar\Radar.csproj">
-      <Project>{0d7118ce-020d-4cac-8ca6-95110c856a12}</Project>
-      <Name>Radar</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>
@@ -399,9 +386,7 @@
     <AndroidAsset Include="Resources\alarmes\metros-800.mp3" />
     <AndroidAsset Include="Resources\alarmes\metros-900.mp3" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\audios\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

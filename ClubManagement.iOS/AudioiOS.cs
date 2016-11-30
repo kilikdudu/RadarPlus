@@ -1,4 +1,4 @@
-﻿using AVFoundation;
+using AVFoundation;
 using ClubManagement.IBLL;
 using Foundation;
 using Radar.iOS;
@@ -11,7 +11,6 @@ using ClubManagement.Model;
 using AudioToolbox;
 using System.Threading.Tasks;
 using CoreMedia;
-using UIKit;
 
 [assembly: Dependency(typeof(AudioiOS))]
 
@@ -48,38 +47,30 @@ namespace Radar.iOS
 
 		private AVAudioPlayer criarAudio(string arquivo)
 		{
-			//UIApplicationState sharedApplication = new UIApplicationState();
+
 			NSUrl songURL = new NSUrl(arquivo);
 			NSError err;
+			AVAudioPlayer player = new AVAudioPlayer(songURL, "wav", out err);
+			player.Volume = Volume;
+			player.NumberOfLoops = 0;
 
-			var state = UIApplication.SharedApplication.ApplicationState;
-			if (state.ToString() != "Background")
-			{
-				AVAudioPlayer player = new AVAudioPlayer(songURL, "wav", out err);
-				player.Volume = Volume;
-				player.NumberOfLoops = 0;
-				return player;
-			}
-			else {
+			NSUrl url = NSUrl.FromFilename(arquivo);
+			//SystemSound notificationSound = SystemSound.FromFile(NotificationSoundPath);
+			SystemSound mySound = new SystemSound(url);
 
-				NSUrl url = NSUrl.FromFilename(arquivo);
-				//SystemSound notificationSound = SystemSound.FromFile(NotificationSoundPath);
-				SystemSound mySound = new SystemSound(url);
+			mySound.AddSystemSoundCompletion(SystemSound.Vibrate.PlaySystemSound);
+			var asset = AVAsset.FromUrl(NSUrl.FromFilename(arquivo));
 
-				mySound.AddSystemSoundCompletion(SystemSound.Vibrate.PlaySystemSound);
-				var asset = AVAsset.FromUrl(NSUrl.FromFilename(arquivo));
+			CMTime audioDuration = asset.Duration;
+			double tempo = (double)audioDuration.Value / (double)audioDuration.TimeScale;
+            esperaFinalizarSom(tempo);
+			mySound.PlaySystemSound();
 
-				CMTime audioDuration = asset.Duration;
-				double tempo = (double)audioDuration.Value / (double)audioDuration.TimeScale;
 
-				mySound.PlaySystemSound();
-				esperaFinalizarSom(tempo);
-			}
-
-			return null;
+			return player;
 		}
 
-		public void esperaFinalizarSom(double tempo)
+		public async void esperaFinalizarSom(double tempo)
 		{
 			int tempoInt = Convert.ToInt32(tempo);
 			if (tempoInt > 5 )
@@ -91,29 +82,24 @@ namespace Radar.iOS
 			}
 
 			Task.Delay(tempoInt).Wait();
+
 		}
 
-		private  void playProximo()
+		private async void playProximo()
 		{
 			if (_audioAtual != null && _audioIndex < _audioAtual.Count)
 			{
 				string arquivo = _audioAtual[_audioIndex];
 				_audioIndex++;
+
 				_player = criarAudio(arquivo);
-				var state = UIApplication.SharedApplication.ApplicationState;
-				if (state.ToString() != "Background")
+				_player.FinishedPlaying += (sender, e) =>
 				{
-					_player.FinishedPlaying += (sender, e) =>
-					{
-						playProximo();
-
-					};
-					_player.Play();
-				}
-				else {
 					playProximo();
-				}
+				};
 
+				playProximo();
+				//_player.Play();
 
 			}
 			else {
@@ -126,12 +112,12 @@ namespace Radar.iOS
         {
             _audioIndex = 0;
             _audioAtual = null;
-           if (_player != null)
+            if (_player != null)
             {
                 if (_player.Playing)
                     _player.Stop();
                 _player.Dispose();
-               _player = null;
+                _player = null;
             }
             _audioIndex = 0;
 			if(arquivos != null)
@@ -141,13 +127,8 @@ namespace Radar.iOS
 
         public void play(string arquivo)
         {
-			var player = criarAudio(arquivo);
-			//criarAudio(arquivo);
-			var state = UIApplication.SharedApplication.ApplicationState;
-			if (state.ToString() != "Background")
-			{
-				player.Play();
-			}
+            var player = criarAudio(arquivo);
+            player.Play();
         }
     }
 }
