@@ -63,7 +63,7 @@ namespace Radar.iOS
 
 			CMTime audioDuration = asset.Duration;
 			double tempo = (double)audioDuration.Value / (double)audioDuration.TimeScale;
-			esperaFinalizarSom(tempo)
+            esperaFinalizarSom(tempo);
 			mySound.PlaySystemSound();
 
 

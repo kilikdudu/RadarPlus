@@ -169,6 +169,7 @@
   <ItemGroup>
     <Compile Include="BroadcastAndroid.cs" />
     <Compile Include="GPSAndroid.cs" />
+    <Compile Include="GPSSituacaoEnum.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MensagemAndroid.cs" />
     <Compile Include="PreferenciaAndroid.cs" />

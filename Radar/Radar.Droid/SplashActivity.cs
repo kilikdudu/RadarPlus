@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Graphics;
 
 namespace Radar.Droid {
-    [Activity(Label = "Radar", MainLauncher = true, NoHistory = true, Icon = "@drawable/appicon", Theme = "@style/Theme.Splash")]
+    [Activity(Label = "Radar", MainLauncher = false, NoHistory = true, Icon = "@drawable/appicon", Theme = "@style/Theme.Splash")]
     public class SplashActivity : Activity {
 		System.Timers.Timer t;
         protected override void OnCreate(Bundle savedInstanceState) {

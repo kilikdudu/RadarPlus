@@ -19,11 +19,24 @@ using Android.Support.V7.App;
 
 namespace Radar.Droid
 {
-    [Activity(Label = "Radar", Icon = "@drawable/appicon", Theme = "@style/MainTheme", MainLauncher = false)]
+    [Activity(Label = "Radar", Icon = "@drawable/appicon", Theme = "@style/MainTheme", MainLauncher = true)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        private static JanelaSituacaoEnum _Situacao = JanelaSituacaoEnum.Fechada;
+
+        public static JanelaSituacaoEnum Situacao {
+            get {
+                return _Situacao;
+            }
+            set {
+                _Situacao = value;
+            }
+        }
+
         protected override void OnCreate(Bundle bundle)
         {
+            _Situacao = JanelaSituacaoEnum.Inicializando;
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
@@ -55,29 +68,48 @@ namespace Radar.Droid
             LoadApplication(new App());
         }
 
+        public bool isServiceRunning(Type serviceClassName)
+        {
+            ActivityManager activityManager = (ActivityManager)Application.Context.GetSystemService(Context.ActivityService);
+            var services = activityManager.GetRunningServices(int.MaxValue);
+            foreach (var runningServiceInfo in services)
+            {
+                if (runningServiceInfo.Service.GetType().Equals(serviceClassName))
+                    return true;
+            }
+            return false;
+        }
+
         protected override void OnStart()
         {
             base.OnStart();
-            //StartService(new Intent(this, typeof(GPSAndroid)));
-            StartService(new Intent(this, typeof(GPSAndroid)));
+            if (!isServiceRunning(typeof(GPSAndroid)))
+            {
+                var serviceIntent = new Intent(this, typeof(GPSAndroid));
+                serviceIntent.PutExtra("ativo", true);
+                StartService(serviceIntent);
+            }
+            /*
+            if (!isServiceRunning(typeof(GPSAndroid)))
+                StartService(new Intent(this, typeof(GPSAndroid)));
+            */
+            _Situacao = JanelaSituacaoEnum.Aberta;
         }
 
         protected override void OnResume()
         {
             base.OnResume();
-            //var servico = (GPSAndroid)GetSystemService("br.com.cmapps.radar");
-            /*
-            if (_locationProvider != null)
-                _locationManager.RequestLocationUpdates(_locationProvider, Configuracao.GPSTempoAtualiazacao, Configuracao.GPSDistanciaAtualizacao, this);
-            */
-            //Log.Debug(TAG, "Listening for location updates using " + _locationProvider + ".");
         }
 
         protected override void OnPause()
         {
             base.OnPause();
-            //_locationManager.RemoveUpdates(this);
-            //Log.Debug(TAG, "No longer listening for location updates.");
+        }
+
+        protected override void OnStop()
+        {
+            base.OnStop();
+            _Situacao = JanelaSituacaoEnum.Fechada;
         }
 
         private void HandleAndroidException(object sender, RaiseThrowableEventArgs e)
@@ -92,5 +124,11 @@ namespace Radar.Droid
             ///e.Handled = true;
         }
     }
+
+    public enum JanelaSituacaoEnum {
+        Inicializando,
+        Aberta,
+        Fechada
+    } 
 }
 
