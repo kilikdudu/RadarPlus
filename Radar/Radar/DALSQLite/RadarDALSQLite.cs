@@ -33,7 +33,7 @@ namespace Radar.DALSQLite
         {
             lock (locker)
             {
-                int eUsuario = (true) ? 1 : 0;
+                int eUsuario = (usuario) ? 1 : 0;
                 return (
                     from r in database.Table<RadarInfo>()
                     where (r.usuario == eUsuario)
