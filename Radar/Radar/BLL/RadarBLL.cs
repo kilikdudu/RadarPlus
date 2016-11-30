@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClubManagement.Utils;
 
 namespace Radar.BLL
 {
@@ -280,6 +281,45 @@ namespace Radar.BLL
 
         public void atualizar() {
         }
+
+
+		public void atualizarEndereco()
+		{
+			if (InternetUtils.estarConectado())
+			{
+				var radares = _db.listar();
+				for (var i = 0; i <= radares.Count() - 1; i++)
+				{
+					int idRadar = radares[i].Id;
+					float lat = (float)radares[i].Latitude;
+					float lon = (float)radares[i].Longitude;
+
+						GeocoderUtils.pegarAsync(lat, lon, (sender, e) =>
+						{
+							var endereco = e.Endereco;
+						RadarInfo percurso = new RadarInfo()
+						{
+							Id = idRadar,
+							Latitude = radares[i].Latitude,
+							Longitude = radares[i].Longitude,
+							LatitudeCos = radares[i].LatitudeCos,
+							LatitudeSin = radares[i].LatitudeSin,
+							LongitudeCos = radares[i].LongitudeCos,
+							LongitudeSin = radares[i].LongitudeSin,
+							Tipo = radares[i].Tipo,
+							Velocidade = radares[i].Velocidade,
+							Direcao = radares[i].Direcao,
+							Endereco = endereco.Logradouro + " " + endereco.Complemento + " " + endereco.Bairro + " " + endereco.Cidade + " " + endereco.Uf + " " + endereco.CEP
+
+							};
+
+							gravar(percurso);
+						});
+					
+				}
+
+			}
+		}
 
 		public string imagemRadar(double velocidade)
 		{

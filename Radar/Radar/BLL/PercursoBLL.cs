@@ -99,6 +99,7 @@ namespace Radar.BLL
 
         public int gravar(PercursoInfo percurso) {
             //percurso.Id = _percursoDB.gravar(percurso);
+
             return _percursoDB.gravar(percurso);
             //return percurso.Id;
         }
@@ -144,7 +145,7 @@ namespace Radar.BLL
                 return false;
 			PercursoInfo percurso = new PercursoInfo();
             gravar(percurso);
-			atualizarEndereco();
+			//atualizarEndereco();
             PercursoAtual = percurso;
             _dataAnterior = DateTime.MinValue;
             _ultimoMovimentoReal = DateTime.MinValue;
@@ -215,11 +216,11 @@ namespace Radar.BLL
                 }
             }
 
-           // if (_emMovimento)
-           // {
+           if (_emMovimento)
+            {
                 processarPonto(local, true);
                 return true;
-           // }
+            }
             //}
             return false;
         }
