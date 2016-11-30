@@ -28,11 +28,11 @@ namespace Radar.Pages
 			RadarBLL regraRadar = RadarFactory.create();
 			RadarListView.RowHeight = 150;
 			RadarListView.ItemTapped += OnTap;
-
+			//regraRadar.atualizarEndereco();
 			RadarListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
 			RadarListView.ItemTemplate = new DataTemplate(typeof(ConteudoCelula));
 
-			var radar = regraRadar.listar();
+			var radar = regraRadar.listar(true);
 
 			//desc.VerticalOptions = LayoutOptions.Center;
 
@@ -149,12 +149,13 @@ namespace Radar.Pages
 
 				Label titulo = new Label()
 				{
-					Text = "31/0ut - 17:41",
+					//Text = "31/0ut - 17:41",
 					HorizontalOptions = LayoutOptions.StartAndExpand,
 					FontSize = 26,
 					FontFamily = "Roboto-Condensed",
 					TextColor = Color.FromHex(TemaInfo.PrimaryColor)
 				};
+				titulo.SetBinding(Label.TextProperty, new Binding("DataTituloStr"));
 
 				Label limite = new Label()
 				{
@@ -200,7 +201,7 @@ namespace Radar.Pages
 
 				Label endereco = new Label()
 				{
-					Text = "Rua H-149, 1-73 Cidade Vera Cruz/ Aparecida de Goiânia ",
+					//Text = "Rua H-149, 1-73 Cidade Vera Cruz/ Aparecida de Goiânia ",
 					HorizontalOptions = LayoutOptions.StartAndExpand,
 					//VerticalOptions = LayoutOptions.StartAndExpand,
 					//WidthRequest = cardRigth.WidthRequest * 0.8,
@@ -208,6 +209,9 @@ namespace Radar.Pages
 					FontFamily = "Roboto-Condensed",
 					//HorizontalTextAlignment = TextAlignment.Center
 				};
+				endereco.SetBinding(Label.TextProperty, new Binding("Endereco"));
+
+
 				BoxView linha = new BoxView()
 				{
 					HeightRequest = 1,

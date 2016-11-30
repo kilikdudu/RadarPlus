@@ -10,6 +10,8 @@ namespace Radar.IDAL
     public interface IPercursoDAL
     {
         IList<PercursoInfo> listar();
+		IList<PercursoInfo> listarEnderecoNulo();
+		IList<PercursoInfo> listarPercurso(int id);
         PercursoInfo pegar(int idPercurso);
         int gravar(PercursoInfo percurso);
         void excluir(int id);

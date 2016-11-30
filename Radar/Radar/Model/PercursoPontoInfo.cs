@@ -21,6 +21,6 @@ namespace Radar.Model
         public DateTime Data { get; set; }
         public double Velocidade { get; set; }
         public bool Movimento { get; set; }
-		public string Endereco { get; set; }
+
     }
 }

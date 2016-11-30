@@ -20,6 +20,7 @@ namespace Radar.Model
         private int _Tipo;
         private int _Velocidade;
         private int _Direcao;
+		private string _Endereco;
 
         [PrimaryKey, AutoIncrement, Obsolete("Usando em Id")]
         public int id_radar {
@@ -32,6 +33,15 @@ namespace Radar.Model
         }
 
 		public DateTime DataInclusao { get; set; }
+
+		public string DataTituloStr
+		{
+			get
+			{
+				DateTime dataTitulo = DataInclusao;
+				return dataTitulo.ToString("dd/MMM - HH:mm");
+			}
+		}
 
         [Obsolete("Usando Latitude")]
         public double lat {
@@ -264,6 +274,20 @@ namespace Radar.Model
 			get
 			{
 				return "Ângulo: " + _Direcao.ToString() + " ";
+			}
+
+		}
+
+		[Ignore]
+		public string Endereco
+		{
+			get
+			{
+				return _Endereco;
+			}
+			set
+			{
+				_Endereco = value;
 			}
 
 		}

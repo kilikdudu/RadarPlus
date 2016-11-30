@@ -171,16 +171,17 @@ namespace Radar.Pages
 
                             if (InternetUtils.estarConectado())
                             {
-                                float latitude = -16.697807f;
-                                float longitude = -49.231589f;
+								LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
+							float latitude = (float)local.Latitude;
+							float longitude = (float)local.Longitude;
                                 GeocoderUtils.pegarAsync(latitude, longitude, (sender, e) =>
-                                {
+                                { 
                                     var endereco = e.Endereco;
                                     ClubManagement.Utils.MensagemUtils.avisar(endereco.Logradouro);
                                 });
                             }
                             
-                            /*
+                            
                             try
                             {
                                 LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
@@ -197,7 +198,7 @@ namespace Radar.Pages
                             {
                                 MensagemUtils.avisar(e.Message);
                             }
-                            */
+                            
                         }
                     )
                 });

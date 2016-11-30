@@ -45,6 +45,7 @@ namespace Radar.Pages
 			percursoListView.ItemTemplate = new DataTemplate(typeof(PercursoPageCell));
 			percursoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
 
+
 			var percursos = regraPercurso.listar();
 
 			//desc.VerticalOptions = LayoutOptions.Center;
