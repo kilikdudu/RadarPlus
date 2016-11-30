@@ -21,6 +21,18 @@ namespace Radar.DALSQLite
             database.CreateTable<PercursoInfo>();
         }
 
+		public IList<PercursoInfo> listarPercurso(int idPercurso)
+		{
+			lock (locker)
+			{
+				return (
+					from i in database.Table<PercursoInfo>()
+					where i.Id == idPercurso
+					select i
+				).ToList();
+			}
+		}
+
         public IList<PercursoInfo> listar()
         {
             lock (locker)
@@ -28,6 +40,18 @@ namespace Radar.DALSQLite
                 return (from i in database.Table<PercursoInfo>() select i).ToList();
             }
         }
+
+		public IList<PercursoInfo> listarEnderecoNulo()
+		{
+			lock (locker)
+			{
+				return (
+					from i in database.Table<PercursoInfo>()
+					where i.Endereco == null
+					select i
+				).ToList();
+			}
+		}
 
         public PercursoInfo pegar(int id)
         {

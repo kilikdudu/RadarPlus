@@ -107,12 +107,44 @@ namespace Radar.BLL
             return _pontoDB.gravar(ponto);
         }
 
+		public void atualizarEndereco()
+		{
+			if (InternetUtils.estarConectado())
+			{
+				var percursos = _percursoDB.listarEnderecoNulo();
+				for (var i = 0; i <= percursos.Count() - 1; i++)
+				{
+					int idPercurso = percursos[i].Id;
+					var pontos = _pontoDB.listar(idPercurso);
+					if (pontos.Count() > 0)
+					{
+						float lat = (float)(from p in pontos select p.Latitude).Last();
+						float lon = (float)(from p in pontos select p.Longitude).Last();
+
+						GeocoderUtils.pegarAsync(lat, lon, (sender, e) =>
+						{
+							var endereco = e.Endereco;
+							PercursoInfo percurso = new PercursoInfo()
+							{
+								Id = idPercurso,
+								Endereco = endereco.Logradouro + " " + endereco.Complemento + " " + endereco.Bairro + " " + endereco.Cidade + " " + endereco.Uf + " " + endereco.CEP
+
+							};
+
+							gravar(percurso);
+						});
+					}
+				}
+
+			}
+		}
+
         public bool iniciarGravacao(ProcessarPontoEventHandler aoProcessar) {
             if (_gravando)
                 return false;
-            PercursoInfo percurso = new PercursoInfo();
-            percurso.Nome = "Teste";
+			PercursoInfo percurso = new PercursoInfo();
             gravar(percurso);
+			atualizarEndereco();
             PercursoAtual = percurso;
             _dataAnterior = DateTime.MinValue;
             _ultimoMovimentoReal = DateTime.MinValue;
@@ -133,39 +165,33 @@ namespace Radar.BLL
             _ultimoMovimentoReal = DateTime.MinValue;
             _gravando = false;
             _emMovimento = false;
+			atualizarEndereco();
             return true;
         }
 
         private void processarPonto(LocalizacaoInfo local, bool emMovimento) {
-			string enderecoCompleto = null;
-			if (InternetUtils.estarConectado())
-			{
-				float latitude = (float)local.Latitude;
-				float longitude = (float)local.Longitude;
-				GeocoderUtils.pegarAsync(latitude, longitude, (sender, e) =>
+
+
+
+				PercursoPontoInfo ponto = new PercursoPontoInfo()
 				{
-					var endereco = e.Endereco;
-					enderecoCompleto = endereco.Logradouro + " " + endereco.Complemento + " " + endereco.Bairro + " " + endereco.Cidade + " " + endereco.Uf + " " + endereco.CEP;
-				});
-			}
-            PercursoPontoInfo ponto = new PercursoPontoInfo()
-            {
-                IdPercurso = PercursoAtual.Id,
-                Latitude = local.Latitude,
-                Longitude = local.Longitude,
-                Velocidade = local.Velocidade,
-                Sentido = local.Sentido,
-                Precisao = local.Precisao,
-                Data = local.Tempo,
-                Movimento = emMovimento,
-				Endereco = enderecoCompleto
-            };
+					IdPercurso = PercursoAtual.Id,
+					Latitude = local.Latitude,
+					Longitude = local.Longitude,
+					Velocidade = local.Velocidade,
+					Sentido = local.Sentido,
+					Precisao = local.Precisao,
+					Data = local.Tempo,
+					Movimento = emMovimento
+				};
 
 
-            gravarPonto(ponto);
-          if (AoProcessar != null)
-				AoProcessar(this, new ProcessarPontoEventArgs(_percursoAtual));
-            _dataAnterior = local.Tempo;
+				gravarPonto(ponto);
+
+				if (AoProcessar != null)
+					AoProcessar(this, new ProcessarPontoEventArgs(_percursoAtual));
+				_dataAnterior = local.Tempo;
+			
         }
 
         public bool executarGravacao(LocalizacaoInfo local)
@@ -189,11 +215,11 @@ namespace Radar.BLL
                 }
             }
 
-            if (_emMovimento)
-            {
+           // if (_emMovimento)
+           // {
                 processarPonto(local, true);
                 return true;
-            }
+           // }
             //}
             return false;
         }
@@ -211,11 +237,11 @@ namespace Radar.BLL
 		{
 
 			string endereco = null;
-			var pontos = _pontoDB.listar(percurso.Id);
+			var pontos = _percursoDB.listarPercurso(percurso.Id);
 			if (pontos.Count() > 0)
 			{
 
-				endereco = (from p in pontos select p.Endereco).Max();
+				endereco = (from p in pontos select p.Endereco).Last();
 			}
 
 			return endereco;

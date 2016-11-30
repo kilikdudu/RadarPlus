@@ -84,7 +84,7 @@ namespace Radar.iOS
 			int tempoInt = Convert.ToInt32(tempo);
 			if (tempoInt > 5 )
 			{
-				tempoInt = Convert.ToInt32(tempo) * 1000 + 2000;
+				tempoInt = Convert.ToInt32(tempo) * 1000 + 1000;
 			}
 			else {
 				tempoInt = Convert.ToInt32(tempo) * 1000 + 1000;
