@@ -43,6 +43,8 @@ namespace Radar.Utils
 			}
 		}
 
+
+
 		public static async void verificarFuncionamentoGPS()
 		{
 			if (_gpsServico == null)

@@ -126,5 +126,14 @@ namespace Radar.Model
 				return  distanciaTotal.ToString() + " Km ";
 			}
 		}
+
+		public string EnderecoStr
+		{
+			get
+			{
+				string endereco = EnderecoDestino;
+				return endereco;
+			}
+		}
     }
 }
