@@ -99,19 +99,14 @@ namespace Radar.iOS
 			{
 				string arquivo = _audioAtual[_audioIndex];
 				_audioIndex++;
-				if (_player != null)
-				{
-					//Stop and dispose of any sound effect
-					_player.Stop();
-					_player.Dispose();
-				}
 				_player = criarAudio(arquivo);
 				var state = UIApplication.SharedApplication.ApplicationState;
 				if (state.ToString() != "Background")
 				{
-					_player.FinishedPlaying += delegate
+					_player.FinishedPlaying += (sender, e) =>
 					{
-						_player = null;
+						playProximo();
+
 					};
 					_player.Play();
 				}
@@ -131,8 +126,14 @@ namespace Radar.iOS
         {
             _audioIndex = 0;
             _audioAtual = null;
-          
-           
+           if (_player != null)
+            {
+                if (_player.Playing)
+                    _player.Stop();
+                _player.Dispose();
+               _player = null;
+            }
+            _audioIndex = 0;
 			if(arquivos != null)
             _audioAtual = arquivos;
             playProximo();
