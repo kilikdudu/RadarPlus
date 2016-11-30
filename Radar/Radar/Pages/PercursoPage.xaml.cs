@@ -135,7 +135,7 @@ namespace Radar.Pages
 					radares.Text = e2.Ponto.QuantidadeRadarStr;
 				})) 
 				{
-
+					
 					stackDescricaoGravando.Children.Remove(gravarLabel);
 					stackDescricaoGravando.Children.Remove(infoLabel);
 					stackDescricaoGravando.Children.Add(desc);
@@ -392,7 +392,7 @@ namespace Radar.Pages
 					FontFamily = "Roboto-Condensed",
 					//HorizontalTextAlignment = TextAlignment.Start
 				};
-				endereco.SetBinding(Label.TextProperty, new Binding("EnderecoDestino"));
+				endereco.SetBinding(Label.TextProperty, new Binding("EnderecoStr"));
 
 
 				cardRigthStackVer.Children.Add(titulo);

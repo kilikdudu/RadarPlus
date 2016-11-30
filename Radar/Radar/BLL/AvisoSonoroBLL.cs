@@ -20,43 +20,43 @@ namespace Radar.BLL
             switch (audio)
             {
                 case SomAlarmeEnum.Alarme02:
-                    arquivo = "alarm-002.wav";
+                    arquivo = "alarm-002.m4a";
                     break;
                 case SomAlarmeEnum.Alarme03:
-                    arquivo = "alarm-003.wav";
+                    arquivo = "alarm-003.m4a";
                     break;
                 case SomAlarmeEnum.Alarme04:
-                    arquivo = "alarm-004.wav";
+                    arquivo = "alarm-004.m4a";
                     break;
                 case SomAlarmeEnum.Alarme05:
-                    arquivo = "alarm-005.wav";
+                    arquivo = "alarm-005.m4a";
                     break;
                 case SomAlarmeEnum.Alarme06:
-                    arquivo = "alarm-006.wav";
+                    arquivo = "alarm-006.m4a";
                     break;
                 case SomAlarmeEnum.Alarme07:
-                    arquivo = "alarm-007.wav";
+                    arquivo = "alarm-007.m4a";
                     break;
                 case SomAlarmeEnum.Alarme08:
-                    arquivo = "alarm-008.wav";
+                    arquivo = "alarm-008.m4a";
                     break;
                 case SomAlarmeEnum.Alarme09:
-                    arquivo = "alarm-009.wav";
+                    arquivo = "alarm-009.m4a";
                     break;
                 case SomAlarmeEnum.Alarme10:
-                    arquivo = "alarm-010.wav";
+                    arquivo = "alarm-010.m4a";
                     break;
                 case SomAlarmeEnum.Alarme11:
-                    arquivo = "alarm-011.wav";
+                    arquivo = "alarm-011.m4a";
                     break;
                 case SomAlarmeEnum.Alarme12:
-                    arquivo = "alarm-012.wav";
+                    arquivo = "alarm-012.m4a";
                     break;
                 case SomAlarmeEnum.Alarme13:
-                    arquivo = "alarm-013.wav";
+                    arquivo = "alarm-013.m4a";
                     break;
                 default:
-                    arquivo = "alarm-001.wav";
+                    arquivo = "alarm-001.m4a";
                     break;
             }
             return arquivo;

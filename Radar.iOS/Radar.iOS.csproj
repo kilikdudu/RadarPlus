@@ -100,19 +100,6 @@
     <Compile Include="RadarMKAnnotation.cs" />
     <Compile Include="SoundRecorderiOS.cs" />
     <Compile Include="SQLiteiOS.cs" />
-    <BundleResource Include="Resources\alarmes\alarm-001.wav" />
-    <BundleResource Include="Resources\alarmes\alarm-002.wav" />
-    <BundleResource Include="Resources\alarmes\alarm-003.wav" />
-    <BundleResource Include="Resources\alarmes\alarm-004.wav" />
-    <BundleResource Include="Resources\alarmes\alarm-005.wav" />
-    <BundleResource Include="Resources\alarmes\alarm-006.wav" />
-    <BundleResource Include="Resources\alarmes\alarm-007.wav" />
-    <BundleResource Include="Resources\alarmes\alarm-008.wav" />
-    <BundleResource Include="Resources\alarmes\alarm-009.wav" />
-    <BundleResource Include="Resources\alarmes\alarm-010.wav" />
-    <BundleResource Include="Resources\alarmes\alarm-011.wav" />
-    <BundleResource Include="Resources\alarmes\alarm-012.wav" />
-    <BundleResource Include="Resources\alarmes\alarm-013.wav" />
     <BundleResource Include="Resources\mais.png" />
     <BundleResource Include="Resources\bussolaagulha.png" />
     <BundleResource Include="Resources\bussolacorpo.png" />
@@ -224,6 +211,19 @@
     <BundleResource Include="Resources\audios\radar-fixo.mp3" />
     <BundleResource Include="Resources\audios\radar-movel.mp3" />
     <BundleResource Include="Resources\audios\radar-semaforo.mp3" />
+    <BundleResource Include="Resources\alarmes\alarm-001.m4a" />
+    <BundleResource Include="Resources\alarmes\alarm-002.m4a" />
+    <BundleResource Include="Resources\alarmes\alarm-003.m4a" />
+    <BundleResource Include="Resources\alarmes\alarm-004.m4a" />
+    <BundleResource Include="Resources\alarmes\alarm-005.m4a" />
+    <BundleResource Include="Resources\alarmes\alarm-006.m4a" />
+    <BundleResource Include="Resources\alarmes\alarm-007.m4a" />
+    <BundleResource Include="Resources\alarmes\alarm-008.m4a" />
+    <BundleResource Include="Resources\alarmes\alarm-009.m4a" />
+    <BundleResource Include="Resources\alarmes\alarm-010.m4a" />
+    <BundleResource Include="Resources\alarmes\alarm-011.m4a" />
+    <BundleResource Include="Resources\alarmes\alarm-012.m4a" />
+    <BundleResource Include="Resources\alarmes\alarm-013.m4a" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
