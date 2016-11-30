@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Radar.Factory;
+using ClubManagement.Utils;
 
 namespace Radar.BLL
 {
@@ -78,6 +79,7 @@ namespace Radar.BLL
 				percurso.QuantidadeRadar =  0;
 				percurso.TempoParado = tempoParado(percurso);
 				_percursoAtual = percurso;
+
             }
         }
 
@@ -105,7 +107,7 @@ namespace Radar.BLL
             return _pontoDB.gravar(ponto);
         }
 
-        public bool iniciarGravacao(ProcessarPontoEventHandler AoProcessar) {
+        public bool iniciarGravacao(ProcessarPontoEventHandler aoProcessar) {
             if (_gravando)
                 return false;
             PercursoInfo percurso = new PercursoInfo();
@@ -116,6 +118,7 @@ namespace Radar.BLL
             _ultimoMovimentoReal = DateTime.MinValue;
             _gravando = true;
             _emMovimento = true;
+			AoProcessar += aoProcessar;
             //MensagemUtils.notificar(2, "Gravando Percurso", "Gravando percurso agora!");
             return true;
         }
@@ -134,6 +137,17 @@ namespace Radar.BLL
         }
 
         private void processarPonto(LocalizacaoInfo local, bool emMovimento) {
+			string enderecoCompleto = null;
+			if (InternetUtils.estarConectado())
+			{
+				float latitude = (float)local.Latitude;
+				float longitude = (float)local.Longitude;
+				GeocoderUtils.pegarAsync(latitude, longitude, (sender, e) =>
+				{
+					var endereco = e.Endereco;
+					enderecoCompleto = endereco.Logradouro + " " + endereco.Complemento + " " + endereco.Bairro + " " + endereco.Cidade + " " + endereco.Uf + " " + endereco.CEP;
+				});
+			}
             PercursoPontoInfo ponto = new PercursoPontoInfo()
             {
                 IdPercurso = PercursoAtual.Id,
@@ -143,10 +157,13 @@ namespace Radar.BLL
                 Sentido = local.Sentido,
                 Precisao = local.Precisao,
                 Data = local.Tempo,
-                Movimento = emMovimento
+                Movimento = emMovimento,
+				Endereco = enderecoCompleto
             };
+
+
             gravarPonto(ponto);
-           if (AoProcessar != null)
+          if (AoProcessar != null)
 				AoProcessar(this, new ProcessarPontoEventArgs(_percursoAtual));
             _dataAnterior = local.Tempo;
         }
@@ -193,13 +210,15 @@ namespace Radar.BLL
 		public String enderecoDestino(PercursoInfo percurso)
 		{
 
-			String total = null;
+			string endereco = null;
+			var pontos = _pontoDB.listar(percurso.Id);
+			if (pontos.Count() > 0)
+			{
 
+				endereco = (from p in pontos select p.Endereco).Max();
+			}
 
-				total = "Rua H- 149, 1-73 Cidade Vera Cruz/ Aparecida de Goiânia ";
-
-
-			return total;
+			return endereco;
 		}
 
 		public double distanciaTotal(PercursoInfo percurso) {
