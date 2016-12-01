@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using ClubManagement.IBLL;
 using ClubManagement.iOS;
 using Xamarin.Forms;
@@ -14,27 +11,27 @@ namespace ClubManagement.iOS
     {
         public byte[] abrir(string nomeArquivo)
         {
-            throw new NotImplementedException();
+			return null;
         }
 
         public string abrirTexto(string nomeArquivo)
         {
-            throw new NotImplementedException();
+			return null;
         }
 
         public bool existe(string nomeArquivo)
         {
-            throw new NotImplementedException();
+			return true;
         }
 
         public void salvar(string nomeArquivo)
         {
-            throw new NotImplementedException();
+			
         }
 
         public void salvarTexto(string nomeArquivo)
         {
-            throw new NotImplementedException();
+			
         }
     }
 }
