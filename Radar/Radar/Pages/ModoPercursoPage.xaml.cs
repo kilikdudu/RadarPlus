@@ -24,7 +24,7 @@ namespace Radar
         {
             base.OnAppearing();
             salvarPercurso.IsToggled = PreferenciaUtils.SalvarPercurso;
-            excluirAntigos.IsToggled = PreferenciaUtils.ExcluirAntigo;
+            //excluirAntigos.IsToggled = PreferenciaUtils.ExcluirAntigo;
         }
 
 

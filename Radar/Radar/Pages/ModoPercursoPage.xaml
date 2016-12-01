@@ -46,7 +46,7 @@
               <Label Style="{StaticResource LabelStyleDescription}" Text="enquanto o MapaRadar estiver em funcionamento"  />
             </StackLayout>
           </Frame>
-				
+			<!--	
           <Frame Style="{StaticResource StyleFrame}">
 			<StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
 	          <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">                         
@@ -57,7 +57,7 @@
               <Label Style="{StaticResource LabelStyleDescription}" Text="que forem considerados antigos" />
             </StackLayout>
           </Frame>
-				
+		
           <Frame Style="{StaticResource StyleFrame}">
 				<StackLayout.GestureRecognizers>
                   <TapGestureRecognizer Tapped="tempoPercursoTapped"/>
@@ -69,7 +69,7 @@
               <Label Style="{StaticResource LabelStyleDescription}" Text="Defina com quantos dias um percurso se torna antigo" />
             </StackLayout>
           </Frame>
-		      
+		      -->
 		    </StackLayout>
     	</ScrollView>
 	</ContentPage.Content>

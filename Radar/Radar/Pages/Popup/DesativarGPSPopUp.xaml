@@ -57,7 +57,7 @@
 		 <ScrollView>
 			<StackLayout>
 		        <StackLayout Orientation="Horizontal">
-		          <Label Text="Fechar o MapaRadar" Style="{StaticResource StyleText}"/>
+		          <Label Text="Fechar o Radar" Style="{StaticResource StyleText}"/>
 		          <Switch x:Name="SwitchFechar" Toggled="fecharToggled" Style="{StaticResource StyleSwitch}"/>
 		        </StackLayout>
 		        <BoxView Style="{StaticResource StyleBoxView}" />
