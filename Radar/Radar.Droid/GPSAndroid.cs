@@ -16,6 +16,7 @@ using Android.Views;
 using Android.Content.Res;
 using Android.Widget;
 using Java.Util;
+using SQLite;
 
 [assembly: UsesPermission(Manifest.Permission.AccessFineLocation)]
 [assembly: UsesPermission(Manifest.Permission.AccessCoarseLocation)]
@@ -65,12 +66,12 @@ namespace Radar.Droid
 
         public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
+            if (intent.GetBooleanExtra("ativo", false))
+                Situacao = GPSSituacaoEnum.Ativo;
+            else
+                Situacao = GPSSituacaoEnum.Espera;
             if (!_inicializado)
             {
-                if (intent.GetBooleanExtra("ativo", false))
-                    Situacao = GPSSituacaoEnum.Ativo;
-                else
-                    Situacao = GPSSituacaoEnum.Espera;
                 notificar(intent);
                 if (!widgetInicializado)
                 {
@@ -183,7 +184,8 @@ namespace Radar.Droid
                 }
             }
             else if (Situacao == GPSSituacaoEnum.Espera) {
-                if (local.Precisao <= 30)
+                var regraPreferencia = new PreferenciaAndroid();
+                if (regraPreferencia.LigarDesligar && local.Precisao <= 30)
                 {
                     if (local.Velocidade >= 15)
                     {
@@ -456,6 +458,39 @@ namespace Radar.Droid
             public GPSAndroid GetDemoService()
             {
                 return service;
+            }
+        }
+
+        public class PreferenciaAndroid
+        {
+            SQLiteConnection _database;
+            static object locker = new object();
+
+            private void inicializar()
+            {
+                var sqlite = new SQLiteAndroid();
+                var _database = sqlite.GetConnection();
+                _database.CreateTable<PreferenciaInfo>();
+            }
+
+            private string pegarValor(string campo)
+            {
+                lock (locker)
+                {
+                    var preferencia = _database.Table<PreferenciaInfo>().FirstOrDefault(x => x.Preferencia == campo);
+                    if (preferencia != null)
+                        return preferencia.Valor;
+                }
+                return string.Empty;
+            }
+
+            public bool LigarDesligar
+            {
+                get
+                {
+                    var valor = pegarValor(PreferenciaUtils.LIGAR_DESLIGAR);
+                    return bool.Parse(valor);
+                }
             }
         }
     }
