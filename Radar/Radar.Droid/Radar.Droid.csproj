@@ -191,7 +191,6 @@
     <AndroidResource Include="Resources\layout\service_player.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidAsset Include="Assets\alarmes\" />
     <AndroidAsset Include="Assets\alarmes\alarm-001.m4a" />
     <AndroidAsset Include="Assets\alarmes\alarm-002.m4a" />
     <AndroidAsset Include="Assets\alarmes\alarm-003.m4a" />
