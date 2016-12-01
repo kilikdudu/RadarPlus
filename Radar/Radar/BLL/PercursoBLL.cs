@@ -172,8 +172,6 @@ namespace Radar.BLL
 
         private void processarPonto(LocalizacaoInfo local, bool emMovimento) {
 
-
-
 				PercursoPontoInfo ponto = new PercursoPontoInfo()
 				{
 					IdPercurso = PercursoAtual.Id,

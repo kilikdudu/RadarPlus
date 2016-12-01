@@ -109,12 +109,12 @@ namespace Radar.Pages
                     ClubManagement.Utils.MensagemUtils.avisar("Gravação finalizada!");
                     ClubManagement.Utils.MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
 
-
-					percursoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
-
 					var percursos = regraPercurso.listar();
 					percursoListView.BindingContext = percursos;
 					percursoListView.ItemTemplate = new DataTemplate(typeof(PercursoPageCell));
+					percursoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+
+
 				}
 				else {
                     ClubManagement.Utils.MensagemUtils.avisar("Não foi possível parar a gravação!");

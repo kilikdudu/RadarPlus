@@ -387,6 +387,20 @@
     <AndroidAsset Include="Resources\alarmes\metros-900.mp3" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ClubManagement\ClubManagement.csproj">
+      <Project>{67F9D3A8-F71E-4428-913F-C37AE82CDB24}</Project>
+      <Name>ClubManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClubManagement.iOS\ClubManagement.iOS.csproj">
+      <Project>{D6EA51AD-1DCA-4367-8593-EA189252B19D}</Project>
+      <Name>ClubManagement.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Radar\Radar\Radar.csproj">
+      <Project>{0D7118CE-020D-4CAC-8CA6-95110C856A12}</Project>
+      <Name>Radar</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
