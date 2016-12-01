@@ -1,8 +1,6 @@
 ﻿using ClubManagement.IBLL;
 using ClubManagement.iOS;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(DownloaderiOS))]
