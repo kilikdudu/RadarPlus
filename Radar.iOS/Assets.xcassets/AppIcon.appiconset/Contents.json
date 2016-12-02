@@ -31,11 +31,13 @@
       "idiom": "iphone"
     },
     {
+      "filename": "appicon-57.png",
       "size": "57x57",
       "scale": "1x",
       "idiom": "iphone"
     },
     {
+      "filename": "appicon-114.png",
       "size": "57x57",
       "scale": "2x",
       "idiom": "iphone"
@@ -77,26 +79,31 @@
       "idiom": "ipad"
     },
     {
+      "filename": "appicon-50.png",
       "size": "50x50",
       "scale": "1x",
       "idiom": "ipad"
     },
     {
+      "filename": "appicon-100.png",
       "size": "50x50",
       "scale": "2x",
       "idiom": "ipad"
     },
     {
+      "filename": "appicon-167.png",
       "size": "83.5x83.5",
       "scale": "2x",
       "idiom": "ipad"
     },
     {
+      "filename": "appicon-72.png",
       "size": "72x72",
       "scale": "1x",
       "idiom": "ipad"
     },
     {
+      "filename": "appicon-144.png",
       "size": "72x72",
       "scale": "2x",
       "idiom": "ipad"

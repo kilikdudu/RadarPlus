@@ -64,7 +64,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -353,6 +353,13 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-Portrait%402x.png">
       <InProject>false</InProject>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-57.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-114.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-50.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-100.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-72.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-144.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-167.png" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork%402x" />
