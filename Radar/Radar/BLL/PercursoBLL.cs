@@ -99,8 +99,9 @@ namespace Radar.BLL
 
         public int gravar(PercursoInfo percurso) {
             //percurso.Id = _percursoDB.gravar(percurso);
-
-            return _percursoDB.gravar(percurso);
+			var grava = _percursoDB.gravar(percurso);
+			atualizarEndereco();
+            return grava;
             //return percurso.Id;
         }
 
@@ -113,9 +114,9 @@ namespace Radar.BLL
 			if (InternetUtils.estarConectado())
 			{
 				var percursos = _percursoDB.listarEnderecoNulo();
-				for (var i = 0; i <= percursos.Count() - 1; i++)
+				if (percursos.Count > 0)
 				{
-					int idPercurso = percursos[i].Id;
+					int idPercurso = percursos[0].Id;
 					var pontos = _pontoDB.listar(idPercurso);
 					if (pontos.Count() > 0)
 					{
@@ -133,10 +134,11 @@ namespace Radar.BLL
 							};
 
 							gravar(percurso);
+							atualizarEndereco();
 						});
 					}
-				}
 
+				}
 			}
 		}
 
@@ -166,7 +168,7 @@ namespace Radar.BLL
             _ultimoMovimentoReal = DateTime.MinValue;
             _gravando = false;
             _emMovimento = false;
-			atualizarEndereco();
+			//atualizarEndereco();
             return true;
         }
 

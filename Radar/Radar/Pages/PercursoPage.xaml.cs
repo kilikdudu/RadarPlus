@@ -91,7 +91,7 @@ namespace Radar.Pages
 
 		}
 
-		async void gravarPercurso(object sender, EventArgs e)
+		 void gravarPercurso(object sender, EventArgs e)
 		{
 			//Label gravarButton = (Label)sender;
 			PercursoBLL regraPercurso = PercursoFactory.create();
