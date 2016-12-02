@@ -157,6 +157,11 @@ namespace Radar.Pages
                 };
                 AbsoluteLayout.SetLayoutBounds(_AdicionarRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
                 AbsoluteLayout.SetLayoutFlags(_AdicionarRadarButton, AbsoluteLayoutFlags.All);
+				if (TelaUtils.Orientacao == "Landscape")
+				{
+					AbsoluteLayout.SetLayoutBounds(_AdicionarRadarButton, new Rectangle(1, 0.5, 0.2, 0.2));
+					AbsoluteLayout.SetLayoutFlags(_AdicionarRadarButton, AbsoluteLayoutFlags.All);
+				}
                 _AdicionarRadarButton.GestureRecognizers.Add(
                     new TapGestureRecognizer()
                     {
