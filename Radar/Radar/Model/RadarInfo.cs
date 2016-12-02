@@ -1,9 +1,6 @@
 ﻿using SQLite;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Radar.Model
 {
@@ -21,7 +18,7 @@ namespace Radar.Model
         private int _Velocidade;
         private int _Direcao;
 		private string _Endereco;
-
+		private DateTime _DataInclusao;
         [PrimaryKey, AutoIncrement, Obsolete("Usando em Id")]
         public int id_radar {
             get {
@@ -32,7 +29,19 @@ namespace Radar.Model
             }
         }
 
-		public DateTime DataInclusao { get; set; }
+		//public DateTime DataInclusao { get; set; }
+		public DateTime DataInclusao
+		{
+			get
+			{
+
+				return _DataInclusao;
+			}
+			set
+			{
+				_DataInclusao = value;
+			}
+		}
 
 		public string DataTituloStr
 		{
@@ -278,7 +287,6 @@ namespace Radar.Model
 
 		}
 
-		[Ignore]
 		public string Endereco
 		{
 			get

@@ -106,6 +106,20 @@ namespace Radar.DALSQLite
             }
         }
 
+		public IList<RadarInfo> listarEnderecoNulo()
+		{
+			
+			string query = "select * from radar where usuario = ? and Endereco = ?";
+			lock (locker)
+			{
+				return database.Query<RadarInfo>(query,
+					new object[2] {
+					true,
+					""
+					});
+			}
+			}
+
         public RadarInfo pegar(int idRadar)
         {
             lock (locker)

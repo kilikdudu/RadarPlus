@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using Radar.BLL;
 using Radar.Factory;
 using System.Diagnostics;
+using ClubManagement.Utils;
 
 namespace Radar.Pages.Popup
 {
@@ -26,6 +27,7 @@ namespace Radar.Pages.Popup
 			base.OnAppearing();
 
 		}
+
 
 
 		protected override Task OnAppearingAnimationEnd()

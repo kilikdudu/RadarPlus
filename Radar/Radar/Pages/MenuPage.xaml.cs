@@ -2,11 +2,7 @@ using ClubManagement.Utils;
 using Radar.BLL;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Radar.Model;
+
 using Xamarin.Forms;
 using Rg.Plugins.Popup;
 
@@ -91,7 +87,10 @@ namespace Radar.Pages
 				aoClicar = (sender, e) =>
 				{
 					//this.Navigation.PushAsync(new ModoAutoInicioPage());
-					Navigation.PushModalAsync(new MapaPage(true));
+					//Navigation.PushModalAsync(new MapaPage(true));
+
+						Application.Current.MainPage = new NavegacaoPage(true);
+
 				}
             });
             grupo.Add(new MenuItemInfo

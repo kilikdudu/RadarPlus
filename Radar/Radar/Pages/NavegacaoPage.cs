@@ -19,12 +19,18 @@ namespace Radar.Pages
 
         bool carregandoPagina = false;
 
-        public NavegacaoPage()
+		public NavegacaoPage(bool pagina = false)
         {
 			
             masterPage = new MenuPage();
             Master = masterPage;
-            _paginaAtual = new VelocimetroPage();
+			if (pagina == true )
+			{
+				_paginaAtual = new MapaPage(true);
+			}
+			else {
+				_paginaAtual = new VelocimetroPage();
+			}
             var nav = new NavigationPage(_paginaAtual);
 			nav.BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor);
 			nav.BarTextColor = Color.FromHex(TemaInfo.TextIcons);

@@ -10,6 +10,7 @@ namespace Radar.IDAL
     public interface IRadarDAL
     {
         IList<RadarInfo> listar();
+		IList<RadarInfo> listarEnderecoNulo();
         IList<RadarInfo> listar(bool usuario);
         IList<RadarInfo> listar(RadarBuscaInfo busca);
         IList<RadarInfo> listar(double latitude, double longitude, double latitudeDelta, double longitudeDelta, IList<RadarTipoEnum> filtro);
