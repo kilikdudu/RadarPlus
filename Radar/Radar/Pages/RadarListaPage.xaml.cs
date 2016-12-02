@@ -28,7 +28,7 @@ namespace Radar.Pages
 			RadarBLL regraRadar = RadarFactory.create();
 			RadarListView.RowHeight = 150;
 			RadarListView.ItemTapped += OnTap;
-			//regraRadar.atualizarEndereco();
+			regraRadar.atualizarEndereco();
 			RadarListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
 			RadarListView.ItemTemplate = new DataTemplate(typeof(ConteudoCelula));
 
@@ -54,14 +54,6 @@ namespace Radar.Pages
 		}
         
 
-        public void excluirRadar(object sender, EventArgs e)
-        {
-            RadarInfo radar = (RadarInfo)((MenuItem)sender).BindingContext;
-            RadarBLL regraRadar = RadarFactory.create();
-            regraRadar.excluir(radar.Id);
-            OnAppearing();
-        }
-
 		public class ConteudoCelula : ViewCell
 		{
 			StackLayout desc = new StackLayout();
@@ -80,7 +72,13 @@ namespace Radar.Pages
 					RadarInfo radar = (RadarInfo)((MenuItem)sender).BindingContext;
 					RadarBLL regraRadar = RadarFactory.create();
 					regraRadar.excluir(radar.Id);
-					OnAppearing();
+					ListView RadarListView = this.Parent as ListView;
+
+					RadarListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+
+					var percursos = regraRadar.listar(true);
+					RadarListView.BindingContext = percursos;
+					RadarListView.ItemTemplate = new DataTemplate(typeof(ConteudoCelula));
 				};
 
 				this.ContextActions.Add(excluirRadar);

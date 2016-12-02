@@ -36,7 +36,7 @@ namespace Radar.Droid
             }
             else if (intent.Action == PercursoBLL.ACAO_PARAR_SIMULACAO) {
                 PercursoBLL regraPercurso = PercursoFactory.create();
-                PercursoBLL.pararGravacao(PercursoBLL, regraPercurso);
+				regraPercurso.pararGravacao();
                 ClubManagement.Utils.MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
                 InvokeAbortBroadcast();
             }

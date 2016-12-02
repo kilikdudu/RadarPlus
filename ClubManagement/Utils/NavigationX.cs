@@ -142,7 +142,7 @@ namespace ClubManagement.Utils
                 {
                     carregandoPagina = false;
                 };
-                return _paginaPai.Navigation.PushPopupAsync(page, animated);
+              return _paginaPai.Navigation.PushPopupAsync(page, animated);
             }
             return null;
         }

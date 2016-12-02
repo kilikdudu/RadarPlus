@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClubManagement.Utils;
+using Xamarin.Forms.Maps;
 
 namespace Radar.BLL
 {
@@ -65,13 +66,21 @@ namespace Radar.BLL
 
         public int gravar(RadarInfo radar)
         {
-            if (radar.Velocidade < 20)
-                throw new Exception("Você não pode adicionar um radar a menos de 20 km/h.");
-            return _db.gravar(radar);
+			if (radar.Velocidade < 20)
+			     throw new Exception("Você não pode adicionar um radar a menos de 20 km/h.");
+			var grava = _db.gravar(radar);
+			atualizarEndereco();
+
+            return grava;
         }
 
-        public int gravar(LocalizacaoInfo local) {
+		public int gravarEndereco(RadarInfo radar)
+		{
+			return _db.gravar(radar);
+		}
 
+        public int gravar(LocalizacaoInfo local) {
+			DateTime saveNow = DateTime.Now;
             int velocidade = (int)Math.Floor(local.Velocidade);
             velocidade = ((velocidade % 10) > 0) ? (velocidade - (velocidade % 10)) + 10 : velocidade;
             RadarInfo radar = new RadarInfo {
@@ -84,6 +93,8 @@ namespace Radar.BLL
                 Direcao = (int) Math.Floor(local.Sentido),
                 Velocidade = velocidade,
                 Tipo = TIPO_RADAR_NORMAL,
+				DataInclusao = saveNow,
+				Endereco = "",
                 Usuario = true
             };
             return gravar(radar);
@@ -279,45 +290,48 @@ namespace Radar.BLL
             return radarCapturado;
         }
 
-        public void atualizar() {
-        }
-
-
-		public void atualizarEndereco()
+      
+		public async void atualizarEndereco()
 		{
+			
 			if (InternetUtils.estarConectado())
 			{
-				var radares = _db.listar();
-				for (var i = 0; i <= radares.Count() - 1; i++)
+			
+				var radares = _db.listarEnderecoNulo();
+				if (radares.Count > 0)
 				{
-					int idRadar = radares[i].Id;
-					float lat = (float)radares[i].Latitude;
-					float lon = (float)radares[i].Longitude;
+					int idRadar = radares[0].Id;
+					float lat = (float)radares[0].Latitude;
+					float lon = (float)radares[0].Longitude;
 
-						GeocoderUtils.pegarAsync(lat, lon, (sender, e) =>
-						{
-							var endereco = e.Endereco;
-						RadarInfo percurso = new RadarInfo()
+					GeocoderUtils.pegarAsync(lat, lon, (sender, e) =>
+					{
+						var endereco = e.Endereco;
+						RadarInfo radar = new RadarInfo()
 						{
 							Id = idRadar,
-							Latitude = radares[i].Latitude,
-							Longitude = radares[i].Longitude,
-							LatitudeCos = radares[i].LatitudeCos,
-							LatitudeSin = radares[i].LatitudeSin,
-							LongitudeCos = radares[i].LongitudeCos,
-							LongitudeSin = radares[i].LongitudeSin,
-							Tipo = radares[i].Tipo,
-							Velocidade = radares[i].Velocidade,
-							Direcao = radares[i].Direcao,
+							Latitude = radares[0].Latitude,
+							Longitude = radares[0].Longitude,
+							LatitudeCos = radares[0].LatitudeCos,
+							LatitudeSin = radares[0].LatitudeSin,
+							LongitudeCos = radares[0].LongitudeCos,
+							LongitudeSin = radares[0].LongitudeSin,
+							Direcao = radares[0].Direcao,
+							Velocidade = radares[0].Velocidade,
+							Tipo = radares[0].Tipo,
+							Usuario = true,
+							DataInclusao = radares[0].DataInclusao,
 							Endereco = endereco.Logradouro + " " + endereco.Complemento + " " + endereco.Bairro + " " + endereco.Cidade + " " + endereco.Uf + " " + endereco.CEP
 
-							};
+						};
 
-							gravar(percurso);
-						});
-					
+						gravarEndereco(radar);
+
+						atualizarEndereco();
+					});
+
+
 				}
-
 			}
 		}
 

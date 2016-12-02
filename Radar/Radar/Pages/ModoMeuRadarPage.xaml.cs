@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
+﻿
 using Xamarin.Forms;
-using Radar.Model;
 using Radar.BLL;
-using Radar.Factory;
+
 
 namespace Radar
 {
