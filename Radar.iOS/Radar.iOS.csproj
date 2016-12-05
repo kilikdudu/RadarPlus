@@ -225,6 +225,8 @@
     <BundleResource Include="Resources\alarmes\alarm-012.m4a" />
     <BundleResource Include="Resources\alarmes\alarm-013.m4a" />
     <BundleResource Include="Resources\logo.png" />
+    <BundleResource Include="Resources\error.png" />
+    <BundleResource Include="Resources\success.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

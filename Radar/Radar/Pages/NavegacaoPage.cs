@@ -30,7 +30,7 @@ namespace Radar.Pages
 			}
 			else {
 				//_paginaAtual = new VelocimetroPage();
-				_paginaAtual = new LoginPage();
+				_paginaAtual = new VelocimetroPage();
 			}
             var nav = new NavigationPage(_paginaAtual);
 			nav.BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor);

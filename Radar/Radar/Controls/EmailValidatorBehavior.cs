@@ -17,14 +17,25 @@ namespace Radar.Controls
 
 		public static readonly BindableProperty IsValidProperty = IsValidPropertyKey.BindableProperty;
 
-		//static readonly BindablePropertyKey ErrorMessagePropertyKey = BindableProperty.CreateReadOnly("ErrorMessage", typeof(string), typeof(EmailValidatorBehavior), null);
+		static readonly BindablePropertyKey ErrorMessagePropertyKey = BindableProperty.CreateReadOnly("sucess", typeof(int), typeof(EmailValidatorBehavior), 0);
 
-		//public static BindableProperty ErrorMessageProperty = ErrorMessagePropertyKey.BindableProperty;
+		public static BindableProperty ErrorMessageProperty = ErrorMessagePropertyKey.BindableProperty;
 
 
 		static readonly BindablePropertyKey SmrdayKey = BindableProperty.CreateReadOnly("Smrda", typeof(int), typeof(EmailValidatorBehavior), 1);
 
 		public static readonly BindableProperty SmrdaProperty = SmrdayKey.BindableProperty;
+
+
+		static readonly BindablePropertyKey ImageSourcePropertyKey = BindableProperty.CreateReadOnly("ImageSource", typeof(string), typeof(EmailValidatorBehavior), "");
+
+		public static readonly BindableProperty ImageSourceProperty = ImageSourcePropertyKey.BindableProperty;
+
+		public string ImageSource
+		{
+			get { return (string)base.GetValue(ImageSourceProperty); }
+			private set { base.SetValue(ImageSourcePropertyKey, value); }
+		}
 
 		public bool IsValid
 		{
@@ -38,9 +49,9 @@ namespace Radar.Controls
 
 		}
 
-		//public string ErrorMessage
+		//public int ErrorMessage
 		//{
-		//	get { return (string)GetValue(ErrorMessageProperty); }
+		//	get { return (int)GetValue(ErrorMessageProperty); }
 
 		//	set { SetValue(ErrorMessageProperty, value); }
 		//}
@@ -52,6 +63,15 @@ namespace Radar.Controls
 
 			IsValid = (Regex.IsMatch(e.NewTextValue, emailRegex, RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)));
 			((Entry)sender).TextColor = IsValid ? Color.Default : Color.Red;
+			ImageSource = IsValid ? "success.png" : "error.png";
+
+			//if (IsValid == true)
+			//{
+			//	ErrorMessage = 1;
+			//}
+			//else {
+			//	ErrorMessage = 0;
+			//}
 
 			//if (String.IsNullOrEmpty(e.OldTextValue))
 			//	Smrda = 0;

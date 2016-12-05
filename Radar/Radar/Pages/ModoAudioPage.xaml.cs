@@ -37,7 +37,7 @@ namespace Radar.Pages {
         }
 
         public void alturaVolumeTapped(object sender, EventArgs e) {
-            //NavigationX.create(this).PushPopupAsyncX(new AlturaVolumePopUp(), true);
+            NavigationX.create(this).PushPopupAsyncX(new AlturaVolumePopUp(), true);
         }
 
         public void somAlertaTapped(object sender, EventArgs e) {

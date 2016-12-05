@@ -11,7 +11,7 @@ namespace Radar
         {
             //MainPage = new NavigationPage(new MapaPage());
             //MainPage = new NavigationPage(new PercursoPage());
-            MainPage = new NavegacaoPage();
+			MainPage = new LoginPage();
         }
 
         protected override void OnStart()

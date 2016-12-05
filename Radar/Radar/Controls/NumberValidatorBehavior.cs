@@ -15,11 +15,22 @@ namespace Radar.Controls
 
 		public static readonly BindableProperty IsValidProperty = IsValidPropertyKey.BindableProperty;
 
+		static readonly BindablePropertyKey ImageSourcePropertyKey = BindableProperty.CreateReadOnly("ImageSource", typeof(string), typeof(EmailValidatorBehavior), "");
+
+		public static readonly BindableProperty ImageSourceProperty = ImageSourcePropertyKey.BindableProperty;
+
+		public string ImageSource
+		{
+			get { return (string)base.GetValue(ImageSourceProperty); }
+			private set { base.SetValue(ImageSourcePropertyKey, value); }
+		}
+
 		public bool IsValid
 		{
 			get { return (bool)base.GetValue(IsValidProperty); }
 			private set { base.SetValue(IsValidPropertyKey, value); }
 		}
+
 
 		protected override void OnAttachedTo(Entry bindable)
 		{
@@ -31,7 +42,7 @@ namespace Radar.Controls
 			double result;
 			IsValid = double.TryParse(e.NewTextValue, out result);
 			((Entry)sender).TextColor = IsValid ? Color.Default : Color.Red;
-
+			ImageSource = IsValid ? "success.png" : "error.png";
 		}
 
 		protected override void OnDetachingFrom(Entry bindable)
