@@ -43,7 +43,7 @@
                 <Switch Margin="70,0,0,0" Style="{StaticResource StyleSwitch}" x:Name="salvarPercurso" Toggled="salvarPercursoToggled"/>
               </StackLayout>
               <Label Style="{StaticResource LabelStyleDescription}" Text="Salvar o percurso(dados recebidos pelo GPS)" />
-              <Label Style="{StaticResource LabelStyleDescription}" Text="enquanto o MapaRadar estiver em funcionamento"  />
+              <Label Style="{StaticResource LabelStyleDescription}" Text="enquanto o Radar estiver em funcionamento"  />
             </StackLayout>
           </Frame>
 			<!--	

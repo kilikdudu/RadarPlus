@@ -10,6 +10,7 @@ namespace Radar
         {
             //MainPage = new NavigationPage(new MapaPage());
             //MainPage = new NavigationPage(new PercursoPage());
+	    //MainPage = new LoginPage();
             EstiloUtils.inicializar();
             MainPage = new NavegacaoPage();
         }

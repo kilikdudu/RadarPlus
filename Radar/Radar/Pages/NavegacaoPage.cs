@@ -26,9 +26,10 @@ namespace Radar.Pages
             Master = masterPage;
 			if (pagina == true )
 			{
-				_paginaAtual = new MapaPage(true);
+				_paginaAtual = new VelocimetroPage(true);
 			}
 			else {
+				//_paginaAtual = new VelocimetroPage();
 				_paginaAtual = new VelocimetroPage();
 			}
             var nav = new NavigationPage(_paginaAtual);

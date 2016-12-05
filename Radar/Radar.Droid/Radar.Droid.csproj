@@ -204,6 +204,9 @@
     <AndroidAsset Include="Assets\alarmes\alarm-011.m4a" />
     <AndroidAsset Include="Assets\alarmes\alarm-012.m4a" />
     <AndroidAsset Include="Assets\alarmes\alarm-013.m4a" />
+    <AndroidResource Include="Resources\drawable\logo.png" />
+    <AndroidResource Include="Resources\drawable\error.png" />
+    <AndroidResource Include="Resources\drawable\success.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
