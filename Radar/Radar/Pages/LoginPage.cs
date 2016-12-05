@@ -197,7 +197,6 @@ namespace Radar
 		{
 			base.OnDisappearing();
 
-
 		}
 	}
 }
