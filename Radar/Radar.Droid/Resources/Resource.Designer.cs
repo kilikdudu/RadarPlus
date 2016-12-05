@@ -4424,193 +4424,196 @@ namespace Radar.Droid
 			public const int interrogacaoi = 2130837713;
 			
 			// aapt resource value: 0x7f0200d2
-			public const int logoclubmanagement = 2130837714;
+			public const int logo = 2130837714;
 			
 			// aapt resource value: 0x7f0200d3
-			public const int mais = 2130837715;
+			public const int logoclubmanagement = 2130837715;
 			
 			// aapt resource value: 0x7f0200d4
-			public const int mao_20x20_preto = 2130837716;
+			public const int mais = 2130837716;
 			
 			// aapt resource value: 0x7f0200d5
-			public const int mapas = 2130837717;
+			public const int mao_20x20_preto = 2130837717;
 			
 			// aapt resource value: 0x7f0200d6
-			public const int menos = 2130837718;
+			public const int mapas = 2130837718;
 			
 			// aapt resource value: 0x7f0200d7
-			public const int meusradares = 2130837719;
+			public const int menos = 2130837719;
 			
 			// aapt resource value: 0x7f0200d8
-			public const int modomapa = 2130837720;
+			public const int meusradares = 2130837720;
 			
 			// aapt resource value: 0x7f0200d9
-			public const int mr_dialog_material_background_dark = 2130837721;
+			public const int modomapa = 2130837721;
 			
 			// aapt resource value: 0x7f0200da
-			public const int mr_dialog_material_background_light = 2130837722;
+			public const int mr_dialog_material_background_dark = 2130837722;
 			
 			// aapt resource value: 0x7f0200db
-			public const int mr_ic_audiotrack_light = 2130837723;
+			public const int mr_dialog_material_background_light = 2130837723;
 			
 			// aapt resource value: 0x7f0200dc
-			public const int mr_ic_cast_dark = 2130837724;
+			public const int mr_ic_audiotrack_light = 2130837724;
 			
 			// aapt resource value: 0x7f0200dd
-			public const int mr_ic_cast_light = 2130837725;
+			public const int mr_ic_cast_dark = 2130837725;
 			
 			// aapt resource value: 0x7f0200de
-			public const int mr_ic_close_dark = 2130837726;
+			public const int mr_ic_cast_light = 2130837726;
 			
 			// aapt resource value: 0x7f0200df
-			public const int mr_ic_close_light = 2130837727;
+			public const int mr_ic_close_dark = 2130837727;
 			
 			// aapt resource value: 0x7f0200e0
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837728;
+			public const int mr_ic_close_light = 2130837728;
 			
 			// aapt resource value: 0x7f0200e1
-			public const int mr_ic_media_route_connecting_mono_light = 2130837729;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837729;
 			
 			// aapt resource value: 0x7f0200e2
-			public const int mr_ic_media_route_mono_dark = 2130837730;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837730;
 			
 			// aapt resource value: 0x7f0200e3
-			public const int mr_ic_media_route_mono_light = 2130837731;
+			public const int mr_ic_media_route_mono_dark = 2130837731;
 			
 			// aapt resource value: 0x7f0200e4
-			public const int mr_ic_pause_dark = 2130837732;
+			public const int mr_ic_media_route_mono_light = 2130837732;
 			
 			// aapt resource value: 0x7f0200e5
-			public const int mr_ic_pause_light = 2130837733;
+			public const int mr_ic_pause_dark = 2130837733;
 			
 			// aapt resource value: 0x7f0200e6
-			public const int mr_ic_play_dark = 2130837734;
+			public const int mr_ic_pause_light = 2130837734;
 			
 			// aapt resource value: 0x7f0200e7
-			public const int mr_ic_play_light = 2130837735;
+			public const int mr_ic_play_dark = 2130837735;
 			
 			// aapt resource value: 0x7f0200e8
-			public const int my100 = 2130837736;
+			public const int mr_ic_play_light = 2130837736;
 			
 			// aapt resource value: 0x7f0200e9
-			public const int my110 = 2130837737;
+			public const int my100 = 2130837737;
 			
 			// aapt resource value: 0x7f0200ea
-			public const int my20 = 2130837738;
+			public const int my110 = 2130837738;
 			
 			// aapt resource value: 0x7f0200eb
-			public const int my30 = 2130837739;
+			public const int my20 = 2130837739;
 			
 			// aapt resource value: 0x7f0200ec
-			public const int my40 = 2130837740;
+			public const int my30 = 2130837740;
 			
 			// aapt resource value: 0x7f0200ed
-			public const int my50 = 2130837741;
+			public const int my40 = 2130837741;
 			
 			// aapt resource value: 0x7f0200ee
-			public const int my60 = 2130837742;
+			public const int my50 = 2130837742;
 			
 			// aapt resource value: 0x7f0200ef
-			public const int my70 = 2130837743;
+			public const int my60 = 2130837743;
 			
 			// aapt resource value: 0x7f0200f0
-			public const int my80 = 2130837744;
+			public const int my70 = 2130837744;
 			
 			// aapt resource value: 0x7f0200f1
-			public const int my90 = 2130837745;
+			public const int my80 = 2130837745;
 			
 			// aapt resource value: 0x7f0200f2
-			public const int mypercursos = 2130837746;
+			public const int my90 = 2130837746;
 			
 			// aapt resource value: 0x7f0200f3
-			public const int mystop = 2130837747;
+			public const int mypercursos = 2130837747;
 			
 			// aapt resource value: 0x7f0200f4
-			public const int navicon = 2130837748;
-			
-			// aapt resource value: 0x7f020110
-			public const int notification_template_icon_bg = 2130837776;
+			public const int mystop = 2130837748;
 			
 			// aapt resource value: 0x7f0200f5
-			public const int novidade = 2130837749;
+			public const int navicon = 2130837749;
+			
+			// aapt resource value: 0x7f020111
+			public const int notification_template_icon_bg = 2130837777;
 			
 			// aapt resource value: 0x7f0200f6
-			public const int percursos = 2130837750;
+			public const int novidade = 2130837750;
 			
 			// aapt resource value: 0x7f0200f7
-			public const int Play = 2130837751;
+			public const int percursos = 2130837751;
 			
 			// aapt resource value: 0x7f0200f8
-			public const int radar_100 = 2130837752;
+			public const int Play = 2130837752;
 			
 			// aapt resource value: 0x7f0200f9
-			public const int radar_110 = 2130837753;
+			public const int radar_100 = 2130837753;
 			
 			// aapt resource value: 0x7f0200fa
-			public const int radar_20 = 2130837754;
+			public const int radar_110 = 2130837754;
 			
 			// aapt resource value: 0x7f0200fb
-			public const int radar_20x20_preto = 2130837755;
+			public const int radar_20 = 2130837755;
 			
 			// aapt resource value: 0x7f0200fc
-			public const int radar_30 = 2130837756;
+			public const int radar_20x20_preto = 2130837756;
 			
 			// aapt resource value: 0x7f0200fd
-			public const int radar_40 = 2130837757;
+			public const int radar_30 = 2130837757;
 			
 			// aapt resource value: 0x7f0200fe
-			public const int radar_50 = 2130837758;
+			public const int radar_40 = 2130837758;
 			
 			// aapt resource value: 0x7f0200ff
-			public const int radar_60 = 2130837759;
+			public const int radar_50 = 2130837759;
 			
 			// aapt resource value: 0x7f020100
-			public const int radar_70 = 2130837760;
+			public const int radar_60 = 2130837760;
 			
 			// aapt resource value: 0x7f020101
-			public const int radar_80 = 2130837761;
+			public const int radar_70 = 2130837761;
 			
 			// aapt resource value: 0x7f020102
-			public const int radar_90 = 2130837762;
+			public const int radar_80 = 2130837762;
 			
 			// aapt resource value: 0x7f020103
-			public const int relogio_20x20_preto = 2130837763;
+			public const int radar_90 = 2130837763;
 			
 			// aapt resource value: 0x7f020104
-			public const int reproducaodevoz = 2130837764;
+			public const int relogio_20x20_preto = 2130837764;
 			
 			// aapt resource value: 0x7f020105
-			public const int sair = 2130837765;
+			public const int reproducaodevoz = 2130837765;
 			
 			// aapt resource value: 0x7f020106
-			public const int sat01 = 2130837766;
+			public const int sair = 2130837766;
 			
 			// aapt resource value: 0x7f020107
-			public const int sat02 = 2130837767;
+			public const int sat01 = 2130837767;
 			
 			// aapt resource value: 0x7f020108
-			public const int sat03 = 2130837768;
+			public const int sat02 = 2130837768;
 			
 			// aapt resource value: 0x7f020109
-			public const int sat04 = 2130837769;
+			public const int sat03 = 2130837769;
 			
 			// aapt resource value: 0x7f02010a
-			public const int seguinte = 2130837770;
+			public const int sat04 = 2130837770;
 			
 			// aapt resource value: 0x7f02010b
-			public const int sobre = 2130837771;
+			public const int seguinte = 2130837771;
 			
 			// aapt resource value: 0x7f02010c
-			public const int Stop = 2130837772;
+			public const int sobre = 2130837772;
 			
 			// aapt resource value: 0x7f02010d
-			public const int velocimetro = 2130837773;
+			public const int Stop = 2130837773;
 			
 			// aapt resource value: 0x7f02010e
-			public const int velocimetro_20x20_preto = 2130837774;
+			public const int velocimetro = 2130837774;
 			
 			// aapt resource value: 0x7f02010f
-			public const int widget_fundo = 2130837775;
+			public const int velocimetro_20x20_preto = 2130837775;
+			
+			// aapt resource value: 0x7f020110
+			public const int widget_fundo = 2130837776;
 			
 			static Drawable()
 			{
