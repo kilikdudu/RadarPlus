@@ -62,12 +62,12 @@ namespace Radar.Pages
 			velocidadeMedia.HorizontalOptions = LayoutOptions.Start;
 			radares.HorizontalOptions = LayoutOptions.Start;
 
-			relogioIco.Source = "relogio_20x20_preto.png";
-			paradoIco.Source = "mao_20x20_preto.png";
-			ampulhetaIco.Source = "ampulheta_20x20_preto.png";
-			velocimetroIco.Source = "velocimetro_20x20_preto.png";
-			velocimetroIco2.Source = "velocimetro_20x20_preto.png";
-			radarIco.Source = "radar_20x20_preto.png";
+			relogioIco.Source = ImageSource.FromFile("relogio_20x20_preto.png");
+			paradoIco.Source = ImageSource.FromFile("mao_20x20_preto.png");
+			ampulhetaIco.Source = ImageSource.FromFile("ampulheta_20x20_preto.png");
+			velocimetroIco.Source = ImageSource.FromFile("velocimetro_20x20_preto.png");
+			velocimetroIco2.Source = ImageSource.FromFile("velocimetro_20x20_preto.png");
+			radarIco.Source = ImageSource.FromFile("radar_20x20_preto.png");
 
 			desc.Children.Add(relogioIco);
 			desc.Children.Add(tempoCorrendo);
@@ -105,7 +105,7 @@ namespace Radar.Pages
 					stackDescricaoGravando.Children.Add(infoLabel);
 					stackDescricaoGravando.Children.Remove(desc);
 
-					icoPlay.Source = "Play.png";
+					icoPlay.Source = ImageSource.FromFile("Play.png");
                     ClubManagement.Utils.MensagemUtils.avisar("Gravação finalizada!");
                     ClubManagement.Utils.MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
 
@@ -157,7 +157,7 @@ namespace Radar.Pages
 					radares.Text = percursoInfo.QuantidadeRadarStr;
 					*/
 
-					icoPlay.Source = "Stop.png";
+					icoPlay.Source = ImageSource.FromFile("Stop.png");
                     ClubManagement.Utils.MensagemUtils.avisar("Iniciando gravação do percurso!");
                     ClubManagement.Utils.MensagemUtils.notificarPermanente(
                         PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID, 
@@ -265,12 +265,12 @@ namespace Radar.Pages
 				velocidadeMedia.HorizontalOptions = LayoutOptions.Start;
 				radares.HorizontalOptions = LayoutOptions.Start;
 
-				relogioIco.Source = "relogio_20x20_preto.png";
-				paradoIco.Source = "mao_20x20_preto.png";
-				ampulhetaIco.Source = "ampulheta_20x20_preto.png";
-				velocimetroIco.Source = "velocimetro_20x20_preto.png";
-				velocimetroIco2.Source = "velocimetro_20x20_preto.png";
-				radarIco.Source = "radar_20x20_preto.png";
+				relogioIco.Source = ImageSource.FromFile("relogio_20x20_preto.png");
+				paradoIco.Source = ImageSource.FromFile("mao_20x20_preto.png");
+				ampulhetaIco.Source = ImageSource.FromFile("ampulheta_20x20_preto.png");
+				velocimetroIco.Source = ImageSource.FromFile("velocimetro_20x20_preto.png");
+				velocimetroIco2.Source = ImageSource.FromFile("velocimetro_20x20_preto.png");
+				radarIco.Source = ImageSource.FromFile("radar_20x20_preto.png");
 
 				tempoCorrendo.SetBinding(Label.TextProperty, new Binding("TempoGravacaoStr"));
 				tempoCorrendo.FontSize = 14;
@@ -326,7 +326,7 @@ namespace Radar.Pages
 
 				Image percursoIco = new Image()
 				{
-					Source = "percursos.png",
+					Source = ImageSource.FromFile("percursos.png"),
 					WidthRequest = cardLeft.WidthRequest  * 0.3,
 					HorizontalOptions = LayoutOptions.Center,
 					VerticalOptions = LayoutOptions.Start

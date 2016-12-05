@@ -1,6 +1,5 @@
 using Radar.Pages;
-
-
+using Radar.Utils;
 using Xamarin.Forms;
 
 namespace Radar
@@ -11,7 +10,9 @@ namespace Radar
         {
             //MainPage = new NavigationPage(new MapaPage());
             //MainPage = new NavigationPage(new PercursoPage());
-			MainPage = new LoginPage();
+	    //MainPage = new LoginPage();
+            EstiloUtils.inicializar();
+            MainPage = new NavegacaoPage();
         }
 
         protected override void OnStart()

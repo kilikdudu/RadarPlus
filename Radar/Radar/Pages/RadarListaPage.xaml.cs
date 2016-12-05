@@ -113,7 +113,7 @@ namespace Radar.Pages
 
 				Image percursoIco = new Image()
 				{
-					Source = "meusradares.png",
+					Source = ImageSource.FromFile("meusradares.png"),
 					WidthRequest = cardLeft.WidthRequest / 1.5,
 					HorizontalOptions = LayoutOptions.Center,
 					VerticalOptions = LayoutOptions.CenterAndExpand

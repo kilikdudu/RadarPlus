@@ -17,6 +17,9 @@ namespace Radar.Controls
         {
             this.aoCompletar += (sender, nomeArquivo) =>
             {
+                fecharPopup();
+                MensagemUtils.avisar("Banco de dados atualizado com sucesso.");
+                /*
                 if (_janela != null)
                 {
                     _janela.Titulo = "Aguarde alguns segundos...";
@@ -58,6 +61,7 @@ namespace Radar.Controls
                 }
                 else
                     MensagemUtils.avisar("Arquivo não encontrado!");
+                */
 
             };
         }
