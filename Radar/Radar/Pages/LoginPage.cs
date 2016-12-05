@@ -26,6 +26,11 @@ namespace Radar
 			};
 			email.Behaviors.Add(new EmailValidatorBehavior());
 
+			Image okEmail = new Image()
+			{
+
+			};
+
 			var senha = new Entry
 			{
 				Placeholder = "Senha",

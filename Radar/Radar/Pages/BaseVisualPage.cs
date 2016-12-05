@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Diagnostics;
+using Radar.Pages.Popup;
 
 namespace Radar.Pages
 {
@@ -186,6 +187,7 @@ namespace Radar.Pages
                                 });
                             }
                             
+
                             
                             try
                             {

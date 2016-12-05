@@ -91,6 +91,7 @@ namespace Radar.Pages
 
 						Application.Current.MainPage = new NavegacaoPage(true);
 
+
 				}
             });
             grupo.Add(new MenuItemInfo

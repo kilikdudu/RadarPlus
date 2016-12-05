@@ -26,7 +26,7 @@ namespace Radar.Pages
             Master = masterPage;
 			if (pagina == true )
 			{
-				_paginaAtual = new MapaPage(true);
+				_paginaAtual = new VelocimetroPage(true);
 			}
 			else {
 				//_paginaAtual = new VelocimetroPage();
