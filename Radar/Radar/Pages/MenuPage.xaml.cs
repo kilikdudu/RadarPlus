@@ -91,7 +91,8 @@ namespace Radar.Pages
 					//this.Navigation.PushAsync(new ModoAutoInicioPage());
 					//Navigation.PushModalAsync(new MapaPage(true));
 
-						Application.Current.MainPage = new NavegacaoPage(true);
+					Device.BeginInvokeOnMainThread(() => Application.Current.MainPage = new NavegacaoPage(true));
+
 
 				}
             });

@@ -105,72 +105,7 @@ namespace Radar.Pages
             AbsoluteLayout.SetLayoutBounds(_velocidadeLabel, new Rectangle(0, 1, 1, 0.1));
             AbsoluteLayout.SetLayoutFlags(_velocidadeLabel, AbsoluteLayoutFlags.All);
         }
-		public MapaPage(bool isInstrucoes = false)
-		{
-			if (isInstrucoes == true)
-			{
-				
-				NavigationX.create(this).PushAsync(new InstrucaoPopUp(), true);
 
-			}
-
-			inicializarComponente();
-
-			/*
-            Content = new StackLayout {
-                Spacing = 0,
-                Children = {
-                    _map
-                }
-            };
-            */
-			Title = "Mapa";
-			Padding = 5;
-			var absoluteLayout = new AbsoluteLayout();
-
-			absoluteLayout.Children.Add(_map);
-			absoluteLayout.Children.Add(_VelocidadeRadarLabel);
-			absoluteLayout.Children.Add(_DistanciaRadarLabel);
-			if (PreferenciaUtils.Bussola)
-			{
-				absoluteLayout.Children.Add(_BussolaFundo);
-				absoluteLayout.Children.Add(_BussolaAgulha);
-				absoluteLayout.Children.Add(_GPSSentidoLabel);
-			}
-			if (PreferenciaUtils.SinalGPS)
-			{
-				absoluteLayout.Children.Add(_PrecisaoFundoImage);
-				absoluteLayout.Children.Add(_PrecisaoImage);
-				absoluteLayout.Children.Add(_PrecisaoLabel);
-			}
-			absoluteLayout.Children.Add(_velocidadeFundo);
-			absoluteLayout.Children.Add(_velocidadeLabel);
-			if (PreferenciaUtils.ExibirBotaoAdicionar)
-				absoluteLayout.Children.Add(_AdicionarRadarButton);
-			Content = absoluteLayout;
-
-			/*
-            Content = new AbsoluteLayout
-            {
-                Children = {
-                    _map,
-                    _GPSSentidoLabel,
-                    _VelocidadeRadarLabel,
-                    _DistanciaRadarLabel,
-                    _BussolaFundo,
-                    _BussolaAgulha,
-                    _PrecisaoFundoImage,
-                    _PrecisaoImage,
-                    _PrecisaoLabel,
-                    _velocidadeFundo,
-                    _velocidadeLabel,
-                    _AdicionarRadarButton
-                }
-            };
-            */
-
-			//Atual = this;
-		}
        public MapaPage()
 		{
 			
@@ -237,6 +172,7 @@ namespace Radar.Pages
         {
             base.OnAppearing();
             GlobalUtils.Visual = this;
+
         }
 
         protected override void OnDisappearing()

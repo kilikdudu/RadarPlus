@@ -75,7 +75,25 @@ namespace Radar.Pages
 					
         }
 
-        public VelocimetroPage()
+		public VelocimetroPage(bool instrucoes = false)
+		{
+			if (instrucoes == true)
+			{
+				if (Device.OS == TargetPlatform.iOS)
+				{
+					NavigationX.create(this).PushAsync(new InstrucaoPopUp(), true);
+				}
+				else {
+					NavigationX.create(this).PushPopupAsyncX(new InstrucaoPopUp(), true);
+				}
+				VelocimetroPageConstrutor();
+
+			}
+			else {
+				VelocimetroPageConstrutor();
+			}
+		}
+        public void VelocimetroPageConstrutor()
         {
             inicializarComponente();
 			PercursoBLL percursoBLL = new PercursoBLL();
@@ -103,7 +121,6 @@ namespace Radar.Pages
 			dentroPlaca.VerticalOptions = LayoutOptions.Fill;
 			dentroPlaca.Orientation = StackOrientation.Vertical;
 			dentroPlaca.Spacing = 1;
-
 
 
 			RadarBLL radarBLL = RadarFactory.create();
@@ -173,8 +190,7 @@ namespace Radar.Pages
 
 					}
 				}
-                   
-                
+                              
 
 				//placa.Margin = new Thickness(TelaUtils.LarguraSemPixel / 3, 0, 0, 0);
 
@@ -279,6 +295,8 @@ namespace Radar.Pages
             if (PreferenciaUtils.ExibirBotaoAdicionar)
                 absoluteLayout.Children.Add(_AdicionarRadarButton);
             Content = absoluteLayout;
+
+
         }
 
         protected override void OnAppearing()
