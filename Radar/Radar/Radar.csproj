@@ -157,7 +157,7 @@
     <Compile Include="Model\ListaInfo.cs" />
     <Compile Include="Pages\SobrePage.cs" />
     <Compile Include="Controls\WrapLayout.cs" />
-    <Compile Include="Pages\InstrucaoPage.cs" />
+    <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\Popup\InstrucaoPopUp.xaml.cs">
       <DependentUpon>InstrucaoPopUp.xaml</DependentUpon>
     </Compile>
@@ -169,6 +169,8 @@
     <Compile Include="BLL\PreferenciaUtils.cs" />
     <Compile Include="BLL\ProcessarPontoEventHandler.cs" />
     <Compile Include="BLL\RadarBLL.cs" />
+    <Compile Include="Controls\EmailValidatorBehavior.cs" />
+    <Compile Include="Controls\NumberValidatorBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\RadarListaPage.xaml">
