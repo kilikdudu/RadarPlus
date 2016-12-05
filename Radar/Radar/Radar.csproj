@@ -35,8 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Utils\EstiloUtils.cs" />
     <Compile Include="IBLL\IGPS.cs" />
     <Compile Include="IBLL\ITela.cs" />
+    <Compile Include="Pages\ModoReproducaoVozPage.cs" />
     <Compile Include="Utils\TelaUtils.cs" />
     <Compile Include="Controls\DownloaderAtualizacao.cs" />
     <Compile Include="Controls\PonteiroCorEnum.cs" />
@@ -133,9 +135,6 @@
     <Compile Include="Pages\ModoAlertaPage.xaml.cs">
       <DependentUpon>ModoAlertaPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ModoReproducaoVozPage.xaml.cs">
-      <DependentUpon>ModoReproducaoVozPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\ModoGeralPage.xaml.cs">
       <DependentUpon>ModoGeralPage.xaml</DependentUpon>
     </Compile>
@@ -182,9 +181,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\ModoAlertaPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ModoReproducaoVozPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\ModoGeralPage.xaml">
@@ -327,7 +323,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Audio\" />
-    <Folder Include="BLL\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Popup\DownloaderPopUp.xaml">

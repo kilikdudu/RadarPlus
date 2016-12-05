@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Radar.ModoReproducaoVozPage">
 <ContentPage.Resources>
   <ResourceDictionary>
-    <Style x:Key="LabelStyle" TargetType="Label">
+    <Style x:Key="  " TargetType="Label">
       <Setter Property="HorizontalOptions" Value="StartAndExpand" />
       <Setter Property="TextColor" Value="#757575" />
       <Setter Property="FontSize" Value="26" />
@@ -26,7 +26,6 @@
       <Setter Property="Margin" Value="0,0,20,0" />
     </Style>
     <Style x:Key="StyleFrame" TargetType="Frame">
-
       <Setter Property="BackgroundColor" Value="#b2dfdb" />
       <Setter Property="Margin" Value="10,5,10,5" />
     </Style>

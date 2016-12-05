@@ -19,7 +19,7 @@ namespace Radar
 			topo.HeightRequest = AbsoluteLayout.AutoSize;
 			topo.BackgroundColor = Color.White;
 			Image icone = new Image();
-			icone.Source = "navicon.png";
+			icone.Source = ImageSource.FromFile("navicon.png");
 			icone.WidthRequest = 180;
 			icone.HorizontalOptions = LayoutOptions.Center;
 

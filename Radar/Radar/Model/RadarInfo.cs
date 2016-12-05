@@ -14,7 +14,7 @@ namespace Radar.Model
         private double _LongitudeCos;
         private double _LatitudeSin;
         private double _LongitudeSin;
-        private int _Tipo;
+        private RadarTipoEnum _Tipo;
         private int _Velocidade;
         private int _Direcao;
 		private string _Endereco;
@@ -115,10 +115,10 @@ namespace Radar.Model
         [Obsolete("Usando Tipo")]
         public int type {
             get {
-                return _Tipo;
+                return (int)_Tipo;
             }
             set {
-                _Tipo = value;
+                _Tipo = (RadarTipoEnum)value;
             }
         }
 
@@ -239,7 +239,7 @@ namespace Radar.Model
         }
 
         [Ignore]
-        public int Tipo {
+        public RadarTipoEnum Tipo {
             get {
                 return _Tipo;
             }
