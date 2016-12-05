@@ -79,6 +79,7 @@ namespace Radar.Pages.Popup {
 
                 //regraPreferencia.gravar("somAlarme", 001);
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme01;
+                new AvisoSonoroBLL().play(PreferenciaUtils.SomAlarme);
             } else {
                 //regraPreferencia.gravar("somAlarme", 000);
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
@@ -94,6 +95,7 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme02;
+                new AvisoSonoroBLL().play(PreferenciaUtils.SomAlarme);
             } else {
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
@@ -108,6 +110,7 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme03;
+                new AvisoSonoroBLL().play(PreferenciaUtils.SomAlarme);
             } else {
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
@@ -122,6 +125,7 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme04;
+                new AvisoSonoroBLL().play(PreferenciaUtils.SomAlarme);
             } else {
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
@@ -136,6 +140,7 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme05;
+                new AvisoSonoroBLL().play(PreferenciaUtils.SomAlarme);
             } else {
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
@@ -150,6 +155,7 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme06;
+                new AvisoSonoroBLL().play(PreferenciaUtils.SomAlarme);
             } else {
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
@@ -164,6 +170,7 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme07;
+                new AvisoSonoroBLL().play(PreferenciaUtils.SomAlarme);
             } else {
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
@@ -178,6 +185,7 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme08;
+                new AvisoSonoroBLL().play(PreferenciaUtils.SomAlarme);
             } else {
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
@@ -192,6 +200,7 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme09;
+                new AvisoSonoroBLL().play(PreferenciaUtils.SomAlarme);
             } else {
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
@@ -206,6 +215,7 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme10;
+                new AvisoSonoroBLL().play(PreferenciaUtils.SomAlarme);
             } else {
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
@@ -220,6 +230,7 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme10.IsToggled = false; SwitchAlarme12.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme11;
+                new AvisoSonoroBLL().play(PreferenciaUtils.SomAlarme);
             } else {
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
@@ -234,6 +245,7 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme10.IsToggled = false; SwitchAlarme11.IsToggled = false; SwitchAlarme13.IsToggled = false;
 
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme12;
+                new AvisoSonoroBLL().play(PreferenciaUtils.SomAlarme);
             } else {
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }
@@ -248,6 +260,7 @@ namespace Radar.Pages.Popup {
                 SwitchAlarme10.IsToggled = false; SwitchAlarme11.IsToggled = false; SwitchAlarme12.IsToggled = false;
 
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Alarme13;
+                new AvisoSonoroBLL().play(PreferenciaUtils.SomAlarme);
             } else {
                 PreferenciaUtils.SomAlarme = SomAlarmeEnum.Nenhum;
             }

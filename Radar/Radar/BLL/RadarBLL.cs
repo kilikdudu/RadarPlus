@@ -16,7 +16,7 @@ namespace Radar.BLL
 {
     public class RadarBLL
     {
-        private const int TIPO_RADAR_NORMAL = 1;
+        //private const int TIPO_RADAR_NORMAL = 1;
 
         private IRadarDAL _db;
         private const int DIAMETRO_TERRA = 6371;
@@ -80,7 +80,7 @@ namespace Radar.BLL
 		}
 
         public int gravar(LocalizacaoInfo local) {
-			DateTime saveNow = DateTime.Now;
+			//DateTime saveNow = DateTime.Now;
             int velocidade = (int)Math.Floor(local.Velocidade);
             velocidade = ((velocidade % 10) > 0) ? (velocidade - (velocidade % 10)) + 10 : velocidade;
             RadarInfo radar = new RadarInfo {
@@ -92,8 +92,8 @@ namespace Radar.BLL
                 LongitudeSin = Math.Sin(local.Longitude * Math.PI / 180),
                 Direcao = (int) Math.Floor(local.Sentido),
                 Velocidade = velocidade,
-                Tipo = TIPO_RADAR_NORMAL,
-				DataInclusao = saveNow,
+                Tipo = RadarTipoEnum.RadarFixo,
+				DataInclusao = DateTime.Now,
 				Endereco = "",
                 Usuario = true
             };

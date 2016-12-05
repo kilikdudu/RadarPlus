@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using Rg.Plugins.Popup;
+using Radar.Controls;
 
 namespace Radar.Pages
 {
@@ -69,7 +70,8 @@ namespace Radar.Pages
             menuAtualizar.aoClicar += (sender, e) =>
             {
                 //var downloader = new DownloaderUtils();
-                //downloader.download(Configuracao.UrlAtualizacao);
+                var downloader = new DownloaderAtualizacao();
+                downloader.download();
             };
             grupo.Add(menuAtualizar);
             return grupo;

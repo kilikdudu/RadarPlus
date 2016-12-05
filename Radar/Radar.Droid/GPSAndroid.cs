@@ -158,7 +158,10 @@ namespace Radar.Droid
             if (desativando)
                 return;
             LocalizacaoInfo local = converterLocalizacao(location);
-            //local.Velocidade = 20;
+            local.Velocidade = 20;
+            local.Latitude = -16.620743;
+            local.Longitude = -49.356621;
+            local.Sentido = 324;
             if (Situacao == GPSSituacaoEnum.Ativo)
             {
                 if (Xamarin.Forms.Forms.IsInitialized)
