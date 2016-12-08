@@ -126,8 +126,10 @@ namespace Radar.Utils
                             if ((local.Velocidade - 5) > radar.Velocidade)
                                 avisarRadar(local, radar);
                         }
-                        else
-                            avisarRadar(local, radar);
+                        else {
+                            if (local.Velocidade > 15)
+                                avisarRadar(local, radar);
+                        }
                     }
                 }
                 var visualPage = GlobalUtils.Visual;
@@ -150,6 +152,7 @@ namespace Radar.Utils
                     visualPage.redesenhar();
                 }
                 regraPercurso.executarGravacao(local);
+                MensagemUtils.avisar(MemoryUtils.getInfo().ToString());
             }
             catch (Exception e) {
                 ErroPage.exibir(e);

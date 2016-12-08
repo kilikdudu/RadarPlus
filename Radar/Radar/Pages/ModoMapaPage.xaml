@@ -61,7 +61,7 @@
        </Frame>       
        <Frame Style="{StaticResource StyleFrame}">
          <StackLayout Orientation="Horizontal">
-           <Label  Text="Informações de Tráfego                                      " Style="{StaticResource LabelStyle}"/>
+           <Label  Text="Informações de Tráfego" Style="{StaticResource LabelStyle}"/>
            <Switch Margin="50,0,20,0" Style="{StaticResource StyleSwitch}" x:Name="infoTrafego" Toggled="infoTrafegoToggled"/>
          </StackLayout>
        </Frame>

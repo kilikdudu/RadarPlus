@@ -78,7 +78,7 @@ namespace Radar.Utils
             resources.Add(PREFERENCIA_SWITCH, new Style(typeof(Switch))
             {
                 Setters = {
-                    new Setter { Property = Switch.HorizontalOptionsProperty, Value = LayoutOptions.EndAndExpand },
+                    new Setter { Property = Switch.HorizontalOptionsProperty, Value = LayoutOptions.End },
                     new Setter { Property = Switch.MarginProperty, Value = new Thickness(0,0,20,0) }
                 }
             });

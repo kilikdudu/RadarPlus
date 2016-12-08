@@ -42,8 +42,10 @@
     <Compile Include="IBLL\IAudio.cs" />
     <Compile Include="IBLL\IGeocoder.cs" />
     <Compile Include="IBLL\IInternet.cs" />
+    <Compile Include="IBLL\IMemoryService.cs" />
     <Compile Include="Model\AudioCanalEnum.cs" />
     <Compile Include="Model\GeoEnderecoInfo.cs" />
+    <Compile Include="Model\MemoryInfo.cs" />
     <Compile Include="Popup\ProgressBarPopUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\ArquivoUtils.cs" />
@@ -55,6 +57,7 @@
     <Compile Include="Utils\DownloaderProcessar.cs" />
     <Compile Include="Utils\GeocoderUtils.cs" />
     <Compile Include="Utils\InternetUtils.cs" />
+    <Compile Include="Utils\MemoryUtils.cs" />
     <Compile Include="Utils\MensagemUtils.cs" />
     <Compile Include="Utils\NavigationX.cs" />
     <Compile Include="Utils\ThreadUtils.cs" />

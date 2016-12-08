@@ -3,6 +3,7 @@ using ClubManagement.iOS;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(ThreadiOS))]
@@ -15,5 +16,11 @@ namespace ClubManagement.iOS
         {
             CurrentDelegateUtils.Current.InvokeOnMainThread(acao);
         }
+
+        public void closeApplication()
+        {
+            Thread.CurrentThread.Abort();
+        }
+
     }
 }

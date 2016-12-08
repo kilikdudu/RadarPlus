@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
@@ -13,7 +14,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,6 +35,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Pages\BasePreferenciaPage.cs" />
+    <Compile Include="Pages\MenuPage.cs" />
+    <Compile Include="Pages\ModoAlertaPage.cs" />
+    <Compile Include="Pages\ModoAudioPage.cs" />
+    <Compile Include="Pages\ModoAutoInicioPage.cs" />
+    <Compile Include="Pages\ModoGeralPage.cs" />
+    <Compile Include="Pages\ModoMapaPage.cs" />
+    <Compile Include="Pages\ModoMeuRadarPage.cs" />
+    <Compile Include="Pages\ModoPercursoPage.cs" />
+    <Compile Include="Pages\PercursoPageCell.cs" />
+    <Compile Include="Pages\PreferenciaPage.cs" />
+    <Compile Include="Pages\RadarListaPage.cs" />
     <Compile Include="Utils\EstiloUtils.cs" />
     <Compile Include="IBLL\IGPS.cs" />
     <Compile Include="IBLL\ITela.cs" />
@@ -69,12 +83,6 @@
     <Compile Include="Pages\MapaPage.cs" />
     <Compile Include="Pages\MenuItemInfo.cs" />
     <Compile Include="Pages\MenuItemGrupo.cs" />
-    <Compile Include="Pages\MenuPage.xaml.cs">
-      <DependentUpon>MenuPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ModoAudioPage.xaml.cs">
-      <DependentUpon>ModoAudioPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\PercursoPage.xaml.cs">
       <DependentUpon>PercursoPage.xaml</DependentUpon>
     </Compile>
@@ -109,9 +117,6 @@
     <Compile Include="Pages\Popup\TempoDuracaoPopUp.xaml.cs">
       <DependentUpon>TempoDuracaoPopUp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\RadarListaPage.xaml.cs">
-      <DependentUpon>RadarListaPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\Velocimetro.cs" />
     <Compile Include="Pages\NavegacaoPage.cs" />
     <Compile Include="Pages\VelocimetroPage.cs" />
@@ -121,27 +126,6 @@
     <Compile Include="App.cs" />
     <Compile Include="Pages\CustomMap.cs" />
     <Compile Include="Pages\CustomPin.cs" />
-    <Compile Include="Pages\PreferenciaPage.xaml.cs">
-      <DependentUpon>PreferenciaPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ModoMapaPage.xaml.cs">
-      <DependentUpon>ModoMapaPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ModoAlertaPage.xaml.cs">
-      <DependentUpon>ModoAlertaPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ModoGeralPage.xaml.cs">
-      <DependentUpon>ModoGeralPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ModoAutoInicioPage.xaml.cs">
-      <DependentUpon>ModoAutoInicioPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ModoPercursoPage.xaml.cs">
-      <DependentUpon>ModoPercursoPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ModoMeuRadarPage.xaml.cs">
-      <DependentUpon>ModoMeuRadarPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Model\PreferenciaInfo.cs" />
     <Compile Include="DALSQLite\PreferenciaDALSQLite.cs" />
     <Compile Include="IDAL\IPreferenciaDAL.cs" />
@@ -170,31 +154,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\RadarListaPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\PreferenciaPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ModoMapaPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ModoAlertaPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ModoGeralPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ModoAutoInicioPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ModoPercursoPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ModoMeuRadarPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Popup\InstrucaoPopUp.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -247,19 +206,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\MenuPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Pages\PercursoPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Pages\ModoAudioPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -294,7 +241,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Audio\" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Popup\IntervaloVerificacaoPopUp.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -319,9 +268,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Audio\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Pages\Popup\DownloaderPopUp.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

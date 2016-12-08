@@ -88,20 +88,22 @@ namespace Radar.Pages
 				TargetType = null,
 				aoClicar = (sender, e) =>
 				{
-					//this.Navigation.PushAsync(new ModoAutoInicioPage());
-					//Navigation.PushModalAsync(new MapaPage(true));
+                    //this.Navigation.PushAsync(new ModoAutoInicioPage());
+                    //Navigation.PushModalAsync(new MapaPage(true));
 
-					Device.BeginInvokeOnMainThread(() => Application.Current.MainPage = new NavegacaoPage(true));
+                    Device.BeginInvokeOnMainThread(() => Application.Current.MainPage = new NavegacaoPage(true));
 
 
 				}
             });
+            /*
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Novidades",
                 Icone = "novidade.png",
                 TargetType = typeof(VelocimetroPage)
             });
+            */
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Sobre",
@@ -112,7 +114,11 @@ namespace Radar.Pages
             {
                 Titulo = "Sair",
                 Icone = "sair.png",
-                TargetType = typeof(VelocimetroPage)
+                TargetType = null,
+                aoClicar = (sender, e) =>
+                {
+                    ThreadUtils.closeApplication();
+                }
             });
             return grupo;
         }

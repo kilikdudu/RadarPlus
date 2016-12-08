@@ -73,8 +73,7 @@ namespace Radar.Pages
                         {
                             carregandoPagina = true;
                             _paginaAtual = (Page)Activator.CreateInstance(item.TargetType);
-                            _paginaAtual.Appearing += (sender2, e2) =>
-                            {
+                            _paginaAtual.Appearing += (sender2, e2) => {
                                 carregandoPagina = false;
                             };
                             Detail = new NavigationPage(_paginaAtual);

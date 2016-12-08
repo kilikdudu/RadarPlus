@@ -17,5 +17,12 @@ namespace ClubManagement.Utils
                 _thread = DependencyService.Get<IThread>();
             _thread.RunOnUiThread(acao);
         }
+
+        public static void closeApplication()
+        {
+            if (_thread == null)
+                _thread = DependencyService.Get<IThread>();
+            _thread.closeApplication();
+        }
     }
 }
