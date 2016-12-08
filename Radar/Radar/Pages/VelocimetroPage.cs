@@ -3,7 +3,6 @@ using Radar.BLL;
 using Radar.Controls;
 using Radar.Factory;
 using Radar.Model;
-using Radar.Pages.Popup;
 using Radar.Utils;
 using System;
 using System.Collections.Generic;
@@ -77,6 +76,7 @@ namespace Radar.Pages
 
 		public VelocimetroPage(bool instrucoes = false)
 		{
+            /*
 			if (instrucoes == true)
 			{
 				if (Device.OS == TargetPlatform.iOS)
@@ -90,8 +90,9 @@ namespace Radar.Pages
 
 			}
 			else {
-				VelocimetroPageConstrutor();
-			}
+            */
+		    VelocimetroPageConstrutor();
+			//}
 		}
         public void VelocimetroPageConstrutor()
         {

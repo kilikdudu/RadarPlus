@@ -56,9 +56,7 @@
             <Label Text="" HorizontalOptions="StartAndExpand" />
             <Button Text="Cancelar"  Clicked="OnCancelar" Style="{StaticResource StyleButton}" />
             <Button Text="Ok" Clicked="OnOk" Style="{StaticResource StyleButton}" ></Button>
-
           </StackLayout>
-          
         </StackLayout>
       </Frame>
     </StackLayout>

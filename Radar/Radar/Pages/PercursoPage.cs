@@ -22,12 +22,9 @@ namespace Radar.Pages
         Label _tempoParado;
         Label _paradas;
         Label _velocidadeMaxima;
-        Label velocidadeMedia;
-        Label radares;
+        Label _velocidadeMedia;
+        Label _radares;
 
-        Image _relogioIco;
-        Image paradoIco;
-        Image ampulhetaIco;
         Image velocimetroIco;
         Image velocimetroIco2;
         Image radarIco;
@@ -35,6 +32,63 @@ namespace Radar.Pages
         public PercursoPage()
         {
             inicializarComponente();
+
+            Content = new StackLayout {
+                Orientation = StackOrientation.Vertical,
+                VerticalOptions = LayoutOptions.Fill,
+                Children = {
+                    _PercursoListView,
+                    criarBotaoGravar()
+                }
+            };
+        }
+
+        private View criarBotaoGravar() {
+            var stackLayout = new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                Margin = new Thickness(30, 30, 30, 40),
+                VerticalOptions = LayoutOptions.EndAndExpand,
+                Children = {
+                    new Image {
+                        Source = "Play",
+                        WidthRequest = 60,
+                        HorizontalOptions = LayoutOptions.Start,
+                        VerticalOptions = LayoutOptions.Center
+                    },
+                    new StackLayout {
+                        Orientation = StackOrientation.Vertical,
+                        HorizontalOptions = LayoutOptions.Start,
+                        VerticalOptions = LayoutOptions.Center,
+                        Children = {
+                            new Label {
+                                Text = "Gravar Percurso!",
+                                FontSize = 24,
+                                FontAttributes = FontAttributes.Bold,
+                                FontFamily = "Roboto-Condensed",
+                                BackgroundColor = Color.Transparent,
+                                HorizontalOptions = LayoutOptions.Start,
+                                VerticalOptions = LayoutOptions.Center
+                            },
+                            new Label {
+                                Text="Toque aqui para gravar percurso",
+                                FontSize = 18,
+                                FontFamily = "Roboto-Condensed",
+                                HorizontalOptions = LayoutOptions.Start,
+                                VerticalOptions = LayoutOptions.Center
+                            }
+                        }
+                    }
+                }
+            };
+            stackLayout.GestureRecognizers.Add(new TapGestureRecognizer()
+            {
+                Command = new Command(() => {
+                    gravarPercurso();
+                })
+            });
+            return stackLayout;
         }
 
         private void inicializarComponente()
@@ -66,9 +120,13 @@ namespace Radar.Pages
                 HorizontalOptions = LayoutOptions.Start
             };
 
-            _relogioIco = new Image
+            _velocidadeMedia = new Label
             {
-                Source = ImageSource.FromFile("relogio_20x20_preto.png")
+                HorizontalOptions = LayoutOptions.Start
+            };
+
+            _radares = new Label {
+                HorizontalOptions = LayoutOptions.Start
             };
 
             _Descricao = new WrapLayout {
@@ -76,18 +134,31 @@ namespace Radar.Pages
                 WidthRequest = TelaUtils.LarguraSemPixel * 0.7,
                 Spacing = 1,
                 Children = {
-                    _relogioIco,
+                    new Image
+                    {
+                        Source = ImageSource.FromFile("relogio_20x20_preto.png")
+                    },
                     _tempoCorrendo,
-                    ampulhetaIco,
+                    new Image {
+                        Source = ImageSource.FromFile("ampulheta_20x20_preto.png")
+                    },
                     _tempoParado,
-                    paradoIco,
+                    new Image {
+                        Source = ImageSource.FromFile("mao_20x20_preto.png")
+                    },
                     _paradas,
-                    velocimetroIco,
-                    velocidadeMedia,
-                    velocimetroIco2,
+                    new Image {
+                        Source = ImageSource.FromFile("velocimetro_20x20_preto.png")
+                    },
+                    _velocidadeMedia,
+                    new Image {
+                        Source = ImageSource.FromFile("velocimetro_20x20_preto.png")
+                    },
                     _velocidadeMaxima,
-                    radarIco,
-                    radares
+                    new Image {
+                        Source = ImageSource.FromFile("radar_20x20_preto.png")
+                    },
+                    _radares
                 }
             };
         }
@@ -96,40 +167,14 @@ namespace Radar.Pages
         {
             PercursoBLL regraPercurso = PercursoFactory.create();
             var percursos = regraPercurso.listar();
-
-            velocidadeMedia.HorizontalOptions = LayoutOptions.Start;
-            radares.HorizontalOptions = LayoutOptions.Start;
-
-            relogioIco.Source = ImageSource.FromFile("relogio_20x20_preto.png");
-            paradoIco.Source = ImageSource.FromFile("mao_20x20_preto.png");
-            ampulhetaIco.Source = ImageSource.FromFile("ampulheta_20x20_preto.png");
-            velocimetroIco.Source = ImageSource.FromFile("velocimetro_20x20_preto.png");
-            velocimetroIco2.Source = ImageSource.FromFile("velocimetro_20x20_preto.png");
-            radarIco.Source = ImageSource.FromFile("radar_20x20_preto.png");
-
-            desc.Children.Add(_relogioIco);
-            desc.Children.Add(_tempoCorrendo);
-            desc.Children.Add(ampulhetaIco);
-            desc.Children.Add(_tempoParado);
-            desc.Children.Add(paradoIco);
-            desc.Children.Add(_paradas);
-            desc.Children.Add(velocimetroIco);
-            desc.Children.Add(velocidadeMedia);
-            desc.Children.Add(velocimetroIco2);
-            desc.Children.Add(_velocidadeMaxima);
-            desc.Children.Add(radarIco);
-            desc.Children.Add(radares);
-
             if (percursos.Count > 0)
             {
-                //percursoListView.SetBinding(Label.TextProperty, new Binding("Data"));
                 this.BindingContext = percursos;
-
             }
 
         }
 
-        void gravarPercurso(object sender, EventArgs e)
+        private void gravarPercurso()
         {
             //Label gravarButton = (Label)sender;
             PercursoBLL regraPercurso = PercursoFactory.create();
@@ -137,6 +182,7 @@ namespace Radar.Pages
             {
                 if (regraPercurso.pararGravacao())
                 {
+                    /*
                     gravarLabel.Text = "Gravar Percurso!";
                     infoLabel.Text = "Toque aqui para iniciar a gravação";
                     stackDescricaoGravando.Children.Add(gravarLabel);
@@ -144,6 +190,7 @@ namespace Radar.Pages
                     stackDescricaoGravando.Children.Remove(desc);
 
                     icoPlay.Source = ImageSource.FromFile("Play.png");
+                    */
                     ClubManagement.Utils.MensagemUtils.avisar("Gravação finalizada!");
                     ClubManagement.Utils.MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
 
@@ -162,22 +209,19 @@ namespace Radar.Pages
                 {
                     _tempoCorrendo.Text = e2.Ponto.TempoGravacao.ToString();
                     _tempoParado.Text = e2.Ponto.TempoParadoStr;
-
                     _paradas.Text = e2.Ponto.QuantidadeParadaStr;
-
-                    velocidadeMedia.Text = e2.Ponto.VelocidadeMediaStr;
-
+                    _velocidadeMedia.Text = e2.Ponto.VelocidadeMediaStr;
                     _velocidadeMaxima.Text = e2.Ponto.VelocidadeMaximaStr;
-
-                    radares.Text = e2.Ponto.QuantidadeRadarStr;
+                    _radares.Text = e2.Ponto.QuantidadeRadarStr;
                 }))
                 {
-
+                    /*
                     stackDescricaoGravando.Children.Remove(gravarLabel);
                     stackDescricaoGravando.Children.Remove(infoLabel);
                     stackDescricaoGravando.Children.Add(desc);
 
                     icoPlay.Source = ImageSource.FromFile("Stop.png");
+                    */
                     ClubManagement.Utils.MensagemUtils.avisar("Iniciando gravação do percurso!");
                     ClubManagement.Utils.MensagemUtils.notificarPermanente(
                         PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID,

@@ -8,12 +8,12 @@ using Radar.Factory;
 using System.Diagnostics;
 
 namespace Radar.Pages.Popup {
-    public partial class AlturaVolumePopUp : PopupPage {
+    public partial class AlturaVolumePopUp2 : PopupPage {
         //private String valorSlider;
         //private double sliderValor;
         PreferenciaBLL regraPreferencia = PreferenciaFactory.create();
 
-        public AlturaVolumePopUp() {
+        public AlturaVolumePopUp2() {
             InitializeComponent();
             SliderAlturaVolume.ValueChanged += (sender, e) => {
                 var newStep = Math.Round(e.NewValue);
