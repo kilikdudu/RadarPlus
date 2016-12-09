@@ -155,7 +155,7 @@ namespace Radar.Pages
                 Icone = "instrucoes.png",
                 aoClicar = (sender, e) =>
                 {
-					NavigationX.create(this).PushPopupAsyncX(new InstrucaoPopUp());
+					NavigationX.create(this).PushPopupAsyncX(new InstrucaoPage());
 
                 }
             });
