@@ -126,9 +126,6 @@
     <Compile Include="BLL\RadarBLL.cs" />
     <Compile Include="Controls\EmailValidatorBehavior.cs" />
     <Compile Include="Controls\NumberValidatorBehavior.cs" />
-    <Compile Include="Pages\Popup\AlturaVolumePopUp.xaml.cs">
-      <DependentUpon>AlturaVolumePopUp.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\RadarMasterDetailPage.cs" />
   </ItemGroup>
   <ItemGroup>
