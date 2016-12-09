@@ -36,7 +36,7 @@ namespace Radar.Popup
                 Text = ""
             };
             _Slider = new Slider {
-                Minimum = Minimo,
+				Minimum = Minimo,
                 Maximum = Maximo
             };
             _Slider.ValueChanged += (sender, e) => {
