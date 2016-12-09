@@ -9,5 +9,6 @@ namespace ClubManagement.IBLL
     public interface IThread
     {
         void RunOnUiThread(Action acao);
+        void closeApplication();
     }
 }

@@ -12,33 +12,19 @@ using Radar.Utils;
 
 namespace Radar.Pages
 {
-    public class ModoReproducaoVozPage: ContentPage
+    public class ModoReproducaoVozPage: BasePreferenciaPage
     {
         Switch _HabilitarVozSwitch;
         Switch _LigarDesligarSwitch;
         Switch _AlertaSonoroSwitch;
 
-        public ModoReproducaoVozPage() {
-
-            inicializarComponente();
-
-            Title = "Reprodução Voz";
-            Content = new ScrollView {
-                Orientation = ScrollOrientation.Vertical,
-                VerticalOptions = LayoutOptions.FillAndExpand,
-                Content = new StackLayout {
-                    Style = EstiloUtils.PreferenciaStack,
-                    Children = {
-                        inicializarHabilitarVoz(),
-                        inicializarLigarDesligar(),
-                        inicializarAlertaSonoro(),
-                        inicializarReproduzirTeste()
-                    }
-                }
-            };
+        protected override string Titulo {
+            get {
+                return "Reprodução Voz";
+            }
         }
 
-        public void inicializarComponente() {
+        protected override void inicializarComponente() {
             _HabilitarVozSwitch = new Switch {
                 Style = EstiloUtils.PreferenciaSwitch,
                 IsToggled = PreferenciaUtils.HabilitarVoz
@@ -66,85 +52,30 @@ namespace Radar.Pages
             };
         }
 
-        private View inicializarSwitch(string titulo, string descricao, Switch campo)
+        protected override void inicializarTela()
         {
-            return new Frame
-            {
-                Style = EstiloUtils.PreferenciaFrame,
-                Content = new StackLayout
-                {
-                    Orientation = StackOrientation.Vertical,
-                    Children = {
-                        new StackLayout {
-                            Orientation = StackOrientation.Horizontal,
-                            Children = {
-                                new Label {
-                                    Text = titulo,
-                                    Style = EstiloUtils.PreferenciaTitulo
-                                },
-                                campo
-                            }
-                        },
-                        new Label {
-                            Text = descricao,
-                            Style = EstiloUtils.PreferenciaDescricao
-                        }
-                    }
-                }
-            };
-        }
-
-        private View inicializarHabilitarVoz() {
-            return inicializarSwitch("Habilitar Voz", "Avisa com voz a chegada em algum radar", _HabilitarVozSwitch);
-        }
-
-        private View inicializarLigarDesligar()
-        {
-            return inicializarSwitch("Ao Ligar e Desligar", "Reproduz voz ao iniciar ou delisgar o aplicativo", _LigarDesligarSwitch);
-        }
-
-        private View inicializarAlertaSonoro() {
-            return inicializarSwitch("Alerta Sonoro", "Além da reprodução de voz, emitir também o alerta sonoro", _AlertaSonoroSwitch);
-        }
-
-        private View inicializarReproduzirTeste()
-        {
-            var frame = new Frame
-            {
-                Style = EstiloUtils.PreferenciaFrame,
-                Content = new StackLayout
-                {
-                    Orientation = StackOrientation.Horizontal,
-                    Children = {
-                        new Label {
-                            Style = EstiloUtils.PreferenciaTitulo,
-                            Text = "Reproduzir Teste"
-                        }
-                    }
-                }
-            };
-            frame.GestureRecognizers.Add( new TapGestureRecognizer() {
-                Command = new Command(() => {
-                    var tipoRadares = new List<RadarTipoEnum>() {
+            adicionarSwitch(_HabilitarVozSwitch, "Habilitar Voz", "Avisa com voz a chegada em algum radar");
+            adicionarSwitch(_LigarDesligarSwitch, "Ao Ligar e Desligar", "Reproduz voz ao iniciar ou delisgar o aplicativo");
+            adicionarSwitch(_AlertaSonoroSwitch, "Alerta Sonoro", "Além da reprodução de voz, emitir também o alerta sonoro");
+            adicionarBotao("Reproduzir Teste", () => {
+                var tipoRadares = new List<RadarTipoEnum>() {
                         RadarTipoEnum.Lombada,
                         RadarTipoEnum.Pedagio,
                         RadarTipoEnum.PoliciaRodoviaria,
                         RadarTipoEnum.RadarFixo,
-                        RadarTipoEnum.RadarMovel, 
+                        RadarTipoEnum.RadarMovel,
                         RadarTipoEnum.SemaforoComRadar
                     };
-                    var velocidades = new List<int>() { 40, 50, 60, 70, 80 };
-                    var distancias = new List<int>() { 100, 200, 300, 400, 500, 600, 700 };
+                var velocidades = new List<int>() { 40, 50, 60, 70, 80 };
+                var distancias = new List<int>() { 100, 200, 300, 400, 500, 600, 700 };
 
-                    var tipoRadar = tipoRadares.Randomize().FirstOrDefault();
-                    var velocidade = velocidades.Randomize().FirstOrDefault();
-                    var distancia = distancias.Randomize().FirstOrDefault();
+                var tipoRadar = tipoRadares.Randomize().FirstOrDefault();
+                var velocidade = velocidades.Randomize().FirstOrDefault();
+                var distancia = distancias.Randomize().FirstOrDefault();
 
-                    var aviso = new AvisoSonoroBLL();
-                    aviso.play(tipoRadar, velocidade, distancia);
-                })
+                var aviso = new AvisoSonoroBLL();
+                aviso.play(tipoRadar, velocidade, distancia);
             });
-            return frame;
         }
     }
 }

@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Diagnostics;
-using Radar.Pages.Popup;
 
 namespace Radar.Pages
 {
@@ -25,6 +24,7 @@ namespace Radar.Pages
         protected Label _VelocidadeRadarLabel;
         protected Label _DistanciaRadarLabel;
         protected Image _AdicionarRadarButton;
+		protected Image _RemoverRadarButton;
 
         protected Image _BussolaFundo;
         protected Image _BussolaAgulha;
@@ -144,9 +144,71 @@ namespace Radar.Pages
                 //HorizontalTextAlignment = TextAlignment.Center,
                 //VerticalTextAlignment = TextAlignment.Center
             };
-            //AbsoluteLayout.SetLayoutBounds(_DistanciaRadarLabel, new Rectangle(1, 0.975, 1, 0.1));
-            //AbsoluteLayout.SetLayoutFlags(_DistanciaRadarLabel, AbsoluteLayoutFlags.All);
+			//AbsoluteLayout.SetLayoutBounds(_DistanciaRadarLabel, new Rectangle(1, 0.975, 1, 0.1));
+			//AbsoluteLayout.SetLayoutFlags(_DistanciaRadarLabel, AbsoluteLayoutFlags.All);
 
+
+			if (PreferenciaUtils.ExibirBotaoRemover)
+			{
+
+				_RemoverRadarButton = new Image
+				{
+					Aspect = Aspect.AspectFit,
+					Source = ImageSource.FromFile("menos.png"),
+					WidthRequest = 180,
+					HeightRequest = 180
+				};
+				AbsoluteLayout.SetLayoutBounds(_RemoverRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
+				AbsoluteLayout.SetLayoutFlags(_RemoverRadarButton, AbsoluteLayoutFlags.All);
+
+				_RemoverRadarButton.GestureRecognizers.Add(
+					new TapGestureRecognizer()
+					{
+						Command = new Command(() =>
+						{
+							//var regraAviso = new AvisoSonoroBLL();
+							//regraAviso.play(RadarTipoEnum.RadarFixo, 40, 300);
+							//AudioUtils.play(AudioEnum.Alarm001);
+							//MensagemUtils.avisar("teste");
+							//var downloader = new DownloaderAtualizacao();
+							//downloader.download();
+
+							if (InternetUtils.estarConectado())
+							{
+								LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
+								float latitude = (float)local.Latitude;
+								float longitude = (float)local.Longitude;
+								GeocoderUtils.pegarAsync(latitude, longitude, (sender, e) =>
+								{
+									var endereco = e.Endereco;
+									ClubManagement.Utils.MensagemUtils.avisar(endereco.Logradouro);
+								});
+							}
+
+
+
+							try
+							{
+								LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
+								if (local != null)
+								{
+									RadarBLL regraRadar = RadarFactory.create();
+									regraRadar.gravar(local, false);
+									MensagemUtils.avisar("Radar incluído com sucesso.");
+								}
+								else
+									MensagemUtils.avisar("Nenhum movimento registrado pelo GPS.");
+							}
+							catch (Exception e)
+							{
+								MensagemUtils.avisar(e.Message);
+							}
+
+						}
+					)
+					});
+
+			}
             if (PreferenciaUtils.ExibirBotaoAdicionar)
             {
                 _AdicionarRadarButton = new Image
@@ -158,6 +220,8 @@ namespace Radar.Pages
                 };
                 AbsoluteLayout.SetLayoutBounds(_AdicionarRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
                 AbsoluteLayout.SetLayoutFlags(_AdicionarRadarButton, AbsoluteLayoutFlags.All);
+
+
 				if (TelaUtils.Orientacao == "Landscape")
 				{
 					AbsoluteLayout.SetLayoutBounds(_AdicionarRadarButton, new Rectangle(1, 0.5, 0.2, 0.2));
@@ -195,7 +259,7 @@ namespace Radar.Pages
                                 if (local != null)
                                 {
                                     RadarBLL regraRadar = RadarFactory.create();
-                                    regraRadar.gravar(local);
+								regraRadar.gravar(local, false);
                                     MensagemUtils.avisar("Radar incluído com sucesso.");
                                 }
                                 else
@@ -209,6 +273,9 @@ namespace Radar.Pages
                         }
                     )
                 });
+
+
+
             }
 
 

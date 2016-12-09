@@ -123,6 +123,8 @@
     <Compile Include="DownloaderAndroid.cs" />
     <Compile Include="GeocoderAndroid.cs" />
     <Compile Include="InternetAndroid.cs" />
+    <Compile Include="MemoryAndroid.cs" />
+    <Compile Include="MemoryHelper.cs" />
     <Compile Include="MensagemBaseAndroid.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

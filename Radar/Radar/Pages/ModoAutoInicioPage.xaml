@@ -45,7 +45,7 @@
             <Label Style="{StaticResource LabelStyleDescription}" Text="Inicia ou desliga automaticamente quanto qualquer"  />
             <Label Style="{StaticResource LabelStyleDescription}" Text="outro App que consome GPS for iniciado ou desligado" />
            </StackLayout>
-          </Frame>  
+          </Frame>
 				
 		    </StackLayout>
 		</ScrollView>

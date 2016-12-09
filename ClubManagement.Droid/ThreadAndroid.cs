@@ -26,5 +26,11 @@ namespace ClubManagement.Droid
                 throw new Exception("'CurrentActivityUtils.Current' não foi inicializado!");
             CurrentActivityUtils.Current.RunOnUiThread(acao);
         }
+
+        public void closeApplication()
+        {
+            var activity = (Activity)Forms.Context;
+            activity.FinishAffinity();
+        }
     }
 }

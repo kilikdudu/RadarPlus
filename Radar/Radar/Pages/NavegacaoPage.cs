@@ -19,22 +19,21 @@ namespace Radar.Pages
 
         bool carregandoPagina = false;
 
-		public NavegacaoPage(bool pagina = false)
+		public NavegacaoPage()
         {
 			
+			//this.IsGestureEnabled = false;
+			this.WidthRequest = 100;
+
             masterPage = new MenuPage();
             Master = masterPage;
-			if (pagina == true )
-			{
-				_paginaAtual = new VelocimetroPage(true);
-			}
-			else {
-				//_paginaAtual = new VelocimetroPage();
-				_paginaAtual = new VelocimetroPage();
-			}
+			Master.WidthRequest = 100;
+
+			_paginaAtual = new VelocimetroPage();
             var nav = new NavigationPage(_paginaAtual);
 			nav.BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor);
 			nav.BarTextColor = Color.FromHex(TemaInfo.TextIcons);
+
 
 			Detail = nav;
 
@@ -49,13 +48,14 @@ namespace Radar.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
+			this.IsGestureEnabled = true;
             if (Device.OS == TargetPlatform.iOS)
                 GPSUtils.inicializar();
             if (Device.OS == TargetPlatform.Android)
                 GPSUtils.verificarFuncionamentoGPS();
 
         }
+
 
         protected void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -73,8 +73,7 @@ namespace Radar.Pages
                         {
                             carregandoPagina = true;
                             _paginaAtual = (Page)Activator.CreateInstance(item.TargetType);
-                            _paginaAtual.Appearing += (sender2, e2) =>
-                            {
+                            _paginaAtual.Appearing += (sender2, e2) => {
                                 carregandoPagina = false;
                             };
                             Detail = new NavigationPage(_paginaAtual);

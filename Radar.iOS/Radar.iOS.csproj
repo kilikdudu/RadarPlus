@@ -227,6 +227,7 @@
     <BundleResource Include="Resources\logo.png" />
     <BundleResource Include="Resources\error.png" />
     <BundleResource Include="Resources\success.png" />
+    <Compile Include="RadarMasterDetailPageRendereriOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -356,13 +357,27 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-Portrait%402x.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-57.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-114.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-50.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-100.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-72.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-144.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-57.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-114.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-50.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-100.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-72.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-144.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon-167.png">
+      <InProject>false</InProject>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork%402x" />
