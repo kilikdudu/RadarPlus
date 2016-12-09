@@ -1,4 +1,4 @@
-﻿using ClubManagement.Utils;
+using ClubManagement.Utils;
 using Radar.BLL;
 using Radar.Controls;
 using Radar.Factory;
@@ -78,8 +78,8 @@ namespace Radar.Pages
 					
         }
 
-
         public VelocimetroPage()
+
         {
             inicializarComponente();
 			PercursoBLL percursoBLL = new PercursoBLL();
