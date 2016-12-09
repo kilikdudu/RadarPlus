@@ -22,6 +22,9 @@ namespace Radar.Pages
 		public NavegacaoPage()
         {
 			
+			//this.IsGestureEnabled = false;
+			this.WidthRequest = 100;
+
             masterPage = new MenuPage();
             Master = masterPage;
 			Master.WidthRequest = 100;
@@ -45,13 +48,14 @@ namespace Radar.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
+			this.IsGestureEnabled = true;
             if (Device.OS == TargetPlatform.iOS)
                 GPSUtils.inicializar();
             if (Device.OS == TargetPlatform.Android)
                 GPSUtils.verificarFuncionamentoGPS();
 
         }
+
 
         protected void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {

@@ -43,6 +43,8 @@ namespace Radar.Pages
                     _listView
                 }
             };
+
+
         }
 
         private void inicializarComponente() {

@@ -89,6 +89,11 @@ namespace Radar.Pages
             velocimetroIco2.Source = ImageSource.FromFile("velocimetro_20x20_preto.png");
             radarIco.Source = ImageSource.FromFile("radar_20x20_preto.png");
 
+			tempoCorrendo.SetBinding(Label.TextProperty, new Binding("TempoGravacaoStr"));
+			tempoCorrendo.FontSize = 14;
+			tempoParado.SetBinding(Label.TextProperty, new Binding("TempoParadoStr"));
+			tempoParado.FontSize = 14;
+
             paradas.SetBinding(Label.TextProperty, new Binding("QuantidadeParadaStr"));
             paradas.FontSize = 14;
             velocidadeMedia.SetBinding(Label.TextProperty, new Binding("VelocidadeMediaStr"));
@@ -214,7 +219,7 @@ namespace Radar.Pages
             View = new StackLayout()
             {
                 Margin = new Thickness(5, 0, 5, 0),
-                VerticalOptions = LayoutOptions.Fill,
+				VerticalOptions = LayoutOptions.FillAndExpand,
                 Orientation = StackOrientation.Horizontal,
                 HorizontalOptions = LayoutOptions.Fill,
                 WidthRequest = TelaUtils.LarguraSemPixel,
