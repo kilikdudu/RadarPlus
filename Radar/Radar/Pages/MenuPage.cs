@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Radar.Pages.Popup;
 
 namespace Radar.Pages
 {
@@ -29,15 +30,15 @@ namespace Radar.Pages
             Content = new StackLayout
             {
                 Orientation = StackOrientation.Vertical,
-                Padding = new Thickness(5, 10, 5, 10),
+                Padding = new Thickness(5, 5, 5, 5),
                 BackgroundColor = Color.Transparent,
                 Children = {
                     new Image {
                         Source = "navicon.png",
                         HorizontalOptions = LayoutOptions.Start,
                         VerticalOptions = LayoutOptions.Center,
-                        WidthRequest = 110,
-                        HeightRequest = 110
+                        WidthRequest = 80,
+                        HeightRequest = 80
                     },
                     _listView
                 }
@@ -50,10 +51,10 @@ namespace Radar.Pages
             paginas.Add(criarGrupoAcao());
             paginas.Add(criarGrupoAplicativo());
 
-            _listView = new ListView
-            {
-                GroupDisplayBinding = new Binding("Nome"),
-                HasUnevenRows = true,
+			_listView = new ListView
+			{
+				GroupDisplayBinding = new Binding("Nome"),
+				HasUnevenRows = false,
                 SeparatorVisibility = SeparatorVisibility.Default,
                 IsGroupingEnabled = true,
                 BackgroundColor = Color.Transparent,
@@ -71,6 +72,11 @@ namespace Radar.Pages
                     }
                 }
             };
+
+			_listView.Footer = new Label()
+			{
+				Text = ""
+			};
         }
 
         private MenuItemGrupo criarGrupoModo()
@@ -139,7 +145,7 @@ namespace Radar.Pages
                 TargetType = null,
                 aoClicar = (sender, e) =>
                 {
-                    Device.BeginInvokeOnMainThread(() => Application.Current.MainPage = new NavegacaoPage(true));
+					NavigationX.create(this).PushPopupAsyncX(new InstrucaoPopUp());
                 }
             });
             /*
@@ -173,7 +179,7 @@ namespace Radar.Pages
 
             public MenuGrupoCell() {
                 var tituloLabel = new Label {
-                    FontSize = 28,
+                    FontSize = 22,
                     FontFamily = "Roboto-Condensed",
                     TextColor = Color.FromHex("#009688"),
                     BackgroundColor = Color.Transparent
@@ -198,40 +204,36 @@ namespace Radar.Pages
         public class MenuItemCell : ViewCell {
 
             public MenuItemCell() {
+				
                 var imagemLabel = new Image {
                     HorizontalOptions = LayoutOptions.Start,
                     VerticalOptions = LayoutOptions.CenterAndExpand,
-                    WidthRequest = 60,
-                    Margin = new Thickness(5,10,0,15)
+                    WidthRequest = 40,
+					HeightRequest = 40,
+                    //Margin = new Thickness(0,0,0,0)
                 };
                 imagemLabel.SetBinding(Image.SourceProperty, new Binding("Icone"));
                 var tituloLabel = new Label
                 {
                     HorizontalOptions = LayoutOptions.Center,
                     VerticalOptions = LayoutOptions.Center,
-                    FontSize = 20,
+                    FontSize = 18,
                     FontFamily = "Roboto-Condensed",
-                    Margin = new Thickness(0,0,0,0)
+                    //Margin = new Thickness(0,0,0,0)
                 };
                 tituloLabel.SetBinding(Label.TextProperty, new Binding("Titulo"));
-                View = new StackLayout
-                {
-                    Orientation = StackOrientation.Vertical,
-                    BackgroundColor = Color.Transparent,
-                    Margin = new Thickness(0, 10, 0, 10),
-                    Children = {
-                        new StackLayout {
-                            Orientation = StackOrientation.Horizontal,
-                            BackgroundColor = Color.Transparent,
-                            VerticalOptions = LayoutOptions.Fill,
-                            Margin = new Thickness(0,0,0,0),
-                            Children = {
-                                imagemLabel,
-                                tituloLabel
-                            }
-                        }
-                    }
-                };
+				View = new StackLayout
+						{
+							Orientation = StackOrientation.Horizontal,
+							BackgroundColor = Color.Transparent,
+							VerticalOptions = LayoutOptions.Fill,
+							//Margin = new Thickness(10, 10, 10, 10),
+							Children = {
+								imagemLabel,
+								tituloLabel
+							}
+						};
+                        
             }
 
         }

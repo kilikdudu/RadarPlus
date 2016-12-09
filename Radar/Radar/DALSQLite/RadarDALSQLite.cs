@@ -24,9 +24,13 @@ namespace Radar.DALSQLite
         public IList<RadarInfo> listar()
         {
             lock (locker)
-            {
-                return (from i in database.Table<RadarInfo>() select i).ToList();
-            }
+			{
+				return (
+					from r in database.Table<RadarInfo>()
+					where (r.Ativo == true)
+					select r
+				).ToList();
+			}
         }
 
         public IList<RadarInfo> listar(bool usuario)
@@ -36,7 +40,7 @@ namespace Radar.DALSQLite
                 int eUsuario = (usuario) ? 1 : 0;
                 return (
                     from r in database.Table<RadarInfo>()
-                    where (r.usuario == eUsuario)
+					where (r.usuario == eUsuario)
                     select r
                 ).ToList();
             }
@@ -51,13 +55,15 @@ namespace Radar.DALSQLite
                     "((loncos * " + busca.longitudeCos.ToString().Replace(',', '.') + ") + (lonsin * " + busca.longitudeSin.ToString().Replace(',', '.') + "))" +
                     ") > " + busca.distanciaCos.ToString().Replace(',', '.');
                 if (busca.Filtros.Count() > 0) {
-                    if (busca.Filtros.Count() == 1)
+					if (busca.Filtros.Count() == 1){
                         query += " AND type = " + ((int)busca.Filtros[0]).ToString();
-                    else {
+						query += " AND Ativo = true";
+					}else {
                         var lista = new List<string>();
                         foreach (var str in busca.Filtros)
                             lista.Add(((int)str).ToString());
                         query += " AND type IN (" + string.Join(", ", lista.ToArray()) + ")";
+						query += " AND Ativo = true";
                     }
                 }
                 return database.Query<RadarInfo>(query);
@@ -85,13 +91,17 @@ namespace Radar.DALSQLite
                 string query = "select * from radar where lon between ? and ? and lat between ? and ?";
                 if (filtro.Count() > 0)
                 {
-                    if (filtro.Count() == 1)
-                        query += " AND type = " + ((int)filtro[0]).ToString();
-                    else {
-                        var lista = new List<string>();
+					if (filtro.Count() == 1)
+					{
+						query += " AND type = " + ((int)filtro[0]).ToString();
+						query += " AND Ativo = true";
+					}
+					else {
+						var lista = new List<string>();
                         foreach (var str in filtro)
                             lista.Add(((int)str).ToString());
                         query += " AND type IN (" + string.Join(", ", lista.ToArray()) + ")";
+						query += " AND Ativo = true";
                     }
                 }
                 return database.Query<RadarInfo>(
@@ -109,13 +119,14 @@ namespace Radar.DALSQLite
 		public IList<RadarInfo> listarEnderecoNulo()
 		{
 			
-			string query = "select * from radar where usuario = ? and Endereco = ?";
+			string query = "select * from radar where usuario = ? and Endereco = ? and Ativo = ?";
 			lock (locker)
 			{
 				return database.Query<RadarInfo>(query,
-					new object[2] {
+					new object[3] {
 					true,
-					""
+					"",
+					true
 					});
 			}
 			}
@@ -143,6 +154,7 @@ namespace Radar.DALSQLite
                 }
             }
         }
+
 
         public void excluir(int idLocal)
         {

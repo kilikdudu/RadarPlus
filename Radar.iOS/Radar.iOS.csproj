@@ -227,6 +227,7 @@
     <BundleResource Include="Resources\logo.png" />
     <BundleResource Include="Resources\error.png" />
     <BundleResource Include="Resources\success.png" />
+    <Compile Include="RadarMasterDetailPageRendereriOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

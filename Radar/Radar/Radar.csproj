@@ -124,8 +124,6 @@
     <Compile Include="Utils\GlobalUtils.cs" />
     <Compile Include="IBLL\ISoundRecorder.cs" />
     <Compile Include="App.cs" />
-    <Compile Include="Pages\CustomMap.cs" />
-    <Compile Include="Pages\CustomPin.cs" />
     <Compile Include="Model\PreferenciaInfo.cs" />
     <Compile Include="DALSQLite\PreferenciaDALSQLite.cs" />
     <Compile Include="IDAL\IPreferenciaDAL.cs" />
@@ -152,6 +150,7 @@
     <Compile Include="Pages\Popup\AlturaVolumePopUp.xaml.cs">
       <DependentUpon>AlturaVolumePopUp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\RadarMasterDetailPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Popup\InstrucaoPopUp.xaml">
