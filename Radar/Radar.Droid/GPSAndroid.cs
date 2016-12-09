@@ -17,6 +17,8 @@ using Android.Content.Res;
 using Android.Widget;
 using Java.Util;
 using SQLite;
+using System.Linq;
+using System.Collections.Generic;
 
 [assembly: UsesPermission(Manifest.Permission.AccessFineLocation)]
 [assembly: UsesPermission(Manifest.Permission.AccessCoarseLocation)]
@@ -99,16 +101,36 @@ namespace Radar.Droid
                 StopSelf();
             }
             else {
+				Context context = Android.App.Application.Context;
                 Intent notificationIntent = new Intent(this, typeof(GPSAndroid));
 			    notificationIntent.PutExtra("stop_service", true);
-			    PendingIntent pendingIntent = PendingIntent.GetService(this, 0, notificationIntent, 0);
-                Notification notification = new Notification(
-                    Resource.Drawable.navicon,
-                    "Radar+",
-                    Java.Lang.JavaSystem.CurrentTimeMillis()
-                );
-                notification.SetLatestEventInfo( this, "Radar+", "Pressione aqui para fechar.", pendingIntent);
-                StartForeground((int)NotificationFlags.ForegroundService, notification);
+			    //PendingIntent pendingIntent = PendingIntent.GetService(this, 0, notificationIntent, 0);
+				//PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_ONE_SHOT);
+				var acao = new Intent(context, typeof(BroadcastAndroid));
+				acao.SetAction("Fechar");
+
+				var pendingIntent = PendingIntent.GetBroadcast(context, 0, acao, PendingIntentFlags.UpdateCurrent);
+
+				//Button
+				NotificationCompat.Action action = new NotificationCompat.Action.Builder(Resource.Drawable.mystop, "Fechar", pendingIntent).Build();
+
+				Notification notification = new NotificationCompat.Builder(context)
+					.SetSmallIcon(Resource.Drawable.navicon)
+					.SetContentTitle("Radar+")
+					.SetContentText("Toque aqui para fechar")
+				    .SetAutoCancel(true)
+				    .SetPriority((int)NotificationPriority.Max)
+					.AddAction(action) //add buton
+					.Build();
+
+                 //notification.SetLatestEventInfo( this, "Radar+", "Pressione aqui para fechar.", pendingIntent);
+                 //StartForeground((int)NotificationFlags.ForegroundService, notification);
+
+				NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
+				Notification notificacao = notification;
+				notificacao.Flags = NotificationFlags.AutoCancel;
+				notificationManager.Notify(1, notificacao);
+
             }
         }
 
@@ -197,8 +219,8 @@ namespace Radar.Droid
                 }
             }
             else if (Situacao == GPSSituacaoEnum.Espera) {
-                var regraPreferencia = new PreferenciaAndroid();
-                if (regraPreferencia.LigarDesligar && local.Precisao <= 30)
+				var regraPreferencia = new PreferenciaBLL();
+				if (regraPreferencia.pegar("ligarDesligar", "") == "1" && local.Precisao <= 30)
                 {
                     if (local.Velocidade >= 15)
                     {
@@ -488,6 +510,8 @@ namespace Radar.Droid
 
             private string pegarValor(string campo)
             {
+				inicializar();
+				var preferencias = listarPreferencia();
                 lock (locker)
                 {
                     var preferencia = _database.Table<PreferenciaInfo>().FirstOrDefault(x => x.Preferencia == campo);
@@ -496,6 +520,14 @@ namespace Radar.Droid
                 }
                 return string.Empty;
             }
+
+			public IList<PreferenciaInfo> listarPreferencia()
+			{
+				lock (locker)
+				{
+					return (from i in _database.Table<PreferenciaInfo>() select i).ToList();
+				}
+			}
 
             public bool LigarDesligar
             {

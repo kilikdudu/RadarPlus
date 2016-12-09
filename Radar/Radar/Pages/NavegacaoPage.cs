@@ -48,7 +48,7 @@ namespace Radar.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
-			this.IsGestureEnabled = true;
+
             if (Device.OS == TargetPlatform.iOS)
                 GPSUtils.inicializar();
             if (Device.OS == TargetPlatform.Android)
