@@ -151,6 +151,5 @@ namespace Radar.Pages
             });
             return frame;
         }
-
     }
 }
