@@ -19,6 +19,7 @@ namespace Radar.Model
         private int _Direcao;
 		private string _Endereco;
 		private DateTime _DataInclusao;
+		private bool _Ativo = true;
         [PrimaryKey, AutoIncrement, Obsolete("Usando em Id")]
         public int id_radar {
             get {
@@ -29,6 +30,17 @@ namespace Radar.Model
             }
         }
 
+		public bool Ativo
+		{
+			get
+			{
+				return _Ativo;
+			}
+			set
+			{
+				_Ativo = value;
+			}
+		}
 		//public DateTime DataInclusao { get; set; }
 		public DateTime DataInclusao
 		{

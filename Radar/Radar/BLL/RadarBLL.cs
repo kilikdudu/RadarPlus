@@ -64,12 +64,29 @@ namespace Radar.BLL
             return _db.pegar(idRadar);
         }
 
-        public int gravar(RadarInfo radar)
+        public int gravar(RadarInfo radar, bool inativar)
         {
 			if (radar.Velocidade < 20)
-			     throw new Exception("Você não pode adicionar um radar a menos de 20 km/h.");
-			var grava = _db.gravar(radar);
-			atualizarEndereco();
+			    throw new Exception("Você não pode adicionar um radar a menos de 20 km/h.");
+
+			int grava = 0;
+			if (radar.Usuario == true && inativar == true)
+			{
+				excluir(radar.Id);
+			}
+			else {
+				
+				if (inativar == true)
+				{
+					radar.Ativo = false;
+					grava = _db.gravar(radar);
+				}
+				else {
+					grava = _db.gravar(radar);
+				}
+
+				atualizarEndereco();
+			}
 
             return grava;
         }
@@ -79,7 +96,8 @@ namespace Radar.BLL
 			return _db.gravar(radar);
 		}
 
-        public int gravar(LocalizacaoInfo local) {
+        public int gravar(LocalizacaoInfo local, bool inativar) {
+			
 			//DateTime saveNow = DateTime.Now;
             int velocidade = (int)Math.Floor(local.Velocidade);
             velocidade = ((velocidade % 10) > 0) ? (velocidade - (velocidade % 10)) + 10 : velocidade;
@@ -97,7 +115,7 @@ namespace Radar.BLL
 				Endereco = "",
                 Usuario = true
             };
-            return gravar(radar);
+			return gravar(radar, inativar);
         }
 
         public void excluir(int idRadar)

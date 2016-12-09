@@ -223,6 +223,14 @@ namespace Radar.Pages
 
         }
 
+		protected override bool OnBackButtonPressed()
+		{
+			if (Device.OS == TargetPlatform.Android)
+				this.Navigation.PopAsync();
+
+			return base.OnBackButtonPressed();
+		}
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
