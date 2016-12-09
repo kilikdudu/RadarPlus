@@ -100,6 +100,11 @@ namespace Radar.Pages
             };
             _PercursoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
 			_PercursoListView.RowHeight = 200;
+			_PercursoListView.Footer = new Label()
+			{
+				Text = ""
+			};
+
             _tempoCorrendo = new Label {
                 HorizontalOptions = LayoutOptions.Start,
                 FontSize = 14

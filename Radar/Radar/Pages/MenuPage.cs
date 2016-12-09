@@ -148,6 +148,7 @@ namespace Radar.Pages
                 aoClicar = (sender, e) =>
                 {
 					NavigationX.create(this).PushPopupAsyncX(new InstrucaoPopUp());
+
                 }
             });
             /*
