@@ -43,7 +43,8 @@ namespace Radar.Pages
                 Titulo = "Modo Mapa",
                 Imagem = "modomapa.png",
                 aoClicar = (sender, e) => {
-                    NavigationX.create(this).PushAsync(new ModoMapaPage(), true);
+                    //NavigationX.create(this).PushAsync(new ModoMapaPage(), true);
+                    NavegacaoUtils.PushAsync(new ModoMapaPage());
                 }
             });
             menus.Add(new ListaInfo()
@@ -130,10 +131,10 @@ namespace Radar.Pages
             ListaInfo item = (ListaInfo)e.Item;
             if (item.aoClicar != null)
             {
-                if (this.Navigation.NavigationStack.Count == 1)
-                {
-                    item.aoClicar(sender, e);
-                }
+                //if (this.Navigation.NavigationStack.Count == 1)
+                //{
+                item.aoClicar(sender, e);
+                //}
             }
 
         }
