@@ -1,4 +1,4 @@
-﻿using ClubManagement.Utils;
+using ClubManagement.Utils;
 using Radar.BLL;
 using Radar.Controls;
 using Radar.Factory;
@@ -16,7 +16,7 @@ namespace Radar.Pages
 {
     public class VelocimetroPage: BaseVisualPage
     {
-        /*
+		/*
         private static VelocimetroPage _velocimetroPageAtual;
 
         public static VelocimetroPage Atual
@@ -31,7 +31,7 @@ namespace Radar.Pages
             }
         }
         */
-
+		AbsoluteLayout _absoluteLayout;
         private Velocimetro _velocimetro;
         Image _radarImage;
 		Label caminhoLivre;
@@ -66,35 +66,20 @@ namespace Radar.Pages
 			{
 				_radarImage.Source = ImageSource.FromFile(pathRadar);
 				caminhoLivre.Text = null;
+				_absoluteLayout.Children.Remove(_AdicionarRadarButton);
+				_absoluteLayout.Children.Add(_RemoverRadarButton);
 			}
 			else {
+				_absoluteLayout.Children.Remove(_RemoverRadarButton);
+				_absoluteLayout.Children.Add(_AdicionarRadarButton);
 				caminhoLivre.Text = "CAMINHO LIVRE";
 				_radarImage.Source = null;
 			}
 					
         }
 
-		public VelocimetroPage(bool instrucoes = false)
-		{
-            /*
-			if (instrucoes == true)
-			{
-				if (Device.OS == TargetPlatform.iOS)
-				{
-					NavigationX.create(this).PushAsync(new InstrucaoPopUp(), true);
-				}
-				else {
-					NavigationX.create(this).PushPopupAsyncX(new InstrucaoPopUp(), true);
-				}
-				VelocimetroPageConstrutor();
+        public VelocimetroPage()
 
-			}
-			else {
-            */
-		    VelocimetroPageConstrutor();
-			//}
-		}
-        public void VelocimetroPageConstrutor()
         {
             inicializarComponente();
 			PercursoBLL percursoBLL = new PercursoBLL();
@@ -110,7 +95,7 @@ namespace Radar.Pages
 				Margin = new Thickness(0,50,0,0)
             };
 
-			var absoluteLayout = new AbsoluteLayout();
+			_absoluteLayout = new AbsoluteLayout();
 			//absoluteLayout.HorizontalOptions = LayoutOptions.Fill;
 
 			Frame placa = new Frame();
@@ -275,27 +260,27 @@ namespace Radar.Pages
 			dentroPlaca.Children.Add(fiscalizacao);
 			dentroPlaca.Children.Add(_DistanciaRadarLabel);
             
-            absoluteLayout.Children.Add(_velocimetro);
+            _absoluteLayout.Children.Add(_velocimetro);
 			placa.Content = dentroPlaca;
-			absoluteLayout.Children.Add(placa);
+			_absoluteLayout.Children.Add(placa);
 
           //  absoluteLayout.Children.Add(_VelocidadeRadarLabel);
           //  absoluteLayout.Children.Add(_DistanciaRadarLabel);
             if (PreferenciaUtils.Bussola)
             {
-                absoluteLayout.Children.Add(_BussolaFundo);
-                absoluteLayout.Children.Add(_BussolaAgulha);
-                absoluteLayout.Children.Add(_GPSSentidoLabel);
+                _absoluteLayout.Children.Add(_BussolaFundo);
+                _absoluteLayout.Children.Add(_BussolaAgulha);
+                _absoluteLayout.Children.Add(_GPSSentidoLabel);
             }
             if (PreferenciaUtils.SinalGPS)
             {
-                absoluteLayout.Children.Add(_PrecisaoFundoImage);
-                absoluteLayout.Children.Add(_PrecisaoImage);
-                absoluteLayout.Children.Add(_PrecisaoLabel);
+                _absoluteLayout.Children.Add(_PrecisaoFundoImage);
+                _absoluteLayout.Children.Add(_PrecisaoImage);
+                _absoluteLayout.Children.Add(_PrecisaoLabel);
             }
             if (PreferenciaUtils.ExibirBotaoAdicionar)
-                absoluteLayout.Children.Add(_AdicionarRadarButton);
-            Content = absoluteLayout;
+                _absoluteLayout.Children.Add(_AdicionarRadarButton);
+            Content = _absoluteLayout;
 
 
         }

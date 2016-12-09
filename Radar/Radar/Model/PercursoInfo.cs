@@ -59,7 +59,7 @@ namespace Radar.Model
             get
             {
                 TimeSpan tempo = TempoGravacao;
-                return "Tempo: " + tempo.ToString();
+                return "Tempo: " + tempo.ToString(@"hh\:mm\:ss");
             }
         }
 
@@ -95,7 +95,7 @@ namespace Radar.Model
 			get
 			{
 				TimeSpan tempoParado = TempoParado;
-				return "Parado: " + tempoParado.ToString();
+				return "Parado: " + tempoParado.ToString(@"hh\:mm\:ss");
 			}
 		}
 

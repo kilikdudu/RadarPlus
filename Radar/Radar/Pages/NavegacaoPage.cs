@@ -19,22 +19,21 @@ namespace Radar.Pages
 
         bool carregandoPagina = false;
 
-		public NavegacaoPage(bool pagina = false)
+		public NavegacaoPage()
         {
 			
+			//this.IsGestureEnabled = false;
+			this.WidthRequest = 100;
+
             masterPage = new MenuPage();
             Master = masterPage;
-			if (pagina == true )
-			{
-				_paginaAtual = new VelocimetroPage(true);
-			}
-			else {
-				//_paginaAtual = new VelocimetroPage();
-				_paginaAtual = new VelocimetroPage();
-			}
+			Master.WidthRequest = 100;
+
+			_paginaAtual = new VelocimetroPage();
             var nav = new NavigationPage(_paginaAtual);
 			nav.BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor);
 			nav.BarTextColor = Color.FromHex(TemaInfo.TextIcons);
+
 
 			Detail = nav;
 
@@ -56,6 +55,7 @@ namespace Radar.Pages
                 GPSUtils.verificarFuncionamentoGPS();
 
         }
+
 
         protected void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {

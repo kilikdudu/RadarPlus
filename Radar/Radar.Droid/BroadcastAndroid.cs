@@ -40,6 +40,15 @@ namespace Radar.Droid
                 ClubManagement.Utils.MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
                 InvokeAbortBroadcast();
             }
+			else if (intent.Action == "Fechar")
+			{
+				NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
+				notificationManager.Cancel(1);
+				System.Environment.Exit(0);
+				Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
+
+
+			}
         }
     }
 }

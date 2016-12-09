@@ -29,6 +29,7 @@ namespace Radar.Pages
         Image velocimetroIco2;
         Image radarIco;
 
+
         public PercursoPage()
         {
             inicializarComponente();
@@ -82,6 +83,7 @@ namespace Radar.Pages
                     }
                 }
             };
+
             stackLayout.GestureRecognizers.Add(new TapGestureRecognizer()
             {
                 Command = new Command(() => {
@@ -97,6 +99,11 @@ namespace Radar.Pages
                 ItemTemplate = new DataTemplate(typeof(PercursoPageCell))
             };
             _PercursoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+			_PercursoListView.RowHeight = 200;
+			_PercursoListView.Footer = new Label()
+			{
+				Text = ""
+			};
 
             _tempoCorrendo = new Label {
                 HorizontalOptions = LayoutOptions.Start,
@@ -219,7 +226,7 @@ namespace Radar.Pages
                     stackDescricaoGravando.Children.Remove(gravarLabel);
                     stackDescricaoGravando.Children.Remove(infoLabel);
                     stackDescricaoGravando.Children.Add(desc);
-
+					
                     icoPlay.Source = ImageSource.FromFile("Stop.png");
                     */
                     ClubManagement.Utils.MensagemUtils.avisar("Iniciando gravação do percurso!");
