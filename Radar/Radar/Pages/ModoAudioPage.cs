@@ -1,6 +1,6 @@
 ﻿using ClubManagement.Utils;
 using Radar.BLL;
-using Radar.Pages.Popup;
+using Radar.Popup;
 using Radar.Utils;
 using System;
 using System.Collections.Generic;

@@ -13,7 +13,6 @@ using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using ClubManagement.Utils;
-using Radar.Pages.Popup;
 using Radar;
 namespace Radar.Pages
 {

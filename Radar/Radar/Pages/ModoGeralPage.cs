@@ -1,6 +1,6 @@
 ﻿using ClubManagement.Utils;
 using Radar.BLL;
-using Radar.Pages.Popup;
+using Radar.Popup;
 using Radar.Utils;
 using System;
 using System.Collections.Generic;
@@ -55,7 +55,7 @@ namespace Radar.Pages
             adicionarSwitch(_VerificarIniciarSwitch, "Verificar ao Iniciar", "Lembrar sobre a atualização da Base de Dados de Radar ao iniciar o aplicativo");
             adicionarBotao("Intervalo de Verificação", () =>
             {
-                NavigationX.create(this).PushPopupAsyncX(new InvervaloVerificacaoPopUp(), true);
+                NavigationX.create(this).PushPopupAsyncX(new IntervaloVerificacaoPopUp(), true);
             });
             adicionarLabel(_UltimaVerificacao, "Última Verificação");
             adicionarLabel(_UltimaAtualizacao, "Última Atualização");

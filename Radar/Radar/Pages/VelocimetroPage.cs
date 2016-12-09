@@ -3,7 +3,6 @@ using Radar.BLL;
 using Radar.Controls;
 using Radar.Factory;
 using Radar.Model;
-using Radar.Pages.Popup;
 using Radar.Utils;
 using System;
 using System.Collections.Generic;
@@ -79,8 +78,32 @@ namespace Radar.Pages
 					
         }
 
+<<<<<<< HEAD
 
         public  VelocimetroPage()
+=======
+		public VelocimetroPage(bool instrucoes = false)
+		{
+            /*
+			if (instrucoes == true)
+			{
+				if (Device.OS == TargetPlatform.iOS)
+				{
+					NavigationX.create(this).PushAsync(new InstrucaoPopUp(), true);
+				}
+				else {
+					NavigationX.create(this).PushPopupAsyncX(new InstrucaoPopUp(), true);
+				}
+				VelocimetroPageConstrutor();
+
+			}
+			else {
+            */
+		    VelocimetroPageConstrutor();
+			//}
+		}
+        public void VelocimetroPageConstrutor()
+>>>>>>> Alpha
         {
             inicializarComponente();
 			PercursoBLL percursoBLL = new PercursoBLL();
