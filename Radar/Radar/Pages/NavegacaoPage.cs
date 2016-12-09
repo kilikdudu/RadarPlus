@@ -17,9 +17,9 @@ namespace Radar.Pages
         private MenuPage masterPage;
         private Page _paginaAtual;
 
-        bool carregandoPagina = false;
+        //bool carregandoPagina = false;
 
-		public NavegacaoPage()
+	public NavegacaoPage()
         {
 			
 			//this.IsGestureEnabled = false;
@@ -29,13 +29,13 @@ namespace Radar.Pages
             Master = masterPage;
 			Master.WidthRequest = 100;
 
-			_paginaAtual = new VelocimetroPage();
-            var nav = new NavigationPage(_paginaAtual);
-			nav.BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor);
-			nav.BarTextColor = Color.FromHex(TemaInfo.TextIcons);
+            var navPage = new NavigationPage(new VelocimetroPage()) {
+                BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor),
+                BarTextColor = Color.FromHex(TemaInfo.TextIcons)
+            };
 
-
-			Detail = nav;
+			Detail = navPage;
+            NavegacaoUtils.DetailPage = navPage;
 
             masterPage.ListView.ItemSelected += OnItemSelected;
 
@@ -60,12 +60,13 @@ namespace Radar.Pages
         protected void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MenuItemInfo;
-            if (item != null)
-            {
-                if (item.aoClicar != null)
-                {
-                    item.aoClicar(sender, e);
+            if (item != null) {
+                if (item.aoClicar != null) {
+                    item.aoClicar(sender, new MenuEventArgs(this));
                 }
+                masterPage.ListView.SelectedItem = null;
+                IsPresented = false;
+                /*
                 else {
                     if (!carregandoPagina)
                     {
@@ -82,6 +83,7 @@ namespace Radar.Pages
                         IsPresented = false;
                     }
                 }
+                */
             }
         }
     }

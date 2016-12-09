@@ -66,6 +66,7 @@
     <Compile Include="IBLL\IGPS.cs" />
     <Compile Include="IBLL\ITela.cs" />
     <Compile Include="Pages\ModoReproducaoVozPage.cs" />
+    <Compile Include="Utils\NavegacaoUtils.cs" />
     <Compile Include="Utils\TelaUtils.cs" />
     <Compile Include="Controls\DownloaderAtualizacao.cs" />
     <Compile Include="Controls\PonteiroCorEnum.cs" />
@@ -96,7 +97,7 @@
     <Compile Include="Model\RetanguloInfo.cs" />
     <Compile Include="Pages\ErroPage.cs" />
     <Compile Include="Pages\MapaPage.cs" />
-    <Compile Include="Pages\MenuItemInfo.cs" />
+    <Compile Include="Model\MenuItemInfo.cs" />
     <Compile Include="Pages\MenuItemGrupo.cs" />
     <Compile Include="Pages\BaseVisualPage.cs" />
     <Compile Include="Controls\Velocimetro.cs" />
@@ -179,7 +180,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Audio\" />
-    <Folder Include="Pages\Popup\" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
