@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Radar.Pages.Popup;
 
 namespace Radar.Pages
 {
@@ -155,7 +154,7 @@ namespace Radar.Pages
                 Icone = "instrucoes.png",
                 aoClicar = (sender, e) =>
                 {
-					NavigationX.create(this).PushPopupAsyncX(new InstrucaoPopUp());
+					//NavigationX.create(this).PushPopupAsyncX(new InstrucaoPopUp());
                 }
             });
             /*

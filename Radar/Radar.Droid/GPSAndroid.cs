@@ -42,6 +42,8 @@ namespace Radar.Droid
         private bool desativando = false;
         public GPSSituacaoEnum Situacao { get; set; }
 
+        private float _sentidoAnterior = 0;
+
         LocationManager _locationManager;
         string _locationProvider;
         IWindowManager mWindowManager;
@@ -122,7 +124,13 @@ namespace Radar.Droid
             local.Latitude = location.Latitude;
             local.Longitude = location.Longitude;
             local.Precisao = location.Accuracy;
-            local.Sentido = location.Bearing;
+            if (location.HasBearing)
+            {
+                local.Sentido = location.Bearing;
+                _sentidoAnterior = local.Sentido;
+            }
+            else
+                local.Sentido = _sentidoAnterior;
             local.Tempo = (new DateTime(1970, 1, 1)).AddMilliseconds(location.Time);
             local.Velocidade = location.Speed * 3.6;
             return local;
