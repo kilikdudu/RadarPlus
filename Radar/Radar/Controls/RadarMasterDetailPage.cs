@@ -76,8 +76,9 @@ namespace Radar.Controls
 			{
 				if (item.aoClicar != null)
 				{
-					item.aoClicar(sender, e);
+					item.aoClicar(sender, new MenuEventArgs(this));
 				}
+                /*
 				else {
 					if (!carregandoPagina)
 					{
@@ -95,6 +96,7 @@ namespace Radar.Controls
 						IsPresented = false;
 					}
 				}
+                */
 			}
 			*/
 		}

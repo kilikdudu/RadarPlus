@@ -25,10 +25,6 @@ namespace Radar.Pages
         Label _velocidadeMedia;
         Label _radares;
 
-        Image velocimetroIco;
-        Image velocimetroIco2;
-        Image radarIco;
-
 
         public PercursoPage()
         {
@@ -44,6 +40,10 @@ namespace Radar.Pages
             };
         }
 
+        //private View criarBotaoParar() {
+
+        //}
+
         private View criarBotaoGravar() {
             var stackLayout = new StackLayout
             {
@@ -53,7 +53,7 @@ namespace Radar.Pages
                 VerticalOptions = LayoutOptions.EndAndExpand,
                 Children = {
                     new Image {
-                        Source = "Play",
+                        Source = ImageSource.FromFile("Play.png"),
                         WidthRequest = 60,
                         HorizontalOptions = LayoutOptions.Start,
                         VerticalOptions = LayoutOptions.Center

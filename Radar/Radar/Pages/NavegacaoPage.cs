@@ -13,13 +13,13 @@ using Radar.Utils;
 namespace Radar.Pages
 {
     public class NavegacaoPage : MasterDetailPage
-    {
+    { 
         private MenuPage masterPage;
         private Page _paginaAtual;
 
         //bool carregandoPagina = false;
 
-	public NavegacaoPage()
+	    public NavegacaoPage()
         {
 			
 			//this.IsGestureEnabled = false;
