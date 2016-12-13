@@ -1,4 +1,5 @@
-﻿using Radar.BLL;
+﻿using ClubManagement.Utils;
+using Radar.BLL;
 using Radar.Controls;
 using Radar.Factory;
 using Radar.Model;
@@ -14,9 +15,10 @@ namespace Radar.Pages
 {
     public class PercursoPage: ContentPage
     {
+        StackLayout _RootLayout;
         ListView _PercursoListView;
 
-        WrapLayout _Descricao;
+        //WrapLayout _Descricao;
 
         Label _tempoCorrendo;
         Label _tempoParado;
@@ -25,59 +27,106 @@ namespace Radar.Pages
         Label _velocidadeMedia;
         Label _radares;
 
+        View _GravarButton;
+        View _PararButton;
+
 
         public PercursoPage()
         {
             inicializarComponente();
 
-            Content = new StackLayout {
+            _RootLayout = new StackLayout {
                 Orientation = StackOrientation.Vertical,
                 VerticalOptions = LayoutOptions.Fill,
                 Children = {
                     _PercursoListView,
-                    criarBotaoGravar()
+                    (!PercursoBLL.Gravando) ? _GravarButton : _PararButton
                 }
             };
+            Content = _RootLayout;
         }
 
-        //private View criarBotaoParar() {
-
-        //}
-
-        private View criarBotaoGravar() {
+        private View criarPararButton() {
             var stackLayout = new StackLayout
             {
-                Orientation = StackOrientation.Horizontal,
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
-                Margin = new Thickness(30, 30, 30, 40),
-                VerticalOptions = LayoutOptions.EndAndExpand,
+                Style = EstiloUtils.PercursoGravarStackLayoutMain,
+                Children = {
+                    new Image {
+                        Source = ImageSource.FromFile("Stop.png"),
+                        Style = EstiloUtils.PercursoGravarImagem
+                    },
+                    new StackLayout {
+                        Style = EstiloUtils.PercursoGravarStackLayoutInterno,
+                        Children = {
+                            new Label {
+                                Text = "Parar Percurso!",
+                                Style = EstiloUtils.PercursoGravarTitulo
+                            },
+                            new WrapLayout {
+                                HorizontalOptions = LayoutOptions.Fill,
+                                WidthRequest = TelaUtils.LarguraSemPixel * 0.7,
+                                Spacing = 1,
+                                Children = {
+                                    new Image
+                                    {
+                                        Source = ImageSource.FromFile("relogio_20x20_preto.png")
+                                    },
+                                    _tempoCorrendo,
+                                    new Image {
+                                        Source = ImageSource.FromFile("ampulheta_20x20_preto.png")
+                                    },
+                                    _tempoParado,
+                                    new Image {
+                                        Source = ImageSource.FromFile("mao_20x20_preto.png")
+                                    },
+                                    _paradas,
+                                    new Image {
+                                        Source = ImageSource.FromFile("velocimetro_20x20_preto.png")
+                                    },
+                                    _velocidadeMedia,
+                                    new Image {
+                                        Source = ImageSource.FromFile("velocimetro_20x20_preto.png")
+                                    },
+                                    _velocidadeMaxima,
+                                    new Image {
+                                        Source = ImageSource.FromFile("radar_20x20_preto.png")
+                                    },
+                                    _radares
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            stackLayout.GestureRecognizers.Add(new TapGestureRecognizer()
+            {
+                Command = new Command(() => {
+                    pararPercurso();
+                })
+            });
+            return stackLayout;
+        }
+
+        private View criarGravarButton() {
+            var stackLayout = new StackLayout
+            {
+                Style = EstiloUtils.PercursoGravarStackLayoutMain,
                 Children = {
                     new Image {
                         Source = ImageSource.FromFile("Play.png"),
-                        WidthRequest = 60,
-                        HorizontalOptions = LayoutOptions.Start,
-                        VerticalOptions = LayoutOptions.Center
+                        Style = EstiloUtils.PercursoGravarImagem
                     },
                     new StackLayout {
-                        Orientation = StackOrientation.Vertical,
-                        HorizontalOptions = LayoutOptions.Start,
-                        VerticalOptions = LayoutOptions.Center,
+                        Style = EstiloUtils.PercursoGravarStackLayoutInterno,
                         Children = {
                             new Label {
                                 Text = "Gravar Percurso!",
-                                FontSize = 24,
-                                FontAttributes = FontAttributes.Bold,
-                                FontFamily = "Roboto-Condensed",
-                                BackgroundColor = Color.Transparent,
-                                HorizontalOptions = LayoutOptions.Start,
-                                VerticalOptions = LayoutOptions.Center
+                                Style = EstiloUtils.PercursoGravarTitulo
                             },
                             new Label {
                                 Text="Toque aqui para gravar percurso",
-                                FontSize = 18,
-                                FontFamily = "Roboto-Condensed",
-                                HorizontalOptions = LayoutOptions.Start,
-                                VerticalOptions = LayoutOptions.Center
+                                Style = EstiloUtils.PercursoGravarDescricao
                             }
                         }
                     }
@@ -107,139 +156,100 @@ namespace Radar.Pages
 
             _tempoCorrendo = new Label {
                 HorizontalOptions = LayoutOptions.Start,
-                FontSize = 14
+                FontSize = 14,
+                Text = "Tempo: 00:00:00"
             };
-            _tempoCorrendo.SetBinding(Label.TextProperty, new Binding("TempoGravacaoStr"));
+            //_tempoCorrendo.SetBinding(Label.TextProperty, new Binding("TempoGravacaoStr"));
 
             _tempoParado = new Label{
                 HorizontalOptions = LayoutOptions.Start,
-                FontSize = 14
+                FontSize = 14,
+                Text = "Parado: 00:00:00"
             };
-            _tempoParado.SetBinding(Label.TextProperty, new Binding("TempoParadoStr"));
+            //_tempoParado.SetBinding(Label.TextProperty, new Binding("TempoParadoStr"));
 
             _paradas = new Label {
                 HorizontalOptions = LayoutOptions.Start,
-                VerticalOptions = LayoutOptions.Center
+                VerticalOptions = LayoutOptions.Center,
+                Text = "Paradas: 0"
             };
 
             _velocidadeMaxima = new Label
             {
-                HorizontalOptions = LayoutOptions.Start
+                HorizontalOptions = LayoutOptions.Start,
+                Text = "V Méd: 0 Km/h"
             };
 
             _velocidadeMedia = new Label
             {
-                HorizontalOptions = LayoutOptions.Start
+                HorizontalOptions = LayoutOptions.Start,
+                Text = "V Max: 0 Km/h"
             };
 
             _radares = new Label {
-                HorizontalOptions = LayoutOptions.Start
+                HorizontalOptions = LayoutOptions.Start,
+                Text = "Radares: 0"
             };
 
-            _Descricao = new WrapLayout {
-                HorizontalOptions = LayoutOptions.Fill,
-                WidthRequest = TelaUtils.LarguraSemPixel * 0.7,
-                Spacing = 1,
-                Children = {
-                    new Image
-                    {
-                        Source = ImageSource.FromFile("relogio_20x20_preto.png")
-                    },
-                    _tempoCorrendo,
-                    new Image {
-                        Source = ImageSource.FromFile("ampulheta_20x20_preto.png")
-                    },
-                    _tempoParado,
-                    new Image {
-                        Source = ImageSource.FromFile("mao_20x20_preto.png")
-                    },
-                    _paradas,
-                    new Image {
-                        Source = ImageSource.FromFile("velocimetro_20x20_preto.png")
-                    },
-                    _velocidadeMedia,
-                    new Image {
-                        Source = ImageSource.FromFile("velocimetro_20x20_preto.png")
-                    },
-                    _velocidadeMaxima,
-                    new Image {
-                        Source = ImageSource.FromFile("radar_20x20_preto.png")
-                    },
-                    _radares
-                }
-            };
+            _GravarButton = criarGravarButton();
+            _PararButton = criarPararButton();
         }
 
         protected override void OnAppearing()
         {
             PercursoBLL regraPercurso = PercursoFactory.create();
             var percursos = regraPercurso.listar();
-            if (percursos.Count > 0)
-            {
-                this.BindingContext = percursos;
-            }
-
+            this.BindingContext = percursos;
         }
 
         private void gravarPercurso()
         {
-            //Label gravarButton = (Label)sender;
             PercursoBLL regraPercurso = PercursoFactory.create();
-            if (PercursoBLL.Gravando)
+            if (regraPercurso.iniciarGravacao((s, e) =>
             {
+                _tempoCorrendo.Text = "Tempo: " + e.Percurso.TempoGravacaoStr;
+                _tempoParado.Text = "Parado: " + e.Percurso.TempoParadoStr;
+                _paradas.Text = "Paradas: " + e.Percurso.QuantidadeParadaStr;
+                _velocidadeMedia.Text = "V Méd: " + e.Percurso.VelocidadeMediaStr;
+                _velocidadeMaxima.Text = "V Max: " +  e.Percurso.VelocidadeMaximaStr;
+                _radares.Text = "Radares: " + e.Percurso.QuantidadeRadarStr;
+            }))
+            {
+                _RootLayout.Children.Remove(_GravarButton);
+                _RootLayout.Children.Add(_PararButton);
+                MensagemUtils.avisar("Iniciando gravação do percurso!");
+                MensagemUtils.notificarPermanente(
+                    PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID,
+                    "Gravando Percurso...", "",
+                    PercursoBLL.NOTIFICACAO_PARAR_PERCURSO_ID,
+                    "Parar", PercursoBLL.ACAO_PARAR_GRAVACAO
+                );
+            }
+            else {
+                MensagemUtils.avisar("Não foi possível iniciar a gravação!");
+            }
+        }
+
+        private async void pararPercurso()
+        {
+            var retorno = await DisplayActionSheet("Tem certeza que deseja parar a gravação?", null, null, "Parar", "Continuar gravando");
+            if (retorno == "Parar")
+            {
+
+                PercursoBLL regraPercurso = PercursoFactory.create();
                 if (regraPercurso.pararGravacao())
                 {
-                    /*
-                    gravarLabel.Text = "Gravar Percurso!";
-                    infoLabel.Text = "Toque aqui para iniciar a gravação";
-                    stackDescricaoGravando.Children.Add(gravarLabel);
-                    stackDescricaoGravando.Children.Add(infoLabel);
-                    stackDescricaoGravando.Children.Remove(desc);
+                    _RootLayout.Children.Remove(_PararButton);
+                    _RootLayout.Children.Add(_GravarButton);
 
-                    icoPlay.Source = ImageSource.FromFile("Play.png");
-                    */
-                    ClubManagement.Utils.MensagemUtils.avisar("Gravação finalizada!");
-
-                    ClubManagement.Utils.MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
+                    MensagemUtils.avisar("Gravação finalizada!");
+                    MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
 
                     var percursos = regraPercurso.listar();
                     _PercursoListView.BindingContext = percursos;
-
-
                 }
                 else {
-                    ClubManagement.Utils.MensagemUtils.avisar("Não foi possível parar a gravação!");
-                }
-            }
-            else {
-
-                if (regraPercurso.iniciarGravacao((s2, e2) =>
-                {
-                    _tempoCorrendo.Text = e2.Ponto.TempoGravacao.ToString();
-                    _tempoParado.Text = e2.Ponto.TempoParadoStr;
-                    _paradas.Text = e2.Ponto.QuantidadeParadaStr;
-                    _velocidadeMedia.Text = e2.Ponto.VelocidadeMediaStr;
-                    _velocidadeMaxima.Text = e2.Ponto.VelocidadeMaximaStr;
-                    _radares.Text = e2.Ponto.QuantidadeRadarStr;
-                }))
-                {
-                    /*
-                    stackDescricaoGravando.Children.Remove(gravarLabel);
-                    stackDescricaoGravando.Children.Remove(infoLabel);
-                    stackDescricaoGravando.Children.Add(desc);
-					
-                    icoPlay.Source = ImageSource.FromFile("Stop.png");
-                    */
-                    ClubManagement.Utils.MensagemUtils.avisar("Iniciando gravação do percurso!");
-                    ClubManagement.Utils.MensagemUtils.notificarPermanente(
-                        PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID,
-                        "Gravando Percurso...", "",
-                        PercursoBLL.NOTIFICACAO_PARAR_PERCURSO_ID,
-                        "Parar", PercursoBLL.ACAO_PARAR_GRAVACAO
-                    );
-                }
-                else {
-                    ClubManagement.Utils.MensagemUtils.avisar("Não foi possível iniciar a gravação!");
+                    MensagemUtils.avisar("Não foi possível parar a gravação!");
                 }
             }
         }

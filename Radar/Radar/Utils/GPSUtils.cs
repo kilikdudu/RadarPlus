@@ -17,8 +17,9 @@ namespace Radar.Utils
 	public static class GPSUtils
 	{
 		private const int RADAR_ID = 1;
+        public const int DIAMETRO_TERRA = 6371;
 
-		private static IGPS _gpsServico;
+        private static IGPS _gpsServico;
 
 		private static bool _simulando = false;
 		private static PercursoInfo _percursoSimulado;
@@ -110,7 +111,7 @@ namespace Radar.Utils
                     if (regraRadar.radarContinuaAFrente(local, RadarBLL.RadarAtual))
                     {
                         RadarInfo radar = RadarBLL.RadarAtual;
-                        local.Distancia = regraRadar.calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
+                        local.Distancia = calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
                     }
                     else
                         RadarBLL.RadarAtual = null;
@@ -120,7 +121,7 @@ namespace Radar.Utils
                     RadarInfo radar = regraRadar.calcularRadar(local, distanciaRadar);
                     if (radar != null)
                     {
-                        local.Distancia = regraRadar.calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
+                        local.Distancia = calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
                         if (PreferenciaUtils.AlertaInteligente)
                         {
                             if ((local.Velocidade - 5) > radar.Velocidade)
@@ -263,6 +264,24 @@ namespace Radar.Utils
             });
             */
             return true;
+        }
+
+        private static double toRadians(double deg)
+        {
+            return deg * (Math.PI / 180);
+        }
+
+        public static double calcularDistancia(double initialLat, double initialLong, double finalLat, double finalLong)
+        {
+            double dLat = toRadians(finalLat - initialLat);
+            double dLon = toRadians(finalLong - initialLong);
+            double lat1 = toRadians(initialLat);
+            double lat2 = toRadians(finalLat);
+
+            double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+                   Math.Sin(dLon / 2) * Math.Sin(dLon / 2) * Math.Cos(lat1) * Math.Cos(lat2);
+            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            return DIAMETRO_TERRA * c * 1000;
         }
     }
 
