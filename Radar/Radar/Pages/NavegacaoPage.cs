@@ -23,17 +23,17 @@ namespace Radar.Pages
         {
 			
 			//this.IsGestureEnabled = false;
-			this.WidthRequest = 100;
+			this.WidthRequest = 500;
 
             masterPage = new MenuPage();
             Master = masterPage;
-			Master.WidthRequest = 100;
+			Master.WidthRequest = 500;
 
             var navPage = new NavigationPage(new VelocimetroPage()) {
                 BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor),
                 BarTextColor = Color.FromHex(TemaInfo.TextIcons)
             };
-
+			
 			Detail = navPage;
             NavegacaoUtils.DetailPage = navPage;
 
