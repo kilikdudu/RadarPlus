@@ -17,6 +17,7 @@ namespace Radar.Model
 		[AutoIncrement, PrimaryKey]
         public int Id { get; set; }
 		public string Endereco { get; set; }
+
         [Ignore]
         public IList<PercursoPontoInfo> Pontos {
             get {
@@ -97,7 +98,7 @@ namespace Radar.Model
                     if (ultimoPonto != null)
                     {
                         var tempo = ponto.Data.Subtract(ultimoPonto.Data);
-                        if (tempo.Seconds > 120)
+                        if (tempo.TotalSeconds > 120)
                         {
                             segundos += tempo.TotalSeconds;
                         }
@@ -111,11 +112,12 @@ namespace Radar.Model
 		[Ignore]
 		public int QuantidadeRadar {
             get {
+                int quantidade = 0;
                 if (_pontos.Count > 0)
                 {
-                    return (from p in _pontos select p.IdRadar).Distinct().Count();
+                    quantidade = (from p in _pontos select p.IdRadar).Distinct().Count();
                 }
-                return 0;
+                return quantidade;
             }
         }
 
@@ -127,7 +129,7 @@ namespace Radar.Model
                 foreach (var ponto in _pontos) {
                     if (ultimoPonto != null) {
                         var tempo = ponto.Data.Subtract(ultimoPonto.Data);
-                        if (tempo.Seconds > 120) {
+                        if (tempo.TotalSeconds > 120) {
                             paradas++;
                         }
                     }
@@ -156,7 +158,8 @@ namespace Radar.Model
             }
         }
 
-		public string VelocidadeMediaStr
+        [Ignore]
+        public string VelocidadeMediaStr
 		{
 			get
 			{
@@ -164,7 +167,8 @@ namespace Radar.Model
 			}
 		}
 
-		public string VelocidadeMaximaStr
+        [Ignore]
+        public string VelocidadeMaximaStr
 		{
 			get
 			{
@@ -172,7 +176,8 @@ namespace Radar.Model
 			}
 		}
 
-		public string TempoParadoStr
+        [Ignore]
+        public string TempoParadoStr
 		{
 			get
 			{
@@ -180,7 +185,8 @@ namespace Radar.Model
 			}
 		}
 
-		public string QuantidadeRadarStr
+        [Ignore]
+        public string QuantidadeRadarStr
 		{
 			get
 			{
@@ -188,7 +194,8 @@ namespace Radar.Model
 			}
 		}
 
-		public string QuantidadeParadaStr
+        [Ignore]
+        public string QuantidadeParadaStr
 		{
 			get
 			{
@@ -196,7 +203,8 @@ namespace Radar.Model
 			}
 		}
 
-		public string DistanciaTotalStr
+        [Ignore]
+        public string DistanciaTotalStr
 		{
 			get
 			{
