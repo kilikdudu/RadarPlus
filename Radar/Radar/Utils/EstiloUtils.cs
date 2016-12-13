@@ -142,6 +142,43 @@ namespace Radar.Utils
             }
         }
 
+        public static Style PercursoGravarStackLayoutMain {
+            get {
+                return (Style)App.Current.Resources[PERCURSO_GRAVAR_STACKLAYOUT_MAIN];
+            }
+        }
+
+        public static Style PercursoGravarStackLayoutInterno
+        {
+            get {
+                return (Style)App.Current.Resources[PERCURSO_GRAVAR_STACKLAYOUT_INTERNO];
+            }
+        }
+
+        public static Style PercursoGravarImagem
+        {
+            get
+            {
+                return (Style)App.Current.Resources[PERCURSO_GRAVAR_IMAGEM];
+            }
+        }
+
+        public static Style PercursoGravarTitulo
+        {
+            get
+            {
+                return (Style)App.Current.Resources[PERCURSO_GRAVAR_TITULO];
+            }
+        }
+
+        public static Style PercursoGravarDescricao
+        {
+            get
+            {
+                return (Style)App.Current.Resources[PERCURSO_GRAVAR_DESCRICAO];
+            }
+        }
+
         public static void inicializarPopup(ResourceDictionary resources) {
 
             resources.Add(POPUP_ABSOLUTE_LAYOUT, new Style(typeof(AbsoluteLayout))
@@ -278,11 +315,51 @@ namespace Radar.Utils
 
         private static void inicializarPercurso(ResourceDictionary resources)
         {
+            resources.Add(PERCURSO_GRAVAR_STACKLAYOUT_MAIN, new Style(typeof(StackLayout))
+            {
+                Setters = {
+                    new Setter { Property = StackLayout.OrientationProperty, Value = StackOrientation.Horizontal },
+                    new Setter { Property = StackLayout.HorizontalOptionsProperty, Value = LayoutOptions.CenterAndExpand },
+                    new Setter { Property = StackLayout.VerticalOptionsProperty, Value = LayoutOptions.EndAndExpand },
+                    new Setter { Property = StackLayout.MarginProperty, Value = new Thickness(30, 30, 30, 40) }
+                }
+            });
+            resources.Add(PERCURSO_GRAVAR_STACKLAYOUT_INTERNO, new Style(typeof(StackLayout))
+            {
+                Setters = {
+                    new Setter { Property = StackLayout.OrientationProperty, Value = StackOrientation.Vertical },
+                    new Setter { Property = StackLayout.HorizontalOptionsProperty, Value = LayoutOptions.CenterAndExpand },
+                    new Setter { Property = StackLayout.VerticalOptionsProperty, Value = LayoutOptions.EndAndExpand }
+                }
+            });
             resources.Add(PERCURSO_GRAVAR_IMAGEM, new Style(typeof(Image))
             {
                 Setters = {
-                    new Setter { Property = Frame.BackgroundColorProperty, Value = Color.FromHex("#b2dfdb") },
-                    new Setter { Property = Frame.MarginProperty, Value = new Thickness(10,5,10,5) }
+                    new Setter { Property = Image.WidthRequestProperty, Value = 60 },
+                    new Setter { Property = Image.HorizontalOptionsProperty, Value = LayoutOptions.Start },
+                    new Setter { Property = Image.VerticalOptionsProperty, Value = LayoutOptions.Center },
+                }
+            });
+
+            resources.Add(PERCURSO_GRAVAR_TITULO, new Style(typeof(Label))
+            {
+                Setters = {
+                    new Setter { Property = Label.FontSizeProperty, Value = 24 },
+                    new Setter { Property = Label.FontAttributesProperty, Value = FontAttributes.Bold },
+                    new Setter { Property = Label.FontFamilyProperty, Value = "Roboto-Condensed" },
+                    new Setter { Property = Label.BackgroundColorProperty, Value = Color.Transparent },
+                    new Setter { Property = Label.HorizontalOptionsProperty, Value = LayoutOptions.Start },
+                    new Setter { Property = Label.VerticalOptionsProperty, Value = LayoutOptions.Center }
+                }
+            });
+
+            resources.Add(PERCURSO_GRAVAR_DESCRICAO, new Style(typeof(Label))
+            {
+                Setters = {
+                    new Setter { Property = Label.FontSizeProperty, Value = 18 },
+                    new Setter { Property = Label.FontFamilyProperty, Value = "Roboto-Condensed" },
+                    new Setter { Property = Label.HorizontalOptionsProperty, Value = LayoutOptions.Start },
+                    new Setter { Property = Label.VerticalOptionsProperty, Value = LayoutOptions.Center }
                 }
             });
         }
@@ -291,6 +368,7 @@ namespace Radar.Utils
             var resources = new ResourceDictionary();
             inicializarPreferencia(resources);
             inicializarPopup(resources);
+            inicializarPercurso(resources);
             App.Current.Resources = resources;
         }
     }

@@ -97,8 +97,6 @@ namespace Radar.Controls
 					}
 				}
                 */
-			}
-			
-		
+		}
 	}
 }

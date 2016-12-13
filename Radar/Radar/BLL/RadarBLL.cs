@@ -19,7 +19,6 @@ namespace Radar.BLL
         //private const int TIPO_RADAR_NORMAL = 1;
 
         private IRadarDAL _db;
-        private const int DIAMETRO_TERRA = 6371;
         private IDictionary<string, bool> _radares = new Dictionary<string, bool>();
 
         private static RadarInfo _radarAtual;
@@ -135,23 +134,6 @@ namespace Radar.BLL
             return brng;
         }
 
-        private double toRadians(double deg) {
-            return deg * (Math.PI / 180);
-        }
-
-        public double calcularDistancia(double initialLat, double initialLong, double finalLat, double finalLong)
-        {
-            double dLat = toRadians(finalLat - initialLat);
-            double dLon = toRadians(finalLong - initialLong);
-            double lat1 = toRadians(initialLat);
-            double lat2 = toRadians(finalLat);
-
-            double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
-                   Math.Sin(dLon / 2) * Math.Sin(dLon / 2) * Math.Cos(lat1) * Math.Cos(lat2);
-            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
-            return DIAMETRO_TERRA * c * 1000;
-        }
-
         private void limparAlertado(double Latitude, double Longitude, double distanciaRadar) {
             /*
             int radarAtivo = 0;
@@ -168,7 +150,7 @@ namespace Radar.BLL
                 double latitudeRadar = Convert.ToDouble(str);
                 str = alerta.Key.Substring(alerta.Key.IndexOf('|') + 1);
                 double longitudeRadar = Convert.ToDouble(str);
-                double distancia = Math.Floor(calcularDistancia(Latitude, Longitude, latitudeRadar, longitudeRadar));
+                double distancia = Math.Floor(GPSUtils.calcularDistancia(Latitude, Longitude, latitudeRadar, longitudeRadar));
                 if (distancia > distanciaRadar && _radares.ContainsKey(alerta.Key))
                     //_radares[alerta.Key] = false;
                     desativado.Add(alerta.Key);
@@ -291,7 +273,7 @@ namespace Radar.BLL
                 latitudeSin = Math.Sin(local.Latitude * Math.PI / 180),
                 longitudeCos = Math.Cos(local.Longitude * Math.PI / 180),
                 longitudeSin = Math.Sin(local.Longitude * Math.PI / 180),
-                distanciaCos = Math.Cos((distanciaRadar / 1000) / DIAMETRO_TERRA),
+                distanciaCos = Math.Cos((distanciaRadar / 1000) / GPSUtils.DIAMETRO_TERRA),
                 Filtros = listarRadarTipo()
             };
 
