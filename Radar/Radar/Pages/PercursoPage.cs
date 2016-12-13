@@ -33,6 +33,7 @@ namespace Radar.Pages
 
         public PercursoPage()
         {
+            Title = "Percusos";
             inicializarComponente();
 
             _RootLayout = new StackLayout {
@@ -207,12 +208,20 @@ namespace Radar.Pages
             PercursoBLL regraPercurso = PercursoFactory.create();
             if (regraPercurso.iniciarGravacao((s, e) =>
             {
-                _tempoCorrendo.Text = "Tempo: " + e.Percurso.TempoGravacaoStr;
-                _tempoParado.Text = "Parado: " + e.Percurso.TempoParadoStr;
-                _paradas.Text = "Paradas: " + e.Percurso.QuantidadeParadaStr;
-                _velocidadeMedia.Text = "V Méd: " + e.Percurso.VelocidadeMediaStr;
-                _velocidadeMaxima.Text = "V Max: " +  e.Percurso.VelocidadeMaximaStr;
-                _radares.Text = "Radares: " + e.Percurso.QuantidadeRadarStr;
+                TimeSpan tempo = TimeSpan.Zero;
+                if (e.Percurso.Pontos.Count > 0) {
+                    tempo = e.Local.Tempo.Subtract(e.Percurso.Pontos[0].Data);
+                } 
+
+                _tempoCorrendo.Text = "Tempo: " + tempo.ToString(@"hh\:mm\:ss");
+                if (e.Alterado)
+                {
+                    _tempoParado.Text = "Parado: " + e.Percurso.TempoParadoStr;
+                    _paradas.Text = "Paradas: " + e.Percurso.QuantidadeParadaStr;
+                    _velocidadeMedia.Text = "V Méd: " + e.Percurso.VelocidadeMediaStr;
+                    _velocidadeMaxima.Text = "V Max: " + e.Percurso.VelocidadeMaximaStr;
+                    _radares.Text = "Radares: " + e.Percurso.QuantidadeRadarStr;
+                }
             }))
             {
                 _RootLayout.Children.Remove(_GravarButton);

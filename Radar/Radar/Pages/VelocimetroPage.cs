@@ -83,8 +83,8 @@ namespace Radar.Pages
         }
 
         public VelocimetroPage()
-
         {
+            Title = "Velocimetro";
             inicializarComponente();
 			PercursoBLL percursoBLL = new PercursoBLL();
 			percursoBLL.atualizarEndereco();
