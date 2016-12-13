@@ -68,6 +68,7 @@ namespace Radar.iOS
 					//MeuCustomPin customPin = new MeuCustomPin();
 
 					_nativeMap.UserInteractionEnabled = PreferenciaUtils.RotacionarMapa;
+			
 					//_nativeMap.UserInteractionEnabled = false;
                     /*
                     if (!animando)
@@ -87,6 +88,15 @@ namespace Radar.iOS
                     */
                 };
                 _radarMap.AoDesenharRadar += (object sender, RadarPin radar) => {
+                		
+					var marker = new MKPointAnnotation()
+            {
+                Coordinate = new CoreLocation.CLLocationCoordinate2D(radar.Pin.Position.Latitude, radar.Pin.Position.Longitude),
+                Title = radar.Pin.Label,
+				Subtitle = radar.Pin.Address
+            };
+			
+            _nativeMap.AddAnnotation(marker);
                     desenharRadar(radar);
                 };
             }
@@ -105,7 +115,7 @@ namespace Radar.iOS
 				Subtitle = radar.Pin.Address
             };
 			_nativeMap.GetViewForAnnotation = GetViewForAnnotation;
-            _nativeMap.AddAnnotation(marker);
+           // _nativeMap.AddAnnotation(marker);
             /*
             var marker = new MarkerOptions();
             marker.SetPosition(new LatLng(radar.Pin.Position.Latitude, radar.Pin.Position.Longitude));

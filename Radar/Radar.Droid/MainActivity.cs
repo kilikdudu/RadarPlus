@@ -7,6 +7,7 @@ using Android.OS;
 using Android.Content;
 using ClubManagement.Droid;
 using Plugin.Permissions;
+using Android.Views;
 
 namespace Radar.Droid
 {
@@ -44,7 +45,8 @@ namespace Radar.Droid
             //InitializeLocationManager();
 
             //AndroidEnvironment.UnhandledExceptionRaiser += HandleAndroidException;
-
+			this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
+			
             TelaAndroid.Largura = (int)Resources.DisplayMetrics.WidthPixels; // real pixels
             TelaAndroid.Altura = (int)Resources.DisplayMetrics.HeightPixels;
 			TelaAndroid.LarguraSemPixel = (int)Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density; // real pixels

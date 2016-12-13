@@ -23,7 +23,7 @@ namespace Radar.iOS
             CurrentDelegateUtils.Current = this;
 			var settings = UIUserNotificationSettings.GetSettingsForTypes( UIUserNotificationType.Badge , null);
 			UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
-
+			UIApplication.SharedApplication.IdleTimerDisabled = true;
             bool retorno = base.FinishedLaunching(app, options);
 
             //GPSiOS gps = new GPSiOS();
