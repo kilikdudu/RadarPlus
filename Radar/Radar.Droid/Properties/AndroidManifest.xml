@@ -21,4 +21,5 @@
 		</receiver>
 		<service android:name=".GPSAndroid" />
 	</application>
+	
 </manifest>
