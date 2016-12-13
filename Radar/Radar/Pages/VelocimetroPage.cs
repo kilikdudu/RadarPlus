@@ -66,12 +66,16 @@ namespace Radar.Pages
 			{
 				_radarImage.Source = ImageSource.FromFile(pathRadar);
 				caminhoLivre.Text = null;
-				_absoluteLayout.Children.Remove(_AdicionarRadarButton);
-				_absoluteLayout.Children.Add(_RemoverRadarButton);
+                if (_AdicionarRadarButton != null)
+				    _absoluteLayout.Children.Remove(_AdicionarRadarButton);
+                if (_RemoverRadarButton != null)
+				    _absoluteLayout.Children.Add(_RemoverRadarButton);
 			}
 			else {
-				_absoluteLayout.Children.Remove(_RemoverRadarButton);
-				_absoluteLayout.Children.Add(_AdicionarRadarButton);
+                if (_RemoverRadarButton != null)
+                    _absoluteLayout.Children.Remove(_RemoverRadarButton);
+                if (_AdicionarRadarButton != null)
+                    _absoluteLayout.Children.Add(_AdicionarRadarButton);
 				caminhoLivre.Text = "CAMINHO LIVRE";
 				_radarImage.Source = null;
 			}

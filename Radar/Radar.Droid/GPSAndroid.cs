@@ -44,6 +44,8 @@ namespace Radar.Droid
         private bool desativando = false;
         public GPSSituacaoEnum Situacao { get; set; }
 
+        private float _sentidoAnterior = 0;
+
         LocationManager _locationManager;
         string _locationProvider;
         IWindowManager mWindowManager;
@@ -128,7 +130,6 @@ namespace Radar.Droid
 				Notification notificacao = notification;
 				notificacao.Flags = NotificationFlags.AutoCancel;
 				notificationManager.Notify(1, notificacao);
-
             }
         }
 
@@ -144,7 +145,13 @@ namespace Radar.Droid
             local.Latitude = location.Latitude;
             local.Longitude = location.Longitude;
             local.Precisao = location.Accuracy;
-            local.Sentido = location.Bearing;
+            if (location.HasBearing)
+            {
+                local.Sentido = location.Bearing;
+                _sentidoAnterior = local.Sentido;
+            }
+            else
+                local.Sentido = _sentidoAnterior;
             local.Tempo = (new DateTime(1970, 1, 1)).AddMilliseconds(location.Time);
             local.Velocidade = location.Speed * 3.6;
             return local;
@@ -180,12 +187,10 @@ namespace Radar.Droid
             if (desativando)
                 return;
             LocalizacaoInfo local = converterLocalizacao(location);
-            /*
             local.Velocidade = 20;
             local.Latitude = -16.620743;
             local.Longitude = -49.356621;
             local.Sentido = 324;
-            */
             if (Situacao == GPSSituacaoEnum.Ativo)
             {
                 if (Xamarin.Forms.Forms.IsInitialized)
@@ -292,6 +297,23 @@ namespace Radar.Droid
             //mContentContainerLayout.SetBackgroundColor(Android.Graphics.Color.Argb(200, 255, 255, 255));
             // Erro de Invalid Cast - Depois a gente vé essa merda!
             //mContentContainerLayout.SetOnTouchListener(new TrayTouchListener(this));
+            mContentContainerLayout.Touch += (sender, e) =>
+            {
+                var me = ((Android.Views.View.TouchEventArgs)e).Event;
+                MotionEventActions action = me.ActionMasked;
+                switch (action)
+                {
+                    case MotionEventActions.Down:
+                    case MotionEventActions.Move:
+                    case MotionEventActions.Up:
+                    case MotionEventActions.Cancel:
+                        this.dragTray(action, (int)me.RawX, (int)me.RawY);
+                        break;
+                    //default:
+                    //    return false;
+                }
+                //return true;
+            };
             mRootLayoutParams = new WindowManagerLayoutParams(
                 dpToPixels(TRAY_DIM_X_DP, context.Resources),
                 dpToPixels(TRAY_DIM_Y_DP, context.Resources),
@@ -382,6 +404,7 @@ namespace Radar.Droid
             }
         }
 
+        /*
         public class TrayTouchListener : Android.Views.View.IOnTouchListener
         {
             GPSAndroid _service;
@@ -392,8 +415,8 @@ namespace Radar.Droid
 
             public IntPtr Handle {
                 get {
-                    return this.Handle;
-                    //return _service.Handle;
+                    //return this.Handle;
+                    return _service.Handle;
                 }
             }
 
@@ -420,6 +443,7 @@ namespace Radar.Droid
 
 
         }
+        */
 
         public class TrayAnimationTimerTask : TimerTask
         {

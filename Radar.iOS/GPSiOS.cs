@@ -17,6 +17,8 @@ namespace Radar.iOS
     {
         protected CLLocationManager locMgr;
 
+        private float _sentidoAntigo = 0;
+
         public event EventHandler<GPSAtualizacaoEventArgs> LocationUpdated = delegate { };
 
         public GPSiOS()
@@ -40,7 +42,15 @@ namespace Radar.iOS
                 local.Latitude = location.Coordinate.Latitude;
                 local.Longitude = location.Coordinate.Longitude;
                 local.Precisao = (float)((location.HorizontalAccuracy + location.VerticalAccuracy) / 2);
-                local.Sentido = (float)location.Course;
+                if (location.Course == -1)
+                {
+                    local.Sentido = _sentidoAntigo;
+                }
+                else {
+                    local.Sentido = (float)location.Course;
+                    _sentidoAntigo = local.Sentido;
+                }
+
                 local.Tempo = NSDateToDateTime(location.Timestamp);
                 local.Velocidade = location.Speed * 3.6;
 

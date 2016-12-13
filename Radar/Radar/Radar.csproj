@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -130,11 +130,6 @@
     <Compile Include="Controls\RadarMasterDetailPage.cs" />
     <Compile Include="Pages\Popup\InstrucaoPage.cs" />
     <Compile Include="Pages\Instrucao\InstrucaoTabbedPage.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Pages\Popup\InstrucaoPopUp.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
