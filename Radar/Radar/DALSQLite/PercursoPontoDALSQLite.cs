@@ -40,6 +40,14 @@ namespace Radar.DALSQLite
                 return database.Table<PercursoPontoInfo>().FirstOrDefault(x => x.Id == id);
             }
         }
+        
+         public PercursoPontoInfo pegarUltimoMovimento(int id)
+        {
+            lock (locker)
+            {
+                return database.Table<PercursoPontoInfo>().Last(x => x.Movimento == true);
+            }
+        }
 
         public int gravar(PercursoPontoInfo percurso)
         {
