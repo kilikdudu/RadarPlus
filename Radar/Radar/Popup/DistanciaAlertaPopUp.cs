@@ -43,10 +43,11 @@ namespace Radar.Popup
             };
             _UrbanoSlider.ValueChanged += (sender, e) =>
             {
-                var newStep = Math.Round(e.NewValue);
-                _UrbanoSlider.Value = newStep;
-                _DistanciaUrbanoLabel.Text = _UrbanoSlider.Value.ToString() + " M";
+                var newStep = Math.Floor(e.NewValue);
+                //((Slider)sender).Value = newStep;
+                _DistanciaUrbanoLabel.Text = newStep.ToString() + " M";
             };
+
             _EstradaSlider = new Slider
             {
                 Maximum = 1500,
@@ -54,9 +55,9 @@ namespace Radar.Popup
             };
             _EstradaSlider.ValueChanged += (sender, e) =>
             {
-                var newStep = Math.Round(e.NewValue);
-                _EstradaSlider.Value = newStep;
-                _DistanciaEstradaLabel.Text = _EstradaSlider.Value.ToString() + " M";
+                var newStep = Math.Floor(e.NewValue);
+                //((Slider)sender).Value = newStep;
+                _DistanciaEstradaLabel.Text = newStep.ToString() + " M";
             };
 
         }
