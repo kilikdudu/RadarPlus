@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Radar.Pages.Popup;
+using Rg.Plugins.Popup.Extensions;
 
 namespace Radar.Pages
 {
@@ -123,6 +125,16 @@ namespace Radar.Pages
                     NavegacaoUtils.PushAsync(new RadarListaPage());
                 }
             });
+            /*
+            grupo.Add(new MenuItemInfo
+            {
+                Titulo = "Meus Grupos",
+                Icone = "grupos.png",
+                aoClicar = (sender, e) => {
+                    NavegacaoUtils.PushAsync(new GrupoPage());
+                }
+            });
+            */
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Preferências",
@@ -152,11 +164,12 @@ namespace Radar.Pages
             {
                 Titulo = "Instruções",
                 Icone = "instrucoes.png",
-                aoClicar = (sender, e) =>
-                {
-					          //NavigationX.create(this).PushPopupAsyncX(new InstrucaoPopUp());
-                }
-            });
+                aoClicar = async (sender, e) =>
+				{
+					await Navigation.PushPopupAsync(new InstrucaoPage());
+
+				}
+			});
             /*
             grupo.Add(new MenuItemInfo
             {

@@ -26,7 +26,7 @@ namespace Radar.BLL
         public const int NOTIFICACAO_SIMULACAO_PARAR_PERCURSO_ID = 1035;
         public const string ACAO_PARAR_SIMULACAO = "parar-simulacao";
         public const string ACAO_PARAR_GRAVACAO = "parar-gravacao";
-
+		public bool gravadoParada = false;
         private static PercursoInfo _percursoAtual;
         private static bool _gravando = false;
         private static DateTime _dataAnterior;
@@ -106,6 +106,27 @@ namespace Radar.BLL
         }
 
         public int gravarPonto(PercursoPontoInfo ponto) {
+			RadarInfo radar = new RadarInfo();
+			if (radar.Velocidade < 15 )
+			{
+
+				var ultimoMovimento = _pontoDB.pegarUltimoMovimento(ponto.IdPercurso);
+				TimeSpan span = ultimoMovimento.Data.Subtract ( DateTime.Now );
+				if (span.Minutes > 5)
+				{
+					if (gravadoParada == false)
+					{
+						PercursoAtual.QuantidadeParada = PercursoAtual.QuantidadeParada + 1;
+						gravar(PercursoAtual);
+						gravadoParada = true;
+					}
+					if (ponto.Movimento == true)
+					{
+						gravadoParada = false;
+					}
+				}
+			}
+			
             return _pontoDB.gravar(ponto);
         }
 
@@ -217,13 +238,12 @@ namespace Radar.BLL
                 }
             }
 
-           if (_emMovimento)
-            {
+       //    if (_emMovimento)
+       //     {
                 processarPonto(local, true);
                 return true;
             }
             */
-            //}
             processarPonto(local, radar);
             return false;
         }

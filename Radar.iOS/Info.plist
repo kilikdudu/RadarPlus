@@ -68,5 +68,11 @@
 	<true/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Este Aplicativo precisa de acesso a câmera para tirar fotos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Este Aplicativo precisa de acesso a galeria de fotos.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Este Aplicativo precisa de acesso ao microfone.</string>
 </dict>
 </plist>
