@@ -107,8 +107,6 @@ namespace Radar.Pages
 
        public MapaPage()
 		{
-			
-		
             inicializarComponente();
 
             /*

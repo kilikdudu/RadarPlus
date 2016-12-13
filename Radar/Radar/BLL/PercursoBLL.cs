@@ -142,11 +142,13 @@ namespace Radar.BLL
                 return false;
 			PercursoInfo percurso = new PercursoInfo();
             gravar(percurso);
-			//atualizarEndereco();
+            //atualizarEndereco();
             _percursoAtual = percurso;
             //_dataAnterior = DateTime.MinValue;
             //_ultimoMovimentoReal = DateTime.MinValue;
             _gravando = true;
+            _latitude = 0;
+            _longitude = 0;
             //_emMovimento = true;
 			AoProcessar += aoProcessar;
             //MensagemUtils.notificar(2, "Gravando Percurso", "Gravando percurso agora!");
@@ -167,32 +169,36 @@ namespace Radar.BLL
             return true;
         }
 
-        private void processarPonto(LocalizacaoInfo local, RadarInfo radar = null) {
+        private PercursoPontoInfo gerarPonto(LocalizacaoInfo local, RadarInfo radar = null) {
+            return new PercursoPontoInfo()
+            {
+                IdPercurso = _percursoAtual.Id,
+                Latitude = local.Latitude,
+                Longitude = local.Longitude,
+                Velocidade = local.Velocidade,
+                Sentido = local.Sentido,
+                Precisao = local.Precisao,
+                Data = local.Tempo,
+                IdRadar = (radar != null) ? radar.Id : 0
+            };
+        }
 
+        private void processarPonto(LocalizacaoInfo local, RadarInfo radar = null)
+        {
             var distancia = GPSUtils.calcularDistancia(local.Latitude, local.Longitude, _latitude, _longitude);
-
+            bool alterado = false;
             if (distancia >= 15)
             {
-                PercursoPontoInfo ponto = new PercursoPontoInfo()
-                {
-                    IdPercurso = _percursoAtual.Id,
-                    Latitude = local.Latitude,
-                    Longitude = local.Longitude,
-                    Velocidade = local.Velocidade,
-                    Sentido = local.Sentido,
-                    Precisao = local.Precisao,
-                    Data = local.Tempo,
-                    IdRadar = (radar != null) ? radar.Id : 0
-                };
+                var ponto = gerarPonto(local, radar);
                 gravarPonto(ponto);
                 _percursoAtual.Pontos.Add(ponto);
 
-                if (AoProcessar != null)
-                    AoProcessar(this, new ProcessarPontoEventArgs(_percursoAtual));
-
                 _latitude = (float)local.Latitude;
                 _longitude = (float)local.Longitude;
+                alterado = true;
             }
+            if (AoProcessar != null)
+                AoProcessar(this, new ProcessarPontoEventArgs(_percursoAtual, local, alterado));
         }
 
         public bool executarGravacao(LocalizacaoInfo local, RadarInfo radar = null)
