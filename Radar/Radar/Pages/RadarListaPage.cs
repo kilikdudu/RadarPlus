@@ -18,6 +18,7 @@ namespace Radar.Pages
 
         public RadarListaPage()
         {
+            Title = "Meus Radares";
             _radaresListView = new ListView {
                 RowHeight = 150
             };

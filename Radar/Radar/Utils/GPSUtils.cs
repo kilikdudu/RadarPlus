@@ -152,7 +152,7 @@ namespace Radar.Utils
                     visualPage.atualizarPosicao(local);
                     visualPage.redesenhar();
                 }
-                regraPercurso.executarGravacao(local);
+                regraPercurso.executarGravacao(local, RadarBLL.RadarAtual);
                 //MensagemUtils.avisar(MemoryUtils.getInfo().ToString());
             }
             catch (Exception e) {

@@ -262,10 +262,5 @@ namespace Radar.Pages
                 }
             }
         }
-
-        public void abrirPercurso(object sender, EventArgs e)
-        {
-        }
-
     }
 }
