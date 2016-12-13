@@ -14,9 +14,9 @@ namespace Radar.BLL
 
         public ProcessarPontoEventArgs(PercursoInfo percurso)
         {
-            Ponto = percurso;
+            Percurso = percurso;
         }
 
-        public PercursoInfo Ponto { get; set; }
+        public PercursoInfo Percurso { get; set; }
     }
 }

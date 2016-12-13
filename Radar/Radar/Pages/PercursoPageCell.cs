@@ -89,18 +89,18 @@ namespace Radar.Pages
             velocimetroIco2.Source = ImageSource.FromFile("velocimetro_20x20_preto.png");
             radarIco.Source = ImageSource.FromFile("radar_20x20_preto.png");
 
-			tempoCorrendo.SetBinding(Label.TextProperty, new Binding("TempoGravacaoStr"));
+			tempoCorrendo.SetBinding(Label.TextProperty, new Binding("TempoGravacaoStr", stringFormat: "Tempo: {0}"));
 			tempoCorrendo.FontSize = 14;
-			tempoParado.SetBinding(Label.TextProperty, new Binding("TempoParadoStr"));
+			tempoParado.SetBinding(Label.TextProperty, new Binding("TempoParadoStr", stringFormat: "Parado: {0}"));
 			tempoParado.FontSize = 14;
 
-            paradas.SetBinding(Label.TextProperty, new Binding("QuantidadeParadaStr"));
+            paradas.SetBinding(Label.TextProperty, new Binding("QuantidadeParadaStr", stringFormat: "Paradas: {0}"));
             paradas.FontSize = 14;
-            velocidadeMedia.SetBinding(Label.TextProperty, new Binding("VelocidadeMediaStr"));
+            velocidadeMedia.SetBinding(Label.TextProperty, new Binding("VelocidadeMediaStr", stringFormat: "V Méd: {0}"));
             velocidadeMedia.FontSize = 14;
-            velocidadeMaxima.SetBinding(Label.TextProperty, new Binding("VelocidadeMaximaStr"));
+            velocidadeMaxima.SetBinding(Label.TextProperty, new Binding("VelocidadeMaximaStr", stringFormat: "V Max: {0}"));
             velocidadeMaxima.FontSize = 14;
-            radares.SetBinding(Label.TextProperty, new Binding("QuantidadeRadarStr"));
+            radares.SetBinding(Label.TextProperty, new Binding("QuantidadeRadarStr", stringFormat: "Radares: {0}"));
             radares.FontSize = 14;
 
             desc.Children.Add(relogioIco);
@@ -195,7 +195,7 @@ namespace Radar.Pages
                 FontFamily = "Roboto-Condensed",
                 TextColor = Color.FromHex(TemaInfo.PrimaryColor)
             };
-            titulo.SetBinding(Label.TextProperty, new Binding("DataTituloStr"));
+            titulo.SetBinding(Label.TextProperty, new Binding("Titulo"));
 
             Label endereco = new Label()
             {
@@ -206,7 +206,7 @@ namespace Radar.Pages
                 FontFamily = "Roboto-Condensed",
                 //HorizontalTextAlignment = TextAlignment.Start
             };
-            endereco.SetBinding(Label.TextProperty, new Binding("EnderecoStr"));
+            endereco.SetBinding(Label.TextProperty, new Binding("Endereco"));
 
 
             cardRigthStackVer.Children.Add(titulo);

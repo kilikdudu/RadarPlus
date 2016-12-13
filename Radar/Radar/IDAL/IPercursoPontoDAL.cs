@@ -11,7 +11,6 @@ namespace Radar.IDAL
     {
         IList<PercursoPontoInfo> listar(int idPercurso);
         PercursoPontoInfo pegar(int id);
-        PercursoPontoInfo pegarUltimoMovimento(int id);
         int gravar(PercursoPontoInfo percurso);
         void excluir(int id);
     }

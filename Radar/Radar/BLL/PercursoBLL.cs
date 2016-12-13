@@ -26,10 +26,11 @@ namespace Radar.BLL
         public const int NOTIFICACAO_SIMULACAO_PARAR_PERCURSO_ID = 1035;
         public const string ACAO_PARAR_SIMULACAO = "parar-simulacao";
         public const string ACAO_PARAR_GRAVACAO = "parar-gravacao";
-		public bool gravadoParada = false;
         private static PercursoInfo _percursoAtual;
         private static bool _gravando = false;
-        private static DateTime _dataAnterior;
+        private static float _latitude = 0;
+        private static float _longitude = 0;
+        //private static DateTime _dataAnterior;
         //private static DateTime _ultimoMovimentoReal;
         //private static bool _emMovimento = true;
 
@@ -48,9 +49,6 @@ namespace Radar.BLL
             get {
                 return _percursoAtual;
             }
-            private set {
-                _percursoAtual = value;
-            }
         }
 
         public PercursoBLL()
@@ -63,23 +61,8 @@ namespace Radar.BLL
             if (percurso != null)
             {
                 var pontos = _pontoDB.listar(percurso.Id);
-                if (pontos.Count() > 0)
-                {
-                    DateTime maiorTempo = (from p in pontos select p.Data).Max();
-                    DateTime menorTempo = (from p in pontos select p.Data).Min();
-                    percurso.TempoGravacao = maiorTempo.Subtract(menorTempo);
-                }
                 percurso.Pontos = pontos;
-				percurso.DataTitulo = dataTitulo(percurso);
-				percurso.EnderecoDestino = enderecoDestino(percurso);
-				percurso.DistanciaTotal = distanciaTotal(percurso);
-				percurso.VelocidadeMedia = velocidadeMedia(percurso);
-				percurso.VelocidadeMaxima = velocidadeMaxima(percurso);
-				percurso.QuantidadeParada = 0;
-				percurso.QuantidadeRadar =  0;
-				percurso.TempoParado = tempoParado(percurso);
-				_percursoAtual = percurso;
-
+				//_percursoAtual = percurso;
             }
         }
 
@@ -100,34 +83,27 @@ namespace Radar.BLL
         public int gravar(PercursoInfo percurso) {
             //percurso.Id = _percursoDB.gravar(percurso);
 			var grava = _percursoDB.gravar(percurso);
-			atualizarEndereco();
+            atualizarEndereco(percurso);
             return grava;
             //return percurso.Id;
         }
 
-        public int gravarPonto(PercursoPontoInfo ponto) {
-			RadarInfo radar = new RadarInfo();
-			if (radar.Velocidade < 15 )
-			{
-
-				var ultimoMovimento = _pontoDB.pegarUltimoMovimento(ponto.IdPercurso);
-				TimeSpan span = ultimoMovimento.Data.Subtract ( DateTime.Now );
-				if (span.Minutes > 5)
-				{
-					if (gravadoParada == false)
-					{
-						PercursoAtual.QuantidadeParada = PercursoAtual.QuantidadeParada + 1;
-						gravar(PercursoAtual);
-						gravadoParada = true;
-					}
-					if (ponto.Movimento == true)
-					{
-						gravadoParada = false;
-					}
-				}
-			}
-			
+        public int gravarPonto(PercursoPontoInfo ponto) {			
             return _pontoDB.gravar(ponto);
+        }
+
+        public void atualizarEndereco(PercursoInfo percurso)
+        {
+            if (!InternetUtils.estarConectado()) return;
+            if (percurso.Pontos.Count == 0) return;
+
+            var ponto = percurso.Pontos.Last();
+            GeocoderUtils.pegarAsync((float)ponto.Latitude, (float)ponto.Longitude, (sender, e) =>
+            {
+                var endereco = e.Endereco;
+                percurso.Endereco = endereco.Logradouro + " " + endereco.Complemento + " " + endereco.Bairro + " " + endereco.Cidade + " " + endereco.Uf + " " + endereco.CEP;
+                gravar(percurso);
+            });
         }
 
 		public void atualizarEndereco()
@@ -151,9 +127,7 @@ namespace Radar.BLL
 							{
 								Id = idPercurso,
 								Endereco = endereco.Logradouro + " " + endereco.Complemento + " " + endereco.Bairro + " " + endereco.Cidade + " " + endereco.Uf + " " + endereco.CEP
-
 							};
-
 							gravar(percurso);
 							atualizarEndereco();
 						});
@@ -169,8 +143,8 @@ namespace Radar.BLL
 			PercursoInfo percurso = new PercursoInfo();
             gravar(percurso);
 			//atualizarEndereco();
-            PercursoAtual = percurso;
-            _dataAnterior = DateTime.MinValue;
+            _percursoAtual = percurso;
+            //_dataAnterior = DateTime.MinValue;
             //_ultimoMovimentoReal = DateTime.MinValue;
             _gravando = true;
             //_emMovimento = true;
@@ -184,8 +158,8 @@ namespace Radar.BLL
             if (!_gravando)
                 return false;
             //MensagemUtils.notificar(2, "Gravando Percurso", "Gravando percurso agora!");
-            PercursoAtual = null;
-            _dataAnterior = DateTime.MinValue;
+            _percursoAtual = null;
+            //_dataAnterior = DateTime.MinValue;
             //_ultimoMovimentoReal = DateTime.MinValue;
             _gravando = false;
             //_emMovimento = false;
@@ -195,25 +169,30 @@ namespace Radar.BLL
 
         private void processarPonto(LocalizacaoInfo local, RadarInfo radar = null) {
 
-				PercursoPontoInfo ponto = new PercursoPontoInfo()
-				{
-					IdPercurso = PercursoAtual.Id,
-					Latitude = local.Latitude,
-					Longitude = local.Longitude,
-					Velocidade = local.Velocidade,
-					Sentido = local.Sentido,
-					Precisao = local.Precisao,
-					Data = local.Tempo,
+            var distancia = GPSUtils.calcularDistancia(local.Latitude, local.Longitude, _latitude, _longitude);
+
+            if (distancia >= 15)
+            {
+                PercursoPontoInfo ponto = new PercursoPontoInfo()
+                {
+                    IdPercurso = _percursoAtual.Id,
+                    Latitude = local.Latitude,
+                    Longitude = local.Longitude,
+                    Velocidade = local.Velocidade,
+                    Sentido = local.Sentido,
+                    Precisao = local.Precisao,
+                    Data = local.Tempo,
                     IdRadar = (radar != null) ? radar.Id : 0
-				};
+                };
+                gravarPonto(ponto);
+                _percursoAtual.Pontos.Add(ponto);
 
+                if (AoProcessar != null)
+                    AoProcessar(this, new ProcessarPontoEventArgs(_percursoAtual));
 
-				gravarPonto(ponto);
-
-				if (AoProcessar != null)
-					AoProcessar(this, new ProcessarPontoEventArgs(_percursoAtual));
-				_dataAnterior = local.Tempo;
-			
+                _latitude = (float)local.Latitude;
+                _longitude = (float)local.Longitude;
+            }
         }
 
         public bool executarGravacao(LocalizacaoInfo local, RadarInfo radar = null)
@@ -257,6 +236,7 @@ namespace Radar.BLL
             _percursoDB.excluir(id);
         }
 
+        /*
 		public String enderecoDestino(PercursoInfo percurso)
 		{
 
@@ -264,75 +244,12 @@ namespace Radar.BLL
 			var pontos = _percursoDB.listarPercurso(percurso.Id);
 			if (pontos.Count() > 0)
 			{
-
 				endereco = (from p in pontos select p.Endereco).Last();
 			}
 
 			return endereco;
 		}
-
-		public double distanciaTotal(PercursoInfo percurso) {
-			var regraRadar = RadarFactory.create();
-			int count = 0;
-			double total = 0;
-			double initialLat = 0;
-			double initialLong = 0;
-			double finalLat = 0;
-			double finalLong = 0;
-			foreach (var pontos in percurso.Pontos){
-				initialLat = pontos.Latitude;
-				initialLong = pontos.Longitude;
-				if (count > 0)
-				{
-					total  += regraRadar.calcularDistancia(initialLat, initialLong, finalLat, finalLong);
-				}
-				finalLat = pontos.Latitude;
-				finalLong = pontos.Longitude;
-				count++;
-			}
-			return total;
-		}
-
-		public DateTime dataTitulo(PercursoInfo percurso)
-		{
-
-			DateTime total = new DateTime();
-
-			if (percurso.Pontos.Count > 0)
-			{
-				total = percurso.Pontos[0].Data;
-			}
-
-			return total;
-		}
-
-		public int velocidadeMedia(PercursoInfo percurso)
-		{     
-			int total = 0;
-			var pontos = _pontoDB.listar(percurso.Id);
-			if (pontos.Count() > 0)
-			{
-				DateTime maiorTempo = (from p in pontos select p.Data).Max();
-				DateTime menorTempo = (from p in pontos select p.Data).Min();
-				double horas = maiorTempo.Subtract(menorTempo).TotalHours;
-
-				total = (int)Math.Floor(((distanciaTotal(percurso) / 1000) / horas));
-			}
-
-
-			return total;
-		}
-
-		public int velocidadeMaxima(PercursoInfo percurso)
-		{
-			int total = 0;
-
-			if (percurso.Pontos.Count > 0)
-			{
-				total =  (int)Math.Floor((from p in percurso.Pontos select p.Velocidade).Max());
-			}
-			return total;
-		}
+        */
 
 		public TimeSpan tempoParado(PercursoInfo percurso)
 		{
