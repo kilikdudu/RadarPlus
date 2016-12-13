@@ -29,7 +29,7 @@ namespace Radar.Controls
 			Master = new ContentPage
 			{
 				Title = "Master",
-				BackgroundColor = Color.Yellow,
+				BackgroundColor = Color.Transparent,
 				Content = new StackLayout
 				{
 					VerticalOptions = LayoutOptions.Center,
@@ -48,11 +48,8 @@ namespace Radar.Controls
 			//nav.BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor);
 			//nav.BarTextColor = Color.FromHex(TemaInfo.TextIcons);
 			DrawerWidth = 100;
-			Detail = new NavigationPage(new ContentPage
-			{
-				BackgroundColor = Color.Red,
-				Content = new StackLayout() { BackgroundColor = Color.Aqua }
-			});
+			
+			Detail = new NavigationPage();
 			//masterPage.ListView.ItemSelected += OnItemSelected;
 
 			if (Device.OS == TargetPlatform.Windows)

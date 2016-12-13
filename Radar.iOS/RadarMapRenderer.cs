@@ -132,26 +132,27 @@ namespace Radar.iOS
 				{
 					anView = new MKAnnotationView(annotation, annotationIdentifier);
 				}
-				switch ((int)_radar.Tipo){
-					case 1:
+				
+				switch (_radar.Tipo){
+					case RadarTipoEnum.RadarFixo:
 					anView.Image = GetImage(radarBLL.imagemRadar(_radar.Velocidade));
 					break;
-					case 2:
+					case RadarTipoEnum.SemaforoComRadar:
 					anView.Image = GetImage("radar_40_semaforo.png");
 					break;
-					case 3:
+					case RadarTipoEnum.SemaforoComCamera:
 					anView.Image = GetImage("semaforo.png");
 					break;
-					case 5:
+					case RadarTipoEnum.RadarMovel:
 					anView.Image = GetImage("radar_movel.png");
 					break;
-					case 7:
+					case RadarTipoEnum.PoliciaRodoviaria:
 					anView.Image = GetImage("policiarodoviaria.png");
 					break;
-					case 8:
+					case RadarTipoEnum.Lombada:
 					anView.Image = GetImage("lombada.png");
 					break;
-					case 14:
+					case RadarTipoEnum.Pedagio:
 					anView.Image = GetImage("pedagio.png");
 					break;			
 				}
