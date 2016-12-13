@@ -231,6 +231,12 @@
     <AndroidResource Include="Resources\drawable\semaforo.png" />
     <AndroidResource Include="Resources\drawable\pedagio.png" />
     <AndroidResource Include="Resources\drawable\grupo.png" />
+    <AndroidAsset Include="Assets\radares\pedagio.png" />
+    <AndroidAsset Include="Assets\radares\policiarodoviaria.png" />
+    <AndroidAsset Include="Assets\radares\radar_40_semaforo.png" />
+    <AndroidAsset Include="Assets\radares\semaforo.png" />
+    <AndroidAsset Include="Assets\radares\lombada.png" />
+    <AndroidAsset Include="Assets\radares\radar_movel.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
