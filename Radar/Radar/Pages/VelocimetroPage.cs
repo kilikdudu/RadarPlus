@@ -95,7 +95,7 @@ namespace Radar.Pages
 				HorizontalOptions = LayoutOptions.StartAndExpand,
 				WidthRequest = TelaUtils.Largura,
 				HeightRequest = TelaUtils.Altura,
-				BackgroundColor = Color.White,
+				BackgroundColor = Color.Transparent,
 				Margin = new Thickness(0,50,0,0)
             };
 
