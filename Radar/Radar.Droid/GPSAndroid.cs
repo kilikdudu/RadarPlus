@@ -39,6 +39,7 @@ namespace Radar.Droid
         private const int TRAY_DIM_Y_DP = 240; 	// Height of the tray in dps
         private const int ANIMATION_FRAME_RATE = 30;	// Animation frame rate per second.
         private const int TRAY_MOVEMENT_REGION_FRACTION = 6; // Controls fraction of y-axis on screen within which the tray stays.
+        private const int TRAY_HIDDEN_FRACTION = 6;
 
         private bool _inicializado = false;
         private bool desativando = false;
@@ -60,7 +61,7 @@ namespace Radar.Droid
         private int mPrevDragX;
         private int mPrevDragY;
 
-        private bool mIsTrayOpen = true;
+        //private bool mIsTrayOpen = true;
         private bool widgetInicializado = false;
 
         public GPSAndroid() {
@@ -395,9 +396,11 @@ namespace Radar.Droid
                 case MotionEventActions.Cancel:
 
                     // When the tray is released, bring it back to "open" or "closed" state.
+                    /*
                     if ((mIsTrayOpen && (x - mStartDragX) <= 0) ||
                         (!mIsTrayOpen && (x - mStartDragX) >= 0))
                         mIsTrayOpen = !mIsTrayOpen;
+                    */
 
                     mTrayTimerTask = new TrayAnimationTimerTask(this);
                     mTrayAnimationTimer = new Timer();
@@ -457,9 +460,12 @@ namespace Radar.Droid
             {
                 _service = service;
                 /*
-                if (!mIsTrayOpen)
+                if (!_service.mIsTrayOpen)
                 {
-                    mDestX = -mLogoLayout.getWidth();
+                    //mDestX = -_service.mLogoLayout.getWidth();
+                */
+                //mDestX = -_service.mRootLayout.Width / TRAY_HIDDEN_FRACTION;
+                /*
                 }
                 else {
                     mDestX = -mRootLayout.getWidth() / TRAY_HIDDEN_FRACTION;
