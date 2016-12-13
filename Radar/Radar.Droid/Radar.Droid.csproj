@@ -165,6 +165,21 @@
       <HintPath>..\..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android.Export" />
+    <Reference Include="Plugin.CurrentActivity">
+      <HintPath>..\..\packages\Plugin.CurrentActivity.1.0.1\lib\MonoAndroid10\Plugin.CurrentActivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Permissions.Abstractions">
+      <HintPath>..\..\packages\Plugin.Permissions.1.2.1\lib\MonoAndroid10\Plugin.Permissions.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Permissions">
+      <HintPath>..\..\packages\Plugin.Permissions.1.2.1\lib\MonoAndroid10\Plugin.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.6.1\lib\MonoAndroid10\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.6.1\lib\MonoAndroid10\Plugin.Media.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BroadcastAndroid.cs" />
@@ -182,6 +197,7 @@
     <Compile Include="SQLiteAndroid.cs" />
     <Compile Include="SplashActivity.cs" />
     <Compile Include="RadarMasterDetailPageRendererAndroid.cs" />
+    <Compile Include="MainApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\radar.sqlite" />
@@ -208,6 +224,13 @@
     <AndroidResource Include="Resources\drawable\logo.png" />
     <AndroidResource Include="Resources\drawable\error.png" />
     <AndroidResource Include="Resources\drawable\success.png" />
+    <AndroidResource Include="Resources\drawable\lombada.png" />
+    <AndroidResource Include="Resources\drawable\policiarodoviaria.png" />
+    <AndroidResource Include="Resources\drawable\radar_40_semaforo.png" />
+    <AndroidResource Include="Resources\drawable\radar_movel.png" />
+    <AndroidResource Include="Resources\drawable\semaforo.png" />
+    <AndroidResource Include="Resources\drawable\pedagio.png" />
+    <AndroidResource Include="Resources\drawable\grupo.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />

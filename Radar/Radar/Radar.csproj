@@ -130,11 +130,8 @@
     <Compile Include="Controls\RadarMasterDetailPage.cs" />
     <Compile Include="Pages\Popup\InstrucaoPage.cs" />
     <Compile Include="Pages\Instrucao\InstrucaoTabbedPage.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Pages\Popup\InstrucaoPopUp.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
+    <Compile Include="Controls\DropDownPicker.cs" />
+    <Compile Include="Controls\DropDownTapArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -175,6 +172,12 @@
     </Reference>
     <Reference Include="ExifLib">
       <HintPath>..\..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.6.1\lib\portable-net45+wp80+win8+wpa81\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.6.1\lib\portable-net45+wp80+win8+wpa81\Plugin.Media.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

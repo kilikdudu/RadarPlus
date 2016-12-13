@@ -70,6 +70,7 @@ namespace Radar.Controls
 
 		protected void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
 		{
+			/*
 			var item = e.SelectedItem as MenuItemInfo;
 			if (item != null)
 			{
@@ -95,6 +96,7 @@ namespace Radar.Controls
 					}
 				}
 			}
+			*/
 		}
 	}
 }

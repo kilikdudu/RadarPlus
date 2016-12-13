@@ -216,11 +216,11 @@ namespace Radar.BLL
                 }
             }
 
-           if (_emMovimento)
-            {
+       //    if (_emMovimento)
+       //     {
                 processarPonto(local, true);
                 return true;
-            }
+       //     }
             //}
             return false;
         }
