@@ -210,18 +210,18 @@ namespace Radar.Utils
                 return false;
             }
             if (_percursoSimulado.Pontos.Count() == 0) {
-                ClubManagement.Utils.MensagemUtils.avisar("Nenhum movimento registrado nesse percurso.");
+                MensagemUtils.avisar("Nenhum movimento registrado nesse percurso.");
                 return false;
             }
             //MensagemUtils.notificarPermanente(NOTIFICACAO_SIMULACAO_ID, "Simulando percurso!", string.Empty);
-            ClubManagement.Utils.MensagemUtils.notificarPermanente(
+            MensagemUtils.notificarPermanente(
                 PercursoBLL.NOTIFICACAO_SIMULACAO_PERCURSO_ID,
                 "Radar Club", "Simulando percurso...",
                 PercursoBLL.NOTIFICACAO_SIMULACAO_PARAR_PERCURSO_ID, 
                 "Parar",
                 PercursoBLL.ACAO_PARAR_SIMULACAO
             );
-            ClubManagement.Utils.MensagemUtils.avisar("Iniciando simulação!");
+            MensagemUtils.avisar("Iniciando simulação!");
             /*
             var task = Task.Factory.StartNew(() =>
             {

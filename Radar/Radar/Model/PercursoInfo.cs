@@ -79,7 +79,11 @@ namespace Radar.Model
 		[Ignore]
 		public int VelocidadeMaxima {
             get {
-                return (int)Math.Floor((from p in _pontos select p.Velocidade).Max());
+                if (_pontos.Count > 0)
+                {
+                    return (int)Math.Floor((from p in _pontos select p.Velocidade).Max());
+                }
+                return 0;
             }
         }
 
@@ -107,7 +111,11 @@ namespace Radar.Model
 		[Ignore]
 		public int QuantidadeRadar {
             get {
-                return (from p in _pontos select p.IdRadar).Distinct().Count();
+                if (_pontos.Count > 0)
+                {
+                    return (from p in _pontos select p.IdRadar).Distinct().Count();
+                }
+                return 0;
             }
         }
 

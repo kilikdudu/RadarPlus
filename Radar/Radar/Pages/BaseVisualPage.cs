@@ -114,7 +114,7 @@ namespace Radar.Pages
 
             _GPSSentidoLabel = new Label
             {
-                Text = "Sentido",
+                Text = "0º",
                 FontSize = 16,
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center
