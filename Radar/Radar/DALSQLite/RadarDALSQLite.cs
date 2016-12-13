@@ -25,11 +25,7 @@ namespace Radar.DALSQLite
         {
             lock (locker)
 			{
-				return (
-					from r in database.Table<RadarInfo>()
-					where (r.Ativo == true)
-					select r
-				).ToList();
+				return database.Table<RadarInfo>().Take(20000).ToList();
 			}
         }
 

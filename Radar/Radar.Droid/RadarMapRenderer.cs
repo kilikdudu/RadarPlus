@@ -36,7 +36,8 @@ namespace Radar.Droid
         RadarMap _radarMap;
         bool animando = false;
         Marker minhaPosicao;
-
+		RadarBLL _radarBLL;
+		
         protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<Xamarin.Forms.View> e)
         {
             base.OnElementChanged(e);
@@ -86,12 +87,38 @@ namespace Radar.Droid
 
         private void desenharRadar(RadarPin radar)
         {
+					
             var marker = new MarkerOptions();
             marker.SetPosition(new LatLng(radar.Pin.Position.Latitude, radar.Pin.Position.Longitude));
             marker.SetTitle(radar.Pin.Label);
-            marker.SetSnippet(radar.Pin.Address);
-            marker.SetRotation(radar.Sentido);
-            marker.SetIcon(BitmapDescriptorFactory.FromAsset("radares/" + radar.Imagem));
+			marker.SetSnippet(radar.Pin.Address);
+				
+            marker.SetRotation((float)radar.Sentido);
+			switch (radar.Tipo){
+				case RadarTipoEnum.RadarFixo:
+				marker.SetIcon(BitmapDescriptorFactory.FromAsset("radares/" + radar.Imagem));
+				break;
+				case RadarTipoEnum.SemaforoComRadar:
+				marker.SetIcon(BitmapDescriptorFactory.FromAsset("radares/radar_40_semaforo.png"));
+				break;
+				case RadarTipoEnum.SemaforoComCamera:
+				marker.SetIcon(BitmapDescriptorFactory.FromAsset("radares/semaforo.png"));
+				break;
+				case RadarTipoEnum.RadarMovel:
+				marker.SetIcon(BitmapDescriptorFactory.FromAsset("radares/radar_movel.png"));
+				break;
+				case RadarTipoEnum.PoliciaRodoviaria:
+				marker.SetIcon(BitmapDescriptorFactory.FromAsset("radares/policiarodoviaria.png"));
+				break;
+				case RadarTipoEnum.Lombada:
+				marker.SetIcon(BitmapDescriptorFactory.FromAsset("radares/lombada.png"));
+				break;
+				case RadarTipoEnum.Pedagio:
+				marker.SetIcon(BitmapDescriptorFactory.FromAsset("radares/pedagio.png"));
+				break;
+				
+			}
+            
             map.AddMarker(marker);
         }
 
