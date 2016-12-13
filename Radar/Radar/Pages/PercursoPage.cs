@@ -199,6 +199,7 @@ namespace Radar.Pages
                     icoPlay.Source = ImageSource.FromFile("Play.png");
                     */
                     ClubManagement.Utils.MensagemUtils.avisar("Gravação finalizada!");
+
                     ClubManagement.Utils.MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
 
                     var percursos = regraPercurso.listar();
