@@ -150,7 +150,6 @@ namespace Radar.Pages
 
 			if (PreferenciaUtils.ExibirBotaoRemover)
 			{
-
 				_RemoverRadarButton = new Image
 				{
 					Aspect = Aspect.AspectFit,
