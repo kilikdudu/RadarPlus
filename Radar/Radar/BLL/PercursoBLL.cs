@@ -30,8 +30,8 @@ namespace Radar.BLL
         private static PercursoInfo _percursoAtual;
         private static bool _gravando = false;
         private static DateTime _dataAnterior;
-        private static DateTime _ultimoMovimentoReal;
-        private static bool _emMovimento = true;
+        //private static DateTime _ultimoMovimentoReal;
+        //private static bool _emMovimento = true;
 
         public ProcessarPontoEventHandler AoProcessar { get; set; }
 
@@ -150,9 +150,9 @@ namespace Radar.BLL
 			//atualizarEndereco();
             PercursoAtual = percurso;
             _dataAnterior = DateTime.MinValue;
-            _ultimoMovimentoReal = DateTime.MinValue;
+            //_ultimoMovimentoReal = DateTime.MinValue;
             _gravando = true;
-            _emMovimento = true;
+            //_emMovimento = true;
 			AoProcessar += aoProcessar;
             //MensagemUtils.notificar(2, "Gravando Percurso", "Gravando percurso agora!");
             return true;
@@ -165,14 +165,14 @@ namespace Radar.BLL
             //MensagemUtils.notificar(2, "Gravando Percurso", "Gravando percurso agora!");
             PercursoAtual = null;
             _dataAnterior = DateTime.MinValue;
-            _ultimoMovimentoReal = DateTime.MinValue;
+            //_ultimoMovimentoReal = DateTime.MinValue;
             _gravando = false;
-            _emMovimento = false;
+            //_emMovimento = false;
 			//atualizarEndereco();
             return true;
         }
 
-        private void processarPonto(LocalizacaoInfo local, bool emMovimento) {
+        private void processarPonto(LocalizacaoInfo local, RadarInfo radar = null) {
 
 				PercursoPontoInfo ponto = new PercursoPontoInfo()
 				{
@@ -183,7 +183,7 @@ namespace Radar.BLL
 					Sentido = local.Sentido,
 					Precisao = local.Precisao,
 					Data = local.Tempo,
-					Movimento = emMovimento
+                    IdRadar = (radar != null) ? radar.Id : 0
 				};
 
 
@@ -195,12 +195,13 @@ namespace Radar.BLL
 			
         }
 
-        public bool executarGravacao(LocalizacaoInfo local)
+        public bool executarGravacao(LocalizacaoInfo local, RadarInfo radar = null)
         {
             if (!_gravando)
                 return false;
             //TimeSpan tempo = local.Tempo.Subtract(_dataAnterior);
             //if (tempo.TotalSeconds > TEMPO_ATUALIZACAO_PONTO) {
+            /*
             if (local.Velocidade >= VELOCIDADE_MAXIMA_PARADO)
             {
                 _ultimoMovimentoReal = local.Tempo;
@@ -221,7 +222,9 @@ namespace Radar.BLL
                 processarPonto(local, true);
                 return true;
             }
+            */
             //}
+            processarPonto(local, radar);
             return false;
         }
 

@@ -26,6 +26,12 @@ namespace Radar.Utils
         private static string POPUP_FORM_CAMPO = "popup_form_campo";
         private static string POPUP_FORM_DESCRICAO = "popup_form_descricao";
 
+        private static string PERCURSO_GRAVAR_STACKLAYOUT_MAIN = "percurso_gravar_stacklayout_main";
+        private static string PERCURSO_GRAVAR_STACKLAYOUT_INTERNO = "percurso_gravar_stacklayout_interno";
+        private static string PERCURSO_GRAVAR_IMAGEM = "percurso_gravar_imagem";
+        private static string PERCURSO_GRAVAR_TITULO = "percurso_gravar_titulo";
+        private static string PERCURSO_GRAVAR_DESCRICAO = "percurso_gravar_descricao";
+
         public static Style PreferenciaStack {
             get {
                 return (Style)App.Current.Resources[PREFERENCIA_STACK];
@@ -270,6 +276,16 @@ namespace Radar.Utils
             });
         }
 
+        private static void inicializarPercurso(ResourceDictionary resources)
+        {
+            resources.Add(PERCURSO_GRAVAR_IMAGEM, new Style(typeof(Image))
+            {
+                Setters = {
+                    new Setter { Property = Frame.BackgroundColorProperty, Value = Color.FromHex("#b2dfdb") },
+                    new Setter { Property = Frame.MarginProperty, Value = new Thickness(10,5,10,5) }
+                }
+            });
+        }
 
         public static void inicializar() {
             var resources = new ResourceDictionary();

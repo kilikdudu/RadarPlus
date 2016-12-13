@@ -54,6 +54,20 @@ namespace Radar.Pages
 
         protected View criarSwitch(Switch campo, string titulo, string descricao = "")
         {
+            /*
+            var gridLayout = new Grid {
+                HorizontalOptions = LayoutOptions.StartAndExpand
+            };
+            var label = new Label
+            {
+                Text = titulo,
+                Style = EstiloUtils.PreferenciaTitulo
+            };
+            campo.HorizontalOptions = LayoutOptions.EndAndExpand;
+            gridLayout.Children.Add(label, 0, 0);
+            gridLayout.Children.Add(campo, 1, 0);
+            */
+
             var stackLayout = new StackLayout
             {
                 Orientation = StackOrientation.Vertical,
