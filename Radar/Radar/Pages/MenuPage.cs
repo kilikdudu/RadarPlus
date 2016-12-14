@@ -125,16 +125,16 @@ namespace Radar.Pages
                     NavegacaoUtils.PushAsync(new RadarListaPage());
                 }
             });
-            /*
+            
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Meus Grupos",
-                Icone = "grupos.png",
+                Icone = "grupo.png",
                 aoClicar = (sender, e) => {
-                    NavegacaoUtils.PushAsync(new GrupoPage());
+                    NavegacaoUtils.PushAsync(new LoginPage());
                 }
             });
-            */
+            
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Preferências",

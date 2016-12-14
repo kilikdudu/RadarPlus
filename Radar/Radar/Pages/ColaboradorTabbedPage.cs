@@ -6,12 +6,16 @@ namespace Radar.Pages
 	{
 		public ColaboradorTabbedPage()
 		{
-			var navigationPage = new NavigationPage(new ColaboradorPage());
-			//navigationPage.Icon = "schedule.png";
-			//navigationPage.Title = "Schedule";
+			var abaColaborador = new ColaboradorPage();
+			abaColaborador.Icon = "grupo_40.png";
+			abaColaborador.Title = "Colaboradores";
 
-			Children.Add(new ColaboradorAdministracaoPage());
-			Children.Add(navigationPage);
+			var abaUsuarioPendente = new UsuarioPendente();
+			abaUsuarioPendente.Icon = "config_40.png";
+			abaUsuarioPendente.Title = "Usuários Pendentes";
+			
+			Children.Add(abaColaborador);
+			Children.Add(abaUsuarioPendente);
 
 		}
 	}

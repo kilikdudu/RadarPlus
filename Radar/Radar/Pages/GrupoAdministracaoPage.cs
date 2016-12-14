@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using ClubManagement.Utils;
 using Radar.BLL;
 using Radar.Factory;
@@ -17,23 +18,27 @@ namespace Radar
 		{
 			Title = "Administração";
 
-			StackLayout listaView = new StackLayout();
+			AbsoluteLayout listaView = new AbsoluteLayout();
 			listaView.VerticalOptions = LayoutOptions.Fill;
 			listaView.HorizontalOptions = LayoutOptions.Fill;
-
-			GrupoBLL regraGrupo = GrupoFactory.create();
+			
+			ObservableCollection<GrupoInfo> grupo = new ObservableCollection<GrupoInfo>();
+			grupo.Add(new GrupoInfo(){ Nome="Compradores", Descricao="Grupo dos compradores da empresa", Imagem="navicon.png"});
+			grupo.Add(new GrupoInfo(){ Nome="Vendedores", Descricao="Grupo dos vendedores da empresa", Imagem="navicon.png"});
+			grupo.Add(new GrupoInfo(){ Nome="Entregadores", Descricao="Grupo dos entregadores da empresa", Imagem="navicon.png"});
+			
 			ListView listaGrupos = new ListView();
 			listaGrupos.RowHeight = 120;
 			listaGrupos.ItemTemplate = new DataTemplate(typeof(GruposCelula));
 			listaGrupos.ItemTapped += OnTap;
+			listaGrupos.ItemsSource = grupo;
 			listaGrupos.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
 			listaGrupos.HasUnevenRows = true;
 			listaGrupos.SeparatorColor = Color.Transparent;
 			listaGrupos.VerticalOptions = LayoutOptions.Start;
 			listaGrupos.HorizontalOptions = LayoutOptions.Center;
 
-			var grupos = regraGrupo.listar();
-			listaGrupos.BindingContext = grupos;
+			listaGrupos.BindingContext = grupo;
 			Image AdicionarRadarButton = new Image
 			{
 				Aspect = Aspect.AspectFit,
@@ -54,8 +59,10 @@ namespace Radar
 					)
 					});
 
+			AbsoluteLayout.SetLayoutBounds(AdicionarRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
+			AbsoluteLayout.SetLayoutFlags(AdicionarRadarButton, AbsoluteLayoutFlags.All);
 			listaView.Children.Add(listaGrupos);
-			listaView.Children.Add(AdicionarRadarButton);
+			//listaView.Children.Add(AdicionarRadarButton);
 			Content = listaView;
 		}
 
@@ -69,12 +76,8 @@ namespace Radar
 		{
 
 			GrupoInfo item = (GrupoInfo)e.Item;
-
-		
-				if (this.Navigation.NavigationStack.Count == 1)
-				{
-					((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage(new ColaboradorPage());
-				}
+	
+					NavigationX.create(this).PushModalAsync(new AdcionarGrupoPopUp(item));	
 
 		}
 
@@ -92,16 +95,16 @@ namespace Radar
 				excluirGrupo.SetBinding(MenuItem.CommandParameterProperty, new Binding("."));
 				excluirGrupo.Clicked += (sender, e) =>
 				{
-					GrupoInfo grupo = (GrupoInfo)((MenuItem)sender).BindingContext;
-					GrupoBLL regraGrupo = GrupoFactory.create();
-					regraGrupo.excluir(grupo.Id);
+					//GrupoInfo grupo = (GrupoInfo)((MenuItem)sender).BindingContext;
+					//GrupoBLL regraGrupo = GrupoFactory.create();
+					//regraGrupo.excluir(grupo.Id);
 
 					ListView listaGrupos = this.Parent as ListView;
 
 					listaGrupos.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
 					listaGrupos.RowHeight = 120;
-					var grupos = regraGrupo.listar();
-					listaGrupos.BindingContext = grupos;
+					//var grupos = regraGrupo.listar();
+					//listaGrupos.BindingContext = grupos;
 					listaGrupos.ItemTemplate = new DataTemplate(typeof(GruposCelula));
 				};
 				ContextActions.Add(excluirGrupo);
@@ -109,8 +112,8 @@ namespace Radar
 				StackLayout main = new StackLayout();
 				main.BackgroundColor = Color.Transparent;
 				main.Orientation = StackOrientation.Horizontal;
-				main.VerticalOptions = LayoutOptions.StartAndExpand;
-				main.HorizontalOptions = LayoutOptions.CenterAndExpand;
+				main.VerticalOptions = LayoutOptions.CenterAndExpand;
+				main.HorizontalOptions = LayoutOptions.StartAndExpand;
 
 				StackLayout stackRight = new StackLayout();
 				stackRight.Orientation = StackOrientation.Vertical;
@@ -119,7 +122,7 @@ namespace Radar
 
 				StackLayout stackLeft = new StackLayout();
 				stackLeft.Orientation = StackOrientation.Vertical;
-				stackLeft.VerticalOptions = LayoutOptions.StartAndExpand;
+				stackLeft.VerticalOptions = LayoutOptions.CenterAndExpand;
 				stackLeft.HorizontalOptions = LayoutOptions.StartAndExpand;
 
 
@@ -129,9 +132,9 @@ namespace Radar
 					HeightRequest = 50,
 					HorizontalOptions = LayoutOptions.Center,
 					VerticalOptions = LayoutOptions.Center,
-					Source = "ic_add_a_photo_48pt.png"
+					//Source = "ic_add_a_photo_48pt.png"
 				};
-				//foto.SetBinding(Image.SourceProperty, new Binding("Imagem"));
+				foto.SetBinding(Image.SourceProperty, new Binding("Imagem"));
 
 				Label nome = new Label
 				{
@@ -141,7 +144,7 @@ namespace Radar
 					HorizontalOptions = LayoutOptions.Start,
 					VerticalOptions = LayoutOptions.Center,
 				};
-				nome.SetBinding(Label.TextProperty, new Binding("NomeStr"));
+				nome.SetBinding(Label.TextProperty, new Binding("Nome"));
 
 
 				Label descricao = new Label
@@ -152,7 +155,7 @@ namespace Radar
 					HorizontalOptions = LayoutOptions.Start,
 					VerticalOptions = LayoutOptions.Center,
 				};
-				descricao.SetBinding(Label.TextProperty, new Binding("DescricaoStr"));
+				descricao.SetBinding(Label.TextProperty, new Binding("Descricao"));
 
 		
 				var frameOuter = new Frame();
@@ -183,7 +186,6 @@ namespace Radar
 				View = frameOuter;
 
 			}
-
 
 		}
 

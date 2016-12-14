@@ -24,6 +24,11 @@ namespace Radar.Model
 			get { return "#b2dfbd"; }
 
 		}
+		
+		public static string AdminColor
+		{
+			get { return "#61c8fb"; }
+		}
 
 		public static string TextIcons
 		{

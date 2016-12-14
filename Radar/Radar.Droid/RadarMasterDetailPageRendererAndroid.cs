@@ -11,18 +11,12 @@ public class RadarMasterDetailPageRendererAndroid : MasterDetailRenderer
 	bool firstDone;
 	public override void AddView(Android.Views.View child)
 	{
-		if (firstDone)
-		{
+		
 			RadarMasterDetailPage page = (RadarMasterDetailPage)this.Element;
 			LayoutParams p = (LayoutParams)child.LayoutParameters;
 			p.Width = page.DrawerWidth;
 			base.AddView(child, p);
-		}
-		else
-		{
-			firstDone = true;
-			base.AddView(child);
-		}
+		
 	}
 
 }

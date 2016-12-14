@@ -1,9 +1,16 @@
-﻿using System;
+﻿using Radar.BLL;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Text;
+using Radar.Model;
+
 using Xamarin.Forms;
+using ClubManagement.Utils;
 using Radar.Utils;
 using Radar.Controls;
-
+using Plugin.Media;
 
 namespace Radar.Pages
 {
@@ -215,7 +222,7 @@ namespace Radar.Pages
 
 			_fotoPessoal = new Image()
 			{
-				Source = "ic_add_a_photo_48pt.png",
+				Source = "ic_add_a_photo_black_48dp.png",
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				WidthRequest = TelaUtils.LarguraSemPixel * 0.4,
@@ -232,6 +239,37 @@ namespace Radar.Pages
 					)
 					});
 
+			StackLayout stackButtons = new StackLayout()
+			{
+				Orientation = StackOrientation.Horizontal,
+				HorizontalOptions = LayoutOptions.End,
+				VerticalOptions = LayoutOptions.End
+			};
+			Button gravar = new Button()
+			{
+				Text = "Gravar",
+				HorizontalOptions = LayoutOptions.End,
+				TextColor = Color.FromHex(TemaInfo.PrimaryColor),
+				FontFamily = "Roboto-Condensed",
+				BackgroundColor = Color.Transparent,
+				FontSize = 20
+			};
+
+			gravar.Clicked += OnGravar;
+
+			Button cancelar = new Button()
+			{
+				Text = "Cancelar",
+				HorizontalOptions = LayoutOptions.End,
+				TextColor = Color.FromHex(TemaInfo.PrimaryColor),
+				FontFamily = "Roboto-Condensed",
+				BackgroundColor = Color.Transparent,
+				FontSize = 20
+			};
+			cancelar.Clicked += OnCancelar;
+
+			stackButtons.Children.Add(cancelar);
+			stackButtons.Children.Add(gravar);
 			fotoStack.Children.Add(_fotoPessoal);
 
 
@@ -243,6 +281,7 @@ namespace Radar.Pages
 			main.Children.Add(senhaStack);
 			main.Children.Add(confirmarsenhaStack);
 			main.Children.Add(fotoStack);
+			main.Children.Add(stackButtons);
 
 			scrollMain.Content = main;
 			Content = scrollMain;
@@ -290,6 +329,16 @@ namespace Radar.Pages
 			}
 		}
 
+		public void OnCancelar(Object sender, EventArgs e)
+		{
+		((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage(new LoginPage());
+			
+		}
+		
+		public void OnGravar(Object sender, EventArgs e)
+		{
+				
+		}
         protected override void OnAppearing()
 		{
 			base.OnAppearing();

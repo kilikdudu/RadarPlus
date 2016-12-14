@@ -132,6 +132,20 @@
     <Compile Include="Pages\Instrucao\InstrucaoTabbedPage.cs" />
     <Compile Include="Controls\DropDownPicker.cs" />
     <Compile Include="Controls\DropDownTapArgs.cs" />
+    <Compile Include="Pages\ColaboradorAdministracaoPage.cs" />
+    <Compile Include="Pages\ColaboradorPage.cs" />
+    <Compile Include="Pages\ColaboradorTabbedPage.cs" />
+    <Compile Include="Pages\GrupoAdministracaoPage.cs" />
+    <Compile Include="Pages\GrupoPage.cs" />
+    <Compile Include="Pages\GrupoTabbedPage.cs" />
+    <Compile Include="Model\GrupoInfo.cs" />
+    <Compile Include="Popup\AdcionarGrupoPopUp.cs" />
+    <Compile Include="Pages\NovoCustoPage.cs" />
+    <Compile Include="Pages\NovoCadastroPage.cs" />
+    <Compile Include="Popup\CustoMenuPopUp.cs" />
+    <Compile Include="Popup\ConviteUsuarioPopUp.cs" />
+    <Compile Include="Model\ColaboradorInfo.cs" />
+    <Compile Include="Pages\UsuarioPendente.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

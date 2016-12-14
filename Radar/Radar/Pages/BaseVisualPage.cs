@@ -237,37 +237,41 @@ namespace Radar.Pages
 							//MensagemUtils.avisar("teste");
 							//var downloader = new DownloaderAtualizacao();
 							//downloader.download();
+							/*
+														if (InternetUtils.estarConectado())
+														{
+															LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
+														float latitude = (float)local.Latitude;
+														float longitude = (float)local.Longitude;
+															GeocoderUtils.pegarAsync(latitude, longitude, (sender, e) =>
+															{ 
+																var endereco = e.Endereco;
+																ClubManagement.Utils.MensagemUtils.avisar(endereco.Logradouro);
+															});
+														}
 
-                            if (InternetUtils.estarConectado())
-                            {
-								LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
-							float latitude = (float)local.Latitude;
-							float longitude = (float)local.Longitude;
-                                GeocoderUtils.pegarAsync(latitude, longitude, (sender, e) =>
-                                { 
-                                    var endereco = e.Endereco;
-                                    ClubManagement.Utils.MensagemUtils.avisar(endereco.Logradouro);
-                                });
-                            }
-                            
 
-                            
-                            try
-                            {
-                                LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
-                                if (local != null)
-                                {
-                                    RadarBLL regraRadar = RadarFactory.create();
-								regraRadar.gravar(local, false);
-                                    MensagemUtils.avisar("Radar incluído com sucesso.");
-                                }
-                                else
-                                    MensagemUtils.avisar("Nenhum movimento registrado pelo GPS.");
-                            }
-                            catch (Exception e)
-                            {
-                                MensagemUtils.avisar(e.Message);
-                            }
+
+														try
+														{
+															LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
+															if (local != null)
+															{
+																RadarBLL regraRadar = RadarFactory.create();
+															regraRadar.gravar(local, false);
+																MensagemUtils.avisar("Radar incluído com sucesso.");
+															}
+															else
+																MensagemUtils.avisar("Nenhum movimento registrado pelo GPS.");
+														}
+														catch (Exception e)
+														{
+															MensagemUtils.avisar(e.Message);
+														}
+														*/
+
+							CustoMenuPopUp custoMenu = new CustoMenuPopUp();
+							NavigationX.create(this).PushPopupAsyncX(custoMenu, true);
                             
                         }
                     )

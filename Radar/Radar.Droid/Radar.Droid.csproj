@@ -237,6 +237,21 @@
     <AndroidAsset Include="Assets\radares\semaforo.png" />
     <AndroidAsset Include="Assets\radares\lombada.png" />
     <AndroidAsset Include="Assets\radares\radar_movel.png" />
+    <AndroidResource Include="Resources\drawable\ic_add_a_photo_black_48dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_edit_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_event_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_local_offer_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_local_see_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_mail_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_map_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_monetization_on_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_shopping_cart_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_vpn_key_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_wc_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_check_circle_2x.png" />
+    <AndroidResource Include="Resources\drawable\ic_face_2x.png" />
+    <None Include="Resources\ic_settings_2x.png" />
+    <AndroidResource Include="Resources\drawable\ic_settings_2x.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />

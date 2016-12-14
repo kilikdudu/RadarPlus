@@ -6,13 +6,27 @@ namespace Radar.Pages
 	{
 		public GrupoTabbedPage()
 		{
-			var navigationPage = new NavigationPage(new GrupoPage());
-			navigationPage.Icon = "navicon.png";
-			navigationPage.Title = "Schedule";
+			inicializaComponente();	
+		}
+		
+		public void inicializaComponente()
+		{
+		var abaGrupo = new ColaboradorPage();
+			abaGrupo.Icon = "ic_face_2x.png";
+			abaGrupo.Title = "Colaboradores";
 
-			//Children.Add(new GrupoAdministracaoPage());
-			Children.Add(navigationPage);
+			var abaAdministracao = new GrupoAdministracaoPage();
+			abaAdministracao.Icon = "ic_settings_2x.png";
+			abaAdministracao.Title = "Administração";
+			
+			var abaPendentes = new UsuarioPendente();
+			abaPendentes.Icon = "ic_check_circle_2x.png";
+			abaPendentes.Title = "Pendentes";
+			Children.Add(abaGrupo);
+			Children.Add(abaAdministracao);
+			Children.Add(abaPendentes);
 
 		}
+		
 	}
 }

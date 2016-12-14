@@ -194,7 +194,7 @@ namespace Radar
 			 
 			_cupomFiscal = new Image()
 			{
-				Source = "ic_add_a_photo_48pt.png",
+				Source = "ic_add_a_photo_black_48pd.png",
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				WidthRequest = TelaUtils.LarguraSemPixel * 0.4,
@@ -210,7 +210,37 @@ namespace Radar
 						}
 					)
 			});
+			
+			StackLayout stackButtons = new StackLayout()
+			{
+				Orientation = StackOrientation.Horizontal,
+				HorizontalOptions = LayoutOptions.End,
+			};
+			Button gravar = new Button()
+			{
+				Text = "Gravar",
+				HorizontalOptions = LayoutOptions.End,
+				TextColor = Color.FromHex(TemaInfo.PrimaryColor),
+				FontFamily = "Roboto-Condensed",
+				BackgroundColor = Color.Transparent,
+				FontSize = 20
+			};
 
+			gravar.Clicked += OnGravar;
+
+			Button cancelar = new Button()
+			{
+				Text = "Cancelar",
+				HorizontalOptions = LayoutOptions.End,
+				TextColor = Color.FromHex(TemaInfo.PrimaryColor),
+				FontFamily = "Roboto-Condensed",
+				BackgroundColor = Color.Transparent,
+				FontSize = 20
+			};
+			cancelar.Clicked += OnCancelar;
+
+			stackButtons.Children.Add(cancelar);
+			stackButtons.Children.Add(gravar);
 			fotoStack.Children.Add(_cupomFiscal);
 
 			main.Children.Add(valorStack);
@@ -220,9 +250,20 @@ namespace Radar
 			main.Children.Add(tagsStack);
 			main.Children.Add(observacaoStack);
 			main.Children.Add(fotoStack);
+			main.Children.Add(stackButtons);
 
 			scrollMain.Content = main;
 			Content = scrollMain;
+		}
+
+		public void OnCancelar(Object sender, EventArgs e)
+		{
+
+		}
+		
+		public void OnGravar(Object sender, EventArgs e)
+		{
+
 		}
 
 		private void mostraEndereco(string endereco)

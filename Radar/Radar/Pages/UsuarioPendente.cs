@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace Radar
 {
-	public class ColaboradorAdministracaoPage : ContentPage
+	public class UsuarioPendente : ContentPage
 	{
 		public Label _email;
 		public Switch _administrador;
@@ -20,11 +20,70 @@ namespace Radar
 		public Switch _verLocalizacaoUsuario;
 		public Switch _verPercursoUsuario;
 		
-		public ColaboradorAdministracaoPage()
+		public UsuarioPendente()
 		{
-			Title = "Permissões";
+			Title = "Usuários Pendentes";
 
-			StackLayout stackMain = new StackLayout();
+			AbsoluteLayout listaView = new AbsoluteLayout();
+			listaView.VerticalOptions = LayoutOptions.Fill;
+			listaView.HorizontalOptions = LayoutOptions.Fill;
+			
+			ObservableCollection<ColaboradorInfo> pendente = new ObservableCollection<ColaboradorInfo>();
+			pendente.Add(new ColaboradorInfo(){ Nome="Fabio", Email="fabio@dutra.com", Imagem="navicon.png", Pendente="Sim", Administrador="Sim"});
+			pendente.Add(new ColaboradorInfo(){ Nome="Rodrigo", Email="Rodigro@landim.com", Imagem="navicon.png", Pendente="Sim", Administrador="Sim"});
+			pendente.Add(new ColaboradorInfo(){ Nome="Carlos", Email="carlos@eduardo.com", Imagem="navicon.png", Pendente="Sim", Administrador="Sim"});
+			
+			ListView listaPendentes = new ListView();
+			listaPendentes.RowHeight = 200;
+			listaPendentes.ItemTemplate = new DataTemplate(typeof(ColaboradoresCelula));
+			listaPendentes.ItemTapped += OnTap;
+			listaPendentes.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+			listaPendentes.HasUnevenRows = true;
+			listaPendentes.SeparatorColor = Color.Transparent;
+			listaPendentes.VerticalOptions = LayoutOptions.Fill;
+			listaPendentes.HorizontalOptions = LayoutOptions.Center;
+
+			//var grupos = regraGrupo.listar();
+			listaPendentes.BindingContext = pendente;
+			
+			listaView.Children.Add(listaPendentes);
+			
+			Content = listaView;
+			
+			
+		}
+
+		public class ColaboradoresCelula : ViewCell
+			{
+			Switch _ativar;
+			Switch _administrador;
+			
+			public ColaboradoresCelula()
+			{
+
+				var excluirColaboradorPendente = new MenuItem
+				{
+					Text = "Excluir"
+				};
+
+				excluirColaboradorPendente.SetBinding(MenuItem.CommandParameterProperty, new Binding("."));
+				excluirColaboradorPendente.Clicked += (sender, e) =>
+				{
+					GrupoInfo grupo = (GrupoInfo)((MenuItem)sender).BindingContext;
+					//GrupoBLL regraGrupo = GrupoFactory.create();
+					//regraGrupo.excluir(grupo.Id);
+
+					ListView listaPendentes = this.Parent as ListView;
+
+					listaPendentes.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+					listaPendentes.RowHeight = 120;
+					//var grupos = regraGrupo.listar();
+					//listaGrupos.BindingContext = grupos;
+					listaPendentes.ItemTemplate = new DataTemplate(typeof(ColaboradoresCelula));
+				};
+				ContextActions.Add(excluirColaboradorPendente);
+
+				StackLayout stackMain = new StackLayout();
 			stackMain.VerticalOptions = LayoutOptions.FillAndExpand;
 			stackMain.HorizontalOptions = LayoutOptions.Fill;
 
@@ -68,17 +127,18 @@ namespace Radar
 					VerticalOptions = LayoutOptions.Center,
 					Source = "navicon.png"
 				};
+				foto.SetBinding(Image.SourceProperty, new Binding("Imagem"));
 				
 				Label nome = new Label
 				{
-					Text = "Fabio",
+					
 					TextColor = Color.FromHex(TemaInfo.PrimaryText),
 					FontFamily = "Roboto-Condensed",
 					FontSize = 20,
 					HorizontalOptions = LayoutOptions.Center,
 					VerticalOptions = LayoutOptions.Start,
 				};
-				
+				nome.SetBinding(Label.TextProperty, new Binding("Nome"));
 
 				Label emailLabel = new Label
 				{
@@ -89,36 +149,17 @@ namespace Radar
 					HorizontalOptions = LayoutOptions.Start,
 					VerticalOptions = LayoutOptions.Start
 				};
-				 _email = new Label
-				{
-					Text = "fabio@dutra.com",
-					TextColor = Color.FromHex(TemaInfo.PrimaryText),
-					FontFamily = "Roboto-Condensed",
-					FontSize = 20,
-					HorizontalOptions = LayoutOptions.Start,
-					VerticalOptions = LayoutOptions.Start
-				};
 				
-
-				Label pendenteLabel = new Label
+				Label email = new Label
 				{
-					Text = "Convite aceito:",
+					//Text = "fabio@dutra.com",
 					TextColor = Color.FromHex(TemaInfo.PrimaryText),
 					FontFamily = "Roboto-Condensed",
 					FontSize = 20,
 					HorizontalOptions = LayoutOptions.Start,
 					VerticalOptions = LayoutOptions.Start
 				};
-				Label pendente = new Label
-				{
-					Text = "Convite aceito: ",
-					TextColor = Color.FromHex(TemaInfo.PrimaryText),
-					FontFamily = "Roboto-Condensed",
-					FontSize = 20,
-					HorizontalOptions = LayoutOptions.Start,
-					VerticalOptions = LayoutOptions.Start
-				};
-				pendente.SetBinding(Label.TextProperty, new Binding("Pendente"));
+				email.SetBinding(Label.TextProperty, new Binding("Email"));
 				
 				Label administradorLabel = new Label
 				{
@@ -136,9 +177,9 @@ namespace Radar
 					VerticalOptions = LayoutOptions.Start
 				};
 				
-				Label adicionarRemoverUsuarioLabel = new Label
+				Label ativarLabel = new Label
 				{
-					Text = "Adcionar/ Remover Usuário:",
+					Text = "Ativar Cadastro:",
 					TextColor = Color.FromHex(TemaInfo.PrimaryText),
 					FontFamily = "Roboto-Condensed",
 					FontSize = 20,
@@ -146,55 +187,7 @@ namespace Radar
 					VerticalOptions = LayoutOptions.Start
 				};
 				
-				_adcionarRemoverUsuario= new Switch
-				{
-					HorizontalOptions = LayoutOptions.Start,
-					VerticalOptions = LayoutOptions.Start
-				};
-				
-				Label apagarPercursoPermissaoLabel = new Label
-				{
-					Text = "Apagar percurso:",
-					TextColor = Color.FromHex(TemaInfo.PrimaryText),
-					FontFamily = "Roboto-Condensed",
-					FontSize = 20,
-					HorizontalOptions = LayoutOptions.Start,
-					VerticalOptions = LayoutOptions.Start
-				};
-				
-				_apagarPercursoPermissao= new Switch
-				{
-					HorizontalOptions = LayoutOptions.Start,
-					VerticalOptions = LayoutOptions.Start
-				};
-				
-				Label verLocalizacaoUsuarioLabel = new Label
-				{
-					Text = "Ver localização do usuário:",
-					TextColor = Color.FromHex(TemaInfo.PrimaryText),
-					FontFamily = "Roboto-Condensed",
-					FontSize = 20,
-					HorizontalOptions = LayoutOptions.Start,
-					VerticalOptions = LayoutOptions.Start
-				};
-				
-				_verLocalizacaoUsuario = new Switch
-				{
-					HorizontalOptions = LayoutOptions.Start,
-					VerticalOptions = LayoutOptions.Start
-				};
-				
-				Label verPercursoUsuarioLabel = new Label
-				{
-					Text = "Ver percursos do usuário:",
-					TextColor = Color.FromHex(TemaInfo.PrimaryText),
-					FontFamily = "Roboto-Condensed",
-					FontSize = 20,
-					HorizontalOptions = LayoutOptions.Start,
-					VerticalOptions = LayoutOptions.Start
-				};
-				
-				_verPercursoUsuario = new Switch
+				_ativar= new Switch
 				{
 					HorizontalOptions = LayoutOptions.Start,
 					VerticalOptions = LayoutOptions.Start
@@ -222,33 +215,21 @@ namespace Radar
 					frameOuter.Margin = new Thickness(5, 10, 5, 10);
 				}
 
-				stackEmail.Children.Add(emailLabel);
-				stackEmail.Children.Add(_email);
+			
 				
 				stackAdministrador.Children.Add(administradorLabel);
 				stackAdministrador.Children.Add(_administrador);
 				
 				
 				var grid = new Grid();
-				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.5, GridUnitType.Star)});
-				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.5, GridUnitType.Star)});
-				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.5, GridUnitType.Star)});
-				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.5, GridUnitType.Star)});
-				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.5, GridUnitType.Star)});
+				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star)});
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.4, GridUnitType.Star)});
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.6, GridUnitType.Star)});
-				grid.Children.Add(emailLabel, 0, 0);
-				grid.Children.Add(_email, 1, 0);
+				grid.Children.Add(ativarLabel, 0, 0);
+				grid.Children.Add(_ativar, 1, 0);
 				grid.Children.Add(administradorLabel, 0, 1);
 				grid.Children.Add(_administrador, 1, 1);
-				grid.Children.Add(adicionarRemoverUsuarioLabel, 0, 2);
-				grid.Children.Add(_adcionarRemoverUsuario, 1, 2);
-				grid.Children.Add(apagarPercursoPermissaoLabel, 0, 3);
-				grid.Children.Add(_apagarPercursoPermissao, 1, 3);
-				grid.Children.Add(verLocalizacaoUsuarioLabel, 0, 4);
-				grid.Children.Add(_verLocalizacaoUsuario, 1, 4);
-				grid.Children.Add(verPercursoUsuarioLabel, 0, 5);
-				grid.Children.Add(_verPercursoUsuario, 1, 5);
+			
 				
 				stackTop.Children.Add(foto);
 				stackTop.Children.Add(nome);
@@ -265,7 +246,11 @@ namespace Radar
 
 			stackMain.Children.Add(frameOuter);
 			
-			Content = stackMain;
+			View = stackMain;
+
+			}
+
+
 		}
 
 		public void convidarUsuario()
@@ -283,24 +268,13 @@ namespace Radar
 			//{
 				if (this.Navigation.NavigationStack.Count == 1)
 				{
-					NavegacaoUtils.PushAsync(new ColaboradorAdministracaoPage());
+					//NavegacaoUtils.PushAsync(new ColaboradorAdministracaoPage());
 				}
 			//}
 
 		}
 
-		public class ColaboradoresCelula : ViewCell
-		{
-
 		
-
-				
-
-		
-
-
-		}
-
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
