@@ -67,6 +67,7 @@
     <Compile Include="IBLL\ITela.cs" />
     <Compile Include="Pages\ModoReproducaoVozPage.cs" />
     <Compile Include="Utils\NavegacaoUtils.cs" />
+    <Compile Include="Utils\PercursoUtils.cs" />
     <Compile Include="Utils\TelaUtils.cs" />
     <Compile Include="Controls\DownloaderAtualizacao.cs" />
     <Compile Include="Controls\PonteiroCorEnum.cs" />
@@ -123,7 +124,6 @@
     <Compile Include="BLL\PercursoBLL.cs" />
     <Compile Include="BLL\PreferenciaBLL.cs" />
     <Compile Include="BLL\PreferenciaUtils.cs" />
-    <Compile Include="BLL\ProcessarPontoEventHandler.cs" />
     <Compile Include="BLL\RadarBLL.cs" />
     <Compile Include="Controls\EmailValidatorBehavior.cs" />
     <Compile Include="Controls\NumberValidatorBehavior.cs" />
@@ -185,8 +185,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Audio\" />
-    <Folder Include="Pages\Popup\" />
-    <Folder Include="Pages\Instrucao\" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

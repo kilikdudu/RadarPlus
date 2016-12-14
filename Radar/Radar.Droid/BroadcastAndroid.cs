@@ -31,13 +31,13 @@ namespace Radar.Droid
             else if (intent.Action == PercursoBLL.ACAO_PARAR_SIMULACAO)
             {
                 GPSUtils.pararSimulacao();
-                ClubManagement.Utils.MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_SIMULACAO_PERCURSO_ID);
+                MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_SIMULACAO_PERCURSO_ID);
                 InvokeAbortBroadcast();
             }
-            else if (intent.Action == PercursoBLL.ACAO_PARAR_SIMULACAO) {
+            else if (intent.Action == PercursoBLL.ACAO_PARAR_GRAVACAO) {
                 PercursoBLL regraPercurso = PercursoFactory.create();
 				regraPercurso.pararGravacao();
-                ClubManagement.Utils.MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
+                //MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
                 InvokeAbortBroadcast();
             }
 			else if (intent.Action == "Fechar")
@@ -45,9 +45,7 @@ namespace Radar.Droid
 				NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
 				notificationManager.Cancel(1);
 				System.Environment.Exit(0);
-				Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
-
-
+				Process.KillProcess(Process.MyPid());
 			}
         }
     }

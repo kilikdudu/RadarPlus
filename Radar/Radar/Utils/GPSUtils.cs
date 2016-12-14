@@ -76,7 +76,7 @@ namespace Radar.Utils
 			RadarBLL.RadarAtual = radar;
 			string mensagem = "Tem um radar a frente, diminua para " + radar.Velocidade.ToString() + "km/h!";
 
-			MensagemUtils.notificar(RADAR_ID, "Radar Club", mensagem, radar.Velocidade);
+			MensagemUtils.notificar(RADAR_ID, "Radar Club", mensagem, velocidade: radar.Velocidade);
 
 			if (PreferenciaUtils.BeepAviso)
 				regraAviso.play(PreferenciaUtils.SomAlarme);

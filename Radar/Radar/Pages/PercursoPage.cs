@@ -30,7 +30,6 @@ namespace Radar.Pages
         View _GravarButton;
         View _PararButton;
 
-
         public PercursoPage()
         {
             Title = "Percusos";
@@ -41,72 +40,98 @@ namespace Radar.Pages
                 VerticalOptions = LayoutOptions.Fill,
                 Children = {
                     _PercursoListView,
-                    (!PercursoBLL.Gravando) ? _GravarButton : _PararButton
+                    (!PercursoUtils.Gravando) ? _GravarButton : _PararButton
                 }
             };
             Content = _RootLayout;
         }
 
-        private View criarPararButton() {
-            var stackLayout = new StackLayout
+        public void atualizarGravacao(LocalizacaoInfo local, bool alterado) {
+            var percurso = PercursoUtils.PercursoAtual;
+            if (percurso != null)
             {
-                Style = EstiloUtils.PercursoGravarStackLayoutMain,
+                TimeSpan tempo = TimeSpan.Zero;
+                if (percurso.Pontos.Count > 0) {
+                    tempo = local.Tempo.Subtract(percurso.Pontos[0].Data);
+                }
+
+                _tempoCorrendo.Text = "Tempo: " + tempo.ToString(@"hh\:mm\:ss");
+                if (alterado)
+                {
+                    _tempoParado.Text = "Parado: " + percurso.TempoParadoStr;
+                    _paradas.Text = "Paradas: " + percurso.QuantidadeParadaStr;
+                    _velocidadeMedia.Text = "V Méd: " + percurso.VelocidadeMediaStr;
+                    _velocidadeMaxima.Text = "V Max: " + percurso.VelocidadeMaximaStr;
+                    _radares.Text = "Radares: " + percurso.QuantidadeRadarStr;
+                }
+            }
+        }
+
+        private View criarPararButton() {
+            var gridLayout = new Grid {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.End
+            };
+            var imagemStop = new Image
+            {
+                Source = ImageSource.FromFile("Stop.png"),
+                Style = EstiloUtils.PercursoGravarImagem
+            };
+            var tituloLabel = new Label
+            {
+                Text = "Parar Percurso!",
+                Style = EstiloUtils.PercursoGravarTitulo
+            };
+            var descricaoLayout = new WrapLayout
+            {
+                VerticalOptions = LayoutOptions.Start,
+                HorizontalOptions = LayoutOptions.Fill,
+                //WidthRequest = TelaUtils.LarguraSemPixel * 0.7,
+                Spacing = 1,
                 Children = {
-                    new Image {
-                        Source = ImageSource.FromFile("Stop.png"),
-                        Style = EstiloUtils.PercursoGravarImagem
+                    new Image
+                    {
+                        Source = ImageSource.FromFile("relogio_20x20_preto.png")
                     },
-                    new StackLayout {
-                        Style = EstiloUtils.PercursoGravarStackLayoutInterno,
-                        Children = {
-                            new Label {
-                                Text = "Parar Percurso!",
-                                Style = EstiloUtils.PercursoGravarTitulo
-                            },
-                            new WrapLayout {
-                                HorizontalOptions = LayoutOptions.Fill,
-                                WidthRequest = TelaUtils.LarguraSemPixel * 0.7,
-                                Spacing = 1,
-                                Children = {
-                                    new Image
-                                    {
-                                        Source = ImageSource.FromFile("relogio_20x20_preto.png")
-                                    },
-                                    _tempoCorrendo,
-                                    new Image {
-                                        Source = ImageSource.FromFile("ampulheta_20x20_preto.png")
-                                    },
-                                    _tempoParado,
-                                    new Image {
-                                        Source = ImageSource.FromFile("mao_20x20_preto.png")
-                                    },
-                                    _paradas,
-                                    new Image {
-                                        Source = ImageSource.FromFile("velocimetro_20x20_preto.png")
-                                    },
-                                    _velocidadeMedia,
-                                    new Image {
-                                        Source = ImageSource.FromFile("velocimetro_20x20_preto.png")
-                                    },
-                                    _velocidadeMaxima,
-                                    new Image {
-                                        Source = ImageSource.FromFile("radar_20x20_preto.png")
-                                    },
-                                    _radares
-                                }
-                            }
-                        }
-                    }
+                    _tempoCorrendo,
+                    new Image {
+                        Source = ImageSource.FromFile("ampulheta_20x20_preto.png")
+                    },
+                    _tempoParado,
+                    new Image {
+                        Source = ImageSource.FromFile("mao_20x20_preto.png")
+                    },
+                    _paradas,
+                    new Image {
+                        Source = ImageSource.FromFile("velocimetro_20x20_preto.png")
+                    },
+                    _velocidadeMedia,
+                    new Image {
+                        Source = ImageSource.FromFile("velocimetro_20x20_preto.png")
+                    },
+                    _velocidadeMaxima,
+                    new Image {
+                        Source = ImageSource.FromFile("radar_20x20_preto.png")
+                    },
+                    _radares
                 }
             };
-
-            stackLayout.GestureRecognizers.Add(new TapGestureRecognizer()
+            //gridLayout.Padding = new Thickness(30, 30, 30, 40);
+            gridLayout.Padding = new Thickness(10, 10, 10, 20);
+            gridLayout.HeightRequest = 150;
+            gridLayout.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(0.25, GridUnitType.Star) });
+            gridLayout.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(0.75, GridUnitType.Star) });
+            gridLayout.Children.Add(imagemStop, 0, 0);
+            gridLayout.Children.Add(tituloLabel, 1, 0);
+            gridLayout.Children.Add(descricaoLayout, 1, 1);
+            Grid.SetRowSpan(imagemStop, 2);
+            gridLayout.GestureRecognizers.Add(new TapGestureRecognizer()
             {
                 Command = new Command(() => {
                     pararPercurso();
                 })
             });
-            return stackLayout;
+            return gridLayout;
         }
 
         private View criarGravarButton() {
@@ -198,41 +223,25 @@ namespace Radar.Pages
 
         protected override void OnAppearing()
         {
+            base.OnAppearing();
             PercursoBLL regraPercurso = PercursoFactory.create();
             var percursos = regraPercurso.listar();
             this.BindingContext = percursos;
+            PercursoUtils.PaginaAtual = this;
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            PercursoUtils.PaginaAtual = null;
         }
 
         private void gravarPercurso()
         {
             PercursoBLL regraPercurso = PercursoFactory.create();
-            if (regraPercurso.iniciarGravacao((s, e) =>
-            {
-                TimeSpan tempo = TimeSpan.Zero;
-                if (e.Percurso.Pontos.Count > 0) {
-                    tempo = e.Local.Tempo.Subtract(e.Percurso.Pontos[0].Data);
-                } 
-
-                _tempoCorrendo.Text = "Tempo: " + tempo.ToString(@"hh\:mm\:ss");
-                if (e.Alterado)
-                {
-                    _tempoParado.Text = "Parado: " + e.Percurso.TempoParadoStr;
-                    _paradas.Text = "Paradas: " + e.Percurso.QuantidadeParadaStr;
-                    _velocidadeMedia.Text = "V Méd: " + e.Percurso.VelocidadeMediaStr;
-                    _velocidadeMaxima.Text = "V Max: " + e.Percurso.VelocidadeMaximaStr;
-                    _radares.Text = "Radares: " + e.Percurso.QuantidadeRadarStr;
-                }
-            }))
-            {
+            if (regraPercurso.iniciarGravacao()) {
                 _RootLayout.Children.Remove(_GravarButton);
                 _RootLayout.Children.Add(_PararButton);
-                MensagemUtils.avisar("Iniciando gravação do percurso!");
-                MensagemUtils.notificarPermanente(
-                    PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID,
-                    "Gravando Percurso...", "",
-                    PercursoBLL.NOTIFICACAO_PARAR_PERCURSO_ID,
-                    "Parar", PercursoBLL.ACAO_PARAR_GRAVACAO
-                );
             }
             else {
                 MensagemUtils.avisar("Não foi possível iniciar a gravação!");
@@ -250,9 +259,6 @@ namespace Radar.Pages
                 {
                     _RootLayout.Children.Remove(_PararButton);
                     _RootLayout.Children.Add(_GravarButton);
-
-                    MensagemUtils.avisar("Gravação finalizada!");
-                    MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
 
                     var percursos = regraPercurso.listar();
                     _PercursoListView.BindingContext = percursos;

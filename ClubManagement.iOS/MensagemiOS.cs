@@ -28,12 +28,8 @@ namespace Radar.iOS
         {
 
         }
-		public bool notificar(int id, string titulo, string descricao)
-        {
-            return true;
-        }
 
-        public bool notificar(int id, string titulo, string mensagem, double velocidade)
+        public bool notificar(int id, string titulo, string mensagem, string audio = null, double velocidade = 0)
         {
             UILocalNotification notification = new UILocalNotification();
             NSDate.FromTimeIntervalSinceNow(15);
@@ -86,7 +82,5 @@ namespace Radar.iOS
 			mySound.PlaySystemSound();
 
 		}
-
-
-	}
+    }
 }

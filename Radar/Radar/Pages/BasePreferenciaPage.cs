@@ -17,6 +17,7 @@ namespace Radar.Pages
         protected abstract void inicializarTela();
 
         public BasePreferenciaPage() {
+            Title = Titulo;
             inicializarComponente();
             inicializarTela();
 

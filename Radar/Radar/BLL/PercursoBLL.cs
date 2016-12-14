@@ -26,30 +26,6 @@ namespace Radar.BLL
         public const int NOTIFICACAO_SIMULACAO_PARAR_PERCURSO_ID = 1035;
         public const string ACAO_PARAR_SIMULACAO = "parar-simulacao";
         public const string ACAO_PARAR_GRAVACAO = "parar-gravacao";
-        private static PercursoInfo _percursoAtual;
-        private static bool _gravando = false;
-        private static float _latitude = 0;
-        private static float _longitude = 0;
-        //private static DateTime _dataAnterior;
-        //private static DateTime _ultimoMovimentoReal;
-        //private static bool _emMovimento = true;
-
-        public ProcessarPontoEventHandler AoProcessar { get; set; }
-
-        public static bool Gravando {
-            get {
-                return _gravando;
-            }
-            private set {
-                _gravando = value;
-            }
-        }
-
-        public static PercursoInfo PercursoAtual {
-            get {
-                return _percursoAtual;
-            }
-        }
 
         public PercursoBLL()
         {
@@ -137,42 +113,51 @@ namespace Radar.BLL
 			}
 		}
 
-        public bool iniciarGravacao(ProcessarPontoEventHandler aoProcessar) {
-            if (_gravando)
+        public bool iniciarGravacao() {
+            if (PercursoUtils.Gravando)
                 return false;
 			PercursoInfo percurso = new PercursoInfo();
             gravar(percurso);
             //atualizarEndereco();
-            _percursoAtual = percurso;
+            PercursoUtils.PercursoAtual = percurso;
             //_dataAnterior = DateTime.MinValue;
             //_ultimoMovimentoReal = DateTime.MinValue;
-            _gravando = true;
-            _latitude = 0;
-            _longitude = 0;
+            PercursoUtils.Gravando = true;
+            PercursoUtils.Latitude = 0;
+            PercursoUtils.Longitude = 0;
             //_emMovimento = true;
-			AoProcessar += aoProcessar;
             //MensagemUtils.notificar(2, "Gravando Percurso", "Gravando percurso agora!");
+            MensagemUtils.avisar("Iniciando gravação do percurso!");
+            MensagemUtils.notificarPermanente(
+                NOTIFICACAO_GRAVAR_PERCURSO_ID,
+                "Gravando Percurso...", "",
+                NOTIFICACAO_PARAR_PERCURSO_ID,
+                "Parar", ACAO_PARAR_GRAVACAO
+            );
             return true;
         }
 
         public bool pararGravacao()
         {
-            if (!_gravando)
+            if (!PercursoUtils.Gravando)
                 return false;
             //MensagemUtils.notificar(2, "Gravando Percurso", "Gravando percurso agora!");
-            _percursoAtual = null;
+            var percurso = PercursoUtils.PercursoAtual;
+            PercursoUtils.PercursoAtual = null;
             //_dataAnterior = DateTime.MinValue;
             //_ultimoMovimentoReal = DateTime.MinValue;
-            _gravando = false;
+            PercursoUtils.Gravando = false;
             //_emMovimento = false;
-			//atualizarEndereco();
+            MensagemUtils.avisar("Gravação finalizada!");
+            MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
+            atualizarEndereco(percurso);
             return true;
         }
 
         private PercursoPontoInfo gerarPonto(LocalizacaoInfo local, RadarInfo radar = null) {
             return new PercursoPontoInfo()
             {
-                IdPercurso = _percursoAtual.Id,
+                IdPercurso = PercursoUtils.PercursoAtual.Id,
                 Latitude = local.Latitude,
                 Longitude = local.Longitude,
                 Velocidade = local.Velocidade,
@@ -185,25 +170,26 @@ namespace Radar.BLL
 
         private void processarPonto(LocalizacaoInfo local, RadarInfo radar = null)
         {
-            var distancia = GPSUtils.calcularDistancia(local.Latitude, local.Longitude, _latitude, _longitude);
+            var distancia = GPSUtils.calcularDistancia(local.Latitude, local.Longitude, PercursoUtils.Latitude, PercursoUtils.Longitude);
             bool alterado = false;
             if (distancia >= 15)
             {
                 var ponto = gerarPonto(local, radar);
                 gravarPonto(ponto);
-                _percursoAtual.Pontos.Add(ponto);
+                PercursoUtils.PercursoAtual.Pontos.Add(ponto);
 
-                _latitude = (float)local.Latitude;
-                _longitude = (float)local.Longitude;
+                PercursoUtils.Latitude = (float)local.Latitude;
+                PercursoUtils.Longitude = (float)local.Longitude;
                 alterado = true;
             }
-            if (AoProcessar != null)
-                AoProcessar(this, new ProcessarPontoEventArgs(_percursoAtual, local, alterado));
+            if (PercursoUtils.PaginaAtual != null) {
+                PercursoUtils.PaginaAtual.atualizarGravacao(local, alterado);
+            }
         }
 
         public bool executarGravacao(LocalizacaoInfo local, RadarInfo radar = null)
         {
-            if (!_gravando)
+            if (!PercursoUtils.Gravando)
                 return false;
             //TimeSpan tempo = local.Tempo.Subtract(_dataAnterior);
             //if (tempo.TotalSeconds > TEMPO_ATUALIZACAO_PONTO) {

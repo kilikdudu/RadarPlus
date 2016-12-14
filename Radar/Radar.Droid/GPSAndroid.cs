@@ -19,6 +19,7 @@ using Java.Util;
 using SQLite;
 using System.Linq;
 using System.Collections.Generic;
+using ClubManagement.Utils;
 
 [assembly: UsesPermission(Manifest.Permission.AccessFineLocation)]
 [assembly: UsesPermission(Manifest.Permission.AccessCoarseLocation)]
@@ -44,6 +45,7 @@ namespace Radar.Droid
         private bool _inicializado = false;
         private bool desativando = false;
         public GPSSituacaoEnum Situacao { get; set; }
+        public GPSDisponibilidadeEnum Disponibilidade { get; set; }
 
         private float _sentidoAnterior = 0;
 
@@ -115,7 +117,7 @@ namespace Radar.Droid
 				//Button
 				NotificationCompat.Action action = new NotificationCompat.Action.Builder(Resource.Drawable.mystop, "Fechar", pendingIntent).Build();
 
-				Notification notification = new NotificationCompat.Builder(context)
+				Notification notificacao = new NotificationCompat.Builder(context)
 					.SetSmallIcon(Resource.Drawable.navicon)
 					.SetContentTitle("Radar+")
 					.SetContentText("Toque aqui para fechar")
@@ -124,13 +126,14 @@ namespace Radar.Droid
 					.AddAction(action) //add buton
 					.Build();
 
-                 //notification.SetLatestEventInfo( this, "Radar+", "Pressione aqui para fechar.", pendingIntent);
-                 //StartForeground((int)NotificationFlags.ForegroundService, notification);
+                //notification.SetLatestEventInfo( this, "Radar+", "Pressione aqui para fechar.", pendingIntent);
+                //StartForeground((int)NotificationFlags.ForegroundService, notification);
 
-				NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
-				Notification notificacao = notification;
-				notificacao.Flags = NotificationFlags.AutoCancel;
-				notificationManager.Notify(1, notificacao);
+                NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
+                //Notification notificacao = notification;
+                //notificacao.Flags = NotificationFlags.AutoCancel;
+                notificacao.Flags = NotificationFlags.NoClear;
+                notificationManager.Notify(1, notificacao);
             }
         }
 
@@ -255,6 +258,30 @@ namespace Radar.Droid
 
         public void OnStatusChanged(string provider, [GeneratedEnum] Availability status, Bundle extras)
         {
+            if (status.Equals(Availability.Available))
+            {
+                if (Disponibilidade != GPSDisponibilidadeEnum.Disponivel)
+                {
+                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS encontrado!", "sinal_gps_encontrado");
+                    Disponibilidade = GPSDisponibilidadeEnum.Disponivel;
+                }
+            }
+            else if (status.Equals(Availability.OutOfService))
+            {
+                if (Disponibilidade != GPSDisponibilidadeEnum.ForaDoAr)
+                {
+                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", "sinal_gps_fora_do_ar");
+                    Disponibilidade = GPSDisponibilidadeEnum.ForaDoAr;
+                }
+            }
+            else if (status.Equals(Availability.TemporarilyUnavailable))
+            {
+                if (Disponibilidade != GPSDisponibilidadeEnum.IndisponivelTemporariamente)
+                {
+                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", "sinal_gps_perdido");
+                    Disponibilidade = GPSDisponibilidadeEnum.IndisponivelTemporariamente;
+                }
+            }
         }
 
         public bool inicializar()

@@ -336,7 +336,7 @@ namespace Radar.Utils
             {
                 Setters = {
                     new Setter { Property = Image.WidthRequestProperty, Value = 60 },
-                    new Setter { Property = Image.HorizontalOptionsProperty, Value = LayoutOptions.Start },
+                    new Setter { Property = Image.HorizontalOptionsProperty, Value = LayoutOptions.End },
                     new Setter { Property = Image.VerticalOptionsProperty, Value = LayoutOptions.Center },
                 }
             });
