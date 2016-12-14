@@ -251,6 +251,7 @@
     <BundleResource Include="Resources\ic_check_circle_2x.png" />
     <BundleResource Include="Resources\ic_face_2x.png" />
     <BundleResource Include="Resources\ic_settings_2x.png" />
+    <BundleResource Include="Resources\ic_pan_tool_black_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

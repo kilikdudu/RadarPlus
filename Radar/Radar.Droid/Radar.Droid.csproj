@@ -252,6 +252,10 @@
     <AndroidResource Include="Resources\drawable\ic_face_2x.png" />
     <None Include="Resources\ic_settings_2x.png" />
     <AndroidResource Include="Resources\drawable\ic_settings_2x.png" />
+    <AndroidResource Include="Resources\drawable\ic_pan_tool_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_pan_tool_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_pan_tool_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_pan_tool_black_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />

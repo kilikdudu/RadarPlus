@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace Radar
 {
-	public class UsuarioPendente : ContentPage
+	public class UsuarioPendentePage : ContentPage
 	{
 		public Label _email;
 		public Switch _administrador;
@@ -20,7 +20,7 @@ namespace Radar
 		public Switch _verLocalizacaoUsuario;
 		public Switch _verPercursoUsuario;
 		
-		public UsuarioPendente()
+		public UsuarioPendentePage()
 		{
 			Title = "Usuários Pendentes";
 
@@ -222,6 +222,7 @@ namespace Radar
 				
 				
 				var grid = new Grid();
+				
 				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star)});
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.4, GridUnitType.Star)});
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.6, GridUnitType.Star)});

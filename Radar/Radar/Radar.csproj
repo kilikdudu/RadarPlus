@@ -145,7 +145,10 @@
     <Compile Include="Popup\CustoMenuPopUp.cs" />
     <Compile Include="Popup\ConviteUsuarioPopUp.cs" />
     <Compile Include="Model\ColaboradorInfo.cs" />
-    <Compile Include="Pages\UsuarioPendente.cs" />
+    <Compile Include="Pages\UsuarioPendentePage.cs" />
+    <Compile Include="Pages\ResumoPercursoPage.cs" />
+    <Compile Include="Model\ResumoInfo.cs" />
+    <Compile Include="Model\ResumoItemInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

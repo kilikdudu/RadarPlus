@@ -19,7 +19,7 @@ namespace Radar.Pages
 			abaAdministracao.Icon = "ic_settings_2x.png";
 			abaAdministracao.Title = "Administração";
 			
-			var abaPendentes = new UsuarioPendente();
+			var abaPendentes = new UsuarioPendentePage();
 			abaPendentes.Icon = "ic_check_circle_2x.png";
 			abaPendentes.Title = "Pendentes";
 			Children.Add(abaGrupo);

@@ -150,6 +150,7 @@ namespace Radar.Pages
             };
             _PercursoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
 			_PercursoListView.RowHeight = 200;
+			_PercursoListView.ItemTapped += OnTap;
 			_PercursoListView.Footer = new Label()
 			{
 				Text = ""
@@ -195,7 +196,19 @@ namespace Radar.Pages
             _GravarButton = criarGravarButton();
             _PararButton = criarPararButton();
         }
+        
+		public void OnTap(object sender, ItemTappedEventArgs e)
+		{
 
+			PercursoInfo item = (PercursoInfo)e.Item;
+
+		
+				
+					NavegacaoUtils.PushAsync(new GrupoTabbedPage());
+					//((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage(new GrupoTabbedPage());
+				
+
+		}
         protected override void OnAppearing()
         {
             PercursoBLL regraPercurso = PercursoFactory.create();
