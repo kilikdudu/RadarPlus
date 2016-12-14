@@ -185,6 +185,7 @@
     <Compile Include="BroadcastAndroid.cs" />
     <Compile Include="GPSAndroid.cs" />
     <Compile Include="GPSSituacaoEnum.cs" />
+    <Compile Include="GPSDisponibilidadeEnum.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MensagemAndroid.cs" />
     <Compile Include="RadarMapRenderer.cs" />
@@ -499,6 +500,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\sinal_gps_encontrado.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\sinal_gps_fora_do_ar.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\sinal_gps_perdido.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

@@ -16,7 +16,6 @@ namespace Radar.Pages
         public List<ListaInfo> menus;
 
         public static PreferenciaPage Atual
-
         {
             get
             {
@@ -43,7 +42,6 @@ namespace Radar.Pages
                 Titulo = "Modo Mapa",
                 Imagem = "modomapa.png",
                 aoClicar = (sender, e) => {
-                    //NavigationX.create(this).PushAsync(new ModoMapaPage(), true);
                     NavegacaoUtils.PushAsync(new ModoMapaPage());
                 }
             });
@@ -83,23 +81,24 @@ namespace Radar.Pages
                     NavigationX.create(this).PushAsync(new ModoGeralPage(), true);
                 }
             });
-            menus.Add(new ListaInfo()
+            if (Device.OS == TargetPlatform.Android)
             {
-                Titulo = "Auto Início/Desligamento",
-                Imagem = "autoiniciodesligamento.png",
-                aoClicar = (sender, e) =>
+                menus.Add(new ListaInfo()
                 {
-                    //this.Navigation.PushAsync(new ModoAutoInicioPage());
-                    NavigationX.create(this).PushAsync(new ModoAutoInicioPage(), true);
-                }
-            });
+                    Titulo = "Auto Início/Desligamento",
+                    Imagem = "autoiniciodesligamento.png",
+                    aoClicar = (sender, e) =>
+                    {
+                        NavigationX.create(this).PushAsync(new ModoAutoInicioPage(), true);
+                    }
+                });
+            }
             menus.Add(new ListaInfo()
             {
                 Titulo = "Percurso",
                 Imagem = "percursos.png",
                 aoClicar = (sender, e) =>
                 {
-                    //this.Navigation.PushAsync(new ModoPercursoPage());
                     NavigationX.create(this).PushAsync(new ModoPercursoPage(), true);
 
                 }
@@ -118,9 +117,6 @@ namespace Radar.Pages
             lstView.HasUnevenRows = true;
             lstView.SeparatorColor = Color.Transparent;
 
-            //lstView.BackgroundColor = Color.FromHex(TemaInfo.TextIcons);
-            //lstView.SeparatorColor = Color.FromHex(TemaInfo.DividerColor);
-
             Content = lstView;
         }
 
@@ -131,10 +127,7 @@ namespace Radar.Pages
             ListaInfo item = (ListaInfo)e.Item;
             if (item.aoClicar != null)
             {
-                //if (this.Navigation.NavigationStack.Count == 1)
-                //{
                 item.aoClicar(sender, e);
-                //}
             }
 
         }

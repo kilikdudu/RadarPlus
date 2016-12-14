@@ -135,7 +135,10 @@ namespace Radar.Pages
                 NavigationX.create(this).PushPopupAsyncX(new DistanciaAlertaPopUp(), true);
             }, "Defina com que distância o alerta deve ser emitido");
 
-            adicionarSwitch(_SobreposicaoVisualSwitch, "Sobreposição Visual", "Exibir alertas visuais quando o App estiver funcionando em segundo plano");
+            if (Device.OS == TargetPlatform.Android)
+            {
+                adicionarSwitch(_SobreposicaoVisualSwitch, "Sobreposição Visual", "Exibir alertas visuais quando o App estiver funcionando em segundo plano");
+            }
         }
     }
 }

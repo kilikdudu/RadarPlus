@@ -16,6 +16,7 @@ using ClubManagement.Droid;
 using ClubManagement.Utils;
 using ClubManagement.IBLL;
 using Android;
+using Java.IO;
 
 [assembly: UsesPermission(Manifest.Permission.Vibrate)]
 
@@ -37,32 +38,23 @@ namespace ClubManagement.Droid {
             Toast.MakeText(context, Mensagem, ToastLength.Short).Show();
         }
 
-        public bool notificar(int id, string titulo, string mensagem)
-        {
+        public bool notificar(int id, string titulo, string mensagem, string audio = null, double velocidade = 0) {
             Context context = Android.App.Application.Context;
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
             builder.SetAutoCancel(true);
             builder.SetNumber(id);
-            builder.SetSmallIcon(pegarIconePequeno());
+            if (velocidade > 0)
+                builder.SetSmallIcon(pegarIconeVelocidade(velocidade));
+            else
+                builder.SetSmallIcon(pegarIconePequeno());
             builder.SetContentTitle(titulo);
             if (!string.IsNullOrEmpty(mensagem))
                 builder.SetContentText(mensagem);
-            //builder.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification));
-            NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
-            notificationManager.Notify(id, builder.Build());
-            return true;
-        }
-
-        public bool notificar(int id, string titulo, string mensagem, double velocidade) {
-            Context context = Android.App.Application.Context;
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
-            builder.SetAutoCancel(true);
-            builder.SetNumber(id);
-            builder.SetSmallIcon(pegarIconeVelocidade(velocidade));
-            builder.SetContentTitle(titulo);
-            if (!string.IsNullOrEmpty(mensagem))
-                builder.SetContentText(mensagem);
-            //builder.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification));
+            if (!string.IsNullOrEmpty(audio))
+            {
+                Android.Net.Uri soundUri = Android.Net.Uri.Parse("android.resource://" + context.PackageName + "/raw/" + audio);
+                builder.SetSound(soundUri);
+            }
             NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
             notificationManager.Notify(id, builder.Build());
             return true;
