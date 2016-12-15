@@ -8,6 +8,7 @@ using Radar.Controls;
 using Radar.Pages;
 using Radar.Model;
 using System.Diagnostics;
+using Radar.Estilo;
 
 namespace Radar.Droid {
     /// <summary>
@@ -34,16 +35,16 @@ namespace Radar.Droid {
             switch (cor)
             {
                 case PonteiroCorEnum.Verde:
-                    retorno = Color.Green;
+                    retorno = EstiloUtils.Velocimentro.TextoCor.Verde.ToAndroid();
                     break;
                 case PonteiroCorEnum.Vermelho:
-                    retorno = Color.Red;
+                    retorno = EstiloUtils.Velocimentro.TextoCor.Vermelho.ToAndroid();
                     break;
                 case PonteiroCorEnum.CinzaClaro:
-                    retorno = Color.LightGray;
+                    retorno = EstiloUtils.Velocimentro.TextoCor.CinzaClaro.ToAndroid();
                     break;
                 default:
-                    retorno = Color.Gray;
+                    retorno = EstiloUtils.Velocimentro.TextoCor.Padrao.ToAndroid();
                     break;
             }
             return retorno;
@@ -148,19 +149,19 @@ namespace Radar.Droid {
             strokePaint.SetStyle(Paint.Style.Stroke);
             strokePaint.StrokeWidth = 6;
             //strokePaint.StrokeCap = Paint.Cap.Round;
-            strokePaint.Color = Android.Graphics.Color.Blue;
+            //strokePaint.Color = Color.Blue;
             switch (cor) {
                 case PonteiroCorEnum.Verde:
-                    strokePaint.Color = Android.Graphics.Color.Green;
+                    strokePaint.Color = EstiloUtils.Velocimentro.PonteiroCor.Verde.ToAndroid();
                     break;
                 case PonteiroCorEnum.Vermelho:
-                    strokePaint.Color = Android.Graphics.Color.Red;
+                    strokePaint.Color = EstiloUtils.Velocimentro.PonteiroCor.Vermelho.ToAndroid();
                     break;
 				case PonteiroCorEnum.CinzaClaro:
-					strokePaint.Color = Android.Graphics.Color.LightGray;
+					strokePaint.Color = EstiloUtils.Velocimentro.PonteiroCor.CinzaClaro.ToAndroid();
 					break;
                 default:
-                    strokePaint.Color = Android.Graphics.Color.Gray;
+                    strokePaint.Color = EstiloUtils.Velocimentro.PonteiroCor.Padrao.ToAndroid();
                     break;
             }
 

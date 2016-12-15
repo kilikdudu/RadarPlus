@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using ClubManagement.Extensions;
 using Radar.Model;
 using Radar.Utils;
+using Radar.Estilo;
 
 namespace Radar.Pages
 {
@@ -26,7 +27,7 @@ namespace Radar.Pages
 
         protected override void inicializarComponente() {
             _HabilitarVozSwitch = new Switch {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.HabilitarVoz
             }; 
             _HabilitarVozSwitch.Toggled += (sender, e) => {
@@ -35,7 +36,7 @@ namespace Radar.Pages
 
             _LigarDesligarSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.LigarDesligar
             };
             _LigarDesligarSwitch.Toggled += (sender, e) => {
@@ -44,7 +45,7 @@ namespace Radar.Pages
 
             _AlertaSonoroSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.AlertaSonoro
             };
             _AlertaSonoroSwitch.Toggled += (sender, e) => {

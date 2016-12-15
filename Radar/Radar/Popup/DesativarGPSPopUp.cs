@@ -1,4 +1,5 @@
 ﻿using Radar.BLL;
+using Radar.Estilo;
 using Radar.Model;
 using Radar.Utils;
 using System;
@@ -20,7 +21,7 @@ namespace Radar.Popup
             base.inicializarComponente();
             _FecharSwitch = new Switch
             {
-                Style = EstiloUtils.PopupSwitch
+                Style = EstiloUtils.Popup.CheckBox
             };
             _FecharSwitch.Toggled += (sender, e) =>
             {
@@ -36,7 +37,7 @@ namespace Radar.Popup
 
             _ExibirSwitch = new Switch
             {
-                Style = EstiloUtils.PopupSwitch
+                Style = EstiloUtils.Popup.CheckBox
             };
             _ExibirSwitch.Toggled += (sender, e) =>
             {
@@ -63,7 +64,7 @@ namespace Radar.Popup
                         HorizontalOptions = LayoutOptions.Fill,
                         Children = {
                             new Label {
-                                Style = EstiloUtils.PopupTexto,
+                                Style = EstiloUtils.Popup.Texto,
                                 Text = "Fechar o Radar"
                             },
                             _FecharSwitch
@@ -75,7 +76,7 @@ namespace Radar.Popup
                         HorizontalOptions = LayoutOptions.Fill,
                         Children = {
                             new Label {
-                                Style = EstiloUtils.PopupTexto,
+                                Style = EstiloUtils.Popup.Texto,
                                 Text = "Exibir Notificação"
                             },
                             _ExibirSwitch

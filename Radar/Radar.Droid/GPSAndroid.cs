@@ -118,9 +118,9 @@ namespace Radar.Droid
 				NotificationCompat.Action action = new NotificationCompat.Action.Builder(Resource.Drawable.mystop, "Fechar", pendingIntent).Build();
 
 				Notification notificacao = new NotificationCompat.Builder(context)
-					.SetSmallIcon(Resource.Drawable.navicon)
+					.SetSmallIcon(Resource.Drawable.radarplus_logo)
 					.SetContentTitle("Radar+")
-					.SetContentText("Toque aqui para fechar")
+					.SetContentText("Seu Radar+ está em funcionamento.")
 				    .SetAutoCancel(true)
 				    .SetPriority((int)NotificationPriority.Max)
 					.AddAction(action) //add buton
@@ -262,7 +262,7 @@ namespace Radar.Droid
             {
                 if (Disponibilidade != GPSDisponibilidadeEnum.Disponivel)
                 {
-                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS encontrado!", "sinal_gps_encontrado");
+                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS encontrado!", audio: "sinal_gps_encontrado");
                     Disponibilidade = GPSDisponibilidadeEnum.Disponivel;
                 }
             }
@@ -270,7 +270,7 @@ namespace Radar.Droid
             {
                 if (Disponibilidade != GPSDisponibilidadeEnum.ForaDoAr)
                 {
-                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", "sinal_gps_fora_do_ar");
+                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", audio: "sinal_gps_fora_do_ar");
                     Disponibilidade = GPSDisponibilidadeEnum.ForaDoAr;
                 }
             }
@@ -278,7 +278,7 @@ namespace Radar.Droid
             {
                 if (Disponibilidade != GPSDisponibilidadeEnum.IndisponivelTemporariamente)
                 {
-                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", "sinal_gps_perdido");
+                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", audio: "sinal_gps_perdido");
                     Disponibilidade = GPSDisponibilidadeEnum.IndisponivelTemporariamente;
                 }
             }
