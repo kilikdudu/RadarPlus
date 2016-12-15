@@ -1,5 +1,6 @@
 ﻿using ClubManagement.Utils;
 using Radar.BLL;
+using Radar.Estilo;
 using Radar.Popup;
 using Radar.Utils;
 using System;
@@ -27,7 +28,7 @@ namespace Radar.Pages
         {
             _SomCaixaSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.SomCaixa
             };
             _SomCaixaSwitch.Toggled += (sender, e) => {

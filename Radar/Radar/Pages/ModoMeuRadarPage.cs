@@ -1,4 +1,5 @@
 ﻿using Radar.BLL;
+using Radar.Estilo;
 using Radar.Utils;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace Radar.Pages
         {
             _ExibirBotaoAdicionarSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.ExibirBotaoAdicionar
             };
             _ExibirBotaoAdicionarSwitch.Toggled += (sender, e) => {
@@ -35,7 +36,7 @@ namespace Radar.Pages
 
             _ExibirBotaoRemoverSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.ExibirBotaoRemover
             };
             _ExibirBotaoRemoverSwitch.Toggled += (sender, e) => {

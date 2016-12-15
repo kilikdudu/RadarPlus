@@ -38,7 +38,7 @@ namespace ClubManagement.Droid {
             Toast.MakeText(context, Mensagem, ToastLength.Short).Show();
         }
 
-        public bool notificar(int id, string titulo, string mensagem, string audio = null, double velocidade = 0) {
+        public bool notificar(int id, string titulo, string mensagem, int icone = 0, string audio = null, double velocidade = 0) {
             Context context = Android.App.Application.Context;
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
             builder.SetAutoCancel(true);

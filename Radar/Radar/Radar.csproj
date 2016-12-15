@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Estilo\BaseEstilo.cs" />
+    <Compile Include="Estilo\PercursoEstilo.cs" />
+    <Compile Include="Estilo\PopupEstilo.cs" />
+    <Compile Include="Estilo\PreferenciaEstilo.cs" />
+    <Compile Include="Estilo\VelocimetroEstilo.cs" />
+    <Compile Include="Estilo\VelocimetroCor.cs" />
     <Compile Include="Pages\BasePreferenciaPage.cs" />
     <Compile Include="Pages\MenuPage.cs" />
     <Compile Include="Pages\ModoAlertaPage.cs" />
@@ -62,7 +68,7 @@
     <Compile Include="Popup\IntervaloVerificacaoPopUp.cs" />
     <Compile Include="Popup\TempoAlertaPopUp.cs" />
     <Compile Include="Popup\TempoDuracaoPopUp.cs" />
-    <Compile Include="Utils\EstiloUtils.cs" />
+    <Compile Include="Estilo\EstiloUtils.cs" />
     <Compile Include="IBLL\IGPS.cs" />
     <Compile Include="IBLL\ITela.cs" />
     <Compile Include="Pages\ModoReproducaoVozPage.cs" />

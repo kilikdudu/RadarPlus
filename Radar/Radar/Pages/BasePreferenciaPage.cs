@@ -1,4 +1,5 @@
-﻿using Radar.Utils;
+﻿using Radar.Estilo;
+using Radar.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace Radar.Pages
             inicializarTela();
 
             var stackLayout = new StackLayout {
-                Style = EstiloUtils.PreferenciaStack
+                Style = EstiloUtils.Preferencia.MainStackLayout
             };
             foreach (var item in _Itens)
                 stackLayout.Children.Add(item);
@@ -79,7 +80,7 @@ namespace Radar.Pages
                         Children = {
                             new Label {
                                 Text = titulo,
-                                Style = EstiloUtils.PreferenciaTitulo
+                                Style = EstiloUtils.Preferencia.Titulo
                             },
                             campo
                         }
@@ -90,13 +91,13 @@ namespace Radar.Pages
                 stackLayout.Children.Add(new Label
                 {
                     Text = descricao,
-                    Style = EstiloUtils.PreferenciaDescricao
+                    Style = EstiloUtils.Preferencia.Descricao
                 });
             }
 
             return new Frame
             {
-                Style = EstiloUtils.PreferenciaFrame,
+                Style = EstiloUtils.Preferencia.MainFrame,
                 Content = stackLayout
             };
         }
@@ -113,7 +114,7 @@ namespace Radar.Pages
                         Children = {
                             new Label {
                                 Text = titulo,
-                                Style = EstiloUtils.PreferenciaTitulo
+                                Style = EstiloUtils.Preferencia.Titulo
                             },
                             campo
                         }
@@ -125,13 +126,13 @@ namespace Radar.Pages
                 stackLayout.Children.Add(new Label
                 {
                     Text = descricao,
-                    Style = EstiloUtils.PreferenciaDescricao
+                    Style = EstiloUtils.Preferencia.Descricao
                 });
             }
 
             return new Frame
             {
-                Style = EstiloUtils.PreferenciaFrame,
+                Style = EstiloUtils.Preferencia.MainFrame,
                 Content = stackLayout
             };
         }
@@ -143,7 +144,7 @@ namespace Radar.Pages
                 Orientation = StackOrientation.Vertical,
                 Children = {
                     new Label {
-                        Style = EstiloUtils.PreferenciaTitulo,
+                        Style = EstiloUtils.Preferencia.Titulo,
                         Text = titulo
                     }
                 }
@@ -153,12 +154,12 @@ namespace Radar.Pages
                 stackLayout.Children.Add(new Label
                 {
                     Text = descricao,
-                    Style = EstiloUtils.PreferenciaDescricao
+                    Style = EstiloUtils.Preferencia.Descricao
                 });
             }
             var frame = new Frame
             {
-                Style = EstiloUtils.PreferenciaFrame,
+                Style = EstiloUtils.Preferencia.MainFrame,
                 Content = stackLayout
             };
             frame.GestureRecognizers.Add(new TapGestureRecognizer() {

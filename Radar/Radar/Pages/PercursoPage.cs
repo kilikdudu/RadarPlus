@@ -1,6 +1,7 @@
 ﻿using ClubManagement.Utils;
 using Radar.BLL;
 using Radar.Controls;
+using Radar.Estilo;
 using Radar.Factory;
 using Radar.Model;
 using Radar.Utils;
@@ -75,12 +76,12 @@ namespace Radar.Pages
             var imagemStop = new Image
             {
                 Source = ImageSource.FromFile("Stop.png"),
-                Style = EstiloUtils.PercursoGravarImagem
+                Style = EstiloUtils.Percurso.GravarImagem
             };
             var tituloLabel = new Label
             {
                 Text = "Parar Percurso!",
-                Style = EstiloUtils.PercursoGravarTitulo
+                Style = EstiloUtils.Percurso.GravarTitulo
             };
             var descricaoLayout = new WrapLayout
             {
@@ -137,22 +138,22 @@ namespace Radar.Pages
         private View criarGravarButton() {
             var stackLayout = new StackLayout
             {
-                Style = EstiloUtils.PercursoGravarStackLayoutMain,
+                Style = EstiloUtils.Percurso.GravarStackLayoutMain,
                 Children = {
                     new Image {
                         Source = ImageSource.FromFile("Play.png"),
-                        Style = EstiloUtils.PercursoGravarImagem
+                        Style = EstiloUtils.Percurso.GravarImagem
                     },
                     new StackLayout {
-                        Style = EstiloUtils.PercursoGravarStackLayoutInterno,
+                        Style = EstiloUtils.Percurso.GravarStackLayoutInterno,
                         Children = {
                             new Label {
                                 Text = "Gravar Percurso!",
-                                Style = EstiloUtils.PercursoGravarTitulo
+                                Style = EstiloUtils.Percurso.GravarTitulo
                             },
                             new Label {
                                 Text="Toque aqui para gravar percurso",
-                                Style = EstiloUtils.PercursoGravarDescricao
+                                Style = EstiloUtils.Percurso.GravarDescricao
                             }
                         }
                     }

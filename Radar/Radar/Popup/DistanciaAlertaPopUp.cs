@@ -1,4 +1,5 @@
 ﻿using Radar.BLL;
+using Radar.Estilo;
 using Radar.Utils;
 using Rg.Plugins.Popup.Services;
 using System;
@@ -27,12 +28,12 @@ namespace Radar.Popup
             base.inicializarComponente();
             _DistanciaUrbanoLabel = new Label
             {
-                Style = EstiloUtils.PopupTexto,
+                Style = EstiloUtils.Popup.Texto,
                 Text = ""
             };
             _DistanciaEstradaLabel = new Label
             {
-                Style = EstiloUtils.PopupTexto,
+                Style = EstiloUtils.Popup.Texto,
                 Text = ""
             };
 
@@ -78,21 +79,21 @@ namespace Radar.Popup
                 Children = {
                     new Label {
                         Text = "No Perítro Urbano",
-                        Style = EstiloUtils.PopupCampo
+                        Style = EstiloUtils.Popup.Campo
                     },
                     new Label {
                         Text = "Velocidade de até 90 Km/H",
-                        Style = EstiloUtils.PopupDescricao
+                        Style = EstiloUtils.Popup.Descricao
                     },
                     _DistanciaUrbanoLabel,
                     _UrbanoSlider,
                     new Label {
                         Text = "No Estrada",
-                        Style = EstiloUtils.PopupCampo
+                        Style = EstiloUtils.Popup.Campo
                     },
                     new Label {
                         Text = "Velocidade acima de 90 Km/H",
-                        Style = EstiloUtils.PopupDescricao
+                        Style = EstiloUtils.Popup.Descricao
                     },
                     _DistanciaEstradaLabel,
                     _EstradaSlider,
