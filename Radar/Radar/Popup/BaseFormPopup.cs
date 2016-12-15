@@ -1,4 +1,5 @@
-﻿using Radar.Utils;
+﻿using Radar.Estilo;
+using Radar.Utils;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace Radar.Popup
         {
             _OkButton = new Button
             {
-                Style = EstiloUtils.PopupButton,
+                Style = EstiloUtils.Popup.Botao,
                 Text = getOk(),
             };
             _OkButton.Clicked += (sender, e) => {
@@ -39,7 +40,7 @@ namespace Radar.Popup
 
             _CancelarButton = new Button
             {
-                Style = EstiloUtils.PopupButton,
+                Style = EstiloUtils.Popup.Botao,
                 Text = getCancelar(),
             };
             _CancelarButton.Clicked += (sender, e) => {

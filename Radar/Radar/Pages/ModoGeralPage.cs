@@ -1,5 +1,6 @@
 ﻿using ClubManagement.Utils;
 using Radar.BLL;
+using Radar.Estilo;
 using Radar.Popup;
 using Radar.Utils;
 using System;
@@ -29,7 +30,7 @@ namespace Radar.Pages
         {
             _VerificarIniciarSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.VerificarIniciar
             };
             _VerificarIniciarSwitch.Toggled += (sender, e) => {

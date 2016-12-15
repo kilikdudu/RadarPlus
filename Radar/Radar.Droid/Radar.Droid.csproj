@@ -165,11 +165,27 @@
       <HintPath>..\..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android.Export" />
+    <Reference Include="Plugin.CurrentActivity">
+      <HintPath>..\..\packages\Plugin.CurrentActivity.1.0.1\lib\MonoAndroid10\Plugin.CurrentActivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Permissions.Abstractions">
+      <HintPath>..\..\packages\Plugin.Permissions.1.2.1\lib\MonoAndroid10\Plugin.Permissions.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Permissions">
+      <HintPath>..\..\packages\Plugin.Permissions.1.2.1\lib\MonoAndroid10\Plugin.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.6.1\lib\MonoAndroid10\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.6.1\lib\MonoAndroid10\Plugin.Media.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BroadcastAndroid.cs" />
     <Compile Include="GPSAndroid.cs" />
     <Compile Include="GPSSituacaoEnum.cs" />
+    <Compile Include="GPSDisponibilidadeEnum.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MensagemAndroid.cs" />
     <Compile Include="RadarMapRenderer.cs" />
@@ -182,6 +198,7 @@
     <Compile Include="SQLiteAndroid.cs" />
     <Compile Include="SplashActivity.cs" />
     <Compile Include="RadarMasterDetailPageRendererAndroid.cs" />
+    <Compile Include="MainApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\radar.sqlite" />
@@ -208,6 +225,19 @@
     <AndroidResource Include="Resources\drawable\logo.png" />
     <AndroidResource Include="Resources\drawable\error.png" />
     <AndroidResource Include="Resources\drawable\success.png" />
+    <AndroidResource Include="Resources\drawable\lombada.png" />
+    <AndroidResource Include="Resources\drawable\policiarodoviaria.png" />
+    <AndroidResource Include="Resources\drawable\radar_40_semaforo.png" />
+    <AndroidResource Include="Resources\drawable\radar_movel.png" />
+    <AndroidResource Include="Resources\drawable\semaforo.png" />
+    <AndroidResource Include="Resources\drawable\pedagio.png" />
+    <AndroidResource Include="Resources\drawable\grupo.png" />
+    <AndroidAsset Include="Assets\radares\pedagio.png" />
+    <AndroidAsset Include="Assets\radares\policiarodoviaria.png" />
+    <AndroidAsset Include="Assets\radares\radar_40_semaforo.png" />
+    <AndroidAsset Include="Assets\radares\semaforo.png" />
+    <AndroidAsset Include="Assets\radares\lombada.png" />
+    <AndroidAsset Include="Assets\radares\radar_movel.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
@@ -470,6 +500,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\sinal_gps_encontrado.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\sinal_gps_fora_do_ar.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\sinal_gps_perdido.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\radarplus_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

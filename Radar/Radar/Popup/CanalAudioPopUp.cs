@@ -1,5 +1,6 @@
 ﻿using ClubManagement.Model;
 using Radar.BLL;
+using Radar.Estilo;
 using Radar.Utils;
 using Rg.Plugins.Popup.Services;
 using System;
@@ -32,7 +33,7 @@ namespace Radar.Popup
             base.inicializarComponente();
 
             _MusicaSwitch = new Switch {
-                Style = EstiloUtils.PopupSwitch,
+                Style = EstiloUtils.Popup.CheckBox,
             };
             _MusicaSwitch.Toggled += (sender, e) =>
             {
@@ -47,7 +48,7 @@ namespace Radar.Popup
                 }
             };
             _AlarmeSwitch = new Switch {
-                Style = EstiloUtils.PopupSwitch
+                Style = EstiloUtils.Popup.CheckBox
             };
             _AlarmeSwitch.Toggled += (sender, e) =>
             {
@@ -62,7 +63,7 @@ namespace Radar.Popup
                 }
             };
             _NotificacaoSwitch = new Switch {
-                Style = EstiloUtils.PopupSwitch
+                Style = EstiloUtils.Popup.CheckBox
             };
             _NotificacaoSwitch.Toggled += (sender, e) =>
             {
@@ -90,7 +91,7 @@ namespace Radar.Popup
                         HorizontalOptions = LayoutOptions.Fill,
                         Children = {
                             new Label {
-                                Style = EstiloUtils.PopupTexto,
+                                Style = EstiloUtils.Popup.Texto,
                                 Text = "Música"
                             },
                             _MusicaSwitch
@@ -102,7 +103,7 @@ namespace Radar.Popup
                         HorizontalOptions = LayoutOptions.Fill,
                         Children = {
                             new Label {
-                                Style = EstiloUtils.PopupTexto,
+                                Style = EstiloUtils.Popup.Texto,
                                 Text = "Alarmes"
                             },
                             _AlarmeSwitch
@@ -114,7 +115,7 @@ namespace Radar.Popup
                         HorizontalOptions = LayoutOptions.Fill,
                         Children = {
                             new Label {
-                                Style = EstiloUtils.PopupTexto,
+                                Style = EstiloUtils.Popup.Texto,
                                 Text = "Notificações"
                             },
                             _NotificacaoSwitch

@@ -18,6 +18,7 @@ namespace Radar.Pages
 
         public RadarListaPage()
         {
+            Title = "Meus Radares";
             _radaresListView = new ListView {
                 RowHeight = 150
             };
@@ -28,6 +29,10 @@ namespace Radar.Pages
                 if (e == null)
                     return;
             };
+			_radaresListView.Footer = new Label()
+			{
+				Text = ""
+			};
 
             RadarBLL regraRadar = RadarFactory.create();
             regraRadar.atualizarEndereco();

@@ -17,8 +17,9 @@ namespace Radar.Utils
 	public static class GPSUtils
 	{
 		private const int RADAR_ID = 1;
+        public const int DIAMETRO_TERRA = 6371;
 
-		private static IGPS _gpsServico;
+        private static IGPS _gpsServico;
 
 		private static bool _simulando = false;
 		private static PercursoInfo _percursoSimulado;
@@ -75,9 +76,7 @@ namespace Radar.Utils
 			RadarBLL.RadarAtual = radar;
 			string mensagem = "Tem um radar a frente, diminua para " + radar.Velocidade.ToString() + "km/h!";
 
-
-
-			MensagemUtils.notificar(RADAR_ID, "Radar Club", mensagem, radar.Velocidade);
+			MensagemUtils.notificar(RADAR_ID, "Radar Club", mensagem, velocidade: radar.Velocidade);
 
 			if (PreferenciaUtils.BeepAviso)
 				regraAviso.play(PreferenciaUtils.SomAlarme);
@@ -112,7 +111,7 @@ namespace Radar.Utils
                     if (regraRadar.radarContinuaAFrente(local, RadarBLL.RadarAtual))
                     {
                         RadarInfo radar = RadarBLL.RadarAtual;
-                        local.Distancia = regraRadar.calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
+                        local.Distancia = calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
                     }
                     else
                         RadarBLL.RadarAtual = null;
@@ -122,7 +121,7 @@ namespace Radar.Utils
                     RadarInfo radar = regraRadar.calcularRadar(local, distanciaRadar);
                     if (radar != null)
                     {
-                        local.Distancia = regraRadar.calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
+                        local.Distancia = calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
                         if (PreferenciaUtils.AlertaInteligente)
                         {
                             if ((local.Velocidade - 5) > radar.Velocidade)
@@ -153,7 +152,7 @@ namespace Radar.Utils
                     visualPage.atualizarPosicao(local);
                     visualPage.redesenhar();
                 }
-                regraPercurso.executarGravacao(local);
+                regraPercurso.executarGravacao(local, RadarBLL.RadarAtual);
                 //MensagemUtils.avisar(MemoryUtils.getInfo().ToString());
             }
             catch (Exception e) {
@@ -211,18 +210,18 @@ namespace Radar.Utils
                 return false;
             }
             if (_percursoSimulado.Pontos.Count() == 0) {
-                ClubManagement.Utils.MensagemUtils.avisar("Nenhum movimento registrado nesse percurso.");
+                MensagemUtils.avisar("Nenhum movimento registrado nesse percurso.");
                 return false;
             }
             //MensagemUtils.notificarPermanente(NOTIFICACAO_SIMULACAO_ID, "Simulando percurso!", string.Empty);
-            ClubManagement.Utils.MensagemUtils.notificarPermanente(
+            MensagemUtils.notificarPermanente(
                 PercursoBLL.NOTIFICACAO_SIMULACAO_PERCURSO_ID,
                 "Radar Club", "Simulando percurso...",
                 PercursoBLL.NOTIFICACAO_SIMULACAO_PARAR_PERCURSO_ID, 
                 "Parar",
                 PercursoBLL.ACAO_PARAR_SIMULACAO
             );
-            ClubManagement.Utils.MensagemUtils.avisar("Iniciando simulação!");
+            MensagemUtils.avisar("Iniciando simulação!");
             /*
             var task = Task.Factory.StartNew(() =>
             {
@@ -265,6 +264,24 @@ namespace Radar.Utils
             });
             */
             return true;
+        }
+
+        private static double toRadians(double deg)
+        {
+            return deg * (Math.PI / 180);
+        }
+
+        public static double calcularDistancia(double initialLat, double initialLong, double finalLat, double finalLong)
+        {
+            double dLat = toRadians(finalLat - initialLat);
+            double dLon = toRadians(finalLong - initialLong);
+            double lat1 = toRadians(initialLat);
+            double lat2 = toRadians(finalLat);
+
+            double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+                   Math.Sin(dLon / 2) * Math.Sin(dLon / 2) * Math.Cos(lat1) * Math.Cos(lat2);
+            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            return DIAMETRO_TERRA * c * 1000;
         }
     }
 

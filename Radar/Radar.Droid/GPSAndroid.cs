@@ -17,6 +17,9 @@ using Android.Content.Res;
 using Android.Widget;
 using Java.Util;
 using SQLite;
+using System.Linq;
+using System.Collections.Generic;
+using ClubManagement.Utils;
 
 [assembly: UsesPermission(Manifest.Permission.AccessFineLocation)]
 [assembly: UsesPermission(Manifest.Permission.AccessCoarseLocation)]
@@ -37,10 +40,14 @@ namespace Radar.Droid
         private const int TRAY_DIM_Y_DP = 240; 	// Height of the tray in dps
         private const int ANIMATION_FRAME_RATE = 30;	// Animation frame rate per second.
         private const int TRAY_MOVEMENT_REGION_FRACTION = 6; // Controls fraction of y-axis on screen within which the tray stays.
+        private const int TRAY_HIDDEN_FRACTION = 6;
 
         private bool _inicializado = false;
         private bool desativando = false;
         public GPSSituacaoEnum Situacao { get; set; }
+        public GPSDisponibilidadeEnum Disponibilidade { get; set; }
+
+        private float _sentidoAnterior = 0;
 
         LocationManager _locationManager;
         string _locationProvider;
@@ -56,7 +63,7 @@ namespace Radar.Droid
         private int mPrevDragX;
         private int mPrevDragY;
 
-        private bool mIsTrayOpen = true;
+        //private bool mIsTrayOpen = true;
         private bool widgetInicializado = false;
 
         public GPSAndroid() {
@@ -97,16 +104,36 @@ namespace Radar.Droid
                 StopSelf();
             }
             else {
+				Context context = Android.App.Application.Context;
                 Intent notificationIntent = new Intent(this, typeof(GPSAndroid));
 			    notificationIntent.PutExtra("stop_service", true);
-			    PendingIntent pendingIntent = PendingIntent.GetService(this, 0, notificationIntent, 0);
-                Notification notification = new Notification(
-                    Resource.Drawable.navicon,
-                    "Radar+",
-                    Java.Lang.JavaSystem.CurrentTimeMillis()
-                );
-                notification.SetLatestEventInfo( this, "Radar+", "Pressione aqui para fechar.", pendingIntent);
-                StartForeground((int)NotificationFlags.ForegroundService, notification);
+			    //PendingIntent pendingIntent = PendingIntent.GetService(this, 0, notificationIntent, 0);
+				//PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_ONE_SHOT);
+				var acao = new Intent(context, typeof(BroadcastAndroid));
+				acao.SetAction("Fechar");
+
+				var pendingIntent = PendingIntent.GetBroadcast(context, 0, acao, PendingIntentFlags.UpdateCurrent);
+
+				//Button
+				NotificationCompat.Action action = new NotificationCompat.Action.Builder(Resource.Drawable.mystop, "Fechar", pendingIntent).Build();
+
+				Notification notificacao = new NotificationCompat.Builder(context)
+					.SetSmallIcon(Resource.Drawable.radarplus_logo)
+					.SetContentTitle("Radar+")
+					.SetContentText("Seu Radar+ está em funcionamento.")
+				    .SetAutoCancel(true)
+				    .SetPriority((int)NotificationPriority.Max)
+					.AddAction(action) //add buton
+					.Build();
+
+                //notification.SetLatestEventInfo( this, "Radar+", "Pressione aqui para fechar.", pendingIntent);
+                //StartForeground((int)NotificationFlags.ForegroundService, notification);
+
+                NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
+                //Notification notificacao = notification;
+                //notificacao.Flags = NotificationFlags.AutoCancel;
+                notificacao.Flags = NotificationFlags.NoClear;
+                notificationManager.Notify(1, notificacao);
             }
         }
 
@@ -122,7 +149,13 @@ namespace Radar.Droid
             local.Latitude = location.Latitude;
             local.Longitude = location.Longitude;
             local.Precisao = location.Accuracy;
-            local.Sentido = location.Bearing;
+            if (location.HasBearing)
+            {
+                local.Sentido = location.Bearing;
+                _sentidoAnterior = local.Sentido;
+            }
+            else
+                local.Sentido = _sentidoAnterior;
             local.Tempo = (new DateTime(1970, 1, 1)).AddMilliseconds(location.Time);
             local.Velocidade = location.Speed * 3.6;
             return local;
@@ -189,8 +222,8 @@ namespace Radar.Droid
                 }
             }
             else if (Situacao == GPSSituacaoEnum.Espera) {
-                var regraPreferencia = new PreferenciaAndroid();
-                if (regraPreferencia.LigarDesligar && local.Precisao <= 30)
+				var regraPreferencia = new PreferenciaBLL();
+				if (regraPreferencia.pegar("ligarDesligar", "") == "1" && local.Precisao <= 30)
                 {
                     if (local.Velocidade >= 15)
                     {
@@ -225,6 +258,30 @@ namespace Radar.Droid
 
         public void OnStatusChanged(string provider, [GeneratedEnum] Availability status, Bundle extras)
         {
+            if (status.Equals(Availability.Available))
+            {
+                if (Disponibilidade != GPSDisponibilidadeEnum.Disponivel)
+                {
+                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS encontrado!", audio: "sinal_gps_encontrado");
+                    Disponibilidade = GPSDisponibilidadeEnum.Disponivel;
+                }
+            }
+            else if (status.Equals(Availability.OutOfService))
+            {
+                if (Disponibilidade != GPSDisponibilidadeEnum.ForaDoAr)
+                {
+                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", audio: "sinal_gps_fora_do_ar");
+                    Disponibilidade = GPSDisponibilidadeEnum.ForaDoAr;
+                }
+            }
+            else if (status.Equals(Availability.TemporarilyUnavailable))
+            {
+                if (Disponibilidade != GPSDisponibilidadeEnum.IndisponivelTemporariamente)
+                {
+                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", audio: "sinal_gps_perdido");
+                    Disponibilidade = GPSDisponibilidadeEnum.IndisponivelTemporariamente;
+                }
+            }
         }
 
         public bool inicializar()
@@ -270,6 +327,23 @@ namespace Radar.Droid
             //mContentContainerLayout.SetBackgroundColor(Android.Graphics.Color.Argb(200, 255, 255, 255));
             // Erro de Invalid Cast - Depois a gente vé essa merda!
             //mContentContainerLayout.SetOnTouchListener(new TrayTouchListener(this));
+            mContentContainerLayout.Touch += (sender, e) =>
+            {
+                var me = ((Android.Views.View.TouchEventArgs)e).Event;
+                MotionEventActions action = me.ActionMasked;
+                switch (action)
+                {
+                    case MotionEventActions.Down:
+                    case MotionEventActions.Move:
+                    case MotionEventActions.Up:
+                    case MotionEventActions.Cancel:
+                        this.dragTray(action, (int)me.RawX, (int)me.RawY);
+                        break;
+                    //default:
+                    //    return false;
+                }
+                //return true;
+            };
             mRootLayoutParams = new WindowManagerLayoutParams(
                 dpToPixels(TRAY_DIM_X_DP, context.Resources),
                 dpToPixels(TRAY_DIM_Y_DP, context.Resources),
@@ -349,9 +423,11 @@ namespace Radar.Droid
                 case MotionEventActions.Cancel:
 
                     // When the tray is released, bring it back to "open" or "closed" state.
+                    /*
                     if ((mIsTrayOpen && (x - mStartDragX) <= 0) ||
                         (!mIsTrayOpen && (x - mStartDragX) >= 0))
                         mIsTrayOpen = !mIsTrayOpen;
+                    */
 
                     mTrayTimerTask = new TrayAnimationTimerTask(this);
                     mTrayAnimationTimer = new Timer();
@@ -360,6 +436,7 @@ namespace Radar.Droid
             }
         }
 
+        /*
         public class TrayTouchListener : Android.Views.View.IOnTouchListener
         {
             GPSAndroid _service;
@@ -370,8 +447,8 @@ namespace Radar.Droid
 
             public IntPtr Handle {
                 get {
-                    return this.Handle;
-                    //return _service.Handle;
+                    //return this.Handle;
+                    return _service.Handle;
                 }
             }
 
@@ -398,6 +475,7 @@ namespace Radar.Droid
 
 
         }
+        */
 
         public class TrayAnimationTimerTask : TimerTask
         {
@@ -409,9 +487,12 @@ namespace Radar.Droid
             {
                 _service = service;
                 /*
-                if (!mIsTrayOpen)
+                if (!_service.mIsTrayOpen)
                 {
-                    mDestX = -mLogoLayout.getWidth();
+                    //mDestX = -_service.mLogoLayout.getWidth();
+                */
+                //mDestX = -_service.mRootLayout.Width / TRAY_HIDDEN_FRACTION;
+                /*
                 }
                 else {
                     mDestX = -mRootLayout.getWidth() / TRAY_HIDDEN_FRACTION;
@@ -480,6 +561,8 @@ namespace Radar.Droid
 
             private string pegarValor(string campo)
             {
+				inicializar();
+				var preferencias = listarPreferencia();
                 lock (locker)
                 {
                     var preferencia = _database.Table<PreferenciaInfo>().FirstOrDefault(x => x.Preferencia == campo);
@@ -488,6 +571,14 @@ namespace Radar.Droid
                 }
                 return string.Empty;
             }
+
+			public IList<PreferenciaInfo> listarPreferencia()
+			{
+				lock (locker)
+				{
+					return (from i in _database.Table<PreferenciaInfo>() select i).ToList();
+				}
+			}
 
             public bool LigarDesligar
             {

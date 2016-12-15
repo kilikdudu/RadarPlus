@@ -228,6 +228,13 @@
     <BundleResource Include="Resources\error.png" />
     <BundleResource Include="Resources\success.png" />
     <Compile Include="RadarMasterDetailPageRendereriOS.cs" />
+    <BundleResource Include="Resources\semaforo.png" />
+    <BundleResource Include="Resources\policiarodoviaria.png" />
+    <BundleResource Include="Resources\radar_40_semaforo.png" />
+    <BundleResource Include="Resources\pedagio.png" />
+    <BundleResource Include="Resources\radar_movel.png" />
+    <BundleResource Include="Resources\lombada.png" />
+    <BundleResource Include="Resources\grupo.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -288,6 +295,12 @@
     </Reference>
     <Reference Include="ExifLib">
       <HintPath>..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Media.2.6.1\lib\Xamarin.iOS10\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media">
+      <HintPath>..\packages\Xam.Plugin.Media.2.6.1\lib\Xamarin.iOS10\Plugin.Media.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

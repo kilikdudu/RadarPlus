@@ -1,4 +1,5 @@
-﻿using Radar.Utils;
+﻿using Radar.Estilo;
+using Radar.Utils;
 using Rg.Plugins.Popup.Pages;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Radar.Popup
 
             var stackLayout = new StackLayout
             {
-                Style = EstiloUtils.PopupStackLayout,
+                Style = EstiloUtils.Popup.MainStackLayout,
                 BackgroundColor = Color.Transparent,
                 Padding = new Thickness(0, 10, 0, 0),
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -38,7 +39,7 @@ namespace Radar.Popup
             AbsoluteLayout.SetLayoutFlags(stackLayout, AbsoluteLayoutFlags.All);
 
             Content = new AbsoluteLayout {
-                Style = EstiloUtils.PopupAbsoluteLayout,
+                Style = EstiloUtils.Popup.MainAbsoluteLayout,
                 VerticalOptions = LayoutOptions.Center,
                 Opacity = 0.0,
                 HorizontalOptions = LayoutOptions.Fill,
@@ -53,13 +54,13 @@ namespace Radar.Popup
         protected Label criarTitulo(string Titulo) {
             return new Label {
                 Text = Titulo,
-                Style = EstiloUtils.PopupTitulo
+                Style = EstiloUtils.Popup.Titulo
             };
         }
 
         protected BoxView criarLinha() {
             return new BoxView {
-                Style = EstiloUtils.PopupLinha
+                Style = EstiloUtils.Popup.Linha
             };
         }
 

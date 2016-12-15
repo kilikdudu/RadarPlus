@@ -1,4 +1,5 @@
-﻿using Radar.Utils;
+﻿using Radar.Estilo;
+using Radar.Utils;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Radar.Popup
         {
             _FecharButton = new Button
             {
-                Style = EstiloUtils.PopupButton,
+                Style = EstiloUtils.Popup.Botao,
                 Text = getFechar(),
             };
             _FecharButton.Clicked += (sender, e) => {

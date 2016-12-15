@@ -1,5 +1,7 @@
 ﻿using ClubManagement.Utils;
 using Radar.Controls;
+using Radar.Model;
+using Radar.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Radar.Pages.Popup;
+using Rg.Plugins.Popup.Extensions;
 
 namespace Radar.Pages
 {
@@ -70,7 +73,7 @@ namespace Radar.Pages
                 MenuItemInfo item = (MenuItemInfo)e.Item;
                 if (item.aoClicar != null) {
                     if (this.Navigation.NavigationStack.Count == 1) {
-                        item.aoClicar(sender, e);
+                        item.aoClicar(sender, new MenuEventArgs(this));
                     }
                 }
             };
@@ -88,14 +91,17 @@ namespace Radar.Pages
             {
                 Titulo = "Velocimetro",
                 Icone = "velocimetro.png",
-                TargetType = typeof(VelocimetroPage)
+                aoClicar = (sender, e) => {
+                    NavegacaoUtils.PushAsync(new VelocimetroPage());
+                }
             });
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Mapa",
                 Icone = "mapas.png",
-                TargetType = typeof(MapaPage)
-
+                aoClicar = (sender, e) => {
+                    NavegacaoUtils.PushAsync(new MapaPage());
+                }
             });
             return grupo;
         }
@@ -107,32 +113,46 @@ namespace Radar.Pages
             {
                 Titulo = "Percursos",
                 Icone = "percursos.png",
-                TargetType = typeof(PercursoPage)
+                aoClicar = (sender, e) => {
+                    NavegacaoUtils.PushAsync(new PercursoPage());
+                }
             });
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Meus Radares",
                 Icone = "meusradares.png",
-                TargetType = typeof(RadarListaPage)
+                aoClicar = (sender, e) => {
+                    NavegacaoUtils.PushAsync(new RadarListaPage());
+                }
             });
+            /*
+            grupo.Add(new MenuItemInfo
+            {
+                Titulo = "Meus Grupos",
+                Icone = "grupos.png",
+                aoClicar = (sender, e) => {
+                    NavegacaoUtils.PushAsync(new GrupoPage());
+                }
+            });
+            */
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Preferências",
                 Icone = "config.png",
-                TargetType = typeof(PreferenciaPage)
+                aoClicar = (sender, e) => {
+                    NavegacaoUtils.PushAsync(new PreferenciaPage());
+                }
             });
-            var menuAtualizar = new MenuItemInfo
+            grupo.Add(new MenuItemInfo
             {
                 Titulo = "Atualizar",
                 Icone = "atualizar.png",
-                TargetType = null,
-            };
-            menuAtualizar.aoClicar += (sender, e) =>
-            {
-                var downloader = new DownloaderAtualizacao();
-                downloader.download();
-            };
-            grupo.Add(menuAtualizar);
+                aoClicar = (sender, e) =>
+                {
+                    var downloader = new DownloaderAtualizacao();
+                    downloader.download();
+                }
+            });
             return grupo;
         }
 
@@ -144,12 +164,12 @@ namespace Radar.Pages
             {
                 Titulo = "Instruções",
                 Icone = "instrucoes.png",
-                TargetType = null,
-                aoClicar = (sender, e) =>
-                {
-					NavigationX.create(this).PushPopupAsyncX(new InstrucaoPopUp());
-                }
-            });
+                aoClicar = async (sender, e) =>
+				{
+					await Navigation.PushPopupAsync(new InstrucaoPage());
+
+				}
+			});
             /*
             grupo.Add(new MenuItemInfo
             {
@@ -162,13 +182,14 @@ namespace Radar.Pages
             {
                 Titulo = "Sobre",
                 Icone = "sobre.png",
-                TargetType = typeof(SobrePage)
+                aoClicar = (sender, e) => {
+                    NavegacaoUtils.PushAsync(new SobrePage());
+                }
             });
             grupo.Add(new MenuItemInfo
             {
                 Titulo = "Sair",
                 Icone = "sair.png",
-                TargetType = null,
                 aoClicar = (sender, e) =>
                 {
                     ThreadUtils.closeApplication();

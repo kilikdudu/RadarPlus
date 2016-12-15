@@ -427,7 +427,7 @@ namespace Radar.BLL
 		{
 			get {
                 inicializar();
-                return _regraPreferencia.pegarBool(SALVAR_PERCURSO);
+                return _regraPreferencia.pegarBool(SALVAR_PERCURSO, false);
 			}
             set {
                 inicializar();

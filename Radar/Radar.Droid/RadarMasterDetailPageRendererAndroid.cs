@@ -2,14 +2,14 @@
 using Xamarin.Forms.Platform.Android;
 using Radar.Controls;
 using Radar.Droid;
-using Android.Views;
+
 
 [assembly: Xamarin.Forms.ExportRenderer(typeof(RadarMasterDetailPage), typeof(RadarMasterDetailPageRendererAndroid))]
 
 public class RadarMasterDetailPageRendererAndroid : MasterDetailRenderer
 {
 	bool firstDone;
-	public override void AddView(View child)
+	public override void AddView(Android.Views.View child)
 	{
 		if (firstDone)
 		{

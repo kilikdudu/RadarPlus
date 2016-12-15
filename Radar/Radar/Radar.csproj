@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Estilo\BaseEstilo.cs" />
+    <Compile Include="Estilo\PercursoEstilo.cs" />
+    <Compile Include="Estilo\PopupEstilo.cs" />
+    <Compile Include="Estilo\PreferenciaEstilo.cs" />
+    <Compile Include="Estilo\VelocimetroEstilo.cs" />
+    <Compile Include="Estilo\VelocimetroCor.cs" />
     <Compile Include="Pages\BasePreferenciaPage.cs" />
     <Compile Include="Pages\MenuPage.cs" />
     <Compile Include="Pages\ModoAlertaPage.cs" />
@@ -62,10 +68,12 @@
     <Compile Include="Popup\IntervaloVerificacaoPopUp.cs" />
     <Compile Include="Popup\TempoAlertaPopUp.cs" />
     <Compile Include="Popup\TempoDuracaoPopUp.cs" />
-    <Compile Include="Utils\EstiloUtils.cs" />
+    <Compile Include="Estilo\EstiloUtils.cs" />
     <Compile Include="IBLL\IGPS.cs" />
     <Compile Include="IBLL\ITela.cs" />
     <Compile Include="Pages\ModoReproducaoVozPage.cs" />
+    <Compile Include="Utils\NavegacaoUtils.cs" />
+    <Compile Include="Utils\PercursoUtils.cs" />
     <Compile Include="Utils\TelaUtils.cs" />
     <Compile Include="Controls\DownloaderAtualizacao.cs" />
     <Compile Include="Controls\PonteiroCorEnum.cs" />
@@ -96,7 +104,7 @@
     <Compile Include="Model\RetanguloInfo.cs" />
     <Compile Include="Pages\ErroPage.cs" />
     <Compile Include="Pages\MapaPage.cs" />
-    <Compile Include="Pages\MenuItemInfo.cs" />
+    <Compile Include="Model\MenuItemInfo.cs" />
     <Compile Include="Pages\MenuItemGrupo.cs" />
     <Compile Include="Pages\BaseVisualPage.cs" />
     <Compile Include="Controls\Velocimetro.cs" />
@@ -122,16 +130,14 @@
     <Compile Include="BLL\PercursoBLL.cs" />
     <Compile Include="BLL\PreferenciaBLL.cs" />
     <Compile Include="BLL\PreferenciaUtils.cs" />
-    <Compile Include="BLL\ProcessarPontoEventHandler.cs" />
     <Compile Include="BLL\RadarBLL.cs" />
     <Compile Include="Controls\EmailValidatorBehavior.cs" />
     <Compile Include="Controls\NumberValidatorBehavior.cs" />
     <Compile Include="Controls\RadarMasterDetailPage.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Pages\Popup\InstrucaoPopUp.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
+    <Compile Include="Pages\Popup\InstrucaoPage.cs" />
+    <Compile Include="Pages\Instrucao\InstrucaoTabbedPage.cs" />
+    <Compile Include="Controls\DropDownPicker.cs" />
+    <Compile Include="Controls\DropDownTapArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -173,13 +179,18 @@
     <Reference Include="ExifLib">
       <HintPath>..\..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Media.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.6.1\lib\portable-net45+wp80+win8+wpa81\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.6.1\lib\portable-net45+wp80+win8+wpa81\Plugin.Media.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Audio\" />
-    <Folder Include="Pages\Popup\" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

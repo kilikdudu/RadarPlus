@@ -3,19 +3,11 @@
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
-using Android.Locations;
-using Radar.BLL;
-using Radar.Factory;
-using Radar.Model;
-using System.Collections.Generic;
-using Android;
-using Radar.Pages;
 using Android.Content;
 using ClubManagement.Droid;
-using Android.Support.V7.App;
+using Plugin.Permissions;
+using Android.Views;
 
 namespace Radar.Droid
 {
@@ -32,6 +24,11 @@ namespace Radar.Droid
                 _Situacao = value;
             }
         }
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+		{
+		
+		    PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+		}
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -48,7 +45,8 @@ namespace Radar.Droid
             //InitializeLocationManager();
 
             //AndroidEnvironment.UnhandledExceptionRaiser += HandleAndroidException;
-
+			this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
+			
             TelaAndroid.Largura = (int)Resources.DisplayMetrics.WidthPixels; // real pixels
             TelaAndroid.Altura = (int)Resources.DisplayMetrics.HeightPixels;
 			TelaAndroid.LarguraSemPixel = (int)Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density; // real pixels
@@ -123,7 +121,9 @@ namespace Radar.Droid
             //ErroPage.exibir(e.Exception);
             ///e.Handled = true;
         }
-    }
+
+		
+	}
 
     public enum JanelaSituacaoEnum {
         Inicializando,

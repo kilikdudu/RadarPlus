@@ -114,7 +114,7 @@ namespace Radar.Pages
 
             _GPSSentidoLabel = new Label
             {
-                Text = "Sentido",
+                Text = "0º",
                 FontSize = 16,
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center
@@ -150,7 +150,6 @@ namespace Radar.Pages
 
 			if (PreferenciaUtils.ExibirBotaoRemover)
 			{
-
 				_RemoverRadarButton = new Image
 				{
 					Aspect = Aspect.AspectFit,

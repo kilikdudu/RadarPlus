@@ -1,4 +1,5 @@
 ﻿using Radar.BLL;
+using Radar.Estilo;
 using Radar.Utils;
 using Rg.Plugins.Popup.Services;
 using System;
@@ -27,12 +28,12 @@ namespace Radar.Popup
             base.inicializarComponente();
             _DistanciaUrbanoLabel = new Label
             {
-                Style = EstiloUtils.PopupTexto,
+                Style = EstiloUtils.Popup.Texto,
                 Text = ""
             };
             _DistanciaEstradaLabel = new Label
             {
-                Style = EstiloUtils.PopupTexto,
+                Style = EstiloUtils.Popup.Texto,
                 Text = ""
             };
 
@@ -43,10 +44,11 @@ namespace Radar.Popup
             };
             _UrbanoSlider.ValueChanged += (sender, e) =>
             {
-                var newStep = Math.Round(e.NewValue);
-                _UrbanoSlider.Value = newStep;
-                _DistanciaUrbanoLabel.Text = _UrbanoSlider.Value.ToString() + " M";
+                var newStep = Math.Floor(e.NewValue);
+                //((Slider)sender).Value = newStep;
+                _DistanciaUrbanoLabel.Text = newStep.ToString() + " M";
             };
+
             _EstradaSlider = new Slider
             {
                 Maximum = 1500,
@@ -54,9 +56,9 @@ namespace Radar.Popup
             };
             _EstradaSlider.ValueChanged += (sender, e) =>
             {
-                var newStep = Math.Round(e.NewValue);
-                _EstradaSlider.Value = newStep;
-                _DistanciaEstradaLabel.Text = _EstradaSlider.Value.ToString() + " M";
+                var newStep = Math.Floor(e.NewValue);
+                //((Slider)sender).Value = newStep;
+                _DistanciaEstradaLabel.Text = newStep.ToString() + " M";
             };
 
         }
@@ -77,21 +79,21 @@ namespace Radar.Popup
                 Children = {
                     new Label {
                         Text = "No Perítro Urbano",
-                        Style = EstiloUtils.PopupCampo
+                        Style = EstiloUtils.Popup.Campo
                     },
                     new Label {
                         Text = "Velocidade de até 90 Km/H",
-                        Style = EstiloUtils.PopupDescricao
+                        Style = EstiloUtils.Popup.Descricao
                     },
                     _DistanciaUrbanoLabel,
                     _UrbanoSlider,
                     new Label {
                         Text = "No Estrada",
-                        Style = EstiloUtils.PopupCampo
+                        Style = EstiloUtils.Popup.Campo
                     },
                     new Label {
                         Text = "Velocidade acima de 90 Km/H",
-                        Style = EstiloUtils.PopupDescricao
+                        Style = EstiloUtils.Popup.Descricao
                     },
                     _DistanciaEstradaLabel,
                     _EstradaSlider,

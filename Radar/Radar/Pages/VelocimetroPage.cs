@@ -66,12 +66,16 @@ namespace Radar.Pages
 			{
 				_radarImage.Source = ImageSource.FromFile(pathRadar);
 				caminhoLivre.Text = null;
-				_absoluteLayout.Children.Remove(_AdicionarRadarButton);
-				_absoluteLayout.Children.Add(_RemoverRadarButton);
+                if (_AdicionarRadarButton != null)
+				    _absoluteLayout.Children.Remove(_AdicionarRadarButton);
+                if (_RemoverRadarButton != null)
+				    _absoluteLayout.Children.Add(_RemoverRadarButton);
 			}
 			else {
-				_absoluteLayout.Children.Remove(_RemoverRadarButton);
-				_absoluteLayout.Children.Add(_AdicionarRadarButton);
+                if (_RemoverRadarButton != null)
+                    _absoluteLayout.Children.Remove(_RemoverRadarButton);
+                if (_AdicionarRadarButton != null)
+                    _absoluteLayout.Children.Add(_AdicionarRadarButton);
 				caminhoLivre.Text = "CAMINHO LIVRE";
 				_radarImage.Source = null;
 			}
@@ -79,8 +83,9 @@ namespace Radar.Pages
         }
 
         public VelocimetroPage()
-
         {
+
+            Title = "Velocimetro";
             inicializarComponente();
 			PercursoBLL percursoBLL = new PercursoBLL();
 			percursoBLL.atualizarEndereco();
@@ -91,7 +96,7 @@ namespace Radar.Pages
 				HorizontalOptions = LayoutOptions.StartAndExpand,
 				WidthRequest = TelaUtils.Largura,
 				HeightRequest = TelaUtils.Altura,
-				BackgroundColor = Color.White,
+				BackgroundColor = Color.Transparent,
 				Margin = new Thickness(0,50,0,0)
             };
 
@@ -290,6 +295,11 @@ namespace Radar.Pages
             base.OnAppearing();
             //_velocimetroPageAtual = this;
             GlobalUtils.Visual = this;
+
+            if (PreferenciaUtils.SalvarPercurso) {
+                var regraPercurso = PercursoFactory.create();
+                var inicializou = regraPercurso.iniciarGravacao();
+            }
         }
 
         protected override void OnDisappearing()

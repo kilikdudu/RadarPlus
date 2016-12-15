@@ -1,4 +1,5 @@
 ﻿using Radar.BLL;
+using Radar.Estilo;
 using Radar.Utils;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace Radar.Pages
         {
             _SalvarPercursoSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.SalvarPercurso
             };
             _SalvarPercursoSwitch.Toggled += (sender, e) => {

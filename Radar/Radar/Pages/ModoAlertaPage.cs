@@ -1,5 +1,6 @@
 ﻿using ClubManagement.Utils;
 using Radar.BLL;
+using Radar.Estilo;
 using Radar.Popup;
 using Radar.Utils;
 using System;
@@ -34,7 +35,7 @@ namespace Radar.Pages
         {
             _RadarMovelSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.RadarMovel
             };
             _RadarMovelSwitch.Toggled += (sender, e) =>
@@ -44,7 +45,7 @@ namespace Radar.Pages
 
             _PedagioSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.Pedagio
             };
             _PedagioSwitch.Toggled += (sender, e) =>
@@ -54,7 +55,7 @@ namespace Radar.Pages
 
             _PoliciaRodoviariaSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.PoliciaRodoviaria
             };
             _PoliciaRodoviariaSwitch.Toggled += (sender, e) =>
@@ -64,7 +65,7 @@ namespace Radar.Pages
 
             _LombadaSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.Lombada
             };
             _LombadaSwitch.Toggled += (sender, e) =>
@@ -74,7 +75,7 @@ namespace Radar.Pages
 
             _AlertaInteligenteSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.AlertaInteligente
             };
             _AlertaInteligenteSwitch.Toggled += (sender, e) =>
@@ -84,7 +85,7 @@ namespace Radar.Pages
 
             _BeepAvisoSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.BeepAviso
             };
             _BeepAvisoSwitch.Toggled += (sender, e) =>
@@ -94,7 +95,7 @@ namespace Radar.Pages
 
             _VibrarAlertaSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.VibrarAlerta
             };
             _VibrarAlertaSwitch.Toggled += (sender, e) =>
@@ -104,7 +105,7 @@ namespace Radar.Pages
 
             _SobreposicaoVisualSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.SobreposicaoVisual
             };
             _SobreposicaoVisualSwitch.Toggled += (sender, e) =>
@@ -135,7 +136,10 @@ namespace Radar.Pages
                 NavigationX.create(this).PushPopupAsyncX(new DistanciaAlertaPopUp(), true);
             }, "Defina com que distância o alerta deve ser emitido");
 
-            adicionarSwitch(_SobreposicaoVisualSwitch, "Sobreposição Visual", "Exibir alertas visuais quando o App estiver funcionando em segundo plano");
+            if (Device.OS == TargetPlatform.Android)
+            {
+                adicionarSwitch(_SobreposicaoVisualSwitch, "Sobreposição Visual", "Exibir alertas visuais quando o App estiver funcionando em segundo plano");
+            }
         }
     }
 }

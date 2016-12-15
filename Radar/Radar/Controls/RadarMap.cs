@@ -51,9 +51,13 @@ namespace Radar.Controls
 
             RadarBLL regraRadar = RadarFactory.create();
             var radares = regraRadar.listar(region.Center.Latitude, region.Center.Longitude, latitudeDelta, longitudeDelta);
-            foreach (RadarInfo radar in radares)
+            //var radares = regraRadar.listar();
+           
+			foreach (RadarInfo radar in radares)
             {
-                adicionarRadar(radar);
+				
+					adicionarRadar(radar);
+				
             }
         }
 
@@ -64,18 +68,20 @@ namespace Radar.Controls
             string radarId = radar.Latitude.ToString() + "|" + radar.Longitude.ToString();
             if (!Radares.ContainsKey(radarId))
             {
-                RadarPin ponto = new RadarPin()
-                {
-                    Id = radar.Latitude.ToString() + "|" + radar.Longitude.ToString(),
-                    Pin = new Pin()
-                    {
-                        Type = PinType.Place,
-                        Position = new Position(radar.Latitude, radar.Longitude),
-                        Label = radar.Velocidade.ToString() + "km/h"
-                    },
-                    Sentido = radar.Direcao,
-                    Velocidade = radar.Velocidade,
-					Imagem = radarBLL.imagemRadar(radar.Velocidade)
+				RadarPin ponto = new RadarPin()
+				{
+					Id = radar.Latitude.ToString() + "|" + radar.Longitude.ToString(),
+					Pin = new Pin()
+					{
+						Type = PinType.Place,
+						Position = new Position(radar.Latitude, radar.Longitude),
+						Label = radar.Velocidade.ToString() + "km/h"
+					},
+					Sentido = radar.Direcao,
+					Velocidade = radar.Velocidade,
+					Imagem = radarBLL.imagemRadar(radar.Velocidade),
+					Tipo = radar.Tipo
+					
                 };
                 Radares.Add(ponto.Id, ponto);
                 if (AoDesenharRadar != null)

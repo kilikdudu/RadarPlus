@@ -1,4 +1,5 @@
 ﻿using Radar.BLL;
+using Radar.Estilo;
 using Radar.Model;
 using Radar.Utils;
 using System;
@@ -45,7 +46,7 @@ namespace Radar.Popup
 
             foreach (var item in _SomAlarme) {
                 var alarmeSwitch = new AlarmeSwitch {
-                    Style = EstiloUtils.PopupSwitch,
+                    Style = EstiloUtils.Popup.CheckBox,
                     SomAlarme = item.Key
                 };
                 alarmeSwitch.Toggled += (sender, e) =>
@@ -80,7 +81,7 @@ namespace Radar.Popup
                     HorizontalOptions = LayoutOptions.Fill,
                     Children = {
                             new Label {
-                                Style = EstiloUtils.PopupTexto,
+                                Style = EstiloUtils.Popup.Texto,
                                 Text = _SomAlarme[s.Key]
                             },
                             s.Value

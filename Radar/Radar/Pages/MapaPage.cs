@@ -107,8 +107,7 @@ namespace Radar.Pages
 
        public MapaPage()
 		{
-			
-		
+            Title = "Mapa";
             inicializarComponente();
 
             /*
@@ -119,7 +118,6 @@ namespace Radar.Pages
                 }
             };
             */
-            Title = "Mapa";
             Padding = 5;
             var absoluteLayout = new AbsoluteLayout();
 
