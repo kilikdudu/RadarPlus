@@ -14,46 +14,59 @@ namespace ClubManagement.Utils
         private const float VOLUME_MAXIMO = 15;
         private static IAudio _audio;
 
-        private static void inicilizarAudio() {
+        private static void inicializarAudio() {
             if (_audio == null)
             {
                 _audio = DependencyService.Get<IAudio>();
                 _audio.Volume = VOLUME_MAXIMO;
+                _audio.CaixaSom = false;
                 _audio.Canal = AudioCanalEnum.Notificacao;
             }
         }
 
         public static float Volume {
             get {
-                inicilizarAudio();
+                inicializarAudio();
                 return _audio.Volume;
             }
             set {
-                inicilizarAudio();
+                inicializarAudio();
                 _audio.Volume = value;
+            }
+        }
+
+        public static bool CaixaSom
+        {
+            get {
+                inicializarAudio();
+                return _audio.CaixaSom;
+            }
+            set {
+                inicializarAudio();
+                _audio.CaixaSom = value;
             }
         }
 
         public static AudioCanalEnum Canal {
             get {
-                inicilizarAudio();
+                inicializarAudio();
                 return _audio.Canal;
             }
             set {
-                inicilizarAudio();
+                inicializarAudio();
                 _audio.Canal = value;
             }
         }
 
         public static void play(string arquivo)
         {
-            inicilizarAudio();
+            inicializarAudio();
             _audio.play(arquivo);
         }
 
         public static void play(string[] arquivos)
         {
-            inicilizarAudio();
+            inicializarAudio();
             _audio.play(arquivos);
         }
     }

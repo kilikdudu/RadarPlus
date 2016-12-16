@@ -18,7 +18,6 @@ namespace Radar.Model
         private int _Velocidade;
         private int _Direcao;
 		private string _Endereco;
-		private DateTime _DataInclusao;
 		private bool _Ativo = true;
         [PrimaryKey, AutoIncrement, Obsolete("Usando em Id")]
         public int id_radar {
@@ -41,26 +40,46 @@ namespace Radar.Model
 				_Ativo = value;
 			}
 		}
-		//public DateTime DataInclusao { get; set; }
-		public DateTime DataInclusao
-		{
-			get
-			{
+		
+		public DateTime UltimaAlteracao { get; set; }
 
-				return _DataInclusao;
-			}
-			set
-			{
-				_DataInclusao = value;
-			}
-		}
-
-		public string DataTituloStr
+        [Ignore]
+		public string Titulo
 		{
-			get
-			{
-				DateTime dataTitulo = DataInclusao;
-				return dataTitulo.ToString("dd/MMM - HH:mm");
+			get {
+                string titulo = "";
+                if (UltimaAlteracao == DateTime.MinValue) {
+                    switch (_Tipo) {
+                        case RadarTipoEnum.Lombada:
+                            titulo = "Lombada";
+                            break;
+                        case RadarTipoEnum.Pedagio:
+                            titulo = "Pedágio";
+                            break;
+                        case RadarTipoEnum.PoliciaRodoviaria:
+                            titulo = "Polícia Rodoviária";
+                            break;
+                        case RadarTipoEnum.RadarFixo:
+                            titulo = "Radar Fixo";
+                            break;
+                        case RadarTipoEnum.RadarMovel:
+                            titulo = "Radar Móvel";
+                            break;
+                        case RadarTipoEnum.SemaforoComCamera:
+                            titulo = "Semáforo com Câmera";
+                            break;
+                        case RadarTipoEnum.SemaforoComRadar:
+                            titulo = "Semáforo com Radar";
+                            break;
+                        default:
+                            titulo = "Indefinido";
+                            break;
+                    }
+                }
+                else {
+                    titulo = UltimaAlteracao.ToString("dd/MMM - HH:mm");
+                }
+                return titulo;
 			}
 		}
 
@@ -145,7 +164,6 @@ namespace Radar.Model
             }
         }
 
-        [Obsolete("Não está usando em nenhum lugar.")]
         public int dirtype { get; set; }
 
         [Obsolete("Usando a Direcao.")]
@@ -309,7 +327,6 @@ namespace Radar.Model
 			{
 				_Endereco = value;
 			}
-
 		}
 
         [Ignore]
@@ -319,6 +336,67 @@ namespace Radar.Model
             }
             set {
                 usuario = (value) ? 1 : 0;
+            }
+        }
+
+        [Ignore]
+        public string Imagem {
+            get {
+                string str = "meusradares.png";
+                switch (_Tipo) {
+                    case RadarTipoEnum.Lombada:
+                        str = "lombada.png";
+                        break;
+                    case RadarTipoEnum.Pedagio:
+                        str = "pedagio.png";
+                        break;
+                    case RadarTipoEnum.PoliciaRodoviaria:
+                        str = "policiarodoviaria.png";
+                        break;
+                    case RadarTipoEnum.RadarFixo:
+                        if (Usuario)
+                        {
+                            str = "cameramais.png";
+                        }
+                        else {
+                            if (Velocidade >= 20 && Velocidade < 30)
+                                str = "radar_20.png";
+                            else if (Velocidade >= 30 && Velocidade < 40)
+                                str = "radar_30.png";
+                            else if (Velocidade >= 40 && Velocidade < 50)
+                                str = "radar_40.png";
+                            else if (Velocidade >= 50 && Velocidade < 60)
+                                str = "radar_50.png";
+                            else if (Velocidade >= 60 && Velocidade < 70)
+                                str = "radar_60.png";
+                            else if (Velocidade >= 70 && Velocidade < 80)
+                                str = "radar_70.png";
+                            else if (Velocidade >= 80 && Velocidade < 90)
+                                str = "radar_80.png";
+                            else if (Velocidade >= 90 && Velocidade < 100)
+                                str = "radar_90.png";
+                            else if (Velocidade >= 100 && Velocidade < 110)
+                                str = "radar_100.png";
+                            else if (Velocidade >= 110 && Velocidade < 120)
+                                str = "radar_110.png";
+                            else
+                                str = "cameramais.png";
+                        }
+                        break;
+                    case RadarTipoEnum.RadarMovel:
+                        str = "radar_movel.png";
+                        break;
+                    case RadarTipoEnum.SemaforoComCamera:
+                        str = "semaforo.png";
+                        break;
+                    case RadarTipoEnum.SemaforoComRadar:
+                        str = "radar_40_semaforo.png";
+                        break;
+                    default:
+                        str = "semaforo.png";
+                        break;
+                }
+                return str;
             }
         }
     }

@@ -11,7 +11,8 @@ namespace Radar.IDAL
     {
         IList<RadarInfo> listar();
 		IList<RadarInfo> listarEnderecoNulo();
-        IList<RadarInfo> listar(bool usuario);
+        IList<RadarInfo> listarUsuario();
+        IList<RadarInfo> listarInativo();
         IList<RadarInfo> listar(RadarBuscaInfo busca);
         IList<RadarInfo> listar(double latitude, double longitude, double latitudeDelta, double longitudeDelta, IList<RadarTipoEnum> filtro);
         RadarInfo pegar(int idRadar);

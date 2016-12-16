@@ -12,7 +12,17 @@ namespace Radar.Popup
 {
     public abstract class BaseListaPopup : BasePopup
     {
-        Button _FecharButton;
+        private Button _SalvarButton;
+        private Button _FecharButton;
+
+        public bool SalvarVisivel { get; set; }
+        protected virtual string getSalvar()
+        {
+            return "Alterar";
+        }
+        protected virtual void salvar() {
+            // nada
+        }
 
         protected abstract string getTitulo();
         public abstract View inicializarConteudo();
@@ -23,6 +33,17 @@ namespace Radar.Popup
 
         protected override void inicializarComponente()
         {
+            if (SalvarVisivel) {
+                _SalvarButton = new Button
+                {
+                    Style = EstiloUtils.Popup.Botao,
+                    Text = getSalvar(),
+                };
+                _SalvarButton.Clicked += (sender, e) => {
+                    salvar();
+                    PopupNavigation.PopAsync();
+                };
+            }
             _FecharButton = new Button
             {
                 Style = EstiloUtils.Popup.Botao,
@@ -35,6 +56,17 @@ namespace Radar.Popup
 
         protected override View inicializarTela()
         {
+            var footerLayout = new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+                HorizontalOptions = LayoutOptions.CenterAndExpand
+            };
+
+            if (SalvarVisivel) {
+                footerLayout.Children.Add(_SalvarButton);
+            }
+            footerLayout.Children.Add(_FecharButton);
+
             return new StackLayout
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -46,13 +78,7 @@ namespace Radar.Popup
                         VerticalOptions = LayoutOptions.StartAndExpand,
                         Content = inicializarConteudo()
                     },
-                    new StackLayout {
-                        Orientation = StackOrientation.Horizontal,
-                        HorizontalOptions = LayoutOptions.CenterAndExpand,
-                        Children = {
-                            _FecharButton
-                        }
-                    }
+                    footerLayout
                 }
             };
         }

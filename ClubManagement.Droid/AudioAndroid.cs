@@ -17,6 +17,9 @@ using System.IO;
 using System.Threading.Tasks;
 using ClubManagement.IBLL;
 using ClubManagement.Model;
+using Android;
+
+[assembly: UsesPermission(Manifest.Permission.ModifyAudioSettings)]
 
 [assembly: Dependency(typeof(AudioAndroid))]
 
@@ -30,6 +33,10 @@ namespace Radar.Droid
         //MediaPlayer[] _players;
         float _volume = 15;
         AudioCanalEnum _canal = AudioCanalEnum.Nenhum;
+        Ringtone _ultimoRingtone;
+        MediaPlayer _ultimoMediaPlayer;
+        IList<MediaPlayer> _players;
+
 
         public AudioAndroid() {
         }
@@ -53,7 +60,9 @@ namespace Radar.Droid
             }
         }
 
-        private MediaPlayer criarAudio(string arquivo) {
+        public bool CaixaSom { get; set; }
+
+        private string pegarArquivo(string arquivo) {
             Context context = Android.App.Application.Context;
             string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string path = Path.Combine(documentsPath, Path.GetFileName(arquivo));
@@ -66,18 +75,61 @@ namespace Radar.Droid
                 audioStream.Close();
                 destino.Close();
             }
-            var player = MediaPlayer.Create(context, Android.Net.Uri.Parse(path));
-            switch (_canal) {
+            return path;
+        }
+
+        private void tocar(string arquivo) {
+            Context context = Android.App.Application.Context;
+
+            /*
+            if (CaixaSom)
+            {
+                AudioManager audioManager = (AudioManager)context.GetSystemService(Context.AudioService);
+                //audioManager.Mode = Mode.Normal;
+                var maxVolume = audioManager.GetStreamMaxVolume(Android.Media.Stream.Music);
+                var volume = (int)Math.Floor(maxVolume * (_volume / 15));
+                audioManager.SetStreamVolume(Android.Media.Stream.Music, volume, VolumeNotificationFlags.PlaySound);
+                //audioManager.Mode = Mode.InCall;
+                audioManager.SpeakerphoneOn = true;
+            }
+            */
+
+            var path = pegarArquivo(arquivo);
+            switch (_canal)
+            {
                 case AudioCanalEnum.Alarme:
-                    player.SetAudioStreamType(Android.Media.Stream.Alarm);
+                    if (_ultimoRingtone != null)
+                        _ultimoRingtone.Stop();
+                    _ultimoRingtone = RingtoneManager.GetRingtone(context, Android.Net.Uri.Parse(path));
+                    _ultimoRingtone.StreamType = Android.Media.Stream.Alarm;
+                    _ultimoRingtone.Play();
                     break;
                 case AudioCanalEnum.Musica:
-                    player.SetAudioStreamType(Android.Media.Stream.Music);
+                case AudioCanalEnum.Notificacao:
+                    if (_ultimoMediaPlayer != null)
+                        _ultimoMediaPlayer.Stop();
+                    _ultimoMediaPlayer = MediaPlayer.Create(context, Android.Net.Uri.Parse(path));
+                    float volume = _volume / 15;
+                    _ultimoMediaPlayer.SetVolume(volume, volume);
+                    _ultimoMediaPlayer.SetAudioStreamType(Android.Media.Stream.Music);
+                    _ultimoMediaPlayer.Start();
                     break;
-                default:
-                    player.SetAudioStreamType(Android.Media.Stream.Notification);
+                    /*
+                    if (_ultimoRingtone != null)
+                        _ultimoRingtone.Stop();
+                    _ultimoRingtone = RingtoneManager.GetRingtone(context, Android.Net.Uri.Parse(path));
+                    _ultimoRingtone.StreamType = Android.Media.Stream.Notification;
+                    _ultimoRingtone.Play();
                     break;
+                    */
             }
+        }
+
+        private MediaPlayer criarAudio(string arquivo) {
+            var path = pegarArquivo(arquivo);
+            Context context = Android.App.Application.Context;
+            var player = MediaPlayer.Create(context, Android.Net.Uri.Parse(path));
+            player.SetAudioStreamType(Android.Media.Stream.Music);
             float volume = _volume / 15;
             player.SetVolume(volume, volume);
             return player;
@@ -118,13 +170,21 @@ namespace Radar.Droid
             _audioAtual = arquivos;
             playProximo();
             */
-            var players = new List<MediaPlayer>();
+            if (_players != null && _players.Count > 0) {
+                foreach (var playerOld in _players) {
+                    if (playerOld != null && playerOld.IsPlaying) {
+                        playerOld.Stop();
+                    }
+                }
+            }
+
+            _players = new List<MediaPlayer>();
             foreach (var arquivo in arquivos)
-                players.Add(criarAudio(arquivo));
+                _players.Add(criarAudio(arquivo));
             MediaPlayer player = null, playerAnterior = null;
-            for (int i = players.Count - 1; i >= 0; i--)
+            for (int i = _players.Count - 1; i >= 0; i--)
             {
-                player = players[i];
+                player = _players[i];
                 if (playerAnterior != null)
                     player.SetNextMediaPlayer(playerAnterior);
                 playerAnterior = player;
@@ -139,8 +199,9 @@ namespace Radar.Droid
             _player = criarAudio(arquivo);
             _player.Start();
             */
-            var player = criarAudio(arquivo);
-            player.Start();
+            //var player = criarAudio(arquivo);
+            //player.Start();
+            tocar(arquivo);
         }
     }
 }

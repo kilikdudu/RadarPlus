@@ -52,6 +52,9 @@
     <Compile Include="Pages\ModoPercursoPage.cs" />
     <Compile Include="Pages\PercursoPage.cs" />
     <Compile Include="Pages\PercursoPageCell.cs" />
+    <Compile Include="Pages\RadarAtivoCell.cs" />
+    <Compile Include="Pages\RadarBaseCell.cs" />
+    <Compile Include="Pages\RadarInativoCell.cs" />
     <Compile Include="Popup\AlturaVolumePopUp.cs" />
     <Compile Include="Popup\BaseFormPopup.cs" />
     <Compile Include="Popup\BaseListaPopup.cs" />
@@ -62,6 +65,7 @@
     <Compile Include="Popup\DesativarGPSPopUp.cs" />
     <Compile Include="Popup\DistanciaAlertaPopUp.cs" />
     <Compile Include="Popup\BaseSliderPopUp.cs" />
+    <Compile Include="Popup\RadarVelocidadePopup.cs" />
     <Compile Include="Popup\SomAlertaPopUp.cs" />
     <Compile Include="Popup\TempoPercursoPopUp.cs" />
     <Compile Include="Popup\NivelZoomPopUp.cs" />

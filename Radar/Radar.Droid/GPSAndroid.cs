@@ -191,12 +191,10 @@ namespace Radar.Droid
             if (desativando)
                 return;
             LocalizacaoInfo local = converterLocalizacao(location);
-            /*
             local.Velocidade = 20;
             local.Latitude = -16.620743;
             local.Longitude = -49.356621;
             local.Sentido = 324;
-            */
             if (Situacao == GPSSituacaoEnum.Ativo)
             {
                 if (Xamarin.Forms.Forms.IsInitialized)
@@ -258,28 +256,37 @@ namespace Radar.Droid
 
         public void OnStatusChanged(string provider, [GeneratedEnum] Availability status, Bundle extras)
         {
-            if (status.Equals(Availability.Available))
-            {
-                if (Disponibilidade != GPSDisponibilidadeEnum.Disponivel)
-                {
-                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS encontrado!", audio: "sinal_gps_encontrado");
-                    Disponibilidade = GPSDisponibilidadeEnum.Disponivel;
-                }
+            double velocidade = 0;
+            double precisao = 21;
+            if (GPSUtils.UltimaLocalizacao != null) {
+                precisao = GPSUtils.UltimaLocalizacao.Precisao;
+                velocidade = GPSUtils.UltimaLocalizacao.Velocidade;
             }
-            else if (status.Equals(Availability.OutOfService))
+            if (precisao <= 20 && velocidade > 15)
             {
-                if (Disponibilidade != GPSDisponibilidadeEnum.ForaDoAr)
+                if (status.Equals(Availability.Available))
                 {
-                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", audio: "sinal_gps_fora_do_ar");
-                    Disponibilidade = GPSDisponibilidadeEnum.ForaDoAr;
+                    if (Disponibilidade != GPSDisponibilidadeEnum.Disponivel)
+                    {
+                        MensagemUtils.notificar(5, "Radar+", "Sinal de GPS encontrado!", audio: "sinal_gps_encontrado");
+                        Disponibilidade = GPSDisponibilidadeEnum.Disponivel;
+                    }
                 }
-            }
-            else if (status.Equals(Availability.TemporarilyUnavailable))
-            {
-                if (Disponibilidade != GPSDisponibilidadeEnum.IndisponivelTemporariamente)
+                else if (status.Equals(Availability.OutOfService))
                 {
-                    MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", audio: "sinal_gps_perdido");
-                    Disponibilidade = GPSDisponibilidadeEnum.IndisponivelTemporariamente;
+                    if (Disponibilidade != GPSDisponibilidadeEnum.ForaDoAr)
+                    {
+                        MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", audio: "sinal_gps_fora_do_ar");
+                        Disponibilidade = GPSDisponibilidadeEnum.ForaDoAr;
+                    }
+                }
+                else if (status.Equals(Availability.TemporarilyUnavailable))
+                {
+                    if (Disponibilidade != GPSDisponibilidadeEnum.IndisponivelTemporariamente)
+                    {
+                        MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", audio: "sinal_gps_perdido");
+                        Disponibilidade = GPSDisponibilidadeEnum.IndisponivelTemporariamente;
+                    }
                 }
             }
         }

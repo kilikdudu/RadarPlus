@@ -41,11 +41,13 @@ namespace Radar.Popup
                 {
                     _AlarmeSwitch.IsToggled = false;
                     _NotificacaoSwitch.IsToggled = false;
-                    PreferenciaUtils.CanalAudio = AudioCanalEnum.Musica;
                 }
                 else {
-                    PreferenciaUtils.CanalAudio = AudioCanalEnum.Nenhum;
+                    if (!_AlarmeSwitch.IsToggled && !_NotificacaoSwitch.IsToggled) {
+                        _MusicaSwitch.IsToggled = true;
+                    }
                 }
+                PreferenciaUtils.CanalAudio = AudioCanalEnum.Musica;
             };
             _AlarmeSwitch = new Switch {
                 Style = EstiloUtils.Popup.CheckBox
@@ -56,11 +58,12 @@ namespace Radar.Popup
                 {
                     _MusicaSwitch.IsToggled = false;
                     _NotificacaoSwitch.IsToggled = false;
-                    PreferenciaUtils.CanalAudio = AudioCanalEnum.Alarme;
                 }
                 else {
-                    PreferenciaUtils.CanalAudio = AudioCanalEnum.Nenhum;
+                    if (!_MusicaSwitch.IsToggled && !_NotificacaoSwitch.IsToggled)
+                        _AlarmeSwitch.IsToggled = true;
                 }
+                PreferenciaUtils.CanalAudio = AudioCanalEnum.Alarme;
             };
             _NotificacaoSwitch = new Switch {
                 Style = EstiloUtils.Popup.CheckBox
@@ -71,11 +74,12 @@ namespace Radar.Popup
                 {
                     _MusicaSwitch.IsToggled = false;
                     _AlarmeSwitch.IsToggled = false;
-                    PreferenciaUtils.CanalAudio = AudioCanalEnum.Notificacao;
                 }
                 else {
-                    PreferenciaUtils.CanalAudio = AudioCanalEnum.Nenhum;
+                    if (!_MusicaSwitch.IsToggled && !_AlarmeSwitch.IsToggled)
+                        _NotificacaoSwitch.IsToggled = true;
                 }
+                PreferenciaUtils.CanalAudio = AudioCanalEnum.Notificacao;
             };
         }
 

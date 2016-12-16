@@ -29,10 +29,10 @@ namespace Radar.Pages
             _SomCaixaSwitch = new Switch
             {
                 Style = EstiloUtils.Preferencia.Checkbox,
-                IsToggled = PreferenciaUtils.SomCaixa
+                IsToggled = PreferenciaUtils.CaixaSom
             };
             _SomCaixaSwitch.Toggled += (sender, e) => {
-                PreferenciaUtils.SomCaixa = e.Value;
+                PreferenciaUtils.CaixaSom = e.Value;
             };
         }
 

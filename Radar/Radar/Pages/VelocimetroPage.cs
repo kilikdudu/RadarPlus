@@ -16,21 +16,6 @@ namespace Radar.Pages
 {
     public class VelocimetroPage: BaseVisualPage
     {
-		/*
-        private static VelocimetroPage _velocimetroPageAtual;
-
-        public static VelocimetroPage Atual
-        {
-            get
-            {
-                return _velocimetroPageAtual;
-            }
-            private set
-            {
-                _velocimetroPageAtual = value;
-            }
-        }
-        */
 		AbsoluteLayout _absoluteLayout;
         private Velocimetro _velocimetro;
         Image _radarImage;

@@ -209,19 +209,19 @@
     <AndroidResource Include="Resources\layout\service_player.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidAsset Include="Assets\alarmes\alarm-001.m4a" />
-    <AndroidAsset Include="Assets\alarmes\alarm-002.m4a" />
-    <AndroidAsset Include="Assets\alarmes\alarm-003.m4a" />
-    <AndroidAsset Include="Assets\alarmes\alarm-004.m4a" />
-    <AndroidAsset Include="Assets\alarmes\alarm-005.m4a" />
-    <AndroidAsset Include="Assets\alarmes\alarm-006.m4a" />
-    <AndroidAsset Include="Assets\alarmes\alarm-007.m4a" />
-    <AndroidAsset Include="Assets\alarmes\alarm-008.m4a" />
-    <AndroidAsset Include="Assets\alarmes\alarm-009.m4a" />
-    <AndroidAsset Include="Assets\alarmes\alarm-010.m4a" />
-    <AndroidAsset Include="Assets\alarmes\alarm-011.m4a" />
-    <AndroidAsset Include="Assets\alarmes\alarm-012.m4a" />
-    <AndroidAsset Include="Assets\alarmes\alarm-013.m4a" />
+    <AndroidAsset Include="Assets\alarmes\alarm_001.m4a" />
+    <AndroidAsset Include="Assets\alarmes\alarm_002.m4a" />
+    <AndroidAsset Include="Assets\alarmes\alarm_003.m4a" />
+    <AndroidAsset Include="Assets\alarmes\alarm_004.m4a" />
+    <AndroidAsset Include="Assets\alarmes\alarm_005.m4a" />
+    <AndroidAsset Include="Assets\alarmes\alarm_006.m4a" />
+    <AndroidAsset Include="Assets\alarmes\alarm_007.m4a" />
+    <AndroidAsset Include="Assets\alarmes\alarm_008.m4a" />
+    <AndroidAsset Include="Assets\alarmes\alarm_009.m4a" />
+    <AndroidAsset Include="Assets\alarmes\alarm_010.m4a" />
+    <AndroidAsset Include="Assets\alarmes\alarm_011.m4a" />
+    <AndroidAsset Include="Assets\alarmes\alarm_012.m4a" />
+    <AndroidAsset Include="Assets\alarmes\alarm_013.m4a" />
     <AndroidResource Include="Resources\drawable\logo.png" />
     <AndroidResource Include="Resources\drawable\error.png" />
     <AndroidResource Include="Resources\drawable\success.png" />
@@ -512,6 +512,57 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\radarplus_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\raw\radar_aberto.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Resources\raw\radar_fechado.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\audios\radar_fechado.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\audios\radar_aberto.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\alarm_001.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\alarm_002.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\alarm_003.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\alarm_004.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\alarm_005.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\alarm_006.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\alarm_007.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\alarm_008.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\alarm_009.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\alarm_010.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\alarm_011.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\alarm_012.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\alarm_013.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

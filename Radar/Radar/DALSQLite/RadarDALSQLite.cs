@@ -29,14 +29,24 @@ namespace Radar.DALSQLite
 			}
         }
 
-        public IList<RadarInfo> listar(bool usuario)
+        public IList<RadarInfo> listarUsuario()
         {
             lock (locker)
             {
-                int eUsuario = (usuario) ? 1 : 0;
                 return (
                     from r in database.Table<RadarInfo>()
-					where (r.usuario == eUsuario)
+					where (r.usuario == 1 && r.Ativo == true)
+                    select r
+                ).ToList();
+            }
+        }
+
+        public IList<RadarInfo> listarInativo() {
+            lock (locker)
+            {
+                return (
+                    from r in database.Table<RadarInfo>()
+                    where (r.Ativo == false)
                     select r
                 ).ToList();
             }

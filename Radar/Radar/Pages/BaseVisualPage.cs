@@ -165,44 +165,23 @@ namespace Radar.Pages
 					{
 						Command = new Command(() =>
 						{
-							//var regraAviso = new AvisoSonoroBLL();
-							//regraAviso.play(RadarTipoEnum.RadarFixo, 40, 300);
-							//AudioUtils.play(AudioEnum.Alarm001);
-							//MensagemUtils.avisar("teste");
-							//var downloader = new DownloaderAtualizacao();
-							//downloader.download();
-
-							if (InternetUtils.estarConectado())
-							{
-								LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
-								float latitude = (float)local.Latitude;
-								float longitude = (float)local.Longitude;
-								GeocoderUtils.pegarAsync(latitude, longitude, (sender, e) =>
-								{
-									var endereco = e.Endereco;
-									ClubManagement.Utils.MensagemUtils.avisar(endereco.Logradouro);
-								});
-							}
-
-
-
 							try
 							{
-								LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
-								if (local != null)
-								{
-									RadarBLL regraRadar = RadarFactory.create();
-									regraRadar.gravar(local, false);
-									MensagemUtils.avisar("Radar incluído com sucesso.");
-								}
-								else
-									MensagemUtils.avisar("Nenhum movimento registrado pelo GPS.");
+                                if (RadarBLL.RadarAtual != null)
+                                {
+                                    RadarBLL regraRadar = RadarFactory.create();
+                                    regraRadar.excluir(RadarBLL.RadarAtual);
+                                    MensagemUtils.avisar("Radar excluído com sucesso.");
+                                    RadarBLL.RadarAtual = null;
+                                }
+                                else {
+                                    MensagemUtils.avisar("Nenhum radar selecionado.");
+                                }
 							}
 							catch (Exception e)
 							{
 								MensagemUtils.avisar(e.Message);
 							}
-
 						}
 					)
 					});
@@ -231,34 +210,13 @@ namespace Radar.Pages
                     {
                         Command = new Command(() =>
                         {
-							//var regraAviso = new AvisoSonoroBLL();
-							//regraAviso.play(RadarTipoEnum.RadarFixo, 40, 300);
-							//AudioUtils.play(AudioEnum.Alarm001);
-							//MensagemUtils.avisar("teste");
-							//var downloader = new DownloaderAtualizacao();
-							//downloader.download();
-
-                            if (InternetUtils.estarConectado())
-                            {
-								LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
-							float latitude = (float)local.Latitude;
-							float longitude = (float)local.Longitude;
-                                GeocoderUtils.pegarAsync(latitude, longitude, (sender, e) =>
-                                { 
-                                    var endereco = e.Endereco;
-                                    ClubManagement.Utils.MensagemUtils.avisar(endereco.Logradouro);
-                                });
-                            }
-                            
-
-                            
                             try
                             {
                                 LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
                                 if (local != null)
                                 {
                                     RadarBLL regraRadar = RadarFactory.create();
-								regraRadar.gravar(local, false);
+								    regraRadar.inserir(local);
                                     MensagemUtils.avisar("Radar incluído com sucesso.");
                                 }
                                 else
@@ -272,9 +230,6 @@ namespace Radar.Pages
                         }
                     )
                 });
-
-
-
             }
 
 

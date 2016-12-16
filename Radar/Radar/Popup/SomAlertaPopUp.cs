@@ -1,4 +1,6 @@
-﻿using Radar.BLL;
+﻿using ClubManagement.Model;
+using ClubManagement.Utils;
+using Radar.BLL;
 using Radar.Estilo;
 using Radar.Model;
 using Radar.Utils;
@@ -60,7 +62,27 @@ namespace Radar.Popup
                                 s.Value.IsToggled = false;
                         }
                         PreferenciaUtils.SomAlarme = alSwitch.SomAlarme;
-                        new AvisoSonoroBLL().play(alSwitch.SomAlarme);
+                        var regraAviso = new AvisoSonoroBLL();
+                        if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
+                        {
+                            string arquivoSom = regraAviso.pegarArquivo(alSwitch.SomAlarme);
+                            MensagemUtils.notificar(104, "Radar+", "Reproduzindo som de alarme para escolha!", audio: arquivoSom);
+                        }
+                        else {
+                            regraAviso.play(alSwitch.SomAlarme);
+                        }
+                    }
+                    else {
+                        bool marcado = false;
+                        foreach (var s in _Controls) {
+                            if (s.Value.IsToggled) {
+                                marcado = true;
+                                break;
+                            }
+                        }
+                        if (!marcado) {
+                            alSwitch.IsToggled = true;
+                        }
                     }
                 };
                 _Controls.Add(item.Key, alarmeSwitch);

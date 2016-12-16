@@ -43,7 +43,7 @@ namespace Radar.Popup
             _Slider.ValueChanged += (sender, e) => {
                 _Slider.Value = Math.Round(e.NewValue);
                 Valor = Math.Floor(_Slider.Value);
-                _TextoLabel.Text = _Slider.Value.ToString();
+                _TextoLabel.Text = formatarTexto(Valor);
             };
         }
 

@@ -43,9 +43,14 @@ namespace Radar.BLL
             return _db.listar();
         }
 
-        public IList<RadarInfo> listar(bool usuario)
+        public IList<RadarInfo> listarUsuario()
         {
-            return _db.listar(usuario);
+            return _db.listarUsuario();
+        }
+
+        public IList<RadarInfo> listarInativo()
+        {
+            return _db.listarInativo();
         }
 
         public IList<RadarInfo> listar(RadarBuscaInfo busca) {
@@ -63,44 +68,23 @@ namespace Radar.BLL
             return _db.pegar(idRadar);
         }
 
-        public int gravar(RadarInfo radar, bool inativar)
+        public int gravar(RadarInfo radar)
         {
 			if (radar.Velocidade < 20)
 			    throw new Exception("Você não pode adicionar um radar a menos de 20 km/h.");
-
-			int grava = 0;
-			if (radar.Usuario == true && inativar == true)
-			{
-				excluir(radar.Id);
-			}
-			else {
-				
-				if (inativar == true)
-				{
-					radar.Ativo = false;
-					grava = _db.gravar(radar);
-				}
-				else {
-					grava = _db.gravar(radar);
-				}
-
-				atualizarEndereco();
-			}
-
-            return grava;
+            radar.UltimaAlteracao = DateTime.Now;
+			int alteracao = _db.gravar(radar);
+            atualizarEndereco();
+            return alteracao;
         }
 
-		public int gravarEndereco(RadarInfo radar)
-		{
-			return _db.gravar(radar);
-		}
-
-        public int gravar(LocalizacaoInfo local, bool inativar) {
+        public int inserir(LocalizacaoInfo local) {
 			
 			//DateTime saveNow = DateTime.Now;
             int velocidade = (int)Math.Floor(local.Velocidade);
             velocidade = ((velocidade % 10) > 0) ? (velocidade - (velocidade % 10)) + 10 : velocidade;
             RadarInfo radar = new RadarInfo {
+                Id = 0,
                 Latitude = local.Latitude,
                 Longitude = local.Longitude,
                 LatitudeCos = Math.Cos(local.Latitude * Math.PI / 180),
@@ -110,16 +94,21 @@ namespace Radar.BLL
                 Direcao = (int) Math.Floor(local.Sentido),
                 Velocidade = velocidade,
                 Tipo = RadarTipoEnum.RadarFixo,
-				DataInclusao = DateTime.Now,
+				UltimaAlteracao = DateTime.Now,
 				Endereco = "",
                 Usuario = true
             };
-			return gravar(radar, inativar);
+			return _db.gravar(radar);
         }
 
-        public void excluir(int idRadar)
+        public void excluir(RadarInfo radar)
         {
-            _db.excluir(idRadar);
+            if (radar != null)
+            {
+                radar.Ativo = false;
+                radar.UltimaAlteracao = DateTime.Now;
+                _db.gravar(radar);
+            }
         }
 
         private double angleFromCoordinate(double latitude1, double longitude1, double latitude2, double longitude2) {
@@ -300,37 +289,18 @@ namespace Radar.BLL
 				var radares = _db.listarEnderecoNulo();
 				if (radares.Count > 0)
 				{
+                    var radar = radares.FirstOrDefault();
 					int idRadar = radares[0].Id;
-					float lat = (float)radares[0].Latitude;
-					float lon = (float)radares[0].Longitude;
+					float lat = (float)radar.Latitude;
+					float lon = (float)radar.Longitude;
 
 					GeocoderUtils.pegarAsync(lat, lon, (sender, e) =>
 					{
-						var endereco = e.Endereco;
-						RadarInfo radar = new RadarInfo()
-						{
-							Id = idRadar,
-							Latitude = radares[0].Latitude,
-							Longitude = radares[0].Longitude,
-							LatitudeCos = radares[0].LatitudeCos,
-							LatitudeSin = radares[0].LatitudeSin,
-							LongitudeCos = radares[0].LongitudeCos,
-							LongitudeSin = radares[0].LongitudeSin,
-							Direcao = radares[0].Direcao,
-							Velocidade = radares[0].Velocidade,
-							Tipo = radares[0].Tipo,
-							Usuario = true,
-							DataInclusao = radares[0].DataInclusao,
-							Endereco = endereco.Logradouro + " " + endereco.Complemento + " " + endereco.Bairro + " " + endereco.Cidade + " " + endereco.Uf + " " + endereco.CEP
-
-						};
-
-						gravarEndereco(radar);
-
+                        radar.UltimaAlteracao = DateTime.Now;
+                        radar.Endereco = e.Endereco.ToString();
+						gravar(radar);
 						atualizarEndereco();
 					});
-
-
 				}
 			}
 		}

@@ -474,7 +474,7 @@ namespace Radar.BLL
             }
         }
 
-        public static bool SomCaixa
+        public static bool CaixaSom
 		{
 			get {
                 inicializar();

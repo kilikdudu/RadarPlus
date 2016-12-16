@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Radar.Pages.Popup;
 using Rg.Plugins.Popup.Extensions;
+using Radar.BLL;
+using ClubManagement.Model;
 
 namespace Radar.Pages
 {
@@ -192,6 +194,19 @@ namespace Radar.Pages
                 Icone = "sair.png",
                 aoClicar = (sender, e) =>
                 {
+                    if (PreferenciaUtils.LigarDesligar)
+                    {
+                        if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
+                        {
+                            MensagemUtils.notificar(101, "Radar+", "O Radar+ está aberto", audio: "radar_aberto");
+                        }
+                        else {
+                            AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
+                            AudioUtils.Canal = PreferenciaUtils.CanalAudio;
+                            AudioUtils.CaixaSom = PreferenciaUtils.CaixaSom;
+                            AudioUtils.play("audios/radar-fechado.mp3");
+                        }
+                    }
                     ThreadUtils.closeApplication();
                 }
             });

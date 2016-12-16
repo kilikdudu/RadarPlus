@@ -54,6 +54,12 @@ namespace Radar.Pages
             if (Device.OS == TargetPlatform.Android)
                 GPSUtils.verificarFuncionamentoGPS();
 
+            if (PreferenciaUtils.LigarDesligar) {
+                AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
+                AudioUtils.Canal = PreferenciaUtils.CanalAudio;
+                AudioUtils.CaixaSom = PreferenciaUtils.CaixaSom;
+                AudioUtils.play("audios/radar-aberto.mp3");
+            }
         }
 
 

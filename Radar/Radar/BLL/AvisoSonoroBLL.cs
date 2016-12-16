@@ -1,4 +1,5 @@
-﻿using ClubManagement.Utils;
+﻿using ClubManagement.Model;
+using ClubManagement.Utils;
 using Radar.Model;
 using System;
 using System.Collections.Generic;
@@ -14,49 +15,49 @@ namespace Radar.BLL
         private const string DIR_AUDIO = "audios";
         private const string DIR_ALARME = "alarmes";
 
-        private static string pegarArquivo(SomAlarmeEnum audio)
+        public string pegarArquivo(SomAlarmeEnum audio)
         {
             string arquivo;
             switch (audio)
             {
                 case SomAlarmeEnum.Alarme02:
-                    arquivo = "alarm-002.m4a";
+                    arquivo = "alarm_002";
                     break;
                 case SomAlarmeEnum.Alarme03:
-                    arquivo = "alarm-003.m4a";
+                    arquivo = "alarm_003";
                     break;
                 case SomAlarmeEnum.Alarme04:
-                    arquivo = "alarm-004.m4a";
+                    arquivo = "alarm_004";
                     break;
                 case SomAlarmeEnum.Alarme05:
-                    arquivo = "alarm-005.m4a";
+                    arquivo = "alarm_005";
                     break;
                 case SomAlarmeEnum.Alarme06:
-                    arquivo = "alarm-006.m4a";
+                    arquivo = "alarm_006";
                     break;
                 case SomAlarmeEnum.Alarme07:
-                    arquivo = "alarm-007.m4a";
+                    arquivo = "alarm_007";
                     break;
                 case SomAlarmeEnum.Alarme08:
-                    arquivo = "alarm-008.m4a";
+                    arquivo = "alarm_008";
                     break;
                 case SomAlarmeEnum.Alarme09:
-                    arquivo = "alarm-009.m4a";
+                    arquivo = "alarm_009";
                     break;
                 case SomAlarmeEnum.Alarme10:
-                    arquivo = "alarm-010.m4a";
+                    arquivo = "alarm_010";
                     break;
                 case SomAlarmeEnum.Alarme11:
-                    arquivo = "alarm-011.m4a";
+                    arquivo = "alarm_011";
                     break;
                 case SomAlarmeEnum.Alarme12:
-                    arquivo = "alarm-012.m4a";
+                    arquivo = "alarm_012";
                     break;
                 case SomAlarmeEnum.Alarme13:
-                    arquivo = "alarm-013.m4a";
+                    arquivo = "alarm_013";
                     break;
                 default:
-                    arquivo = "alarm-001.m4a";
+                    arquivo = "alarm_001";
                     break;
             }
             return arquivo;
@@ -106,10 +107,14 @@ namespace Radar.BLL
 
         public void play(SomAlarmeEnum alarme)
         {
-            var arquivoStr = Path.Combine(DIR_ALARME, pegarArquivo(alarme));
-            AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
-            AudioUtils.Canal = PreferenciaUtils.CanalAudio;
-            AudioUtils.play(arquivoStr);
+            var arquivoStr = Path.Combine(DIR_ALARME, pegarArquivo(alarme)) + ".m4a";
+            if (PreferenciaUtils.CanalAudio != AudioCanalEnum.Notificacao)
+            {
+                AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
+                AudioUtils.Canal = PreferenciaUtils.CanalAudio;
+                AudioUtils.CaixaSom = PreferenciaUtils.CaixaSom;
+                AudioUtils.play(arquivoStr);
+            }
         }
 
         public void play(RadarTipoEnum tipoRadar, int velocidade, int distancia) {
@@ -121,6 +126,7 @@ namespace Radar.BLL
                 audios.Add(Path.Combine(DIR_AUDIO, AUDIO_DISTANCIA[distancia]));
             AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
             AudioUtils.Canal = PreferenciaUtils.CanalAudio;
+            AudioUtils.CaixaSom = PreferenciaUtils.CaixaSom;
             AudioUtils.play(audios.ToArray());
         }
     }

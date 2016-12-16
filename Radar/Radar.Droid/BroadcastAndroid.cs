@@ -13,6 +13,7 @@ using Radar.BLL;
 using Radar.Factory;
 using ClubManagement.Utils;
 using Radar.Utils;
+using ClubManagement.Model;
 
 namespace Radar.Droid
 {
@@ -42,7 +43,19 @@ namespace Radar.Droid
             }
 			else if (intent.Action == "Fechar")
 			{
-				NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
+                if (PreferenciaUtils.LigarDesligar) {
+                    if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
+                    {
+                        MensagemUtils.notificar(101, "Radar+", "O Radar+ está sendo encerrado!", audio: "radar_fechado");
+                    }
+                    else {
+                        AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
+                        AudioUtils.Canal = PreferenciaUtils.CanalAudio;
+                        AudioUtils.CaixaSom = PreferenciaUtils.CaixaSom;
+                        AudioUtils.play("audios/radar_fechado.mp3");
+                    }
+                }
+                NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
 				notificationManager.Cancel(1);
 				System.Environment.Exit(0);
 				Process.KillProcess(Process.MyPid());
