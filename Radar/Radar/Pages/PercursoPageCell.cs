@@ -52,7 +52,8 @@ namespace Radar.Pages
                                     Source = ImageSource.FromFile("percursos.png"),
                                     HorizontalOptions = LayoutOptions.Center,
                                     VerticalOptions = LayoutOptions.Start
-                                }
+                                },
+                                _distanciaLabel
                             }
                         }
                     },
