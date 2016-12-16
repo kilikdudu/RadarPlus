@@ -137,6 +137,15 @@ namespace Radar.Pages
             
             grupo.Add(new MenuItemInfo
             {
+                Titulo = "Tags",
+                Icone = "tag.png",
+                aoClicar = (sender, e) => {
+                    NavegacaoUtils.PushAsync(new TagPage());
+                }
+            });
+            
+            grupo.Add(new MenuItemInfo
+            {
                 Titulo = "Preferências",
                 Icone = "config.png",
                 aoClicar = (sender, e) => {

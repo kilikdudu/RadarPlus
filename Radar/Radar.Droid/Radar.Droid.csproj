@@ -256,6 +256,11 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_pan_tool_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_pan_tool_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_pan_tool_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_color_lens_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_color_lens_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_color_lens_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_color_lens_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\tag.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
