@@ -40,7 +40,7 @@ namespace Radar
 			AbsoluteLayout.SetLayoutBounds(listaGruposAdministracao, new Rectangle(0, 0, 1, 1));
 			AbsoluteLayout.SetLayoutFlags(listaGruposAdministracao, AbsoluteLayoutFlags.All);
 			
-			
+			listaGruposAdministracao.BindingContext = grupo;
 			
 			listaView.Children.Add(listaGruposAdministracao);
 			//listaView.Children.Add(AdicionarRadarButton);

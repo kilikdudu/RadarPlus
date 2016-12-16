@@ -17,7 +17,11 @@ namespace Radar
 		int _count = 0;
 		StackLayout _main;
 		ObservableCollection<ResumoInfo> _resumo;
+		Label _ValorItem;
+		Label _DescricaoItem;
 		BoxView _linha;
+		ResumoItemInfo _resumoInfo;
+		
 		public ResumoPercursoPage(PercursoInfo percursoinfo)
 		{
 			var percurso = percursoinfo;
@@ -43,6 +47,7 @@ namespace Radar
 			resumoRadar.Add(new ResumoItemInfo() { Descricao = "Longitude", Valor = "-15.447853" });
 			resumoRadar.Add(new ResumoItemInfo() { Descricao = "Data", Valor = "10 / DEZ" });
 			resumoRadar.Add(new ResumoItemInfo() { Descricao = "Velocidade", Valor = "40 Km/h" });
+			resumoRadar.Add(new ResumoItemInfo() { Descricao = "Minha Velocidade", Valor = "60 Km/h" });
 			
 			ObservableCollection<ResumoItemInfo> resumoDespesas = new ObservableCollection<ResumoItemInfo>();
 
@@ -67,7 +72,7 @@ namespace Radar
 			_resumo.Add(new ResumoInfo() { Nome = "Despesas", Imagem = "ic_monetization_on_black_24dp.png",Items = resumoDespesas });
 			_resumo.Add(new ResumoInfo() { Nome = "Polícia Rodoviária", Imagem = "policiarodoviaria.png",Items = resumoPoliciaRodoviaria });
 			_resumo.Add(new ResumoInfo() { Nome = "Despesas", Imagem = "ic_monetization_on_black_24dp.png",Items = resumoDespesas });
-		
+	
 			ListView listaResumos = new ListView();
 			//listaResumos.RowHeight = 200;
 			listaResumos.ItemTemplate = new DataTemplate(celulaResumo);
@@ -84,6 +89,7 @@ namespace Radar
 			listaResumos.BindingContext = _resumo;
 
 			listaView.Children.Add(listaResumos);
+			
 
 			Content = listaView;
 		}
@@ -114,12 +120,7 @@ namespace Radar
 			gridChild.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
 			gridChild.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.35, GridUnitType.Star) });
 			gridChild.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.65, GridUnitType.Star) });
-
-
-           
-           // for (int i = 0; i < _resumo.Count; i++)
-           // {
-                      
+      
 				Image icone = new Image()
 				{
 					HeightRequest = 60,
@@ -165,42 +166,70 @@ namespace Radar
 				gridMain.Children.Add(nome, 1, 0);
 
 				int itemPosicao = 0;
-				foreach(var item in _resumo[_count].Items){
-					Label DescricaoItem = new Label
-					{
-						TextColor = Color.FromHex(TemaInfo.PrimaryText),
-						FontFamily = "Roboto-Condensed",
-						FontSize = 20,
-						HorizontalOptions = LayoutOptions.Start,
-						VerticalOptions = LayoutOptions.Start,
-					};
-					DescricaoItem.SetBinding(Label.TextProperty, new Binding("Items[" + itemPosicao.ToString() + "].Descricao"));
+				string velocidadeRadar = null;
+				string minhaVelocidade = null;
+			foreach (var item in _resumo[_count].Items)
+			{
+				_DescricaoItem = new Label
+				{
+					TextColor = Color.FromHex(TemaInfo.PrimaryText),
+					FontFamily = "Roboto-Condensed",
+					FontSize = 20,
+					HorizontalOptions = LayoutOptions.Start,
+					VerticalOptions = LayoutOptions.Start,
+				};
+				_DescricaoItem.SetBinding(Label.TextProperty, new Binding("Items[" + itemPosicao.ToString() + "].Descricao"));
 
-					Label ValorItem = new Label
+				_ValorItem = new Label
+				{
+					TextColor = Color.FromHex(TemaInfo.PrimaryText),
+					FontFamily = "Roboto-Condensed",
+					FontSize = 20,
+					HorizontalOptions = LayoutOptions.Start,
+					VerticalOptions = LayoutOptions.Start,
+				};
+				_ValorItem.SetBinding(Label.TextProperty, new Binding("Items[" + itemPosicao.ToString() + "].Valor"));
+				if (_resumo[_count].Nome == "Radar")
+				{
+					if (_resumo[_count].Items[3].Descricao == "Velocidade")
 					{
-						TextColor = Color.FromHex(TemaInfo.PrimaryText),
-						FontFamily = "Roboto-Condensed",
-						FontSize = 20,
-						HorizontalOptions = LayoutOptions.Start,
-						VerticalOptions = LayoutOptions.Start,
-					};
-					ValorItem.SetBinding(Label.TextProperty, new Binding("Items[" + itemPosicao.ToString() + "].Valor"));
+						velocidadeRadar = _resumo[_count].Items[3].Valor.Replace(" Km/h", "");
+					}
+					if (_resumo[_count].Items[4].Descricao == "Minha Velocidade")
+					{
+						minhaVelocidade = _resumo[_count].Items[4].Valor.Replace(" Km/h", "");
+					}
+
+					if (minhaVelocidade != null && velocidadeRadar != null)
+					{
+						if (Int32.Parse(minhaVelocidade) > Int32.Parse(velocidadeRadar))
+						{
+							_ValorItem.TextColor = Color.Red;
+						}
+					}
+				}
 					
-					gridChild.Children.Add(DescricaoItem, 0, itemPosicao);
-					gridChild.Children.Add(ValorItem, 1, itemPosicao);
+					
+					gridChild.Children.Add(_DescricaoItem, 0, itemPosicao);
+					gridChild.Children.Add(_ValorItem, 1, itemPosicao);
 					itemPosicao++;
 				}
 			
 				_count++;
-            //}
 			
             _main.Children.Add(gridMain);
             _main.Children.Add(_linha);
             _main.Children.Add(gridChild);
 			frameOuter.Content = _main;
+			
             cell.View = frameOuter;
             return cell;
 		}
+		
+		protected override void OnBindingContextChanged() {
+            _resumoInfo = (ResumoItemInfo) BindingContext;
+            base.OnBindingContextChanged();
+        }
 
 		public void OnTap(object sender, ItemTappedEventArgs e)
 		{
@@ -224,6 +253,7 @@ namespace Radar
 	protected override void OnAppearing()
 	{
 		base.OnAppearing();
+		
 	}
 
 	protected override void OnDisappearing()

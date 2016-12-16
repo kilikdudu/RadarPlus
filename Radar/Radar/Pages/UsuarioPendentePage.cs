@@ -158,7 +158,7 @@ namespace Radar
 					TextColor = Color.FromHex(TemaInfo.PrimaryText),
 					FontFamily = "Roboto-Condensed",
 					FontSize = 20,
-					HorizontalOptions = LayoutOptions.Start,
+					HorizontalOptions = LayoutOptions.End,
 					VerticalOptions = LayoutOptions.Start
 				};
 				email.SetBinding(Label.TextProperty, new Binding("Email"));
@@ -175,7 +175,7 @@ namespace Radar
 				
 				_administrador= new Switch
 				{
-					HorizontalOptions = LayoutOptions.Start,
+					HorizontalOptions = LayoutOptions.End,
 					VerticalOptions = LayoutOptions.Start
 				};
 				
@@ -191,7 +191,7 @@ namespace Radar
 				
 				_ativar= new Switch
 				{
-					HorizontalOptions = LayoutOptions.Start,
+					HorizontalOptions = LayoutOptions.End,
 					VerticalOptions = LayoutOptions.Start
 				};
 				

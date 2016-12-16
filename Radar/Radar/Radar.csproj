@@ -149,6 +149,15 @@
     <Compile Include="Pages\ResumoPercursoPage.cs" />
     <Compile Include="Model\ResumoInfo.cs" />
     <Compile Include="Model\ResumoItemInfo.cs" />
+    <Compile Include="Model\TagInfo.cs" />
+    <Compile Include="IDAL\ITagDAL.cs" />
+    <Compile Include="Factory\TagFactory.cs" />
+    <Compile Include="BLL\TagBLL.cs" />
+    <Compile Include="DALFactory\TagDALFactory.cs" />
+    <Compile Include="DALSQLite\TagDALSQLite.cs" />
+    <Compile Include="Controls\ColorPicker.cs" />
+    <Compile Include="BLL\PegarCorPickerEventHandler.cs" />
+    <Compile Include="Pages\TagPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

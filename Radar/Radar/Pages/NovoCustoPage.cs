@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using ClubManagement.Utils;
 using Plugin.Media;
+using Radar.BLL;
 using Radar.Controls;
 using Radar.IBLL;
 using Radar.Model;
@@ -18,7 +19,14 @@ namespace Radar
 		Image _cupomFiscal;
 		Entry _local;
 		double _width;
-	
+		Entry _valor;
+		DatePicker _data;
+		Entry _tag;
+		Entry _observacao;
+		Picker _picker;
+
+		TagInfo _tagInfo;
+		
 		public NovoCustoPage()
 		{
 			Title = "Novo Custo";
@@ -52,7 +60,7 @@ namespace Radar
 				HorizontalOptions = LayoutOptions.Center,
 			};
 
-			var valor = new Entry
+			_valor = new Entry
 			{
 				Placeholder = "Digite o valor",
 				VerticalOptions = LayoutOptions.Center,
@@ -60,9 +68,9 @@ namespace Radar
 				WidthRequest = _width,
 			};
 			NumberValidatorBehavior SecSenhaValidator = new NumberValidatorBehavior();
-			valor.Behaviors.Add(SecSenhaValidator);
+			_valor.Behaviors.Add(SecSenhaValidator);
 			valorStack.Children.Add(dinheiroIcone);
-			valorStack.Children.Add(valor);
+			valorStack.Children.Add(_valor);
 
 			StackLayout dataStack = new StackLayout()
 			{
@@ -76,7 +84,7 @@ namespace Radar
 				HorizontalOptions = LayoutOptions.Center,
 			};
 
-			var data = new DatePicker
+			_data = new DatePicker
 			{
 				IsVisible = true,
 				IsEnabled = true,
@@ -85,7 +93,7 @@ namespace Radar
 
 
 			dataStack.Children.Add(dataIcone);
-			dataStack.Children.Add(data);
+			dataStack.Children.Add(_data);
 
 
 			StackLayout tipoCustoStack = new StackLayout()
@@ -131,16 +139,40 @@ namespace Radar
 				HorizontalOptions = LayoutOptions.Center,
 			};
 
-			var tags = new Entry
+			_tag = new Entry
 			{
 				Placeholder = "Tags",
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center,
-				WidthRequest = _width,
+				WidthRequest = _width - 90,
 			};
+			
 			tagsStack.Children.Add(tagsIcone);
-			tagsStack.Children.Add(tags);
-
+			tagsStack.Children.Add(_tag);
+			
+			StackLayout tagsCorStack = new StackLayout()
+			{
+				Orientation = StackOrientation.Horizontal
+			};
+			
+			Image tagsCorIcone = new Image()
+			{
+				Source = "ic_color_lens_black_24dp.png",
+				VerticalOptions = LayoutOptions.Center,
+				HorizontalOptions = LayoutOptions.Center,
+			};
+			
+			_picker = new Picker
+            {
+                Title = "Cor",
+                VerticalOptions = LayoutOptions.Center
+                
+            };
+			onColorSeletected();
+			
+			tagsCorStack.Children.Add(tagsCorIcone);
+			tagsCorStack.Children.Add(_picker);
+			tagsStack.Children.Add(tagsCorStack);
 			StackLayout observacaoStack = new StackLayout()
 			{
 				Orientation = StackOrientation.Horizontal
@@ -152,7 +184,7 @@ namespace Radar
 				HorizontalOptions = LayoutOptions.Center,
 			};
 
-			var observacao = new Entry
+			_observacao = new Entry
 			{
 				Placeholder = "Observação",
 				VerticalOptions = LayoutOptions.Center,
@@ -160,7 +192,7 @@ namespace Radar
 				WidthRequest = _width,
 			};
 			observacaoStack.Children.Add(observacaoIcone);
-			observacaoStack.Children.Add(observacao);
+			observacaoStack.Children.Add(_observacao);
 
 			StackLayout localStack = new StackLayout()
 			{
@@ -184,8 +216,6 @@ namespace Radar
 
 			localStack.Children.Add(localIcone);
 			localStack.Children.Add(_local);
-
-
 
 			StackLayout fotoStack = new StackLayout()
 			{
@@ -225,7 +255,8 @@ namespace Radar
 				BackgroundColor = Color.Transparent,
 				FontSize = 20
 			};
-
+			
+			
 			gravar.Clicked += OnGravar;
 
 			Button cancelar = new Button()
@@ -248,6 +279,7 @@ namespace Radar
 			main.Children.Add(localStack);
 			main.Children.Add(tipoCustoStack);
 			main.Children.Add(tagsStack);
+			//main.Children.Add(tagsCorStack);
 			main.Children.Add(observacaoStack);
 			main.Children.Add(fotoStack);
 			main.Children.Add(stackButtons);
@@ -261,9 +293,62 @@ namespace Radar
 
 		}
 		
+
+		public void onColorSeletected()
+		{
+		_tagInfo = new TagInfo();
+			 Dictionary<string, Color> nameToColor = new Dictionary<string, Color>
+	        {
+	            { "Aqua", Color.Aqua }, { "Preto", Color.Black },
+	            { "Azul", Color.Blue }, { "Rosa", Color.Fuschia },
+	            { "Cinza", Color.Gray }, { "Verde", Color.Green },
+	            { "Limão", Color.Lime }, { "Marron", Color.Maroon },
+	            { "Oceano", Color.Navy }, { "Oliva", Color.Olive },
+	            { "Roxo", Color.Purple }, { "Vermelho", Color.Red },
+	            { "Prata", Color.Silver }, { "Chá", Color.Teal },
+	            { "Branco", Color.White }, { "Amarelo", Color.Yellow }
+	        };
+	        
+		   
+
+            foreach (string colorName in nameToColor.Keys)
+            {
+                _picker.Items.Add(colorName);
+            }
+            
+            _picker.SelectedIndexChanged += (sender, args) =>
+                {
+                    if (_picker.SelectedIndex == -1)
+                    {
+                        
+                        string colorName = _picker.Items[_picker.SelectedIndex];
+                        _tag.TextColor = nameToColor[colorName];
+						_tagInfo.Cor = colorName;
+						
+                    }
+                    else
+                    {
+                        string colorName = _picker.Items[_picker.SelectedIndex];
+                        _tag.TextColor = nameToColor[colorName];
+						_tagInfo.Cor = colorName;
+						//if (AoProcessar != null)							
+                		//AoProcessar(this, new PegarCorPickerEventArgs(nameToColor[colorName], colorName));
+                    }
+                };
+		
+
+		}
+		
 		public void OnGravar(Object sender, EventArgs e)
 		{
-
+			TagBLL tagBLL = new TagBLL();
+		
+			if (_tagInfo.Descricao != null)
+			{
+				_tagInfo.Descricao = _tag.Text;
+				tagBLL.gravar(_tagInfo);
+			}
+			
 		}
 
 		private void mostraEndereco(string endereco)
