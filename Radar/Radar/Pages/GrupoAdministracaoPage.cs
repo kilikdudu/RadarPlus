@@ -23,45 +23,26 @@ namespace Radar
 			listaView.HorizontalOptions = LayoutOptions.Fill;
 			
 			ObservableCollection<GrupoInfo> grupo = new ObservableCollection<GrupoInfo>();
-			grupo.Add(new GrupoInfo(){ Nome="Compradores", Descricao="Grupo dos compradores da empresa", Imagem="navicon.png"});
+			grupo.Add(new GrupoInfo(){ Nome="Compradoress", Descricao="Grupo dos compradores da empresa", Imagem="navicon.png"});
 			grupo.Add(new GrupoInfo(){ Nome="Vendedores", Descricao="Grupo dos vendedores da empresa", Imagem="navicon.png"});
 			grupo.Add(new GrupoInfo(){ Nome="Entregadores", Descricao="Grupo dos entregadores da empresa", Imagem="navicon.png"});
 			
-			ListView listaGrupos = new ListView();
-			listaGrupos.RowHeight = 120;
-			listaGrupos.ItemTemplate = new DataTemplate(typeof(GruposCelula));
-			listaGrupos.ItemTapped += OnTap;
-			listaGrupos.ItemsSource = grupo;
-			listaGrupos.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
-			listaGrupos.HasUnevenRows = true;
-			listaGrupos.SeparatorColor = Color.Transparent;
-			listaGrupos.VerticalOptions = LayoutOptions.Start;
-			listaGrupos.HorizontalOptions = LayoutOptions.Center;
-
-			listaGrupos.BindingContext = grupo;
-			Image AdicionarRadarButton = new Image
-			{
-				Aspect = Aspect.AspectFit,
-				Source = ImageSource.FromFile("mais.png"),
-				WidthRequest = 180,
-				HeightRequest = 180,
-				VerticalOptions = LayoutOptions.End,
-				HorizontalOptions = LayoutOptions.End,
-				Margin = new Thickness(0,0 , 10, 10)
-			};
-			AdicionarRadarButton.GestureRecognizers.Add(
-					new TapGestureRecognizer()
-					{
-						Command = new Command(() =>
-						{
-						adcionarGrupo();
-						}
-					)
-					});
-
-			AbsoluteLayout.SetLayoutBounds(AdicionarRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
-			AbsoluteLayout.SetLayoutFlags(AdicionarRadarButton, AbsoluteLayoutFlags.All);
-			listaView.Children.Add(listaGrupos);
+			ListView listaGruposAdministracao = new ListView();
+			//listaGrupos.RowHeight = 120;
+			listaGruposAdministracao.ItemTemplate = new DataTemplate(typeof(GruposCelula));
+			listaGruposAdministracao.ItemTapped += OnTap;
+			listaGruposAdministracao.ItemsSource = grupo;
+			listaGruposAdministracao.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+			listaGruposAdministracao.HasUnevenRows = true;
+			listaGruposAdministracao.SeparatorColor = Color.Transparent;
+			listaGruposAdministracao.VerticalOptions = LayoutOptions.Start;
+			listaGruposAdministracao.HorizontalOptions = LayoutOptions.Center;
+			AbsoluteLayout.SetLayoutBounds(listaGruposAdministracao, new Rectangle(0, 0, 1, 1));
+			AbsoluteLayout.SetLayoutFlags(listaGruposAdministracao, AbsoluteLayoutFlags.All);
+			
+			
+			
+			listaView.Children.Add(listaGruposAdministracao);
 			//listaView.Children.Add(AdicionarRadarButton);
 			Content = listaView;
 		}
@@ -102,7 +83,7 @@ namespace Radar
 					ListView listaGrupos = this.Parent as ListView;
 
 					listaGrupos.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
-					listaGrupos.RowHeight = 120;
+					listaGrupos.HasUnevenRows = true;
 					//var grupos = regraGrupo.listar();
 					//listaGrupos.BindingContext = grupos;
 					listaGrupos.ItemTemplate = new DataTemplate(typeof(GruposCelula));
@@ -173,7 +154,7 @@ namespace Radar
 				else {
 					frameOuter.Margin = new Thickness(5, 10, 5, 10);
 				}
-
+				frameOuter.HeightRequest = AbsoluteLayout.AutoSize;
 				stackLeft.Children.Add(foto);
 				stackRight.Children.Add(nome);
 				stackRight.Children.Add(descricao);

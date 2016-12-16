@@ -38,7 +38,9 @@ namespace Radar
 			listaGrupos.SeparatorColor = Color.Transparent;
 			listaGrupos.VerticalOptions = LayoutOptions.Fill;
 			listaGrupos.HorizontalOptions = LayoutOptions.Center;
-
+			AbsoluteLayout.SetLayoutBounds(listaGrupos, new Rectangle(0, 0, 1, 1));
+			AbsoluteLayout.SetLayoutFlags(listaGrupos, AbsoluteLayoutFlags.All);
+			
 			listaGrupos.BindingContext = grupo;
 			Image AdicionarRadarButton = new Image
 			{

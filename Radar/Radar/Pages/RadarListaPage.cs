@@ -22,7 +22,8 @@ namespace Radar.Pages
             _radaresListView = new ListView {
                 RowHeight = 150
             };
-            _radaresListView.RowHeight = 150;
+            _radaresListView.HasUnevenRows = true;
+            
             _radaresListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
             _radaresListView.ItemTemplate = new DataTemplate(typeof(ConteudoCelula));
             _radaresListView.ItemTapped += (sender, e) => {

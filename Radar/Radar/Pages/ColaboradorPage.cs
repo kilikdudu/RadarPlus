@@ -29,7 +29,7 @@ namespace Radar
 			colaborador.Add(new ColaboradorInfo(){ Nome="Carlos", Email="carlos@eduardo.com", Imagem="navicon.png", Pendente="Sim", Administrador="Sim"});
 			
 			ListView listaColaboradores = new ListView();
-			listaColaboradores.RowHeight = 200;
+			//listaColaboradores.RowHeight = 200;
 			listaColaboradores.ItemTemplate = new DataTemplate(typeof(ColaboradoresCelula));
 			listaColaboradores.ItemTapped += OnTap;
 			listaColaboradores.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
@@ -37,7 +37,8 @@ namespace Radar
 			listaColaboradores.SeparatorColor = Color.Transparent;
 			listaColaboradores.VerticalOptions = LayoutOptions.Fill;
 			listaColaboradores.HorizontalOptions = LayoutOptions.Center;
-
+			AbsoluteLayout.SetLayoutBounds(listaColaboradores, new Rectangle(0, 0, 1, 1));
+			AbsoluteLayout.SetLayoutFlags(listaColaboradores, AbsoluteLayoutFlags.All);
 			//var grupos = regraGrupo.listar();
 			listaColaboradores.BindingContext = colaborador;
 			Image AdicionarRadarButton = new Image
@@ -109,7 +110,8 @@ namespace Radar
 					ListView listaColaboradores = this.Parent as ListView;
 
 					listaColaboradores.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
-					listaColaboradores.RowHeight = 120;
+					//listaColaboradores.RowHeight = 120;
+					listaColaboradores.HasUnevenRows = true;
 					//var grupos = regraGrupo.listar();
 					//listaGrupos.BindingContext = grupos;
 					listaColaboradores.ItemTemplate = new DataTemplate(typeof(ColaboradoresCelula));
@@ -234,7 +236,7 @@ namespace Radar
 				
 				var frameOuter = new Frame();
 				frameOuter.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
-				frameOuter.HeightRequest = 120;
+				frameOuter.HeightRequest = AbsoluteLayout.AutoSize;
 				if (Device.OS == TargetPlatform.iOS)
 				{
 					foto.WidthRequest = 60;

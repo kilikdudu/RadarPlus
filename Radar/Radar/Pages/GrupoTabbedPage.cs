@@ -11,7 +11,7 @@ namespace Radar.Pages
 		
 		public void inicializaComponente()
 		{
-		var abaGrupo = new ColaboradorPage();
+			var abaGrupo = new ColaboradorPage();
 			abaGrupo.Icon = "ic_face_2x.png";
 			abaGrupo.Title = "Colaboradores";
 

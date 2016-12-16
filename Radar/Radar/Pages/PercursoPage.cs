@@ -149,7 +149,7 @@ namespace Radar.Pages
                 ItemTemplate = new DataTemplate(typeof(PercursoPageCell))
             };
             _PercursoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
-			_PercursoListView.RowHeight = 200;
+			_PercursoListView.HasUnevenRows = true;
 			_PercursoListView.ItemTapped += OnTap;
 			_PercursoListView.Footer = new Label()
 			{
@@ -204,7 +204,7 @@ namespace Radar.Pages
 
 		
 				
-					NavegacaoUtils.PushAsync(new GrupoTabbedPage());
+					NavegacaoUtils.PushAsync(new ResumoPercursoPage(item));
 					//((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage(new GrupoTabbedPage());
 				
 

@@ -230,12 +230,12 @@ namespace Radar
 				
 				
 				var grid = new Grid();
-				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.5, GridUnitType.Star)});
-				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.5, GridUnitType.Star)});
-				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.5, GridUnitType.Star)});
-				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.5, GridUnitType.Star)});
-				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.5, GridUnitType.Star)});
-				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.4, GridUnitType.Star)});
+				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto)});
+				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto)});
+				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto)});
+				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto)});
+				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto)});
+				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.4, GridUnitType.Auto)});
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.6, GridUnitType.Star)});
 				grid.Children.Add(emailLabel, 0, 0);
 				grid.Children.Add(_email, 1, 0);

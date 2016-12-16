@@ -33,7 +33,8 @@ namespace Radar.Pages
 
             menus = new List<ListaInfo>();
             ListView lstView = new ListView();
-            lstView.RowHeight = 60;
+			//lstView.RowHeight = 60;
+			lstView.HasUnevenRows = true;
             this.Title = "Preferências";
             lstView.ItemTemplate = new DataTemplate(typeof(MenusCelula));
             lstView.ItemTapped += OnTap;
@@ -197,8 +198,9 @@ namespace Radar.Pages
                 else {
                     frameOuter.Margin = new Thickness(5, 10, 5, 10);
                 }
-
-
+                
+				frameOuter.HeightRequest = TelaUtils.AlturaSemPixel * 0.1;
+				//frameOuter.HeightRequest = AbsoluteLayout.AutoSize;
                 //verticaLayout.Children.Add(nameLabel);
                 horizontalLayout.Children.Add(icone);
                 horizontalLayout.Children.Add(nameLabel);

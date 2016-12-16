@@ -93,7 +93,7 @@ namespace Radar.Droid
             marker.SetTitle(radar.Pin.Label);
 			marker.SetSnippet(radar.Pin.Address);
 				
-            marker.SetRotation((float)radar.Sentido);
+            marker.SetRotation(0);
 			switch (radar.Tipo){
 				case RadarTipoEnum.RadarFixo:
 				marker.SetIcon(BitmapDescriptorFactory.FromAsset("radares/" + radar.Imagem));

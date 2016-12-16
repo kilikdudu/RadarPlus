@@ -223,6 +223,7 @@ namespace Radar.Pages
                 Orientation = StackOrientation.Horizontal,
                 HorizontalOptions = LayoutOptions.Fill,
                 WidthRequest = TelaUtils.LarguraSemPixel,
+                HeightRequest = AbsoluteLayout.AutoSize,
                 Children =
                 {
                     cardLeft,

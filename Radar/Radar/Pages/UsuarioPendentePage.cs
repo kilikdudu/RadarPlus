@@ -42,7 +42,9 @@ namespace Radar
 			listaPendentes.SeparatorColor = Color.Transparent;
 			listaPendentes.VerticalOptions = LayoutOptions.Fill;
 			listaPendentes.HorizontalOptions = LayoutOptions.Center;
-
+			AbsoluteLayout.SetLayoutBounds(listaPendentes, new Rectangle(0, 0, 1, 1));
+			AbsoluteLayout.SetLayoutFlags(listaPendentes, AbsoluteLayoutFlags.All);
+			
 			//var grupos = regraGrupo.listar();
 			listaPendentes.BindingContext = pendente;
 			
@@ -76,7 +78,7 @@ namespace Radar
 					ListView listaPendentes = this.Parent as ListView;
 
 					listaPendentes.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
-					listaPendentes.RowHeight = 120;
+					listaPendentes.HasUnevenRows = true;
 					//var grupos = regraGrupo.listar();
 					//listaGrupos.BindingContext = grupos;
 					listaPendentes.ItemTemplate = new DataTemplate(typeof(ColaboradoresCelula));
@@ -215,17 +217,17 @@ namespace Radar
 					frameOuter.Margin = new Thickness(5, 10, 5, 10);
 				}
 
-			
+				frameOuter.HeightRequest = AbsoluteLayout.AutoSize;
 				
 				stackAdministrador.Children.Add(administradorLabel);
 				stackAdministrador.Children.Add(_administrador);
 				
 				
 				var grid = new Grid();
-				
-				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star)});
-				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.4, GridUnitType.Star)});
-				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.6, GridUnitType.Star)});
+				grid.RowSpacing = 3;
+				grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto)});
+				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.4, GridUnitType.Auto)});
+				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.6, GridUnitType.Auto)});
 				grid.Children.Add(ativarLabel, 0, 0);
 				grid.Children.Add(_ativar, 1, 0);
 				grid.Children.Add(administradorLabel, 0, 1);

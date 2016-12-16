@@ -10,7 +10,7 @@ namespace Radar.Pages
 			abaColaborador.Icon = "grupo_40.png";
 			abaColaborador.Title = "Colaboradores";
 
-			var abaUsuarioPendente = new UsuarioPendente();
+			var abaUsuarioPendente = new UsuarioPendentePage();
 			abaUsuarioPendente.Icon = "config_40.png";
 			abaUsuarioPendente.Title = "Usuários Pendentes";
 			
