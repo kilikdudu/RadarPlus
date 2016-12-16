@@ -31,49 +31,49 @@ namespace Radar.Pages
                 VerticalOptions = LayoutOptions.Start,
                 Margin = new Thickness(0, 0, 0, 10),
                 Children = {
-                        new Frame
+                    new Frame
+                    {
+                        VerticalOptions = LayoutOptions.Start,
+                        HorizontalOptions = LayoutOptions.Start,
+                        Margin = new Thickness(0, 0, 0, 0),
+                        WidthRequest = 50,
+                        Content = new StackLayout()
                         {
-                            VerticalOptions = LayoutOptions.Start,
-                            HorizontalOptions = LayoutOptions.Start,
-                            Margin = new Thickness(0, 0, 0, 0),
-                            WidthRequest = 50,
-                            Content = new StackLayout()
-                            {
-                                VerticalOptions = LayoutOptions.Center,
-                                HorizontalOptions = LayoutOptions.Center,
-                                Orientation = StackOrientation.Vertical,
-                                Children = {
-                                    _radarIcone
-                                }
+                            VerticalOptions = LayoutOptions.Center,
+                            HorizontalOptions = LayoutOptions.Center,
+                            Orientation = StackOrientation.Vertical,
+                            Children = {
+                                _radarIcone
                             }
-                        },
-                        new Frame
+                        }
+                    },
+                    new Frame
+                    {
+                        VerticalOptions = LayoutOptions.Start,
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        Content = new StackLayout
                         {
-                            VerticalOptions = LayoutOptions.Start,
+                            Orientation = StackOrientation.Vertical,
                             HorizontalOptions = LayoutOptions.FillAndExpand,
-                            Content = new StackLayout
-                            {
-                                Orientation = StackOrientation.Vertical,
-                                HorizontalOptions = LayoutOptions.FillAndExpand,
-                                VerticalOptions = LayoutOptions.Start,
-                                Spacing = 1,
-                                Children = {
-                                    _tituloLabel,
-                                    new BoxView {
-                                        HeightRequest = 1,
-                                        BackgroundColor = Color.FromHex(TemaInfo.DividerColor),
-                                        HorizontalOptions = LayoutOptions.FillAndExpand,
-                                        VerticalOptions = LayoutOptions.Center
-                                    },
-                                    _velocidadeLabel,
-                                    _latitudeLabel,
-                                    _longitudeLabel,
-                                    _anguloLabel,
-                                    _enderecoLabel
-                                }
+                            VerticalOptions = LayoutOptions.Start,
+                            Spacing = 1,
+                            Children = {
+                                _tituloLabel,
+                                new BoxView {
+                                    HeightRequest = 1,
+                                    BackgroundColor = Color.FromHex(TemaInfo.DividerColor),
+                                    HorizontalOptions = LayoutOptions.FillAndExpand,
+                                    VerticalOptions = LayoutOptions.Center
+                                },
+                                _velocidadeLabel,
+                                _latitudeLabel,
+                                _longitudeLabel,
+                                _anguloLabel,
+                                _enderecoLabel
                             }
                         }
                     }
+                }
             };
         }
 

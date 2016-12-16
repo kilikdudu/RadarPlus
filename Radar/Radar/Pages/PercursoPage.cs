@@ -172,14 +172,11 @@ namespace Radar.Pages
         private void inicializarComponente()
         {
             _PercursoListView = new ListView {
+                RowHeight = -1,
+                HasUnevenRows = true,
                 ItemTemplate = new DataTemplate(typeof(PercursoPageCell))
             };
             _PercursoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
-			_PercursoListView.RowHeight = 200;
-			_PercursoListView.Footer = new Label()
-			{
-				Text = ""
-			};
 
             _tempoCorrendo = new Label {
                 HorizontalOptions = LayoutOptions.Start,

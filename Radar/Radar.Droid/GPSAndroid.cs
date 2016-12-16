@@ -191,10 +191,12 @@ namespace Radar.Droid
             if (desativando)
                 return;
             LocalizacaoInfo local = converterLocalizacao(location);
+            /*
             local.Velocidade = 20;
             local.Latitude = -16.620743;
             local.Longitude = -49.356621;
             local.Sentido = 324;
+            */
             if (Situacao == GPSSituacaoEnum.Ativo)
             {
                 if (Xamarin.Forms.Forms.IsInitialized)
@@ -398,8 +400,6 @@ namespace Radar.Droid
             switch (action)
             {
                 case MotionEventActions.Down:
-
-                    // Cancel any currently running animations/automatic tray movements.
                     if (mTrayTimerTask != null)
                     {
                         mTrayTimerTask.Cancel();
@@ -414,75 +414,23 @@ namespace Radar.Droid
                     break;
 
                 case MotionEventActions.Move:
-
-                    // Calculate position of the whole tray according to the drag, and update layout.
                     float deltaX = x - mPrevDragX;
                     float deltaY = y - mPrevDragY;
                     mRootLayoutParams.X += (int)deltaX;
                     mRootLayoutParams.Y += (int)deltaY;
                     mPrevDragX = x;
                     mPrevDragY = y;
-                    //animateButtons();
                     mWindowManager.UpdateViewLayout(mRootLayout, mRootLayoutParams);
                     break;
 
                 case MotionEventActions.Up:
                 case MotionEventActions.Cancel:
-
-                    // When the tray is released, bring it back to "open" or "closed" state.
-                    /*
-                    if ((mIsTrayOpen && (x - mStartDragX) <= 0) ||
-                        (!mIsTrayOpen && (x - mStartDragX) >= 0))
-                        mIsTrayOpen = !mIsTrayOpen;
-                    */
-
                     mTrayTimerTask = new TrayAnimationTimerTask(this);
                     mTrayAnimationTimer = new Timer();
                     mTrayAnimationTimer.Schedule(mTrayTimerTask, 0, ANIMATION_FRAME_RATE);
                     break;
             }
         }
-
-        /*
-        public class TrayTouchListener : Android.Views.View.IOnTouchListener
-        {
-            GPSAndroid _service;
-
-            public TrayTouchListener(GPSAndroid service) {
-                _service = service;
-            }
-
-            public IntPtr Handle {
-                get {
-                    //return this.Handle;
-                    return _service.Handle;
-                }
-            }
-
-            public void Dispose() {
-                //nada
-            }
-
-            public bool OnTouch(Android.Views.View v, MotionEvent e)
-            {
-                MotionEventActions action = e.ActionMasked;
-                switch (action)
-                {
-                    case MotionEventActions.Down:
-                    case MotionEventActions.Move:
-                    case MotionEventActions.Up:
-                    case MotionEventActions.Cancel:
-                        _service.dragTray(action, (int)e.RawX, (int)e.RawY);
-                        break;
-                    default:
-                        return false;
-                }
-                return true;
-            }
-
-
-        }
-        */
 
         public class TrayAnimationTimerTask : TimerTask
         {
@@ -507,13 +455,24 @@ namespace Radar.Droid
                 */
 
                 // Keep upper edge of the widget within the upper limit of screen
+                int screenWidth = _service.Resources.DisplayMetrics.WidthPixels;
                 int screenHeight = _service.Resources.DisplayMetrics.HeightPixels;
+
+                int x = _service.mRootLayoutParams.X;
+                int metade = (int)Math.Floor((double)(screenWidth - _service.mRootLayoutParams.Width)  / 2);
+                if (x <= metade)
+                {
+                    mDestX = 0;
+                }
+                else {
+                    mDestX = screenWidth - _service.mRootLayoutParams.Width;
+                }
+
                 mDestY = Math.Max(
                     screenHeight / TRAY_MOVEMENT_REGION_FRACTION,
                     _service.mRootLayoutParams.Y
                 );
 
-                // Keep lower edge of the widget within the lower limit of screen
                 mDestY = Math.Min(
                     ((TRAY_MOVEMENT_REGION_FRACTION - 1) * screenHeight) / TRAY_MOVEMENT_REGION_FRACTION - _service.mRootLayout.Width,
                     mDestY
@@ -523,16 +482,12 @@ namespace Radar.Droid
             public override void Run()
             {
                 _service.mAnimationHandler.Post(() => {
-                    // Update coordinates of the tray
                     _service.mRootLayoutParams.X = (2 * (_service.mRootLayoutParams.X - mDestX)) / 3 + mDestX;
                     _service.mRootLayoutParams.Y = (2 * (_service.mRootLayoutParams.Y - mDestY)) / 3 + mDestY;
                     _service.mWindowManager.UpdateViewLayout(_service.mRootLayout, _service.mRootLayoutParams);
-                    //animateButtons();
 
-                    // Cancel animation when the destination is reached
                     if (Math.Abs(_service.mRootLayoutParams.X - mDestX) < 2 && Math.Abs(_service.mRootLayoutParams.Y - mDestY) < 2)
                     {
-                        //TrayAnimationTimerTask.this.Cancel();
                         _service.mTrayAnimationTimer.Cancel();
                     }
                 });
