@@ -70,8 +70,8 @@ namespace Radar.BLL
 
         public int gravar(RadarInfo radar)
         {
-			if (radar.Velocidade < 20)
-			    throw new Exception("Você não pode adicionar um radar a menos de 20 km/h.");
+			//if (radar.Velocidade < 20)
+			//    throw new Exception("Você não pode adicionar um radar a menos de 20 km/h.");
             radar.UltimaAlteracao = DateTime.Now;
 			int alteracao = _db.gravar(radar);
             atualizarEndereco();
