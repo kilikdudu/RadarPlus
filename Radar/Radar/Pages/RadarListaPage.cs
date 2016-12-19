@@ -32,7 +32,9 @@ namespace Radar.Pages
             RadarBLL regraRadar = RadarFactory.create();
             regraRadar.atualizarEndereco();
             var paginaAtivo = criarPaginaAtiva();
+            
             var paginaInativo = criarPaginaInativo();
+            
             atualizarRadar();
             Children.Add(paginaAtivo);
             Children.Add(paginaInativo);
@@ -43,7 +45,12 @@ namespace Radar.Pages
             {
                 RowHeight = -1,
                 HasUnevenRows = true,
-                ItemTemplate = new DataTemplate(typeof(RadarAtivoCell))
+                ItemTemplate = new DataTemplate(typeof(RadarAtivoCell)),
+                Footer = new Label
+				{
+					Text = ""
+				}
+				
             };
             _ativoListView.ItemTapped += (sender, e) => {
                 if (e.Item == null)
@@ -54,7 +61,8 @@ namespace Radar.Pages
             _ativoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
             return new ContentPage {
                 Title = "Meus radares",
-                Content = _ativoListView
+                Content = _ativoListView,
+                Icon = "ic_pin_drop_black_24dp.png"
             };
         }
 
@@ -64,13 +72,18 @@ namespace Radar.Pages
             {
                 RowHeight = -1,
                 HasUnevenRows = true,
-                ItemTemplate = new DataTemplate(typeof(RadarInativoCell))
+                ItemTemplate = new DataTemplate(typeof(RadarInativoCell)),
+                Footer = new Label
+				{
+				Text = ""
+				}
             };
             _inativoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
             return new ContentPage
             {
                 Title = "Radares excluídos",
-                Content = _inativoListView
+                Content = _inativoListView,
+                Icon = "ic_delete_black_24dp.png"
             };
         }
 

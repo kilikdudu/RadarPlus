@@ -238,6 +238,14 @@
     <AndroidAsset Include="Assets\radares\semaforo.png" />
     <AndroidAsset Include="Assets\radares\lombada.png" />
     <AndroidAsset Include="Assets\radares\radar_movel.png" />
+    <AndroidResource Include="Resources\drawable\ic_pin_drop_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_pin_drop_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_pin_drop_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_pin_drop_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_delete_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_delete_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_delete_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_delete_black_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />

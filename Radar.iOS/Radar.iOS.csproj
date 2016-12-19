@@ -238,6 +238,8 @@
     <BundleResource Include="Resources\alarmes\alarm-013.mp3" />
     <BundleResource Include="Resources\audios\radar_aberto.mp3" />
     <BundleResource Include="Resources\audios\radar_fechado.mp3" />
+    <BundleResource Include="Resources\ic_pin_drop_black_24dp.png" />
+    <BundleResource Include="Resources\ic_delete_black_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
