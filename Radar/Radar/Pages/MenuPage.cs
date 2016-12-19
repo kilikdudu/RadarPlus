@@ -204,7 +204,7 @@ namespace Radar.Pages
                             AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
                             AudioUtils.Canal = PreferenciaUtils.CanalAudio;
                             AudioUtils.CaixaSom = PreferenciaUtils.CaixaSom;
-                            AudioUtils.play("audios/radar-fechado.mp3");
+                            AudioUtils.play("audios/radar_fechado.mp3");
                         }
                     }
                     ThreadUtils.closeApplication();
