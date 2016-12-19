@@ -198,7 +198,7 @@ namespace Radar.Pages
                     {
                         if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
                         {
-                            MensagemUtils.notificar(101, "Radar+", "O Radar+ está aberto", audio: "radar_aberto");
+                            MensagemUtils.notificar(101, "Radar+", "O Radar+ está sendo finalizado.", audio: "radar_fechado");
                         }
                         else {
                             AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
