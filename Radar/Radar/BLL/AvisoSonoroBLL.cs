@@ -107,7 +107,7 @@ namespace Radar.BLL
 
         public void play(SomAlarmeEnum alarme)
         {
-            var arquivoStr = Path.Combine(DIR_ALARME, pegarArquivo(alarme)) + ".m4a";
+            var arquivoStr = Path.Combine(DIR_ALARME, pegarArquivo(alarme)) + ".mp3";
             if (PreferenciaUtils.CanalAudio != AudioCanalEnum.Notificacao)
             {
                 AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
