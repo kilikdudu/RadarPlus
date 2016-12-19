@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using ClubManagement.Utils;
-using Plugin.Media;
 using Radar.BLL;
 using Radar.Controls;
+using Radar.Factory;
 using Radar.IBLL;
 using Radar.Model;
 using Radar.Utils;
@@ -25,7 +22,30 @@ namespace Radar
 		public TagPage()
 		{
 			Title = "Cadastro de tags";
+			
+			AbsoluteLayout listaView = new AbsoluteLayout();
+			listaView.VerticalOptions = LayoutOptions.Fill;
+			listaView.HorizontalOptions = LayoutOptions.Fill;
+			
+			
+            TagBLL regraTag = TagFactory.create();
+            var tags = regraTag.listar();
+            
+			ListView listaTags = new ListView();
+			//listaTags.RowHeight = 120;
+			listaTags.ItemTemplate = new DataTemplate(typeof(TagsCelula));
+			//listaTags.ItemTapped += OnTap;
+			listaTags.ItemsSource = tags;
+			listaTags.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+			listaTags.HasUnevenRows = true;
+			listaTags.SeparatorColor = Color.Transparent;
+			listaTags.VerticalOptions = LayoutOptions.Fill;
+			listaTags.HorizontalOptions = LayoutOptions.Center;
+			AbsoluteLayout.SetLayoutBounds(listaTags, new Rectangle(0, 0.2, 1, 0.8));
+			AbsoluteLayout.SetLayoutFlags(listaTags, AbsoluteLayoutFlags.All);
 
+			listaTags.BindingContext = tags;
+			
 			if (TelaUtils.Orientacao == "Landscape")
 			{
 				_width = (int)TelaUtils.LarguraSemPixel * 0.5;
@@ -96,6 +116,7 @@ namespace Radar
 			{
 				Orientation = StackOrientation.Horizontal,
 				HorizontalOptions = LayoutOptions.End,
+				VerticalOptions = LayoutOptions.End
 			};
 			Button gravar = new Button()
 			{
@@ -126,13 +147,13 @@ namespace Radar
 			
 
 
-			main.Children.Add(tagsStack);
-			//main.Children.Add(tagsCorStack);
+			listaView.Children.Add(tagsStack);
+			listaView.Children.Add(listaTags);
 
-			main.Children.Add(stackButtons);
+			listaView.Children.Add(stackButtons);
 
 			scrollMain.Content = main;
-			Content = scrollMain;
+			Content = listaView;
 		}
 
 		public void OnCancelar(Object sender, EventArgs e)
@@ -197,81 +218,79 @@ namespace Radar
 			}
 			
 		}
+		
+		public class TagsCelula : ViewCell
+		{
 
-		private void mostraEndereco(string endereco)
-		{
-			_local.Text = endereco;
-		}
-		private void pegaEndereco()
-		{
-			
-				if (InternetUtils.estarConectado())
+			public TagsCelula()
+			{
+
+				var excluirTag = new MenuItem
 				{
-					LocalizacaoInfo localEndereco = GPSUtils.UltimaLocalizacao;
-					float latitude = (float)localEndereco.Latitude;
-					float longitude = (float)localEndereco.Longitude;
+					Text = "Excluir"
+				};
 
-				GeocoderUtils.pegarAsync(latitude, longitude, async (send, ev) =>
-				   {
-					   var endereco = ev.Endereco;
-					mostraEndereco(endereco.Logradouro);
+				excluirTag.SetBinding(MenuItem.CommandParameterProperty, new Binding("."));
+				excluirTag.Clicked += (sender, e) =>
+				{
+					TagInfo tag = (TagInfo)((MenuItem)sender).BindingContext;
+					TagBLL regraTag = TagFactory.create();
+					regraTag.excluir(tag.Id);
 
-				   });
+					ListView listaTags = this.Parent as ListView;
+
+					listaTags.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+					//listaTags.RowHeight = 120;
+					var tags = regraTag.listar();
+					listaTags.BindingContext = tags;
+					listaTags.ItemTemplate = new DataTemplate(typeof(TagsCelula));
+				};
+				ContextActions.Add(excluirTag);
+
+				StackLayout main = new StackLayout();
+				main.BackgroundColor = Color.Transparent;
+				main.Orientation = StackOrientation.Horizontal;
+				main.VerticalOptions = LayoutOptions.CenterAndExpand;
+				main.HorizontalOptions = LayoutOptions.StartAndExpand;
+
+				Label descricao = new Label
+				{
+					TextColor = Color.FromHex(TemaInfo.PrimaryText),
+					FontFamily = "Roboto-Condensed",
+					FontSize = 20,
+					HorizontalOptions = LayoutOptions.Start,
+					VerticalOptions = LayoutOptions.Center,
+				};
+				descricao.SetBinding(Label.TextProperty, new Binding("Descricao"));
+
+		
+				var frameOuter = new Frame();
+				frameOuter.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
+				frameOuter.HeightRequest = AbsoluteLayout.AutoSize;
+				if (Device.OS == TargetPlatform.iOS)
+				{
+					
+					//frameOuter.Padding = new Thickness(5, 10, 5, 10);
+					frameOuter.WidthRequest = TelaUtils.Largura * 0.9;
+					frameOuter.Margin = new Thickness(5, 10, 5, 0);
+
+				}
+				else {
+					frameOuter.Margin = new Thickness(5, 10, 5, 10);
 				}
 
-		}
+				main.Children.Add(descricao);
 
-		private async void tirarFoto()
-		{
+				frameOuter.Content = main;
 
-			if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported)
-			{
-				
-					var mediaOptions = new Plugin.Media.Abstractions.StoreCameraMediaOptions
-					{
-
-						Directory = "Cupons",
-						Name = $"{DateTime.UtcNow}.jpg",
-						//SaveToAlbum = true
-
-					};
-
-					// Take a photo of the business receipt.
-					var file = await CrossMedia.Current.TakePhotoAsync(mediaOptions);
-
-
-					if (file == null)
-						return;
-
-					//DisplayAlert("Salvar em", file.Path, "OK");
-					var path = file.Path;
-					_cupomFiscal.Source = ImageSource.FromStream(() =>
-					{
-						var stream = file.GetStream();
-						file.Dispose();
-						return stream;
-					});
-
-				_cupomFiscal.Source = path;
-				_cupomFiscal.WidthRequest = TelaUtils.LarguraSemPixel * 0.5;
-				_cupomFiscal.HeightRequest = TelaUtils.LarguraSemPixel * 0.5;
-
+				View = frameOuter;
 
 			}
-			else {
-				DisplayAlert("Dispositivo não possiu camera ou camera desativada", null, "OK");
-			}
-		}
 
-		private void Items()
-		{
-			var d = new List<string>();
-			d.Add("Abastecimento");
-			d.Add("Despesas");
-			d.Add("Multas");
 
-			this._Drop1.Source = d;
 		}
+		
+		
 	}
 }
 
