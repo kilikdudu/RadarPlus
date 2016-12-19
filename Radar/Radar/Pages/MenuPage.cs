@@ -35,7 +35,7 @@ namespace Radar.Pages
             Content = new StackLayout
             {
                 Orientation = StackOrientation.Vertical,
-                Padding = new Thickness(5, 5, 5, 5),
+                Padding = new Thickness(5, 25, 5, 5),
                 BackgroundColor = Color.Transparent,
                 Children = {
                     new Image {

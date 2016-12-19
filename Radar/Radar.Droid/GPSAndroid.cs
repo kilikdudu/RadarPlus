@@ -20,6 +20,7 @@ using SQLite;
 using System.Linq;
 using System.Collections.Generic;
 using ClubManagement.Utils;
+using Android.Content.PM;
 
 [assembly: UsesPermission(Manifest.Permission.AccessFineLocation)]
 [assembly: UsesPermission(Manifest.Permission.AccessCoarseLocation)]
@@ -79,6 +80,10 @@ namespace Radar.Droid
                 Situacao = GPSSituacaoEnum.Espera;
             if (!_inicializado)
             {
+                if (!(CheckSelfPermission(Manifest.Permission.AccessFineLocation) == Permission.Granted)) {
+                    throw new Exception("Permissão de acesso ao GPS não foi concedida.");
+                }
+
                 notificar(intent);
                 if (!widgetInicializado)
                 {
@@ -117,7 +122,10 @@ namespace Radar.Droid
 				//Button
 				NotificationCompat.Action action = new NotificationCompat.Action.Builder(Resource.Drawable.mystop, "Fechar", pendingIntent).Build();
 
-				Notification notificacao = new NotificationCompat.Builder(context)
+                var appIntent = PendingIntent.GetActivity(this, 0, new Intent(this, typeof(MainActivity)), PendingIntentFlags.OneShot | PendingIntentFlags.UpdateCurrent);
+
+                Notification notificacao = new NotificationCompat.Builder(context)
+                    .SetContentIntent(appIntent)
 					.SetSmallIcon(Resource.Drawable.radarplus_logo)
 					.SetContentTitle("Radar+")
 					.SetContentText("Seu Radar+ está em funcionamento.")
@@ -125,15 +133,14 @@ namespace Radar.Droid
 				    .SetPriority((int)NotificationPriority.Max)
 					.AddAction(action) //add buton
 					.Build();
+                notificacao.Flags = NotificationFlags.NoClear;
 
                 //notification.SetLatestEventInfo( this, "Radar+", "Pressione aqui para fechar.", pendingIntent);
-                //StartForeground((int)NotificationFlags.ForegroundService, notification);
+                StartForeground((int)NotificationFlags.ForegroundService, notificacao);
 
-                NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
-                //Notification notificacao = notification;
-                //notificacao.Flags = NotificationFlags.AutoCancel;
-                notificacao.Flags = NotificationFlags.NoClear;
-                notificationManager.Notify(1, notificacao);
+                //NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
+                //notificacao.Flags = NotificationFlags.NoClear;
+                //notificationManager.Notify(1, notificacao);
             }
         }
 

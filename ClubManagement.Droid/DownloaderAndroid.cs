@@ -30,11 +30,9 @@ namespace ClubManagement.Droid
         {
             _cliente = new WebClient();
             _cliente.DownloadProgressChanged += (sender, e) => {
-                //Context context = Android.App.Application.Context;
                 if (_aoProcessar != null) {
-                    ThreadUtils.RunOnUiThread(() =>
-                    {
-                    _aoProcessar(sender, new AoProcessarArgs(e.ProgressPercentage, e.BytesReceived, e.TotalBytesToReceive));
+                    Device.BeginInvokeOnMainThread(() => {
+                        _aoProcessar(sender, new AoProcessarArgs(e.ProgressPercentage, e.BytesReceived, e.TotalBytesToReceive));
                     });
                 }
             };

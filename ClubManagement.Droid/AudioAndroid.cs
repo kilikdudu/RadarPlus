@@ -98,16 +98,18 @@ namespace Radar.Droid
             switch (_canal)
             {
                 case AudioCanalEnum.Alarme:
-                    if (_ultimoRingtone != null)
-                        _ultimoRingtone.Stop();
+                    //if (_ultimoRingtone != null)
+                    //    _ultimoRingtone.Stop();
+                    stop();
                     _ultimoRingtone = RingtoneManager.GetRingtone(context, Android.Net.Uri.Parse(path));
                     _ultimoRingtone.StreamType = Android.Media.Stream.Alarm;
                     _ultimoRingtone.Play();
                     break;
                 case AudioCanalEnum.Musica:
                 case AudioCanalEnum.Notificacao:
-                    if (_ultimoMediaPlayer != null)
-                        _ultimoMediaPlayer.Stop();
+                    //if (_ultimoMediaPlayer != null)
+                    //    _ultimoMediaPlayer.Stop();
+                    stop();
                     _ultimoMediaPlayer = MediaPlayer.Create(context, Android.Net.Uri.Parse(path));
                     float volume = _volume / 15;
                     _ultimoMediaPlayer.SetVolume(volume, volume);
@@ -170,13 +172,7 @@ namespace Radar.Droid
             _audioAtual = arquivos;
             playProximo();
             */
-            if (_players != null && _players.Count > 0) {
-                foreach (var playerOld in _players) {
-                    if (playerOld != null && playerOld.IsPlaying) {
-                        playerOld.Stop();
-                    }
-                }
-            }
+            stop();
 
             _players = new List<MediaPlayer>();
             foreach (var arquivo in arquivos)
@@ -202,6 +198,18 @@ namespace Radar.Droid
             //var player = criarAudio(arquivo);
             //player.Start();
             tocar(arquivo);
+        }
+
+        public void stop() {
+            if (_ultimoMediaPlayer != null)
+                _ultimoMediaPlayer.Stop();
+            if (_players != null && _players.Count > 0) {
+                foreach (var playerOld in _players) {
+                    if (playerOld != null && playerOld.IsPlaying) {
+                        playerOld.Stop();
+                    }
+                }
+            }
         }
     }
 }

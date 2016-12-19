@@ -127,15 +127,7 @@ namespace Radar.iOS
 
 		public void play(string[] arquivos)
         {
-           if (_player != null)
-            {
-                if (_player.Playing)
-                    _player.Stop();
-                _player.Dispose();
-               _player = null;
-            }
-            _audioIndex = 0;
-            _audioAtual = null;
+            stop();
             if (arquivos != null)
             _audioAtual = arquivos;
             playProximo();
@@ -143,16 +135,25 @@ namespace Radar.iOS
 
         public void play(string arquivo)
         {
-            if (_player != null && _player.Playing)
-            {
-                _player.Stop();
-            }
+            stop();
 			_player = criarAudio(arquivo);
 			var state = UIApplication.SharedApplication.ApplicationState;
 			if (state.ToString() != BACKGROUND)
 			{
                 _player.Play();
 			}
+        }
+
+        public void stop() {
+            if (_player != null)
+            {
+                 if (_player.Playing)
+                    _player.Stop();
+                _player.Dispose();
+                _player = null;
+            }
+            _audioIndex = 0;
+            _audioAtual = null;
         }
     }
 }

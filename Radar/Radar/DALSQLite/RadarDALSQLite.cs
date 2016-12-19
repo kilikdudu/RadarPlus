@@ -61,17 +61,18 @@ namespace Radar.DALSQLite
                     "((loncos * " + busca.longitudeCos.ToString().Replace(',', '.') + ") + (lonsin * " + busca.longitudeSin.ToString().Replace(',', '.') + "))" +
                     ") > " + busca.distanciaCos.ToString().Replace(',', '.');
                 if (busca.Filtros.Count() > 0) {
-					if (busca.Filtros.Count() == 1){
+                    if (busca.Filtros.Count() == 1)
+                    {
                         query += " AND type = " + ((int)busca.Filtros[0]).ToString();
-						query += " AND Ativo = true";
-					}else {
+                    }
+                    else {
                         var lista = new List<string>();
                         foreach (var str in busca.Filtros)
                             lista.Add(((int)str).ToString());
                         query += " AND type IN (" + string.Join(", ", lista.ToArray()) + ")";
-						query += " AND Ativo = true";
                     }
                 }
+                query += " AND Ativo = 1";
                 return database.Query<RadarInfo>(query);
                 /*
                 return database.Query<RadarInfo>(
@@ -100,16 +101,15 @@ namespace Radar.DALSQLite
 					if (filtro.Count() == 1)
 					{
 						query += " AND type = " + ((int)filtro[0]).ToString();
-						query += " AND Ativo = true";
 					}
 					else {
 						var lista = new List<string>();
                         foreach (var str in filtro)
                             lista.Add(((int)str).ToString());
                         query += " AND type IN (" + string.Join(", ", lista.ToArray()) + ")";
-						query += " AND Ativo = true";
                     }
                 }
+                query += " AND Ativo = 1";
                 return database.Query<RadarInfo>(
                     query,
                     new object[4] {
@@ -130,11 +130,11 @@ namespace Radar.DALSQLite
 			{
 				return database.Query<RadarInfo>(query,
 					new object[3] {
-					true,
-					"",
-					true
+					    true,
+					    "",
+					    true
 					});
-			}
+			    }
 			}
 
         public RadarInfo pegar(int idRadar)

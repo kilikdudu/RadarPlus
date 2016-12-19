@@ -14,5 +14,6 @@ namespace ClubManagement.IBLL
         bool CaixaSom { get; set; }
         void play(string[] arquivos);
         void play(string arquivo);
+        void stop();
     }
 }

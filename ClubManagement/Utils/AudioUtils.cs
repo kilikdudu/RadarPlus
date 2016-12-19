@@ -69,5 +69,10 @@ namespace ClubManagement.Utils
             inicializarAudio();
             _audio.play(arquivos);
         }
+
+        public static void stop() {
+            inicializarAudio();
+            _audio.stop();
+        }
     }
 }

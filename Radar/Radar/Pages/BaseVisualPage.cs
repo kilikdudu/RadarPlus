@@ -144,94 +144,12 @@ namespace Radar.Pages
                 //HorizontalTextAlignment = TextAlignment.Center,
                 //VerticalTextAlignment = TextAlignment.Center
             };
-			//AbsoluteLayout.SetLayoutBounds(_DistanciaRadarLabel, new Rectangle(1, 0.975, 1, 0.1));
-			//AbsoluteLayout.SetLayoutFlags(_DistanciaRadarLabel, AbsoluteLayoutFlags.All);
+            //AbsoluteLayout.SetLayoutBounds(_DistanciaRadarLabel, new Rectangle(1, 0.975, 1, 0.1));
+            //AbsoluteLayout.SetLayoutFlags(_DistanciaRadarLabel, AbsoluteLayoutFlags.All);
 
 
-			if (PreferenciaUtils.ExibirBotaoRemover)
-			{
-				_RemoverRadarButton = new Image
-				{
-					Aspect = Aspect.AspectFit,
-					Source = ImageSource.FromFile("menos.png"),
-					WidthRequest = 180,
-					HeightRequest = 180
-				};
-				AbsoluteLayout.SetLayoutBounds(_RemoverRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
-				AbsoluteLayout.SetLayoutFlags(_RemoverRadarButton, AbsoluteLayoutFlags.All);
-
-				_RemoverRadarButton.GestureRecognizers.Add(
-					new TapGestureRecognizer()
-					{
-						Command = new Command(() =>
-						{
-							try
-							{
-                                if (RadarBLL.RadarAtual != null)
-                                {
-                                    RadarBLL regraRadar = RadarFactory.create();
-                                    regraRadar.excluir(RadarBLL.RadarAtual);
-                                    MensagemUtils.avisar("Radar excluído com sucesso.");
-                                    RadarBLL.RadarAtual = null;
-                                }
-                                else {
-                                    MensagemUtils.avisar("Nenhum radar selecionado.");
-                                }
-							}
-							catch (Exception e)
-							{
-								MensagemUtils.avisar(e.Message);
-							}
-						}
-					)
-					});
-
-			}
-            if (PreferenciaUtils.ExibirBotaoAdicionar)
-            {
-                _AdicionarRadarButton = new Image
-                {
-                    Aspect = Aspect.AspectFit,
-                    Source = ImageSource.FromFile("mais.png"),
-                    WidthRequest = 180,
-                    HeightRequest = 180
-                };
-                AbsoluteLayout.SetLayoutBounds(_AdicionarRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
-                AbsoluteLayout.SetLayoutFlags(_AdicionarRadarButton, AbsoluteLayoutFlags.All);
-
-
-				if (TelaUtils.Orientacao == "Landscape")
-				{
-					AbsoluteLayout.SetLayoutBounds(_AdicionarRadarButton, new Rectangle(1, 0.5, 0.2, 0.2));
-					AbsoluteLayout.SetLayoutFlags(_AdicionarRadarButton, AbsoluteLayoutFlags.All);
-				}
-                _AdicionarRadarButton.GestureRecognizers.Add(
-                    new TapGestureRecognizer()
-                    {
-                        Command = new Command(() =>
-                        {
-                            try
-                            {
-                                LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
-                                if (local != null)
-                                {
-                                    RadarBLL regraRadar = RadarFactory.create();
-								    regraRadar.inserir(local);
-                                    MensagemUtils.avisar("Radar incluído com sucesso.");
-                                }
-                                else
-                                    MensagemUtils.avisar("Nenhum movimento registrado pelo GPS.");
-                            }
-                            catch (Exception e)
-                            {
-                                MensagemUtils.avisar(e.Message);
-                            }
-                            
-                        }
-                    )
-                });
-            }
-
+            criarBotaoAdicionar();
+            criarBotaoRemover();
 
             _BussolaFundo = new Image
             {
@@ -283,6 +201,97 @@ namespace Radar.Pages
             //AbsoluteLayout.SetLayoutBounds(_PrecisaoLabel, new Rectangle(0.1, 0.025, 0.1, 0.1));
             AbsoluteLayout.SetLayoutBounds(_PrecisaoLabel, new Rectangle(0.11, 0.12, 0.15, 0.15));
             AbsoluteLayout.SetLayoutFlags(_PrecisaoLabel, AbsoluteLayoutFlags.All);
+        }
+
+        private void criarBotaoAdicionar() {
+            _AdicionarRadarButton = new Image
+            {
+                Aspect = Aspect.AspectFit,
+                Source = ImageSource.FromFile("mais.png"),
+                WidthRequest = 180,
+                HeightRequest = 180
+            };
+            AbsoluteLayout.SetLayoutBounds(_AdicionarRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
+            AbsoluteLayout.SetLayoutFlags(_AdicionarRadarButton, AbsoluteLayoutFlags.All);
+
+
+            if (TelaUtils.Orientacao == "Landscape")
+            {
+                AbsoluteLayout.SetLayoutBounds(_AdicionarRadarButton, new Rectangle(1, 0.5, 0.2, 0.2));
+                AbsoluteLayout.SetLayoutFlags(_AdicionarRadarButton, AbsoluteLayoutFlags.All);
+            }
+            _AdicionarRadarButton.GestureRecognizers.Add(
+                new TapGestureRecognizer()
+                {
+                    Command = new Command(() =>
+                    {
+                        try
+                        {
+                            LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
+                            if (local != null)
+                            {
+                                RadarBLL regraRadar = RadarFactory.create();
+                                regraRadar.inserir(local);
+                                MensagemUtils.avisar("Radar incluído com sucesso.");
+                            }
+                            else
+                                MensagemUtils.avisar("Nenhum movimento registrado pelo GPS.");
+                        }
+                        catch (Exception e)
+                        {
+                            MensagemUtils.avisar(e.Message);
+                        }
+
+                    }
+                )
+            });
+        }
+
+        private void criarBotaoRemover() {
+            _RemoverRadarButton = new Image
+            {
+                Aspect = Aspect.AspectFit,
+                Source = ImageSource.FromFile("menos.png"),
+                WidthRequest = 180,
+                HeightRequest = 180
+            };
+            AbsoluteLayout.SetLayoutBounds(_RemoverRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
+            AbsoluteLayout.SetLayoutFlags(_RemoverRadarButton, AbsoluteLayoutFlags.All);
+
+
+            _RemoverRadarButton.GestureRecognizers.Add(
+                new TapGestureRecognizer()
+                {
+                    Command = new Command(() =>
+                    {
+                        try
+                        {
+                            AudioUtils.stop();
+                            if (RadarBLL.RadarAtual != null)
+                            {
+                                RadarBLL regraRadar = RadarFactory.create();
+                                regraRadar.excluir(RadarBLL.RadarAtual);
+                                MensagemUtils.avisar("Radar excluído com sucesso.");
+                                RadarBLL.RadarAtual = null;
+                            }
+                            else {
+                                MensagemUtils.avisar("Nenhum radar selecionado.");
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            MensagemUtils.avisar(e.Message);
+                        }
+                    }
+                )
+            });
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _AdicionarRadarButton.IsVisible = PreferenciaUtils.ExibirBotaoAdicionar;
+            _RemoverRadarButton.IsVisible = PreferenciaUtils.ExibirBotaoRemover;
         }
 
         public abstract void redesenhar();
