@@ -198,6 +198,8 @@
     <Compile Include="SplashActivity.cs" />
     <Compile Include="RadarMasterDetailPageRendererAndroid.cs" />
     <Compile Include="MainApplication.cs" />
+    <Compile Include="TagRenderer.cs" />
+    <Compile Include="TagAndroid.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\radar.sqlite" />

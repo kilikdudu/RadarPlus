@@ -5,6 +5,7 @@ using Radar.Controls;
 using Radar.Factory;
 using Radar.IBLL;
 using Radar.Model;
+using Radar.Pages;
 using Radar.Utils;
 using Xamarin.Forms;
 
@@ -18,34 +19,35 @@ namespace Radar
 		Picker _picker;
 
 		TagInfo _tagInfo;
-		
+		TagBLL _regraTag;
+		ListView _listaTags;
+
 		public TagPage()
 		{
 			Title = "Cadastro de tags";
-			
-			AbsoluteLayout listaView = new AbsoluteLayout();
+
+			StackLayout listaView = new StackLayout();
 			listaView.VerticalOptions = LayoutOptions.Fill;
 			listaView.HorizontalOptions = LayoutOptions.Fill;
-			
-			
-            TagBLL regraTag = TagFactory.create();
-            var tags = regraTag.listar();
-            
-			ListView listaTags = new ListView();
-			//listaTags.RowHeight = 120;
-			listaTags.ItemTemplate = new DataTemplate(typeof(TagsCelula));
-			//listaTags.ItemTapped += OnTap;
-			listaTags.ItemsSource = tags;
-			listaTags.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
-			listaTags.HasUnevenRows = true;
-			listaTags.SeparatorColor = Color.Transparent;
-			listaTags.VerticalOptions = LayoutOptions.Fill;
-			listaTags.HorizontalOptions = LayoutOptions.Center;
-			AbsoluteLayout.SetLayoutBounds(listaTags, new Rectangle(0, 0.2, 1, 0.8));
-			AbsoluteLayout.SetLayoutFlags(listaTags, AbsoluteLayoutFlags.All);
 
-			listaTags.BindingContext = tags;
-			
+
+			_regraTag = TagFactory.create();
+			var tags = _regraTag.listar();
+
+			_listaTags = new ListView();
+			//listaTags.RowHeight = 120;
+			_listaTags.ItemTemplate = new DataTemplate(typeof(TagsCelula));
+			//listaTags.ItemTapped += OnTap;
+			_listaTags.ItemsSource = tags;
+			_listaTags.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+			_listaTags.HasUnevenRows = true;
+			_listaTags.SeparatorColor = Color.Transparent;
+			_listaTags.VerticalOptions = LayoutOptions.FillAndExpand;
+			_listaTags.HorizontalOptions = LayoutOptions.Center;
+
+
+			_listaTags.BindingContext = tags;
+
 			if (TelaUtils.Orientacao == "Landscape")
 			{
 				_width = (int)TelaUtils.LarguraSemPixel * 0.5;
@@ -53,9 +55,7 @@ namespace Radar
 			else {
 				_width = (int)TelaUtils.LarguraSemPixel * 0.8;
 			}
-			ScrollView scrollMain = new ScrollView();
-			scrollMain.Orientation = ScrollOrientation.Vertical;
-			scrollMain.VerticalOptions = LayoutOptions.FillAndExpand;
+
 
 			StackLayout main = new StackLayout();
 			main.BackgroundColor = Color.Transparent;
@@ -63,10 +63,13 @@ namespace Radar
 			main.VerticalOptions = LayoutOptions.StartAndExpand;
 			main.HorizontalOptions = LayoutOptions.CenterAndExpand;
 
-			
+
 			StackLayout tagsStack = new StackLayout()
 			{
-				Orientation = StackOrientation.Horizontal
+				Orientation = StackOrientation.Horizontal,
+				VerticalOptions = LayoutOptions.Start,
+				Margin = new Thickness(10, 10, 10, 10)
+
 			};
 
 			Image tagsIcone = new Image()
@@ -83,35 +86,36 @@ namespace Radar
 				HorizontalOptions = LayoutOptions.Center,
 				WidthRequest = _width - 90,
 			};
-			
+
 			tagsStack.Children.Add(tagsIcone);
 			tagsStack.Children.Add(_tag);
-			
+
 			StackLayout tagsCorStack = new StackLayout()
 			{
-				Orientation = StackOrientation.Horizontal
+				Orientation = StackOrientation.Horizontal,
+				VerticalOptions = LayoutOptions.Fill
 			};
-			
+
 			Image tagsCorIcone = new Image()
 			{
 				Source = "ic_color_lens_black_24dp.png",
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center,
 			};
-			
+
 			_picker = new Picker
-            {
-                Title = "Cor",
-                VerticalOptions = LayoutOptions.Center
-                
-            };
+			{
+				Title = "Cor",
+				VerticalOptions = LayoutOptions.Fill
+
+			};
 			onColorSeletected();
-			
+
 			tagsCorStack.Children.Add(tagsCorIcone);
 			tagsCorStack.Children.Add(_picker);
 			tagsStack.Children.Add(tagsCorStack);
-			
-			
+
+
 			StackLayout stackButtons = new StackLayout()
 			{
 				Orientation = StackOrientation.Horizontal,
@@ -122,19 +126,21 @@ namespace Radar
 			{
 				Text = "Gravar",
 				HorizontalOptions = LayoutOptions.End,
+				VerticalOptions = LayoutOptions.End,
 				TextColor = Color.FromHex(TemaInfo.PrimaryColor),
 				FontFamily = "Roboto-Condensed",
 				BackgroundColor = Color.Transparent,
 				FontSize = 20
 			};
-			
-			
+
+
 			gravar.Clicked += OnGravar;
 
 			Button cancelar = new Button()
 			{
 				Text = "Cancelar",
 				HorizontalOptions = LayoutOptions.End,
+				VerticalOptions = LayoutOptions.End,
 				TextColor = Color.FromHex(TemaInfo.PrimaryColor),
 				FontFamily = "Roboto-Condensed",
 				BackgroundColor = Color.Transparent,
@@ -144,87 +150,89 @@ namespace Radar
 
 			stackButtons.Children.Add(cancelar);
 			stackButtons.Children.Add(gravar);
-			
+
 
 
 			listaView.Children.Add(tagsStack);
-			listaView.Children.Add(listaTags);
+			listaView.Children.Add(_listaTags);
 
 			listaView.Children.Add(stackButtons);
 
-			scrollMain.Content = main;
+
 			Content = listaView;
 		}
 
 		public void OnCancelar(Object sender, EventArgs e)
 		{
+			NavegacaoUtils.PushAsync(new VelocimetroPage());
 
 		}
-		
+
 
 		public void onColorSeletected()
 		{
-		_tagInfo = new TagInfo();
-			 Dictionary<string, Color> nameToColor = new Dictionary<string, Color>
-	        {
-	            { "Aqua", Color.Aqua }, { "Preto", Color.Black },
-	            { "Azul", Color.Blue }, { "Rosa", Color.Fuschia },
-	            { "Cinza", Color.Gray }, { "Verde", Color.Green },
-	            { "Limão", Color.Lime }, { "Marron", Color.Maroon },
-	            { "Oceano", Color.Navy }, { "Oliva", Color.Olive },
-	            { "Roxo", Color.Purple }, { "Vermelho", Color.Red },
-	            { "Prata", Color.Silver }, { "Chá", Color.Teal },
-	            { "Branco", Color.White }, { "Amarelo", Color.Yellow }
-	        };
-	        
-		   
+			_tagInfo = new TagInfo();
+			Dictionary<string, Color> nameToColor = new Dictionary<string, Color>
+			{
+				{ "Aqua", Color.Aqua }, { "Preto", Color.Black },
+				{ "Azul", Color.Blue }, { "Rosa", Color.Fuschia },
+				{ "Cinza", Color.Gray }, { "Verde", Color.Green },
+				{ "Limão", Color.Lime }, { "Marron", Color.Maroon },
+				{ "Oceano", Color.Navy }, { "Oliva", Color.Olive },
+				{ "Roxo", Color.Purple }, { "Vermelho", Color.Red },
+				{ "Prata", Color.Silver }, { "Chá", Color.Teal },
+				{ "Branco", Color.White }, { "Amarelo", Color.Yellow }
+			};
 
-            foreach (string colorName in nameToColor.Keys)
-            {
-                _picker.Items.Add(colorName);
-            }
-            
-            _picker.SelectedIndexChanged += (sender, args) =>
-                {
-                    if (_picker.SelectedIndex == -1)
-                    {
-                        
-                        string colorName = _picker.Items[_picker.SelectedIndex];
-                        _tag.TextColor = nameToColor[colorName];
+
+
+			foreach (string colorName in nameToColor.Keys)
+			{
+				_picker.Items.Add(colorName);
+			}
+
+			_picker.SelectedIndexChanged += (sender, args) =>
+				{
+					if (_picker.SelectedIndex == -1)
+					{
+
+						string colorName = _picker.Items[_picker.SelectedIndex];
+						_tag.TextColor = nameToColor[colorName];
 						_tagInfo.Cor = colorName;
-						
-                    }
-                    else
-                    {
-                        string colorName = _picker.Items[_picker.SelectedIndex];
-                        _tag.TextColor = nameToColor[colorName];
+
+					}
+					else
+					{
+						string colorName = _picker.Items[_picker.SelectedIndex];
+						_tag.TextColor = nameToColor[colorName];
 						_tagInfo.Cor = colorName;
 						//if (AoProcessar != null)							
-                		//AoProcessar(this, new PegarCorPickerEventArgs(nameToColor[colorName], colorName));
-                    }
-                };
-		
+						//AoProcessar(this, new PegarCorPickerEventArgs(nameToColor[colorName], colorName));
+					}
+				};
+
 
 		}
-		
+
 		public void OnGravar(Object sender, EventArgs e)
 		{
-			TagBLL tagBLL = new TagBLL();
-		
-			if (_tagInfo.Descricao != null)
+
+			if (_tag.Text != null)
 			{
 				_tagInfo.Descricao = _tag.Text;
-				tagBLL.gravar(_tagInfo);
+				_regraTag.gravar(_tagInfo);
+				_listaTags.BindingContext = _regraTag.listar();
 			}
-			
+
 		}
-		
+
 		public class TagsCelula : ViewCell
 		{
+			TagInfo _tag;
+			TagBLL regraTag = TagFactory.create();
 
 			public TagsCelula()
 			{
-
 				var excluirTag = new MenuItem
 				{
 					Text = "Excluir"
@@ -233,9 +241,9 @@ namespace Radar
 				excluirTag.SetBinding(MenuItem.CommandParameterProperty, new Binding("."));
 				excluirTag.Clicked += (sender, e) =>
 				{
-					TagInfo tag = (TagInfo)((MenuItem)sender).BindingContext;
-					TagBLL regraTag = TagFactory.create();
-					regraTag.excluir(tag.Id);
+					_tag = (TagInfo)((MenuItem)sender).BindingContext;
+
+					regraTag.excluir(_tag.Id);
 
 					ListView listaTags = this.Parent as ListView;
 
@@ -263,13 +271,17 @@ namespace Radar
 				};
 				descricao.SetBinding(Label.TextProperty, new Binding("Descricao"));
 
-		
 				var frameOuter = new Frame();
-				frameOuter.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
+				Tag tag = new Tag();
+
+				tag.SetBinding(Tag.ColorProperty, new Binding("Cor", converter: new ColorConverter()));
+				
+				//frameOuter.BackgroundColor = nameToColor[_tag.Cor];
+				//frameOuter.SetBinding(View.BackgroundColorProperty, new Binding("Cor", converter: new ColorConverter()));
 				frameOuter.HeightRequest = AbsoluteLayout.AutoSize;
 				if (Device.OS == TargetPlatform.iOS)
 				{
-					
+
 					//frameOuter.Padding = new Thickness(5, 10, 5, 10);
 					frameOuter.WidthRequest = TelaUtils.Largura * 0.9;
 					frameOuter.Margin = new Thickness(5, 10, 5, 0);
@@ -280,16 +292,61 @@ namespace Radar
 				}
 
 				main.Children.Add(descricao);
+				main.Children.Add(tag);
 
 				frameOuter.Content = main;
 
 				View = frameOuter;
 
+
+			}
+			
+			
+			
+			public class ColorConverter : IValueConverter
+			{
+				public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+				{
+
+					Dictionary<string, Color> nameToColor = new Dictionary<string, Color>
+				{
+					{ "Aqua", Color.Aqua }, { "Preto", Color.Black },
+					{ "Azul", Color.Blue }, { "Rosa", Color.Fuschia },
+					{ "Cinza", Color.Gray }, { "Verde", Color.Green },
+					{ "Limão", Color.Lime }, { "Marron", Color.Maroon },
+					{ "Oceano", Color.Navy }, { "Oliva", Color.Olive },
+					{ "Roxo", Color.Purple }, { "Vermelho", Color.Red },
+					{ "Prata", Color.Silver }, { "Chá", Color.Teal },
+					{ "Branco", Color.White }, { "Amarelo", Color.Yellow }
+				};
+
+					return nameToColor[value.ToString()];
+
+				}
+
+				public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+				{
+					// You probably don't need this, this is used to convert the other way around
+					// so from color to yes no or maybe
+					throw new NotImplementedException();
+				}
 			}
 
+		}
+
+		  
+		
+		 protected override void OnAppearing()
+		{
+			base.OnAppearing();
 
 		}
-		
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+
+		}
 		
 	}
 }

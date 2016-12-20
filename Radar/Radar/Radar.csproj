@@ -158,6 +158,7 @@
     <Compile Include="Controls\ColorPicker.cs" />
     <Compile Include="BLL\PegarCorPickerEventHandler.cs" />
     <Compile Include="Pages\TagPage.cs" />
+    <Compile Include="Controls\Tag.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
