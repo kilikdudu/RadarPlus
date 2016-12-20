@@ -61,7 +61,7 @@ namespace Radar.Droid
 			
 			
 			paint.AntiAlias = true;
-			_canvas.DrawPath(path2, paint);
+			_canvas.DrawCircle(base.Width / 2, base.Height / 2, (base.Width - 10) / 2, paint);
 			
 		}
 		protected override void OnDraw(Canvas canvas)

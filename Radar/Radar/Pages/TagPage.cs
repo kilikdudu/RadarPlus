@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ClubManagement.Utils;
 using Radar.BLL;
 using Radar.Controls;
 using Radar.Factory;
@@ -18,7 +19,7 @@ namespace Radar
 		double _width;
 		Picker _picker;
 
-		TagInfo _tagInfo;
+		TagInfo _tagInfo = new TagInfo();
 		TagBLL _regraTag;
 		ListView _listaTags;
 
@@ -29,7 +30,6 @@ namespace Radar
 			StackLayout listaView = new StackLayout();
 			listaView.VerticalOptions = LayoutOptions.Fill;
 			listaView.HorizontalOptions = LayoutOptions.Fill;
-
 
 			_regraTag = TagFactory.create();
 			var tags = _regraTag.listar();
@@ -56,13 +56,11 @@ namespace Radar
 				_width = (int)TelaUtils.LarguraSemPixel * 0.8;
 			}
 
-
 			StackLayout main = new StackLayout();
 			main.BackgroundColor = Color.Transparent;
 			main.Orientation = StackOrientation.Vertical;
 			main.VerticalOptions = LayoutOptions.StartAndExpand;
 			main.HorizontalOptions = LayoutOptions.CenterAndExpand;
-
 
 			StackLayout tagsStack = new StackLayout()
 			{
@@ -84,7 +82,7 @@ namespace Radar
 				Placeholder = "Tags",
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center,
-				WidthRequest = _width - 90,
+				WidthRequest = _width - 30,
 			};
 
 			tagsStack.Children.Add(tagsIcone);
@@ -102,17 +100,23 @@ namespace Radar
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center,
 			};
+			
+			tagsCorIcone.GestureRecognizers.Add(
+					new TapGestureRecognizer()
+					{
+						Command = new Command(() =>
+						{
+							NavigationX.create(this).PushPopupAsyncX(new TagColor((sender, e) => {
+							_tag.TextColor = e.corPicker;
+							_tagInfo.Cor = e.corTexto;
 
-			_picker = new Picker
-			{
-				Title = "Cor",
-				VerticalOptions = LayoutOptions.Fill
-
-			};
-			onColorSeletected();
+							}), true);
+						}
+					)
+					});
 
 			tagsCorStack.Children.Add(tagsCorIcone);
-			tagsCorStack.Children.Add(_picker);
+			//tagsCorStack.Children.Add(_picker);
 			tagsStack.Children.Add(tagsCorStack);
 
 
@@ -120,7 +124,8 @@ namespace Radar
 			{
 				Orientation = StackOrientation.Horizontal,
 				HorizontalOptions = LayoutOptions.End,
-				VerticalOptions = LayoutOptions.End
+				VerticalOptions = LayoutOptions.End,
+				Margin = new Thickness (0,0,0,20)
 			};
 			Button gravar = new Button()
 			{
@@ -132,7 +137,6 @@ namespace Radar
 				BackgroundColor = Color.Transparent,
 				FontSize = 20
 			};
-
 
 			gravar.Clicked += OnGravar;
 
@@ -151,8 +155,6 @@ namespace Radar
 			stackButtons.Children.Add(cancelar);
 			stackButtons.Children.Add(gravar);
 
-
-
 			listaView.Children.Add(tagsStack);
 			listaView.Children.Add(_listaTags);
 
@@ -168,59 +170,15 @@ namespace Radar
 
 		}
 
-
-		public void onColorSeletected()
-		{
-			_tagInfo = new TagInfo();
-			Dictionary<string, Color> nameToColor = new Dictionary<string, Color>
-			{
-				{ "Aqua", Color.Aqua }, { "Preto", Color.Black },
-				{ "Azul", Color.Blue }, { "Rosa", Color.Fuschia },
-				{ "Cinza", Color.Gray }, { "Verde", Color.Green },
-				{ "Limão", Color.Lime }, { "Marron", Color.Maroon },
-				{ "Oceano", Color.Navy }, { "Oliva", Color.Olive },
-				{ "Roxo", Color.Purple }, { "Vermelho", Color.Red },
-				{ "Prata", Color.Silver }, { "Chá", Color.Teal },
-				{ "Branco", Color.White }, { "Amarelo", Color.Yellow }
-			};
-
-
-
-			foreach (string colorName in nameToColor.Keys)
-			{
-				_picker.Items.Add(colorName);
-			}
-
-			_picker.SelectedIndexChanged += (sender, args) =>
-				{
-					if (_picker.SelectedIndex == -1)
-					{
-
-						string colorName = _picker.Items[_picker.SelectedIndex];
-						_tag.TextColor = nameToColor[colorName];
-						_tagInfo.Cor = colorName;
-
-					}
-					else
-					{
-						string colorName = _picker.Items[_picker.SelectedIndex];
-						_tag.TextColor = nameToColor[colorName];
-						_tagInfo.Cor = colorName;
-						//if (AoProcessar != null)							
-						//AoProcessar(this, new PegarCorPickerEventArgs(nameToColor[colorName], colorName));
-					}
-				};
-
-
-		}
-
 		public void OnGravar(Object sender, EventArgs e)
 		{
 
+			TagInfo tagInfo = new TagInfo();
 			if (_tag.Text != null)
 			{
-				_tagInfo.Descricao = _tag.Text;
-				_regraTag.gravar(_tagInfo);
+				tagInfo.Descricao = _tag.Text;
+				tagInfo.Cor = _tagInfo.Cor;
+				_regraTag.gravar(tagInfo);
 				_listaTags.BindingContext = _regraTag.listar();
 			}
 
@@ -272,7 +230,10 @@ namespace Radar
 				descricao.SetBinding(Label.TextProperty, new Binding("Descricao"));
 
 				var frameOuter = new Frame();
-				Tag tag = new Tag();
+				Tag tag = new Tag()
+				{
+					TipoShape = TipoShape.Circle
+				};
 
 				tag.SetBinding(Tag.ColorProperty, new Binding("Cor", converter: new ColorConverter()));
 				
@@ -291,17 +252,15 @@ namespace Radar
 					frameOuter.Margin = new Thickness(5, 10, 5, 10);
 				}
 
-				main.Children.Add(descricao);
+				
 				main.Children.Add(tag);
+				main.Children.Add(descricao);
 
 				frameOuter.Content = main;
 
 				View = frameOuter;
 
-
-			}
-			
-			
+			}			
 			
 			public class ColorConverter : IValueConverter
 			{
@@ -317,10 +276,12 @@ namespace Radar
 					{ "Oceano", Color.Navy }, { "Oliva", Color.Olive },
 					{ "Roxo", Color.Purple }, { "Vermelho", Color.Red },
 					{ "Prata", Color.Silver }, { "Chá", Color.Teal },
-					{ "Branco", Color.White }, { "Amarelo", Color.Yellow }
+				    { "Amarelo", Color.Yellow }
 				};
-
-					return nameToColor[value.ToString()];
+					if(value != null){
+						return nameToColor[value.ToString()];
+					}
+					return Color.Gray;
 
 				}
 
@@ -336,7 +297,7 @@ namespace Radar
 
 		  
 		
-		 protected override void OnAppearing()
+		protected override void OnAppearing()
 		{
 			base.OnAppearing();
 

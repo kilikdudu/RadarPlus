@@ -16,6 +16,7 @@ namespace Radar.BLL
 		public PegarCorPickerEventArgs(Color cor, string color)
 		{
 			corPicker = cor;
+			corTexto = color;
 		}
         public Color corPicker { get; set; }
         public string corTexto { get; set; }
