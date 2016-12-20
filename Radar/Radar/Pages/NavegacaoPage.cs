@@ -13,7 +13,7 @@ using Radar.Controls;
 
 namespace Radar.Pages
 {
-    public class NavegacaoPage : RadarMasterDetailPage
+    public class NavegacaoPage : MasterDetailPage
     { 
         private MenuPage masterPage;
         //private Page _paginaAtual;
