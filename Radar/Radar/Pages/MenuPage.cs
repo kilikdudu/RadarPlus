@@ -33,10 +33,11 @@ namespace Radar.Pages
 
             BackgroundColor = Color.FromHex("#ffffff");
             //BackgroundColor = Color.Transparent;
-            var layout = new StackLayout
+            //var layout = new StackLayout
             //var layout = new AbsoluteLayout
+            Content = new StackLayout
             {
-                //Orientation = StackOrientation.Vertical,
+                Orientation = StackOrientation.Vertical,
                 Padding = new Thickness(5, 25, 5, 5),
                 BackgroundColor = Color.Transparent, //Color.FromHex("#ffffff"), //,
                 Children = {
@@ -50,9 +51,9 @@ namespace Radar.Pages
                     _listView
                 }
             };
-            AbsoluteLayout.SetLayoutBounds(layout, new Rectangle(0, 0, 0.2, 1));
-            AbsoluteLayout.SetLayoutFlags(layout, AbsoluteLayoutFlags.All);
-            Content = layout;
+            //AbsoluteLayout.SetLayoutBounds(layout, new Rectangle(0, 0, 0.2, 1));
+            //AbsoluteLayout.SetLayoutFlags(layout, AbsoluteLayoutFlags.All);
+            //Content = layout;
         }
 
         private void inicializarComponente() {
