@@ -197,7 +197,7 @@
     <Compile Include="VelocimetroRenderer.cs" />
     <Compile Include="SQLiteAndroid.cs" />
     <Compile Include="SplashActivity.cs" />
-    <Compile Include="RadarMasterDetailPageRendererAndroid.cs" />
+    <Compile Include="RadarMasterDetailRenderer.cs" />
     <Compile Include="MainApplication.cs" />
   </ItemGroup>
   <ItemGroup>

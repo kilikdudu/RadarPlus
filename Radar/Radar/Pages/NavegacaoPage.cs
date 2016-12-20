@@ -9,25 +9,31 @@ using Radar.Model;
 using Xamarin.Forms;
 using ClubManagement.Utils;
 using Radar.Utils;
+using Radar.Controls;
 
 namespace Radar.Pages
 {
-    public class NavegacaoPage : MasterDetailPage
+    public class NavegacaoPage : RadarMasterDetailPage
     { 
         private MenuPage masterPage;
-        private Page _paginaAtual;
+        //private Page _paginaAtual;
 
         //bool carregandoPagina = false;
 
-	    public NavegacaoPage()
+        protected override void OnChildAdded(Element child)
         {
-			
+            //MensagemUtils.avisar(child.ClassId  + "=" + child.GetType().ToString());
+            base.OnChildAdded(child);
+        }
+
+        public NavegacaoPage()
+        { 
 			//this.IsGestureEnabled = false;
-			this.WidthRequest = 500;
+			//this.WidthRequest = 400;
 
             masterPage = new MenuPage();
             Master = masterPage;
-			Master.WidthRequest = 500;
+			//Master.WidthRequest = 500;
 
             var navPage = new NavigationPage(new VelocimetroPage()) {
                 BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor),
@@ -39,10 +45,12 @@ namespace Radar.Pages
 
             masterPage.ListView.ItemSelected += OnItemSelected;
 
+            /*
             if (Device.OS == TargetPlatform.Windows)
             {
                 Master.Icon = "swap.png";
             }
+            */
         }
 
         protected override void OnAppearing()
@@ -61,7 +69,6 @@ namespace Radar.Pages
                 AudioUtils.play("audios/radar_aberto.mp3");
             }
         }
-
 
         protected void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {

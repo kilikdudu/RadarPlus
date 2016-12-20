@@ -32,11 +32,13 @@ namespace Radar.Pages
             inicializarComponente();
 
             BackgroundColor = Color.FromHex("#ffffff");
-            Content = new StackLayout
+            //BackgroundColor = Color.Transparent;
+            var layout = new StackLayout
+            //var layout = new AbsoluteLayout
             {
-                Orientation = StackOrientation.Vertical,
+                //Orientation = StackOrientation.Vertical,
                 Padding = new Thickness(5, 25, 5, 5),
-                BackgroundColor = Color.Transparent,
+                BackgroundColor = Color.Transparent, //Color.FromHex("#ffffff"), //,
                 Children = {
                     new Image {
                         Source = "navicon.png",
@@ -48,8 +50,9 @@ namespace Radar.Pages
                     _listView
                 }
             };
-
-
+            AbsoluteLayout.SetLayoutBounds(layout, new Rectangle(0, 0, 0.2, 1));
+            AbsoluteLayout.SetLayoutFlags(layout, AbsoluteLayoutFlags.All);
+            Content = layout;
         }
 
         private void inicializarComponente() {
