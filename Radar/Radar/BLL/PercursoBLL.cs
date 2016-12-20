@@ -59,7 +59,7 @@ namespace Radar.BLL
         public int gravar(PercursoInfo percurso) {
             //percurso.Id = _percursoDB.gravar(percurso);
 			var grava = _percursoDB.gravar(percurso);
-            atualizarEndereco(percurso);
+            //atualizarEndereco(percurso);
             return grava;
             //return percurso.Id;
         }
