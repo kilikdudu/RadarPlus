@@ -35,12 +35,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DALFactory\GastoDALFactory.cs" />
+    <Compile Include="DALSQLite\GastoDALSQLite.cs" />
     <Compile Include="Estilo\BaseEstilo.cs" />
     <Compile Include="Estilo\PercursoEstilo.cs" />
     <Compile Include="Estilo\PopupEstilo.cs" />
     <Compile Include="Estilo\PreferenciaEstilo.cs" />
     <Compile Include="Estilo\VelocimetroEstilo.cs" />
     <Compile Include="Estilo\VelocimetroCor.cs" />
+    <Compile Include="IDAL\IGastoDAL.cs" />
+    <Compile Include="Model\GastoInfo.cs" />
+    <Compile Include="Model\GastoTipoEnum.cs" />
+    <Compile Include="Model\ResumoInfo.cs" />
+    <Compile Include="Model\ResumoItemInfo.cs" />
     <Compile Include="Pages\BasePreferenciaPage.cs" />
     <Compile Include="Pages\MenuPage.cs" />
     <Compile Include="Pages\ModoAlertaPage.cs" />
@@ -50,12 +57,13 @@
     <Compile Include="Pages\ModoMapaPage.cs" />
     <Compile Include="Pages\ModoMeuRadarPage.cs" />
     <Compile Include="Pages\ModoPercursoPage.cs" />
-    <Compile Include="Pages\NovoCustoPage.cs" />
+    <Compile Include="Pages\GastoNovoPage.cs" />
     <Compile Include="Pages\PercursoPage.cs" />
     <Compile Include="Pages\PercursoPageCell.cs" />
     <Compile Include="Pages\RadarAtivoCell.cs" />
     <Compile Include="Pages\RadarBaseCell.cs" />
     <Compile Include="Pages\RadarInativoCell.cs" />
+    <Compile Include="Pages\ResumoPercursoPage.cs" />
     <Compile Include="Popup\AlturaVolumePopUp.cs" />
     <Compile Include="Popup\BaseFormPopup.cs" />
     <Compile Include="Popup\BaseListaPopup.cs" />

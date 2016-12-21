@@ -177,6 +177,11 @@ namespace Radar.Pages
                 ItemTemplate = new DataTemplate(typeof(PercursoPageCell))
             };
             _PercursoListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+            _PercursoListView.ItemTapped += (sender, e) =>
+            {
+                var percurso = (PercursoInfo)e.Item;
+                NavigationX.create(this).PushAsync(new ResumoPercursoPage(percurso));
+            };
 
             _tempoCorrendo = new Label {
                 HorizontalOptions = LayoutOptions.Start,
