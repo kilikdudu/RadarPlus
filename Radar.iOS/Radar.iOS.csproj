@@ -439,8 +439,8 @@
       <Project>{D6EA51AD-1DCA-4367-8593-EA189252B19D}</Project>
       <Name>ClubManagement.iOS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Radar\Radar\Radar.csproj">
-      <Project>{0D7118CE-020D-4CAC-8CA6-95110C856A12}</Project>
+    <ProjectReference Include="..\Radar\Radar.csproj">
+      <Project>{0d7118ce-020d-4cac-8ca6-95110c856a12}</Project>
       <Name>Radar</Name>
     </ProjectReference>
   </ItemGroup>
