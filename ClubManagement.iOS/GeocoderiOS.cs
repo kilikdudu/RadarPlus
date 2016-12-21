@@ -33,7 +33,7 @@ namespace ClubManagement.iOS
                     };
                     if (callback != null)
                     {
-                        ThreadUtils.RunOnUiThread(() => {
+                        Device.BeginInvokeOnMainThread(() => {
                             callback(null, new GeoEnderecoEventArgs(endereco));
                         });
                     }

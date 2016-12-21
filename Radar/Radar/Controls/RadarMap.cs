@@ -21,6 +21,9 @@ namespace Radar.Controls
         public MapRotacaoEventHandler AoAtualizaPosicao;
         public DesenharRadarEventHandler AoDesenharRadar;
 
+        public RadarMap() {
+        }
+
         public Dictionary<string, RadarPin> Radares
         {
             get

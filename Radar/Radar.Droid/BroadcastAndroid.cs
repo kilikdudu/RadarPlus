@@ -13,6 +13,7 @@ using Radar.BLL;
 using Radar.Factory;
 using ClubManagement.Utils;
 using Radar.Utils;
+using ClubManagement.Model;
 
 namespace Radar.Droid
 {
@@ -31,23 +32,33 @@ namespace Radar.Droid
             else if (intent.Action == PercursoBLL.ACAO_PARAR_SIMULACAO)
             {
                 GPSUtils.pararSimulacao();
-                ClubManagement.Utils.MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_SIMULACAO_PERCURSO_ID);
+                MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_SIMULACAO_PERCURSO_ID);
                 InvokeAbortBroadcast();
             }
-            else if (intent.Action == PercursoBLL.ACAO_PARAR_SIMULACAO) {
+            else if (intent.Action == PercursoBLL.ACAO_PARAR_GRAVACAO) {
                 PercursoBLL regraPercurso = PercursoFactory.create();
 				regraPercurso.pararGravacao();
-                ClubManagement.Utils.MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
+                //MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
                 InvokeAbortBroadcast();
             }
 			else if (intent.Action == "Fechar")
 			{
-				NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
+                if (PreferenciaUtils.LigarDesligar) {
+                    if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
+                    {
+                        MensagemUtils.notificar(101, "Radar+", "O Radar+ está sendo encerrado!", audio: "radar_fechado");
+                    }
+                    else {
+                        AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
+                        AudioUtils.Canal = PreferenciaUtils.CanalAudio;
+                        AudioUtils.CaixaSom = PreferenciaUtils.CaixaSom;
+                        AudioUtils.play("audios/radar_fechado.mp3");
+                    }
+                }
+                NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
 				notificationManager.Cancel(1);
 				System.Environment.Exit(0);
-				Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
-
-
+				Process.KillProcess(Process.MyPid());
 			}
         }
     }

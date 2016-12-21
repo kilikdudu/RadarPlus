@@ -16,21 +16,6 @@ namespace Radar.Pages
 {
     public class VelocimetroPage: BaseVisualPage
     {
-		/*
-        private static VelocimetroPage _velocimetroPageAtual;
-
-        public static VelocimetroPage Atual
-        {
-            get
-            {
-                return _velocimetroPageAtual;
-            }
-            private set
-            {
-                _velocimetroPageAtual = value;
-            }
-        }
-        */
 		AbsoluteLayout _absoluteLayout;
         private Velocimetro _velocimetro;
         Image _radarImage;
@@ -84,6 +69,7 @@ namespace Radar.Pages
 
         public VelocimetroPage()
         {
+
             Title = "Velocimetro";
             inicializarComponente();
 			PercursoBLL percursoBLL = new PercursoBLL();
@@ -294,6 +280,11 @@ namespace Radar.Pages
             base.OnAppearing();
             //_velocimetroPageAtual = this;
             GlobalUtils.Visual = this;
+
+            if (PreferenciaUtils.SalvarPercurso) {
+                var regraPercurso = PercursoFactory.create();
+                var inicializou = regraPercurso.iniciarGravacao();
+            }
         }
 
         protected override void OnDisappearing()

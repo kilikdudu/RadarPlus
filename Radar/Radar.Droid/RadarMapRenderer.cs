@@ -36,7 +36,11 @@ namespace Radar.Droid
         RadarMap _radarMap;
         bool animando = false;
         Marker minhaPosicao;
-		RadarBLL _radarBLL;
+		//RadarBLL _radarBLL;
+
+        public RadarMapRenderer()
+        {
+        }
 		
         protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<Xamarin.Forms.View> e)
         {
@@ -45,22 +49,13 @@ namespace Radar.Droid
             if (e.NewElement != null)
             {
                 _radarMap = (RadarMap)e.NewElement;
+
                 _radarMap.AoAtualizaPosicao += (object sender, LocalizacaoInfo local) => {
                     if (!animando)
                     {
                         if (map == null)
                             return;
-                        CameraPosition.Builder builder = CameraPosition.InvokeBuilder(map.CameraPosition);
-                        builder.Target(new LatLng(local.Latitude, local.Longitude));
-                        builder.Bearing(local.Sentido);
-                        builder.Zoom(PreferenciaUtils.NivelZoom);
-                        builder.Tilt(PreferenciaUtils.MapaTilt);
-                        CameraPosition cameraPosition = builder.Build();
-                        CameraUpdate cameraUpdate = CameraUpdateFactory.NewCameraPosition(cameraPosition);
-                        if (PreferenciaUtils.SuavizarAnimacao)
-                            map.AnimateCamera(cameraUpdate);
-                        else
-                            map.MoveCamera(cameraUpdate);
+                        moverCamera(map, new LatLng(local.Latitude, local.Longitude), local.Sentido);
                         if (GPSUtils.Simulado)
                             atualizarMinhaPosicao(local);
                         animando = true;
@@ -132,9 +127,24 @@ namespace Radar.Droid
             return null;
         }
 
+        private void moverCamera(GoogleMap map, LatLng posicao, float bearing) {
+            CameraPosition.Builder builder = CameraPosition.InvokeBuilder(map.CameraPosition);
+            builder.Target(new LatLng(posicao.Latitude, posicao.Longitude));
+            builder.Bearing(bearing);
+            builder.Zoom(PreferenciaUtils.NivelZoom);
+            builder.Tilt(PreferenciaUtils.MapaTilt);
+            CameraPosition cameraPosition = builder.Build();
+            CameraUpdate cameraUpdate = CameraUpdateFactory.NewCameraPosition(cameraPosition);
+            if (PreferenciaUtils.SuavizarAnimacao)
+                map.AnimateCamera(cameraUpdate);
+            else
+                map.MoveCamera(cameraUpdate);
+        }
+
         public void OnMapReady(GoogleMap googleMap)
         {
             map = googleMap;
+            moverCamera(googleMap, new LatLng(PreferenciaUtils.LatitudeInicial, PreferenciaUtils.LongitudeInicial), 0);
             if (PreferenciaUtils.InfoTrafego)
                 googleMap.TrafficEnabled = true;
             googleMap.UiSettings.SetAllGesturesEnabled(PreferenciaUtils.RotacionarMapa);

@@ -16,7 +16,7 @@ namespace Radar.Popup
         {
             get
             {
-                return 1;
+                return 0;
             }
         }
 

@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Radar.Pages.Popup;
 using Rg.Plugins.Popup.Extensions;
+using Radar.BLL;
+using ClubManagement.Model;
 
 namespace Radar.Pages
 {
@@ -30,11 +32,14 @@ namespace Radar.Pages
             inicializarComponente();
 
             BackgroundColor = Color.FromHex("#ffffff");
+            //BackgroundColor = Color.Transparent;
+            //var layout = new StackLayout
+            //var layout = new AbsoluteLayout
             Content = new StackLayout
             {
                 Orientation = StackOrientation.Vertical,
-                Padding = new Thickness(5, 5, 5, 5),
-                BackgroundColor = Color.Transparent,
+                Padding = new Thickness(5, 25, 5, 5),
+                BackgroundColor = Color.Transparent, //Color.FromHex("#ffffff"), //,
                 Children = {
                     new Image {
                         Source = "navicon.png",
@@ -46,8 +51,9 @@ namespace Radar.Pages
                     _listView
                 }
             };
-
-
+            //AbsoluteLayout.SetLayoutBounds(layout, new Rectangle(0, 0, 0.2, 1));
+            //AbsoluteLayout.SetLayoutFlags(layout, AbsoluteLayoutFlags.All);
+            //Content = layout;
         }
 
         private void inicializarComponente() {
@@ -201,6 +207,19 @@ namespace Radar.Pages
                 Icone = "sair.png",
                 aoClicar = (sender, e) =>
                 {
+                    if (PreferenciaUtils.LigarDesligar)
+                    {
+                        if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
+                        {
+                            MensagemUtils.notificar(101, "Radar+", "O Radar+ está sendo finalizado.", audio: "radar_fechado");
+                        }
+                        else {
+                            AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
+                            AudioUtils.Canal = PreferenciaUtils.CanalAudio;
+                            AudioUtils.CaixaSom = PreferenciaUtils.CaixaSom;
+                            AudioUtils.play("audios/radar_fechado.mp3");
+                        }
+                    }
                     ThreadUtils.closeApplication();
                 }
             });

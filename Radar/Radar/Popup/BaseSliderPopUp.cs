@@ -1,5 +1,6 @@
 ﻿using ClubManagement.Model;
 using Radar.BLL;
+using Radar.Estilo;
 using Radar.Utils;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace Radar.Popup
             base.inicializarComponente();
 
             _TextoLabel = new Label {
-                Style = EstiloUtils.PopupTexto,
+                Style = EstiloUtils.Popup.Texto,
                 Text = ""
             };
             _Slider = new Slider {
@@ -42,7 +43,7 @@ namespace Radar.Popup
             _Slider.ValueChanged += (sender, e) => {
                 _Slider.Value = Math.Round(e.NewValue);
                 Valor = Math.Floor(_Slider.Value);
-                _TextoLabel.Text = _Slider.Value.ToString();
+                _TextoLabel.Text = formatarTexto(Valor);
             };
         }
 

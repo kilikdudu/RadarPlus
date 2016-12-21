@@ -1,4 +1,7 @@
-﻿using Radar.BLL;
+﻿using ClubManagement.Model;
+using ClubManagement.Utils;
+using Radar.BLL;
+using Radar.Estilo;
 using Radar.Model;
 using Radar.Utils;
 using System;
@@ -45,7 +48,7 @@ namespace Radar.Popup
 
             foreach (var item in _SomAlarme) {
                 var alarmeSwitch = new AlarmeSwitch {
-                    Style = EstiloUtils.PopupSwitch,
+                    Style = EstiloUtils.Popup.CheckBox,
                     SomAlarme = item.Key
                 };
                 alarmeSwitch.Toggled += (sender, e) =>
@@ -59,7 +62,27 @@ namespace Radar.Popup
                                 s.Value.IsToggled = false;
                         }
                         PreferenciaUtils.SomAlarme = alSwitch.SomAlarme;
-                        new AvisoSonoroBLL().play(alSwitch.SomAlarme);
+                        var regraAviso = new AvisoSonoroBLL();
+                        if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
+                        {
+                            string arquivoSom = regraAviso.pegarArquivo(alSwitch.SomAlarme);
+                            MensagemUtils.notificar(104, "Radar+", "Reproduzindo som de alarme para escolha!", audio: arquivoSom);
+                        }
+                        else {
+                            regraAviso.play(alSwitch.SomAlarme);
+                        }
+                    }
+                    else {
+                        bool marcado = false;
+                        foreach (var s in _Controls) {
+                            if (s.Value.IsToggled) {
+                                marcado = true;
+                                break;
+                            }
+                        }
+                        if (!marcado) {
+                            alSwitch.IsToggled = true;
+                        }
                     }
                 };
                 _Controls.Add(item.Key, alarmeSwitch);
@@ -80,7 +103,7 @@ namespace Radar.Popup
                     HorizontalOptions = LayoutOptions.Fill,
                     Children = {
                             new Label {
-                                Style = EstiloUtils.PopupTexto,
+                                Style = EstiloUtils.Popup.Texto,
                                 Text = _SomAlarme[s.Key]
                             },
                             s.Value

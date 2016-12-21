@@ -11,7 +11,9 @@ namespace ClubManagement.IBLL
     {
         AudioCanalEnum Canal { get; set; }
         float Volume { get; set; }
+        bool CaixaSom { get; set; }
         void play(string[] arquivos);
         void play(string arquivo);
+        void stop();
     }
 }

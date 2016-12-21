@@ -1,5 +1,6 @@
 ﻿using ClubManagement.Utils;
 using Radar.BLL;
+using Radar.Estilo;
 using Radar.Popup;
 using Radar.Utils;
 using System;
@@ -32,7 +33,7 @@ namespace Radar.Pages
         {
             _BussolaSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.Bussola
             };
             _BussolaSwitch.Toggled += (sender, e) =>
@@ -42,7 +43,7 @@ namespace Radar.Pages
 
             _SinalGPSSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.SinalGPS
             };
             _SinalGPSSwitch.Toggled += (sender, e) =>
@@ -52,7 +53,7 @@ namespace Radar.Pages
 
             _ImagemSateliteSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.ImagemSatelite
             };
             _ImagemSateliteSwitch.Toggled += (sender, e) =>
@@ -62,7 +63,7 @@ namespace Radar.Pages
 
             _InfoTrafegoSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.InfoTrafego
             };
             _InfoTrafegoSwitch.Toggled += (sender, e) =>
@@ -72,7 +73,7 @@ namespace Radar.Pages
 
             _RotacionarMapaSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.RotacionarMapa
             };
             _RotacionarMapaSwitch.Toggled += (sender, e) =>
@@ -82,7 +83,7 @@ namespace Radar.Pages
 
             _SuavizarAnimacaoSwitch = new Switch
             {
-                Style = EstiloUtils.PreferenciaSwitch,
+                Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.SuavizarAnimacao
             };
             _SuavizarAnimacaoSwitch.Toggled += (sender, e) =>

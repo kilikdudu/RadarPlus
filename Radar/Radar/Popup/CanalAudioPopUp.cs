@@ -1,5 +1,6 @@
 ﻿using ClubManagement.Model;
 using Radar.BLL;
+using Radar.Estilo;
 using Radar.Utils;
 using Rg.Plugins.Popup.Services;
 using System;
@@ -32,7 +33,7 @@ namespace Radar.Popup
             base.inicializarComponente();
 
             _MusicaSwitch = new Switch {
-                Style = EstiloUtils.PopupSwitch,
+                Style = EstiloUtils.Popup.CheckBox,
             };
             _MusicaSwitch.Toggled += (sender, e) =>
             {
@@ -40,14 +41,16 @@ namespace Radar.Popup
                 {
                     _AlarmeSwitch.IsToggled = false;
                     _NotificacaoSwitch.IsToggled = false;
-                    PreferenciaUtils.CanalAudio = AudioCanalEnum.Musica;
                 }
                 else {
-                    PreferenciaUtils.CanalAudio = AudioCanalEnum.Nenhum;
+                    if (!_AlarmeSwitch.IsToggled && !_NotificacaoSwitch.IsToggled) {
+                        _MusicaSwitch.IsToggled = true;
+                    }
                 }
+                PreferenciaUtils.CanalAudio = AudioCanalEnum.Musica;
             };
             _AlarmeSwitch = new Switch {
-                Style = EstiloUtils.PopupSwitch
+                Style = EstiloUtils.Popup.CheckBox
             };
             _AlarmeSwitch.Toggled += (sender, e) =>
             {
@@ -55,14 +58,15 @@ namespace Radar.Popup
                 {
                     _MusicaSwitch.IsToggled = false;
                     _NotificacaoSwitch.IsToggled = false;
-                    PreferenciaUtils.CanalAudio = AudioCanalEnum.Alarme;
                 }
                 else {
-                    PreferenciaUtils.CanalAudio = AudioCanalEnum.Nenhum;
+                    if (!_MusicaSwitch.IsToggled && !_NotificacaoSwitch.IsToggled)
+                        _AlarmeSwitch.IsToggled = true;
                 }
+                PreferenciaUtils.CanalAudio = AudioCanalEnum.Alarme;
             };
             _NotificacaoSwitch = new Switch {
-                Style = EstiloUtils.PopupSwitch
+                Style = EstiloUtils.Popup.CheckBox
             };
             _NotificacaoSwitch.Toggled += (sender, e) =>
             {
@@ -70,11 +74,12 @@ namespace Radar.Popup
                 {
                     _MusicaSwitch.IsToggled = false;
                     _AlarmeSwitch.IsToggled = false;
-                    PreferenciaUtils.CanalAudio = AudioCanalEnum.Notificacao;
                 }
                 else {
-                    PreferenciaUtils.CanalAudio = AudioCanalEnum.Nenhum;
+                    if (!_MusicaSwitch.IsToggled && !_AlarmeSwitch.IsToggled)
+                        _NotificacaoSwitch.IsToggled = true;
                 }
+                PreferenciaUtils.CanalAudio = AudioCanalEnum.Notificacao;
             };
         }
 
@@ -90,7 +95,7 @@ namespace Radar.Popup
                         HorizontalOptions = LayoutOptions.Fill,
                         Children = {
                             new Label {
-                                Style = EstiloUtils.PopupTexto,
+                                Style = EstiloUtils.Popup.Texto,
                                 Text = "Música"
                             },
                             _MusicaSwitch
@@ -102,7 +107,7 @@ namespace Radar.Popup
                         HorizontalOptions = LayoutOptions.Fill,
                         Children = {
                             new Label {
-                                Style = EstiloUtils.PopupTexto,
+                                Style = EstiloUtils.Popup.Texto,
                                 Text = "Alarmes"
                             },
                             _AlarmeSwitch
@@ -114,7 +119,7 @@ namespace Radar.Popup
                         HorizontalOptions = LayoutOptions.Fill,
                         Children = {
                             new Label {
-                                Style = EstiloUtils.PopupTexto,
+                                Style = EstiloUtils.Popup.Texto,
                                 Text = "Notificações"
                             },
                             _NotificacaoSwitch

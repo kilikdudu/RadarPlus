@@ -32,6 +32,8 @@ namespace Radar.Droid
 
         protected override void OnCreate(Bundle bundle)
         {
+            //Window.RequestFeature(WindowFeatures.ActionBar);
+
             _Situacao = JanelaSituacaoEnum.Inicializando;
 
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -56,7 +58,6 @@ namespace Radar.Droid
 			TelaAndroid.AlturaDPI = (int)Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Ydpi; // real pixels
 
 			TelaAndroid.Orientacao = Resources.Configuration.Orientation.ToString();
-
 
             CurrentActivityUtils.Current = this;
             //ThreadAndroid.CurrentActivity = this;

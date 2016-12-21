@@ -1,3 +1,4 @@
+using ClubManagement.Model;
 using ClubManagement.Utils;
 using Radar.BLL;
 using Radar.Factory;
@@ -16,7 +17,7 @@ namespace Radar.Utils
 {
 	public static class GPSUtils
 	{
-		private const int RADAR_ID = 1;
+		private const int RADAR_ID = 102;
         public const int DIAMETRO_TERRA = 6371;
 
         private static IGPS _gpsServico;
@@ -74,12 +75,27 @@ namespace Radar.Utils
 		{
 			var regraAviso = new AvisoSonoroBLL();
 			RadarBLL.RadarAtual = radar;
+            string titulo = "Radar+";
 			string mensagem = "Tem um radar a frente, diminua para " + radar.Velocidade.ToString() + "km/h!";
 
-			MensagemUtils.notificar(RADAR_ID, "Radar Club", mensagem, radar.Velocidade);
+            if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
+            {
+                if (PreferenciaUtils.BeepAviso)
+                {
+                    string arquivoAlarme = regraAviso.pegarArquivo(PreferenciaUtils.SomAlarme);
+                    MensagemUtils.notificar(RADAR_ID, titulo, mensagem, audio: arquivoAlarme, velocidade: radar.Velocidade);
+                }
+                else {
+                    MensagemUtils.notificar(RADAR_ID, titulo, mensagem, velocidade: radar.Velocidade);
+                }
+            }
+            else {
+                MensagemUtils.notificar(RADAR_ID, titulo, mensagem, velocidade: radar.Velocidade);
+                if (PreferenciaUtils.BeepAviso) {
+                    regraAviso.play(PreferenciaUtils.SomAlarme);
+                }
+            }
 
-			if (PreferenciaUtils.BeepAviso)
-				regraAviso.play(PreferenciaUtils.SomAlarme);
 			if (PreferenciaUtils.VibrarAlerta)
 			{
 				int tempo = PreferenciaUtils.TempoDuracaoVibracao;

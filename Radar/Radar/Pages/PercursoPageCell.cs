@@ -14,29 +14,111 @@ namespace Radar.Pages
 {
     public class PercursoPageCell : ViewCell
     {
-        WrapLayout desc = new WrapLayout();
-
-        Label tempoCorrendo = new Label();
-        Label tempoParado = new Label();
-        Label paradas = new Label();
-        Label velocidadeMaxima = new Label();
-        Label velocidadeMedia = new Label();
-        Label radares = new Label();
-
-        Image relogioIco = new Image();
-        Image paradoIco = new Image();
-        Image ampulhetaIco = new Image();
-        Image velocimetroIco = new Image();
-        Image velocimetroIco2 = new Image();
-        Image radarIco = new Image();
+        Label _tempoTotalLabel;
+        Label _tempoParadoLabel;
+        Label _paradaLabel;
+        Label _velocidadeMaximaLabel;
+        Label _velocidadeMediaLabel;
+        Label _radarLabel;
+        Label _tituloLabel;
+        Label _enderecoLabel;
+        Label _distanciaLabel;
 
         public PercursoPageCell()
         {
+            inicializarComponente();
+            inicializarMenu();
+
+            View = new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+                HorizontalOptions = LayoutOptions.Fill,
+                VerticalOptions = LayoutOptions.Start,
+                Margin = new Thickness(0, 0, 0, 10),
+                Children = {
+                    new Frame
+                    {
+                        VerticalOptions = LayoutOptions.Start,
+                        HorizontalOptions = LayoutOptions.Start,
+                        Margin = new Thickness(0, 0, 0, 0),
+                        WidthRequest = 40,
+                        Content = new StackLayout()
+                        {
+                            VerticalOptions = LayoutOptions.Center,
+                            HorizontalOptions = LayoutOptions.Center,
+                            Orientation = StackOrientation.Vertical,
+                            Children = {
+                                new Image {
+                                    Source = ImageSource.FromFile("percursos.png"),
+                                    HorizontalOptions = LayoutOptions.Center,
+                                    VerticalOptions = LayoutOptions.Start
+                                },
+                                _distanciaLabel
+                            }
+                        }
+                    },
+                    new Frame
+                    {
+                        VerticalOptions = LayoutOptions.Start,
+                        HorizontalOptions = LayoutOptions.StartAndExpand,
+                        Content = new StackLayout
+                        {
+                            Orientation = StackOrientation.Vertical,
+                            HorizontalOptions = LayoutOptions.StartAndExpand,
+                            VerticalOptions = LayoutOptions.Start,
+                            Spacing = 1,
+                            Children = {
+                                _tituloLabel,
+                                new BoxView {
+                                    HeightRequest = 1,
+                                    BackgroundColor = Color.FromHex(TemaInfo.DividerColor),
+                                    HorizontalOptions = LayoutOptions.StartAndExpand,
+                                    VerticalOptions = LayoutOptions.Center
+                                },
+                                new WrapLayout {
+                                    HorizontalOptions = LayoutOptions.StartAndExpand,
+                                    VerticalOptions = LayoutOptions.CenterAndExpand,
+                                    WidthRequest = 220,
+                                    Spacing = 1,
+                                    Children = {
+                                        new Image {
+                                            Source = ImageSource.FromFile("relogio_20x20_preto.png")
+                                        },
+                                        _tempoTotalLabel,
+                                        new Image {
+                                            Source = ImageSource.FromFile("ampulheta_20x20_preto.png")
+                                        },
+                                        _tempoParadoLabel,
+                                        new Image {
+                                            Source = ImageSource.FromFile("mao_20x20_preto.png")
+                                        },
+                                        _paradaLabel,
+                                        new Image {
+                                            Source = ImageSource.FromFile("velocimetro_20x20_preto.png")
+                                        },
+                                        _velocidadeMediaLabel,
+                                        new Image {
+                                            Source = ImageSource.FromFile("velocimetro_20x20_preto.png")
+                                        },
+                                        _velocidadeMaximaLabel,
+                                        new Image {
+                                            Source = ImageSource.FromFile("radar_20x20_preto.png")
+                                        },
+                                        _radarLabel
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+        }
+
+        private void inicializarMenu() {
             var excluiPercurso = new MenuItem
             {
                 Text = "Excluir"
             };
-
             excluiPercurso.SetBinding(MenuItem.CommandParameterProperty, new Binding("."));
             excluiPercurso.Clicked += (sender, e) =>
             {
@@ -69,154 +151,65 @@ namespace Radar.Pages
 
             ContextActions.Add(simulaPercurso);
             ContextActions.Add(excluiPercurso);
+        }
 
-            desc.HorizontalOptions = LayoutOptions.Fill;
-            desc.VerticalOptions = LayoutOptions.CenterAndExpand;
-            desc.Spacing = 1;
+        private void inicializarComponente() {
 
-            tempoCorrendo.HorizontalOptions = LayoutOptions.Start;
-            tempoParado.HorizontalOptions = LayoutOptions.Start;
-            paradas.HorizontalOptions = LayoutOptions.Start;
-            paradas.VerticalOptions = LayoutOptions.Center;
-            velocidadeMaxima.HorizontalOptions = LayoutOptions.Start;
-            velocidadeMedia.HorizontalOptions = LayoutOptions.Start;
-            radares.HorizontalOptions = LayoutOptions.Start;
-
-            relogioIco.Source = ImageSource.FromFile("relogio_20x20_preto.png");
-            paradoIco.Source = ImageSource.FromFile("mao_20x20_preto.png");
-            ampulhetaIco.Source = ImageSource.FromFile("ampulheta_20x20_preto.png");
-            velocimetroIco.Source = ImageSource.FromFile("velocimetro_20x20_preto.png");
-            velocimetroIco2.Source = ImageSource.FromFile("velocimetro_20x20_preto.png");
-            radarIco.Source = ImageSource.FromFile("radar_20x20_preto.png");
-
-			tempoCorrendo.SetBinding(Label.TextProperty, new Binding("TempoGravacaoStr", stringFormat: "Tempo: {0}"));
-			tempoCorrendo.FontSize = 14;
-			tempoParado.SetBinding(Label.TextProperty, new Binding("TempoParadoStr", stringFormat: "Parado: {0}"));
-			tempoParado.FontSize = 14;
-
-            paradas.SetBinding(Label.TextProperty, new Binding("QuantidadeParadaStr", stringFormat: "Paradas: {0}"));
-            paradas.FontSize = 14;
-            velocidadeMedia.SetBinding(Label.TextProperty, new Binding("VelocidadeMediaStr", stringFormat: "V Méd: {0}"));
-            velocidadeMedia.FontSize = 14;
-            velocidadeMaxima.SetBinding(Label.TextProperty, new Binding("VelocidadeMaximaStr", stringFormat: "V Max: {0}"));
-            velocidadeMaxima.FontSize = 14;
-            radares.SetBinding(Label.TextProperty, new Binding("QuantidadeRadarStr", stringFormat: "Radares: {0}"));
-            radares.FontSize = 14;
-
-            desc.Children.Add(relogioIco);
-            desc.Children.Add(tempoCorrendo);
-            desc.Children.Add(ampulhetaIco);
-            desc.Children.Add(tempoParado);
-            desc.Children.Add(paradoIco);
-            desc.Children.Add(paradas);
-            desc.Children.Add(velocimetroIco);
-            desc.Children.Add(velocidadeMedia);
-            desc.Children.Add(velocimetroIco2);
-            desc.Children.Add(velocidadeMaxima);
-            desc.Children.Add(radarIco);
-            desc.Children.Add(radares);
-
-            Frame cardLeft = new Frame()
-            {
-                HorizontalOptions = LayoutOptions.Center,
-                Margin = new Thickness(0, 0, 0, 90),
-                WidthRequest = TelaUtils.LarguraSemPixel * 0.2
-
-            };
-
-            StackLayout cardLeftStack = new StackLayout()
-            {
-                Orientation = StackOrientation.Vertical,
-                HorizontalOptions = LayoutOptions.Fill,
-                VerticalOptions = LayoutOptions.Fill
-
-            };
-
-            Image percursoIco = new Image()
-            {
-                Source = ImageSource.FromFile("percursos.png"),
-                WidthRequest = cardLeft.WidthRequest * 0.3,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Start
-            };
-
-            BoxView linha = new BoxView()
-            {
-                HeightRequest = 1,
-                BackgroundColor = Color.FromHex(TemaInfo.DividerColor),
-                HorizontalOptions = LayoutOptions.Fill,
-                VerticalOptions = LayoutOptions.Start
-            };
-
-            Label distanciaText = new Label()
-            {
-                FontSize = 14,
-                TextColor = Color.FromHex(TemaInfo.PrimaryColor),
-                FontFamily = "Roboto-Condensed",
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Start
-            };
-            distanciaText.SetBinding(Label.TextProperty, new Binding("DistanciaTotalStr"));
-
-            cardLeftStack.Children.Add(percursoIco);
-            cardLeftStack.Children.Add(distanciaText);
-            cardLeft.Content = cardLeftStack;
-
-            Frame cardRigth = new Frame()
-            {
-                HorizontalOptions = LayoutOptions.Start,
-                WidthRequest = TelaUtils.LarguraSemPixel * 0.7
-
-            };
-            if (TelaUtils.Orientacao == "Landscape")
-            {
-                cardLeft.Margin = new Thickness(0, 0, 0, 70);
-                cardLeft.WidthRequest = TelaUtils.LarguraSemPixel * 0.15;
-                cardRigth.WidthRequest = TelaUtils.LarguraSemPixel * 0.5;
-            }
-            if (TelaUtils.Orientacao == "LandscapeLeft" || TelaUtils.Orientacao == "LandscapeRight")
-            {
-                cardLeft.Margin = new Thickness(0, 0, 0, 70);
-                cardLeft.WidthRequest = TelaUtils.LarguraSemPixel * 0.15;
-                cardRigth.WidthRequest = TelaUtils.LarguraSemPixel * 0.5;
-            }
-            StackLayout cardRigthStackVer = new StackLayout()
-            {
-                Orientation = StackOrientation.Vertical,
-                Spacing = 1
-
-            };
-
-
-            Label titulo = new Label()
+            _tituloLabel = new Label()
             {
                 HorizontalOptions = LayoutOptions.StartAndExpand,
                 FontSize = 26,
                 FontFamily = "Roboto-Condensed",
                 TextColor = Color.FromHex(TemaInfo.PrimaryColor)
             };
-            titulo.SetBinding(Label.TextProperty, new Binding("Titulo"));
+            _tituloLabel.SetBinding(Label.TextProperty, new Binding("Titulo"));
 
-            Label endereco = new Label()
+            _enderecoLabel = new Label()
             {
-                //Text = "Rua H-149, 1-73 Cidade Vera Cruz/ Aparecida de Goiânia",
-                WidthRequest = TelaUtils.LarguraSemPixel * 0.7,
                 HorizontalOptions = LayoutOptions.StartAndExpand,
                 FontSize = 16,
                 FontFamily = "Roboto-Condensed",
-                //HorizontalTextAlignment = TextAlignment.Start
             };
-            endereco.SetBinding(Label.TextProperty, new Binding("Endereco"));
+            _enderecoLabel.SetBinding(Label.TextProperty, new Binding("Endereco"));
 
+            _tempoTotalLabel = new Label {
+                HorizontalOptions = LayoutOptions.Start,
+                FontSize = 14
+            };
+            _tempoTotalLabel.SetBinding(Label.TextProperty, new Binding("TempoGravacaoStr", stringFormat: "Tempo: {0}"));
 
-            cardRigthStackVer.Children.Add(titulo);
-            cardRigthStackVer.Children.Add(linha);
-            cardRigthStackVer.Children.Add(endereco);
-            cardRigthStackVer.Children.Add(desc);
+            _tempoParadoLabel = new Label {
+                HorizontalOptions = LayoutOptions.Start,
+                FontSize = 14
+            };
+            _tempoParadoLabel.SetBinding(Label.TextProperty, new Binding("TempoParadoStr", stringFormat: "Parado: {0}"));
 
-            cardRigth.Content = cardRigthStackVer;
+            _paradaLabel = new Label {
+                HorizontalOptions = LayoutOptions.Start,
+                VerticalOptions = LayoutOptions.Center,
+                FontSize = 14
+            };
+            _paradaLabel.SetBinding(Label.TextProperty, new Binding("QuantidadeParadaStr", stringFormat: "Paradas: {0}"));
 
-            View = new StackLayout()
+            _velocidadeMaximaLabel = new Label {
+                HorizontalOptions = LayoutOptions.Start,
+                FontSize = 14
+            };
+            _velocidadeMaximaLabel.SetBinding(Label.TextProperty, new Binding("VelocidadeMaximaStr", stringFormat: "V Max: {0}"));
+
+            _velocidadeMediaLabel = new Label {
+                HorizontalOptions = LayoutOptions.Start,
+                FontSize = 14
+            };
+            _velocidadeMediaLabel.SetBinding(Label.TextProperty, new Binding("VelocidadeMediaStr", stringFormat: "V Méd: {0}"));
+
+            _radarLabel = new Label {
+                HorizontalOptions = LayoutOptions.Start,
+                FontSize = 14
+            };
+            _radarLabel.SetBinding(Label.TextProperty, new Binding("QuantidadeRadarStr", stringFormat: "Radares: {0}"));
+
+            _distanciaLabel = new Label()
             {
                 Margin = new Thickness(5, 0, 5, 0),
 				VerticalOptions = LayoutOptions.FillAndExpand,
@@ -229,12 +222,13 @@ namespace Radar.Pages
                     cardLeft,
                     cardRigth
                 }
+                FontSize = 14,
+                TextColor = Color.FromHex(TemaInfo.PrimaryColor),
+                FontFamily = "Roboto-Condensed",
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Start
             };
-
-        }
-
-        public void inicializarComponente() {
-
+            _distanciaLabel.SetBinding(Label.TextProperty, new Binding("DistanciaTotalStr"));
         }
     }
 }

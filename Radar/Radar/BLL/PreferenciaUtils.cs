@@ -17,6 +17,8 @@ namespace Radar.BLL
         private static PreferenciaBLL _regraPreferencia;
 
         private const int ZOOM_MAPA_PADRAO_ANDROID = 18;
+        private const float LATITUDE_INICIAL = -15.47f;
+        private const float LONGITUDE_INICIAL = -47.55f;
 
         private const string ALTURA_VOLUME = "alturaVolume";
         private const string CANAL_AUDIO = "canalAudio";
@@ -427,7 +429,7 @@ namespace Radar.BLL
 		{
 			get {
                 inicializar();
-                return _regraPreferencia.pegarBool(SALVAR_PERCURSO);
+                return _regraPreferencia.pegarBool(SALVAR_PERCURSO, false);
 			}
             set {
                 inicializar();
@@ -474,7 +476,7 @@ namespace Radar.BLL
             }
         }
 
-        public static bool SomCaixa
+        public static bool CaixaSom
 		{
 			get {
                 inicializar();
@@ -563,5 +565,17 @@ namespace Radar.BLL
                 return URL_ATUALIZACAO;
             }
         }
-	}
+
+        public static float LatitudeInicial {
+            get {
+                return LATITUDE_INICIAL;
+            }
+        }
+
+        public static float LongitudeInicial {
+            get {
+                return LONGITUDE_INICIAL;
+            }
+        }
+    }
 }

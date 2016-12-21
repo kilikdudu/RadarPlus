@@ -1,4 +1,5 @@
 ﻿using Radar.BLL;
+using Radar.Estilo;
 using Radar.Utils;
 using Rg.Plugins.Popup.Services;
 using System;
@@ -21,7 +22,7 @@ namespace Radar.Popup
         {
             _ValorLabel = new Label {
                 Text = "",
-                Style = EstiloUtils.PopupTexto
+                Style = EstiloUtils.Popup.Texto
             };
             _AlturaVolumeSlider = new Slider {
                 Minimum = 0,
@@ -33,7 +34,7 @@ namespace Radar.Popup
                 _ValorLabel.Text = _AlturaVolumeSlider.Value.ToString();
             };
             _OKButton = new Button {
-                Style = EstiloUtils.PopupButton,
+                Style = EstiloUtils.Popup.Botao,
                 Text = "Ok",
             };
             _OKButton.Clicked += (sender, e) => {
@@ -43,7 +44,7 @@ namespace Radar.Popup
 
             _CancelarButton = new Button
             {
-                Style = EstiloUtils.PopupButton,
+                Style = EstiloUtils.Popup.Botao,
                 Text = "Cancelar",
             };
             _CancelarButton.Clicked += (sender, e) => {

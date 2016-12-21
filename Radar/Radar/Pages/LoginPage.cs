@@ -1,5 +1,4 @@
-﻿using System;
-using ClubManagement.Utils;
+using System;
 using Radar.Controls;
 using Radar.Model;
 using Radar.Pages;
@@ -14,10 +13,6 @@ namespace Radar
 		{
 			Title = "Login";
 
-
-			ScrollView scroll = new ScrollView();
-			scroll.Orientation = ScrollOrientation.Vertical;
-			scroll.VerticalOptions = LayoutOptions.FillAndExpand;
 
 			StackLayout main = new StackLayout();
 			main.BackgroundColor = Color.Transparent;
@@ -94,7 +89,8 @@ namespace Radar
 				Placeholder = "Senha:",
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center,
-				WidthRequest = TelaUtils.LarguraSemPixel * 0.4
+				WidthRequest = TelaUtils.LarguraSemPixel * 0.4,
+			    Keyboard = Keyboard.Email
 			};
 			NumberValidatorBehavior SecSenhaValidator = new NumberValidatorBehavior();
 			senha.Behaviors.Add(SecSenhaValidator);
@@ -131,7 +127,7 @@ namespace Radar
 				TextColor = Color.FromHex(TemaInfo.TextIcons)
 
 			};
-			entrarFacebook.Clicked += verificaLogado;
+			entrarFacebook.Clicked += fazerLogin;
 
 
 			Button recuperarSenha = new Button()
@@ -153,7 +149,6 @@ namespace Radar
 				BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor),
 				TextColor = Color.FromHex(TemaInfo.TextIcons)
 			};
-			novoCadastro.Clicked += fazerCadastro;
 
 			Button facebookButton = new Button()
 			{
@@ -182,38 +177,19 @@ namespace Radar
 			main.Children.Add(logoStack);
 			main.Children.Add(cardPrincipal);
 
-			scroll.Content = main;
-			Content = scroll;
 
-
+			Content = main;
 		}
 
 		public void fazerLogin(Object sender, EventArgs e)
 		{
 			//Application.Current.MainPage = new NavegacaoPage();
-			NavegacaoUtils.PushAsync(new NovoCustoPage());
-			//((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage(new NovoCustoPage());
+			Device.BeginInvokeOnMainThread(() => Application.Current.MainPage = new NavegacaoPage());
 		}
 
-		public void fazerCadastro(Object sender, EventArgs e)
-		{
-			NavegacaoUtils.PushAsync(new NovoCadastroPage());
-			//((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage(new NovoCadastroPage());
-		}
-
-		public void verificaLogado(Object sender, EventArgs e)
-		{
-			//if (logado == true)
-			//{
-				NavegacaoUtils.PushAsync(new GrupoPage());
-				//((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage(new GrupoPage());
-			//}
-
-		}
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			//verificaLogado(true);
 
 		}
 
