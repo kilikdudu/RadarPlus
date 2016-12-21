@@ -29,14 +29,11 @@ namespace Radar.Model
             }
         }
 
-		public bool Ativo
-		{
-			get
-			{
+		public bool Ativo {
+			get {
 				return _Ativo;
 			}
-			set
-			{
+			set {
 				_Ativo = value;
 			}
 		}

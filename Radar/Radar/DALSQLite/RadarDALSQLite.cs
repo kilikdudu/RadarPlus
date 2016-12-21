@@ -72,7 +72,7 @@ namespace Radar.DALSQLite
                         query += " AND type IN (" + string.Join(", ", lista.ToArray()) + ")";
                     }
                 }
-                query += " AND Ativo = 1";
+                query += " AND (Ativo = 1 OR Ativo IS NULL) ";
                 return database.Query<RadarInfo>(query);
                 /*
                 return database.Query<RadarInfo>(
@@ -109,7 +109,7 @@ namespace Radar.DALSQLite
                         query += " AND type IN (" + string.Join(", ", lista.ToArray()) + ")";
                     }
                 }
-                query += " AND Ativo = 1";
+                query += " AND (Ativo = 1 OR Ativo IS NULL) ";
                 return database.Query<RadarInfo>(
                     query,
                     new object[4] {
