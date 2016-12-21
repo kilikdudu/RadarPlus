@@ -18,48 +18,51 @@ namespace Radar.Pages
     {
         private ListView _ativoListView;
         private ListView _inativoListView;
+		private ListView _radaresListView;
+		public RadarListaPage()
+		{
+			Title = "Meus Radares";
+			_radaresListView = new ListView
+			{
+				RowHeight = 150
+			};
+			_radaresListView.HasUnevenRows = true;
 
-        public RadarListaPage()
-        {
-            Title = "Meus Radares";
-            _radaresListView = new ListView {
-                RowHeight = 150
-            };
-            _radaresListView.HasUnevenRows = true;
-            
-            _radaresListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
-            _radaresListView.ItemTemplate = new DataTemplate(typeof(ConteudoCelula));
-            _radaresListView.ItemTapped += (sender, e) => {
-            /*
-            _ativoListView.ItemTapped += (sender, e) => {
-                if (e == null)
-                    return;
-            };
-            */
+			_radaresListView.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+			_radaresListView.ItemTemplate = new DataTemplate(typeof(RadarAtivoCell));
+			_radaresListView.ItemTapped += (sender, e) =>
+			{
+				/*
+				_ativoListView.ItemTapped += (sender, e) => {
+					if (e == null)
+						return;
+				};
+				*/
+			};
+				RadarBLL regraRadar = RadarFactory.create();
+				regraRadar.atualizarEndereco();
+				var paginaAtivo = criarPaginaAtiva();
 
-            RadarBLL regraRadar = RadarFactory.create();
-            regraRadar.atualizarEndereco();
-            var paginaAtivo = criarPaginaAtiva();
-            
-            var paginaInativo = criarPaginaInativo();
-            
-            atualizarRadar();
-            Children.Add(paginaAtivo);
-            Children.Add(paginaInativo);
-        }
+				var paginaInativo = criarPaginaInativo();
 
-        private Page criarPaginaAtiva() {
-            _ativoListView = new ListView
-            {
-                RowHeight = -1,
-                HasUnevenRows = true,
-                ItemTemplate = new DataTemplate(typeof(RadarAtivoCell)),
-                Footer = new Label
+				atualizarRadar();
+				Children.Add(paginaAtivo);
+				Children.Add(paginaInativo);
+		
+		}
+
+         Page criarPaginaAtiva() {
+				_ativoListView = new ListView
 				{
-					Text = ""
-				}
-				
-            };
+					RowHeight = -1,
+					HasUnevenRows = true,
+					ItemTemplate = new DataTemplate(typeof(RadarAtivoCell)),
+					Footer = new Label
+					{
+						Text = ""
+					},
+
+				};
             _ativoListView.ItemTapped += (sender, e) => {
                 if (e.Item == null)
                     return;
@@ -74,7 +77,7 @@ namespace Radar.Pages
             };
         }
 
-        private Page criarPaginaInativo()
+         Page criarPaginaInativo()
         {
             _inativoListView = new ListView
             {

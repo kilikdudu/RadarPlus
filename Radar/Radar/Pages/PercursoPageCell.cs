@@ -213,20 +213,13 @@ namespace Radar.Pages
             {
                 Margin = new Thickness(5, 0, 5, 0),
 				VerticalOptions = LayoutOptions.FillAndExpand,
-                Orientation = StackOrientation.Horizontal,
                 HorizontalOptions = LayoutOptions.Fill,
                 WidthRequest = TelaUtils.LarguraSemPixel,
                 HeightRequest = AbsoluteLayout.AutoSize,
-                Children =
-                {
-                    cardLeft,
-                    cardRigth
-                }
                 FontSize = 14,
                 TextColor = Color.FromHex(TemaInfo.PrimaryColor),
                 FontFamily = "Roboto-Condensed",
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Start
+                
             };
             _distanciaLabel.SetBinding(Label.TextProperty, new Binding("DistanciaTotalStr"));
         }

@@ -159,27 +159,17 @@ namespace Radar.Pages
 				};
 				AbsoluteLayout.SetLayoutBounds(_RemoverRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
 				AbsoluteLayout.SetLayoutFlags(_RemoverRadarButton, AbsoluteLayoutFlags.All);
-
-				_RemoverRadarButton.GestureRecognizers.Add(
-					new TapGestureRecognizer()
-					{
-						Command = new Command(() =>
-						{
-							//var regraAviso = new AvisoSonoroBLL();
-							//regraAviso.play(RadarTipoEnum.RadarFixo, 40, 300);
-							//AudioUtils.play(AudioEnum.Alarm001);
-							//MensagemUtils.avisar("teste");
-							//var downloader = new DownloaderAtualizacao();
-							//downloader.download();
-
-							if (InternetUtils.estarConectado())
+				
+				var tapGestureRecognizer = new TapGestureRecognizer();
+				tapGestureRecognizer.Tapped += (s, e) => {
+				    if (InternetUtils.estarConectado())
 							{
 								LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
 								float latitude = (float)local.Latitude;
 								float longitude = (float)local.Longitude;
-								GeocoderUtils.pegarAsync(latitude, longitude, (sender, e) =>
+								GeocoderUtils.pegarAsync(latitude, longitude, (sender, ev) =>
 								{
-									var endereco = e.Endereco;
+									var endereco = ev.Endereco;
 									ClubManagement.Utils.MensagemUtils.avisar(endereco.Logradouro);
 								});
 							}
@@ -198,14 +188,13 @@ namespace Radar.Pages
 								else
 									MensagemUtils.avisar("Nenhum movimento registrado pelo GPS.");
 							}
-							catch (Exception e)
+							catch (Exception ev2)
 							{
-								MensagemUtils.avisar(e.Message);
+								MensagemUtils.avisar(ev2.Message);
 							}
-
-						}
-					)
-					});
+				};
+				_RemoverRadarButton.GestureRecognizers.Add(tapGestureRecognizer);
+				
 
 			}
             if (PreferenciaUtils.ExibirBotaoAdicionar)

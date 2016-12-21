@@ -68,11 +68,12 @@ namespace Radar.BLL
             return _db.pegar(idRadar);
         }
 
-        public int gravar(RadarInfo radar)
+        public int gravar(RadarInfo radar, bool ativo = false)
         {
 			//if (radar.Velocidade < 20)
 			//    throw new Exception("Você não pode adicionar um radar a menos de 20 km/h.");
             radar.UltimaAlteracao = DateTime.Now;
+			radar.Ativo = false;
 			int alteracao = _db.gravar(radar);
             atualizarEndereco();
             return alteracao;
