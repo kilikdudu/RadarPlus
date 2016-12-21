@@ -80,9 +80,11 @@ namespace Radar.Droid
                 Situacao = GPSSituacaoEnum.Espera;
             if (!_inicializado)
             {
+                /*
                 if (!(CheckSelfPermission(Manifest.Permission.AccessFineLocation) == Permission.Granted)) {
                     throw new Exception("Permissão de acesso ao GPS não foi concedida.");
                 }
+                */
 
                 notificar(intent);
                 if (!widgetInicializado)
