@@ -10,7 +10,7 @@ using Radar.Model;
 using Radar.Utils;
 using Xamarin.Forms;
 
-namespace Radar
+namespace Radar.Pages
 {
 	public class NovoCustoPage : ContentPage
 	{

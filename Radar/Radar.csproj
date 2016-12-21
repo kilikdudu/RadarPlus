@@ -50,6 +50,7 @@
     <Compile Include="Pages\ModoMapaPage.cs" />
     <Compile Include="Pages\ModoMeuRadarPage.cs" />
     <Compile Include="Pages\ModoPercursoPage.cs" />
+    <Compile Include="Pages\NovoCustoPage.cs" />
     <Compile Include="Pages\PercursoPage.cs" />
     <Compile Include="Pages\PercursoPageCell.cs" />
     <Compile Include="Pages\RadarAtivoCell.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Pages\PreferenciaPage.cs" />
     <Compile Include="Pages\RadarListaPage.cs" />
     <Compile Include="Popup\CanalAudioPopUp.cs" />
+    <Compile Include="Popup\CustoMenuPopUp.cs" />
     <Compile Include="Popup\DesativarGPSPopUp.cs" />
     <Compile Include="Popup\DistanciaAlertaPopUp.cs" />
     <Compile Include="Popup\BaseSliderPopUp.cs" />
