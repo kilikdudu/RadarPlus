@@ -95,7 +95,14 @@ namespace Radar
 
 			EmpresaInfo item = (EmpresaInfo)e.Item;
 			//NavigationX.create(this).PopModalAsync();
-			App.Current.MainPage = new NavegacaoPage();
+			if (NavigationX._current.NavigationStack.Count == 0)
+			{
+				App.Current.MainPage = new NavegacaoPage();
+			}
+			else {
+				NavegacaoUtils.PushAsync(new ColaboradorTabbedPage());
+			}
+			
 					//((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage(new GrupoTabbedPage());
 		}
 
