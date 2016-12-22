@@ -108,9 +108,9 @@ namespace Radar.Pages
        public MapaPagePercurso(int percursoId)
 		{
 			
-            Title = "Mapa";
             inicializarComponente();
-			_map.PercursoId = percursoId;
+            Title = "Mapa do Percurso";
+            _map.PercursoId = percursoId;
             /*
             Content = new StackLayout {
                 Spacing = 0,

@@ -32,8 +32,17 @@ namespace Radar
 		{
 			var percurso = percursoinfo;
 			this.Title = "Resumo do percurso";
-			
-			AbsoluteLayout listaView = new AbsoluteLayout();
+
+            var menu = new ToolbarItem {
+                Text = "Mapa",
+            };
+            menu.Clicked += (sender, e) =>
+            {
+                NavigationX.create(this).PushAsync(new MapaPagePercurso(percurso));
+            };
+            ToolbarItems.Add(menu);
+
+            AbsoluteLayout listaView = new AbsoluteLayout();
 			listaView.VerticalOptions = LayoutOptions.Fill;
 			listaView.HorizontalOptions = LayoutOptions.Fill;
 			listaView.BackgroundColor = Color.Transparent;
