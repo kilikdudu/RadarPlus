@@ -11,7 +11,7 @@ namespace ClubManagement.Utils
 {
     public class NavigationX: INavigation
     {
-        private static NavigationX _current;
+        public static NavigationX _current;
         public static NavigationX create(Page page) {
             _current = new NavigationX(page);
             return _current;
@@ -100,6 +100,8 @@ namespace ClubManagement.Utils
                 _paginaAtual.Appearing += (sender, e) => {
                     carregandoPagina = false;
                 };
+				var x = NavigationX._current.NavigationStack;
+				var y = NavigationX._current.ModalStack;
                 return _paginaPai.Navigation.PushAsync(page, animated);
             }
             return null;

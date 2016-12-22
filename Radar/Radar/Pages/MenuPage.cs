@@ -130,10 +130,19 @@ namespace Radar.Pages
             
             grupo.Add(new MenuItemInfo
             {
-                Titulo = "Meus Grupos",
+                Titulo = "Empresas",
                 Icone = "grupo.png",
                 aoClicar = (sender, e) => {
-                    NavegacaoUtils.PushAsync(new LoginPage());
+                    NavegacaoUtils.PushAsync(new EmpresaPage());
+                }
+            });
+            
+             grupo.Add(new MenuItemInfo
+            {
+                Titulo = "Administração",
+                Icone = "config.png",
+                aoClicar = (sender, e) => {
+                    NavegacaoUtils.PushAsync(new ColaboradorTabbedPage());
                 }
             });
             

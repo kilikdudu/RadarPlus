@@ -14,12 +14,24 @@ namespace Radar
             //MainPage = new NavigationPage(new PercursoPage());
 	    //MainPage = new LoginPage();
             EstiloUtils.inicializar();
-			if (App.Current.MainPage == null)
+                
+			if (ClubManagement.Utils.NavigationX._current == null)
 			{
 				MainPage = new LoginPage();
+				
 			}
 			else {
-				MainPage = Application.Current.MainPage;
+			    var index = ClubManagement.Utils.NavigationX._current.NavigationStack.Count - 1;				
+				if (index < 1)
+				{
+				var	currPage = new VelocimetroPage();
+					MainPage = new NavegacaoPage(currPage);
+				}
+				else {
+				var currPage = ClubManagement.Utils.NavigationX._current.NavigationStack[index];
+				MainPage = new NavegacaoPage(currPage);
+				}
+				
 			}
 			//MainPage = new Radar.Controls.RadarMasterDetailPage();
         }

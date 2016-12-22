@@ -272,6 +272,8 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_delete_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_delete_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_delete_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\config_40.png" />
+    <AndroidResource Include="Resources\drawable\grupo_40.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />

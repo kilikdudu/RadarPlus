@@ -258,7 +258,7 @@ namespace Radar
 
 		public void convidarUsuario()
 		{
-			NavigationX.create(this).PushPopupAsyncX(new ConviteUsuarioPopUp());
+			//NavigationX.create(this).PushPopupAsyncX(new ConviteUsuarioPopUp());
 		
 		}
 
@@ -269,10 +269,10 @@ namespace Radar
 
 			//if (item.aoClicar != null)
 			//{
-				if (this.Navigation.NavigationStack.Count == 1)
-				{
+				//if (this.Navigation.NavigationStack.Count == 1)
+				//{
 					//NavegacaoUtils.PushAsync(new ColaboradorAdministracaoPage());
-				}
+				//}
 			//}
 
 		}

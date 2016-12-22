@@ -12,7 +12,7 @@ using Android.Content.Res;
 
 namespace Radar.Droid
 {
-    [Activity(Label = "Radar", Icon = "@drawable/appicon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Radar", Icon = "@drawable/appicon", Theme = "@style/MainTheme", MainLauncher = true)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         private static JanelaSituacaoEnum _Situacao = JanelaSituacaoEnum.Fechada;
@@ -64,7 +64,7 @@ namespace Radar.Droid
             //ThreadAndroid.CurrentActivity = this;
             var broadcast = new BroadcastAndroid();
             RegisterReceiver(broadcast, new IntentFilter(Intent.ActionBootCompleted));
-
+			 
             LoadApplication(new App());
         }
         

@@ -41,7 +41,7 @@ namespace Radar.Pages
             };
 			
 			Detail = navPage;
-            //NavegacaoUtils.DetailPage = navPage;
+            NavegacaoUtils.DetailPage = navPage;
 
             masterPage.ListView.ItemSelected += OnItemSelected;
 
@@ -52,6 +52,35 @@ namespace Radar.Pages
             }
             */
         }
+        
+        public NavegacaoPage(Page page)
+        { 
+			//this.IsGestureEnabled = false;
+			//this.WidthRequest = 400;
+
+            masterPage = new MenuPage();
+            Master = masterPage;
+			//Master.WidthRequest = 500;
+
+            var navPage = new NavigationPage(page) {
+                BarBackgroundColor = Color.FromHex(TemaInfo.DarkPrimaryColor),
+                BarTextColor = Color.FromHex(TemaInfo.TextIcons)
+            };
+			
+			Detail = navPage;
+            NavegacaoUtils.DetailPage = navPage;
+
+            masterPage.ListView.ItemSelected += OnItemSelected;
+
+            /*
+            if (Device.OS == TargetPlatform.Windows)
+            {
+                Master.Icon = "swap.png";
+            }
+            */
+        }
+        
+       
 
         protected override void OnAppearing()
         {

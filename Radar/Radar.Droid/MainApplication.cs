@@ -1,8 +1,12 @@
 using System;
+using System.Linq;
 using Android.App;
+using Android.Content.PM;
+using Android.Content.Res;
 using Android.OS;
 using Android.Runtime;
 using Plugin.CurrentActivity;
+using Radar.Pages;
 
 namespace Radar.Droid
 {
@@ -31,6 +35,7 @@ namespace Radar.Droid
         public void OnActivityCreated(Activity activity, Bundle savedInstanceState)
         {
             CrossCurrentActivity.Current.Activity = activity;
+            
         }
 
         public void OnActivityDestroyed(Activity activity)
@@ -48,6 +53,7 @@ namespace Radar.Droid
 
         public void OnActivitySaveInstanceState(Activity activity, Bundle outState)
         {
+        
         }
 
         public void OnActivityStarted(Activity activity)
@@ -58,5 +64,25 @@ namespace Radar.Droid
         public void OnActivityStopped(Activity activity)
         {
         }
+        /*
+        public override void OnConfigurationChanged(Android.Content.Res.Configuration newConfig)
+		{
+			base.OnConfigurationChanged(newConfig);
+			
+			if (newConfig.Orientation == Orientation.Portrait) {
+				var index = ClubManagement.Utils.NavigationX._current.NavigationStack.Count - 1;				
+				var currPage = ClubManagement.Utils.NavigationX._current.NavigationStack[index];
+				//CrossCurrentActivity.Current.Activity.Recreate();
+				App.Current.MainPage = (currPage);
+				
+		    } else if (newConfig.Orientation == Orientation.Landscape) {
+		       var index = ClubManagement.Utils.NavigationX._current.NavigationStack.Count - 1;				
+				var currPage = ClubManagement.Utils.NavigationX._current.NavigationStack[index];
+				//CrossCurrentActivity.Current.Activity.Recreate();
+				App.Current.MainPage = (currPage);
+		    }
+		
+		}
+		*/
     }
 }

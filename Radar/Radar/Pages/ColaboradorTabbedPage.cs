@@ -14,8 +14,13 @@ namespace Radar.Pages
 			abaUsuarioPendente.Icon = "config_40.png";
 			abaUsuarioPendente.Title = "Usuários Pendentes";
 			
+			var abaEmpresas = new EmpresaAdministracaoPage();
+			abaEmpresas.Icon = "config_40.png";
+			abaEmpresas.Title = "Empresas";
+			
 			Children.Add(abaColaborador);
 			Children.Add(abaUsuarioPendente);
+			Children.Add(abaEmpresas);
 
 		}
 	}

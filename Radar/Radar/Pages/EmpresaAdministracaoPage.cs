@@ -5,6 +5,7 @@ using ClubManagement.Utils;
 using Radar.BLL;
 using Radar.Factory;
 using Radar.Model;
+using Radar.Pages;
 using Radar.Pages.Popup;
 using Radar.Utils;
 using Xamarin.Forms;
@@ -57,9 +58,9 @@ namespace Radar
 		{
 
 			EmpresaInfo item = (EmpresaInfo)e.Item;
-	
-					NavigationX.create(this).PushModalAsync(new AdcionarEmpresaPopUp(item));	
 
+			NavigationX.create(this).PushModalAsync(new AdcionarEmpresaPopUp(item));	
+			
 		}
 
 		public class EmpresaCelula : ViewCell
