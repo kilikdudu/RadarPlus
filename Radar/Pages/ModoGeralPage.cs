@@ -37,13 +37,13 @@ namespace Radar.Pages
                 PreferenciaUtils.VerificarIniciar = e.Value;
             };
 
-            _UltimaVerificacao = new Label
-            {
-                Text = "Não Verificado"
+            var ultimaVerificacao = PreferenciaUtils.UltimaVerificacao;
+            _UltimaVerificacao = new Label {
+                Text = (ultimaVerificacao == DateTime.MinValue) ? "Não Verificado" : ultimaVerificacao.ToString("dd/MM/yyyy HH:mm:ss")
             };
-
+            var ultimaAtualizacao = PreferenciaUtils.UltimaAtualizacao;
             _UltimaAtualizacao = new Label {
-                Text = "Não Atualizado"
+                Text = (ultimaAtualizacao == DateTime.MinValue) ? "Não Atualizado" : ultimaAtualizacao.ToString("dd/MM/yyyy HH:mm:ss")
             };
         }
 

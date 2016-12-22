@@ -57,6 +57,8 @@ namespace Radar.BLL
         private const string VERIFICAR_INICIAR = "verificarIniciar";
         private const string VIBRAR_ALERTA = "vibrarAlerta";
         private const string VOLUME_PERSONALIZADO = "volumePersonalizado";
+        private const string ULTIMA_VERIFICACAO = "ultima_verificacao";
+        private const string ULTIMA_ATUALIZACAO = "ultima_atualizacao";
 
         public static void inicializar() {
             if (_regraPreferencia == null)
@@ -559,6 +561,36 @@ namespace Radar.BLL
                 _regraPreferencia.gravar(VIBRAR_ALERTA, value);
             }
 		}
+
+        public static DateTime UltimaVerificacao
+        {
+            get
+            {
+                inicializar();
+                long ticks = _regraPreferencia.pegarLong(ULTIMA_VERIFICACAO);
+                return new DateTime(ticks);
+            }
+            set
+            {
+                inicializar();
+                _regraPreferencia.gravar(ULTIMA_VERIFICACAO, value.Ticks);
+            }
+        }
+
+        public static DateTime UltimaAtualizacao
+        {
+            get
+            {
+                inicializar();
+                long ticks = _regraPreferencia.pegarLong(ULTIMA_ATUALIZACAO, 0);
+                return (ticks == 0) ? DateTime.MinValue : new DateTime(ticks);
+            }
+            set
+            {
+                inicializar();
+                _regraPreferencia.gravar(ULTIMA_ATUALIZACAO, value.Ticks);
+            }
+        }
 
         public static string UrlAtualizacao {
             get {

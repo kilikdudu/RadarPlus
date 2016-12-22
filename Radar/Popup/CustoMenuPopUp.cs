@@ -25,9 +25,10 @@ namespace Radar.Popup
 			main.Orientation = StackOrientation.Vertical;
 			main.VerticalOptions = LayoutOptions.EndAndExpand;
 			main.HorizontalOptions = LayoutOptions.EndAndExpand;
-			main.Margin = new Thickness(0, 0, 0, (int)TelaUtils.Altura * 0.25);
+            //main.Margin = new Thickness(0, 0, 0, (int)TelaUtils.Altura * 0.75);
+            main.Margin = new Thickness(0, 0, 0, 0);
 
-			StackLayout stackOpcoes = new StackLayout();
+            StackLayout stackOpcoes = new StackLayout();
 			stackOpcoes.BackgroundColor = Color.Transparent;
 			stackOpcoes.Orientation = StackOrientation.Vertical;
 			stackOpcoes.VerticalOptions = LayoutOptions.CenterAndExpand;

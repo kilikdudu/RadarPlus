@@ -155,8 +155,11 @@ namespace Radar.Pages
                 Icone = "atualizar.png",
                 aoClicar = (sender, e) =>
                 {
-                    var downloader = new DownloaderAtualizacao();
-                    downloader.download();
+                    if (Device.OS != TargetPlatform.iOS)
+                    {
+                        var downloader = new DownloaderAtualizacao();
+                        downloader.download();
+                    }
                 }
             });
             return grupo;
@@ -173,7 +176,6 @@ namespace Radar.Pages
                 aoClicar = async (sender, e) =>
 				{
 					await Navigation.PushPopupAsync(new InstrucaoPage());
-
 				}
 			});
             /*

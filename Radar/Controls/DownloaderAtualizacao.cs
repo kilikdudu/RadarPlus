@@ -19,6 +19,10 @@ namespace Radar.Controls
             {
                 fecharPopup();
                 MensagemUtils.avisar("Banco de dados atualizado com sucesso.");
+                PreferenciaUtils.UltimaVerificacao = DateTime.Now;
+                var ultimaAtualizacao = PreferenciaUtils.UltimaAtualizacao;
+                if (ultimaAtualizacao == DateTime.MinValue)
+                    PreferenciaUtils.UltimaAtualizacao = DateTime.Now;
                 /*
                 if (_janela != null)
                 {

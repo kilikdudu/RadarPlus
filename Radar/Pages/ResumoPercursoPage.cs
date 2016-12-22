@@ -33,6 +33,7 @@ namespace Radar
 			var percurso = percursoinfo;
 			this.Title = "Resumo do percurso";
 
+            /*
             var menu = new ToolbarItem {
                 Text = "Mapa",
             };
@@ -41,6 +42,7 @@ namespace Radar
                 NavigationX.create(this).PushAsync(new MapaPagePercurso(percurso.Id));
             };
             ToolbarItems.Add(menu);
+            */
 
             AbsoluteLayout listaView = new AbsoluteLayout();
 			listaView.VerticalOptions = LayoutOptions.Fill;

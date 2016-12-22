@@ -59,7 +59,19 @@ namespace Radar.BLL
             return padrao;
         }
 
-		public void gravar(string preferencia, int valor)
+        public long pegarLong(string chave, long padrao = 0)
+        {
+            PreferenciaInfo preferencia = _preferenciaDB.pegar(chave);
+            if (preferencia != null)
+            {
+                long retorno = padrao;
+                if (long.TryParse(preferencia.Valor, out retorno))
+                    return retorno;
+            }
+            return padrao;
+        }
+
+        public void gravar(string preferencia, int valor)
 		{
 			PreferenciaInfo pref = new PreferenciaInfo() { 
 				Preferencia = preferencia,
@@ -69,6 +81,16 @@ namespace Radar.BLL
 		}
 
         public void gravar(string preferencia, bool valor)
+        {
+            PreferenciaInfo pref = new PreferenciaInfo()
+            {
+                Preferencia = preferencia,
+                Valor = valor.ToString()
+            };
+            _preferenciaDB.gravar(pref);
+        }
+
+        public void gravar(string preferencia, long valor)
         {
             PreferenciaInfo pref = new PreferenciaInfo()
             {

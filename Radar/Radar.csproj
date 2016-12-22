@@ -53,7 +53,6 @@
     <Compile Include="Model\ResumoInfo.cs" />
     <Compile Include="Model\ResumoItemInfo.cs" />
     <Compile Include="Pages\BasePreferenciaPage.cs" />
-    <Compile Include="Pages\MapaPagePercurso1.cs" />
     <Compile Include="Pages\MenuPage.cs" />
     <Compile Include="Pages\ModoAlertaPage.cs" />
     <Compile Include="Pages\ModoAudioPage.cs" />
