@@ -41,8 +41,8 @@ namespace Radar.BLL
 				//_percursoAtual = percurso;
             }
         }
-
-        public IList<PercursoInfo> listar() {
+        
+          public IList<PercursoInfo> listar() {
             IList<PercursoInfo> percursos = _percursoDB.listar();
             foreach (PercursoInfo percurso in percursos) {
                 atualizar(percurso);
@@ -257,6 +257,6 @@ namespace Radar.BLL
 			return total;
 		}
 
-        public 
+         
     }
 }

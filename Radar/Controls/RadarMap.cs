@@ -13,7 +13,7 @@ namespace Radar.Controls
     public class RadarMap: Map
     {
         private LocalizacaoInfo _localAtual;
-
+		private int _percursoId;
         private Dictionary<string, RadarPin> _radares = new Dictionary<string, RadarPin>();
 
         public delegate void MapRotacaoEventHandler(object sender, LocalizacaoInfo local);
@@ -23,7 +23,22 @@ namespace Radar.Controls
 
         public RadarMap() {
         }
-
+        
+        public RadarMap(int idPercurso) {
+			PercursoId = idPercurso;
+        }
+		
+ 		public  int PercursoId
+        {
+            get
+            {
+                return _percursoId;
+            }
+            set
+            {
+                _percursoId = value;
+            }
+        }
         public Dictionary<string, RadarPin> Radares
         {
             get

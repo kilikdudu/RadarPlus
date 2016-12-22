@@ -35,7 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BLL\GastoBLL.cs" />
     <Compile Include="DALFactory\GastoDALFactory.cs" />
     <Compile Include="DALSQLite\GastoDALSQLite.cs" />
     <Compile Include="Estilo\BaseEstilo.cs" />
@@ -44,7 +43,6 @@
     <Compile Include="Estilo\PreferenciaEstilo.cs" />
     <Compile Include="Estilo\VelocimetroEstilo.cs" />
     <Compile Include="Estilo\VelocimetroCor.cs" />
-    <Compile Include="Factory\GastoFactory.cs" />
     <Compile Include="IDAL\IGastoDAL.cs" />
     <Compile Include="Model\GastoInfo.cs" />
     <Compile Include="Model\GastoTipoEnum.cs" />
@@ -154,6 +152,9 @@
     <Compile Include="Pages\Instrucao\InstrucaoTabbedPage.cs" />
     <Compile Include="Controls\DropDownPicker.cs" />
     <Compile Include="Controls\DropDownTapArgs.cs" />
+    <Compile Include="Pages\MapaPagePercurso.cs" />
+    <Compile Include="Factory\GastoFactory.cs" />
+    <Compile Include="BLL\GastoBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

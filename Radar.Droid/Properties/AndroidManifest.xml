@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionName="1.0.9" package="br.com.cmapps.radar" android:versionCode="14">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionName="1.0.11" package="br.com.cmapps.radar" android:versionCode="16">
 	<uses-sdk android:minSdkVersion="14" />
 	<uses-feature android:glEsVersion="0x00020000" android:required="true" />
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -11,8 +11,8 @@
 	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<application android:label="RadarClub" android:icon="@drawable/icon">
-		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCfX7K3dnIq14MiXBSkGIoMw5fLFnHXk6U" />
 		<!--<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCfX7K3dnIq14MiXBSkGIoMw5fLFnHXk6U" /> -->
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBGOnCUdZPpEw27vzIi8G5CTvoju7NduhY" />
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 		<receiver android:name=".BroadcastAndroid">
 			<intent-filter>

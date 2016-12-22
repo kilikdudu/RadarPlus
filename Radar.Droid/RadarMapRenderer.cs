@@ -20,6 +20,7 @@ using Xamarin.Forms.Maps;
 using System.ComponentModel;
 using Radar.BLL;
 using Radar.Utils;
+using Android.Locations;
 
 [assembly: ExportRenderer(typeof(RadarMap), typeof(RadarMapRenderer))]
 
@@ -81,8 +82,7 @@ namespace Radar.Droid
         }
 
         private void desenharRadar(RadarPin radar)
-        {
-					
+        {				
             var marker = new MarkerOptions();
             marker.SetPosition(new LatLng(radar.Pin.Position.Latitude, radar.Pin.Position.Longitude));
             marker.SetTitle(radar.Pin.Label);
@@ -115,6 +115,33 @@ namespace Radar.Droid
 			}
             
             map.AddMarker(marker);
+			if (_radarMap.PercursoId > 0)
+			{
+				PercursoBLL regraPercurso = new PercursoBLL();
+				var percurso = regraPercurso.pegar(_radarMap.PercursoId);
+
+				var latLngPoints = new LatLng[percurso.Pontos.Count];
+				int index = 0;
+				foreach (PercursoPontoInfo loc in percurso.Pontos)
+				{
+					latLngPoints[index++] = new LatLng(loc.Latitude, loc.Longitude);
+				}
+				var polylineoption = new PolylineOptions();
+				//polylineoption.InvokeColor(Android.Graphics.Color.Red);
+				polylineoption.InvokeColor(Android.Graphics.Color.Argb(60,18,221,62));
+				polylineoption.Geodesic(true);
+				polylineoption.Add(latLngPoints);
+				map.AddPolyline(polylineoption);
+				
+				var markerInicio = new MarkerOptions();
+           		markerInicio.SetPosition(new LatLng(latLngPoints[0].Latitude, latLngPoints[0].Longitude));
+           		var markerFim = new MarkerOptions();
+           		markerFim.SetPosition(new LatLng(latLngPoints[percurso.Pontos.Count - 1].Latitude, latLngPoints[percurso.Pontos.Count - 1].Longitude));
+				map.AddMarker(markerInicio);
+				map.AddMarker(markerFim);
+				
+			}
+			      
         }
 
         public Android.Views.View GetInfoContents(Marker marker)
@@ -132,7 +159,11 @@ namespace Radar.Droid
             builder.Target(new LatLng(posicao.Latitude, posicao.Longitude));
             builder.Bearing(bearing);
             builder.Zoom(PreferenciaUtils.NivelZoom);
-            builder.Tilt(PreferenciaUtils.MapaTilt);
+			if (_radarMap.PercursoId < 1)
+			{
+				 builder.Tilt(PreferenciaUtils.MapaTilt);
+			}
+			
             CameraPosition cameraPosition = builder.Build();
             CameraUpdate cameraUpdate = CameraUpdateFactory.NewCameraPosition(cameraPosition);
             if (PreferenciaUtils.SuavizarAnimacao)
@@ -147,12 +178,15 @@ namespace Radar.Droid
             moverCamera(googleMap, new LatLng(PreferenciaUtils.LatitudeInicial, PreferenciaUtils.LongitudeInicial), 0);
             if (PreferenciaUtils.InfoTrafego)
                 googleMap.TrafficEnabled = true;
-            googleMap.UiSettings.SetAllGesturesEnabled(PreferenciaUtils.RotacionarMapa);
-            //googleMap.UiSettings.RotateGesturesEnabled = PreferenciaUtils.RotacionarMapa;
-            googleMap.UiSettings.MyLocationButtonEnabled = false;
-            googleMap.UiSettings.ZoomControlsEnabled = false;
-            googleMap.UiSettings.MapToolbarEnabled = false;
-            map.CameraChange += (sender, e) => {
+
+			if (_radarMap.PercursoId < 1)
+			{
+				googleMap.UiSettings.SetAllGesturesEnabled(PreferenciaUtils.RotacionarMapa);
+				googleMap.UiSettings.MyLocationButtonEnabled = false;
+	            googleMap.UiSettings.ZoomControlsEnabled = false;
+	            googleMap.UiSettings.MapToolbarEnabled = false;
+	            
+	            map.CameraChange += (sender, e) => {
                 animando = false;
                 LatLng c = map.Projection.VisibleRegion.LatLngBounds.Center;
                 LatLng nordeste = map.Projection.VisibleRegion.LatLngBounds.Northeast;
@@ -162,6 +196,12 @@ namespace Radar.Droid
                 MapSpan span = new MapSpan(new Position(c.Latitude, c.Longitude), latitudeDelta, longitudeDelta);
                 _radarMap.atualizarAreaVisivel(span);
             };
+			}
+			else {
+				googleMap.UiSettings.SetAllGesturesEnabled(true);
+			}
+            //googleMap.UiSettings.RotateGesturesEnabled = PreferenciaUtils.RotacionarMapa;
+            
         }
     }
 }

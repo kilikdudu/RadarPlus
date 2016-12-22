@@ -23,7 +23,7 @@ namespace Radar.Utils
         private static IGPS _gpsServico;
 
 		private static bool _simulando = false;
-		private static PercursoInfo _percursoSimulado;
+		public static PercursoInfo _percursoSimulado;
 		private static int _indexPercuso = 0;
 		private static DateTime _ultimoPonto;
 		private static LocalizacaoInfo _ultimaLocalizacao = null;
