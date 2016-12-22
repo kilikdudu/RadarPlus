@@ -24,6 +24,10 @@ namespace Radar.Utils
         public static Task PushAsync(Page page, bool animated = true) {
             return NavigationX.create(_DetailPage).PushAsync(page, animated);
         }
+        
+        public static Task PushModalAsync(Page page, bool animated = true) {
+            return NavigationX.create(_DetailPage).PushModalAsync(page, animated);
+        }
 
     }
 }

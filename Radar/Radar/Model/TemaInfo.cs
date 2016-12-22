@@ -65,6 +65,12 @@ namespace Radar.Model
 			get { return "#ebf5ed"; }
 
 		}
+		
+		public static string fontPadrao
+		{
+			get { return "Roboto-Codensed";}
+
+		}
 
 		private static bool _isInstrucaoPopUp = false;
 		public static bool isInstrucaoPopUp

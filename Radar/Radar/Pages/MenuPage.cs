@@ -2,11 +2,7 @@
 using Radar.Controls;
 using Radar.Model;
 using Radar.Utils;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Radar.Pages.Popup;
 using Rg.Plugins.Popup.Extensions;

@@ -1,48 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using ClubManagement.Utils;
-using Radar.BLL;
-using Radar.Factory;
 using Radar.Model;
 using Radar.Pages;
-using Radar.Pages.Popup;
 using Radar.Utils;
 using Xamarin.Forms;
 
 namespace Radar
 {
-	public class GrupoPage : ContentPage
+	public class EmpresaPage : ContentPage
 	{
 
-		public GrupoPage()
+		public EmpresaPage()
 		{
-			Title = "Grupos";
-
+		
 			AbsoluteLayout listaView = new AbsoluteLayout();
-			listaView.VerticalOptions = LayoutOptions.Fill;
+			listaView.VerticalOptions = LayoutOptions.FillAndExpand;
 			listaView.HorizontalOptions = LayoutOptions.Fill;
 			
-			ObservableCollection<GrupoInfo> grupo = new ObservableCollection<GrupoInfo>();
-			grupo.Add(new GrupoInfo(){ Nome="Compradores", Descricao="Grupo dos compradores da empresa", Imagem="navicon.png"});
-			grupo.Add(new GrupoInfo(){ Nome="Vendedores", Descricao="Grupo dos vendedores da empresa", Imagem="navicon.png"});
-			grupo.Add(new GrupoInfo(){ Nome="Entregadores", Descricao="Grupo dos entregadores da empresa", Imagem="navicon.png"});
+			Label title = new Label
+			{
+				Text = "Empresas",
+				Margin = new Thickness(20,20,0,0),
+				FontFamily = TemaInfo.fontPadrao,
+				FontSize = 26,
+				TextColor = Color.FromHex(TemaInfo.PrimaryColor),
+				HorizontalOptions = LayoutOptions.Center
+			};
+			BoxView linha = new BoxView
+			{
+				HeightRequest = 1,
+				BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor),
+				HorizontalOptions = LayoutOptions.Fill,
+				Margin = new Thickness(0,60,0,0),
+			};
+					
+			ObservableCollection<EmpresaInfo> empresa = new ObservableCollection<EmpresaInfo>();
+			empresa.Add(new EmpresaInfo(){ Nome="Compradores", Descricao="Empresa x", Imagem="navicon.png"});
+			empresa.Add(new EmpresaInfo(){ Nome="Vendedores", Descricao="Empresa Y", Imagem="navicon.png"});
+			empresa.Add(new EmpresaInfo(){ Nome="Entregadores", Descricao="Empresa z", Imagem="navicon.png"});
 			
-			ListView listaGrupos = new ListView();
-			listaGrupos.RowHeight = 120;
-			listaGrupos.ItemTemplate = new DataTemplate(typeof(GruposCelula));
-			listaGrupos.ItemTapped += OnTap;
-			listaGrupos.ItemsSource = grupo;
-			listaGrupos.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
-			listaGrupos.HasUnevenRows = true;
-			listaGrupos.SeparatorColor = Color.Transparent;
-			listaGrupos.VerticalOptions = LayoutOptions.Fill;
-			listaGrupos.HorizontalOptions = LayoutOptions.Center;
-			AbsoluteLayout.SetLayoutBounds(listaGrupos, new Rectangle(0, 0, 1, 1));
-			AbsoluteLayout.SetLayoutFlags(listaGrupos, AbsoluteLayoutFlags.All);
+			ListView listaEmpresas = new ListView();
+			listaEmpresas.RowHeight = 120;
+			listaEmpresas.ItemTemplate = new DataTemplate(typeof(EmpresasCelula));
+			listaEmpresas.ItemTapped += OnTap;
+			listaEmpresas.ItemsSource = empresa;
+			listaEmpresas.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+			listaEmpresas.HasUnevenRows = true;
+			listaEmpresas.SeparatorColor = Color.Transparent;
+			//listaEmpresas.VerticalOptions = LayoutOptions.Fill;
+			//listaEmpresas.HorizontalOptions = LayoutOptions.Center;
+			listaEmpresas.Margin = new Thickness(0, 70, 0, 0);
+			AbsoluteLayout.SetLayoutBounds(listaEmpresas, new Rectangle(0, 0, 1, 1));
+			AbsoluteLayout.SetLayoutFlags(listaEmpresas, AbsoluteLayoutFlags.All);
 			
-			listaGrupos.BindingContext = grupo;
-			Image AdicionarRadarButton = new Image
+			listaEmpresas.BindingContext = empresa;
+			Image AdicionarEmpresaButton = new Image
 			{
 				Aspect = Aspect.AspectFit,
 				Source = ImageSource.FromFile("mais.png"),
@@ -52,70 +64,68 @@ namespace Radar
 				HorizontalOptions = LayoutOptions.End,
 				Margin = new Thickness(0,0 , 10, 10)
 			};
-			AdicionarRadarButton.GestureRecognizers.Add(
+			AdicionarEmpresaButton.GestureRecognizers.Add(
 					new TapGestureRecognizer()
 					{
 						Command = new Command(() =>
 						{
-						adcionarGrupo();
+						adcionarEmpresa();
 						}
 					)
 					});
 
-			AbsoluteLayout.SetLayoutBounds(AdicionarRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
-			AbsoluteLayout.SetLayoutFlags(AdicionarRadarButton, AbsoluteLayoutFlags.All);
+			AbsoluteLayout.SetLayoutBounds(AdicionarEmpresaButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
+			AbsoluteLayout.SetLayoutFlags(AdicionarEmpresaButton, AbsoluteLayoutFlags.All);
 			
-			listaView.Children.Add(listaGrupos);
-			listaView.Children.Add(AdicionarRadarButton);
+			listaView.Children.Add(title);
+			listaView.Children.Add(linha);
+			listaView.Children.Add(listaEmpresas);
+			listaView.Children.Add(AdicionarEmpresaButton);
 			Content = listaView;
 		}
 
-		public void adcionarGrupo()
+		public void adcionarEmpresa()
 		{
-			NavigationX.create(this).PushModalAsync(new AdcionarGrupoPopUp());
+			NavigationX.create(this).PushModalAsync(new AdcionarEmpresaPopUp());
 		
 		}
 
 		public void OnTap(object sender, ItemTappedEventArgs e)
 		{
 
-			GrupoInfo item = (GrupoInfo)e.Item;
-
-		
-				
-					NavegacaoUtils.PushAsync(new GrupoTabbedPage());
+			EmpresaInfo item = (EmpresaInfo)e.Item;
+			//NavigationX.create(this).PopModalAsync();
+			App.Current.MainPage = new NavegacaoPage();
 					//((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage(new GrupoTabbedPage());
-				
-
 		}
 
-		public class GruposCelula : ViewCell
+		public class EmpresasCelula : ViewCell
 		{
 
-			public GruposCelula()
+			public EmpresasCelula()
 			{
 
-				var excluirGrupo = new MenuItem
+				var excluirEmpresa = new MenuItem
 				{
 					Text = "Excluir"
 				};
 
-				excluirGrupo.SetBinding(MenuItem.CommandParameterProperty, new Binding("."));
-				excluirGrupo.Clicked += (sender, e) =>
+				excluirEmpresa.SetBinding(MenuItem.CommandParameterProperty, new Binding("."));
+				excluirEmpresa.Clicked += (sender, e) =>
 				{
 					//GrupoInfo grupo = (GrupoInfo)((MenuItem)sender).BindingContext;
 					//GrupoBLL regraGrupo = GrupoFactory.create();
 					//regraGrupo.excluir(grupo.Id);
 
-					ListView listaGrupos = this.Parent as ListView;
+					ListView listaEmpresas = this.Parent as ListView;
 
-					listaGrupos.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
-					listaGrupos.RowHeight = 120;
+					listaEmpresas.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+					listaEmpresas.RowHeight = 120;
 					//var grupos = regraGrupo.listar();
 					//listaGrupos.BindingContext = grupos;
-					listaGrupos.ItemTemplate = new DataTemplate(typeof(GruposCelula));
+					listaEmpresas.ItemTemplate = new DataTemplate(typeof(EmpresasCelula));
 				};
-				ContextActions.Add(excluirGrupo);
+				ContextActions.Add(excluirEmpresa);
 
 				StackLayout main = new StackLayout();
 				main.BackgroundColor = Color.Transparent;

@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using ClubManagement.Utils;
-using Radar.BLL;
-using Radar.Factory;
+﻿using ClubManagement.Utils;
 using Radar.Model;
-using Radar.Pages.Popup;
 using Radar.Utils;
 using Xamarin.Forms;
 
@@ -277,7 +271,7 @@ namespace Radar
 		public void OnTap(object sender, ItemTappedEventArgs e)
 		{
 
-			GrupoInfo item = (GrupoInfo)e.Item;
+			EmpresaInfo item = (EmpresaInfo)e.Item;
 
 			//if (item.aoClicar != null)
 			//{

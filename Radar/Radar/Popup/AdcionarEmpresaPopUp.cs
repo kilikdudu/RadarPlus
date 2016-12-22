@@ -1,10 +1,7 @@
 ﻿using System;
 using ClubManagement.Utils;
 using Plugin.Media;
-using Radar.BLL;
-using Radar.Factory;
 using Radar.Model;
-using Radar.Pages;
 using Radar.Utils;
 using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
@@ -12,29 +9,29 @@ using Xamarin.Forms;
 
 namespace Radar
 {
-	public class AdcionarGrupoPopUp : PopupPage
+	public class AdcionarEmpresaPopUp : PopupPage
 	{
 		Image _foto;
 		Entry _nome;
 		Entry _descricao;
 		double _width;
-		GrupoInfo _grupoInfo;
-		public AdcionarGrupoPopUp()
+		EmpresaInfo _empresaInfo;
+		public AdcionarEmpresaPopUp()
 		{
-			GrupoInfo item = new GrupoInfo();
+			EmpresaInfo item = new EmpresaInfo();
 			inicializaComponente();
 		}
 		
-		public AdcionarGrupoPopUp(GrupoInfo grupo)
+		public AdcionarEmpresaPopUp(EmpresaInfo grupo)
 		{
-			_grupoInfo = grupo;
+			_empresaInfo = grupo;
 			inicializaComponente();
 		}
 		
 		public void inicializaComponente()
 		{
 		
-		Title = "Novo Grupo";
+		Title = "Nova Empresa";
 
 			if (TelaUtils.Orientacao == "Landscape")
 			{
@@ -91,9 +88,9 @@ namespace Radar
 				HorizontalOptions = LayoutOptions.Center,
 				WidthRequest = _width,
 			};
-			if (_grupoInfo != null)
+			if (_empresaInfo != null)
 			{
-				_nome.Placeholder = _grupoInfo.Nome;
+				_nome.Placeholder = _empresaInfo.Nome;
 				_nome.IsEnabled = false;
 
 			}
@@ -109,9 +106,9 @@ namespace Radar
 				HorizontalOptions = LayoutOptions.Center,
 				WidthRequest = _width,
 			};
-			if (_grupoInfo != null)
+			if (_empresaInfo != null)
 			{
-				_descricao.Placeholder = _grupoInfo.Descricao;
+				_descricao.Placeholder = _empresaInfo.Descricao;
 				
 			}
 			else {
@@ -252,38 +249,7 @@ namespace Radar
 			}
 		}
 
-		public virtual void  cadastrarRadar(Object sender, EventArgs e)
-		{
-			if (InternetUtils.estarConectado())
-			{
-				LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
-				float latitude = (float)local.Latitude;
-				float longitude = (float)local.Longitude;
-				GeocoderUtils.pegarAsync(latitude, longitude, (send, ev) =>
-				{
-					var endereco = ev.Endereco;
-					ClubManagement.Utils.MensagemUtils.avisar(endereco.Logradouro);
-				});
-			}
-						try
-                            {
-                                LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
-                                if (local != null)
-                                {
-                                    RadarBLL regraRadar = RadarFactory.create();
-								regraRadar.gravar(local, false);
-                                    MensagemUtils.avisar("Radar incluído com sucesso.");
-                                }
-                                else
-                                    MensagemUtils.avisar("Nenhum movimento registrado pelo GPS.");
-                            }
-                            catch (Exception es)
-                            {
-                                MensagemUtils.avisar(es.Message);
-                            }
-
-
-		}
+		
 
 		public void abrirCusto(Object sender, EventArgs e)
 		{

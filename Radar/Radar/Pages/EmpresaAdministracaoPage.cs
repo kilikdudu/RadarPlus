@@ -11,10 +11,10 @@ using Xamarin.Forms;
 
 namespace Radar
 {
-	public class GrupoAdministracaoPage : ContentPage
+	public class EmpresaAdministracaoPage : ContentPage
 	{
 
-		public GrupoAdministracaoPage()
+		public EmpresaAdministracaoPage()
 		{
 			Title = "Administração";
 
@@ -22,59 +22,59 @@ namespace Radar
 			listaView.VerticalOptions = LayoutOptions.Fill;
 			listaView.HorizontalOptions = LayoutOptions.Fill;
 			
-			ObservableCollection<GrupoInfo> grupo = new ObservableCollection<GrupoInfo>();
-			grupo.Add(new GrupoInfo(){ Nome="Compradoress", Descricao="Grupo dos compradores da empresa", Imagem="navicon.png"});
-			grupo.Add(new GrupoInfo(){ Nome="Vendedores", Descricao="Grupo dos vendedores da empresa", Imagem="navicon.png"});
-			grupo.Add(new GrupoInfo(){ Nome="Entregadores", Descricao="Grupo dos entregadores da empresa", Imagem="navicon.png"});
+			ObservableCollection<EmpresaInfo> empresa = new ObservableCollection<EmpresaInfo>();
+			empresa.Add(new EmpresaInfo(){ Nome="Compradores", Descricao="Empresa x", Imagem="navicon.png"});
+			empresa.Add(new EmpresaInfo(){ Nome="Vendedores", Descricao="Empresa Y", Imagem="navicon.png"});
+			empresa.Add(new EmpresaInfo(){ Nome="Entregadores", Descricao="Empresa z", Imagem="navicon.png"});
 			
-			ListView listaGruposAdministracao = new ListView();
+			ListView listaEmpresaAdministracao = new ListView();
 			//listaGrupos.RowHeight = 120;
-			listaGruposAdministracao.ItemTemplate = new DataTemplate(typeof(GruposCelula));
-			listaGruposAdministracao.ItemTapped += OnTap;
-			listaGruposAdministracao.ItemsSource = grupo;
-			listaGruposAdministracao.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
-			listaGruposAdministracao.HasUnevenRows = true;
-			listaGruposAdministracao.SeparatorColor = Color.Transparent;
-			listaGruposAdministracao.VerticalOptions = LayoutOptions.Start;
-			listaGruposAdministracao.HorizontalOptions = LayoutOptions.Center;
-			AbsoluteLayout.SetLayoutBounds(listaGruposAdministracao, new Rectangle(0, 0, 1, 1));
-			AbsoluteLayout.SetLayoutFlags(listaGruposAdministracao, AbsoluteLayoutFlags.All);
+			listaEmpresaAdministracao.ItemTemplate = new DataTemplate(typeof(EmpresaCelula));
+			listaEmpresaAdministracao.ItemTapped += OnTap;
+			listaEmpresaAdministracao.ItemsSource = empresa;
+			listaEmpresaAdministracao.SetBinding(ListView.ItemsSourceProperty, new Binding("."));
+			listaEmpresaAdministracao.HasUnevenRows = true;
+			listaEmpresaAdministracao.SeparatorColor = Color.Transparent;
+			listaEmpresaAdministracao.VerticalOptions = LayoutOptions.Start;
+			listaEmpresaAdministracao.HorizontalOptions = LayoutOptions.Center;
+			AbsoluteLayout.SetLayoutBounds(listaEmpresaAdministracao, new Rectangle(0, 0, 1, 1));
+			AbsoluteLayout.SetLayoutFlags(listaEmpresaAdministracao, AbsoluteLayoutFlags.All);
 			
-			listaGruposAdministracao.BindingContext = grupo;
+			listaEmpresaAdministracao.BindingContext = empresa;
 			
-			listaView.Children.Add(listaGruposAdministracao);
+			listaView.Children.Add(listaEmpresaAdministracao);
 			//listaView.Children.Add(AdicionarRadarButton);
 			Content = listaView;
 		}
 
 		public void adcionarGrupo()
 		{
-			NavigationX.create(this).PushModalAsync(new AdcionarGrupoPopUp());
+			NavigationX.create(this).PushModalAsync(new AdcionarEmpresaPopUp());
 		
 		}
 
 		public void OnTap(object sender, ItemTappedEventArgs e)
 		{
 
-			GrupoInfo item = (GrupoInfo)e.Item;
+			EmpresaInfo item = (EmpresaInfo)e.Item;
 	
-					NavigationX.create(this).PushModalAsync(new AdcionarGrupoPopUp(item));	
+					NavigationX.create(this).PushModalAsync(new AdcionarEmpresaPopUp(item));	
 
 		}
 
-		public class GruposCelula : ViewCell
+		public class EmpresaCelula : ViewCell
 		{
 
-			public GruposCelula()
+			public EmpresaCelula()
 			{
 
-				var excluirGrupo = new MenuItem
+				var excluirEmpresa = new MenuItem
 				{
 					Text = "Excluir"
 				};
 
-				excluirGrupo.SetBinding(MenuItem.CommandParameterProperty, new Binding("."));
-				excluirGrupo.Clicked += (sender, e) =>
+				excluirEmpresa.SetBinding(MenuItem.CommandParameterProperty, new Binding("."));
+				excluirEmpresa.Clicked += (sender, e) =>
 				{
 					//GrupoInfo grupo = (GrupoInfo)((MenuItem)sender).BindingContext;
 					//GrupoBLL regraGrupo = GrupoFactory.create();
@@ -86,9 +86,9 @@ namespace Radar
 					listaGrupos.HasUnevenRows = true;
 					//var grupos = regraGrupo.listar();
 					//listaGrupos.BindingContext = grupos;
-					listaGrupos.ItemTemplate = new DataTemplate(typeof(GruposCelula));
+					listaGrupos.ItemTemplate = new DataTemplate(typeof(EmpresaCelula));
 				};
-				ContextActions.Add(excluirGrupo);
+				ContextActions.Add(excluirEmpresa);
 
 				StackLayout main = new StackLayout();
 				main.BackgroundColor = Color.Transparent;

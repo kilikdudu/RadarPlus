@@ -41,7 +41,7 @@ namespace Radar.Pages
             };
 			
 			Detail = navPage;
-            NavegacaoUtils.DetailPage = navPage;
+            //NavegacaoUtils.DetailPage = navPage;
 
             masterPage.ListView.ItemSelected += OnItemSelected;
 
@@ -99,5 +99,9 @@ namespace Radar.Pages
                 */
             }
         }
+        protected override bool OnBackButtonPressed()
+		{
+			return base.OnBackButtonPressed();
+		}
     }
 }

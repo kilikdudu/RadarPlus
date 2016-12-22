@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using ClubManagement.Utils;
 using Radar.Controls;
 using Radar.Model;
 using Radar.Pages;
@@ -13,6 +14,10 @@ namespace Radar
 		{
 			Title = "Login";
 
+
+			ScrollView scroll = new ScrollView();
+			scroll.Orientation = ScrollOrientation.Vertical;
+			scroll.VerticalOptions = LayoutOptions.FillAndExpand;
 
 			StackLayout main = new StackLayout();
 			main.BackgroundColor = Color.Transparent;
@@ -59,6 +64,7 @@ namespace Radar
 				VerticalOptions = LayoutOptions.Start,
 				HorizontalOptions = LayoutOptions.Start,
 				WidthRequest = TelaUtils.LarguraSemPixel * 0.4,
+				FontFamily = TemaInfo.fontPadrao,
 			    Keyboard = Keyboard.Email
 			};
 			EmailValidatorBehavior SecEmailValidator = new EmailValidatorBehavior();
@@ -90,7 +96,7 @@ namespace Radar
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center,
 				WidthRequest = TelaUtils.LarguraSemPixel * 0.4,
-			    Keyboard = Keyboard.Email
+				FontFamily = TemaInfo.fontPadrao,
 			};
 			NumberValidatorBehavior SecSenhaValidator = new NumberValidatorBehavior();
 			senha.Behaviors.Add(SecSenhaValidator);
@@ -113,10 +119,12 @@ namespace Radar
 				HorizontalOptions = LayoutOptions.Center,
 				WidthRequest = TelaUtils.LarguraSemPixel * 0.4,
 				BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor),
-				TextColor = Color.FromHex(TemaInfo.TextIcons)
+				TextColor = Color.FromHex(TemaInfo.TextIcons),
+				FontFamily = TemaInfo.fontPadrao,
 
 			};
 			entrar.Clicked += fazerLogin;
+			
 			Button entrarFacebook = new Button()
 			{
 				Text = "ENTRAR COM FACEBOOK",
@@ -124,10 +132,11 @@ namespace Radar
 				HorizontalOptions = LayoutOptions.Center,
 				WidthRequest = TelaUtils.LarguraSemPixel * 0.4,
 				BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor),
-				TextColor = Color.FromHex(TemaInfo.TextIcons)
+				TextColor = Color.FromHex(TemaInfo.TextIcons),
+				FontFamily = TemaInfo.fontPadrao,
 
 			};
-			entrarFacebook.Clicked += fazerLogin;
+			entrarFacebook.Clicked += verificaLogado;
 
 
 			Button recuperarSenha = new Button()
@@ -137,7 +146,8 @@ namespace Radar
 				HorizontalOptions = LayoutOptions.Center,
 				WidthRequest = TelaUtils.LarguraSemPixel * 0.4,
 				BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor),
-				TextColor = Color.FromHex(TemaInfo.TextIcons)
+				TextColor = Color.FromHex(TemaInfo.TextIcons),
+				FontFamily = TemaInfo.fontPadrao,
 			};
 
 			Button novoCadastro = new Button()
@@ -147,14 +157,17 @@ namespace Radar
 				HorizontalOptions = LayoutOptions.Center,
 				WidthRequest = TelaUtils.LarguraSemPixel * 0.4,
 				BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor),
-				TextColor = Color.FromHex(TemaInfo.TextIcons)
+				TextColor = Color.FromHex(TemaInfo.TextIcons),
+				FontFamily = TemaInfo.fontPadrao,
 			};
+			novoCadastro.Clicked += fazerCadastro;
 
 			Button facebookButton = new Button()
 			{
 				Text = "Facebook",
 				VerticalOptions = LayoutOptions.Center,
-				HorizontalOptions = LayoutOptions.Center
+				HorizontalOptions = LayoutOptions.Center,
+				FontFamily = TemaInfo.fontPadrao,
 			};
 
 			logoStack.Children.Add(logo);
@@ -177,19 +190,38 @@ namespace Radar
 			main.Children.Add(logoStack);
 			main.Children.Add(cardPrincipal);
 
+			scroll.Content = main;
+			Content = scroll;
 
-			Content = main;
+
 		}
 
 		public void fazerLogin(Object sender, EventArgs e)
 		{
 			//Application.Current.MainPage = new NavegacaoPage();
-			Device.BeginInvokeOnMainThread(() => Application.Current.MainPage = new NavegacaoPage());
+			NavegacaoUtils.PushModalAsync(new EmpresaPage(), false);
+			//((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage(new NovoCustoPage());
 		}
 
+		public void fazerCadastro(Object sender, EventArgs e)
+		{
+			NavegacaoUtils.PushAsync(new NovoCadastroPage());
+			//((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage(new NovoCadastroPage());
+		}
+
+		public void verificaLogado(Object sender, EventArgs e)
+		{
+			//if (logado == true)
+			//{
+				NavegacaoUtils.PushAsync(new EmpresaPage());
+				//((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage(new GrupoPage());
+			//}
+
+		}
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
+			//verificaLogado(true);
 
 		}
 

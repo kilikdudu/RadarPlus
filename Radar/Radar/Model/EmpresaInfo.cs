@@ -5,7 +5,7 @@ using System;
 namespace Radar.Model
 {
 	//[Table("Grupo")]
-	public class GrupoInfo
+	public class EmpresaInfo
 	{
 	
 	 public string Nome { get; set; }

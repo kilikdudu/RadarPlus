@@ -145,11 +145,11 @@
     <Compile Include="Pages\ColaboradorAdministracaoPage.cs" />
     <Compile Include="Pages\ColaboradorPage.cs" />
     <Compile Include="Pages\ColaboradorTabbedPage.cs" />
-    <Compile Include="Pages\GrupoAdministracaoPage.cs" />
-    <Compile Include="Pages\GrupoPage.cs" />
+    <Compile Include="Pages\EmpresaAdministracaoPage.cs" />
+    <Compile Include="Pages\EmpresaPage.cs" />
     <Compile Include="Pages\GrupoTabbedPage.cs" />
-    <Compile Include="Model\GrupoInfo.cs" />
-    <Compile Include="Popup\AdcionarGrupoPopUp.cs" />
+    <Compile Include="Model\EmpresaInfo.cs" />
+    <Compile Include="Popup\AdcionarEmpresaPopUp.cs" />
     <Compile Include="Pages\NovoCustoPage.cs" />
     <Compile Include="Pages\NovoCadastroPage.cs" />
     <Compile Include="Popup\CustoMenuPopUp.cs" />

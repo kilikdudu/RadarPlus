@@ -300,7 +300,14 @@ namespace Radar.Pages
         }
 
         public override void redesenhar() {
-            _velocimetro.redesenhar();
+           // _velocimetro.redesenhar();
         }
+        
+        protected override bool OnBackButtonPressed()
+		{
+			Debug.WriteLine("TESTE");
+			return base.OnBackButtonPressed();
+		}
+		
     }
 }

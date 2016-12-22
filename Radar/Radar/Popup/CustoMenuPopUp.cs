@@ -89,22 +89,22 @@ namespace Radar
 					ClubManagement.Utils.MensagemUtils.avisar(endereco.Logradouro);
 				});
 			}
-			try
-			{
-				LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
-				if (local != null)
-				{
-					RadarBLL regraRadar = RadarFactory.create();
-					regraRadar.gravar(local, false);
-					MensagemUtils.avisar("Radar incluído com sucesso.");
-				}
-				else
-					MensagemUtils.avisar("Nenhum movimento registrado pelo GPS.");
-			}
-			catch (Exception e2)
-			{
-				MensagemUtils.avisar(e2.Message);
-			}
+			 try
+                       {
+                            LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
+                            if (local != null)
+                            {
+                                RadarBLL regraRadar = RadarFactory.create();
+                                regraRadar.inserir(local);
+                                MensagemUtils.avisar("Radar incluído com sucesso.");
+                            }
+                            else
+                                MensagemUtils.avisar("Nenhum movimento registrado pelo GPS.");
+                         }
+                        catch (Exception ev2)
+                        {
+                            MensagemUtils.avisar(ev2.Message);
+                        }
 
 		}
 

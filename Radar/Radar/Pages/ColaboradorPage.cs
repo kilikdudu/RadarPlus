@@ -103,7 +103,7 @@ namespace Radar
 				excluirColaborador.SetBinding(MenuItem.CommandParameterProperty, new Binding("."));
 				excluirColaborador.Clicked += (sender, e) =>
 				{
-					GrupoInfo grupo = (GrupoInfo)((MenuItem)sender).BindingContext;
+					EmpresaInfo grupo = (EmpresaInfo)((MenuItem)sender).BindingContext;
 					//GrupoBLL regraGrupo = GrupoFactory.create();
 					//regraGrupo.excluir(grupo.Id);
 

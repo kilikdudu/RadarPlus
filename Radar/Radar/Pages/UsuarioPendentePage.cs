@@ -71,7 +71,7 @@ namespace Radar
 				excluirColaboradorPendente.SetBinding(MenuItem.CommandParameterProperty, new Binding("."));
 				excluirColaboradorPendente.Clicked += (sender, e) =>
 				{
-					GrupoInfo grupo = (GrupoInfo)((MenuItem)sender).BindingContext;
+					EmpresaInfo grupo = (EmpresaInfo)((MenuItem)sender).BindingContext;
 					//GrupoBLL regraGrupo = GrupoFactory.create();
 					//regraGrupo.excluir(grupo.Id);
 
@@ -265,7 +265,7 @@ namespace Radar
 		public void OnTap(object sender, ItemTappedEventArgs e)
 		{
 
-			GrupoInfo item = (GrupoInfo)e.Item;
+			EmpresaInfo item = (EmpresaInfo)e.Item;
 
 			//if (item.aoClicar != null)
 			//{

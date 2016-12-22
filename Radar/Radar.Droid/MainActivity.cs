@@ -8,10 +8,11 @@ using Android.Content;
 using ClubManagement.Droid;
 using Plugin.Permissions;
 using Android.Views;
+using Android.Content.Res;
 
 namespace Radar.Droid
 {
-    [Activity(Label = "Radar", Icon = "@drawable/appicon", Theme = "@style/MainTheme", MainLauncher = true)]
+    [Activity(Label = "Radar", Icon = "@drawable/appicon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         private static JanelaSituacaoEnum _Situacao = JanelaSituacaoEnum.Fechada;
@@ -42,10 +43,10 @@ namespace Radar.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            //global::Xamarin.Forms.DependencyService.Register<MensagemAndroid>();
+			//global::Xamarin.Forms.DependencyService.Register<MensagemAndroid>();
 
-            //InitializeLocationManager();
-
+			//InitializeLocationManager();
+			
             //AndroidEnvironment.UnhandledExceptionRaiser += HandleAndroidException;
 			this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
 			
@@ -66,6 +67,19 @@ namespace Radar.Droid
 
             LoadApplication(new App());
         }
+        
+        public override void OnConfigurationChanged(Configuration newConfig)
+		{
+			
+			base.OnConfigurationChanged(newConfig);
+			if (newConfig.Orientation == Orientation.Portrait) {
+				 this.RequestedOrientation = ScreenOrientation.ReversePortrait;
+				
+		    } else if (newConfig.Orientation == Orientation.Landscape) {
+		       this.RequestedOrientation = ScreenOrientation.ReverseLandscape;
+		    }
+		}
+       
 
         public bool isServiceRunning(Type serviceClassName)
         {

@@ -14,7 +14,13 @@ namespace Radar
             //MainPage = new NavigationPage(new PercursoPage());
 	    //MainPage = new LoginPage();
             EstiloUtils.inicializar();
-			MainPage = new NavegacaoPage();
+			if (App.Current.MainPage == null)
+			{
+				MainPage = new LoginPage();
+			}
+			else {
+				MainPage = Application.Current.MainPage;
+			}
 			//MainPage = new Radar.Controls.RadarMasterDetailPage();
         }
 
