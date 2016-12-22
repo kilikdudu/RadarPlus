@@ -9,7 +9,7 @@ using Radar.Model;
 using Radar.Pages.Popup;
 using Radar.Utils;
 using Xamarin.Forms;
-
+using Radar.Pages;
 
 /// <summary>
 /// Rodrigo Landim - 22/12/2016
@@ -38,7 +38,7 @@ namespace Radar
             };
             menu.Clicked += (sender, e) =>
             {
-                NavigationX.create(this).PushAsync(new MapaPagePercurso(percurso));
+                NavigationX.create(this).PushAsync(new MapaPagePercurso(percurso.Id));
             };
             ToolbarItems.Add(menu);
 
