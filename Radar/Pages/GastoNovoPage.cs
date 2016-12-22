@@ -9,6 +9,8 @@ using Radar.IBLL;
 using Radar.Model;
 using Radar.Utils;
 using Xamarin.Forms;
+using Radar.Factory;
+using System.IO;
 
 namespace Radar.Pages
 {
@@ -34,6 +36,7 @@ namespace Radar.Pages
                 WidthRequest = _width,
                 Keyboard = Keyboard.Numeric
             };
+            _ValorEntry.SetBinding(Entry.TextProperty, new Binding("Valor"));
             //_ValorEntry.Behaviors.Add(new NumberValidatorBehavior());
 
             _TipoGastoPicker = new DropDownPicker
@@ -43,7 +46,8 @@ namespace Radar.Pages
                 //HeightRequest = 25,
                 DropDownHeight = 150,
                 Title = "Tipo",
-                SelectedText = "",
+                SelectedText = "Indefinido",
+                SelectedIndex = 0,
                 //FontSize = Device.OnPlatform(10, 14, 10),
                 CellHeight = 20,
                 SelectedBackgroundColor = Color.FromRgb(0, 70, 172),
@@ -51,12 +55,25 @@ namespace Radar.Pages
                 BorderColor = Color.Purple,
                 ArrowColor = Color.Blue
             };
-            var d = new List<string>();
-            d.Add("Abastecimento");
-            d.Add("Despesas");
-            d.Add("Multas");
-
-            _TipoGastoPicker.Source = d;
+            var lista = new List<string>();
+            foreach (var tipo in Enum.GetValues(typeof(GastoTipoEnum))) {
+                switch ((GastoTipoEnum)tipo) {
+                    case GastoTipoEnum.Abastecimento:
+                        lista.Add("Abastecimento");
+                        break;
+                    case GastoTipoEnum.Despesas:
+                        lista.Add("Despesas");
+                        break;
+                    case GastoTipoEnum.Multas:
+                        lista.Add("Multas");
+                        break;
+                    default:
+                        lista.Add("Indefinido");
+                        break;
+                }
+            }
+            _TipoGastoPicker.Source = lista;
+            _TipoGastoPicker.SetBinding(DropDownPicker.SelectedIndexProperty, new Binding("Tipo"));
 
             _LocalEntry = new Entry
             {
@@ -100,8 +117,7 @@ namespace Radar.Pages
             _FotoImage.GestureRecognizers.Add(
                 new TapGestureRecognizer()
                 {
-                    Command = new Command(() =>
-                    {
+                    Command = new Command(() => {
                         tirarFoto();
                     }
                 )
@@ -111,7 +127,29 @@ namespace Radar.Pages
         public GastoNovoPage()
         {
             Title = "Novo Custo";
-            BindingContext = new GastoInfo();
+            var gasto = new GastoInfo {
+                DataInclusao = DateTime.Now
+            };
+            var local = GPSUtils.UltimaLocalizacao;
+            if (local != null) {
+                gasto.Latitude = (float) local.Latitude;
+                gasto.Longitude = (float) local.Longitude;
+            }
+            BindingContext = gasto;
+
+            var gravarButton = new ToolbarItem {
+                Text = "Inserir"
+            };
+            gravarButton.Clicked += (sender, e) => {
+                var novoGasto = (GastoInfo)BindingContext;
+                var regraGasto = GastoFactory.create();
+                regraGasto.gravar(novoGasto);
+
+                MensagemUtils.avisar("Gasto incluído com sucesso!");
+                ((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage(new VelocimetroPage());
+                //NavigationX.create(this).PopAsync();
+            };
+            ToolbarItems.Add(gravarButton);
 
             if (TelaUtils.Orientacao == "Landscape") {
                 _width = (int)TelaUtils.LarguraSemPixel * 0.5;
@@ -226,25 +264,23 @@ namespace Radar.Pages
                 }
             };
 		}
-
-		private void mostraEndereco(string endereco)
-		{
-			_LocalEntry.Text = endereco;
-		}
-
+        
         private void pegaEndereco()
         {
             if (InternetUtils.estarConectado())
             {
+                /*
                 LocalizacaoInfo localEndereco = GPSUtils.UltimaLocalizacao;
                 float latitude = (float)localEndereco.Latitude;
                 float longitude = (float)localEndereco.Longitude;
-
-                GeocoderUtils.pegarAsync(latitude, longitude, (send, e) =>
-                {
-                    var endereco = e.Endereco;
-                    mostraEndereco(endereco.Logradouro);
-                });
+                */
+                var gasto = (GastoInfo)BindingContext;
+                if (string.IsNullOrEmpty(_LocalEntry.Text)) {
+                    GeocoderUtils.pegarAsync(gasto.Latitude, gasto.Longitude, (send, e) => {
+                        if (string.IsNullOrEmpty(_LocalEntry.Text))
+                            _LocalEntry.Text = e.Endereco.ToString();
+                    });
+                }
             }
         }
 
@@ -254,9 +290,9 @@ namespace Radar.Pages
 			{
 				var mediaOptions = new Plugin.Media.Abstractions.StoreCameraMediaOptions
 				{
-					Directory = "Cupons",
+					//Directory = "Cupons",
 					Name = $"{DateTime.UtcNow}.jpg",
-					//SaveToAlbum = true
+					SaveToAlbum = true
 				};
 
 				// Take a photo of the business receipt.
@@ -276,11 +312,20 @@ namespace Radar.Pages
 				_FotoImage.Source = path;
 				_FotoImage.WidthRequest = TelaUtils.LarguraSemPixel * 0.5;
 				_FotoImage.HeightRequest = TelaUtils.LarguraSemPixel * 0.5;
+
+                var gasto = (GastoInfo)BindingContext;
+                gasto.Foto = Path.GetFileName(path);
 			}
 			else {
 				await DisplayAlert("Dispositivo não possiu camera ou camera desativada", null, "OK");
 			}
 		}
-	}
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            pegaEndereco();
+        }
+    }
 }
 

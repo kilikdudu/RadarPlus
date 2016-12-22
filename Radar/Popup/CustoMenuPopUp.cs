@@ -110,8 +110,9 @@ namespace Radar.Popup
 
 		public void abrirCusto(Object sender, EventArgs e)
 		{
-			((MasterDetailPage)Application.Current.MainPage).Detail =  new NavigationPage(new GastoNovoPage());
-			PopupNavigation.PopAsync();
+            ((MasterDetailPage)Application.Current.MainPage).Detail =  new NavigationPage(new GastoNovoPage());
+            //NavigationX.create((Page)this.Parent).PushAsync(new GastoNovoPage(), true);
+            PopupNavigation.PopAsync();
 			//Device.BeginInvokeOnMainThread(() => Application.Current.MainPage = new NovoCustoPage());
 			//NavigationX.create(this).PushModalAsync(new NovoCustoPage());
 

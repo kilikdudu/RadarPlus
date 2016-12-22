@@ -10,6 +10,12 @@ using Radar.Pages.Popup;
 using Radar.Utils;
 using Xamarin.Forms;
 
+
+/// <summary>
+/// Rodrigo Landim - 22/12/2016
+/// ATENÇÂO! FIZ ISSO PQ O CARLOS MANDOU. EU NÃO FARIA ASSIM.
+/// EU VOU ALTERAR O MINIMO NESSA PORRA!!! NÂO QUERO MEU NOME NISSO!
+/// </summary>
 namespace Radar
 {
 	public class ResumoPercursoPage : ContentPage
@@ -152,8 +158,6 @@ namespace Radar
 				if (Device.OS == TargetPlatform.iOS)
 				{
 					icone.WidthRequest = 60;
-	
-					//frameOuter.Padding = new Thickness(5, 10, 5, 10);
 					frameOuter.WidthRequest = TelaUtils.Largura * 0.9;
 					frameOuter.Margin = new Thickness(5, 10, 5, 0);
 	

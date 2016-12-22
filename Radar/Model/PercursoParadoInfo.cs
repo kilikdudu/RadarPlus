@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace Radar.Model
 {
-    public enum GastoTipoEnum
+    public class PercursoParadoInfo: PercursoResumoInfo
     {
-        Indefinido = 0,
-        Abastecimento = 1,
-        Despesas = 2,
-        Multas = 3
     }
 }

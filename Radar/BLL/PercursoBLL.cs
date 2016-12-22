@@ -253,9 +253,10 @@ namespace Radar.BLL
 				DateTime maiorTempo = (from p in percurso.Pontos select p.Data).Max();
 					DateTime menorTempo = (from p in percurso.Pontos select p.Data).Min();
 					total = maiorTempo.Subtract(menorTempo);
-
 			}
 			return total;
 		}
+
+        public 
     }
 }

@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BLL\GastoBLL.cs" />
     <Compile Include="DALFactory\GastoDALFactory.cs" />
     <Compile Include="DALSQLite\GastoDALSQLite.cs" />
     <Compile Include="Estilo\BaseEstilo.cs" />
@@ -43,6 +44,7 @@
     <Compile Include="Estilo\PreferenciaEstilo.cs" />
     <Compile Include="Estilo\VelocimetroEstilo.cs" />
     <Compile Include="Estilo\VelocimetroCor.cs" />
+    <Compile Include="Factory\GastoFactory.cs" />
     <Compile Include="IDAL\IGastoDAL.cs" />
     <Compile Include="Model\GastoInfo.cs" />
     <Compile Include="Model\GastoTipoEnum.cs" />
