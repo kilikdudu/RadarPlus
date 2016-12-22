@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Radar.Factory;
 using ClubManagement.Utils;
+using System.Collections.ObjectModel;
 
 namespace Radar.BLL
 {
@@ -243,20 +244,190 @@ namespace Radar.BLL
 		}
         */
 
-		public TimeSpan tempoParado(PercursoInfo percurso)
-		{
+		public TimeSpan tempoParado(PercursoInfo percurso) {
 			TimeSpan total = new TimeSpan();
-
-			if (percurso.Pontos.Count > 0)
-			{
-				
+			if (percurso.Pontos.Count > 0) {
 				DateTime maiorTempo = (from p in percurso.Pontos select p.Data).Max();
-					DateTime menorTempo = (from p in percurso.Pontos select p.Data).Min();
-					total = maiorTempo.Subtract(menorTempo);
+                DateTime menorTempo = (from p in percurso.Pontos select p.Data).Min();
+				total = maiorTempo.Subtract(menorTempo);
 			}
 			return total;
 		}
 
-        public 
+        public IList<PercursoResumoInfo> listarResumo(int idPercuso) {
+
+            var regraRadar = RadarFactory.create();
+
+            var percurso = pegar(idPercuso);
+            var pontos = percurso.Pontos.ToList();
+
+            var resumos = new List<PercursoResumoInfo>();
+
+            if (pontos.Count < 2)
+                return resumos;
+
+            var inicio = pontos[0];
+            var chegada = pontos[pontos.Count - 1];
+            pontos.Remove(inicio);
+            pontos.Remove(chegada);
+
+            resumos.Add(new PercursoResumoInfo {
+                Icone = "ic_pan_tool_black_24dp.png",
+                Descricao = "Saída",
+                Data = inicio.Data,
+                Distancia = 0,
+                Latitude = (float)inicio.Latitude,
+                Longitude = (float)inicio.Longitude,
+                Tempo = TimeSpan.Zero
+            });
+
+            var regraGasto = GastoFactory.create();
+            var gastos = regraGasto.listar(idPercuso);
+
+            var idRadarOld = inicio.IdRadar;
+            var dataOld = inicio.Data;
+            var latitudeOld = (float)inicio.Latitude;
+            var longitudeOld = (float)inicio.Longitude;
+            double distanciaAcumulada = 0;
+            TimeSpan tempoAcumulado = TimeSpan.Zero;
+
+            double distancia = 0;
+            TimeSpan tempo = TimeSpan.Zero;
+
+            foreach (var ponto in percurso.Pontos) {
+                distancia = GPSUtils.calcularDistancia(latitudeOld, longitudeOld, ponto.Latitude, ponto.Longitude);
+                tempo = ponto.Data.Subtract(dataOld);
+                distanciaAcumulada += distancia;
+                tempoAcumulado = tempoAcumulado.Add(tempo);
+                if (tempo.TotalSeconds > 120) {
+                    resumos.Add(new PercursoParadoInfo {
+                        Icone = "ic_pan_tool_black_24dp.png",
+                        Descricao = "Parada",
+                        Data = ponto.Data,
+                        Tempo = tempoAcumulado,
+                        Distancia = distanciaAcumulada,
+                        Latitude = (float)ponto.Latitude,
+                        Longitude = (float)ponto.Longitude,
+                    });
+                    distanciaAcumulada = 0;
+                    tempoAcumulado = TimeSpan.Zero;
+                }
+                if (idRadarOld != ponto.IdRadar && ponto.IdRadar > 0) {
+                    var radar = regraRadar.pegar(ponto.IdRadar);
+                    if (radar != null)
+                    {
+                        resumos.Add(new PercursoRadarInfo
+                        {
+                            Icone = radar.Imagem,
+                            Descricao = radar.Titulo,
+                            Data = ponto.Data,
+                            Distancia = distanciaAcumulada,
+                            Latitude = (float)ponto.Latitude,
+                            Longitude = (float)ponto.Longitude,
+                            Tempo = tempoAcumulado,
+                            MinhaVelocidade = ponto.Velocidade,
+                            Velocidade = radar.Velocidade,
+                            Tipo = radar.Tipo
+                        });
+                    }
+                    idRadarOld = ponto.IdRadar;
+                    distanciaAcumulada = 0;
+                    tempoAcumulado = TimeSpan.Zero;
+                }
+
+                dataOld = ponto.Data;
+                latitudeOld = (float)ponto.Latitude;
+                longitudeOld = (float)ponto.Longitude;
+            }
+
+            distancia = GPSUtils.calcularDistancia(latitudeOld, longitudeOld, chegada.Latitude, chegada.Longitude);
+            tempo = chegada.Data.Subtract(dataOld);
+            distanciaAcumulada += distancia;
+            tempoAcumulado = tempoAcumulado.Add(tempo);
+            resumos.Add(new PercursoResumoInfo
+            {
+                Icone = "ic_pan_tool_black_24dp.png",
+                Descricao = "Chegada",
+                Data = chegada.Data,
+                Tempo = tempoAcumulado,
+                Distancia = distanciaAcumulada,
+                Latitude = (float)chegada.Latitude,
+                Longitude = (float)chegada.Longitude,
+            });
+
+            return resumos;
+        }
+
+        /// <summary>
+        /// Rodrigo Landim - 22/12
+        /// FIZ ESSA PORRA DESSE JEITO PRA APROVEITAR O ResumoPercursoPage.cs JÁ CRIADO.
+        /// A CULPA É DO CARLOS.
+        /// </summary>
+        /// <returns></returns>
+        public ObservableCollection<ResumoInfo> converterParaRotinaEscrotaDoCarlos(IList<PercursoResumoInfo> resumos) {
+            var retorno = new ObservableCollection<ResumoInfo>();
+            foreach (var item in resumos)
+            {
+                var resumo = new ResumoInfo
+                {
+                    Imagem = item.Icone,
+                    Nome = item.Descricao
+                };
+                /*
+                resumoParada.Add(new ResumoItemInfo() { Descricao = "Latitude", Valor = "-10.897765" });
+                resumoParada.Add(new ResumoItemInfo() { Descricao = "Longitude", Valor = "-15.447853" });
+                resumoParada.Add(new ResumoItemInfo() { Descricao = "Data", Valor = "10 / DEZ" });
+                */
+
+                if (item.Distancia > 0)
+                {
+                    resumo.Items.Add(new ResumoItemInfo
+                    {
+                        Descricao = "Distância",
+                        Valor = (item.Distancia / 1000).ToString("N1") + " Km"
+                    });
+                }
+                resumo.Items.Add(new ResumoItemInfo
+                {
+                    Descricao = "Latitude",
+                    Valor = item.Latitude.ToString()
+                });
+                resumo.Items.Add(new ResumoItemInfo
+                {
+                    Descricao = "Longitude",
+                    Valor = item.Longitude.ToString()
+                });
+                resumo.Items.Add(new ResumoItemInfo
+                {
+                    Descricao = "Data",
+                    Valor = item.Data.ToString("dd / MMM")
+                });
+                if (item.Tempo.TotalSeconds > 0)
+                {
+                    resumo.Items.Add(new ResumoItemInfo
+                    {
+                        Descricao = "Tempo",
+                        Valor = string.Format("{0:D2}:{1:D2}:{2:D2}", item.Tempo.Hours, item.Tempo.Minutes, item.Tempo.Seconds)
+                    });
+                }
+
+                if (item is PercursoRadarInfo)
+                {
+                    var radar = (PercursoRadarInfo)item;
+                    resumo.Items.Add(new ResumoItemInfo
+                    {
+                        Descricao = "Velocidade",
+                        Valor = radar.Velocidade.ToString("N0") + " Km/h"
+                    });
+                    resumo.Items.Add(new ResumoItemInfo
+                    {
+                        Descricao = "Minha Vel.",
+                        Valor = radar.MinhaVelocidade.ToString("N0") + " Km/h"
+                    });
+                }
+                retorno.Add(resumo);
+            }
+            return retorno;
+        }
     }
 }

@@ -93,13 +93,10 @@ namespace Radar.Model
             get {
                 double segundos = 0;
                 PercursoPontoInfo ultimoPonto = null;
-                foreach (var ponto in _pontos)
-                {
-                    if (ultimoPonto != null)
-                    {
+                foreach (var ponto in _pontos) {
+                    if (ultimoPonto != null) {
                         var tempo = ponto.Data.Subtract(ultimoPonto.Data);
-                        if (tempo.TotalSeconds > 120)
-                        {
+                        if (tempo.TotalSeconds > 120) {
                             segundos += tempo.TotalSeconds;
                         }
                     }
