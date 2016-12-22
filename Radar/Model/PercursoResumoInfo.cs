@@ -8,9 +8,9 @@ namespace Radar.Model
 {
     public class PercursoResumoInfo
     {
+        public string Icone { get; set; }
         public float Latitude { get; set; }
         public float Longitude { get; set; }
-        public string Imagem { get; set; }
         public string Descricao { get; set; }
         public DateTime Data { get; set; }
         public TimeSpan Tempo { get; set; }

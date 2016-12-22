@@ -38,7 +38,8 @@ namespace Radar
 			listaView.HorizontalOptions = LayoutOptions.Fill;
 			listaView.BackgroundColor = Color.Transparent;
 
-			//GrupoBLL regraGrupo = GrupoFactory.create();
+            //GrupoBLL regraGrupo = GrupoFactory.create();
+            /*
 			_resumo = new ObservableCollection<ResumoInfo>();
 			ObservableCollection<ResumoItemInfo> resumoParada = new ObservableCollection<ResumoItemInfo>();
 
@@ -78,6 +79,10 @@ namespace Radar
 			_resumo.Add(new ResumoInfo() { Nome = "Despesas", Imagem = "ic_monetization_on_black_24dp.png",Items = resumoDespesas });
 			_resumo.Add(new ResumoInfo() { Nome = "Polícia Rodoviária", Imagem = "policiarodoviaria.png",Items = resumoPoliciaRodoviaria });
 			_resumo.Add(new ResumoInfo() { Nome = "Despesas", Imagem = "ic_monetization_on_black_24dp.png",Items = resumoDespesas });
+            */
+            var regraPercurso = PercursoFactory.create();
+            var lista = regraPercurso.listarResumo(percursoinfo.Id);
+            _resumo = regraPercurso.converterParaRotinaEscrotaDoCarlos(lista);
 	
 			ListView listaResumos = new ListView();
 			//listaResumos.RowHeight = 200;

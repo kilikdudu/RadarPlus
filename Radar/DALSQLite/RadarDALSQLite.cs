@@ -141,7 +141,8 @@ namespace Radar.DALSQLite
         {
             lock (locker)
             {
-                return database.Table<RadarInfo>().FirstOrDefault(x => x.Id == idRadar);
+                return database.Table<RadarInfo>().FirstOrDefault(x => x.id_radar == idRadar);
+                //string query = "select * from radar where id = ";
             }
         }
 

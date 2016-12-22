@@ -46,6 +46,10 @@
     <Compile Include="IDAL\IGastoDAL.cs" />
     <Compile Include="Model\GastoInfo.cs" />
     <Compile Include="Model\GastoTipoEnum.cs" />
+    <Compile Include="Model\PercursoGastoInfo.cs" />
+    <Compile Include="Model\PercursoResumoInfo.cs" />
+    <Compile Include="Model\PercursoParadoInfo.cs" />
+    <Compile Include="Model\PercursoRadarInfo.cs" />
     <Compile Include="Model\ResumoInfo.cs" />
     <Compile Include="Model\ResumoItemInfo.cs" />
     <Compile Include="Pages\BasePreferenciaPage.cs" />
