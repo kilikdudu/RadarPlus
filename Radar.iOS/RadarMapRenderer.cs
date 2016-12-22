@@ -115,6 +115,34 @@ namespace Radar.iOS
 				Subtitle = radar.Pin.Address
             };
 			_nativeMap.GetViewForAnnotation = GetViewForAnnotation;
+			/*
+			if (_radarMap.PercursoId > 0)
+			{
+				PercursoBLL regraPercurso = new PercursoBLL();
+				var percurso = regraPercurso.pegar(_radarMap.PercursoId);
+
+				var latLngPoints = new LatLng[percurso.Pontos.Count];
+				int index = 0;
+				foreach (PercursoPontoInfo loc in percurso.Pontos)
+				{
+					latLngPoints[index++] = new LatLng(loc.Latitude, loc.Longitude);
+				}
+				var polylineoption = new PolylineOptions();
+				//polylineoption.InvokeColor(Android.Graphics.Color.Red);
+				polylineoption.InvokeColor(Android.Graphics.Color.Argb(60,18,221,62));
+				polylineoption.Geodesic(true);
+				polylineoption.Add(latLngPoints);
+				map.AddPolyline(polylineoption);
+				
+				var markerInicio = new MarkerOptions();
+           		markerInicio.SetPosition(new LatLng(latLngPoints[0].Latitude, latLngPoints[0].Longitude));
+           		var markerFim = new MarkerOptions();
+           		markerFim.SetPosition(new LatLng(latLngPoints[percurso.Pontos.Count - 1].Latitude, latLngPoints[percurso.Pontos.Count - 1].Longitude));
+				map.AddMarker(markerInicio);
+				map.AddMarker(markerFim);
+				
+			}
+			*/
            // _nativeMap.AddAnnotation(marker);
             /*
             var marker = new MarkerOptions();

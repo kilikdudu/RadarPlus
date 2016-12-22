@@ -72,7 +72,7 @@ namespace Radar.Pages
             base.inicializarComponente();
 
             _map = new RadarMap
-            {
+            {	
                 IsShowingUser = true,
                 HeightRequest = 100,
                 WidthRequest = 960,
