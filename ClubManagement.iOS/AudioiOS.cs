@@ -68,7 +68,6 @@ namespace Radar.iOS
 				NSUrl url = NSUrl.FromFilename(arquivo);
 				//SystemSound notificationSound = SystemSound.FromFile(NotificationSoundPath);
 				SystemSound mySound = new SystemSound(url);
-
 				mySound.AddSystemSoundCompletion(SystemSound.Vibrate.PlaySystemSound);
 				var asset = AVAsset.FromUrl(NSUrl.FromFilename(arquivo));
 

@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Radar.BLL
 {
@@ -108,12 +109,21 @@ namespace Radar.BLL
         public void play(SomAlarmeEnum alarme)
         {
             var arquivoStr = Path.Combine(DIR_ALARME, pegarArquivo(alarme)) + ".mp3";
-            if (PreferenciaUtils.CanalAudio != AudioCanalEnum.Notificacao)
+            if (Device.OS == TargetPlatform.iOS)
             {
                 AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
                 AudioUtils.Canal = PreferenciaUtils.CanalAudio;
                 AudioUtils.CaixaSom = PreferenciaUtils.CaixaSom;
                 AudioUtils.play(arquivoStr);
+            }
+            else {
+                if (PreferenciaUtils.CanalAudio != AudioCanalEnum.Notificacao)
+                {
+                    AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
+                    AudioUtils.Canal = PreferenciaUtils.CanalAudio;
+                    AudioUtils.CaixaSom = PreferenciaUtils.CaixaSom;
+                    AudioUtils.play(arquivoStr);
+                }
             }
         }
 

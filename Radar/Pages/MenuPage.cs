@@ -202,15 +202,24 @@ namespace Radar.Pages
                 {
                     if (PreferenciaUtils.LigarDesligar)
                     {
-                        if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
+                        if (Device.OS == TargetPlatform.iOS)
                         {
-                            MensagemUtils.notificar(101, "Radar+", "O Radar+ está sendo finalizado.", audio: "radar_fechado");
-                        }
-                        else {
                             AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
                             AudioUtils.Canal = PreferenciaUtils.CanalAudio;
                             AudioUtils.CaixaSom = PreferenciaUtils.CaixaSom;
                             AudioUtils.play("audios/radar_fechado.mp3");
+                        }
+                        else {
+                            if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
+                            {
+                                MensagemUtils.notificar(101, "Radar+", "O Radar+ está sendo finalizado.", audio: "radar_fechado");
+                            }
+                            else {
+                                AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
+                                AudioUtils.Canal = PreferenciaUtils.CanalAudio;
+                                AudioUtils.CaixaSom = PreferenciaUtils.CaixaSom;
+                                AudioUtils.play("audios/radar_fechado.mp3");
+                            }
                         }
                     }
                     ThreadUtils.closeApplication();

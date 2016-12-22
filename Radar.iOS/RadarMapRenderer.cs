@@ -58,7 +58,7 @@ namespace Radar.iOS
 					
 					CLLocationCoordinate2D target = new CLLocationCoordinate2D(local.Latitude, local.Longitude);
 
-					MKMapCamera camera = MKMapCamera.CameraLookingAtCenterCoordinate(target, PreferenciaUtils.NivelZoom, local.Sentido, local.Sentido);
+					MKMapCamera camera = MKMapCamera.CameraLookingAtCenterCoordinate(target, PreferenciaUtils.NivelZoom * 10, local.Sentido, local.Sentido);
 					_nativeMap.Camera = camera;
 					//MKCoordinateRegion mapRegion = MKCoordinateRegion.FromDistance(target, 100, 100);
 					//_nativeMap.CenterCoordinate = target;
