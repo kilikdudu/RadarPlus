@@ -226,10 +226,48 @@ namespace Radar.Pages
                 {
                     Command = new Command(() =>
                     {
-                        NavigationX.create(this).PushPopupAsyncX(new CustoMenuPopUp(), true);
+                        var percurso = PercursoUtils.PercursoAtual;
+                        if (percurso != null)
+                        {
+                            NavigationX.create(this).PushPopupAsyncX(new CustoMenuPopUp(), true);
+                        }
+                        else {
+                            cadastrarRadar();
+                        }
                     }
                 )
             });
+        }
+
+        public virtual void cadastrarRadar()
+        {
+            if (InternetUtils.estarConectado())
+            {
+                LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
+                float latitude = (float)local.Latitude;
+                float longitude = (float)local.Longitude;
+                GeocoderUtils.pegarAsync(latitude, longitude, (send, ev) =>
+                {
+                    var endereco = ev.Endereco;
+                    ClubManagement.Utils.MensagemUtils.avisar(endereco.Logradouro);
+                });
+            }
+            try
+            {
+                LocalizacaoInfo local = GPSUtils.UltimaLocalizacao;
+                if (local != null)
+                {
+                    RadarBLL regraRadar = RadarFactory.create();
+                    regraRadar.inserir(local);
+                    MensagemUtils.avisar("Radar incluído com sucesso.");
+                }
+                else
+                    MensagemUtils.avisar("Nenhum movimento registrado pelo GPS.");
+            }
+            catch (Exception e)
+            {
+                MensagemUtils.avisar(e.Message);
+            }
         }
 
         private void criarBotaoRemover() {

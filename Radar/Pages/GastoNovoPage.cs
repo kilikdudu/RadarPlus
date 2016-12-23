@@ -293,7 +293,7 @@ namespace Radar.Pages
 				{
 					//Directory = "Cupons",
 					Name = $"{DateTime.UtcNow}.jpg",
-					SaveToAlbum = true
+					//SaveToAlbum = true
 				};
 
 				// Take a photo of the business receipt.

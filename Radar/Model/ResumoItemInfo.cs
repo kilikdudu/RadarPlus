@@ -10,6 +10,10 @@ namespace Radar.Model
 
 		public string Descricao { get; set; }
 		public string Valor { get; set; }
+        /// <summary>
+        /// DISGRAÇA DE CAMPO FUDIDO DO CAPETA!!!
+        /// </summary>
+        public string Foto { get; set; }
 	 
 	}
 }

@@ -281,9 +281,6 @@ namespace Radar.BLL
                 Tempo = TimeSpan.Zero
             });
 
-            var regraGasto = GastoFactory.create();
-            var gastos = regraGasto.listar(idPercuso);
-
             var idRadarOld = inicio.IdRadar;
             var dataOld = inicio.Data;
             var latitudeOld = (float)inicio.Latitude;
@@ -355,7 +352,30 @@ namespace Radar.BLL
                 Longitude = (float)chegada.Longitude,
             });
 
-            return resumos;
+            var regraGasto = GastoFactory.create();
+            //var gastos = regraGasto.listar(idPercuso);
+            var gastos = regraGasto.listar(idPercuso);
+
+            foreach (var gasto in gastos) {
+                resumos.Add(new PercursoGastoInfo
+                {
+                    Icone = "ic_monetization_on_black_24dp.png",
+                    Descricao = gasto.Observacao,
+                    Data = gasto.DataInclusao,
+                    Tempo = TimeSpan.Zero,
+                    Distancia = 0,
+                    Latitude = (float)gasto.Latitude,
+                    Longitude = (float)gasto.Longitude,
+                    Foto = gasto.Foto
+                });
+            }
+
+            var retorno = (
+                from r in resumos 
+                orderby r.Data
+                select r
+            ).ToList();
+            return retorno;
         }
 
         /// <summary>
@@ -423,6 +443,14 @@ namespace Radar.BLL
                     {
                         Descricao = "Minha Vel.",
                         Valor = radar.MinhaVelocidade.ToString("N0") + " Km/h"
+                    });
+                }
+                if (item is PercursoGastoInfo)
+                {
+                    resumo.Items.Add(new ResumoItemInfo
+                    {
+                        Descricao = "Foto",
+                        Foto = ((PercursoGastoInfo)item).Foto
                     });
                 }
                 retorno.Add(resumo);

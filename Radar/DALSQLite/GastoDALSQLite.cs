@@ -21,13 +21,13 @@ namespace Radar.DALSQLite
             database.CreateTable<GastoInfo>();
         }
 
-		public IList<GastoInfo> listar(int idGasto)
+		public IList<GastoInfo> listar(int idPercurso)
 		{
 			lock (locker)
 			{
 				return (
 					from i in database.Table<GastoInfo>()
-					where i.IdPercurso == idGasto
+					where i.IdPercurso == idPercurso
                     orderby i.DataInclusao
 					select i
 				).ToList();

@@ -10,6 +10,7 @@ using Radar.Pages.Popup;
 using Radar.Utils;
 using Xamarin.Forms;
 using Radar.Pages;
+using Plugin.Media;
 
 /// <summary>
 /// Rodrigo Landim - 22/12/2016
@@ -23,7 +24,7 @@ namespace Radar
 		int _count = 0;
 		StackLayout _main;
 		ObservableCollection<ResumoInfo> _resumo;
-		Label _ValorItem;
+		View _ValorItem;
 		Label _DescricaoItem;
 		BoxView _linha;
 		ResumoItemInfo _resumoInfo;
@@ -116,135 +117,158 @@ namespace Radar
 			Content = listaView;
 		}
 
-		public ViewCell celulaResumo()
-		{
-			var cell = new ViewCell();
-             
+        public ViewCell celulaResumo()
+        {
+            var cell = new ViewCell();
+
             _main = new StackLayout();
-            
-			_main.BackgroundColor = Color.Transparent;
-			_main.Orientation = StackOrientation.Vertical;
-			_main.VerticalOptions = LayoutOptions.Fill;
-			_main.HorizontalOptions = LayoutOptions.Fill;
-			
-			var frameOuter = new Frame();
-			frameOuter.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
-			frameOuter.HeightRequest = AbsoluteLayout.AutoSize;
 
-			var gridMain = new Grid();
+            _main.BackgroundColor = Color.Transparent;
+            _main.Orientation = StackOrientation.Vertical;
+            _main.VerticalOptions = LayoutOptions.Fill;
+            _main.HorizontalOptions = LayoutOptions.Fill;
 
-			gridMain.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.4, GridUnitType.Star) });
-			gridMain.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.2, GridUnitType.Star) });
-			gridMain.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.8, GridUnitType.Star) });
-			
-			var gridChild = new Grid();
+            var frameOuter = new Frame();
+            frameOuter.BackgroundColor = Color.FromHex(TemaInfo.BlueAccua);
+            frameOuter.HeightRequest = AbsoluteLayout.AutoSize;
 
-			gridChild.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-			gridChild.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.35, GridUnitType.Star) });
-			gridChild.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.65, GridUnitType.Star) });
-      
-				Image icone = new Image()
-				{
-					HeightRequest = 60,
-					WidthRequest = 60,
-					HorizontalOptions = LayoutOptions.Start,
-					VerticalOptions = LayoutOptions.Center,
-					//Source = "ic_add_a_photo_48pt.png"
-				};
-				 
-				icone.SetBinding(Image.SourceProperty, new Binding("Imagem"));
-	
-				Label nome = new Label
-				{
-					TextColor = Color.FromHex(TemaInfo.PrimaryColor),
-					FontFamily = "Roboto-Condensed",
-					FontSize = 28,
-					HorizontalOptions = LayoutOptions.Start,
-					VerticalOptions = LayoutOptions.Start,
-				};
-				nome.SetBinding(Label.TextProperty, new Binding("Nome"));
-				
-				_linha = new BoxView()
-				{
-					BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor),
-					HeightRequest = 0.6
-				};
+            var gridMain = new Grid();
 
-			
-				if (Device.OS == TargetPlatform.iOS)
-				{
-					icone.WidthRequest = 60;
-					frameOuter.WidthRequest = TelaUtils.Largura * 0.9;
-					frameOuter.Margin = new Thickness(5, 10, 5, 0);
-	
-				}
-				else {
-					frameOuter.Margin = new Thickness(5, 10, 5, 10);
-				}
-			
-				gridMain.Children.Add(icone, 0, 0);
-				gridMain.Children.Add(nome, 1, 0);
+            gridMain.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.4, GridUnitType.Star) });
+            gridMain.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.2, GridUnitType.Star) });
+            gridMain.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.8, GridUnitType.Star) });
 
-				int itemPosicao = 0;
-				string velocidadeRadar = null;
-				string minhaVelocidade = null;
-			foreach (var item in _resumo[_count].Items)
-			{
-				_DescricaoItem = new Label
-				{
-					TextColor = Color.FromHex(TemaInfo.PrimaryText),
-					FontFamily = "Roboto-Condensed",
-					FontSize = 20,
-					HorizontalOptions = LayoutOptions.Start,
-					VerticalOptions = LayoutOptions.Start,
-				};
-				_DescricaoItem.SetBinding(Label.TextProperty, new Binding("Items[" + itemPosicao.ToString() + "].Descricao"));
+            var gridChild = new Grid();
 
-				_ValorItem = new Label
-				{
-					TextColor = Color.FromHex(TemaInfo.PrimaryText),
-					FontFamily = "Roboto-Condensed",
-					FontSize = 20,
-					HorizontalOptions = LayoutOptions.Start,
-					VerticalOptions = LayoutOptions.Start,
-				};
-				_ValorItem.SetBinding(Label.TextProperty, new Binding("Items[" + itemPosicao.ToString() + "].Valor"));
-				if (_resumo[_count].Nome == "Radar")
-				{
-					if (_resumo[_count].Items[3].Descricao == "Velocidade")
-					{
-						velocidadeRadar = _resumo[_count].Items[3].Valor.Replace(" Km/h", "");
-					}
-					if (_resumo[_count].Items[4].Descricao == "Minha Velocidade")
-					{
-						minhaVelocidade = _resumo[_count].Items[4].Valor.Replace(" Km/h", "");
-					}
+            gridChild.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+            gridChild.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.35, GridUnitType.Star) });
+            gridChild.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.65, GridUnitType.Star) });
 
-					if (minhaVelocidade != null && velocidadeRadar != null)
-					{
-						if (Int32.Parse(minhaVelocidade) > Int32.Parse(velocidadeRadar))
-						{
-							_ValorItem.TextColor = Color.Red;
-						}
-					}
-				}
-					
-					
-					gridChild.Children.Add(_DescricaoItem, 0, itemPosicao);
-					gridChild.Children.Add(_ValorItem, 1, itemPosicao);
-					itemPosicao++;
-				}
-			
-				_count++;
-			
+            Image icone = new Image()
+            {
+                HeightRequest = 60,
+                WidthRequest = 60,
+                HorizontalOptions = LayoutOptions.Start,
+                VerticalOptions = LayoutOptions.Center,
+                //Source = "ic_add_a_photo_48pt.png"
+            };
+
+            icone.SetBinding(Image.SourceProperty, new Binding("Imagem"));
+
+            Label nome = new Label
+            {
+                TextColor = Color.FromHex(TemaInfo.PrimaryColor),
+                FontFamily = "Roboto-Condensed",
+                FontSize = 28,
+                HorizontalOptions = LayoutOptions.Start,
+                VerticalOptions = LayoutOptions.Start,
+            };
+            nome.SetBinding(Label.TextProperty, new Binding("Nome"));
+
+            _linha = new BoxView()
+            {
+                BackgroundColor = Color.FromHex(TemaInfo.PrimaryColor),
+                HeightRequest = 0.6
+            };
+
+
+            if (Device.OS == TargetPlatform.iOS)
+            {
+                icone.WidthRequest = 60;
+                frameOuter.WidthRequest = TelaUtils.Largura * 0.9;
+                frameOuter.Margin = new Thickness(5, 10, 5, 0);
+
+            }
+            else {
+                frameOuter.Margin = new Thickness(5, 10, 5, 10);
+            }
+
+            gridMain.Children.Add(icone, 0, 0);
+            gridMain.Children.Add(nome, 1, 0);
+
+            int itemPosicao = 0;
+            string velocidadeRadar = null;
+            string minhaVelocidade = null;
+            foreach (var item in _resumo[_count].Items)
+            {
+                _DescricaoItem = new Label
+                {
+                    TextColor = Color.FromHex(TemaInfo.PrimaryText),
+                    FontFamily = "Roboto-Condensed",
+                    FontSize = 20,
+                    HorizontalOptions = LayoutOptions.Start,
+                    VerticalOptions = LayoutOptions.Start,
+                };
+                _DescricaoItem.SetBinding(Label.TextProperty, new Binding("Items[" + itemPosicao.ToString() + "].Descricao"));
+
+                if (!string.IsNullOrEmpty(item.Foto))
+                {
+                    //var file = CrossMedia.Current.PickPhotoAsync();
+                    _ValorItem = new Image
+                    {
+                        HorizontalOptions = LayoutOptions.Fill,
+                        VerticalOptions = LayoutOptions.Start,
+                        Source = ImageSource.FromFile(item.Foto)
+                        //Source = ImageSource.FromStream(() => file.GetStream())
+                };
+                    /*
+                    var mediaOptions = new Plugin.Media.Abstractions.PickMediaOptions
+                    {
+                        
+                        Name = item.Foto,
+                        SaveToAlbum = true
+                    };
+                    var file = CrossMedia.Current.PickPhotoAsync(mediaOptions)
+                    */
+                }
+                else {
+                    _ValorItem = new Label
+                    {
+                        TextColor = Color.FromHex(TemaInfo.PrimaryText),
+                        FontFamily = "Roboto-Condensed",
+                        FontSize = 20,
+                        HorizontalOptions = LayoutOptions.Start,
+                        VerticalOptions = LayoutOptions.Start,
+                    };
+                }
+                _ValorItem.SetBinding(Label.TextProperty, new Binding("Items[" + itemPosicao.ToString() + "].Valor"));
+                if (_resumo[_count].Nome == "Radar")
+                {
+                    if (_resumo[_count].Items[3].Descricao == "Velocidade")
+                    {
+                        velocidadeRadar = _resumo[_count].Items[3].Valor.Replace(" Km/h", "");
+                    }
+                    if (_resumo[_count].Items[4].Descricao == "Minha Velocidade")
+                    {
+                        minhaVelocidade = _resumo[_count].Items[4].Valor.Replace(" Km/h", "");
+                    }
+
+                    if (minhaVelocidade != null && velocidadeRadar != null)
+                    {
+                        if (Int32.Parse(minhaVelocidade) > Int32.Parse(velocidadeRadar))
+                        {
+                            //_ValorItem.TextColor = Color.Red;
+                        }
+                    }
+                }
+
+
+                gridChild.Children.Add(_DescricaoItem, 0, itemPosicao);
+                gridChild.Children.Add(_ValorItem, 1, itemPosicao);
+
+                itemPosicao++;
+            }
+
+            _count++;
+
             _main.Children.Add(gridMain);
             _main.Children.Add(_linha);
             _main.Children.Add(gridChild);
-			frameOuter.Content = _main;
-			
+            frameOuter.Content = _main;
+
             cell.View = frameOuter;
             return cell;
-		}
+        }
 		
 		protected override void OnBindingContextChanged() {
             _resumoInfo = (ResumoItemInfo) BindingContext;
