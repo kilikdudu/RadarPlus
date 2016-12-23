@@ -36,10 +36,10 @@ namespace ClubManagement.Utils
             return _arquivo.abrir(nomeArquivo);
         }
 
-        public static void salvar(string nomeArquivo) {
+        public static void salvar(string nomeArquivo, byte[] buffer) {
             if (_arquivo == null)
                 _arquivo = DependencyService.Get<IArquivo>();
-            _arquivo.salvar(nomeArquivo);
+            _arquivo.salvar(nomeArquivo, buffer);
         }
     }
 }

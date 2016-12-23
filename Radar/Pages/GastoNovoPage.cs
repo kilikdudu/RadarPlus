@@ -289,10 +289,11 @@ namespace Radar.Pages
 		{
 			if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported)
 			{
-				var mediaOptions = new Plugin.Media.Abstractions.StoreCameraMediaOptions
+                var nomeArquivo = $"{DateTime.UtcNow}.jpg";
+                var mediaOptions = new Plugin.Media.Abstractions.StoreCameraMediaOptions
 				{
 					//Directory = "Cupons",
-					Name = $"{DateTime.UtcNow}.jpg",
+					Name = nomeArquivo
 					//SaveToAlbum = true
 				};
 
@@ -301,8 +302,18 @@ namespace Radar.Pages
 				if (file == null)
 					return;
 
-				//DisplayAlert("Salvar em", file.Path, "OK");
-				var path = file.Path;
+                GastoInfo gasto = (GastoInfo)this.BindingContext;
+                gasto.FotoPath = nomeArquivo;
+                var fs = file.GetStream();
+                byte[] buffer = new byte[fs.Length];
+                fs.Read(buffer, 0, buffer.Length);
+                fs.Dispose();
+                fs = null;
+                gasto.FotoBase64 = Convert.ToBase64String(buffer);
+
+
+                //DisplayAlert("Salvar em", file.Path, "OK");
+                var path = file.Path;
 				_FotoImage.Source = ImageSource.FromStream(() =>
 				{
 					var stream = file.GetStream();
@@ -314,8 +325,8 @@ namespace Radar.Pages
 				_FotoImage.WidthRequest = TelaUtils.LarguraSemPixel * 0.5;
 				_FotoImage.HeightRequest = TelaUtils.LarguraSemPixel * 0.5;
 
-                var gasto = (GastoInfo)BindingContext;
-                gasto.Foto = Path.GetFileName(path);
+                //var gasto = (GastoInfo)BindingContext;
+                //gasto.Foto = Path.GetFileName(path);
 			}
 			else {
 				await DisplayAlert("Dispositivo não possiu camera ou camera desativada", null, "OK");

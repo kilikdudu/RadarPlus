@@ -263,8 +263,8 @@ namespace Radar.BLL
 
             var resumos = new List<PercursoResumoInfo>();
 
-            if (pontos.Count < 2)
-                return resumos;
+            //if (pontos.Count < 2)
+            //    return resumos;
 
             var inicio = pontos[0];
             var chegada = pontos[pontos.Count - 1];
@@ -353,7 +353,7 @@ namespace Radar.BLL
             });
 
             var regraGasto = GastoFactory.create();
-            //var gastos = regraGasto.listar(idPercuso);
+            //var gastos = regraGasto.listar();
             var gastos = regraGasto.listar(idPercuso);
 
             foreach (var gasto in gastos) {
@@ -366,7 +366,7 @@ namespace Radar.BLL
                     Distancia = 0,
                     Latitude = (float)gasto.Latitude,
                     Longitude = (float)gasto.Longitude,
-                    Foto = gasto.Foto
+                    FotoBase64 = gasto.FotoBase64
                 });
             }
 
@@ -450,7 +450,7 @@ namespace Radar.BLL
                     resumo.Items.Add(new ResumoItemInfo
                     {
                         Descricao = "Foto",
-                        Foto = ((PercursoGastoInfo)item).Foto
+                        FotoBase64 = ((PercursoGastoInfo)item).FotoBase64
                     });
                 }
                 retorno.Add(resumo);

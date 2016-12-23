@@ -10,6 +10,6 @@ namespace Radar.Model
     public class PercursoGastoInfo: PercursoResumoInfo
     {
         public double Valor { get; set; }
-        public string Foto { get; set; }
+        public string FotoBase64 { get; set; }
     }
 }

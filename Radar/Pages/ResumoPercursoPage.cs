@@ -11,6 +11,7 @@ using Radar.Utils;
 using Xamarin.Forms;
 using Radar.Pages;
 using Plugin.Media;
+using System.IO;
 
 /// <summary>
 /// Rodrigo Landim - 22/12/2016
@@ -125,7 +126,8 @@ namespace Radar
 
             _main.BackgroundColor = Color.Transparent;
             _main.Orientation = StackOrientation.Vertical;
-            _main.VerticalOptions = LayoutOptions.Fill;
+            //_main.VerticalOptions = LayoutOptions.Fill;
+            _main.VerticalOptions = LayoutOptions.Start;
             _main.HorizontalOptions = LayoutOptions.Fill;
 
             var frameOuter = new Frame();
@@ -134,13 +136,13 @@ namespace Radar
 
             var gridMain = new Grid();
 
-            gridMain.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.4, GridUnitType.Star) });
+            //gridMain.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.4, GridUnitType.Star) });
             gridMain.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.2, GridUnitType.Star) });
             gridMain.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.8, GridUnitType.Star) });
 
             var gridChild = new Grid();
 
-            gridChild.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+            //gridChild.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
             gridChild.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.35, GridUnitType.Star) });
             gridChild.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.65, GridUnitType.Star) });
 
@@ -201,16 +203,31 @@ namespace Radar
                 };
                 _DescricaoItem.SetBinding(Label.TextProperty, new Binding("Items[" + itemPosicao.ToString() + "].Descricao"));
 
-                if (!string.IsNullOrEmpty(item.Foto))
+                if (!string.IsNullOrEmpty(item.FotoBase64))
                 {
-                    //var file = CrossMedia.Current.PickPhotoAsync();
+                    byte[] buffer = Convert.FromBase64String(item.FotoBase64);
                     _ValorItem = new Image
                     {
                         HorizontalOptions = LayoutOptions.Fill,
                         VerticalOptions = LayoutOptions.Start,
-                        Source = ImageSource.FromFile(item.Foto)
-                        //Source = ImageSource.FromStream(() => file.GetStream())
-                };
+                        Source = ImageSource.FromStream(() => new MemoryStream(buffer)),
+                        WidthRequest = 200,
+                        HeightRequest = 200
+                    };
+                    /*
+                    if (ArquivoUtils.existe(item.Foto))
+                    {
+                        byte[] buffer = ArquivoUtils.abrir(item.Foto);
+                        //var ms = new MemoryStream(buffer);
+                        _ValorItem = new Image
+                        {
+                            HorizontalOptions = LayoutOptions.Fill,
+                            VerticalOptions = LayoutOptions.Start,
+                            Source = ImageSource.FromStream(() => new MemoryStream(buffer))
+                            //Source = ImageSource.FromStream(() => file.GetStream())
+                        };
+                    }
+                    */
                     /*
                     var mediaOptions = new Plugin.Media.Abstractions.PickMediaOptions
                     {
@@ -227,7 +244,7 @@ namespace Radar
                         TextColor = Color.FromHex(TemaInfo.PrimaryText),
                         FontFamily = "Roboto-Condensed",
                         FontSize = 20,
-                        HorizontalOptions = LayoutOptions.Start,
+                        HorizontalOptions = LayoutOptions.Fill,
                         VerticalOptions = LayoutOptions.Start,
                     };
                 }

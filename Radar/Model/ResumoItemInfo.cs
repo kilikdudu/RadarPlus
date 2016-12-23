@@ -13,7 +13,7 @@ namespace Radar.Model
         /// <summary>
         /// DISGRAÇA DE CAMPO FUDIDO DO CAPETA!!!
         /// </summary>
-        public string Foto { get; set; }
+        public string FotoBase64 { get; set; }
 	 
 	}
 }

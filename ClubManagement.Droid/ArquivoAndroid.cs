@@ -22,14 +22,16 @@ namespace ClubManagement.Droid
     {
         public byte[] abrir(string nomeArquivo)
         {
-            throw new NotImplementedException();
+            var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var filePath = Path.Combine(documentsPath, nomeArquivo);
+            return File.ReadAllBytes(filePath);
         }
 
         public string abrirTexto(string nomeArquivo)
         {
             var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             var filePath = Path.Combine(documentsPath, nomeArquivo);
-            return System.IO.File.ReadAllText(filePath);
+            return File.ReadAllText(filePath);
         }
 
         public bool existe(string nomeArquivo)
@@ -39,9 +41,11 @@ namespace ClubManagement.Droid
             return File.Exists(filePath);
         }
 
-        public void salvar(string nomeArquivo)
+        public void salvar(string nomeArquivo, byte[] buffer)
         {
-            throw new NotImplementedException();
+            var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var filePath = Path.Combine(documentsPath, nomeArquivo);
+            File.WriteAllBytes(filePath, buffer);
         }
 
         public void salvarTexto(string nomeArquivo)

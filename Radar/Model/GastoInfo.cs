@@ -19,6 +19,7 @@ namespace Radar.Model
         public float Latitude { get; set; }
         public float Longitude { get; set; }
         public string Endereco { get; set; }
-        public string Foto { get; set; }
+        public string FotoPath { get; set; }
+        public string FotoBase64 { get; set; }
     }
 }

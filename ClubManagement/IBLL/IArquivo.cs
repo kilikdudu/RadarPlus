@@ -12,6 +12,6 @@ namespace ClubManagement.IBLL
         string abrirTexto(string nomeArquivo);
         void salvarTexto(string nomeArquivo);
         byte[] abrir(string nomeArquivo);
-        void salvar(string nomeArquivo);
+        void salvar(string nomeArquivo, byte[] buffer);
     }
 }

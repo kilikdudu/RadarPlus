@@ -24,7 +24,7 @@ namespace ClubManagement.iOS
 			return true;
         }
 
-        public void salvar(string nomeArquivo)
+        public void salvar(string nomeArquivo, byte[] buffer)
         {
 			
         }
