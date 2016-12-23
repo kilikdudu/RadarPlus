@@ -108,7 +108,8 @@ namespace Radar.Pages
 
             _FotoImage = new Image()
             {
-                Source = "ic_add_a_photo_48pt.png",
+                //Source = "ic_add_a_photo_48pt.png",
+                Source = "ic_add_a_photo_black_48dp.png",
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 WidthRequest = TelaUtils.LarguraSemPixel * 0.4,
