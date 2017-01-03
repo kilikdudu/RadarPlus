@@ -135,10 +135,10 @@ namespace Radar.Droid
 				
 				var markerInicio = new MarkerOptions();
            		markerInicio.SetPosition(new LatLng(latLngPoints[0].Latitude, latLngPoints[0].Longitude));
-				markerInicio.SetIcon(BitmapDescriptorFactory.FromAsset("greenCircle.png"));
+				markerInicio.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.greenCircle));
            		var markerFim = new MarkerOptions();
            		markerFim.SetPosition(new LatLng(latLngPoints[percurso.Pontos.Count - 1].Latitude, latLngPoints[percurso.Pontos.Count - 1].Longitude));
-				markerFim.SetIcon(BitmapDescriptorFactory.FromAsset("redCircle.png"));
+				markerFim.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.redCircle));
 				map.AddMarker(markerInicio);
 				map.AddMarker(markerFim);
 				
