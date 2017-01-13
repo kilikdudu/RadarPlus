@@ -52,15 +52,6 @@ namespace Radar.iOS
 				velocimentro.velocimetro.redesenhar += velocimentro.SetNeedsDisplay;
 				SetNativeControl(velocimentro);
 			}
-
-
-
 		}
-		/// <summary>
-		/// Binds the specified new element.
-		/// </summary>
-		/// <param name="newElement">The new element.</param>
-
-
 	}
 }

@@ -64,10 +64,12 @@
     <Compile Include="Pages\GastoNovoPage.cs" />
     <Compile Include="Pages\PercursoPage.cs" />
     <Compile Include="Pages\PercursoPageCell.cs" />
+    <Compile Include="Pages\PercursoResumoCell.cs" />
     <Compile Include="Pages\RadarAtivoCell.cs" />
     <Compile Include="Pages\RadarBaseCell.cs" />
     <Compile Include="Pages\RadarInativoCell.cs" />
     <Compile Include="Pages\ResumoPercursoPage.cs" />
+    <Compile Include="Pages\PercursoResumoPage.cs" />
     <Compile Include="Popup\AlturaVolumePopUp.cs" />
     <Compile Include="Popup\BaseFormPopup.cs" />
     <Compile Include="Popup\BaseListaPopup.cs" />

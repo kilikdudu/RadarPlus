@@ -78,22 +78,28 @@ namespace Radar.Droid
             return path;
         }
 
-        private void tocar(string arquivo) {
+        private AudioManager configurarCaixaSom()
+        {
             Context context = Android.App.Application.Context;
-
-            /*
+            var audioManager = (AudioManager)context.GetSystemService(Context.AudioService);
+            //audioManager.Mode = Mode.Normal;
+            var maxVolume = audioManager.GetStreamMaxVolume(Android.Media.Stream.Music);
+            var volume = (int)Math.Floor(maxVolume * (_volume / 15));
+            audioManager.SetStreamVolume(Android.Media.Stream.Music, volume, 0);
+            //audioManager.Mode = Mode.InCall;
+            //audioManager.Mode = Mode.Normal;
             if (CaixaSom)
             {
-                AudioManager audioManager = (AudioManager)context.GetSystemService(Context.AudioService);
-                //audioManager.Mode = Mode.Normal;
-                var maxVolume = audioManager.GetStreamMaxVolume(Android.Media.Stream.Music);
-                var volume = (int)Math.Floor(maxVolume * (_volume / 15));
-                audioManager.SetStreamVolume(Android.Media.Stream.Music, volume, VolumeNotificationFlags.PlaySound);
-                //audioManager.Mode = Mode.InCall;
                 audioManager.SpeakerphoneOn = true;
+                audioManager.BluetoothScoOn = true;
+                //audioManager.StartBluetoothSco();
             }
-            */
+            return audioManager;
+        }
 
+        private void tocar(string arquivo) {
+            //configurarCaixaSom();
+            Context context = Android.App.Application.Context;
             var path = pegarArquivo(arquivo);
             switch (_canal)
             {
@@ -131,7 +137,9 @@ namespace Radar.Droid
             var path = pegarArquivo(arquivo);
             Context context = Android.App.Application.Context;
             var player = MediaPlayer.Create(context, Android.Net.Uri.Parse(path));
+            var audioManager = configurarCaixaSom();
             player.SetAudioStreamType(Android.Media.Stream.Music);
+            audioManager.SpeakerphoneOn = true;
             float volume = _volume / 15;
             player.SetVolume(volume, volume);
             return player;
@@ -172,6 +180,7 @@ namespace Radar.Droid
             _audioAtual = arquivos;
             playProximo();
             */
+            //configurarCaixaSom();
             stop();
 
             _players = new List<MediaPlayer>();

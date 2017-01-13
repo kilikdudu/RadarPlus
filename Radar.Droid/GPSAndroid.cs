@@ -231,8 +231,9 @@ namespace Radar.Droid
                 }
             }
             else if (Situacao == GPSSituacaoEnum.Espera) {
-				var regraPreferencia = new PreferenciaBLL();
-				if (regraPreferencia.pegar("ligarDesligar", "") == "1" && local.Precisao <= 30)
+				//var regraPreferencia = new PreferenciaBLL();
+                //if (regraPreferencia.pegar("ligarDesligar", "") == "1" && local.Precisao <= 30)
+                if (local.Precisao <= 30)
                 {
                     if (local.Velocidade >= 15)
                     {
