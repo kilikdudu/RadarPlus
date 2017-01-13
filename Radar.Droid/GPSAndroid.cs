@@ -130,7 +130,7 @@ namespace Radar.Droid
                     .SetContentIntent(appIntent)
 					.SetSmallIcon(Resource.Drawable.radarplus_logo)
 					.SetContentTitle("Radar+")
-					.SetContentText("Seu Radar+ está em funcionamento.")
+					.SetContentText("Aplicativo em funcionamento.")
 				    .SetAutoCancel(true)
 				    .SetPriority((int)NotificationPriority.Max)
 					.AddAction(action) //add buton
