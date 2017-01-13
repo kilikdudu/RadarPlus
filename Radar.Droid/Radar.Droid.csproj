@@ -246,6 +246,8 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_delete_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_delete_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_delete_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\redCircle.png" />
+    <AndroidResource Include="Resources\drawable\greenCircle.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />

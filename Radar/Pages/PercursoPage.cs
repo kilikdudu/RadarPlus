@@ -180,11 +180,7 @@ namespace Radar.Pages
             _PercursoListView.ItemTapped += (sender, e) =>
             {
                 var percurso = (PercursoInfo)e.Item;
-                //NavigationX.create(this).PushAsync(new ResumoPercursoPage(percurso));
                 NavigationX.create(this).PushAsync(new PercursoResumoPage(percurso));
-
-                //_radarMap.PercursoId = percurso.Id;
-                //NavigationX.create(this).PushAsync(new MapaPagePercurso(percurso.Id));
             };
 
             _tempoCorrendo = new Label {
