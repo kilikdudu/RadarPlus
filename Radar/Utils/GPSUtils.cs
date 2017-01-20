@@ -78,24 +78,6 @@ namespace Radar.Utils
             string titulo = "Radar+";
 			string mensagem = "Tem um radar a frente, diminua para " + radar.Velocidade.ToString() + "km/h!";
 
-            if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
-            {
-                if (PreferenciaUtils.BeepAviso)
-                {
-                    string arquivoAlarme = regraAviso.pegarArquivo(PreferenciaUtils.SomAlarme);
-                    MensagemUtils.notificar(RADAR_ID, titulo, mensagem, audio: arquivoAlarme, velocidade: radar.Velocidade);
-                }
-                else {
-                    MensagemUtils.notificar(RADAR_ID, titulo, mensagem, velocidade: radar.Velocidade);
-                }
-            }
-            else {
-                MensagemUtils.notificar(RADAR_ID, titulo, mensagem, velocidade: radar.Velocidade);
-                if (PreferenciaUtils.BeepAviso) {
-                    regraAviso.play(PreferenciaUtils.SomAlarme);
-                }
-            }
-
 			if (PreferenciaUtils.VibrarAlerta)
 			{
 				int tempo = PreferenciaUtils.TempoDuracaoVibracao;
@@ -104,24 +86,45 @@ namespace Radar.Utils
 				tempo = tempo * 1000;
 				MensagemUtils.vibrar(tempo);
 			}
-			if (PreferenciaUtils.HabilitarVoz)
-			{
-				int distancia = arredondarDistancia(local.Distancia);
-                //if (distancia != DistanciaOld)
-                //{
-                //regraAviso.play(RadarTipoEnum.RadarFixo, radar.Velocidade, distancia);
+            if (PreferenciaUtils.HabilitarVoz)
+            {
+                MensagemUtils.notificar(RADAR_ID, titulo, mensagem, velocidade: radar.Velocidade);
+                int distancia = arredondarDistancia(local.Distancia);
                 regraAviso.play(radar.Tipo, radar.Velocidade, distancia);
                 DistanciaOld = distancia;
-				//}
-			}
+            }
+            else {
+                if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
+                {
+                    if (PreferenciaUtils.BeepAviso)
+                    {
+                        string arquivoAlarme = regraAviso.pegarArquivo(PreferenciaUtils.SomAlarme);
+                        MensagemUtils.notificar(RADAR_ID, titulo, mensagem, audio: arquivoAlarme, velocidade: radar.Velocidade);
+                    }
+                    else {
+                        MensagemUtils.notificar(RADAR_ID, titulo, mensagem, velocidade: radar.Velocidade);
+                    }
+                }
+                else {
+                    MensagemUtils.notificar(RADAR_ID, titulo, mensagem, velocidade: radar.Velocidade);
+                    if (PreferenciaUtils.BeepAviso)
+                    {
+                        regraAviso.play(PreferenciaUtils.SomAlarme);
+                    }
+                }
+            }
 		}
 
         private static LocalizacaoInfo executarPosicao(LocalizacaoInfo local) {
             try
             {
+                var regraPercurso = PercursoFactory.create();
+                if (PreferenciaUtils.SalvarPercurso && !PercursoUtils.Gravando && local.Velocidade > 20)
+                {
+                    var inicializou = regraPercurso.iniciarGravacao();
+                }
                 _ultimaLocalizacao = local;
                 RadarBLL regraRadar = RadarFactory.create();
-                PercursoBLL regraPercurso = PercursoFactory.create();
                 if (RadarBLL.RadarAtual != null)
                 {
                     if (regraRadar.radarContinuaAFrente(local, RadarBLL.RadarAtual))

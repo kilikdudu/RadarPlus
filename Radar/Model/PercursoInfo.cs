@@ -36,7 +36,8 @@ namespace Radar.Model
                 if (_pontos.Count > 0)
                 {
                     DateTime dataTitulo = _pontos[0].Data;
-                    return dataTitulo.ToString("dd/MMM - HH:mm");
+                    //return dataTitulo.ToString("dd/MMM - HH:mm");
+                    return dataTitulo.AddHours(-2).ToString("dd/MMM - HH:mm");
                 }
                 return "Indefinido";
             }
@@ -112,7 +113,7 @@ namespace Radar.Model
                 int quantidade = 0;
                 if (_pontos.Count > 0)
                 {
-                    quantidade = (from p in _pontos select p.IdRadar).Distinct().Count();
+                    quantidade = (from p in _pontos where (p.IdRadar != 0) select p.IdRadar).Distinct().Count();
                 }
                 return quantidade;
             }

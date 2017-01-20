@@ -38,6 +38,7 @@ namespace Radar.Pages
             Title = _Percurso.Titulo;
             var regraPercurso = PercursoFactory.create();
             var resumos = regraPercurso.listarResumo(_Percurso.Id);
+            /*
             resumos.Clear();
             resumos.Add(new PercursoResumoInfo
             {
@@ -72,6 +73,7 @@ namespace Radar.Pages
                 MinhaVelocidade = 37,
                 Tipo = RadarTipoEnum.RadarFixo
             });
+            */
             _ResumoListView.BindingContext = resumos;
         }
     }

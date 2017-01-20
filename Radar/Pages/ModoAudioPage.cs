@@ -46,7 +46,7 @@ namespace Radar.Pages
             {
                 NavigationX.create(this).PushPopupAsyncX(new AlturaVolumePopUp(), true);
             });
-            adicionarSwitch(_SomCaixaSwitch, "Som na Caixa", "Envia o som também para o alto falante do dispositivo");
+            //adicionarSwitch(_SomCaixaSwitch, "Som na Caixa", "Envia o som também para o alto falante do dispositivo");
             adicionarBotao("Som do Alerta", () =>
             {
                 NavigationX.create(this).PushPopupAsyncX(new SomAlertaPopUp(), true);

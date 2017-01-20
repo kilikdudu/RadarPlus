@@ -22,11 +22,14 @@ using System.Collections.Generic;
 using ClubManagement.Utils;
 using Android.Content.PM;
 
+
 [assembly: UsesPermission(Manifest.Permission.AccessFineLocation)]
 [assembly: UsesPermission(Manifest.Permission.AccessCoarseLocation)]
 [assembly: UsesPermission(Manifest.Permission.Internet)]
 [assembly: UsesPermission(Manifest.Permission.InternalSystemWindow)]
 [assembly: UsesPermission(Manifest.Permission.SystemAlertWindow)]
+
+//@[Desactivate App on GPS off]
 
 [assembly: Dependency(typeof(GPSAndroid))]
 
@@ -72,6 +75,30 @@ namespace Radar.Droid
 
         DemoServiceBinder binder;
 
+        private void abrirTela() {
+            Context context = Android.App.Application.Context;
+            Intent notificationIntent = new Intent(this, typeof(GPSAndroid));
+            notificationIntent.PutExtra("stop_service", true);
+            var acao = new Intent(context, typeof(BroadcastAndroid));
+            acao.SetAction("Fechar");
+
+            var pendingIntent = PendingIntent.GetBroadcast(context, 0, acao, PendingIntentFlags.UpdateCurrent);
+            NotificationCompat.Action action = new NotificationCompat.Action.Builder(Resource.Drawable.mystop, "Fechar", pendingIntent).Build();
+            var appIntent = PendingIntent.GetActivity(this, 0, new Intent(this, typeof(MainActivity)), PendingIntentFlags.OneShot | PendingIntentFlags.UpdateCurrent);
+
+            Notification notificacao = new NotificationCompat.Builder(context)
+                .SetContentIntent(appIntent)
+                .SetSmallIcon(Resource.Drawable.radarplus_logo)
+                .SetContentTitle("Radar+")
+                .SetContentText("Aplicativo em funcionamento.")
+                .SetAutoCancel(true)
+                .SetPriority((int)NotificationPriority.Max)
+                .AddAction(action) //add buton
+                .Build();
+            notificacao.Flags = NotificationFlags.NoClear;
+            StartForeground((int)NotificationFlags.ForegroundService, notificacao);
+        }
+
         public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
             if (intent.GetBooleanExtra("ativo", false))
@@ -100,49 +127,12 @@ namespace Radar.Droid
 
         public void notificar(Intent intent)
         {
-            /*
-            var ongoing = new Notification(Resource.Drawable.navicon, "Radar+");
-            var pendingIntent = PendingIntent.GetActivity(this, 0, new Intent(this, typeof(MainActivity)), 0);
-            ongoing.SetLatestEventInfo(this, "Radar+", "Está em funcionamento", pendingIntent);
-            StartForeground((int)NotificationFlags.ForegroundService, ongoing);
-            */
             if (intent.GetBooleanExtra("stop_service", false))
             {
                 StopSelf();
             }
             else {
-				Context context = Android.App.Application.Context;
-                Intent notificationIntent = new Intent(this, typeof(GPSAndroid));
-			    notificationIntent.PutExtra("stop_service", true);
-			    //PendingIntent pendingIntent = PendingIntent.GetService(this, 0, notificationIntent, 0);
-				//PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_ONE_SHOT);
-				var acao = new Intent(context, typeof(BroadcastAndroid));
-				acao.SetAction("Fechar");
-
-				var pendingIntent = PendingIntent.GetBroadcast(context, 0, acao, PendingIntentFlags.UpdateCurrent);
-
-				//Button
-				NotificationCompat.Action action = new NotificationCompat.Action.Builder(Resource.Drawable.mystop, "Fechar", pendingIntent).Build();
-
-                var appIntent = PendingIntent.GetActivity(this, 0, new Intent(this, typeof(MainActivity)), PendingIntentFlags.OneShot | PendingIntentFlags.UpdateCurrent);
-
-                Notification notificacao = new NotificationCompat.Builder(context)
-                    .SetContentIntent(appIntent)
-					.SetSmallIcon(Resource.Drawable.radarplus_logo)
-					.SetContentTitle("Radar+")
-					.SetContentText("Aplicativo em funcionamento.")
-				    .SetAutoCancel(true)
-				    .SetPriority((int)NotificationPriority.Max)
-					.AddAction(action) //add buton
-					.Build();
-                notificacao.Flags = NotificationFlags.NoClear;
-
-                //notification.SetLatestEventInfo( this, "Radar+", "Pressione aqui para fechar.", pendingIntent);
-                StartForeground((int)NotificationFlags.ForegroundService, notificacao);
-
-                //NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
-                //notificacao.Flags = NotificationFlags.NoClear;
-                //notificationManager.Notify(1, notificacao);
+                abrirTela();
             }
         }
 
@@ -170,8 +160,35 @@ namespace Radar.Droid
             return local;
         }
 
-        private void atualizarVelocidadeRadar(float velocidade)
+        private void atualizarRadar(RadarTipoEnum tipoRadar, float velocidade)
         {
+            var velocidadeImagem = mRootLayout.FindViewById<ImageView>(Resource.Id.velocidadeImagem);
+            switch (tipoRadar)
+            {
+                case RadarTipoEnum.Lombada:
+                    velocidadeImagem.SetImageResource(Resource.Drawable.lombada);
+                    break;
+                case RadarTipoEnum.Pedagio:
+                    velocidadeImagem.SetImageResource(Resource.Drawable.pedagio);
+                    break;
+                case RadarTipoEnum.PoliciaRodoviaria:
+                    velocidadeImagem.SetImageResource(Resource.Drawable.policiarodoviaria);
+                    break;
+                case RadarTipoEnum.RadarMovel:
+                case RadarTipoEnum.RadarFixo:
+                    atualizarVelocidade(velocidade);
+                    break;
+                case RadarTipoEnum.SemaforoComCamera:
+                case RadarTipoEnum.SemaforoComRadar:
+                    velocidadeImagem.SetImageResource(Resource.Drawable.semaforo);
+                    break;
+                default:
+                    atualizarVelocidade(velocidade);
+                    break;
+            }
+        }
+
+        private void atualizarVelocidade(float velocidade) {
             var velocidadeImagem = mRootLayout.FindViewById<ImageView>(Resource.Id.velocidadeImagem);
             if (velocidade <= 20)
                 velocidadeImagem.SetImageResource(Resource.Drawable.radar_20);
@@ -215,7 +232,7 @@ namespace Radar.Droid
                     if (radar != null)
                     {
                         //var velocidadeImagem = mRootLayout.FindViewById<ImageView>(Resource.Id.velocidadeImagem);
-                        atualizarVelocidadeRadar(radar.Velocidade);
+                        atualizarRadar(radar.Tipo, radar.Velocidade);
                         var distanciaRadar = mRootLayout.FindViewById<TextView>(Resource.Id.distanciaRadar);
                         int distancia = Convert.ToInt32(Math.Floor(local.Distancia));
                         //velocidadeImagem.SetImageResource(Resource.Drawable.radar_20);
@@ -237,18 +254,7 @@ namespace Radar.Droid
                 {
                     if (local.Velocidade >= 15)
                     {
-                        Situacao = GPSSituacaoEnum.Ativo;
-                        if (!Xamarin.Forms.Forms.IsInitialized) {
-                            Intent intent = new Intent(this, typeof(MainActivity));
-                            intent.AddFlags(ActivityFlags.NewTask);
-                            StartActivity(intent);
-                        }
-                        else if (MainActivity.Situacao != JanelaSituacaoEnum.Aberta)
-                        {
-                            Intent intent = new Intent(this, typeof(MainActivity));
-                            intent.AddFlags(ActivityFlags.NewTask);
-                            StartActivity(intent);
-                        }
+                        abrirJanela();
                     }
                     else {
                         desativarGPS();
@@ -258,12 +264,58 @@ namespace Radar.Droid
             }
         }
 
+        private void abrirJanela() {
+            Situacao = GPSSituacaoEnum.Ativo;
+            if (!Forms.IsInitialized)
+            {
+                Intent intent = new Intent(this, typeof(MainActivity));
+                intent.AddFlags(ActivityFlags.NewTask);
+                StartActivity(intent);
+            }
+            else if (MainActivity.Situacao != JanelaSituacaoEnum.Aberta)
+            {
+                Intent intent = new Intent(this, typeof(MainActivity));
+                intent.AddFlags(ActivityFlags.NewTask);
+                StartActivity(intent);
+            }
+        }
+
         public void OnProviderDisabled(string provider)
         {
+            if (provider == LocationManager.GpsProvider)
+            {
+                try
+                {
+                    switch (PreferenciaUtils.AoDesativarGPS) {
+                        case AoDesativarGPSEnum.FecharOPrograma:
+                            Context context = Android.App.Application.Context;
+                            NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
+                            notificationManager.Cancel(1);
+                            System.Environment.Exit(0);
+                            Process.KillProcess(Process.MyPid());
+                            break;
+                        case AoDesativarGPSEnum.ExibirNotificacao:
+                            MensagemUtils.notificar(999, "Radar+", "GPS foi desativado!");
+                            break;
+                    }
+                }
+                catch (Exception e) {
+                    //
+                }
+            }
         }
 
         public void OnProviderEnabled(string provider)
         {
+            try
+            {
+                if (provider == LocationManager.GpsProvider)
+                    abrirJanela();
+            }
+            catch (Exception e)
+            {
+                //
+            }
         }
 
         public void OnStatusChanged(string provider, [GeneratedEnum] Availability status, Bundle extras)
@@ -315,10 +367,11 @@ namespace Radar.Droid
             Context context = Android.App.Application.Context;
             if (_locationManager == null)
                 _locationManager = (LocationManager)context.GetSystemService(LocationService);
+            //var gpsListador = new GPSListener();
+            //_locationManager.AddGpsStatusListener(gpsListador);
             Criteria criteriaForLocationService = new Criteria
             {
                 Accuracy = Accuracy.Fine,
-                
             };
             _locationProvider = _locationManager.GetBestProvider(criteriaForLocationService, true);
             _locationManager.RequestLocationUpdates(_locationProvider, PreferenciaUtils.GPSTempoAtualiazacao, PreferenciaUtils.GPSDistanciaAtualizacao, this);
@@ -561,5 +614,30 @@ namespace Radar.Droid
                 }
             }
         }
+
+        /*
+        public class GPSListener : GpsStatus.IListener
+        {
+            public void OnGpsStatusChanged([GeneratedEnum] GpsEvent e) {
+                switch (e) {
+                    case GpsEvent.Started:
+                        var sds = Device.OS;
+                        break;
+                    case GpsEvent.Stopped:
+                        break;
+                }
+            }
+
+            public IntPtr Handle {
+                get {
+                    return IntPtr.Zero;
+                }
+            }
+
+            public void Dispose() {
+
+            }
+        }
+        */
     }
 }

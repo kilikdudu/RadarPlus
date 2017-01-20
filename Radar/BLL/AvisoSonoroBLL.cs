@@ -129,6 +129,9 @@ namespace Radar.BLL
 
         public void play(RadarTipoEnum tipoRadar, int velocidade, int distancia) {
             IList<string> audios = new List<string>();
+            if (PreferenciaUtils.BeepAviso) {
+                audios.Add(Path.Combine(DIR_ALARME, pegarArquivo(PreferenciaUtils.SomAlarme) + ".mp3"));
+            }
             audios.Add(Path.Combine(DIR_AUDIO, AUDIO_RADAR[tipoRadar]));
             if (velocidade > 0)
                 audios.Add(Path.Combine(DIR_AUDIO, AUDIO_VELOCIDADE[velocidade]));

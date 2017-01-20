@@ -256,7 +256,6 @@ namespace Radar.Pages
             var retorno = await DisplayActionSheet("Tem certeza que deseja parar a gravação?", null, null, "Parar", "Continuar gravando");
             if (retorno == "Parar")
             {
-
                 PercursoBLL regraPercurso = PercursoFactory.create();
                 if (regraPercurso.pararGravacao())
                 {

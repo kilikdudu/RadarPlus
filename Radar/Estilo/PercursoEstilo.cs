@@ -62,8 +62,8 @@ namespace Radar.Estilo
                 Setters = {
                     new Setter { Property = StackLayout.OrientationProperty, Value = StackOrientation.Horizontal },
                     new Setter { Property = StackLayout.HorizontalOptionsProperty, Value = LayoutOptions.CenterAndExpand },
-                    new Setter { Property = StackLayout.VerticalOptionsProperty, Value = LayoutOptions.EndAndExpand },
-                    new Setter { Property = StackLayout.MarginProperty, Value = new Thickness(30, 30, 30, 40) }
+                    new Setter { Property = StackLayout.VerticalOptionsProperty, Value = LayoutOptions.Start },
+                    new Setter { Property = StackLayout.MarginProperty, Value = new Thickness(10, 10, 10, 20) }
                 }
             });
             resources.Add(PERCURSO_GRAVAR_STACKLAYOUT_INTERNO, new Style(typeof(StackLayout))
@@ -71,7 +71,7 @@ namespace Radar.Estilo
                 Setters = {
                     new Setter { Property = StackLayout.OrientationProperty, Value = StackOrientation.Vertical },
                     new Setter { Property = StackLayout.HorizontalOptionsProperty, Value = LayoutOptions.CenterAndExpand },
-                    new Setter { Property = StackLayout.VerticalOptionsProperty, Value = LayoutOptions.EndAndExpand }
+                    new Setter { Property = StackLayout.VerticalOptionsProperty, Value = LayoutOptions.Start }
                 }
             });
             resources.Add(PERCURSO_GRAVAR_IMAGEM, new Style(typeof(Image))
@@ -86,7 +86,7 @@ namespace Radar.Estilo
             resources.Add(PERCURSO_GRAVAR_TITULO, new Style(typeof(Label))
             {
                 Setters = {
-                    new Setter { Property = Label.FontSizeProperty, Value = 24 },
+                    new Setter { Property = Label.FontSizeProperty, Value = 20 },
                     new Setter { Property = Label.FontAttributesProperty, Value = FontAttributes.Bold },
                     new Setter { Property = Label.FontFamilyProperty, Value = "Roboto-Condensed" },
                     new Setter { Property = Label.BackgroundColorProperty, Value = Color.Transparent },
@@ -98,7 +98,7 @@ namespace Radar.Estilo
             resources.Add(PERCURSO_GRAVAR_DESCRICAO, new Style(typeof(Label))
             {
                 Setters = {
-                    new Setter { Property = Label.FontSizeProperty, Value = 18 },
+                    new Setter { Property = Label.FontSizeProperty, Value = 16 },
                     new Setter { Property = Label.FontFamilyProperty, Value = "Roboto-Condensed" },
                     new Setter { Property = Label.HorizontalOptionsProperty, Value = LayoutOptions.Start },
                     new Setter { Property = Label.VerticalOptionsProperty, Value = LayoutOptions.Center }

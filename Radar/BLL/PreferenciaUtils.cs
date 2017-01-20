@@ -148,7 +148,8 @@ namespace Radar.BLL
         {
             get {
                 inicializar();
-                return (AudioCanalEnum) _regraPreferencia.pegarInt(CANAL_AUDIO, (int)AudioCanalEnum.Musica);
+                //return (AudioCanalEnum) _regraPreferencia.pegarInt(CANAL_AUDIO, (int)AudioCanalEnum.Musica);
+                return (AudioCanalEnum)_regraPreferencia.pegarInt(CANAL_AUDIO, (int)AudioCanalEnum.Alarme);
             }
             set {
                 inicializar();

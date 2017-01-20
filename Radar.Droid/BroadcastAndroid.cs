@@ -29,21 +29,28 @@ namespace Radar.Droid
                 context.StartService(pushIntent);
                 InvokeAbortBroadcast();
             }
+            else if (intent.Action == Intent.ActionProviderChanged) {
+                Intent pushIntent = new Intent(context, typeof(GPSAndroid));
+                context.StartService(pushIntent);
+                InvokeAbortBroadcast();
+            }
             else if (intent.Action == PercursoBLL.ACAO_PARAR_SIMULACAO)
             {
                 GPSUtils.pararSimulacao();
                 MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_SIMULACAO_PERCURSO_ID);
                 InvokeAbortBroadcast();
             }
-            else if (intent.Action == PercursoBLL.ACAO_PARAR_GRAVACAO) {
+            else if (intent.Action == PercursoBLL.ACAO_PARAR_GRAVACAO)
+            {
                 PercursoBLL regraPercurso = PercursoFactory.create();
-				regraPercurso.pararGravacao();
+                regraPercurso.pararGravacao();
                 //MensagemUtils.pararNotificaoPermanente(PercursoBLL.NOTIFICACAO_GRAVAR_PERCURSO_ID);
                 InvokeAbortBroadcast();
             }
-			else if (intent.Action == "Fechar")
-			{
-                if (PreferenciaUtils.LigarDesligar) {
+            else if (intent.Action == "Fechar")
+            {
+                if (PreferenciaUtils.LigarDesligar)
+                {
                     if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
                     {
                         MensagemUtils.notificar(101, "Radar+", "O Radar+ está sendo encerrado!", audio: "radar_fechado");
@@ -56,10 +63,10 @@ namespace Radar.Droid
                     }
                 }
                 NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
-				notificationManager.Cancel(1);
-				System.Environment.Exit(0);
-				Process.KillProcess(Process.MyPid());
-			}
+                notificationManager.Cancel(1);
+                System.Environment.Exit(0);
+                Process.KillProcess(Process.MyPid());
+            }
         }
     }
 }

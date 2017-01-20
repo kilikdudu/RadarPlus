@@ -98,7 +98,6 @@ namespace Radar.Pages
 			dentroPlaca.Orientation = StackOrientation.Vertical;
 			dentroPlaca.Spacing = 1;
 
-
 			RadarBLL radarBLL = RadarFactory.create();
 
             _radarImage = new Image();
@@ -280,11 +279,12 @@ namespace Radar.Pages
             base.OnAppearing();
             //_velocimetroPageAtual = this;
             GlobalUtils.Visual = this;
-
+            /*
             if (PreferenciaUtils.SalvarPercurso) {
                 var regraPercurso = PercursoFactory.create();
                 var inicializou = regraPercurso.iniciarGravacao();
             }
+            */
         }
 
         protected override void OnDisappearing()
