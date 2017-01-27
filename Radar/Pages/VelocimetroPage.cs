@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Diagnostics;
-using ClubManagement.Controls;
 
 namespace Radar.Pages
 {
@@ -253,20 +252,6 @@ namespace Radar.Pages
             }
             if (PreferenciaUtils.ExibirBotaoAdicionar)
                 _absoluteLayout.Children.Add(_AdicionarRadarButton);
-
-            if (PreferenciaUtils.Gratis)
-            {
-                var banner = new AdMobView
-                {
-                    WidthRequest = 320,
-                    HeightRequest = 50,
-                    HorizontalOptions = LayoutOptions.Center,
-                    VerticalOptions = LayoutOptions.End
-                };
-                AbsoluteLayout.SetLayoutBounds(banner, new Rectangle(0, 0, 1, 1));
-                AbsoluteLayout.SetLayoutFlags(banner, AbsoluteLayoutFlags.All);
-                _absoluteLayout.Children.Add(banner);
-            }
 
             Content = _absoluteLayout;
         }
