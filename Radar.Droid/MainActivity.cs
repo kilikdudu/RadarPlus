@@ -8,6 +8,8 @@ using Android.Content;
 using ClubManagement.Droid;
 using Plugin.Permissions;
 using Android.Views;
+using Android.Gms.Ads;
+using Android.Widget;
 
 namespace Radar.Droid
 {
@@ -15,6 +17,9 @@ namespace Radar.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         private static JanelaSituacaoEnum _Situacao = JanelaSituacaoEnum.Fechada;
+
+        protected AdView mAdView;
+        protected InterstitialAd mInterstitialAd;
 
         public static JanelaSituacaoEnum Situacao {
             get {

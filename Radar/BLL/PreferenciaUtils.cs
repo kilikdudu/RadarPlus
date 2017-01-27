@@ -65,6 +65,12 @@ namespace Radar.BLL
                 _regraPreferencia = PreferenciaFactory.create();
         }
 
+        public static bool Gratis {
+            get {
+                return true;
+            }
+        }
+
         public static bool AlertaInteligente
 		{
 			get {
