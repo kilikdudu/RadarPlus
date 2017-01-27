@@ -67,7 +67,7 @@ namespace Radar.BLL
 
         public static bool Gratis {
             get {
-                return true;
+                return false;
             }
         }
 
