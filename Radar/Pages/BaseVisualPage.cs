@@ -212,7 +212,7 @@ namespace Radar.Pages
                 WidthRequest = 180,
                 HeightRequest = 180
             };
-            AbsoluteLayout.SetLayoutBounds(_AdicionarRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
+            AbsoluteLayout.SetLayoutBounds(_AdicionarRadarButton, new Rectangle(0.93, 0.93, 0.2, 0.2));
             AbsoluteLayout.SetLayoutFlags(_AdicionarRadarButton, AbsoluteLayoutFlags.All);
 
 
@@ -278,7 +278,7 @@ namespace Radar.Pages
                 WidthRequest = 180,
                 HeightRequest = 180
             };
-            AbsoluteLayout.SetLayoutBounds(_RemoverRadarButton, new Rectangle(0.93, 0.975, 0.2, 0.2));
+            AbsoluteLayout.SetLayoutBounds(_RemoverRadarButton, new Rectangle(0.93, 0.93, 0.2, 0.2));
             AbsoluteLayout.SetLayoutFlags(_RemoverRadarButton, AbsoluteLayoutFlags.All);
 
 
