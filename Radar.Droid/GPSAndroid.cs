@@ -70,10 +70,10 @@ namespace Radar.Droid
         //private bool mIsTrayOpen = true;
         private bool widgetInicializado = false;
 
+        DemoServiceBinder binder;
+
         public GPSAndroid() {
         }
-
-        DemoServiceBinder binder;
 
         private void abrirTela() {
             Context context = Android.App.Application.Context;
@@ -101,26 +101,32 @@ namespace Radar.Droid
 
         public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
-            if (intent.GetBooleanExtra("ativo", false))
-                Situacao = GPSSituacaoEnum.Ativo;
-            else
-                Situacao = GPSSituacaoEnum.Espera;
-            if (!_inicializado)
+            try
             {
-                /*
-                if (!(CheckSelfPermission(Manifest.Permission.AccessFineLocation) == Permission.Granted)) {
-                    throw new Exception("Permissão de acesso ao GPS não foi concedida.");
-                }
-                */
-
-                notificar(intent);
-                if (!widgetInicializado)
+                if (intent.GetBooleanExtra("ativo", false))
+                    Situacao = GPSSituacaoEnum.Ativo;
+                else
+                    Situacao = GPSSituacaoEnum.Espera;
+                if (!_inicializado)
                 {
-                    criarWidget();
-                    widgetInicializado = true;
+                    /*
+                    if (!(CheckSelfPermission(Manifest.Permission.AccessFineLocation) == Permission.Granted)) {
+                        throw new Exception("Permissão de acesso ao GPS não foi concedida.");
+                    }
+                    */
+
+                    notificar(intent);
+                    if (!widgetInicializado)
+                    {
+                        criarWidget();
+                        widgetInicializado = true;
+                    }
+                    ativarGPS();
+                    _inicializado = true;
                 }
-                ativarGPS();
-                _inicializado = true;
+            }
+            catch (Exception e) {
+                //nada
             }
             return StartCommandResult.NotSticky;
         }
@@ -155,7 +161,7 @@ namespace Radar.Droid
             }
             else
                 local.Sentido = _sentidoAnterior;
-            local.Tempo = (new DateTime(1970, 1, 1)).AddMilliseconds(location.Time);
+            local.Tempo = (new DateTime(1970, 1, 1)).AddMilliseconds(location.Time).AddHours(-2);
             local.Velocidade = location.Speed * 3.6;
             return local;
         }
@@ -214,53 +220,60 @@ namespace Radar.Droid
 
         public void OnLocationChanged(Location location)
         {
-            if (desativando)
-                return;
-            LocalizacaoInfo local = converterLocalizacao(location);
-            /*
-            local.Velocidade = 20;
-            local.Latitude = -16.620743;
-            local.Longitude = -49.356621;
-            local.Sentido = 324;
-            */
-            if (Situacao == GPSSituacaoEnum.Ativo)
+            try
             {
-                if (Xamarin.Forms.Forms.IsInitialized)
+                if (desativando)
+                    return;
+                LocalizacaoInfo local = converterLocalizacao(location);
+                /*
+                local.Velocidade = 20;
+                local.Latitude = -16.620743;
+                local.Longitude = -49.356621;
+                local.Sentido = 324;
+                */
+                if (Situacao == GPSSituacaoEnum.Ativo)
                 {
-                    local = GPSUtils.atualizarPosicao(local);
-                    RadarInfo radar = RadarBLL.RadarAtual;
-                    if (radar != null)
+                    if (Xamarin.Forms.Forms.IsInitialized)
                     {
-                        //var velocidadeImagem = mRootLayout.FindViewById<ImageView>(Resource.Id.velocidadeImagem);
-                        atualizarRadar(radar.Tipo, radar.Velocidade);
-                        var distanciaRadar = mRootLayout.FindViewById<TextView>(Resource.Id.distanciaRadar);
-                        int distancia = Convert.ToInt32(Math.Floor(local.Distancia));
-                        //velocidadeImagem.SetImageResource(Resource.Drawable.radar_20);
-                        //velocidadeRadar.Text = radar.VelocidadeStr;
-                        distanciaRadar.Text = distancia.ToString() + " m";
-                        if (mRootLayout.Visibility != ViewStates.Visible)
-                            mRootLayout.Visibility = ViewStates.Visible;
+                        local = GPSUtils.atualizarPosicao(local);
+                        RadarInfo radar = RadarBLL.RadarAtual;
+                        if (radar != null)
+                        {
+                            //var velocidadeImagem = mRootLayout.FindViewById<ImageView>(Resource.Id.velocidadeImagem);
+                            atualizarRadar(radar.Tipo, radar.Velocidade);
+                            var distanciaRadar = mRootLayout.FindViewById<TextView>(Resource.Id.distanciaRadar);
+                            int distancia = Convert.ToInt32(Math.Floor(local.Distancia));
+                            //velocidadeImagem.SetImageResource(Resource.Drawable.radar_20);
+                            //velocidadeRadar.Text = radar.VelocidadeStr;
+                            distanciaRadar.Text = distancia.ToString() + " m";
+                            if (mRootLayout.Visibility != ViewStates.Visible)
+                                mRootLayout.Visibility = ViewStates.Visible;
+                        }
+                        else {
+                            if (mRootLayout.Visibility == ViewStates.Visible)
+                                mRootLayout.Visibility = ViewStates.Invisible;
+                        }
                     }
-                    else {
-                        if (mRootLayout.Visibility == ViewStates.Visible)
-                            mRootLayout.Visibility = ViewStates.Invisible;
+                }
+                else if (Situacao == GPSSituacaoEnum.Espera)
+                {
+                    //var regraPreferencia = new PreferenciaBLL();
+                    //if (regraPreferencia.pegar("ligarDesligar", "") == "1" && local.Precisao <= 30)
+                    if (local.Precisao <= 30)
+                    {
+                        if (local.Velocidade >= 15)
+                        {
+                            abrirJanela();
+                        }
+                        else {
+                            desativarGPS();
+                            new Handler().PostDelayed(() => { ativarGPS(); }, 30000);
+                        }
                     }
                 }
             }
-            else if (Situacao == GPSSituacaoEnum.Espera) {
-				//var regraPreferencia = new PreferenciaBLL();
-                //if (regraPreferencia.pegar("ligarDesligar", "") == "1" && local.Precisao <= 30)
-                if (local.Precisao <= 30)
-                {
-                    if (local.Velocidade >= 15)
-                    {
-                        abrirJanela();
-                    }
-                    else {
-                        desativarGPS();
-                        new Handler().PostDelayed(() => { ativarGPS(); }, 30000);
-                    }
-                }
+            catch (Exception e) {
+                //nada
             }
         }
 
@@ -282,11 +295,12 @@ namespace Radar.Droid
 
         public void OnProviderDisabled(string provider)
         {
-            if (provider == LocationManager.GpsProvider)
+            try
             {
-                try
+                if (provider == LocationManager.GpsProvider)
                 {
-                    switch (PreferenciaUtils.AoDesativarGPS) {
+                    switch (PreferenciaUtils.AoDesativarGPS)
+                    {
                         case AoDesativarGPSEnum.FecharOPrograma:
                             Context context = Android.App.Application.Context;
                             NotificationManager notificationManager = (NotificationManager)context.GetSystemService(Context.NotificationService);
@@ -299,9 +313,10 @@ namespace Radar.Droid
                             break;
                     }
                 }
-                catch (Exception e) {
-                    //
-                }
+            }
+            catch (Exception e)
+            {
+                //nada
             }
         }
 
@@ -320,38 +335,45 @@ namespace Radar.Droid
 
         public void OnStatusChanged(string provider, [GeneratedEnum] Availability status, Bundle extras)
         {
-            double velocidade = 0;
-            double precisao = 21;
-            if (GPSUtils.UltimaLocalizacao != null) {
-                precisao = GPSUtils.UltimaLocalizacao.Precisao;
-                velocidade = GPSUtils.UltimaLocalizacao.Velocidade;
-            }
-            if (precisao <= 20 && velocidade > 15)
+            try
             {
-                if (status.Equals(Availability.Available))
+                double velocidade = 0;
+                double precisao = 21;
+                if (GPSUtils.UltimaLocalizacao != null)
                 {
-                    if (Disponibilidade != GPSDisponibilidadeEnum.Disponivel)
+                    precisao = GPSUtils.UltimaLocalizacao.Precisao;
+                    velocidade = GPSUtils.UltimaLocalizacao.Velocidade;
+                }
+                if (precisao <= 20 && velocidade > 15)
+                {
+                    if (status.Equals(Availability.Available))
                     {
-                        MensagemUtils.notificar(5, "Radar+", "Sinal de GPS encontrado!", audio: "sinal_gps_encontrado");
-                        Disponibilidade = GPSDisponibilidadeEnum.Disponivel;
+                        if (Disponibilidade != GPSDisponibilidadeEnum.Disponivel)
+                        {
+                            MensagemUtils.notificar(5, "Radar+", "Sinal de GPS encontrado!", audio: "sinal_gps_encontrado");
+                            Disponibilidade = GPSDisponibilidadeEnum.Disponivel;
+                        }
+                    }
+                    else if (status.Equals(Availability.OutOfService))
+                    {
+                        if (Disponibilidade != GPSDisponibilidadeEnum.ForaDoAr)
+                        {
+                            MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", audio: "sinal_gps_fora_do_ar");
+                            Disponibilidade = GPSDisponibilidadeEnum.ForaDoAr;
+                        }
+                    }
+                    else if (status.Equals(Availability.TemporarilyUnavailable))
+                    {
+                        if (Disponibilidade != GPSDisponibilidadeEnum.IndisponivelTemporariamente)
+                        {
+                            MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", audio: "sinal_gps_perdido");
+                            Disponibilidade = GPSDisponibilidadeEnum.IndisponivelTemporariamente;
+                        }
                     }
                 }
-                else if (status.Equals(Availability.OutOfService))
-                {
-                    if (Disponibilidade != GPSDisponibilidadeEnum.ForaDoAr)
-                    {
-                        MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", audio: "sinal_gps_fora_do_ar");
-                        Disponibilidade = GPSDisponibilidadeEnum.ForaDoAr;
-                    }
-                }
-                else if (status.Equals(Availability.TemporarilyUnavailable))
-                {
-                    if (Disponibilidade != GPSDisponibilidadeEnum.IndisponivelTemporariamente)
-                    {
-                        MensagemUtils.notificar(5, "Radar+", "Sinal de GPS fora do ar!", audio: "sinal_gps_perdido");
-                        Disponibilidade = GPSDisponibilidadeEnum.IndisponivelTemporariamente;
-                    }
-                }
+            }
+            catch (Exception e) {
+                //nada
             }
         }
 
@@ -372,6 +394,8 @@ namespace Radar.Droid
             Criteria criteriaForLocationService = new Criteria
             {
                 Accuracy = Accuracy.Fine,
+                SpeedAccuracy = Accuracy.High,
+                //PowerRequirement = Power.High
             };
             _locationProvider = _locationManager.GetBestProvider(criteriaForLocationService, true);
             _locationManager.RequestLocationUpdates(_locationProvider, PreferenciaUtils.GPSTempoAtualiazacao, PreferenciaUtils.GPSDistanciaAtualizacao, this);
@@ -453,9 +477,15 @@ namespace Radar.Droid
 
         public override void OnDestroy()
         {
-            base.OnDestroy();
-            if (mRootLayout != null)
-                mWindowManager.RemoveView(mRootLayout);
+            try
+            {
+                base.OnDestroy();
+                if (mRootLayout != null)
+                    mWindowManager.RemoveView(mRootLayout);
+            }
+            catch (Exception e) {
+                //nada
+            }
         }
 
         public void dragTray(MotionEventActions action, int x, int y)
