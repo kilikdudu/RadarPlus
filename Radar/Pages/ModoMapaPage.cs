@@ -25,7 +25,7 @@ namespace Radar.Pages
         {
             get
             {
-                return "Modo Mapa";
+                return "Mapa";
             }
         }
 

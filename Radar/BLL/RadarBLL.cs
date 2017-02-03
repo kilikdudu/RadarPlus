@@ -305,6 +305,38 @@ namespace Radar.BLL
 			}
 		}
 
+        public string tipoRadarParaTexto(RadarTipoEnum tipo) {
+            string titulo = string.Empty;
+            switch (tipo)
+            {
+                case RadarTipoEnum.Lombada:
+                    titulo = "Lombada";
+                    break;
+                case RadarTipoEnum.Pedagio:
+                    titulo = "Pedágio";
+                    break;
+                case RadarTipoEnum.PoliciaRodoviaria:
+                    titulo = "Polícia Rodoviária";
+                    break;
+                case RadarTipoEnum.RadarFixo:
+                    titulo = "Radar Fixo";
+                    break;
+                case RadarTipoEnum.RadarMovel:
+                    titulo = "Radar Móvel";
+                    break;
+                case RadarTipoEnum.SemaforoComCamera:
+                    titulo = "Semáforo com Câmera";
+                    break;
+                case RadarTipoEnum.SemaforoComRadar:
+                    titulo = "Semáforo com Radar";
+                    break;
+                default:
+                    titulo = "Indefinido";
+                    break;
+            }
+            return titulo;
+        }
+
 		public string imagemRadar(double velocidade)
 		{
 			string imagem = string.Empty;

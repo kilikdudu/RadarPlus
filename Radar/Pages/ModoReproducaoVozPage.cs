@@ -21,7 +21,7 @@ namespace Radar.Pages
 
         protected override string Titulo {
             get {
-                return "Reprodução Voz";
+                return "Alerta de Voz";
             }
         }
 

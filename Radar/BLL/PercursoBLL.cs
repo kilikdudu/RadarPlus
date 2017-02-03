@@ -20,6 +20,7 @@ namespace Radar.BLL
 
         //private const int TEMPO_ATUALIZACAO_PONTO = 5;
         private const int TEMPO_MINIMO_PARADO = 120;
+        private const int TEMPO_PARADA_PERCURSO = 7200; // 2 horas
         private const int VELOCIDADE_MAXIMA_PARADO = 3;
         public const int NOTIFICACAO_GRAVAR_PERCURSO_ID = 2301;
         public const int NOTIFICACAO_PARAR_PERCURSO_ID = 2302;
@@ -192,6 +193,8 @@ namespace Radar.BLL
         {
             if (!PercursoUtils.Gravando)
                 return false;
+            if (local.Precisao > 15)
+                return false;
             //TimeSpan tempo = local.Tempo.Subtract(_dataAnterior);
             //if (tempo.TotalSeconds > TEMPO_ATUALIZACAO_PONTO) {
             /*
@@ -296,7 +299,7 @@ namespace Radar.BLL
                 tempo = ponto.Data.Subtract(dataOld);
                 distanciaAcumulada += distancia;
                 tempoAcumulado = tempoAcumulado.Add(tempo);
-                if (tempo.TotalSeconds > 120) {
+                if (tempo.TotalSeconds > TEMPO_MINIMO_PARADO) {
                     resumos.Add(new PercursoParadoInfo {
                         Icone = "ic_pan_tool_black_24dp.png",
                         Descricao = "Parada",

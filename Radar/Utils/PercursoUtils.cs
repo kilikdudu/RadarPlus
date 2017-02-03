@@ -16,6 +16,7 @@ namespace Radar.Utils
         public static bool Gravando { get; set; }
         public static float Latitude { get; set; }
         public static float Longitude { get; set; }
+        public static DateTime UltimoMovimento { get; set; }
 
         public static PercursoInfo PercursoAtual
         {

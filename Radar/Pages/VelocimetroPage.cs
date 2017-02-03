@@ -16,11 +16,11 @@ namespace Radar.Pages
 {
     public class VelocimetroPage: BaseVisualPage
     {
-		AbsoluteLayout _absoluteLayout;
-        private Velocimetro _velocimetro;
-        Image _radarImage;
-		Label caminhoLivre;
 
+		private AbsoluteLayout _absoluteLayout;
+        private Velocimetro _velocimetro;
+        private Image _radarImage;
+		private Label caminhoLivre;
 
 		public override float VelocidadeAtual {
             get {

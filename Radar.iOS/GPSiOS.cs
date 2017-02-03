@@ -51,7 +51,7 @@ namespace Radar.iOS
                     _sentidoAntigo = local.Sentido;
                 }
 
-                local.Tempo = NSDateToDateTime(location.Timestamp);
+                local.Tempo = NSDateToDateTime(location.Timestamp).AddHours(-2);
                 local.Velocidade = location.Speed * 3.6;
 
                 GPSUtils.atualizarPosicao(local);

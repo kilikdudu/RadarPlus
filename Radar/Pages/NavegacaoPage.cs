@@ -14,7 +14,8 @@ using Radar.Controls;
 namespace Radar.Pages
 {
     public class NavegacaoPage : MasterDetailPage
-    { 
+    {
+        private bool _abriu;
         private MenuPage masterPage;
         //private Page _paginaAtual;
 
@@ -62,11 +63,12 @@ namespace Radar.Pages
             if (Device.OS == TargetPlatform.Android)
                 GPSUtils.verificarFuncionamentoGPS();
 
-            if (PreferenciaUtils.LigarDesligar) {
+            if (PreferenciaUtils.LigarDesligar && !GlobalUtils.AplicativoEstaAberto) {
                 AudioUtils.Volume = PreferenciaUtils.AlturaVolume;
                 AudioUtils.Canal = PreferenciaUtils.CanalAudio;
                 AudioUtils.CaixaSom = PreferenciaUtils.CaixaSom;
                 AudioUtils.play("audios/radar_aberto.mp3");
+                GlobalUtils.AplicativoEstaAberto = true;
             }
         }
 

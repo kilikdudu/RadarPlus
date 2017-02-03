@@ -33,13 +33,13 @@ namespace Radar.Pages
             menus = new List<ListaInfo>();
             ListView lstView = new ListView();
             lstView.RowHeight = 60;
-            this.Title = "Preferências";
+            this.Title = "Configurações";
             lstView.ItemTemplate = new DataTemplate(typeof(MenusCelula));
             lstView.ItemTapped += OnTap;
 
             menus.Add(new ListaInfo()
             {
-                Titulo = "Modo Mapa",
+                Titulo = "Mapa",
                 Imagem = "modomapa.png",
                 aoClicar = (sender, e) => {
                     NavegacaoUtils.PushAsync(new ModoMapaPage());
@@ -56,7 +56,7 @@ namespace Radar.Pages
             });
             menus.Add(new ListaInfo()
             {
-                Titulo = "Audio",
+                Titulo = "Som",
                 Imagem = "audio.png",
                 aoClicar = (sender, e) =>
                 {
@@ -65,7 +65,7 @@ namespace Radar.Pages
             });
             menus.Add(new ListaInfo()
             {
-                Titulo = "Reprodução de Voz",
+                Titulo = "Alerta de Voz",
                 Imagem = "reproducaodevoz.png",
                 aoClicar = (sender, e) =>
                 {
@@ -74,7 +74,7 @@ namespace Radar.Pages
             });
             menus.Add(new ListaInfo()
             {
-                Titulo = "Gerais",
+                Titulo = "Geral",
                 Imagem = "gerais.png",
                 aoClicar = (sender, e) =>
                 {
@@ -85,7 +85,7 @@ namespace Radar.Pages
             {
                 menus.Add(new ListaInfo()
                 {
-                    Titulo = "Auto Início/Desligamento",
+                    Titulo = "Início automático",
                     Imagem = "autoiniciodesligamento.png",
                     aoClicar = (sender, e) =>
                     {
@@ -105,7 +105,7 @@ namespace Radar.Pages
             });
             menus.Add(new ListaInfo()
             {
-                Titulo = "Meus Radares",
+                Titulo = "Radares",
                 Imagem = "meusradares.png",
                 aoClicar = (sender, e) =>
                 {

@@ -144,14 +144,19 @@ namespace Radar.Utils
                         if (PreferenciaUtils.AlertaInteligente)
                         {
                             if ((local.Velocidade - 5) > radar.Velocidade)
+                            {
                                 avisarRadar(local, radar);
+                            }
                         }
                         else {
                             if (local.Velocidade > 15)
+                            {
                                 avisarRadar(local, radar);
+                            }
                         }
                     }
                 }
+                regraPercurso.executarGravacao(local, RadarBLL.RadarAtual);
                 var visualPage = GlobalUtils.Visual;
                 if (visualPage != null)
                 {
@@ -171,7 +176,7 @@ namespace Radar.Utils
                     visualPage.atualizarPosicao(local);
                     visualPage.redesenhar();
                 }
-                regraPercurso.executarGravacao(local, RadarBLL.RadarAtual);
+                //regraPercurso.executarGravacao(local, RadarBLL.RadarAtual);
                 //MensagemUtils.avisar(MemoryUtils.getInfo().ToString());
             }
             catch (Exception e) {

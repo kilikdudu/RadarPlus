@@ -25,6 +25,9 @@ namespace Radar.Pages
 			resumoDespesas.Add(new ResumoItemInfo() { Descricao = "Valor", Valor = "120.00 R$" });
         */
 
+        private View _painelImagem;
+        private View _painelDados;
+
         private Image _ImagemImage;
         private Label _TituloLabel;
         private Label _LatitudeLabel;
@@ -38,8 +41,6 @@ namespace Radar.Pages
 
         public PercursoResumoCell() {
             inicializarComponente();
-
-            //var resumo = (PercursoResumoInfo)BindingContext;
 
             var mainLayout = new StackLayout
             {
@@ -68,7 +69,7 @@ namespace Radar.Pages
                 mainLayout.Children.Add(_MinhaVelocidadeLabel);
             }
             */
-
+            
             View = new StackLayout
             {
                 Orientation = StackOrientation.Horizontal,
@@ -217,6 +218,10 @@ namespace Radar.Pages
                 var radar = (PercursoRadarInfo)resumo;
                 _VelocidadeLabel.IsVisible = true;
                 _MinhaVelocidadeLabel.IsVisible = true;
+                if (radar.MinhaVelocidade > radar.Velocidade)
+                {
+                    _MinhaVelocidadeLabel.TextColor = Color.Red;
+                }
             }
             else {
                 _VelocidadeLabel.IsVisible = false;

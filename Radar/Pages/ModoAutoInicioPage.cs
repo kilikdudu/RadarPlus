@@ -19,7 +19,7 @@ namespace Radar.Pages
         {
             get
             {
-                return "Auto Inicialização";
+                return "Início automático";
             }
         }
 

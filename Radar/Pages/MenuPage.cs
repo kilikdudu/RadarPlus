@@ -143,7 +143,7 @@ namespace Radar.Pages
             */
             grupo.Add(new MenuItemInfo
             {
-                Titulo = "Preferências",
+                Titulo = "Configurações",
                 Icone = "config.png",
                 aoClicar = (sender, e) => {
                     NavegacaoUtils.PushAsync(new PreferenciaPage());
