@@ -27,7 +27,7 @@
     <CodesignKey>iPhone Developer: Carlos Eduardo Santos Alves Domingos (677A6X9W66)</CodesignKey>
     <CodesignEntitlements>
     </CodesignEntitlements>
-    <CodesignProvision>5a53f6c9-630e-459c-8b45-f6ab1be67de5</CodesignProvision>
+    <CodesignProvision>224ae2b3-f530-4681-bf5e-4dfa18e051c7</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -65,7 +65,7 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution</CodesignKey>
-    <CodesignProvision>9b691f23-1dbd-4f68-927c-554d0afb95be</CodesignProvision>
+    <CodesignProvision>363fa927-5a81-4892-baa1-3c3d95bd61f1</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
