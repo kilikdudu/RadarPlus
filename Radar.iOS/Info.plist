@@ -11,9 +11,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>br.com.cmapps.radar</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.12</string>
+	<string>1.0.13</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.12</string>
+	<string>1.0.13</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -59,7 +59,7 @@
 	<key>XSLaunchImageAssets</key>
 	<string>Assets.xcassets/LaunchImage.launchimage</string>
 	<key>CFBundleName</key>
-	<string>Radar</string>
+	<string>Radar Mais</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UILaunchStoryboardName</key>

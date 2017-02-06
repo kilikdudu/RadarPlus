@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace Radar.Droid
 {
-    [Activity(Label = "Radar", Icon = "@drawable/appicon", Theme = "@style/MainTheme", MainLauncher = true)]
+    [Activity(Label = "Radar Mais", Icon = "@drawable/appicon", Theme = "@style/MainTheme", MainLauncher = true)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         private static JanelaSituacaoEnum _Situacao = JanelaSituacaoEnum.Fechada;
