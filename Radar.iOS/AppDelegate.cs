@@ -8,6 +8,7 @@ using UIKit;
 using Xamarin.Forms;
 using ClubManagement.iOS;
 
+
 namespace Radar.iOS
 {
 	[Register("AppDelegate")]
@@ -18,6 +19,7 @@ namespace Radar.iOS
 		{
             global::Xamarin.Forms.Forms.Init();
 			global::Xamarin.FormsMaps.Init();
+
 			LoadApplication(new App());  // method is new in 1.3
 
             CurrentDelegateUtils.Current = this;
