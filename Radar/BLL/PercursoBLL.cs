@@ -275,7 +275,7 @@ namespace Radar.BLL
             pontos.Remove(chegada);
 
             resumos.Add(new PercursoResumoInfo {
-                Icone = "ic_pan_tool_black_24dp.png",
+                Icone = "partida.png",
                 Descricao = "Saída",
                 Data = inicio.Data,
                 Distancia = 0,
@@ -301,7 +301,7 @@ namespace Radar.BLL
                 tempoAcumulado = tempoAcumulado.Add(tempo);
                 if (tempo.TotalSeconds > TEMPO_MINIMO_PARADO) {
                     resumos.Add(new PercursoParadoInfo {
-                        Icone = "ic_pan_tool_black_24dp.png",
+                        Icone = "para.png",
                         Descricao = "Parada",
                         Data = ponto.Data,
                         Tempo = tempoAcumulado,
@@ -346,7 +346,7 @@ namespace Radar.BLL
             tempoAcumulado = tempoAcumulado.Add(tempo);
             resumos.Add(new PercursoResumoInfo
             {
-                Icone = "ic_pan_tool_black_24dp.png",
+                Icone = "chegada.png",
                 Descricao = "Chegada",
                 Data = chegada.Data,
                 Tempo = tempoAcumulado,
