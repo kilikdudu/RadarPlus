@@ -38,10 +38,15 @@ namespace Radar.Pages
 
         protected override void inicializarTela()
         {
-            adicionarBotao("Canal de Áudio", () =>
+            if (Device.OS == TargetPlatform.Android)
             {
-                NavigationX.create(this).PushPopupAsyncX(new CanalAudioPopUp(), true);
-            }, "Define se o alerta de radares será feito através do canal de música ou através do auto-falante do dispositivo");
+                adicionarBotao("Canal de Áudio", () =>
+                {
+                    NavigationX.create(this).PushPopupAsyncX(new CanalAudioPopUp(), true);
+                },
+                "Define se o alerta de radares será feito através do canal " +
+                "de música ou através do auto-falante do dispositivo");
+            }
             adicionarBotao("Altura Volume", () =>
             {
                 NavigationX.create(this).PushPopupAsyncX(new AlturaVolumePopUp(), true);

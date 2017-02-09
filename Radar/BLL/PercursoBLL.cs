@@ -313,19 +313,27 @@ namespace Radar.BLL
                     tempoAcumulado = TimeSpan.Zero;
                 }
                 if (idRadarOld != ponto.IdRadar && ponto.IdRadar > 0) {
+                    var ultimoPonto = (
+                        from p in percurso.Pontos
+                        where p.IdRadar == ponto.IdRadar
+                        orderby p.Data descending
+                        select p
+                    ).FirstOrDefault<PercursoPontoInfo>();
                     var radar = regraRadar.pegar(ponto.IdRadar);
                     if (radar != null)
                     {
+                        distancia = GPSUtils.calcularDistancia(latitudeOld, longitudeOld, ultimoPonto.Latitude, ultimoPonto.Longitude);
+                        distanciaAcumulada += distancia;
                         resumos.Add(new PercursoRadarInfo
                         {
                             Icone = radar.Imagem,
                             Descricao = radar.Titulo,
-                            Data = ponto.Data,
+                            Data = ultimoPonto.Data,
                             Distancia = distanciaAcumulada,
-                            Latitude = (float)ponto.Latitude,
-                            Longitude = (float)ponto.Longitude,
+                            Latitude = (float)ultimoPonto.Latitude,
+                            Longitude = (float)ultimoPonto.Longitude,
                             Tempo = tempoAcumulado,
-                            MinhaVelocidade = ponto.Velocidade,
+                            MinhaVelocidade = ultimoPonto.Velocidade,
                             Velocidade = radar.Velocidade,
                             Tipo = radar.Tipo
                         });
