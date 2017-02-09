@@ -37,7 +37,7 @@ namespace Radar
                                     HorizontalOptions = LayoutOptions.Center
                                 },
                                 new Label {
-                                    Text = "Versão: 1.0.0",
+                                    Text = "Versão: 1.0.5",
                                     FontSize = 25,
                                     FontFamily = "Roboto-Condensed",
                                     HorizontalOptions = LayoutOptions.Center
