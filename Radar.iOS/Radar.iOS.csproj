@@ -28,7 +28,7 @@
     <CodesignKey>iPhone Developer: Carlos Eduardo Santos Alves Domingos (677A6X9W66)</CodesignKey>
     <CodesignEntitlements>
     </CodesignEntitlements>
-    <CodesignProvision>cf768428-3726-4fe3-9a55-008774eae448</CodesignProvision>
+    <CodesignProvision>1b9c5231-062c-427b-bfdd-3ffefe27cf3d</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>

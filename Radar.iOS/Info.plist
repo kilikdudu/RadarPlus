@@ -11,9 +11,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>br.com.cmapps.radar</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.13</string>
+	<string>1.0.15</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.13</string>
+	<string>1.0.15</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -28,7 +28,6 @@
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>audio</string>
 		<string>location</string>
 	</array>
 	<key>UIDeviceFamily</key>
