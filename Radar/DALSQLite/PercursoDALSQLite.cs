@@ -37,7 +37,11 @@ namespace Radar.DALSQLite
         {
             lock (locker)
             {
-                return (from i in database.Table<PercursoInfo>() select i).ToList();
+                return (
+                    from i in database.Table<PercursoInfo>()
+                    orderby i.Id descending
+                    select i
+                    ).ToList();
             }
         }
 

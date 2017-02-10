@@ -21,7 +21,6 @@
 				<action android:name="android.intent.action.ACTION_AIRPLANE_MODE_CHANGED"></action>
 				<action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />
 				<action android:name="android.location.PROVIDERS_CHANGED" />
-				<action android:name="android.location.PROVIDERS_CHANGED" />
 			</intent-filter>
 		</receiver>
 		<service android:name=".GPSAndroid" />
