@@ -89,7 +89,7 @@ namespace Radar.Popup
                     _radar.Velocidade = velocidade;
                 }
                 _VelocidadeLabel.Text = formatarTexto(_radar.Velocidade);
-                _VelocidadeSlider.Value = _radar.Velocidade;
+                //_VelocidadeSlider.Value = _radar.Velocidade;
             }
         }
 

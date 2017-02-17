@@ -21,6 +21,8 @@ namespace Radar.BLL
         //private const int TEMPO_ATUALIZACAO_PONTO = 5;
         private const int TEMPO_MINIMO_PARADO = 120;
         private const int TEMPO_PARADA_PERCURSO = 7200; // 2 horas
+        private const int DISTANCIA_MINIMA_RESUMO = 100; // metros
+        private const int DISTANCIA_MINIMA_PROCESSAMENTO = 15; // metros
         private const int VELOCIDADE_MAXIMA_PARADO = 3;
         public const int NOTIFICACAO_GRAVAR_PERCURSO_ID = 2301;
         public const int NOTIFICACAO_PARAR_PERCURSO_ID = 2302;
@@ -174,7 +176,7 @@ namespace Radar.BLL
         {
             var distancia = GPSUtils.calcularDistancia(local.Latitude, local.Longitude, PercursoUtils.Latitude, PercursoUtils.Longitude);
             bool alterado = false;
-            if (distancia >= 15)
+            if (distancia >= DISTANCIA_MINIMA_PROCESSAMENTO)
             {
                 var ponto = gerarPonto(local, radar);
                 gravarPonto(ponto);
@@ -297,55 +299,61 @@ namespace Radar.BLL
             foreach (var ponto in percurso.Pontos) {
                 distancia = GPSUtils.calcularDistancia(latitudeOld, longitudeOld, ponto.Latitude, ponto.Longitude);
                 tempo = ponto.Data.Subtract(dataOld);
-                distanciaAcumulada += distancia;
-                tempoAcumulado = tempoAcumulado.Add(tempo);
-                if (tempo.TotalSeconds > TEMPO_MINIMO_PARADO) {
-                    resumos.Add(new PercursoParadoInfo {
-                        Icone = "para.png",
-                        Descricao = "Parada",
-                        Data = ponto.Data,
-                        Tempo = tempoAcumulado,
-                        Distancia = distanciaAcumulada,
-                        Latitude = (float)ponto.Latitude,
-                        Longitude = (float)ponto.Longitude,
-                    });
-                    distanciaAcumulada = 0;
-                    tempoAcumulado = TimeSpan.Zero;
-                }
-                if (idRadarOld != ponto.IdRadar && ponto.IdRadar > 0) {
-                    var ultimoPonto = (
-                        from p in percurso.Pontos
-                        where p.IdRadar == ponto.IdRadar
-                        orderby p.Data descending
-                        select p
-                    ).FirstOrDefault<PercursoPontoInfo>();
-                    var radar = regraRadar.pegar(ponto.IdRadar);
-                    if (radar != null)
+                if (distancia > DISTANCIA_MINIMA_RESUMO)
+                {
+                    distanciaAcumulada += distancia;
+                    tempoAcumulado = tempoAcumulado.Add(tempo);
+                    if (tempo.TotalSeconds > TEMPO_MINIMO_PARADO)
                     {
-                        distancia = GPSUtils.calcularDistancia(latitudeOld, longitudeOld, ultimoPonto.Latitude, ultimoPonto.Longitude);
-                        distanciaAcumulada += distancia;
-                        resumos.Add(new PercursoRadarInfo
+                        resumos.Add(new PercursoParadoInfo
                         {
-                            Icone = radar.Imagem,
-                            Descricao = radar.Titulo,
-                            Data = ultimoPonto.Data,
-                            Distancia = distanciaAcumulada,
-                            Latitude = (float)ultimoPonto.Latitude,
-                            Longitude = (float)ultimoPonto.Longitude,
+                            Icone = "mao_20x20_preto.png",
+                            Descricao = "Parada",
+                            Data = ponto.Data,
                             Tempo = tempoAcumulado,
-                            MinhaVelocidade = ultimoPonto.Velocidade,
-                            Velocidade = radar.Velocidade,
-                            Tipo = radar.Tipo
+                            Distancia = distanciaAcumulada,
+                            Latitude = (float)ponto.Latitude,
+                            Longitude = (float)ponto.Longitude,
                         });
+                        distanciaAcumulada = 0;
+                        tempoAcumulado = TimeSpan.Zero;
                     }
-                    idRadarOld = ponto.IdRadar;
-                    distanciaAcumulada = 0;
-                    tempoAcumulado = TimeSpan.Zero;
-                }
+                    if (idRadarOld != ponto.IdRadar && ponto.IdRadar > 0)
+                    {
+                        var ultimoPonto = (
+                            from p in percurso.Pontos
+                            where p.IdRadar == ponto.IdRadar
+                            orderby p.Data descending
+                            select p
+                        ).FirstOrDefault<PercursoPontoInfo>();
+                        var radar = regraRadar.pegar(ponto.IdRadar);
+                        if (radar != null)
+                        {
+                            distancia = GPSUtils.calcularDistancia(latitudeOld, longitudeOld, ultimoPonto.Latitude, ultimoPonto.Longitude);
+                            distanciaAcumulada += distancia;
+                            resumos.Add(new PercursoRadarInfo
+                            {
+                                Icone = radar.Imagem,
+                                Descricao = radar.Titulo,
+                                Data = ultimoPonto.Data,
+                                Distancia = distanciaAcumulada,
+                                Latitude = (float)ultimoPonto.Latitude,
+                                Longitude = (float)ultimoPonto.Longitude,
+                                Tempo = tempoAcumulado,
+                                MinhaVelocidade = ultimoPonto.Velocidade,
+                                Velocidade = radar.Velocidade,
+                                Tipo = radar.Tipo
+                            });
+                        }
+                        idRadarOld = ponto.IdRadar;
+                        distanciaAcumulada = 0;
+                        tempoAcumulado = TimeSpan.Zero;
+                    }
 
-                dataOld = ponto.Data;
-                latitudeOld = (float)ponto.Latitude;
-                longitudeOld = (float)ponto.Longitude;
+                    dataOld = ponto.Data;
+                    latitudeOld = (float)ponto.Latitude;
+                    longitudeOld = (float)ponto.Longitude;
+                }
             }
 
             distancia = GPSUtils.calcularDistancia(latitudeOld, longitudeOld, chegada.Latitude, chegada.Longitude);

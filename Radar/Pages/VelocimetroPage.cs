@@ -282,6 +282,19 @@ namespace Radar.Pages
                 var inicializou = regraPercurso.iniciarGravacao();
             }
             */
+            if (PreferenciaUtils.VerificarIniciar)
+            {
+                PreferenciaUtils.UltimaVerificacao = DateTime.Now;
+                var ultimaAtualizacao = PreferenciaUtils.UltimaAtualizacao;
+                if (ultimaAtualizacao == DateTime.MinValue)
+                {
+                    PreferenciaUtils.UltimaAtualizacao = DateTime.Now;
+                    MensagemUtils.avisar("Banco de dados atualizado com sucesso.");
+                }
+                else {
+                    MensagemUtils.avisar("Nenhuma atualização disponível.");
+                }
+            }
         }
 
         protected override void OnDisappearing()

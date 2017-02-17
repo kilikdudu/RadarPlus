@@ -109,7 +109,7 @@ namespace Radar.Utils
                     MensagemUtils.notificar(RADAR_ID, titulo, mensagem, velocidade: radar.Velocidade);
                     if (PreferenciaUtils.BeepAviso)
                     {
-                        regraAviso.play(PreferenciaUtils.SomAlarme);
+                        regraAviso.play(SomAlarmeEnum.SairDoRadar);
                     }
                 }
             }
@@ -133,7 +133,13 @@ namespace Radar.Utils
                         local.Distancia = calcularDistancia(local.Latitude, local.Longitude, radar.Latitude, radar.Longitude);
                     }
                     else
+                    {
                         RadarBLL.RadarAtual = null;
+                        if (PreferenciaUtils.BeepAviso) {
+                            var regraAviso = new AvisoSonoroBLL();
+                            regraAviso.play(PreferenciaUtils.SomAlarme);
+                        }
+                    }
                 }
                 else {
                     double distanciaRadar = (local.Velocidade < 90) ? PreferenciaUtils.DistanciaAlertaUrbano : PreferenciaUtils.DistanciaAlertaEstrada;
