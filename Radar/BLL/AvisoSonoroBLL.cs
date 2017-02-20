@@ -57,6 +57,9 @@ namespace Radar.BLL
                 case SomAlarmeEnum.Alarme13:
                     arquivo = "alarm_013";
                     break;
+                case SomAlarmeEnum.SairDoRadar:
+                    arquivo = "radar_sair";
+                    break;
                 default:
                     arquivo = "alarm_001";
                     break;
@@ -129,7 +132,7 @@ namespace Radar.BLL
 
         public void play(RadarTipoEnum tipoRadar, int velocidade, int distancia) {
             IList<string> audios = new List<string>();
-            if (PreferenciaUtils.BeepAviso) {
+            if (PreferenciaUtils.AlertaSonoro) {
                 audios.Add(Path.Combine(DIR_ALARME, pegarArquivo(PreferenciaUtils.SomAlarme) + ".mp3"));
             }
             audios.Add(Path.Combine(DIR_AUDIO, AUDIO_RADAR[tipoRadar]));

@@ -37,7 +37,8 @@ namespace Radar.Pages
 
         protected override void inicializarTela()
         {
-            adicionarSwitch(_HabilitarSwitch, "Habilitar", "Inicia ou desliga automaticamente quanto qualquer outro App que consome GPS for iniciado ou desligado");
+            //adicionarSwitch(_HabilitarSwitch, "Habilitar", "Inicia ou desliga automaticamente quanto qualquer outro App que consome GPS for iniciado ou desligado");
+            adicionarSwitch(_HabilitarSwitch, "Habilitar", "Inicia automaticamente o aplicativo quando atingir 15 a velocidade de km/h.");
         }
     }
 }

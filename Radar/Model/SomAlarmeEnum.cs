@@ -21,6 +21,7 @@ namespace Radar.Model
         Alarme10 = 10,
         Alarme11 = 11,
         Alarme12 = 12,
-        Alarme13 = 13
+        Alarme13 = 13,
+        SairDoRadar = 14
     }
 }
