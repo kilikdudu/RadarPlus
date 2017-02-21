@@ -57,7 +57,7 @@ namespace Radar.Pages
         {
             adicionarSwitch(_HabilitarVozSwitch, "Habilitar Voz", "Avisa com voz a chegada em algum radar");
             adicionarSwitch(_LigarDesligarSwitch, "Ao Ligar e Desligar", "Reproduz voz ao iniciar ou delisgar o aplicativo");
-            adicionarSwitch(_AlertaSonoroSwitch, "Alerta Sonoro", "Além da reprodução de voz, emitir também o alerta sonoro");
+            //adicionarSwitch(_AlertaSonoroSwitch, "Alerta Sonoro", "Além da reprodução de voz, emitir também o alerta sonoro");
             adicionarBotao("Reproduzir Teste", () => {
                 var tipoRadares = new List<RadarTipoEnum>() {
                         RadarTipoEnum.Lombada,
