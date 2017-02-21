@@ -35,7 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Controls\AdMobView.cs" />
     <Compile Include="Extensions\RandomizeExt.cs" />
     <Compile Include="Helpers\GeoEnderecoEventArgs.cs" />
     <Compile Include="Helpers\GeoEnderecoEventHandler.cs" />
@@ -67,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BLL\" />
+    <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

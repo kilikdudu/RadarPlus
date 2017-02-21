@@ -18,9 +18,6 @@ namespace Radar.Droid
     {
         private static JanelaSituacaoEnum _Situacao = JanelaSituacaoEnum.Fechada;
 
-        protected AdView mAdView;
-        protected InterstitialAd mInterstitialAd;
-
         public static JanelaSituacaoEnum Situacao {
             get {
                 return _Situacao;

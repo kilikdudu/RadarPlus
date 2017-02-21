@@ -20,7 +20,7 @@ namespace Radar.Pages
         {
             get
             {
-                return "Reprodução Voz";
+                return "Som";
             }
         }
 
