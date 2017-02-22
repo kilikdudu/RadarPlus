@@ -43,21 +43,21 @@ namespace Radar.Pages
                 PreferenciaUtils.LigarDesligar = e.Value;
             };
 
-            _AlertaSonoroSwitch = new Switch
+           /* _AlertaSonoroSwitch = new Switch
             {
                 Style = EstiloUtils.Preferencia.Checkbox,
                 IsToggled = PreferenciaUtils.AlertaSonoro
             };
             _AlertaSonoroSwitch.Toggled += (sender, e) => {
                 PreferenciaUtils.AlertaSonoro = e.Value;
-            };
+            };*/
         }
 
         protected override void inicializarTela()
         {
             adicionarSwitch(_HabilitarVozSwitch, "Habilitar Voz", "Avisa com voz a chegada em algum radar");
             adicionarSwitch(_LigarDesligarSwitch, "Ao Ligar e Desligar", "Reproduz voz ao iniciar ou delisgar o aplicativo");
-            adicionarSwitch(_AlertaSonoroSwitch, "Alerta Sonoro", "Além da reprodução de voz, emitir também o alerta sonoro");
+            //adicionarSwitch(_AlertaSonoroSwitch, "Alerta Sonoro", "Além da reprodução de voz, emitir também o alerta sonoro");
             adicionarBotao("Reproduzir Teste", () => {
                 var tipoRadares = new List<RadarTipoEnum>() {
                         RadarTipoEnum.Lombada,

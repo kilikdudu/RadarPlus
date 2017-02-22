@@ -435,6 +435,8 @@
     <AndroidResource Include="Resources\my70.png" />
     <AndroidResource Include="Resources\my80.png" />
     <AndroidResource Include="Resources\my90.png" />
+    <AndroidResource Include="Resources\radar_sair.mp3" />
+    <AndroidResource Include="Resources\alarmes\radar_sair.mp3" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\Launch Screen.storyboard" />

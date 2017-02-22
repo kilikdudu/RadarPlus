@@ -254,6 +254,8 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_delete_black_24dp.png" />
     <AndroidResource Include="Resources\drawable\redCircle.png" />
     <AndroidResource Include="Resources\drawable\greenCircle.png" />
+    <AndroidAsset Include="Assets\alarmes\radar_sair.mp3" />
+    <AndroidAsset Include="Assets\alarmes\radar_sair.m4a" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
