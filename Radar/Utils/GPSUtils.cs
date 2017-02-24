@@ -94,7 +94,9 @@ namespace Radar.Utils
                 DistanciaOld = distancia;
             }
             else {
-                if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
+				string arquivoAlarme = regraAviso.pegarArquivo(PreferenciaUtils.SomAlarme);
+				MensagemUtils.notificar(RADAR_ID, titulo, mensagem, audio: arquivoAlarme, velocidade: radar.Velocidade);
+                /*if (PreferenciaUtils.CanalAudio == AudioCanalEnum.Notificacao)
                 {
                     if (PreferenciaUtils.BeepAviso)
                     {
@@ -111,7 +113,7 @@ namespace Radar.Utils
                     {
                         regraAviso.play(SomAlarmeEnum.SairDoRadar);
                     }
-                }
+                }*/
             }
 		}
 
@@ -137,7 +139,7 @@ namespace Radar.Utils
                         RadarBLL.RadarAtual = null;
                         if (PreferenciaUtils.BeepAviso) {
                             var regraAviso = new AvisoSonoroBLL();
-                            regraAviso.play(PreferenciaUtils.SomAlarme);
+                            regraAviso.play(SomAlarmeEnum.SairDoRadar);
                         }
                     }
                 }
